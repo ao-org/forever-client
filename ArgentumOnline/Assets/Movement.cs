@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
 
         dir = Direction.South;
-        gameObject.GetComponent<Animator>().Play("StandingSouth");
+        gameObject.GetComponent<Animator>().Play("FantasmaCaminaSur");
     }
 
     // Update is called once per frame
@@ -110,13 +110,11 @@ public class Movement : MonoBehaviour
 
       if(!Moving) {
               if( dir == Direction.South )
-                  gameObject.GetComponent<Animator>().Play("StandingSouth");
+                  gameObject.GetComponent<Animator>().Play("FantasmaCaminaSur");
               else if (dir == Direction.North)
-                  gameObject.GetComponent<Animator>().Play("StandingNorth");
-            else if (dir == Direction.North)
-                gameObject.GetComponent<Animator>().Play("2");
-            else
-                  gameObject.GetComponent<Animator>().Play("StandingSouth");
+                  gameObject.GetComponent<Animator>().Play("FantasmaCaminaNorte");
+              else
+                  gameObject.GetComponent<Animator>().Play("FantasmaCaminaSur");
       }
     }
 }
