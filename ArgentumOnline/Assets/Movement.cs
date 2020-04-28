@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
     NorthEast = 7
     }
     private Direction dir = Movement.Direction.South;
-    private float WalkSpeed = 4.0f;
+    private float WalkSpeed = 8.0f;
     private Rigidbody2D body;
     //private Vector3 SouthVector = Vector3(0.0f,1.0f,0.0f);
 
@@ -77,34 +77,39 @@ public class Movement : MonoBehaviour
       if (RightArrowPressed && DownArrowPressed && ! UpArrowPressed && !LeftArrowPressed) {
               dir = Direction.SouthEast;
               gameObject.GetComponent<Animator>().Play("FantasmaCaminaSureste");
-              transform.position += Vector3.right * WalkSpeed * Time.deltaTime;
-              transform.position += Vector3.down * WalkSpeed * Time.deltaTime;
+              //transform.position += Vector3.right * WalkSpeed * Time.deltaTime;
+              //transform.position += Vector3.down * WalkSpeed * Time.deltaTime;
+              body.MovePosition(transform.position + Vector3.right * WalkSpeed * Time.deltaTime + Vector3.down * WalkSpeed * Time.deltaTime  );
       }
       else
       if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed) {
               dir = Direction.East;
               gameObject.GetComponent<Animator>().Play("FantasmaCaminaEste");
-              transform.position += Vector3.right * WalkSpeed * Time.deltaTime;
+              //transform.position += Vector3.right * WalkSpeed * Time.deltaTime;
+              body.MovePosition(transform.position + Vector3.right * WalkSpeed * Time.deltaTime);
       }
       else
       if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
               dir = Direction.West;
               gameObject.GetComponent<Animator>().Play("FantasmaCaminaOeste");
-              transform.position += Vector3.left* WalkSpeed * Time.deltaTime;
+              //transform.position += Vector3.left* WalkSpeed * Time.deltaTime;
+              body.MovePosition(transform.position +  Vector3.left* WalkSpeed * Time.deltaTime);
       }
       else
       if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
               dir = Direction.NorthWest;
               gameObject.GetComponent<Animator>().Play("FantasmaCaminaNoroeste");
-              transform.position += Vector3.left* WalkSpeed * Time.deltaTime;
-              transform.position += Vector3.up * WalkSpeed * Time.deltaTime;
+              //transform.position += Vector3.left* WalkSpeed * Time.deltaTime;
+              //transform.position += Vector3.up * WalkSpeed * Time.deltaTime;
+              body.MovePosition(transform.position + Vector3.left* WalkSpeed * Time.deltaTime + Vector3.up * WalkSpeed * Time.deltaTime );
       }
       else
       if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed) {
               dir = Direction.SouthWest;
               gameObject.GetComponent<Animator>().Play("FantasmaCaminaSuroeste");
-              transform.position += Vector3.left* WalkSpeed * Time.deltaTime;
-              transform.position += Vector3.down * WalkSpeed * Time.deltaTime;
+              //transform.position += Vector3.left* WalkSpeed * Time.deltaTime;
+              //transform.position += Vector3.down * WalkSpeed * Time.deltaTime;
+              body.MovePosition(transform.position + Vector3.left* WalkSpeed * Time.deltaTime + Vector3.down * WalkSpeed * Time.deltaTime );
       }
 
 
