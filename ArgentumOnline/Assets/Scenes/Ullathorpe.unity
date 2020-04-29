@@ -17843,9 +17843,9 @@ GameObject:
   - component: {fileID: 1622282366}
   - component: {fileID: 1622282367}
   - component: {fileID: 1622282368}
-  - component: {fileID: 1622282369}
   - component: {fileID: 1622282371}
   - component: {fileID: 1622282370}
+  - component: {fileID: 1622282369}
   m_Layer: 0
   m_Name: Phantom
   m_TagString: Untagged
