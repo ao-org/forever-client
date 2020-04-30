@@ -1,5 +1,4 @@
 # Argentum Online Clasico by Noland Studios
-
-Copyright (c) Pablo Marquez and Horacio Garofalo. 2020.
+# Copyright (c) - 2020 - Pablo Marquez and Horacio Garofalo.
 
 
