@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
         //Attempt to connect to game Server
         TCPClient client = tcp_client_object.GetComponent<TCPClient>();
         client.ConnectToTcpServer(server_address_string,server_port_string);
-        SceneManager.LoadScene("World");
+        //SceneManager.LoadScene("World");
       }
       catch (Exception e) {
 			     Debug.Log("Failed to connect to server " + e);

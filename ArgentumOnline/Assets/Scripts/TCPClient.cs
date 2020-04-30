@@ -24,6 +24,7 @@ public class TCPClient : MonoBehaviour {
 	}
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Space)) {
+			Debug.Log("SendMessage");
 			SendMessage();
 		}
 	}
@@ -32,6 +33,11 @@ public class TCPClient : MonoBehaviour {
 	/// passed in as remote_ip and remote_port
 	/// </summary>
 	public void ConnectToTcpServer (string remote_ip, string remote_port) {
+		if( mSocket!=null && mSocket.Connected )
+		{
+				Debug.Log("Already connected to the server!.");
+				return;
+		}
 		Debug.Log("Trying ConnectToTcpServer " + remote_ip + ":" + remote_port);
 		mServerIP = remote_ip;
 		mServerPort = remote_port;
