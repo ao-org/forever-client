@@ -28,6 +28,17 @@ public class TCPClient : MonoBehaviour {
 			SendMessage();
 		}
 	}
+
+   private void OnConnectionError(Exception e)
+   {
+	   Debug.Log("OnConnectionError " + e.Message);
+
+   }
+
+   private void OnConnectionEstablished()
+   {
+	   Debug.Log("OnConnectionEstablished!!!");
+   }
 	/// <summary>
 	/// This method attempt to establish a TCP connection with the remote host
 	/// passed in as remote_ip and remote_port
@@ -48,6 +59,7 @@ public class TCPClient : MonoBehaviour {
 		}
 		catch (Exception e) {
 			Debug.Log("On client connect exception " + e);
+			OnConnectionError(e);
 		}
 	}
 	/// <summary>
@@ -57,6 +69,9 @@ public class TCPClient : MonoBehaviour {
 		try {
 			mSocket = new TcpClient(mServerIP, Convert.ToInt32(mServerPort));
 			Byte[] bytes = new Byte[1024];
+			if(mSocket.Connected){
+				OnConnectionEstablished();
+			}
 			while (true) {
 				// Get a stream object for reading
 				using (NetworkStream stream = mSocket.GetStream()) {
@@ -72,8 +87,13 @@ public class TCPClient : MonoBehaviour {
 				}
 			}
 		}
-		catch (SocketException socketException) {
+		catch (SocketException socketException){
 			Debug.Log("Socket exception: " + socketException);
+			OnConnectionError(socketException);
+		}
+		catch(Exception e){
+			Debug.Log("Socket exception: " + e);
+			OnConnectionError(e);
 		}
 	}
 	/// <summary>
