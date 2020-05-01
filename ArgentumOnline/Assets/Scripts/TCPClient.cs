@@ -11,22 +11,48 @@ using System.Text;
 using System.Threading;
 using UnityEngine;
 
+
+//Base class for all protocol messages
+public class ProtoBase
+{
+	private Byte[] mBytes;
+	public ProtoBase(uint size)
+	{
+		mBytes = new Byte[size];
+	}
+	public Byte[] Data() { return mBytes; }
+	public int Size() { return mBytes.Length; }
+}
+
+public class ProtoOpenSession : ProtoBase
+{
+	public ProtoOpenSession() : base(4u) {}
+
+}
+
+
 public class TCPClient : MonoBehaviour {
 	#region private members
-	private TcpClient mSocket;
-	private Thread mReceiveThread;
-	private string mServerIP;
-	private string mServerPort;
+	private TcpClient 	mSocket;
+	private Thread 		mReceiveThread;
+	private Thread 		mSendThread;
+	private string 		mServerIP;
+	private string 		mServerPort;
+
+	private Queue<ProtoBase> mQueue = new Queue<ProtoBase>();
 	#endregion
 
 	void Start () {
+		mQueue.Clear();
 		Debug.Log("Initializing TCPClient");
 	}
 	void Update () {
+		/*
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			Debug.Log("SendMessage");
+			//Debug.Log("SendMessage");
 			SendMessage();
 		}
+		*/
 	}
 
    private void OnConnectionError(Exception e)
@@ -37,7 +63,10 @@ public class TCPClient : MonoBehaviour {
 
    private void OnConnectionEstablished()
    {
+	   //Upon connection, send the OpenSession msg
 	   Debug.Log("OnConnectionEstablished!!!");
+	   ProtoOpenSession open_session = new ProtoOpenSession();
+	   SendMessage(open_session);
    }
 	/// <summary>
 	/// This method attempt to establish a TCP connection with the remote host
@@ -96,10 +125,39 @@ public class TCPClient : MonoBehaviour {
 			OnConnectionError(e);
 		}
 	}
+
+	private void WaitAndSendMessageWorkload() {
+		if (mSocket == null) {
+			return;
+		}
+		while (true) {
+			try {
+				// Get a stream object for writing.
+				NetworkStream stream = mSocket.GetStream();
+				while (mQueue.Count > 0)
+				{
+					if (stream.CanWrite) {
+						ProtoBase msg = mQueue.Peek();
+						//string clientMessage = "This is a message from one of your clients.";
+						// Convert string message to byte array.
+						//byte[] clientMessageAsByteArray = Encoding.ASCII.GetBytes(clientMessage);
+						// Write byte array to mSocket stream.
+						stream.Write(msg.Data(), 0, msg.Size());
+						Debug.Log("Client sent his message - should be received by server");
+						mQueue.Dequeue();
+					}
+				}
+			}
+			catch (SocketException socketException) {
+				Debug.Log("Socket exception: " + socketException);
+			}
+		}
+	}
+
 	/// <summary>
 	/// Send message to server using socket connection.
 	/// </summary>
-	private void SendMessage() {
+	private void SendMessage(ProtoBase msg) {
 		if (mSocket == null) {
 			return;
 		}
@@ -107,11 +165,7 @@ public class TCPClient : MonoBehaviour {
 			// Get a stream object for writing.
 			NetworkStream stream = mSocket.GetStream();
 			if (stream.CanWrite) {
-				string clientMessage = "This is a message from one of your clients.";
-				// Convert string message to byte array.
-				byte[] clientMessageAsByteArray = Encoding.ASCII.GetBytes(clientMessage);
-				// Write byte array to mSocket stream.
-				stream.Write(clientMessageAsByteArray, 0, clientMessageAsByteArray.Length);
+				stream.Write(msg.Data(), 0, msg.Size());
 				Debug.Log("Client sent his message - should be received by server");
 			}
 		}
