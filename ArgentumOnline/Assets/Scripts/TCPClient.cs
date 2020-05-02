@@ -12,9 +12,38 @@ using System.Threading;
 using UnityEngine;
 
 
+
+
 //Base class for all protocol messages
 public class ProtoBase
 {
+	static public IDictionary<string,short> ProtocolNumbers = new Dictionary<string,short>()
+                        {
+                        	{"OPEN_SESSION"			, unchecked((short)0x00AA)},
+							{"SESSION_OPENED"		, unchecked((short)0xBBBB)},
+							{"SESSION_ERROR"		, unchecked((short)0xBBB1)},
+							{"LOGIN_REQUEST"		, unchecked((short)0xDEAD)},
+							{"LOGIN_OKAY"       	, unchecked((short)0xAFA1)},
+							{"LOGIN_ERROR"			, unchecked((short)0xAFA0)},
+							{"SIGNUP_REQUEST"   	, unchecked((short)0xBEEF)},
+							{"SIGNUP_OKAY"			, unchecked((short)0xBFB1)},
+							{"SIGNUP_ERROR"			, unchecked((short)0xBFB0)},
+							{"ACTIVATE_REQUEST"		, unchecked((short)0xBAAD)},
+							{"ACTIVATE_OKAY"		, unchecked((short)0x7777)},
+							{"ACTIVATE_ERROR"		, unchecked((short)0x8888)},
+							{"CODE_REQUEST"			, unchecked((short)0xDAAB)},
+						    {"CODE_REQ_OKAY"		, unchecked((short)0x1111)},
+							{"CODE_REQ_ERROR"		, unchecked((short)0x2222)},
+							{"NEW_PASSWORD"			, unchecked((short)0xFAAA)},
+							{"NEW_PASSWORD_OKAY"	, unchecked((short)0x3333)},
+							{"NEW_PASSWORD_ERROR"   , unchecked((short)0x4444)},
+							{"FORGOT_PASSWORD"		, unchecked((short)0xCBCB)},
+							{"FORGOT_PASSWORD_OKAY"	, unchecked((short)0x2014)},
+							{"FORGOT_PASSWORD_ERROR", unchecked((short)0x2015)},
+							{"RESET_PASSWORD"		, unchecked((short)0xFBFB)},
+							{"RESET_PASSWORD_OKAY"	, unchecked((short)0x2016)}
+						};
+
 	public ProtoBase(uint size)
 	{
 		mBytes = new Byte[size];
@@ -22,8 +51,28 @@ public class ProtoBase
 	protected byte[] mBytes;
 	public byte[] Data() { return mBytes; }
 	public int Size() { return mBytes.Length; }
-	static public short encode_short(short s)
+
+	static public byte GetHighByte(short s)
 	{
+		byte ret = (byte)((s>>8)&0xFF);
+		return ret;
+	}
+	static public byte GetLowByte(short s)
+	{
+		byte ret = (byte)(s&0xFF);
+		return ret;
+	}
+	static public short EncodeShort(short s)
+	{
+		 /*
+		 	Different computers use different conventions for ordering the bytes within multibyte integer values. Some computers put
+			the most significant byte first (known as big-endian order) and others put the least-significant byte first (known as little-endian order).
+			To work with computers that use different byte ordering, all integer values that are sent over the network are sent
+			in network byte order which has the most significant byte first.
+
+			The HostToNetworkOrder method converts multibyte integer values that are stored on the host system from the byte order
+			used by the host to the byte order used by the network
+		 */
 		 short i = System.Net.IPAddress.HostToNetworkOrder(s);
 		 Debug.Log("System.Net.IPAddress.HostToNetworkOrder(" + s + ")" + " i " + i);
 		 return i;
@@ -35,15 +84,10 @@ public class ProtoOpenSession : ProtoBase
 {
 	public ProtoOpenSession() : base(4)
 	{
-		//short header = encode(0x00AA);
-		byte[] smallArray = new byte[] { 0x00, 0xAA, 0x00, 0x04 };
-		//short header = Convert.ToInt16(0xAAAA);
-		//mBytes  = encode_short(0x00AA);
-		//mBytes += encode_short(4);
-		mBytes = smallArray;
+		short header = EncodeShort(ProtoBase.ProtocolNumbers["OPEN_SESSION"]);
+		mBytes = new byte[] { GetLowByte(header), GetHighByte(header), 0x00, 0x04 };
 		Debug.Log("Ecoded " + mBytes);
 	}
-
 }
 
 
