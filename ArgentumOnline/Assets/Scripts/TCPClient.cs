@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
+
 //Base class for all protocol messages
 public class ProtoBase
 {
@@ -44,26 +45,21 @@ public class ProtoBase
 							{"RESET_PASSWORD_OKAY"	, unchecked((short)0x2016)}
 						};
 
-	public ProtoBase(uint size)
-	{
+	public ProtoBase(uint size) {
 		mBytes = new Byte[size];
 	}
 	protected byte[] mBytes;
 	public byte[] Data() { return mBytes; }
 	public int Size() { return mBytes.Length; }
-
-	static public byte GetHighByte(short s)
-	{
+	static public byte GetHighByte(short s){
 		byte ret = (byte)((s>>8)&0xFF);
 		return ret;
 	}
-	static public byte GetLowByte(short s)
-	{
+	static public byte GetLowByte(short s){
 		byte ret = (byte)(s&0xFF);
 		return ret;
 	}
-	static public short EncodeShort(short s)
-	{
+	static public short EncodeShort(short s){
 		 /*
 		 	Different computers use different conventions for ordering the bytes within multibyte integer values. Some computers put
 			the most significant byte first (known as big-endian order) and others put the least-significant byte first (known as little-endian order).
@@ -78,6 +74,19 @@ public class ProtoBase
 		 return i;
 	}
 
+	static public short DecodeShort(byte[] bytes){
+		Debug.Assert(bytes.Length==2);
+		short in_as_short = BitConverter.ToInt16(bytes, 0);
+		short i = System.Net.IPAddress.NetworkToHostOrder(in_as_short);
+		return i;
+	}
+
+	static public void print_bytes(byte[] array)
+	{
+		//for()
+		//Debug.Log(String.Format("{0,10:X}", incommingData[0]) + " " + incommingData[1]);
+	}
+
 }
 
 public class ProtoOpenSession : ProtoBase
@@ -90,7 +99,6 @@ public class ProtoOpenSession : ProtoBase
 	}
 }
 
-
 public class TCPClient : MonoBehaviour {
 	#region private members
 	private TcpClient 	mSocket;
@@ -101,6 +109,7 @@ public class TCPClient : MonoBehaviour {
 		for synchronization. As long as there is one unique thread for the write operations and one unique thread for the read
 		operations, there will be no cross-interference between read and write threads and no synchronization is required.
 	*/
+	private List<byte>	mIncommingData;
 	private Thread 		mReceiveThread;
 	private Thread 		mSendThread;
 	private string 		mServerIP;
@@ -112,8 +121,8 @@ public class TCPClient : MonoBehaviour {
 	#endregion
 
 	void Start () {
-		//mSendQueue.Clear();
 		Debug.Log("Initializing TCPClient");
+		mIncommingData = new List<byte>();
 	}
 	void Update () {
 		/*
@@ -178,6 +187,8 @@ public class TCPClient : MonoBehaviour {
 			OnConnectionError(e);
 		}
 	}
+
+
 	/// <summary>
 	/// Runs in background mReceiveThread; Listens for incomming data.
 	/// </summary>
@@ -194,12 +205,33 @@ public class TCPClient : MonoBehaviour {
 					int length;
 					// Read incomming stream into byte arrary.
 					while ((length = stream.Read(bytes, 0, bytes.Length)) != 0) {
+						// Copy the bytes received from the network to the array incommingData
 						var incommingData = new byte[length];
 						Array.Copy(bytes, 0, incommingData, 0, length);
 						Debug.Log("Read " + length + " bytes from server. " + incommingData + "{" + incommingData + "}");
+						// Apprend the bytes to any excisting data previously received
+						mIncommingData.AddRange(incommingData);
+						//Attempt to build as many packets and process them
+						bool failed_to_build_packet = false;
+						// We consume the packets
+						while( mIncommingData.Count>4 && !failed_to_build_packet)
+						{
+							var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
+							Debug.Log(" msg_size len " + msg_size.Length);
+							var header	 	= mIncommingData.GetRange(0, 2).ToArray();
 
-						Debug.Log(String.Format("{0,10:X}", incommingData[0]) + " " + incommingData[1]);
-						//TODO HANDLE MESSAGES FROM SERVER
+							short size = ProtoBase.DecodeShort(msg_size);
+							Debug.Log(" Msg_size: " + size);
+							Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
+							//sizeMsg = ncd.decode_short(self.msg[2:4])
+                          //if sizeMsg > 255:
+                            //      self.kickOut("Invalid size field")
+                            //      return
+							failed_to_build_packet =true;
+
+						}
+
+
 
 					}
 				}
