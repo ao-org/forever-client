@@ -9,8 +9,9 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Collections.Concurrent;
+using System.Threading.Tasks;
 using UnityEngine;
-
 
 
 
@@ -44,26 +45,21 @@ public class ProtoBase
 							{"RESET_PASSWORD_OKAY"	, unchecked((short)0x2016)}
 						};
 
-	public ProtoBase(uint size)
-	{
+	public ProtoBase(uint size) {
 		mBytes = new Byte[size];
 	}
 	protected byte[] mBytes;
 	public byte[] Data() { return mBytes; }
 	public int Size() { return mBytes.Length; }
-
-	static public byte GetHighByte(short s)
-	{
+	static public byte GetHighByte(short s){
 		byte ret = (byte)((s>>8)&0xFF);
 		return ret;
 	}
-	static public byte GetLowByte(short s)
-	{
+	static public byte GetLowByte(short s){
 		byte ret = (byte)(s&0xFF);
 		return ret;
 	}
-	static public short EncodeShort(short s)
-	{
+	static public short EncodeShort(short s){
 		 /*
 		 	Different computers use different conventions for ordering the bytes within multibyte integer values. Some computers put
 			the most significant byte first (known as big-endian order) and others put the least-significant byte first (known as little-endian order).
@@ -78,6 +74,19 @@ public class ProtoBase
 		 return i;
 	}
 
+	static public short DecodeShort(byte[] bytes){
+		Debug.Assert(bytes.Length==2);
+		short in_as_short = BitConverter.ToInt16(bytes, 0);
+		short i = System.Net.IPAddress.NetworkToHostOrder(in_as_short);
+		return i;
+	}
+
+	static public void print_bytes(byte[] array)
+	{
+		//for()
+		//Debug.Log(String.Format("{0,10:X}", incommingData[0]) + " " + incommingData[1]);
+	}
+
 }
 
 public class ProtoOpenSession : ProtoBase
@@ -90,21 +99,30 @@ public class ProtoOpenSession : ProtoBase
 	}
 }
 
-
 public class TCPClient : MonoBehaviour {
 	#region private members
 	private TcpClient 	mSocket;
+	/*
+		NetworkStream stream = mSocket.GetStream() will be accesed from two different threads: Receive and Send workloads.
+		According to MS Documentation there is no need for a mutex as this is supposed to be thread safe when using just 2 threads:
+		Read and write operations can be performed simultaneously on an instance of the NetworkStream class without the need
+		for synchronization. As long as there is one unique thread for the write operations and one unique thread for the read
+		operations, there will be no cross-interference between read and write threads and no synchronization is required.
+	*/
+	private List<byte>	mIncommingData;
 	private Thread 		mReceiveThread;
 	private Thread 		mSendThread;
 	private string 		mServerIP;
 	private string 		mServerPort;
 
-	private Queue<ProtoBase> mSendQueue = new Queue<ProtoBase>();
+	//private Queue<ProtoBase> mSendQueue = new Queue<ProtoBase>();
+	// Construct a ConcurrentQueue.
+    private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	#endregion
 
 	void Start () {
-		mSendQueue.Clear();
 		Debug.Log("Initializing TCPClient");
+		mIncommingData = new List<byte>();
 	}
 	void Update () {
 		/*
@@ -121,10 +139,28 @@ public class TCPClient : MonoBehaviour {
 
    }
 
-   private void OnConnectionEstablished()
-   {
-	   //Upon connection, send the OpenSession msg
+	private void CreateSendWorkload()
+	{
+		try {
+ 			mReceiveThread = new Thread (new ThreadStart(WaitAndSendMessageWorkload));
+			mReceiveThread.IsBackground = true;
+			mReceiveThread.Start();
+	    }
+		catch (Exception e) {
+			Debug.Log("On client connect exception " + e);
+			OnConnectionError(e);
+		}
+	}
+
+   	private void OnConnectionEstablished()
+   	{
+
 	   Debug.Log("OnConnectionEstablished!!!");
+	   //Upon connection we create the send workload which will be responsible for
+	   //sending messages to the server through the tpc connection.
+	   CreateSendWorkload();
+	   //Now the workload is running we push the message to the send queue to be
+	   //consumed by the workload
 	   ProtoOpenSession open_session = new ProtoOpenSession();
 	   SendMessage(open_session);
    }
@@ -142,7 +178,7 @@ public class TCPClient : MonoBehaviour {
 		mServerIP = remote_ip;
 		mServerPort = remote_port;
 		try {
-			mReceiveThread = new Thread (new ThreadStart(ListenForData));
+			mReceiveThread = new Thread (new ThreadStart(ListenForDataWorkload));
 			mReceiveThread.IsBackground = true;
 			mReceiveThread.Start();
 		}
@@ -151,10 +187,12 @@ public class TCPClient : MonoBehaviour {
 			OnConnectionError(e);
 		}
 	}
+
+
 	/// <summary>
 	/// Runs in background mReceiveThread; Listens for incomming data.
 	/// </summary>
-	private void ListenForData() {
+	private void ListenForDataWorkload() {
 		try {
 			mSocket = new TcpClient(mServerIP, Convert.ToInt32(mServerPort));
 			Byte[] bytes = new Byte[1024];
@@ -167,11 +205,34 @@ public class TCPClient : MonoBehaviour {
 					int length;
 					// Read incomming stream into byte arrary.
 					while ((length = stream.Read(bytes, 0, bytes.Length)) != 0) {
+						// Copy the bytes received from the network to the array incommingData
 						var incommingData = new byte[length];
 						Array.Copy(bytes, 0, incommingData, 0, length);
-						// Convert byte array to string message.
-						string serverMessage = Encoding.ASCII.GetString(incommingData);
-						Debug.Log("server message received as: " + serverMessage);
+						Debug.Log("Read " + length + " bytes from server. " + incommingData + "{" + incommingData + "}");
+						// Apprend the bytes to any excisting data previously received
+						mIncommingData.AddRange(incommingData);
+						//Attempt to build as many packets and process them
+						bool failed_to_build_packet = false;
+						// We consume the packets
+						while( mIncommingData.Count>4 && !failed_to_build_packet)
+						{
+							var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
+							Debug.Log(" msg_size len " + msg_size.Length);
+							var header	 	= mIncommingData.GetRange(0, 2).ToArray();
+
+							short size = ProtoBase.DecodeShort(msg_size);
+							Debug.Log(" Msg_size: " + size);
+							Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
+							//sizeMsg = ncd.decode_short(self.msg[2:4])
+                          //if sizeMsg > 255:
+                            //      self.kickOut("Invalid size field")
+                            //      return
+							failed_to_build_packet =true;
+
+						}
+
+
+
 					}
 				}
 			}
@@ -187,9 +248,6 @@ public class TCPClient : MonoBehaviour {
 	}
 
 	private void WaitAndSendMessageWorkload() {
-		if (mSocket == null) {
-			return;
-		}
 		while (true) {
 			try {
 				// Get a stream object for writing.
@@ -197,19 +255,18 @@ public class TCPClient : MonoBehaviour {
 				while (mSendQueue.Count > 0)
 				{
 					if (stream.CanWrite) {
-						ProtoBase msg = mSendQueue.Peek();
-						//string clientMessage = "This is a message from one of your clients.";
-						// Convert string message to byte array.
-						//byte[] clientMessageAsByteArray = Encoding.UTF8.GetBytes(clientMessage);
-						// Write byte array to mSocket stream.
-				//		stream.Write(msg.Data(), 0, msg.Size());
-						Debug.Log("Client sent his message - should be received by server");
-						mSendQueue.Dequeue();
+						ProtoBase msg;
+						if (mSendQueue.TryDequeue(out msg))
+      					{
+         					Debug.Log("msg {" + msg.Data() + "}");
+							stream.Write(msg.Data(), 0, msg.Size());
+						}
 					}
 				}
 			}
 			catch (SocketException socketException) {
 				Debug.Log("Socket exception: " + socketException);
+				OnConnectionError(socketException);
 			}
 		}
 	}
@@ -218,28 +275,6 @@ public class TCPClient : MonoBehaviour {
 	/// Send message to server using socket connection.
 	/// </summary>
 	private void SendMessage(ProtoBase msg) {
-		if (mSocket == null) {
-			return;
-		}
-		try {
-			// Get a stream object for writing.
-			NetworkStream stream = mSocket.GetStream();
-			if (stream.CanWrite) {
-				/*
-				string clientMessage = "This is a message from one of your clients.";
-				//Convert string message to byte array.
-				byte[] clientMessageAsByteArray = Encoding.UTF8.GetBytes(clientMessage);
-				//Write byte array to mSocket stream.
-				stream.Write(clientMessageAsByteArray, 0, clientMessageAsByteArray.Length);
-				*/
-				//byte[] encoded_msg = Encoding.UTF8.GetBytes(m);
-				Debug.Log("msg {" + msg.Data() + "}");
-				stream.Write(msg.Data(), 0, msg.Size());
-				Debug.Log("Client sent his message - should be received by server");
-			}
-		}
-		catch (SocketException socketException) {
-			Debug.Log("Socket exception: " + socketException);
-		}
+		mSendQueue.Enqueue(msg);
 	}
 }
