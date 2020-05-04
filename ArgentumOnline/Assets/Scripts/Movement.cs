@@ -6,6 +6,8 @@
 
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -38,10 +40,16 @@ public class Movement : MonoBehaviour
         dir = Direction.South;
         gameObject.GetComponent<Animator>().Play("FantasmaCaminaSur");
     }
+    private bool IsThereSomething(Vector3 pos)
+    {
+        Vector3Int cellPosition = mTilemapLevel1.WorldToCell(pos);
+        return mTilemapLevel1.HasTile(cellPosition);
+    }
 
     private bool IsThereWater(Vector3 pos)
     {
         Vector3Int cellPosition = mWaterTilemap.WorldToCell(pos);
+        UnityEngine.Debug.Log("Pos " + cellPosition);
         return mWaterTilemap.HasTile(cellPosition);
     }
 

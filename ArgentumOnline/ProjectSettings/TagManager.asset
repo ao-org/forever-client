@@ -42,3 +42,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: test
+    uniqueID: 2249683405
+    locked: 0
+  - name: Edificaciones
+    uniqueID: 2125279645
+    locked: 0
+  - name: Muro
+    uniqueID: 713385687
+    locked: 0
+  - name: Arboles
+    uniqueID: 735191785
+    locked: 0
+  - name: fantasma
+    uniqueID: 275239855
+    locked: 0
+  - name: Sombras
+    uniqueID: 1974829813
+    locked: 0
