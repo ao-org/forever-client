@@ -120,6 +120,12 @@ public class TCPClient : MonoBehaviour {
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	#endregion
 
+	static Dictionary<short, Func<TCPClient, byte[], int>> PocessFunctions
+        = new Dictionary<short, Func<TCPClient, byte[], int>>
+    {
+        { ProtoBase.ProtocolNumbers["SESSION_OPENED"], (@this, x) => @this.ProcessSessionOpened(x) },
+    };
+
 	void Start () {
 		Debug.Log("Initializing TCPClient");
 		mIncommingData = new List<byte>();
@@ -188,6 +194,18 @@ public class TCPClient : MonoBehaviour {
 		}
 	}
 
+	public int ProcessSessionOpened(byte[] data)
+	{
+		Debug.Log("ProcessOpenSession");
+		return 1;
+	}
+
+	private int ProcessPacket(short id, byte[] data)
+	{
+
+		return PocessFunctions[id](this,data);
+	}
+
 
 	/// <summary>
 	/// Runs in background mReceiveThread; Listens for incomming data.
@@ -220,15 +238,14 @@ public class TCPClient : MonoBehaviour {
 							Debug.Log(" msg_size len " + msg_size.Length);
 							var header	 	= mIncommingData.GetRange(0, 2).ToArray();
 
-							short size = ProtoBase.DecodeShort(msg_size);
-							Debug.Log(" Msg_size: " + size);
+							short decoded_size = ProtoBase.DecodeShort(msg_size);
+							Debug.Log(" Msg_size: " + decoded_size);
+							short message_id = ProtoBase.DecodeShort(header);
 							Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
-							//sizeMsg = ncd.decode_short(self.msg[2:4])
-                          //if sizeMsg > 255:
-                            //      self.kickOut("Invalid size field")
-                            //      return
-							failed_to_build_packet =true;
-
+							failed_to_build_packet = (decoded_size > 1024);
+							var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();
+							mIncommingData.RemoveRange(0,decoded_size);
+							ProcessPacket(message_id, message_data);
 						}
 
 
