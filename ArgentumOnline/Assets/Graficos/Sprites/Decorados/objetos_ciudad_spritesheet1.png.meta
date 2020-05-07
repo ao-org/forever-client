@@ -23,6 +23,12 @@ TextureImporter:
   - first:
       213: 8579699395703989087
     second: objetos_ciudad_spritesheet1_6
+  - first:
+      213: 6094732304154126809
+    second: objetos_ciudad_spritesheet1_7
+  - first:
+      213: -2820932636482699058
+    second: objetos_ciudad_spritesheet1_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,18 +130,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1152
+        y: 1154
         width: 128
-        height: 128
+        height: 126
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e56ae0e87998e610800000000000000
-      internalID: 1650738007879869920
+      spriteID: ec0842b86b80ad8d0800000000000000
+      internalID: -2820932636482699058
       vertices: []
       indices: 
       edges: []
@@ -144,12 +150,12 @@ TextureImporter:
       name: objetos_ciudad_spritesheet1_1
       rect:
         serializedVersion: 2
-        x: 131
-        y: 1022
+        x: 0
+        y: 1025
         width: 128
-        height: 256
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,12 +171,12 @@ TextureImporter:
       name: objetos_ciudad_spritesheet1_2
       rect:
         serializedVersion: 2
-        x: 389
-        y: 1152
+        x: 128
+        y: 1024
         width: 128
-        height: 128
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +192,12 @@ TextureImporter:
       name: objetos_ciudad_spritesheet1_3
       rect:
         serializedVersion: 2
-        x: 261
+        x: 256
         y: 1152
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,12 +213,12 @@ TextureImporter:
       name: objetos_ciudad_spritesheet1_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1.3333435
-        width: 640
-        height: 426.66666
+        x: 256
+        y: 1024
+        width: 256
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,12 +234,12 @@ TextureImporter:
       name: objetos_ciudad_spritesheet1_5
       rect:
         serializedVersion: 2
-        x: 640
-        y: 1.3333435
-        width: 640
-        height: 426.66666
+        x: 384
+        y: 1152
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,27 +247,6 @@ TextureImporter:
       bones: []
       spriteID: 1ca50f60fcff105b0800000000000000
       internalID: -5403756813228156223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: objetos_ciudad_spritesheet1_6
-      rect:
-        serializedVersion: 2
-        x: 259
-        y: 1021
-        width: 256
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f53e198a427311770800000000000000
-      internalID: 8579699395703989087
       vertices: []
       indices: 
       edges: []
