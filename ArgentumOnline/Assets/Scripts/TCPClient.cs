@@ -13,7 +13,121 @@ using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using UnityEngine;
 
+using System.IO;
+using System.Security.Cryptography;
+using System.Linq;
 
+public class CryptoHelper
+{
+		private static Aes mAes = Aes.Create();
+
+		public static byte[] Base64DecodeString(byte[] b64encoded)
+		{
+			var d= System.Text.Encoding.UTF8.GetString(b64encoded).ToCharArray();
+    		byte[] decodedByteArray =
+
+      			Convert.FromBase64CharArray(d, 0, d.Length);
+    		return decodedByteArray;
+		}
+
+		static public string Decrypt(byte[] input, byte[] key)
+		{
+			// Check arguments.
+			if (input == null || input.Length <= 0)
+				throw new ArgumentNullException("input");
+			if (key == null || key.Length <= 0)
+				throw new ArgumentNullException("Key");
+
+			// Declare the string used to hold
+		 	// the decrypted text.
+			string plaintext = null;
+
+			//byte[] decodedByteArray =Convert.FromBase64String (Encoding.ASCII.GetString (input));
+			//byte[] decodedByteArray = Convert.FromBase64String(BitConverter.ToString(input));
+			byte[] decodedByteArray =  Base64DecodeString(input);
+			Debug.Log("decodedByteArray: " + Encoding.UTF8.GetString (decodedByteArray));
+
+		  // Create an Aes object
+		  // with the specified key and IV.
+		  using (Aes aesAlg = Aes.Create())
+		  {
+			  aesAlg.Key  = key;
+			  aesAlg.Mode = CipherMode.CFB;
+			  aesAlg.Padding = PaddingMode.None;
+			  //aesAlg.KeySize = 128;
+			  //aesAlg.BlockSize = 128;
+			  //aesAlg.FeedbackSize = 8;
+			  //byte[] iv = { 0,0,0,0 ,0,0,0,0 ,0,0,0,0 ,0,0,0,0};
+			  aesAlg.IV =  key;
+
+			  // Create a decryptor to perform the stream transform.
+			  ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+
+			  // Create the streams used for decryption.
+			  using (MemoryStream msDecrypt = new MemoryStream(decodedByteArray))
+			  {
+				  using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+				  {
+					  using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+					  {
+
+						  // Read the decrypted bytes from the decrypting stream
+						  // and place them in a string.
+						  plaintext = srDecrypt.ReadToEnd();
+					  }
+				  }
+			  }
+		  }
+
+		  return plaintext;
+		}
+
+		static public byte[] Encrypt(byte[] input, byte[] key){
+			// Check arguments.
+            if (input == null || input.Length <= 0)
+                throw new ArgumentNullException("plainText");
+            if (key == null || key.Length <= 0)
+            	throw new ArgumentNullException("Key");
+		    //if (IV == null || IV.Length <= 0)
+		    //     throw new ArgumentNullException("IV");
+		    byte[] encrypted;
+
+            // Create an Aes object
+            // with the specified key and IV.
+            using (Aes aesAlg = Aes.Create())
+            {
+				aesAlg.Mode = CipherMode.CBC;
+				/*
+        aesAlg.KeySize = 128;
+        aesAlg.BlockSize = 128;
+        aesAlg.FeedbackSize = 128;
+        aesAlg.Padding = PaddingMode.Zeros;
+        aesAlg.Key = key;
+        aesAlg.IV = iv;
+		*/
+                aesAlg.Key = key;
+				//Debug.Log("AES KEY " + key + " " + Encoding.UTF8.GetBytes(key));
+                //aesAlg.IV = IV;
+                // Create an encryptor to perform the stream transform.
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+                // Create the streams used for encryption.
+            	using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                        {
+                            //Write all data to the stream.
+                            swEncrypt.Write(input);
+                        }
+                        encrypted = msEncrypt.ToArray();
+                    }
+                }
+            }
+            // Return the encrypted bytes from the memory stream.
+            return encrypted;
+		}
+}
 
 //Base class for all protocol messages
 public class ProtoBase
@@ -44,6 +158,9 @@ public class ProtoBase
 							{"RESET_PASSWORD"		, unchecked((short)0xFBFB)},
 							{"RESET_PASSWORD_OKAY"	, unchecked((short)0x2016)}
 						};
+
+	static public string PrivateKey = "pablomarquezARG1";
+
 
 	public ProtoBase(uint size) {
 		mBytes = new Byte[size];
@@ -89,6 +206,7 @@ public class ProtoBase
 
 }
 
+// We send this OPEN_SESSION msg to the server to get the session TOKEN
 public class ProtoOpenSession : ProtoBase
 {
 	public ProtoOpenSession() : base(4)
@@ -96,6 +214,43 @@ public class ProtoOpenSession : ProtoBase
 		short header = EncodeShort(ProtoBase.ProtocolNumbers["OPEN_SESSION"]);
 		mBytes = new byte[] { GetLowByte(header), GetHighByte(header), 0x00, 0x04 };
 		Debug.Log("Ecoded " + mBytes);
+	}
+}
+
+class ProtoSessionOpened : ProtoBase
+{
+	private byte[] mToken = new byte[64];
+	public  byte[] GetToken() { return mToken; }
+	public ProtoSessionOpened(byte[] data) : base(64)
+	{
+		//mToken = decryption(data, ServerGlobals.aes_key)
+		//mToken = CryptoHelper.Decrypt(data,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
+	}
+
+}
+/*
+176         def __init__(self, token):
+177                 self.token = token
+178
+179         def getEncodedData(self):
+180                 encrypted_token = encryption(self.token, ServerGlobals.aes_key )
+181                 data = ncd.encode_short( LoginProtocolMessages.protocolNumbers['SESSION_OPENED'] )
+182                 data += ncd.encode_short( 4 + len(encrypted_token) )
+183                 data += encrypted_token
+184                 return data
+185
+186         @staticmethod
+187         def createFromEncodedData(data):
+188                 token = decryption(data, ServerGlobals.aes_key)
+189                 print(" ServerGlobals.aes_key " , ServerGlobals.aes_key)
+190                 print("TOKENNNNN: " , token)
+191                 return SessionOpenedMessage( token )
+*/
+
+public class ProtoLoginRequest : ProtoBase
+{
+	public ProtoLoginRequest(byte[] data) : base((uint)data.Length)
+	{
 	}
 }
 
@@ -194,9 +349,39 @@ public class TCPClient : MonoBehaviour {
 		}
 	}
 
-	public int ProcessSessionOpened(byte[] data)
+	public int ProcessSessionOpened(byte[] encrypted_token)
 	{
 		Debug.Log("ProcessOpenSession");
+
+			/*
+			We got the ENCRYPTED_SESSION_TOKEN.
+			ENCRYPTED_SESSION_TOKEN looks like 9gGYkcl6LsVbz2NfdJBJzKJQWHEZmEj4wY6RuWyDBTiNOrwia4X5gyTzCZsGQc4ds5rO/SU637+hNyKphm6vaFB0NdKLPfBuIt3Qc1L65msjWdYwuVuUuqmeuIHrIQtl
+            The ENCRYPTED_SESSION_TOKEN must be decrypted with the 'private key' and decoded as shown below:
+
+            cipher = AES.new( "pablomarquezARG1" )
+            DECRYPTED_SESSION_TOKEN = cipher.decrypt(base64.b64decode(ENCRYPTED_SESSION_TOKEN)).rstrip(PADDING)
+            DECRYPTED_SESSION_TOKEN will be a 64 chars string like A84XWygJIoH8bAiaiRn9N/S2DObSpZvMuXxE5A0opGY5dzkjrjCRBTmoh7/PnUTmsO4gh9nLouzEiQQsIZS68g==
+
+            The 'public key' is the first 16 chars of the DECRYPTED_SESSION_TOKEN. The 'public key' will be used to encrypt the username and password in the next and last step of the
+          login process
+		 */
+
+		 //TODO: DECRYPT TOKEN AND STORE IT
+		 Debug.Assert(encrypted_token.Length>0);
+		 //var encrypted_token = datadata.ToList().GetRange(4, data.Length -4).ToArray();
+		 Debug.Log("ProcessSessionOpened data.len " + encrypted_token.Length + " " + encrypted_token);
+		 //try
+		 {
+			 Debug.Log("encrypted_token(" + encrypted_token.Length + ") " + Encoding.ASCII.GetString(encrypted_token));
+			 string dt = CryptoHelper.Decrypt(encrypted_token,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
+			 Debug.Log("dt " + dt);
+		}
+		/*
+		catch(Exception e)
+		{
+			Debug.Log("Decrypt failed");
+		}
+		*/
 		return 1;
 	}
 
@@ -243,6 +428,7 @@ public class TCPClient : MonoBehaviour {
 							short message_id = ProtoBase.DecodeShort(header);
 							Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
 							failed_to_build_packet = (decoded_size > 1024);
+							//Drop the heade and size fields
 							var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();
 							mIncommingData.RemoveRange(0,decoded_size);
 							ProcessPacket(message_id, message_data);
