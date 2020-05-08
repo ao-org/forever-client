@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
     NorthEast = 7
     }
     private Direction dir = Movement.Direction.South;
-    private float WalkSpeed = 8.0f;
+    private float WalkSpeed = 6.0f;
     private Rigidbody2D mBody;
     private Tilemap mWaterTilemap;
     private Tilemap mTilemapLevel1;

@@ -48,6 +48,9 @@ TagManager:
   - name: Edificaciones
     uniqueID: 2125279645
     locked: 0
+  - name: MurosTrans
+    uniqueID: 171980509
+    locked: 0
   - name: Muro
     uniqueID: 713385687
     locked: 0
