@@ -19,14 +19,13 @@ using System.Linq;
 
 public class CryptoHelper
 {
-		private static Aes mAes = Aes.Create();
+		public static string PublicKey = null;
+		public static string Token = null;
 
 		public static byte[] Base64DecodeString(byte[] b64encoded)
 		{
 			var d= System.Text.Encoding.UTF8.GetString(b64encoded).ToCharArray();
-    		byte[] decodedByteArray =
-
-      			Convert.FromBase64CharArray(d, 0, d.Length);
+    		byte[] decodedByteArray = Convert.FromBase64CharArray(d, 0, d.Length);
     		return decodedByteArray;
 		}
 
@@ -38,48 +37,31 @@ public class CryptoHelper
 			if (key == null || key.Length <= 0)
 				throw new ArgumentNullException("Key");
 
-			// Declare the string used to hold
-		 	// the decrypted text.
 			string plaintext = null;
-
-			//byte[] decodedByteArray =Convert.FromBase64String (Encoding.ASCII.GetString (input));
-			//byte[] decodedByteArray = Convert.FromBase64String(BitConverter.ToString(input));
 			byte[] decodedByteArray =  Base64DecodeString(input);
-			Debug.Log("decodedByteArray: " + Encoding.UTF8.GetString (decodedByteArray));
-
-		  // Create an Aes object
-		  // with the specified key and IV.
-		  using (Aes aesAlg = Aes.Create())
-		  {
-			  aesAlg.Key  = key;
-			  aesAlg.Mode = CipherMode.CFB;
-			  aesAlg.Padding = PaddingMode.None;
-			  //aesAlg.KeySize = 128;
-			  //aesAlg.BlockSize = 128;
-			  //aesAlg.FeedbackSize = 8;
-			  //byte[] iv = { 0,0,0,0 ,0,0,0,0 ,0,0,0,0 ,0,0,0,0};
-			  aesAlg.IV =  key;
-
-			  // Create a decryptor to perform the stream transform.
-			  ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
-
-			  // Create the streams used for decryption.
-			  using (MemoryStream msDecrypt = new MemoryStream(decodedByteArray))
-			  {
-				  using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
-				  {
-					  using (StreamReader srDecrypt = new StreamReader(csDecrypt))
-					  {
-
-						  // Read the decrypted bytes from the decrypting stream
-						  // and place them in a string.
-						  plaintext = srDecrypt.ReadToEnd();
-					  }
-				  }
-			  }
-		  }
-
-		  return plaintext;
+			//Debug.Log("decodedByteArray: " + Encoding.UTF8.GetString (decodedByteArray));
+		  	// Create an Aes object
+		  	// with the specified key and IV.
+		  	using (Aes aesAlg = Aes.Create())
+		  	{
+				aesAlg.Key  = key;
+				aesAlg.Mode = CipherMode.CFB;
+				aesAlg.Padding = PaddingMode.None;
+				aesAlg.IV =  key;
+				// Create a decryptor to perform the stream transform.
+				ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+				// Create the streams used for decryption.
+				using (MemoryStream msDecrypt = new MemoryStream(decodedByteArray)){
+					using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read)){
+						using (StreamReader srDecrypt = new StreamReader(csDecrypt)){
+  							// Read the decrypted bytes from the decrypting stream
+							// and place them in a string.
+							plaintext = srDecrypt.ReadToEnd();
+						}
+					}
+				}
+			}
+			return plaintext;
 		}
 
 		static public byte[] Encrypt(byte[] input, byte[] key){
@@ -281,6 +263,31 @@ public class TCPClient : MonoBehaviour {
         { ProtoBase.ProtocolNumbers["SESSION_OPENED"], (@this, x) => @this.ProcessSessionOpened(x) },
     };
 
+	public int ProcessSessionOpened(byte[] encrypted_token)
+	{
+		Debug.Log("ProcessOpenSession");
+		/*
+			We got the ENCRYPTED_SESSION_TOKEN.
+			ENCRYPTED_SESSION_TOKEN looks like 9gGYkcl6LsVbz2NfdJBJzKJQWHEZmEj4wY6RuWyDBTiNOrwia4X5gyTzCZsGQc4ds5rO/SU637+hNyKphm6vaFB0NdKLPfBuIt3Qc1L65msjWdYwuVuUuqmeuIHrIQtl
+			The ENCRYPTED_SESSION_TOKEN must be decrypted with the 'private key' and decoded as shown below:
+
+			cipher = AES.new( "pablomarquezARG1" )
+			DECRYPTED_SESSION_TOKEN = cipher.decrypt(base64.b64decode(ENCRYPTED_SESSION_TOKEN)).rstrip(PADDING)
+			DECRYPTED_SESSION_TOKEN will be a 64 chars string like A84XWygJIoH8bAiaiRn9N/S2DObSpZvMuXxE5A0opGY5dzkjrjCRBTmoh7/PnUTmsO4gh9nLouzEiQQsIZS68g==
+
+			The 'public key' is the first 16 chars of the DECRYPTED_SESSION_TOKEN. The 'public key' will be used to encrypt the username and password in the next and last step of the
+		 */
+		 Debug.Assert(encrypted_token.Length>0);
+		 //var encrypted_token = datadata.ToList().GetRange(4, data.Length -4).ToArray();
+		 Debug.Log("ProcessSessionOpened data.len " + encrypted_token.Length + " " + encrypted_token);
+		 //Decrypt TOKEN, store it and get PublicKey needed for the LOGIN_REQUEST message
+		 Debug.Log("encrypted_token(" + encrypted_token.Length + ") " + Encoding.ASCII.GetString(encrypted_token));
+		 CryptoHelper.Token	= CryptoHelper.Decrypt(encrypted_token,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
+		 Debug.Log("Decrypted Token : " + CryptoHelper.Token);
+		 CryptoHelper.PublicKey = CryptoHelper.Token.Substring(0,16);
+		 return 1;
+	}
+
 	void Start () {
 		Debug.Log("Initializing TCPClient");
 		mIncommingData = new List<byte>();
@@ -349,45 +356,8 @@ public class TCPClient : MonoBehaviour {
 		}
 	}
 
-	public int ProcessSessionOpened(byte[] encrypted_token)
-	{
-		Debug.Log("ProcessOpenSession");
-
-			/*
-			We got the ENCRYPTED_SESSION_TOKEN.
-			ENCRYPTED_SESSION_TOKEN looks like 9gGYkcl6LsVbz2NfdJBJzKJQWHEZmEj4wY6RuWyDBTiNOrwia4X5gyTzCZsGQc4ds5rO/SU637+hNyKphm6vaFB0NdKLPfBuIt3Qc1L65msjWdYwuVuUuqmeuIHrIQtl
-            The ENCRYPTED_SESSION_TOKEN must be decrypted with the 'private key' and decoded as shown below:
-
-            cipher = AES.new( "pablomarquezARG1" )
-            DECRYPTED_SESSION_TOKEN = cipher.decrypt(base64.b64decode(ENCRYPTED_SESSION_TOKEN)).rstrip(PADDING)
-            DECRYPTED_SESSION_TOKEN will be a 64 chars string like A84XWygJIoH8bAiaiRn9N/S2DObSpZvMuXxE5A0opGY5dzkjrjCRBTmoh7/PnUTmsO4gh9nLouzEiQQsIZS68g==
-
-            The 'public key' is the first 16 chars of the DECRYPTED_SESSION_TOKEN. The 'public key' will be used to encrypt the username and password in the next and last step of the
-          login process
-		 */
-
-		 //TODO: DECRYPT TOKEN AND STORE IT
-		 Debug.Assert(encrypted_token.Length>0);
-		 //var encrypted_token = datadata.ToList().GetRange(4, data.Length -4).ToArray();
-		 Debug.Log("ProcessSessionOpened data.len " + encrypted_token.Length + " " + encrypted_token);
-		 //try
-		 {
-			 Debug.Log("encrypted_token(" + encrypted_token.Length + ") " + Encoding.ASCII.GetString(encrypted_token));
-			 string dt = CryptoHelper.Decrypt(encrypted_token,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
-			 Debug.Log("dt " + dt);
-		}
-		/*
-		catch(Exception e)
-		{
-			Debug.Log("Decrypt failed");
-		}
-		*/
-		return 1;
-	}
-
 	private int ProcessPacket(short id, byte[] data)
 	{
-
 		return PocessFunctions[id](this,data);
 	}
 
