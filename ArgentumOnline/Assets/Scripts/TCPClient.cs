@@ -12,6 +12,7 @@ using System.Threading;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEditor;
 
 using System.IO;
 using System.Security.Cryptography;
@@ -142,8 +143,7 @@ public class ProtoBase
 						};
 
 	static public string PrivateKey = "pablomarquezARG1";
-
-
+	public ProtoBase(){}
 	public ProtoBase(uint size) {
 		mBytes = new Byte[size];
 	}
@@ -172,67 +172,46 @@ public class ProtoBase
 		 Debug.Log("System.Net.IPAddress.HostToNetworkOrder(" + s + ")" + " i " + i);
 		 return i;
 	}
-
 	static public short DecodeShort(byte[] bytes){
 		Debug.Assert(bytes.Length==2);
 		short in_as_short = BitConverter.ToInt16(bytes, 0);
 		short i = System.Net.IPAddress.NetworkToHostOrder(in_as_short);
 		return i;
 	}
-
-	static public void print_bytes(byte[] array)
-	{
-		//for()
-		//Debug.Log(String.Format("{0,10:X}", incommingData[0]) + " " + incommingData[1]);
-	}
-
+	static public void print_bytes(byte[] array){}
 }
 
 // We send this OPEN_SESSION msg to the server to get the session TOKEN
 public class ProtoOpenSession : ProtoBase
 {
-	public ProtoOpenSession() : base(4)
-	{
+	public ProtoOpenSession() : base(4) {
 		short header = EncodeShort(ProtoBase.ProtocolNumbers["OPEN_SESSION"]);
 		mBytes = new byte[] { GetLowByte(header), GetHighByte(header), 0x00, 0x04 };
 		Debug.Log("Ecoded " + mBytes);
 	}
 }
 
-class ProtoSessionOpened : ProtoBase
-{
-	private byte[] mToken = new byte[64];
-	public  byte[] GetToken() { return mToken; }
-	public ProtoSessionOpened(byte[] data) : base(64)
-	{
-		//mToken = decryption(data, ServerGlobals.aes_key)
-		//mToken = CryptoHelper.Decrypt(data,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
-	}
-
-}
-/*
-176         def __init__(self, token):
-177                 self.token = token
-178
-179         def getEncodedData(self):
-180                 encrypted_token = encryption(self.token, ServerGlobals.aes_key )
-181                 data = ncd.encode_short( LoginProtocolMessages.protocolNumbers['SESSION_OPENED'] )
-182                 data += ncd.encode_short( 4 + len(encrypted_token) )
-183                 data += encrypted_token
-184                 return data
-185
-186         @staticmethod
-187         def createFromEncodedData(data):
-188                 token = decryption(data, ServerGlobals.aes_key)
-189                 print(" ServerGlobals.aes_key " , ServerGlobals.aes_key)
-190                 print("TOKENNNNN: " , token)
-191                 return SessionOpenedMessage( token )
-*/
-
 public class ProtoLoginRequest : ProtoBase
 {
-	public ProtoLoginRequest(byte[] data) : base((uint)data.Length)
-	{
+	public ProtoLoginRequest(string username, string password, string token){
+/*
+		short header = EncodeShort(ProtoBase.ProtocolNumbers["OPEN_SESSION"]);
+		mBytes = new byte[] { GetLowByte(header), GetHighByte(header), 0x00, 0x04 };
+		Debug.Log("Ecoded " + mBytes);
+		*/
+		/*
+		 def getEncodedData(self):
+263                 encrypted_username = encryption( self.username,  self.key  );
+264                 encrypted_password = encryption( self.password,  self.key  );
+265                 print('encrypted_username ' + encrypted_username.decode() );
+266                 data = ncd.encode_short( LoginProtocolMessages.protocolNumbers['LOGIN_REQUEST'] )
+267                 data += ncd.encode_short( 2+len(encrypted_username) + 2+ len(encrypted_password) + 2 + 2  )
+268                 data += ncd.encode_short( len(encrypted_username) );
+269                 data += encrypted_username
+270                 data += ncd.encode_short( len(encrypted_password) )
+271                 data += encrypted_password
+272                 return data
+*/
 	}
 }
 
@@ -252,19 +231,22 @@ public class TCPClient : MonoBehaviour {
 	private string 		mServerIP;
 	private string 		mServerPort;
 
-	//private Queue<ProtoBase> mSendQueue = new Queue<ProtoBase>();
-	// Construct a ConcurrentQueue.
+	// Construct a ConcurrentQueue for Sending messages to the server
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
+	// Connection events queue
+	private ConcurrentQueue<Tuple<string, Exception>> mEventsQueue = new ConcurrentQueue<Tuple<string, Exception>>();
 	#endregion
 
 	static Dictionary<short, Func<TCPClient, byte[], int>> PocessFunctions
         = new Dictionary<short, Func<TCPClient, byte[], int>>
     {
         { ProtoBase.ProtocolNumbers["SESSION_OPENED"], (@this, x) => @this.ProcessSessionOpened(x) },
+		{ ProtoBase.ProtocolNumbers["SESSION_ERROR"], (@this, x) => @this.ProcessSessionError(x) },
+		{ ProtoBase.ProtocolNumbers["LOGIN_OKAY"], (@this, x) => @this.ProcessLoginOkay(x) },
+		{ ProtoBase.ProtocolNumbers["LOGIN_ERROR"], (@this, x) => @this.ProcessLoginError(x) }
     };
 
-	public int ProcessSessionOpened(byte[] encrypted_token)
-	{
+	public int ProcessSessionOpened(byte[] encrypted_token){
 		Debug.Log("ProcessOpenSession");
 		/*
 			We got the ENCRYPTED_SESSION_TOKEN.
@@ -285,26 +267,44 @@ public class TCPClient : MonoBehaviour {
 		 CryptoHelper.Token	= CryptoHelper.Decrypt(encrypted_token,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
 		 Debug.Log("Decrypted Token : " + CryptoHelper.Token);
 		 CryptoHelper.PublicKey = CryptoHelper.Token.Substring(0,16);
+		 var login_request = new ProtoLoginRequest("morgolock", "Pablo17", CryptoHelper.PublicKey);
+		 SendMessage(login_request);
 		 return 1;
 	}
-
+	public int ProcessSessionError(byte[] data){
+		Debug.Log("ProcessSessionError");
+		return 1;
+	}
+	public int ProcessLoginOkay(byte[] data){
+		Debug.Log("ProcessLoginOkay");
+		return 1;
+	}
+	public int ProcessLoginError(byte[] data){
+		Debug.Log("ProcessLoginError");
+		return 1;
+	}
 	void Start () {
 		Debug.Log("Initializing TCPClient");
 		mIncommingData = new List<byte>();
 	}
-	void Update () {
-		/*
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			//Debug.Log("SendMessage");
-			SendMessage();
+	void Update(){
+		try {
+			if (mEventsQueue.Count > 0){
+				Tuple<string, Exception> e;
+				if (mEventsQueue.TryDequeue(out e)){
+					Debug.Log("Event {" + e.Item2.Message + "}");
+					EditorUtility.DisplayDialog("e.Item1",e.Item2.Message, "OK");
+				}
+			}
 		}
-		*/
+		catch (Exception e) {
+			Debug.Log("Failed to read events");
+		}
 	}
 
-   private void OnConnectionError(Exception e)
-   {
+   private void OnConnectionError(Exception e){
 	   Debug.Log("OnConnectionError " + e.Message);
-
+	   mEventsQueue.Enqueue(Tuple.Create("Connection Error",e));
    }
 
 	private void CreateSendWorkload()
