@@ -41,6 +41,11 @@ public class Movement : MonoBehaviour
         mTilemapLevel1 = GameObject.Find("TilemapNivel1").GetComponent<Tilemap>();
         dir = Direction.South;
         gameObject.GetComponent<Animator>().Play("FantasmaCaminaSur");
+        UnityEngine.Debug.Log("Warp X:" + WarpingDestination.teleport_x + " Y:"+WarpingDestination.teleport_y);
+        Vector3 newpos = transform.position;
+        newpos.x =  WarpingDestination.teleport_x;
+        newpos.y =  WarpingDestination.teleport_y;
+        TryToMove(newpos);
     }
     private bool IsThereSomething(Vector3 pos)
     {
