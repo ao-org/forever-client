@@ -60,6 +60,7 @@ public class CryptoHelper
 				aesAlg.Mode = CipherMode.CFB;
 				aesAlg.Padding = PaddingMode.Zeros;
 				aesAlg.IV =  key;
+
 				// Create a decryptor to perform the stream transform.
 				ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 				// Create the streams used for decryption.
@@ -92,7 +93,6 @@ public class CryptoHelper
 		                aesAlg.Mode = CipherMode.CFB;
 						aesAlg.Padding = PaddingMode.Zeros;
 						aesAlg.IV =  Key;
-
 		                // Create an encryptor to perform the stream transform.
 		                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
@@ -211,8 +211,19 @@ public class ProtoLoginRequest : ProtoBase
 		short header = EncodeShort(ProtoBase.ProtocolNumbers["LOGIN_REQUEST"]);
 		var encrypted_username = CryptoHelper.Encrypt(username, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
 		var encrypted_password = CryptoHelper.Encrypt(password, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
-
 		Debug.Log("encrypted username : " + Encoding.ASCII.GetString(encrypted_username));
+		//var sdf =CryptoHelper.Decrypt(Encoding.ASCII.GetBytes(encrypted_username), Encoding.ASCII.GetBytes(CryptoHelper.PublicKey))
+
+
+		//Debug.Log("encrypted_token(" + encrypted_token.Length + ") " + Encoding.ASCII.GetString(encrypted_token));
+		//var du	= CryptoHelper.Decrypt(n,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
+		string  asd = CryptoHelper.Decrypt(encrypted_username, Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
+		Debug.Log("DEC encrypted username : [" +  asd + "]");
+		Debug.Assert(username == asd);
+
+		Debug.Log("Decrypted Token : " + CryptoHelper.Token);
+
+
 		Debug.Log("encrypted password : " + Encoding.ASCII.GetString(encrypted_password));
 
 		int buffer_size = /* header */ 4 + /* len(encrypted_username) */ 2 +
@@ -342,7 +353,7 @@ public class TCPClient : MonoBehaviour {
 			}
 		}
 		catch (Exception e) {
-			Debug.Log("Failed to read events");
+			Debug.Log("Failed to read events" + e.Message);
 		}
 	}
 
@@ -437,7 +448,7 @@ public class TCPClient : MonoBehaviour {
 						//Attempt to build as many packets and process them
 						bool failed_to_build_packet = false;
 						// We consume the packets
-						while( mIncommingData.Count>4 && !failed_to_build_packet)
+						while( mIncommingData.Count>=4 && !failed_to_build_packet)
 						{
 							var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
 							Debug.Log(" msg_size len " + msg_size.Length);
