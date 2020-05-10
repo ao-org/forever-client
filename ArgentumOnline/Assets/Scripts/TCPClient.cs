@@ -25,9 +25,20 @@ public class CryptoHelper
 
 		public static byte[] Base64DecodeString(byte[] b64encoded)
 		{
-			var d= System.Text.Encoding.UTF8.GetString(b64encoded).ToCharArray();
+			var d= System.Text.Encoding.ASCII.GetString(b64encoded).ToCharArray();
     		byte[] decodedByteArray = Convert.FromBase64CharArray(d, 0, d.Length);
     		return decodedByteArray;
+		}
+
+		public static byte[] Base64EncodeBytes(byte[] bytes)
+		{
+			//public static int ToBase64CharArray (byte[] inArray, int offsetIn, int length, char[] outArray, int offsetOut, Base64FormattingOptions options);
+			char[] encodedArray = new char[1024];
+			int size = Convert.ToBase64CharArray (bytes, 0, bytes.Length,encodedArray , 0,Base64FormattingOptions.None);
+			var d = System.Text.Encoding.ASCII.GetBytes(encodedArray);
+			byte[] outArray = new byte[size];
+			Array.Copy(d,0, outArray, 0, size);
+			return outArray;
 		}
 
 		static public string Decrypt(byte[] input, byte[] key)
@@ -47,7 +58,7 @@ public class CryptoHelper
 		  	{
 				aesAlg.Key  = key;
 				aesAlg.Mode = CipherMode.CFB;
-				aesAlg.Padding = PaddingMode.None;
+				aesAlg.Padding = PaddingMode.Zeros;
 				aesAlg.IV =  key;
 				// Create a decryptor to perform the stream transform.
 				ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
@@ -65,50 +76,43 @@ public class CryptoHelper
 			return plaintext;
 		}
 
-		static public byte[] Encrypt(byte[] input, byte[] key){
-			// Check arguments.
-            if (input == null || input.Length <= 0)
-                throw new ArgumentNullException("plainText");
-            if (key == null || key.Length <= 0)
-            	throw new ArgumentNullException("Key");
-		    //if (IV == null || IV.Length <= 0)
-		    //     throw new ArgumentNullException("IV");
-		    byte[] encrypted;
+		public static byte[] Encrypt(string plainText, byte[] Key)
+		{
+		            // Check arguments.
+		            if (plainText == null || plainText.Length <= 0)
+		                throw new ArgumentNullException("plainText");
+		            if (Key == null || Key.Length <= 0)
+		                throw new ArgumentNullException("Key");
+		            byte[] encrypted;
+		            // Create an Aes object
+		            // with the specified key and IV.
+		            using (Aes aesAlg = Aes.Create())
+		            {
+		                aesAlg.Key = Key;
+		                aesAlg.Mode = CipherMode.CFB;
+						aesAlg.Padding = PaddingMode.Zeros;
+						aesAlg.IV =  Key;
 
-            // Create an Aes object
-            // with the specified key and IV.
-            using (Aes aesAlg = Aes.Create())
-            {
-				aesAlg.Mode = CipherMode.CBC;
-				/*
-        aesAlg.KeySize = 128;
-        aesAlg.BlockSize = 128;
-        aesAlg.FeedbackSize = 128;
-        aesAlg.Padding = PaddingMode.Zeros;
-        aesAlg.Key = key;
-        aesAlg.IV = iv;
-		*/
-                aesAlg.Key = key;
-				//Debug.Log("AES KEY " + key + " " + Encoding.UTF8.GetBytes(key));
-                //aesAlg.IV = IV;
-                // Create an encryptor to perform the stream transform.
-                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
-                // Create the streams used for encryption.
-            	using (MemoryStream msEncrypt = new MemoryStream())
-                {
-                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-                        {
-                            //Write all data to the stream.
-                            swEncrypt.Write(input);
-                        }
-                        encrypted = msEncrypt.ToArray();
-                    }
-                }
-            }
-            // Return the encrypted bytes from the memory stream.
-            return encrypted;
+		                // Create an encryptor to perform the stream transform.
+		                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+
+		                // Create the streams used for encryption.
+		                using (MemoryStream msEncrypt = new MemoryStream())
+		                {
+		                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+		                    {
+		                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+		                        {
+		                            //Write all data to the stream.
+		                            swEncrypt.Write(plainText);
+		                        }
+		                        encrypted = msEncrypt.ToArray();
+		                    }
+		                }
+		            }
+
+		            // Return the encrypted bytes from the memory stream.
+		            return Base64EncodeBytes(encrypted);
 		}
 }
 
@@ -158,6 +162,13 @@ public class ProtoBase
 		byte ret = (byte)(s&0xFF);
 		return ret;
 	}
+	static public void WriteShortToArray(byte[] dst, int index, short s)
+	{
+		Debug.Assert(dst!=null);
+		dst[index] = GetLowByte(s);
+		dst[1+index] = GetHighByte(s);
+	}
+
 	static public short EncodeShort(short s){
 		 /*
 		 	Different computers use different conventions for ordering the bytes within multibyte integer values. Some computers put
@@ -194,24 +205,36 @@ public class ProtoOpenSession : ProtoBase
 public class ProtoLoginRequest : ProtoBase
 {
 	public ProtoLoginRequest(string username, string password, string token){
-/*
-		short header = EncodeShort(ProtoBase.ProtocolNumbers["OPEN_SESSION"]);
-		mBytes = new byte[] { GetLowByte(header), GetHighByte(header), 0x00, 0x04 };
-		Debug.Log("Ecoded " + mBytes);
-		*/
-		/*
-		 def getEncodedData(self):
-263                 encrypted_username = encryption( self.username,  self.key  );
-264                 encrypted_password = encryption( self.password,  self.key  );
-265                 print('encrypted_username ' + encrypted_username.decode() );
-266                 data = ncd.encode_short( LoginProtocolMessages.protocolNumbers['LOGIN_REQUEST'] )
-267                 data += ncd.encode_short( 2+len(encrypted_username) + 2+ len(encrypted_password) + 2 + 2  )
-268                 data += ncd.encode_short( len(encrypted_username) );
-269                 data += encrypted_username
-270                 data += ncd.encode_short( len(encrypted_password) )
-271                 data += encrypted_password
-272                 return data
-*/
+		Debug.Log("ProtoLoginRequest: " + username + " " + password);
+		Debug.Assert(username.Length>0);
+		Debug.Assert(password.Length>0);
+		short header = EncodeShort(ProtoBase.ProtocolNumbers["LOGIN_REQUEST"]);
+		var encrypted_username = CryptoHelper.Encrypt(username, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
+		var encrypted_password = CryptoHelper.Encrypt(password, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
+
+		Debug.Log("encrypted username : " + Encoding.ASCII.GetString(encrypted_username));
+		Debug.Log("encrypted password : " + Encoding.ASCII.GetString(encrypted_password));
+
+		int buffer_size = /* header */ 4 + /* len(encrypted_username) */ 2 +
+						   /* actual size of encrypted_username*/ encrypted_username.Length +
+						   /* len(encrypted_password) */ 2 +
+						   /* actual size of encrypted_password*/ encrypted_password.Length;
+
+		short encoded_size = (short)EncodeShort((short)buffer_size);
+		short encoded_len_username = (short)EncodeShort((short)encrypted_username.Length);
+		short encoded_len_password = (short)EncodeShort((short)encrypted_password.Length);
+		mBytes = new Byte[buffer_size];
+		ProtoBase.WriteShortToArray(mBytes,0,header);
+		ProtoBase.WriteShortToArray(mBytes,2,encoded_size);
+
+		byte[] tmp = new byte[4+ encrypted_username.Length + encrypted_password.Length];
+		// Write username and size to the tmp buffer
+		ProtoBase.WriteShortToArray(tmp,0,encoded_len_username);
+		Array.Copy(encrypted_username, 0, tmp, 2, encrypted_username.Length);
+		// Write password and size to the tmp buffer
+		ProtoBase.WriteShortToArray(tmp,2+encrypted_username.Length,encoded_len_password);
+		Array.Copy(encrypted_password, 0, tmp, 4 + encrypted_username.Length, encrypted_password.Length);
+		Array.Copy(tmp,0, mBytes,4,tmp.Length);
 	}
 }
 
@@ -230,7 +253,17 @@ public class TCPClient : MonoBehaviour {
 	private Thread 		mSendThread;
 	private string 		mServerIP;
 	private string 		mServerPort;
+	private string		mUsername;
+	private string		mPassword;
 
+	public bool IsConnected(){
+		if(mSocket == null){
+			return false;
+		}
+		else {
+			return mSocket.Connected;
+		}
+	}
 	// Construct a ConcurrentQueue for Sending messages to the server
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	// Connection events queue
@@ -245,7 +278,10 @@ public class TCPClient : MonoBehaviour {
 		{ ProtoBase.ProtocolNumbers["LOGIN_OKAY"], (@this, x) => @this.ProcessLoginOkay(x) },
 		{ ProtoBase.ProtocolNumbers["LOGIN_ERROR"], (@this, x) => @this.ProcessLoginError(x) }
     };
-
+	public void SetUsernameAndPassword(string u, string p){
+		mUsername = u;
+		mPassword = p;
+	}
 	public int ProcessSessionOpened(byte[] encrypted_token){
 		Debug.Log("ProcessOpenSession");
 		/*
@@ -267,20 +303,23 @@ public class TCPClient : MonoBehaviour {
 		 CryptoHelper.Token	= CryptoHelper.Decrypt(encrypted_token,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
 		 Debug.Log("Decrypted Token : " + CryptoHelper.Token);
 		 CryptoHelper.PublicKey = CryptoHelper.Token.Substring(0,16);
-		 var login_request = new ProtoLoginRequest("morgolock", "Pablo17", CryptoHelper.PublicKey);
+		 var login_request = new ProtoLoginRequest(mUsername, mPassword, CryptoHelper.PublicKey);
 		 SendMessage(login_request);
 		 return 1;
 	}
 	public int ProcessSessionError(byte[] data){
 		Debug.Log("ProcessSessionError");
+		mEventsQueue.Enqueue(Tuple.Create("Cannot open session",(Exception)null));
 		return 1;
 	}
 	public int ProcessLoginOkay(byte[] data){
 		Debug.Log("ProcessLoginOkay");
+		mEventsQueue.Enqueue(Tuple.Create("Login OK",(Exception)null));
 		return 1;
 	}
 	public int ProcessLoginError(byte[] data){
 		Debug.Log("ProcessLoginError");
+		mEventsQueue.Enqueue(Tuple.Create("Login Error",(Exception)null));
 		return 1;
 	}
 	void Start () {
@@ -293,7 +332,12 @@ public class TCPClient : MonoBehaviour {
 				Tuple<string, Exception> e;
 				if (mEventsQueue.TryDequeue(out e)){
 					Debug.Log("Event {" + e.Item2.Message + "}");
-					EditorUtility.DisplayDialog("e.Item1",e.Item2.Message, "OK");
+					if(e.Item2 !=null){
+						EditorUtility.DisplayDialog("e.Item1",e.Item2.Message, "OK");
+					}
+					else{
+						EditorUtility.DisplayDialog("e.Item1","Whatever", "OK");
+					}
 				}
 			}
 		}
@@ -318,6 +362,12 @@ public class TCPClient : MonoBehaviour {
 			Debug.Log("On client connect exception " + e);
 			OnConnectionError(e);
 		}
+	}
+
+	public void AttemptToLogin()
+	{
+		ProtoOpenSession open_session = new ProtoOpenSession();
+ 	  	SendMessage(open_session);
 	}
 
    	private void OnConnectionEstablished()
@@ -431,6 +481,7 @@ public class TCPClient : MonoBehaviour {
 						ProtoBase msg;
 						if (mSendQueue.TryDequeue(out msg))
       					{
+							Debug.Assert(msg.Data()!=null);
          					Debug.Log("msg {" + msg.Data() + "}");
 							stream.Write(msg.Data(), 0, msg.Size());
 						}
