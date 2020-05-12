@@ -57,9 +57,15 @@ TagManager:
   - name: Arboles
     uniqueID: 735191785
     locked: 0
-  - name: fantasma
+  - name: ParedDung
+    uniqueID: 3883579211
+    locked: 0
+  - name: Fantasma
     uniqueID: 275239855
     locked: 0
   - name: Sombras
     uniqueID: 1974829813
+    locked: 0
+  - name: Grilla Limites
+    uniqueID: 3671939143
     locked: 0

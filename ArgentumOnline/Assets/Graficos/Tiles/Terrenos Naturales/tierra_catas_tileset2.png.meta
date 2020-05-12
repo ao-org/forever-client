@@ -302,6 +302,9 @@ TextureImporter:
   - first:
       213: 3032231121154820740
     second: tierra_catas_tileset2_99
+  - first:
+      213: 7328611232989019277
+    second: tierra_catas_tileset2_100
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -345,7 +348,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -402,12 +405,12 @@ TextureImporter:
       name: tierra_catas_tileset2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1152
+        x: 2
+        y: 1190
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -423,12 +426,12 @@ TextureImporter:
       name: tierra_catas_tileset2_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 1152
+        x: 134
+        y: 1190
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -444,12 +447,12 @@ TextureImporter:
       name: tierra_catas_tileset2_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1152
+        x: 266
+        y: 1190
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -465,12 +468,12 @@ TextureImporter:
       name: tierra_catas_tileset2_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 1152
+        x: 398
+        y: 1190
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -486,12 +489,12 @@ TextureImporter:
       name: tierra_catas_tileset2_4
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1152
+        x: 530
+        y: 1190
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -507,12 +510,12 @@ TextureImporter:
       name: tierra_catas_tileset2_5
       rect:
         serializedVersion: 2
-        x: 640
-        y: 1152
+        x: 662
+        y: 1190
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -528,12 +531,12 @@ TextureImporter:
       name: tierra_catas_tileset2_6
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1152
+        x: 794
+        y: 1190
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -549,12 +552,12 @@ TextureImporter:
       name: tierra_catas_tileset2_7
       rect:
         serializedVersion: 2
-        x: 896
-        y: 1152
+        x: 926
+        y: 1190
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -570,12 +573,12 @@ TextureImporter:
       name: tierra_catas_tileset2_8
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1152
+        x: 1058
+        y: 1190
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -591,12 +594,12 @@ TextureImporter:
       name: tierra_catas_tileset2_9
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 1152
+        x: 1190
+        y: 1190
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -612,12 +615,12 @@ TextureImporter:
       name: tierra_catas_tileset2_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1024
+        x: 2
+        y: 1058
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -633,12 +636,12 @@ TextureImporter:
       name: tierra_catas_tileset2_11
       rect:
         serializedVersion: 2
-        x: 128
-        y: 1024
+        x: 134
+        y: 1058
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -654,12 +657,12 @@ TextureImporter:
       name: tierra_catas_tileset2_12
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1024
+        x: 266
+        y: 1058
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -675,12 +678,12 @@ TextureImporter:
       name: tierra_catas_tileset2_13
       rect:
         serializedVersion: 2
-        x: 384
-        y: 1024
+        x: 398
+        y: 1058
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -696,12 +699,12 @@ TextureImporter:
       name: tierra_catas_tileset2_14
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1024
+        x: 530
+        y: 1058
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -717,12 +720,12 @@ TextureImporter:
       name: tierra_catas_tileset2_15
       rect:
         serializedVersion: 2
-        x: 640
-        y: 1024
+        x: 662
+        y: 1058
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -738,12 +741,12 @@ TextureImporter:
       name: tierra_catas_tileset2_16
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1024
+        x: 794
+        y: 1058
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -759,12 +762,12 @@ TextureImporter:
       name: tierra_catas_tileset2_17
       rect:
         serializedVersion: 2
-        x: 896
-        y: 1024
+        x: 926
+        y: 1058
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -780,12 +783,12 @@ TextureImporter:
       name: tierra_catas_tileset2_18
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1024
+        x: 1058
+        y: 1058
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -801,12 +804,12 @@ TextureImporter:
       name: tierra_catas_tileset2_19
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 1024
+        x: 1190
+        y: 1058
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -822,12 +825,12 @@ TextureImporter:
       name: tierra_catas_tileset2_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 896
+        x: 2
+        y: 926
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -843,12 +846,12 @@ TextureImporter:
       name: tierra_catas_tileset2_21
       rect:
         serializedVersion: 2
-        x: 128
-        y: 896
+        x: 134
+        y: 926
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -864,12 +867,12 @@ TextureImporter:
       name: tierra_catas_tileset2_22
       rect:
         serializedVersion: 2
-        x: 256
-        y: 896
+        x: 266
+        y: 926
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -885,12 +888,12 @@ TextureImporter:
       name: tierra_catas_tileset2_23
       rect:
         serializedVersion: 2
-        x: 384
-        y: 896
+        x: 398
+        y: 926
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -906,12 +909,12 @@ TextureImporter:
       name: tierra_catas_tileset2_24
       rect:
         serializedVersion: 2
-        x: 512
-        y: 896
+        x: 530
+        y: 926
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -927,12 +930,12 @@ TextureImporter:
       name: tierra_catas_tileset2_25
       rect:
         serializedVersion: 2
-        x: 640
-        y: 896
+        x: 662
+        y: 926
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -948,12 +951,12 @@ TextureImporter:
       name: tierra_catas_tileset2_26
       rect:
         serializedVersion: 2
-        x: 768
-        y: 896
+        x: 794
+        y: 926
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -969,12 +972,12 @@ TextureImporter:
       name: tierra_catas_tileset2_27
       rect:
         serializedVersion: 2
-        x: 896
-        y: 896
+        x: 926
+        y: 926
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -990,12 +993,12 @@ TextureImporter:
       name: tierra_catas_tileset2_28
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 896
+        x: 1058
+        y: 926
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1011,12 +1014,12 @@ TextureImporter:
       name: tierra_catas_tileset2_29
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 896
+        x: 1190
+        y: 926
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1032,12 +1035,12 @@ TextureImporter:
       name: tierra_catas_tileset2_30
       rect:
         serializedVersion: 2
-        x: 0
-        y: 768
+        x: 2
+        y: 794
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1053,12 +1056,12 @@ TextureImporter:
       name: tierra_catas_tileset2_31
       rect:
         serializedVersion: 2
-        x: 128
-        y: 768
+        x: 134
+        y: 794
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1074,12 +1077,12 @@ TextureImporter:
       name: tierra_catas_tileset2_32
       rect:
         serializedVersion: 2
-        x: 256
-        y: 768
+        x: 266
+        y: 794
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1095,12 +1098,12 @@ TextureImporter:
       name: tierra_catas_tileset2_33
       rect:
         serializedVersion: 2
-        x: 384
-        y: 768
+        x: 398
+        y: 794
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1116,12 +1119,12 @@ TextureImporter:
       name: tierra_catas_tileset2_34
       rect:
         serializedVersion: 2
-        x: 512
-        y: 768
+        x: 530
+        y: 794
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1137,12 +1140,12 @@ TextureImporter:
       name: tierra_catas_tileset2_35
       rect:
         serializedVersion: 2
-        x: 640
-        y: 768
+        x: 662
+        y: 794
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1158,12 +1161,12 @@ TextureImporter:
       name: tierra_catas_tileset2_36
       rect:
         serializedVersion: 2
-        x: 768
-        y: 768
+        x: 794
+        y: 794
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1179,12 +1182,12 @@ TextureImporter:
       name: tierra_catas_tileset2_37
       rect:
         serializedVersion: 2
-        x: 896
-        y: 768
+        x: 926
+        y: 794
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1200,12 +1203,12 @@ TextureImporter:
       name: tierra_catas_tileset2_38
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 768
+        x: 1058
+        y: 794
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1221,12 +1224,12 @@ TextureImporter:
       name: tierra_catas_tileset2_39
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 768
+        x: 1190
+        y: 794
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1242,12 +1245,12 @@ TextureImporter:
       name: tierra_catas_tileset2_40
       rect:
         serializedVersion: 2
-        x: 0
-        y: 640
+        x: 2
+        y: 662
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1263,12 +1266,12 @@ TextureImporter:
       name: tierra_catas_tileset2_41
       rect:
         serializedVersion: 2
-        x: 128
-        y: 640
+        x: 134
+        y: 662
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1284,12 +1287,12 @@ TextureImporter:
       name: tierra_catas_tileset2_42
       rect:
         serializedVersion: 2
-        x: 256
-        y: 640
+        x: 266
+        y: 662
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1305,12 +1308,12 @@ TextureImporter:
       name: tierra_catas_tileset2_43
       rect:
         serializedVersion: 2
-        x: 384
-        y: 640
+        x: 398
+        y: 662
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1326,12 +1329,12 @@ TextureImporter:
       name: tierra_catas_tileset2_44
       rect:
         serializedVersion: 2
-        x: 512
-        y: 640
+        x: 530
+        y: 662
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1347,12 +1350,12 @@ TextureImporter:
       name: tierra_catas_tileset2_45
       rect:
         serializedVersion: 2
-        x: 640
-        y: 640
+        x: 662
+        y: 662
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1368,12 +1371,12 @@ TextureImporter:
       name: tierra_catas_tileset2_46
       rect:
         serializedVersion: 2
-        x: 768
-        y: 640
+        x: 794
+        y: 662
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1389,12 +1392,12 @@ TextureImporter:
       name: tierra_catas_tileset2_47
       rect:
         serializedVersion: 2
-        x: 896
-        y: 640
+        x: 926
+        y: 662
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1410,12 +1413,12 @@ TextureImporter:
       name: tierra_catas_tileset2_48
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 640
+        x: 1058
+        y: 662
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1431,12 +1434,12 @@ TextureImporter:
       name: tierra_catas_tileset2_49
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 640
+        x: 1190
+        y: 662
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1452,12 +1455,12 @@ TextureImporter:
       name: tierra_catas_tileset2_50
       rect:
         serializedVersion: 2
-        x: 0
-        y: 512
+        x: 2
+        y: 530
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1473,12 +1476,12 @@ TextureImporter:
       name: tierra_catas_tileset2_51
       rect:
         serializedVersion: 2
-        x: 128
-        y: 512
+        x: 134
+        y: 530
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1494,12 +1497,12 @@ TextureImporter:
       name: tierra_catas_tileset2_52
       rect:
         serializedVersion: 2
-        x: 256
-        y: 512
+        x: 266
+        y: 530
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1515,12 +1518,12 @@ TextureImporter:
       name: tierra_catas_tileset2_53
       rect:
         serializedVersion: 2
-        x: 384
-        y: 512
+        x: 398
+        y: 530
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1536,12 +1539,12 @@ TextureImporter:
       name: tierra_catas_tileset2_54
       rect:
         serializedVersion: 2
-        x: 512
-        y: 512
+        x: 530
+        y: 530
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1557,12 +1560,12 @@ TextureImporter:
       name: tierra_catas_tileset2_55
       rect:
         serializedVersion: 2
-        x: 640
-        y: 512
+        x: 662
+        y: 530
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1578,12 +1581,12 @@ TextureImporter:
       name: tierra_catas_tileset2_56
       rect:
         serializedVersion: 2
-        x: 768
-        y: 512
+        x: 794
+        y: 530
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1599,12 +1602,12 @@ TextureImporter:
       name: tierra_catas_tileset2_57
       rect:
         serializedVersion: 2
-        x: 896
-        y: 512
+        x: 926
+        y: 530
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1620,12 +1623,12 @@ TextureImporter:
       name: tierra_catas_tileset2_58
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 512
+        x: 1058
+        y: 530
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1641,12 +1644,12 @@ TextureImporter:
       name: tierra_catas_tileset2_59
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 512
+        x: 1190
+        y: 530
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1662,12 +1665,12 @@ TextureImporter:
       name: tierra_catas_tileset2_60
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
+        x: 2
+        y: 398
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1683,12 +1686,12 @@ TextureImporter:
       name: tierra_catas_tileset2_61
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
+        x: 134
+        y: 398
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1704,12 +1707,12 @@ TextureImporter:
       name: tierra_catas_tileset2_62
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
+        x: 266
+        y: 398
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1725,12 +1728,12 @@ TextureImporter:
       name: tierra_catas_tileset2_63
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
+        x: 398
+        y: 398
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1746,12 +1749,12 @@ TextureImporter:
       name: tierra_catas_tileset2_64
       rect:
         serializedVersion: 2
-        x: 512
-        y: 384
+        x: 530
+        y: 398
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1767,12 +1770,12 @@ TextureImporter:
       name: tierra_catas_tileset2_65
       rect:
         serializedVersion: 2
-        x: 640
-        y: 384
+        x: 662
+        y: 398
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1788,12 +1791,12 @@ TextureImporter:
       name: tierra_catas_tileset2_66
       rect:
         serializedVersion: 2
-        x: 768
-        y: 384
+        x: 794
+        y: 398
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1809,12 +1812,12 @@ TextureImporter:
       name: tierra_catas_tileset2_67
       rect:
         serializedVersion: 2
-        x: 896
-        y: 384
+        x: 926
+        y: 398
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1830,12 +1833,12 @@ TextureImporter:
       name: tierra_catas_tileset2_68
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 384
+        x: 1058
+        y: 398
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1851,12 +1854,12 @@ TextureImporter:
       name: tierra_catas_tileset2_69
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 384
+        x: 1190
+        y: 398
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1872,12 +1875,12 @@ TextureImporter:
       name: tierra_catas_tileset2_70
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
+        x: 2
+        y: 266
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1893,12 +1896,12 @@ TextureImporter:
       name: tierra_catas_tileset2_71
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
+        x: 134
+        y: 266
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1914,12 +1917,12 @@ TextureImporter:
       name: tierra_catas_tileset2_72
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
+        x: 266
+        y: 266
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1935,12 +1938,12 @@ TextureImporter:
       name: tierra_catas_tileset2_73
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
+        x: 398
+        y: 266
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1956,12 +1959,12 @@ TextureImporter:
       name: tierra_catas_tileset2_74
       rect:
         serializedVersion: 2
-        x: 512
-        y: 256
+        x: 530
+        y: 266
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1977,12 +1980,12 @@ TextureImporter:
       name: tierra_catas_tileset2_75
       rect:
         serializedVersion: 2
-        x: 640
-        y: 256
+        x: 662
+        y: 266
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1998,12 +2001,12 @@ TextureImporter:
       name: tierra_catas_tileset2_76
       rect:
         serializedVersion: 2
-        x: 768
-        y: 256
+        x: 794
+        y: 266
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2019,12 +2022,12 @@ TextureImporter:
       name: tierra_catas_tileset2_77
       rect:
         serializedVersion: 2
-        x: 896
-        y: 256
+        x: 926
+        y: 266
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2040,12 +2043,12 @@ TextureImporter:
       name: tierra_catas_tileset2_78
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 256
+        x: 1058
+        y: 266
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2061,12 +2064,12 @@ TextureImporter:
       name: tierra_catas_tileset2_79
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 256
+        x: 1190
+        y: 266
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2082,12 +2085,12 @@ TextureImporter:
       name: tierra_catas_tileset2_80
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 2
+        y: 134
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2103,12 +2106,12 @@ TextureImporter:
       name: tierra_catas_tileset2_81
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 134
+        y: 134
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2124,12 +2127,12 @@ TextureImporter:
       name: tierra_catas_tileset2_82
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
+        x: 266
+        y: 134
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2145,12 +2148,12 @@ TextureImporter:
       name: tierra_catas_tileset2_83
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
+        x: 398
+        y: 134
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2166,12 +2169,12 @@ TextureImporter:
       name: tierra_catas_tileset2_84
       rect:
         serializedVersion: 2
-        x: 512
-        y: 128
+        x: 530
+        y: 134
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2187,12 +2190,12 @@ TextureImporter:
       name: tierra_catas_tileset2_85
       rect:
         serializedVersion: 2
-        x: 640
-        y: 128
+        x: 662
+        y: 134
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2208,12 +2211,12 @@ TextureImporter:
       name: tierra_catas_tileset2_86
       rect:
         serializedVersion: 2
-        x: 768
-        y: 128
+        x: 794
+        y: 134
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2229,12 +2232,12 @@ TextureImporter:
       name: tierra_catas_tileset2_87
       rect:
         serializedVersion: 2
-        x: 896
-        y: 128
+        x: 926
+        y: 134
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2250,12 +2253,12 @@ TextureImporter:
       name: tierra_catas_tileset2_88
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 128
+        x: 1058
+        y: 134
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2271,12 +2274,12 @@ TextureImporter:
       name: tierra_catas_tileset2_89
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 128
+        x: 1190
+        y: 134
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2292,12 +2295,12 @@ TextureImporter:
       name: tierra_catas_tileset2_90
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 2
+        y: 2
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2313,12 +2316,12 @@ TextureImporter:
       name: tierra_catas_tileset2_91
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
+        x: 134
+        y: 2
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2334,12 +2337,12 @@ TextureImporter:
       name: tierra_catas_tileset2_92
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
+        x: 266
+        y: 2
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2355,12 +2358,12 @@ TextureImporter:
       name: tierra_catas_tileset2_93
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
+        x: 398
+        y: 2
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2376,12 +2379,12 @@ TextureImporter:
       name: tierra_catas_tileset2_94
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
+        x: 530
+        y: 2
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2397,12 +2400,12 @@ TextureImporter:
       name: tierra_catas_tileset2_95
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
+        x: 662
+        y: 2
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2418,12 +2421,12 @@ TextureImporter:
       name: tierra_catas_tileset2_96
       rect:
         serializedVersion: 2
-        x: 768
-        y: 0
+        x: 794
+        y: 2
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2439,12 +2442,12 @@ TextureImporter:
       name: tierra_catas_tileset2_97
       rect:
         serializedVersion: 2
-        x: 896
-        y: 0
+        x: 926
+        y: 2
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2460,12 +2463,12 @@ TextureImporter:
       name: tierra_catas_tileset2_98
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 0
+        x: 1058
+        y: 2
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2481,12 +2484,12 @@ TextureImporter:
       name: tierra_catas_tileset2_99
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 0
+        x: 1190
+        y: 2
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -6,9 +6,39 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Nix(34).unity
+    guid: bfb1288927cc0b34287afa033c33dc84
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c0720812262c794509e1051fa1df19fd
   - enabled: 1
     path: Assets/Scenes/World.unity
     guid: d0651cb6e3e498dda9cdc83209b6ed94
+  - enabled: 1
+    path: Assets/Scenes/Iglesia.unity
+    guid: 9c049a325f46953488477e8cd6a8dea6
+  - enabled: 1
+    path: Assets/Scenes/Catacumbas(4).unity
+    guid: 9a2bd35681292614fad3131231c16060
+  - enabled: 1
+    path: Assets/Scenes/Catacumbas(3).unity
+    guid: a6b9b038081370242b6e8b662162d368
+  - enabled: 1
+    path: Assets/Scenes/Catacumbas(2).unity
+    guid: 5be73fc4ff8d37142ac8eadacd6ac0f1
+  - enabled: 1
+    path: Assets/Scenes/Catacumbas(1).unity
+    guid: b7304e14c6752b4438c5316632becb76
+  - enabled: 1
+    path: Assets/Scenes/Catacumbas(5).unity
+    guid: 16539aae97cc12f4383516c2c8722c1a
+  - enabled: 1
+    path: Assets/Scenes/Ullathorpe.unity
+    guid: b7904527be787464bab5a8e1456c0177
+  - enabled: 1
+    path: Assets/Scenes/Catacumbas(6).unity
+    guid: 17cb182a75434454090343732a6c00cc
+  - enabled: 1
+    path: Assets/Scenes/35.unity
+    guid: a97f96916c0f76246a0d061eb8786c7b
   m_configObjects: {}
