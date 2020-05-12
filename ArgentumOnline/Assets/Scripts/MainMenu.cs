@@ -25,11 +25,11 @@ public class MainMenu : MonoBehaviour
       string server_port_string       = server_port_input.text;
 
       if(username_str == null || username_str.Length<3){
-          EditorUtility.DisplayDialog("Username invalido","Por favor ingrese un username valido", "OK");
+        //  EditorUtility.DisplayDialog("Username invalido","Por favor ingrese un username valido", "OK");
           return;
       }
       if(password_str == null || password_str.Length<3){
-          EditorUtility.DisplayDialog("Password invalido","Por favor ingrese un password valido", "OK");
+          //EditorUtility.DisplayDialog("Password invalido","Por favor ingrese un password valido", "OK");
           return;
       }
 

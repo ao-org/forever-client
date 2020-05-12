@@ -833,7 +833,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131906330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.7, y: 0, z: 0}
+  m_LocalPosition: {x: 20.7, y: 0.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1045057201}
@@ -848,10 +848,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 131906330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb5987cb17f3db43aea2a3c1661859e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0171ab054798bb782a992cc3603c6a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: catacumbas(4)
+  scene: Catacumbas(4)
+  teleport_x: 12
+  teleport_y: -89
+  locky: 0
+  lockx: 1
 --- !u!61 &131906333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30478,7 +30482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381423741}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.5, y: -1.71, z: 0}
+  m_LocalPosition: {x: 21.93, y: -89.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 607711180}
@@ -31666,7 +31670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497271654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.4, y: -89.5, z: 0}
+  m_LocalPosition: {x: 19.4, y: -90.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1045057201}
@@ -31681,10 +31685,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1497271654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb5987cb17f3db43aea2a3c1661859e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0171ab054798bb782a992cc3603c6a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Catacumbas(2)
+  teleport_x: 12
+  teleport_y: 2
+  locky: 0
+  lockx: 1
 --- !u!61 &1497271657
 BoxCollider2D:
   m_ObjectHideFlags: 0

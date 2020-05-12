@@ -122,7 +122,7 @@ TextureImporter:
         width: 765
         height: 768
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,6 +130,27 @@ TextureImporter:
       bones: []
       spriteID: 186dfc1c72b915360800000000000000
       internalID: 7156671877926082177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nix_sprites_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b186dccb07bd8170800000000000000
+      internalID: 8182397359311192504
       vertices: []
       indices: 
       edges: []

@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 2810582672179071048
     second: nix_sprites_MASK_0
+  - first:
+      213: 2424446718539620447
+    second: nix_sprites_MASK_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,7 +116,7 @@ TextureImporter:
         width: 766
         height: 767
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,6 +124,27 @@ TextureImporter:
       bones: []
       spriteID: 8480a1b9c02310720800000000000000
       internalID: 2810582672179071048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nix_sprites_MASK_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 0
+        width: 1024
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f506a6bf17d55a120800000000000000
+      internalID: 2424446718539620447
       vertices: []
       indices: 
       edges: []

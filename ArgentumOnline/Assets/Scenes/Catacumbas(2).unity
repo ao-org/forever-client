@@ -534,10 +534,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 58886763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb5987cb17f3db43aea2a3c1661859e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0171ab054798bb782a992cc3603c6a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Catacumbas(1)
+  teleport_x: 69
+  teleport_y: 7
+  locky: 1
+  lockx: 0
 --- !u!61 &58886766
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -551,7 +555,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.044347763, y: 0.9756508}
+  m_Offset: {x: -0.6036053, y: 0.9756508}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -562,7 +566,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9113045, y: 10.667656}
+  m_Size: {x: 0.74352646, y: 10.667656}
   m_EdgeRadius: 0
 --- !u!1 &150689308
 GameObject:
@@ -21478,7 +21482,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.50218964, y: 0.627738}
+  m_Offset: {x: 0.50218964, y: 1.5408258}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -21489,7 +21493,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.847305, y: 0.84934044}
+  m_Size: {x: 11.847305, y: 0.7595272}
   m_EdgeRadius: 0
 --- !u!1 &1305475547
 GameObject:
@@ -22966,7 +22970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622282365}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.5, y: -1.71, z: 0}
+  m_LocalPosition: {x: -42.66, y: -59.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1877769847}

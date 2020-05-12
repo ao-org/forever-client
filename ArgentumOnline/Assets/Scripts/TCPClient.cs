@@ -343,12 +343,14 @@ public class TCPClient : MonoBehaviour {
 				Tuple<string, Exception> e;
 				if (mEventsQueue.TryDequeue(out e)){
 					Debug.Log("Event {" + e.Item2.Message + "}");
+					/*
 					if(e.Item2 !=null){
 						EditorUtility.DisplayDialog("e.Item1",e.Item2.Message, "OK");
 					}
 					else{
 						EditorUtility.DisplayDialog("e.Item1","Whatever", "OK");
 					}
+					*/
 				}
 			}
 		}
