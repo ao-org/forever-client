@@ -13,6 +13,18 @@ using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
+    public void ShowMessageBox(string title,string text)
+    {
+        Text TitleText = GameObject.Find("MsgBoxTitle").GetComponent<Text>();
+        Debug.Assert(TitleText!=null);
+        TitleText.text = title;
+        Text BodyText = GameObject.Find("MsgBoxText").GetComponent<Text>();
+        Debug.Assert(BodyText!=null);
+        BodyText.text = text;
+        GameObject mm = GameObject.Find("MessageBox");
+		Debug.Assert(mm!=null);
+        mm.gameObject.SetActive (true);
+    }
     public void PlayGame(){
       InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
       InputField server_port_input    = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
@@ -42,6 +54,7 @@ public class MainMenu : MonoBehaviour
         }
         else {
             Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
+            client.SetMainMenu(this);
             client.SetUsernameAndPassword(username_str,password_str);
             client.ConnectToTcpServer(server_address_string,server_port_string);
         }

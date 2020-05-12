@@ -12,7 +12,7 @@ using System.Threading;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEditor;
+using UnityEngine.UI;
 
 using System.IO;
 using System.Security.Cryptography;
@@ -219,7 +219,7 @@ public class ProtoLoginRequest : ProtoBase
 		//var du	= CryptoHelper.Decrypt(n,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
 		string  asd = CryptoHelper.Decrypt(encrypted_username, Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
 		Debug.Log("DEC encrypted username : [" +  asd + "]");
-		Debug.Assert(username == asd);
+		///Debug.Assert(username == asd);
 
 		Debug.Log("Decrypted Token : " + CryptoHelper.Token);
 
@@ -266,6 +266,7 @@ public class TCPClient : MonoBehaviour {
 	private string 		mServerPort;
 	private string		mUsername;
 	private string		mPassword;
+	private MainMenu	mMainMenu;
 
 	public bool IsConnected(){
 		if(mSocket == null){
@@ -330,27 +331,34 @@ public class TCPClient : MonoBehaviour {
 	}
 	public int ProcessLoginError(byte[] data){
 		Debug.Log("ProcessLoginError");
+		//TODO get error value and add desc to message
 		mEventsQueue.Enqueue(Tuple.Create("Login Error",(Exception)null));
 		return 1;
 	}
-	void Start () {
+	void Start (){
 		Debug.Log("Initializing TCPClient");
 		mIncommingData = new List<byte>();
+	}
+	public void SetMainMenu(MainMenu m){
+			Debug.Assert(m!=null);
+			mMainMenu = m;
+	}
+	void ShowMessageBox(string title, string message){
+		Debug.Log("ShowMessageBox " + title + " " + message);
+		mMainMenu.ShowMessageBox(title,message);
 	}
 	void Update(){
 		try {
 			if (mEventsQueue.Count > 0){
 				Tuple<string, Exception> e;
 				if (mEventsQueue.TryDequeue(out e)){
-					Debug.Log("Event {" + e.Item2.Message + "}");
-					/*
 					if(e.Item2 !=null){
-						EditorUtility.DisplayDialog("e.Item1",e.Item2.Message, "OK");
+						Debug.Log("Event {" + e.Item2.Message + "}");
+						ShowMessageBox(e.Item1,e.Item2.Message);
 					}
 					else{
-						EditorUtility.DisplayDialog("e.Item1","Whatever", "OK");
+						ShowMessageBox(e.Item1,"Whatever");
 					}
-					*/
 				}
 			}
 		}
@@ -475,17 +483,19 @@ public class TCPClient : MonoBehaviour {
 		}
 		catch (SocketException socketException){
 			Debug.Log("Socket exception: " + socketException);
-			OnConnectionError(socketException);
+			//OnConnectionError(socketException);
 		}
 		catch(Exception e){
 			Debug.Log("Socket exception: " + e);
-			OnConnectionError(e);
+			//OnConnectionError(e);
 		}
 	}
 
 	private void WaitAndSendMessageWorkload() {
 		while (true) {
 			try {
+				if( mSocket!=null && mSocket.Connected )
+				{
 				// Get a stream object for writing.
 				NetworkStream stream = mSocket.GetStream();
 				while (mSendQueue.Count > 0)
@@ -500,10 +510,15 @@ public class TCPClient : MonoBehaviour {
 						}
 					}
 				}
+				}
 			}
 			catch (SocketException socketException) {
 				Debug.Log("Socket exception: " + socketException);
-				OnConnectionError(socketException);
+				//OnConnectionError(socketException);
+			}
+			catch(Exception e){
+				Debug.Log("Socket exception: " + e);
+				//OnConnectionError(e);
 			}
 		}
 	}
