@@ -18,6 +18,8 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Linq;
 
+
+
 public class CryptoHelper
 {
 		public static string PublicKey = null;
@@ -32,7 +34,6 @@ public class CryptoHelper
 
 		public static byte[] Base64EncodeBytes(byte[] bytes)
 		{
-			//public static int ToBase64CharArray (byte[] inArray, int offsetIn, int length, char[] outArray, int offsetOut, Base64FormattingOptions options);
 			char[] encodedArray = new char[1024];
 			int size = Convert.ToBase64CharArray (bytes, 0, bytes.Length,encodedArray , 0,Base64FormattingOptions.None);
 			var d = System.Text.Encoding.ASCII.GetBytes(encodedArray);

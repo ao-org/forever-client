@@ -13,6 +13,16 @@ using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
+
+    static public IDictionary<string,string> MenuStrings = new Dictionary<string,string>()
+                        {
+                            {"BOTON_JUGAR"			, "JUGAR"},
+                            {"BOTON_OPCIONES"		, "OPCIONES"},
+                            {"BOTON_SALIR"		    , "SALIR"},
+                            {"TEXTO_USUARIO"		, "Nombre de Usuario"},
+                            {"TEXTO_CLAVE"       	, "Clave"},
+                        };
+
     public void ShowMessageBox(string title,string text)
     {
         Text TitleText = GameObject.Find("MsgBoxTitle").GetComponent<Text>();
