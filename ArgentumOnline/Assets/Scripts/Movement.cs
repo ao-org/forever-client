@@ -32,6 +32,18 @@ public class Movement : MonoBehaviour
     private Tilemap mTilemapLevel1;
     private Animator mAnimator;
 
+    void Awake()
+    {
+        if (WarpingDestination.warping)
+        {
+            UnityEngine.Debug.Log("Warp X:" + WarpingDestination.teleport_x + " Y:" + WarpingDestination.teleport_y);
+            Vector3 newpos = transform.position;
+            newpos.x = WarpingDestination.teleport_x;
+            newpos.y = WarpingDestination.teleport_y;
+            this.transform.position = newpos;
+            WarpingDestination.warping = false;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -41,15 +53,7 @@ public class Movement : MonoBehaviour
         mTilemapLevel1 = GameObject.Find("TilemapNivel1").GetComponent<Tilemap>();
         dir = Direction.South;
         gameObject.GetComponent<Animator>().Play("FantasmaCaminaSur");
-        if (WarpingDestination.warping)
-        {
-            UnityEngine.Debug.Log("Warp X:" + WarpingDestination.teleport_x + " Y:" + WarpingDestination.teleport_y);
-            Vector3 newpos = transform.position;
-            newpos.x = WarpingDestination.teleport_x;
-            newpos.y = WarpingDestination.teleport_y;
-            TryToMove(newpos);
-            WarpingDestination.warping = false;
-        }
+
     }
     private bool IsThereSomething(Vector3 pos)
     {
