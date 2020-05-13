@@ -10,10 +10,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine.Localization;
+
 
 public class MainMenu : MonoBehaviour
 {
 
+    void Awake(){
+        //var translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("PLAY_BUTTON");
+        //Debug.Log("Translated Text: " + translatedText);
+    }
     static public IDictionary<string,string> MenuStrings = new Dictionary<string,string>()
                         {
                             {"BOTON_JUGAR"			, "JUGAR"},
@@ -35,6 +41,7 @@ public class MainMenu : MonoBehaviour
 		Debug.Assert(mm!=null);
         mm.gameObject.SetActive (true);
     }
+
     public void PlayGame(){
       InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
       InputField server_port_input    = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
