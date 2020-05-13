@@ -4,6 +4,7 @@
     noland.studios@gmail.com
 */
 
+using System;
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -14,16 +15,16 @@ using UnityEngine.Tilemaps;
 
 public class Movement : MonoBehaviour
 {
-   enum Direction
+   public enum Direction
    {
-    South = 0,
-    North = 1,
-    West = 2,
-    East = 3,
-    SouthEast = 4,
-    SouthWest =5,
-    NorthWest = 6,
-    NorthEast = 7
+        South = 0,
+        North = 1,
+        West = 2,
+        East = 3,
+        SouthEast = 4,
+        SouthWest =5,
+        NorthWest = 6,
+        NorthEast = 7
     }
     private Direction dir = Movement.Direction.South;
     private float WalkSpeed = 6.0f;
@@ -31,45 +32,39 @@ public class Movement : MonoBehaviour
     private Tilemap mWaterTilemap;
     private Tilemap mTilemapLevel1;
     private Animator mAnimator;
-
-    void Awake()
-    {
-        if (WarpingDestination.warping)
-        {
+    public Direction GetDirection() { return dir; }
+    void Awake(){
+        if (WarpingDestination.warping){
             UnityEngine.Debug.Log("Warp X:" + WarpingDestination.teleport_x + " Y:" + WarpingDestination.teleport_y);
             Vector3 newpos = transform.position;
             newpos.x = WarpingDestination.teleport_x;
             newpos.y = WarpingDestination.teleport_y;
             this.transform.position = newpos;
             WarpingDestination.warping = false;
+            this.dir = WarpingDestination.direction;
+        }
+        else {
+            dir = Direction.South;
+            gameObject.GetComponent<Animator>().Play("FantasmaCaminaSur");
         }
     }
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         mAnimator = gameObject.GetComponent<Animator>();
         mBody = GetComponent<Rigidbody2D>();
         mWaterTilemap = GameObject.Find("Tilemap_base").GetComponent<Tilemap>();
         mTilemapLevel1 = GameObject.Find("TilemapNivel1").GetComponent<Tilemap>();
-        dir = Direction.South;
-        gameObject.GetComponent<Animator>().Play("FantasmaCaminaSur");
-
     }
-    private bool IsThereSomething(Vector3 pos)
-    {
+    private bool IsThereSomething(Vector3 pos){
         Vector3Int cellPosition = mTilemapLevel1.WorldToCell(pos);
         return mTilemapLevel1.HasTile(cellPosition);
     }
-
-    private bool IsThereWater(Vector3 pos)
-    {
+    private bool IsThereWater(Vector3 pos){
         Vector3Int cellPosition = mWaterTilemap.WorldToCell(pos);
         //UnityEngine.Debug.Log("Pos " + cellPosition);
         return mWaterTilemap.HasTile(cellPosition);
     }
-
-    private bool TryToMove(Vector3 pos)
-    {
+    private bool TryToMove(Vector3 pos){
         if(IsThereWater(pos))
         {
             // nothing to do
@@ -81,10 +76,8 @@ public class Movement : MonoBehaviour
             return true;
         }
     }
-
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
       bool RightArrowPressed  = Input.GetKey(KeyCode.RightArrow);
       bool LeftArrowPressed   = Input.GetKey(KeyCode.LeftArrow);
       bool UpArrowPressed     = Input.GetKey(KeyCode.UpArrow);
@@ -142,12 +135,27 @@ public class Movement : MonoBehaviour
               TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime + Vector3.down * WalkSpeed * Time.deltaTime );
       }
       if(!Moving) {
-              if( dir == Direction.South )
-                  mAnimator.Play("FantasmaCaminaSur");
-              else if (dir == Direction.North)
-                  mAnimator.Play("FantasmaCaminaNorte");
-              else
-                  mAnimator.Play("FantasmaCaminaSur");
+            switch(dir)
+            {
+                case Direction.South:
+                    mAnimator.Play("FantasmaCaminaSur");break;
+                case Direction.North:
+                    mAnimator.Play("FantasmaCaminaNorte");break;
+                case Direction.West:
+                    mAnimator.Play("FantasmaCaminaOeste");break;
+                case Direction.East:
+                    mAnimator.Play("FantasmaCaminaEste");break;
+                case Direction.SouthWest:
+                    mAnimator.Play("FantasmaCaminaSuroeste");break;
+                case Direction.NorthWest:
+                    mAnimator.Play("FantasmaCaminaNoroeste");break;
+                case Direction.NorthEast:
+                    mAnimator.Play("FantasmaCaminaNoreste");break;
+                case Direction.SouthEast:
+                    mAnimator.Play("FantasmaCaminaSureste");break;
+                default:
+                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
+            }
       }
     }
 }

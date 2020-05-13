@@ -11,7 +11,8 @@ public class WarpingDestination
     public static float teleport_x=0;
     public static float teleport_y=0;
     public static bool warping = false;
-    
+    public static Movement.Direction direction= Movement.Direction.North;
+
 }
 
 
@@ -30,8 +31,9 @@ public class OnEnterLoadScene : MonoBehaviour
             SceneManager.LoadScene(scene);
             GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
             UnityEngine.Debug.Assert(player!=null);
+
             float x = float.Parse(teleport_x);
-            float y = float.Parse(teleport_y);                 
+            float y = float.Parse(teleport_y);
             if(!lockx){
                 WarpingDestination.teleport_x = x;
             }
@@ -45,6 +47,7 @@ public class OnEnterLoadScene : MonoBehaviour
                 WarpingDestination.teleport_y = player.transform.position.y;
             }
             UnityEngine.Debug.Log("Teleporting player to x:" + WarpingDestination.teleport_x + " y:" + WarpingDestination.teleport_y);
+            WarpingDestination.direction=player.GetComponent<Movement>().GetDirection();
             WarpingDestination.warping = true;
         }
         else {
