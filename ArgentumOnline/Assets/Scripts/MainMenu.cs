@@ -10,9 +10,38 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine.Localization;
+
 
 public class MainMenu : MonoBehaviour
 {
+
+    void Awake(){
+        //var translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("PLAY_BUTTON");
+        //Debug.Log("Translated Text: " + translatedText);
+    }
+    static public IDictionary<string,string> MenuStrings = new Dictionary<string,string>()
+                        {
+                            {"BOTON_JUGAR"			, "JUGAR"},
+                            {"BOTON_OPCIONES"		, "OPCIONES"},
+                            {"BOTON_SALIR"		    , "SALIR"},
+                            {"TEXTO_USUARIO"		, "Nombre de Usuario"},
+                            {"TEXTO_CLAVE"       	, "Clave"},
+                        };
+
+    public void ShowMessageBox(string title,string text)
+    {
+        Text TitleText = GameObject.Find("MsgBoxTitle").GetComponent<Text>();
+        Debug.Assert(TitleText!=null);
+        TitleText.text = title;
+        Text BodyText = GameObject.Find("MsgBoxText").GetComponent<Text>();
+        Debug.Assert(BodyText!=null);
+        BodyText.text = text;
+        GameObject mm = GameObject.Find("MessageBox");
+		Debug.Assert(mm!=null);
+        mm.gameObject.SetActive (true);
+    }
+
     public void PlayGame(){
       InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
       InputField server_port_input    = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
@@ -42,6 +71,7 @@ public class MainMenu : MonoBehaviour
         }
         else {
             Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
+            client.SetMainMenu(this);
             client.SetUsernameAndPassword(username_str,password_str);
             client.ConnectToTcpServer(server_address_string,server_port_string);
         }
