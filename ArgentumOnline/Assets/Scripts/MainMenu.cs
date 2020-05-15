@@ -11,11 +11,36 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEditor;
 using UnityEngine.Localization;
-
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
+    private EventSystem mEventSystem;
+    private void Update(){
+        if (Input.GetKeyDown(KeyCode.Tab)){
+            Selectable next = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ?
+            mEventSystem.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnUp() :
+            mEventSystem.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnDown();
 
+            if (next != null)
+            {
+                InputField inputfield = next.GetComponent<InputField>();
+                if (inputfield != null)
+                inputfield.OnPointerClick(new PointerEventData(mEventSystem));
+                mEventSystem.SetSelectedGameObject(next.gameObject);
+            }
+            //Here is the navigating back part:
+            else {
+                next = Selectable.allSelectables[0];
+                mEventSystem.SetSelectedGameObject(next.gameObject);
+            }
+        }
+    }
+    private void Start()
+    {
+         mEventSystem = EventSystem.current;
+
+    }
     void Awake(){
         //var translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("PLAY_BUTTON");
         //Debug.Log("Translated Text: " + translatedText);
