@@ -16,6 +16,11 @@ using UnityEngine.EventSystems;
 public class MainMenu : MonoBehaviour
 {
     private EventSystem mEventSystem;
+
+    public void OnApplicationQuit(){
+            Debug.Log("Application ending after " + Time.time + " seconds");
+    }
+
     private void Update(){
         if (Input.GetKeyDown(KeyCode.Tab)){
             Selectable next = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ?
@@ -36,10 +41,13 @@ public class MainMenu : MonoBehaviour
             }
         }
     }
+    private TCPClient mTcpClient;
     private void Start()
     {
          mEventSystem = EventSystem.current;
-
+         GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("TCPClient")[0];
+         mTcpClient = tcp_client_object.GetComponent<TCPClient>();
+         mTcpClient.SetMainMenu(this);
     }
     void Awake(){
         //var translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("PLAY_BUTTON");
@@ -89,16 +97,15 @@ public class MainMenu : MonoBehaviour
 
       try {
         //Attempt to connect to game Server
-        GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("TCPClient")[0];
-        TCPClient client = tcp_client_object.GetComponent<TCPClient>();
-        if( client.IsConnected()){
-            client.AttemptToLogin();
+        //GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("TCPClient")[0];
+        //TCPClient client = tcp_client_object.GetComponent<TCPClient>();
+        if( mTcpClient.IsConnected()){
+            mTcpClient.AttemptToLogin();
         }
         else {
             Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
-            client.SetMainMenu(this);
-            client.SetUsernameAndPassword(username_str,password_str);
-            client.ConnectToTcpServer(server_address_string,server_port_string);
+            mTcpClient.SetUsernameAndPassword(username_str,password_str);
+            mTcpClient.ConnectToTcpServer(server_address_string,server_port_string);
         }
         //SceneManager.LoadScene("World");
       }

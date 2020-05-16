@@ -268,6 +268,7 @@ public class TCPClient : MonoBehaviour {
 	private string		mUsername;
 	private string		mPassword;
 	private MainMenu	mMainMenu;
+	private bool		mAppQuit;
 
 	public bool IsConnected(){
 		if(mSocket == null){
@@ -339,10 +340,11 @@ public class TCPClient : MonoBehaviour {
 	void Start (){
 		Debug.Log("Initializing TCPClient");
 		mIncommingData = new List<byte>();
+		mAppQuit = false;
 	}
 	public void SetMainMenu(MainMenu m){
-			Debug.Assert(m!=null);
-			mMainMenu = m;
+		Debug.Assert(m!=null);
+		mMainMenu = m;
 	}
 	void ShowMessageBox(string title, string message){
 		Debug.Log("ShowMessageBox " + title + " " + message);
@@ -394,7 +396,6 @@ public class TCPClient : MonoBehaviour {
 
    	private void OnConnectionEstablished()
    	{
-
 	   Debug.Log("OnConnectionEstablished!!!");
 	   //Upon connection we create the send workload which will be responsible for
 	   //sending messages to the server through the tpc connection.
@@ -409,6 +410,7 @@ public class TCPClient : MonoBehaviour {
 	/// passed in as remote_ip and remote_port
 	/// </summary>
 	public void ConnectToTcpServer (string remote_ip, string remote_port) {
+		mAppQuit = false;
 		if( mSocket!=null && mSocket.Connected )
 		{
 				Debug.Log("Already connected to the server!.");
@@ -428,12 +430,14 @@ public class TCPClient : MonoBehaviour {
 		}
 	}
 
-	private int ProcessPacket(short id, byte[] data)
-	{
+	private int ProcessPacket(short id, byte[] data){
 		return PocessFunctions[id](this,data);
 	}
 
-
+	public void OnApplicationQuit(){
+            Debug.Log("TCPCLIENT Application ending after " + Time.time + " seconds");
+			mAppQuit = true;
+    }
 	/// <summary>
 	/// Runs in background mReceiveThread; Listens for incomming data.
 	/// </summary>
@@ -444,7 +448,7 @@ public class TCPClient : MonoBehaviour {
 			if(mSocket.Connected){
 				OnConnectionEstablished();
 			}
-			while (true) {
+			while (!mAppQuit) {
 				// Get a stream object for reading
 				using (NetworkStream stream = mSocket.GetStream()) {
 					int length;
@@ -481,6 +485,7 @@ public class TCPClient : MonoBehaviour {
 					}
 				}
 			}
+			Debug.Log("ListenForDataWorkload thread finished due to OnApplicationQuit event!");
 		}
 		catch (SocketException socketException){
 			Debug.Log("Socket exception: " + socketException);
@@ -493,7 +498,7 @@ public class TCPClient : MonoBehaviour {
 	}
 
 	private void WaitAndSendMessageWorkload() {
-		while (true) {
+		while (!mAppQuit) {
 			try {
 				if( mSocket!=null && mSocket.Connected )
 				{
@@ -522,6 +527,7 @@ public class TCPClient : MonoBehaviour {
 				//OnConnectionError(e);
 			}
 		}
+		Debug.Log("WaitAndSendMessageWorkload thread finished due to OnApplicationQuit event!");
 	}
 
 	/// <summary>
