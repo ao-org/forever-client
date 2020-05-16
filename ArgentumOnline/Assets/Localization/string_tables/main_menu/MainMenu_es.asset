@@ -46,5 +46,10 @@ MonoBehaviour:
     m_Localized: La cuenta no existe
     m_Metadata:
       m_Items: []
+  - m_Id: 8
+    m_Localized: La cuenta esta siendo utilizada en este momento y no se permiten
+      mas de un conexion por cuenta.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

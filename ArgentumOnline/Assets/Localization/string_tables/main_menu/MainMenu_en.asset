@@ -46,5 +46,10 @@ MonoBehaviour:
     m_Localized: Invalid account
     m_Metadata:
       m_Items: []
+  - m_Id: 8
+    m_Localized: The user is already online and multiple concurrent sessions on a
+      single account is not allowed.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

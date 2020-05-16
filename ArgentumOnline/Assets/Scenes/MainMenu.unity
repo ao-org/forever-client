@@ -3438,11 +3438,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806dbf45be6e70a109d8dbda1aad4411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoginErrMsgboxTitleString:
+  LoginErrText_MSGBOX_TITLE:
     m_TableReference:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 6
+      m_Key: 
+  LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 8
+      m_Key: 
+  LoginErrText_ACCOUNT_DOESNT_EXIST:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 7
       m_Key: 
 --- !u!1 &2107173477
 GameObject:
