@@ -38,5 +38,13 @@ MonoBehaviour:
     m_Localized: Password
     m_Metadata:
       m_Items: []
+  - m_Id: 6
+    m_Localized: Login error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: Invalid account
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -3438,6 +3438,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806dbf45be6e70a109d8dbda1aad4411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LoginErrMsgboxTitleString:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 6
+      m_Key: 
 --- !u!1 &2107173477
 GameObject:
   m_ObjectHideFlags: 0

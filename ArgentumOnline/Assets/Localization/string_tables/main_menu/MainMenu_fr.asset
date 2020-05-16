@@ -38,5 +38,13 @@ MonoBehaviour:
     m_Localized: Mot clee
     m_Metadata:
       m_Items: []
+  - m_Id: 6
+    m_Localized: Error du login
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: La compte n'existe pas
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

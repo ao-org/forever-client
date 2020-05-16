@@ -15,6 +15,8 @@ using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
+    public LocalizedString LoginErrMsgboxTitleString;
+
     private EventSystem mEventSystem;
 
     public void OnApplicationQuit(){
@@ -62,14 +64,30 @@ public class MainMenu : MonoBehaviour
                             {"TEXTO_CLAVE"       	, "Clave"},
                         };
 
-    public void ShowMessageBox(string title,string text)
+    public void ShowMessageBox(string title,string text, bool localize = false)
     {
+        string final_title_string = title;
+        string final_text_string  = text;
+        if(title == "LOGIN_ERROR_MSG_BOX_TITLE"){
+            var localizedText = LoginErrMsgboxTitleString.GetLocalizedString();
+            Debug.Assert(localizedText.IsDone);
+            Debug.Log("LocalizedString " + localizedText.Result);
+            final_title_string = localizedText.Result;
+        }
+        /*
+        if("LOGIN_ERROR_MSG_BOX_TITLE"){
+            var localizedText = LoginErrMsgboxTitleString.GetLocalizedString();
+            Debug.Assert(localizedText.IsDone);
+            Debug.Log("LocalizedString " + localizedText.Result);
+            localized_title_text = localizedText.Result;
+        }
+*/
         Text TitleText = GameObject.Find("MsgBoxTitle").GetComponent<Text>();
         Debug.Assert(TitleText!=null);
-        TitleText.text = title;
+        TitleText.text = final_title_string;
         Text BodyText = GameObject.Find("MsgBoxText").GetComponent<Text>();
         Debug.Assert(BodyText!=null);
-        BodyText.text = text;
+        BodyText.text = final_text_string;
         GameObject mm = GameObject.Find("MessageBox");
 		Debug.Assert(mm!=null);
         mm.gameObject.SetActive (true);

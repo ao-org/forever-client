@@ -120,6 +120,45 @@ public class CryptoHelper
 //Base class for all protocol messages
 public class ProtoBase
 {
+
+
+	static public IDictionary<string,short> LoginProtocolErrors = new Dictionary<string,short>()
+						{
+							{"ACCOUNT_ALREADY_EXISTS"				, 0x00},
+							{"ACCOUNT_DOESNT_EXIST"					, 0x01},
+							{"CANNOT_OPEN_ACCOUNT_FILE"				, 0x02},
+							{"CORRUPT_ACCOUNT_FILE"					, 0x03},
+							{"USER_ALREADY_HOLDS_ACTIVE_SESSION"    , 0x04},
+							{"WRONG_PASSWORD"						, 0x05},
+							{"USER_IS_BANNED"						, 0x06},
+							{"REACHED_MAX_USER_COUNT"				, 0x07},
+							{"VALIDATION_METHOD_FAILED"				, 0x08},
+							{"MUST_ACTIVATE_ACCOUNT"				, 0x09},
+							{"INVALID_ACTIVATION_CODE"				, 0x0A},
+							{"ACCOUNT_ALREADY_ACTIVE"				, 0x0B},
+							{"INVALID_EMAIL"						, 0x0C},
+							{"INVALID_PUBLIC_KEY"					, 0x0D},
+							{"PASSWORD_TOO_SHORT"					, 0x0E},
+							{"PASSWORD_TOO_LONG"					, 0x0F},
+							{"PASSWORD_IS_NOT_ALNUM"				, 0x10},
+							{"OLD_PASSWORD_IS_NOT_VALID"			, 0x11},
+							{"USERNAME_TOO_SHORT"					, 0x12},
+							{"USERNAME_TOO_LONG"					, 0x13},
+							{"USERNAME_IS_NOT_ALNUM"				, 0x14},
+							{"INVALID_PASSWORD_RESET_CODE"			, 0x15},
+							{"INVALID_PASSWORD_RESET_HOST"			, 0x16},
+							{"TRY_LATER"							, 0x17},
+							{"PASSWORD_CANNOT_CONTAIN_USERNAME"		, 0x18},
+							{"INVALID_DELETE_CODE"					, 0x19},
+							{"USERNAME_CANNOT_START_WITH_NUMBER"	, 0x20},
+							{"PASSWORD_MUST_HAVE_ONE_UPPERCASE"		, 0x21},
+							{"PASSWORD_MUST_HAVE_ONE_LOWERCASE"		, 0x22},
+							{"PASSWORD_MUST_HAVE_TWO_NUMBERS"		, 0x23},
+							{"CLOSED_MAINTENANCE"					, 0x24},
+							{"CLOSED_BETA_TESTING"					, 0x25},
+							{"NO_ERROR"								, 0xFF}
+						};
+
 	static public IDictionary<string,short> ProtocolNumbers = new Dictionary<string,short>()
                         {
                         	{"OPEN_SESSION"			, unchecked((short)0x00AA)},
@@ -146,6 +185,15 @@ public class ProtoBase
 							{"RESET_PASSWORD"		, unchecked((short)0xFBFB)},
 							{"RESET_PASSWORD_OKAY"	, unchecked((short)0x2016)}
 						};
+
+	static public string LoginErrorCodeToString(short code){
+		foreach(var pair in LoginProtocolErrors)
+		{
+    		if(pair.Value == code) return pair.Key;
+		}
+		Debug.Assert(false);
+		return "TRY_LATER";
+	}
 
 	static public string PrivateKey = "pablomarquezARG1";
 	public ProtoBase(){}
@@ -281,7 +329,7 @@ public class TCPClient : MonoBehaviour {
 	// Construct a ConcurrentQueue for Sending messages to the server
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	// Connection events queue
-	private ConcurrentQueue<Tuple<string, Exception>> mEventsQueue = new ConcurrentQueue<Tuple<string, Exception>>();
+	private ConcurrentQueue<Tuple<string, string>> mEventsQueue = new ConcurrentQueue<Tuple<string, string>>();
 	#endregion
 
 	static Dictionary<short, Func<TCPClient, byte[], int>> PocessFunctions
@@ -323,18 +371,20 @@ public class TCPClient : MonoBehaviour {
 	}
 	public int ProcessSessionError(byte[] data){
 		Debug.Log("ProcessSessionError");
-		mEventsQueue.Enqueue(Tuple.Create("Cannot open session",(Exception)null));
+		var error_string = ProtoBase.LoginErrorCodeToString(data[0]);
+		mEventsQueue.Enqueue(Tuple.Create("Cannot open session",error_string));
 		return 1;
 	}
 	public int ProcessLoginOkay(byte[] data){
 		Debug.Log("ProcessLoginOkay");
-		mEventsQueue.Enqueue(Tuple.Create("Login OK",(Exception)null));
+		mEventsQueue.Enqueue(Tuple.Create("LOGIN_OKAY",""));
 		return 1;
 	}
 	public int ProcessLoginError(byte[] data){
 		Debug.Log("ProcessLoginError");
-		//TODO get error value and add desc to message
-		mEventsQueue.Enqueue(Tuple.Create("Login Error",(Exception)null));
+		short error_code = ProtoBase.DecodeShort(data);
+		var error_string = ProtoBase.LoginErrorCodeToString(error_code);
+		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
 		return 1;
 	}
 	void Start (){
@@ -348,16 +398,16 @@ public class TCPClient : MonoBehaviour {
 	}
 	void ShowMessageBox(string title, string message){
 		Debug.Log("ShowMessageBox " + title + " " + message);
-		mMainMenu.ShowMessageBox(title,message);
+		mMainMenu.ShowMessageBox(title,message,true);
 	}
 	void Update(){
 		try {
 			if (mEventsQueue.Count > 0){
-				Tuple<string, Exception> e;
+				Tuple<string, string> e;
 				if (mEventsQueue.TryDequeue(out e)){
 					if(e.Item2 !=null){
-						Debug.Log("Event {" + e.Item2.Message + "}");
-						ShowMessageBox(e.Item1,e.Item2.Message);
+						Debug.Log("Event {" + e.Item2 + "}");
+						ShowMessageBox(e.Item1,e.Item2);
 					}
 					else{
 						ShowMessageBox(e.Item1,"Whatever");
@@ -372,7 +422,7 @@ public class TCPClient : MonoBehaviour {
 
    private void OnConnectionError(Exception e){
 	   Debug.Log("OnConnectionError " + e.Message);
-	   mEventsQueue.Enqueue(Tuple.Create("Connection Error",e));
+	   mEventsQueue.Enqueue(Tuple.Create("Connection Error",e.Message));
    }
 
 	private void CreateSendWorkload()
