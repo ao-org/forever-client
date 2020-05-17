@@ -53,6 +53,7 @@ public class MainMenu : MonoBehaviour
         }
     }
     private TCPClient mTcpClient;
+    private GameObject mMessageBox;
     private void Start()
     {
          CreateAndInitLocalizedStrings();
@@ -60,6 +61,11 @@ public class MainMenu : MonoBehaviour
          GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("TCPClient")[0];
          mTcpClient = tcp_client_object.GetComponent<TCPClient>();
          mTcpClient.SetMainMenu(this);
+         mMessageBox = GameObject.Find("MessageBox");
+         Debug.Assert(mMessageBox!=null);
+         mMessageBox.SetActive(false);
+         //mm.gameObject.SetActive (true);
+
     }
     void Awake(){
         //var translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("PLAY_BUTTON");
@@ -89,9 +95,7 @@ public class MainMenu : MonoBehaviour
         Text BodyText = GameObject.Find("MsgBoxText").GetComponent<Text>();
         Debug.Assert(BodyText!=null);
         BodyText.text = final_text_string;
-        GameObject mm = GameObject.Find("MessageBox");
-		Debug.Assert(mm!=null);
-        mm.gameObject.SetActive (true);
+        mMessageBox.SetActive(true);
     }
 
     public void PlayGame(){
