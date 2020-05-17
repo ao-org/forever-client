@@ -6,6 +6,9 @@ public class MessageBox : MonoBehaviour
 {
     //public TextMesh mTitle;
 
+    public void OnButtonOK(){
+        this.transform.localScale = new Vector3(0, 0, 0);
+    }
     // Start is called before the first frame update
     void Start()
     {

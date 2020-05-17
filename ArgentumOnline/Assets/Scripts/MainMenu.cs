@@ -63,9 +63,7 @@ public class MainMenu : MonoBehaviour
          mTcpClient.SetMainMenu(this);
          mMessageBox = GameObject.Find("MessageBox");
          Debug.Assert(mMessageBox!=null);
-         mMessageBox.SetActive(false);
-         //mm.gameObject.SetActive (true);
-
+         mMessageBox.transform.localScale = new Vector3(0, 0, 0);
     }
     void Awake(){
         //var translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("PLAY_BUTTON");
@@ -95,7 +93,7 @@ public class MainMenu : MonoBehaviour
         Text BodyText = GameObject.Find("MsgBoxText").GetComponent<Text>();
         Debug.Assert(BodyText!=null);
         BodyText.text = final_text_string;
-        mMessageBox.SetActive(true);
+        mMessageBox.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     public void PlayGame(){
@@ -110,11 +108,11 @@ public class MainMenu : MonoBehaviour
       string server_port_string       = server_port_input.text;
 
       if(username_str == null || username_str.Length<3){
-        //  EditorUtility.DisplayDialog("Username invalido","Por favor ingrese un username valido", "OK");
+          this.ShowMessageBox("asdas","asdds");
           return;
       }
       if(password_str == null || password_str.Length<3){
-          //EditorUtility.DisplayDialog("Password invalido","Por favor ingrese un password valido", "OK");
+          this.ShowMessageBox("asdas","asdds");
           return;
       }
 
