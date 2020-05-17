@@ -50,5 +50,17 @@ MonoBehaviour:
     m_Localized: User est online
     m_Metadata:
       m_Items: []
+  - m_Id: 9
+    m_Localized: Mot de clee n'est pas valide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Compte n'est pas valide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Input error
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

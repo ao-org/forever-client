@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: MainMenu Shared Data
   m_EditorClassIdentifier: 
-  m_NextAvailableId: 9
+  m_NextAvailableId: 12
   m_TableName: MainMenu
   m_TableNameGuidString: ce04b8004cef60dc193130c9173065bb
   m_Entries:
@@ -46,6 +46,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 8
     m_Key: LOGIN_ERROR_USER_ALREADY_HOLDS_ACTIVE_SESSION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Key: INPUT_ERROR_INVALID_PASSWORD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Key: INPUT_ERROR_INVALID_USERNAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Key: INPUT_ERROR_TITLE
     m_Metadata:
       m_Items: []
   m_Metadata:

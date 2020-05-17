@@ -16,23 +16,25 @@ using UnityEngine.EventSystems;
 public class MainMenu : MonoBehaviour
 {
     private EventSystem mEventSystem;
-
     public LocalizedString LoginErrText_MSGBOX_TITLE;
     public LocalizedString LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION;
     public LocalizedString LoginErrText_ACCOUNT_DOESNT_EXIST;
+    public LocalizedString InputErrText_INPUT_ERROR_INVALID_PASSWORD;
+    public LocalizedString InputErrText_INPUT_ERROR_INVALID_USERNAME;
+    public LocalizedString InputErrText_INPUT_ERROR_TITLE;
 
     private void CreateAndInitLocalizedStrings(){
         mLocalizedStringMappings = new Dictionary<string,LocalizedString>();
         mLocalizedStringMappings["LOGIN_ERROR_MSG_BOX_TITLE"]= LoginErrText_MSGBOX_TITLE;
         mLocalizedStringMappings["USER_ALREADY_HOLDS_ACTIVE_SESSION"]= LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION;
         mLocalizedStringMappings["ACCOUNT_DOESNT_EXIST"]= LoginErrText_ACCOUNT_DOESNT_EXIST;
+        mLocalizedStringMappings["INPUT_ERROR_INVALID_PASSWORD"]= InputErrText_INPUT_ERROR_INVALID_PASSWORD;
+        mLocalizedStringMappings["INPUT_ERROR_INVALID_USER"]= InputErrText_INPUT_ERROR_INVALID_USERNAME;
+        mLocalizedStringMappings["INPUT_ERROR_TITLE"]= InputErrText_INPUT_ERROR_TITLE;
     }
-
-
     public void OnApplicationQuit(){
             Debug.Log("Application ending after " + Time.time + " seconds");
     }
-
     private void Update(){
         if (Input.GetKeyDown(KeyCode.Tab)){
             Selectable next = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ?
@@ -108,11 +110,11 @@ public class MainMenu : MonoBehaviour
       string server_port_string       = server_port_input.text;
 
       if(username_str == null || username_str.Length<3){
-          this.ShowMessageBox("asdas","asdds");
+          this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_USER",true);
           return;
       }
       if(password_str == null || password_str.Length<3){
-          this.ShowMessageBox("asdas","asdds");
+          this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_PASSWORD",true);
           return;
       }
 
@@ -133,9 +135,7 @@ public class MainMenu : MonoBehaviour
       catch (Exception e) {
 			     Debug.Log("Failed to connect to server " + e);
 		  }
-
     }
-
     public void QuitGame(){
         Debug.Log("QuitGame");
         Application.Quit();

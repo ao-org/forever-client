@@ -51,5 +51,18 @@ MonoBehaviour:
       mas de un conexion por cuenta.
     m_Metadata:
       m_Items: []
+  - m_Id: 9
+    m_Localized: Por favor ingrese una clave alfanumerica que tenga un minimo de
+      seis caracteres
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Por favor ingrese un usuario valido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Error de input
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

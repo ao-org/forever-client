@@ -51,5 +51,17 @@ MonoBehaviour:
       single account is not allowed.
     m_Metadata:
       m_Items: []
+  - m_Id: 9
+    m_Localized: Please enter a password with a minimum of 6 characters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Please enter a valid username
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Input error
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

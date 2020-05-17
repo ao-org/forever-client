@@ -3820,6 +3820,24 @@ MonoBehaviour:
     m_TableEntryReference:
       m_KeyId: 7
       m_Key: 
+  InputErrText_INPUT_ERROR_INVALID_PASSWORD:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 9
+      m_Key: 
+  InputErrText_INPUT_ERROR_INVALID_USERNAME:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 10
+      m_Key: 
+  InputErrText_INPUT_ERROR_TITLE:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 11
+      m_Key: 
 --- !u!1 &2074258635
 GameObject:
   m_ObjectHideFlags: 0
