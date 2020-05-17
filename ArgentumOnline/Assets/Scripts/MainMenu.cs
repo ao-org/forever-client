@@ -15,9 +15,19 @@ using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
-    public LocalizedString LoginErrMsgboxTitleString;
-
     private EventSystem mEventSystem;
+
+    public LocalizedString LoginErrText_MSGBOX_TITLE;
+    public LocalizedString LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION;
+    public LocalizedString LoginErrText_ACCOUNT_DOESNT_EXIST;
+
+    private void CreateAndInitLocalizedStrings(){
+        mLocalizedStringMappings = new Dictionary<string,LocalizedString>();
+        mLocalizedStringMappings["LOGIN_ERROR_MSG_BOX_TITLE"]= LoginErrText_MSGBOX_TITLE;
+        mLocalizedStringMappings["USER_ALREADY_HOLDS_ACTIVE_SESSION"]= LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION;
+        mLocalizedStringMappings["ACCOUNT_DOESNT_EXIST"]= LoginErrText_ACCOUNT_DOESNT_EXIST;
+    }
+
 
     public void OnApplicationQuit(){
             Debug.Log("Application ending after " + Time.time + " seconds");
@@ -28,7 +38,6 @@ public class MainMenu : MonoBehaviour
             Selectable next = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ?
             mEventSystem.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnUp() :
             mEventSystem.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnDown();
-
             if (next != null)
             {
                 InputField inputfield = next.GetComponent<InputField>();
@@ -46,6 +55,7 @@ public class MainMenu : MonoBehaviour
     private TCPClient mTcpClient;
     private void Start()
     {
+         CreateAndInitLocalizedStrings();
          mEventSystem = EventSystem.current;
          GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("TCPClient")[0];
          mTcpClient = tcp_client_object.GetComponent<TCPClient>();
@@ -55,33 +65,24 @@ public class MainMenu : MonoBehaviour
         //var translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("PLAY_BUTTON");
         //Debug.Log("Translated Text: " + translatedText);
     }
-    static public IDictionary<string,string> MenuStrings = new Dictionary<string,string>()
-                        {
-                            {"BOTON_JUGAR"			, "JUGAR"},
-                            {"BOTON_OPCIONES"		, "OPCIONES"},
-                            {"BOTON_SALIR"		    , "SALIR"},
-                            {"TEXTO_USUARIO"		, "Nombre de Usuario"},
-                            {"TEXTO_CLAVE"       	, "Clave"},
-                        };
+    private IDictionary<string,LocalizedString> mLocalizedStringMappings;
 
     public void ShowMessageBox(string title,string text, bool localize = false)
     {
         string final_title_string = title;
         string final_text_string  = text;
-        if(title == "LOGIN_ERROR_MSG_BOX_TITLE"){
-            var localizedText = LoginErrMsgboxTitleString.GetLocalizedString();
+        if(localize){
+            Debug.Assert(mLocalizedStringMappings.ContainsKey(title));
+            Debug.Assert(mLocalizedStringMappings.ContainsKey(text));
+            var localizedText = mLocalizedStringMappings[title].GetLocalizedString();
             Debug.Assert(localizedText.IsDone);
             Debug.Log("LocalizedString " + localizedText.Result);
             final_title_string = localizedText.Result;
-        }
-        /*
-        if("LOGIN_ERROR_MSG_BOX_TITLE"){
-            var localizedText = LoginErrMsgboxTitleString.GetLocalizedString();
+            localizedText = mLocalizedStringMappings[text].GetLocalizedString();
             Debug.Assert(localizedText.IsDone);
             Debug.Log("LocalizedString " + localizedText.Result);
-            localized_title_text = localizedText.Result;
+            final_text_string = localizedText.Result;
         }
-*/
         Text TitleText = GameObject.Find("MsgBoxTitle").GetComponent<Text>();
         Debug.Assert(TitleText!=null);
         TitleText.text = final_title_string;

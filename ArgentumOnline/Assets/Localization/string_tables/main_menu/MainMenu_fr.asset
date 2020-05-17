@@ -46,5 +46,9 @@ MonoBehaviour:
     m_Localized: La compte n'existe pas
     m_Metadata:
       m_Items: []
+  - m_Id: 8
+    m_Localized: User est online
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
