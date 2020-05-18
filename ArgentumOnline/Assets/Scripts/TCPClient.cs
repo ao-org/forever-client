@@ -428,9 +428,9 @@ public class TCPClient : MonoBehaviour {
 	private void CreateSendWorkload()
 	{
 		try {
- 			mReceiveThread = new Thread (new ThreadStart(WaitAndSendMessageWorkload));
-			mReceiveThread.IsBackground = true;
-			mReceiveThread.Start();
+ 			mSendThread = new Thread (new ThreadStart(WaitAndSendMessageWorkload));
+			mSendThread.IsBackground = true;
+			mSendThread.Start();
 	    }
 		catch (Exception e) {
 			Debug.Log("On client connect exception " + e);
@@ -487,6 +487,12 @@ public class TCPClient : MonoBehaviour {
 	public void OnApplicationQuit(){
             Debug.Log("TCPCLIENT Application ending after " + Time.time + " seconds");
 			mAppQuit = true;
+			if(mReceiveThread!=null){
+				mReceiveThread.Join();
+			}
+			if(mSendThread!=null){
+				mSendThread.Join();
+			}
     }
 	/// <summary>
 	/// Runs in background mReceiveThread; Listens for incomming data.
