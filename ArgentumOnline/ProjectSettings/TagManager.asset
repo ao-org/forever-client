@@ -55,6 +55,9 @@ TagManager:
   - name: Muro
     uniqueID: 713385687
     locked: 0
+  - name: Decorados
+    uniqueID: 2049532783
+    locked: 0
   - name: Arboles
     uniqueID: 735191785
     locked: 0
