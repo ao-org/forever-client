@@ -97,6 +97,9 @@ public class MainMenu : MonoBehaviour
         BodyText.text = final_text_string;
         mMessageBox.transform.localScale = new Vector3(1f, 1f, 1f);
     }
+    public void CreateAccount(){
+        Debug.Log("CreateAccount");
+    }
 
     public void PlayGame(){
       InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
