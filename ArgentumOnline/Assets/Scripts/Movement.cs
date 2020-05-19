@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour
         }
         else {
             dir = Direction.South;
-            gameObject.GetComponent<Animator>().Play("FantasmaCaminaSur");
+            gameObject.GetComponent<Animator>().Play("WalkSur");
         }
     }
     // Start is called before the first frame update
@@ -87,75 +87,99 @@ public class Movement : MonoBehaviour
       // NorthEast
       if (RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.NorthEast;
-              mAnimator.Play("FantasmaCaminaNoreste");
+              mAnimator.Play("WalkNoreste");
               Vector3 newpos = transform.position + Vector3.right * WalkSpeed * Time.deltaTime + Vector3.up * WalkSpeed * Time.deltaTime;
               TryToMove(newpos);
       }
       else // North
       if (!RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.North;
-              mAnimator.Play("FantasmaCaminaNorte");
+              mAnimator.Play("WalkNorte");
               TryToMove(transform.position+Vector3.up * WalkSpeed * Time.deltaTime);
       }
       else // South
       if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.South;
-              mAnimator.Play("FantasmaCaminaSur");
+              mAnimator.Play("WalkSur");
               Vector3 newpos = transform.position + Vector3.down * WalkSpeed * Time.deltaTime;
               TryToMove(newpos);
       }
       else // SouthEast
       if (RightArrowPressed && DownArrowPressed && ! UpArrowPressed && !LeftArrowPressed) {
               dir = Direction.SouthEast;
-              mAnimator.Play("FantasmaCaminaSureste");
+              mAnimator.Play("WalkSureste");
               TryToMove(transform.position + Vector3.right * WalkSpeed * Time.deltaTime + Vector3.down * WalkSpeed * Time.deltaTime);
       }
       else
       if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed) {
               dir = Direction.East;
-              mAnimator.Play("FantasmaCaminaEste");
+              mAnimator.Play("WalkEste");
               TryToMove(transform.position + Vector3.right * WalkSpeed * Time.deltaTime);
       }
       else
       if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
               dir = Direction.West;
-              mAnimator.Play("FantasmaCaminaOeste");
+              mAnimator.Play("WalkOeste");
               TryToMove(transform.position +  Vector3.left* WalkSpeed * Time.deltaTime);
       }
       else
       if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
               dir = Direction.NorthWest;
-              mAnimator.Play("FantasmaCaminaNoroeste");
+              mAnimator.Play("WalkNoroeste");
               TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime + Vector3.up * WalkSpeed * Time.deltaTime );
       }
       else
       if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed) {
               dir = Direction.SouthWest;
-              mAnimator.Play("FantasmaCaminaSuroeste");
+              mAnimator.Play("WalkSuroeste");
               TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime + Vector3.down * WalkSpeed * Time.deltaTime );
       }
       if(!Moving) {
             switch(dir)
             {
                 case Direction.South:
-                    mAnimator.Play("FantasmaCaminaSur");break;
+                    mAnimator.Play("StandSur");break;
                 case Direction.North:
-                    mAnimator.Play("FantasmaCaminaNorte");break;
+                    mAnimator.Play("StandNorte");break;
                 case Direction.West:
-                    mAnimator.Play("FantasmaCaminaOeste");break;
+                    mAnimator.Play("StandOeste");break;
                 case Direction.East:
-                    mAnimator.Play("FantasmaCaminaEste");break;
+                    mAnimator.Play("StandEste");break;
                 case Direction.SouthWest:
-                    mAnimator.Play("FantasmaCaminaSuroeste");break;
+                    mAnimator.Play("StandSuroeste");break;
                 case Direction.NorthWest:
-                    mAnimator.Play("FantasmaCaminaNoroeste");break;
+                    mAnimator.Play("StandNoroeste");break;
                 case Direction.NorthEast:
-                    mAnimator.Play("FantasmaCaminaNoreste");break;
+                    mAnimator.Play("StandNoreste");break;
                 case Direction.SouthEast:
-                    mAnimator.Play("FantasmaCaminaSureste");break;
+                    mAnimator.Play("StandSureste");break;
                 default:
                     UnityEngine.Debug.Assert(false, "Bad direction"); break;
             }
       }
+        if (Input.GetKey(KeyCode.A))
+        {
+            switch (dir)
+            {
+                case Direction.South:
+                    mAnimator.Play("DeadSur"); break;
+                case Direction.North:
+                    mAnimator.Play("DeadNorte"); break;
+                case Direction.West:
+                    mAnimator.Play("DeadOeste"); break;
+                case Direction.East:
+                    mAnimator.Play("DeadEste"); break;
+                case Direction.SouthWest:
+                    mAnimator.Play("DeadSuroeste"); break;
+                case Direction.NorthWest:
+                    mAnimator.Play("DeadNoroeste"); break;
+                case Direction.NorthEast:
+                    mAnimator.Play("DeadNoreste"); break;
+                case Direction.SouthEast:
+                    mAnimator.Play("DeadSureste"); break;
+                default:
+                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
+            }
+        }
     }
 }
