@@ -62,5 +62,45 @@ MonoBehaviour:
     m_Localized: Input error
     m_Metadata:
       m_Items: []
+  - m_Id: 12
+    m_Localized: Prenom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Nom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: Corrier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: Date de naisancce
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: Lieu de naissance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: Question secrete 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: Question secrete 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Localized: Reponse 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20
+    m_Localized: Reponse 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21
+    m_Localized: Ouvrir compte
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

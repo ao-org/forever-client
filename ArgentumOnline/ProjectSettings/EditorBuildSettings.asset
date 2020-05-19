@@ -32,9 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Catacumbas(5).unity
     guid: 16539aae97cc12f4383516c2c8722c1a
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Catacumbas(6).unity
     guid: 17cb182a75434454090343732a6c00cc
