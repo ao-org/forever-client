@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.76110476, g: 0.76110476, b: 0.76110476, a: 0.42352942}
+  m_Color: {r: 0.76110476, g: 0.76110476, b: 0.76110476, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6594,7 +6594,7 @@ RectTransform:
   m_Children:
   - {fileID: 437073039}
   m_Father: {fileID: 2011106875}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6966,7 +6966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1586785027
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6984,7 +6984,7 @@ RectTransform:
   - {fileID: 820539434}
   - {fileID: 1684006625}
   m_Father: {fileID: 2011106875}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8558,8 +8558,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1882666553}
-  - {fileID: 1531115120}
   - {fileID: 1586785027}
+  - {fileID: 1531115120}
   - {fileID: 1226956736}
   - {fileID: 1786700852}
   m_Father: {fileID: 460894329}

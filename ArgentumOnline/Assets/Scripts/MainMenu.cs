@@ -110,6 +110,8 @@ public class MainMenu : MonoBehaviour
         InputField signup_secretq2_input    = GameObject.Find("SignUpSecretQ2InputField").GetComponent<InputField>();
         InputField signup_secreta1_input    = GameObject.Find("SignUpSecretA1InputField").GetComponent<InputField>();
         InputField signup_secreta2_input    = GameObject.Find("SignUpSecretA2InputField").GetComponent<InputField>();
+        InputField server_address_input     = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
+        InputField server_port_input        = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
         Debug.Assert(signup_username_input!=null);
         Debug.Assert(signup_password_input!=null);
         Debug.Assert(signup_first_name_input!=null);
@@ -121,9 +123,34 @@ public class MainMenu : MonoBehaviour
         Debug.Assert(signup_secretq2_input!=null);
         Debug.Assert(signup_secreta2_input!=null);
         Debug.Assert(signup_secreta1_input!=null);
+        Debug.Assert(server_address_input!=null);
+        Debug.Assert(server_port_input!=null);
         string username_str             = signup_username_input.text;
         string password_str             = signup_password_input.text;
-
+        string server_address_string    = server_address_input.text;
+        string server_port_string       = server_port_input.text;
+        if(username_str == null || username_str.Length<3){
+            this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_USER",true);
+            return;
+        }
+        if(password_str == null || password_str.Length<3){
+            this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_PASSWORD",true);
+            return;
+        }
+        try {
+          //Attempt to connect to game Server
+          if( mTcpClient.IsConnected()){
+              mTcpClient.AttemptToSignup();
+          }
+          else {
+              Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
+              mTcpClient.SetUsernameAndPassword(username_str,password_str);
+              mTcpClient.ConnectToTcpServer(server_address_string,server_port_string,"SIGNUP_REQUEST");
+          }
+        }
+        catch (Exception e){
+                   Debug.Log("Failed to connect to server " + e);
+        }
     }
 
     public void PlayGame(){
@@ -151,21 +178,18 @@ public class MainMenu : MonoBehaviour
 
       try {
         //Attempt to connect to game Server
-        //GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("TCPClient")[0];
-        //TCPClient client = tcp_client_object.GetComponent<TCPClient>();
         if( mTcpClient.IsConnected()){
             mTcpClient.AttemptToLogin();
         }
         else {
             Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
             mTcpClient.SetUsernameAndPassword(username_str,password_str);
-            mTcpClient.ConnectToTcpServer(server_address_string,server_port_string);
+            mTcpClient.ConnectToTcpServer(server_address_string,server_port_string,"LOGIN_REQUEST");
         }
-        //SceneManager.LoadScene("World");
       }
-      catch (Exception e) {
+      catch (Exception e){
 			     Debug.Log("Failed to connect to server " + e);
-		  }
+      }
     }
     public void QuitGame(){
         Debug.Log("QuitGame");

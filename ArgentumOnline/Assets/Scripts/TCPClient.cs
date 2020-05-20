@@ -298,6 +298,14 @@ public class ProtoLoginRequest : ProtoBase
 	}
 }
 
+public class ProtoSignupRequest : ProtoBase
+{
+	public ProtoSignupRequest(string username, string password, string token){
+	}
+
+}
+
+
 public class TCPClient : MonoBehaviour {
 	#region private members
 	private TcpClient 	mSocket;
@@ -318,6 +326,10 @@ public class TCPClient : MonoBehaviour {
 	private MainMenu	mMainMenu;
 	private bool		mAppQuit;
 
+	public bool IsSessionOpen(){
+		return CryptoHelper.PublicKey.Length > 0;
+	}
+
 	public bool IsConnected(){
 		if(mSocket == null){
 			return false;
@@ -331,6 +343,8 @@ public class TCPClient : MonoBehaviour {
 	// Connection events queue
 	private ConcurrentQueue<Tuple<string, string>> mEventsQueue = new ConcurrentQueue<Tuple<string, string>>();
 	#endregion
+
+	private string mOperationUponSessionOpened = "NOOP";
 
 	static Dictionary<short, Func<TCPClient, byte[], int>> PocessFunctions
         = new Dictionary<short, Func<TCPClient, byte[], int>>
@@ -357,17 +371,31 @@ public class TCPClient : MonoBehaviour {
 
 			The 'public key' is the first 16 chars of the DECRYPTED_SESSION_TOKEN. The 'public key' will be used to encrypt the username and password in the next and last step of the
 		 */
-		 Debug.Assert(encrypted_token.Length>0);
-		 //var encrypted_token = datadata.ToList().GetRange(4, data.Length -4).ToArray();
-		 Debug.Log("ProcessSessionOpened data.len " + encrypted_token.Length + " " + encrypted_token);
-		 //Decrypt TOKEN, store it and get PublicKey needed for the LOGIN_REQUEST message
-		 Debug.Log("encrypted_token(" + encrypted_token.Length + ") " + Encoding.ASCII.GetString(encrypted_token));
-		 CryptoHelper.Token	= CryptoHelper.Decrypt(encrypted_token,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
-		 Debug.Log("Decrypted Token : " + CryptoHelper.Token);
-		 CryptoHelper.PublicKey = CryptoHelper.Token.Substring(0,16);
-		 var login_request = new ProtoLoginRequest(mUsername, mPassword, CryptoHelper.PublicKey);
-		 SendMessage(login_request);
-		 return 1;
+		Debug.Assert(encrypted_token.Length>0);
+		//var encrypted_token = datadata.ToList().GetRange(4, data.Length -4).ToArray();
+		Debug.Log("ProcessSessionOpened data.len " + encrypted_token.Length + " " + encrypted_token);
+		//Decrypt TOKEN, store it and get PublicKey needed for the LOGIN_REQUEST message
+		Debug.Log("encrypted_token(" + encrypted_token.Length + ") " + Encoding.ASCII.GetString(encrypted_token));
+		CryptoHelper.Token	= CryptoHelper.Decrypt(encrypted_token,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
+		Debug.Log("Decrypted Token : " + CryptoHelper.Token);
+		CryptoHelper.PublicKey = CryptoHelper.Token.Substring(0,16);
+		switch(mOperationUponSessionOpened)
+		{
+			 case "LOGIN_REQUEST":
+			 	Debug.Log("Session opened, attempting to login into account.");
+			 	var login_request = new ProtoLoginRequest(mUsername, mPassword, CryptoHelper.PublicKey);
+			 	SendMessage(login_request);
+				break;
+		 	 case "SIGNUP_REQUEST":
+			 	Debug.Log("Session opened, attempting to signup.");
+			   //var login_request = new ProtoLoginRequest(mUsername, mPassword, CryptoHelper.PublicKey);
+			   //SendMessage(login_request);
+			   	break;
+			 default:
+			  	break;
+		}
+		mOperationUponSessionOpened = "NOOP";
+		return 1;
 	}
 	public int ProcessSessionError(byte[] data){
 		Debug.Log("ProcessSessionError");
@@ -444,6 +472,13 @@ public class TCPClient : MonoBehaviour {
  	  	SendMessage(open_session);
 	}
 
+	public void AttemptToSignup()
+	{
+		Debug.Log("AttemptToSignup");
+		//ProtoOpenSession open_session = new ProtoOpenSession();
+ 	  	//SendMessage(open_session);
+	}
+
    	private void OnConnectionEstablished()
    	{
 	   Debug.Log("OnConnectionEstablished!!!");
@@ -459,7 +494,8 @@ public class TCPClient : MonoBehaviour {
 	/// This method attempt to establish a TCP connection with the remote host
 	/// passed in as remote_ip and remote_port
 	/// </summary>
-	public void ConnectToTcpServer (string remote_ip, string remote_port) {
+	public void ConnectToTcpServer (string remote_ip, string remote_port, string operation="NOOP") {
+		mOperationUponSessionOpened = operation;
 		mAppQuit = false;
 		if( mSocket!=null && mSocket.Connected )
 		{
@@ -509,6 +545,8 @@ public class TCPClient : MonoBehaviour {
 				using (NetworkStream stream = mSocket.GetStream()) {
 					int length;
 					// Read incomming stream into byte arrary.
+					//while(stream.DataAvailable)
+					{
 					while ((length = stream.Read(bytes, 0, bytes.Length)) != 0) {
 						// Copy the bytes received from the network to the array incommingData
 						var incommingData = new byte[length];
@@ -535,11 +573,9 @@ public class TCPClient : MonoBehaviour {
 							mIncommingData.RemoveRange(0,decoded_size);
 							ProcessPacket(message_id, message_data);
 						}
-
-
-
 					}
 				}
+			}
 			}
 			Debug.Log("ListenForDataWorkload thread finished due to OnApplicationQuit event!");
 		}
