@@ -466,6 +466,19 @@ public class TCPClient : MonoBehaviour {
 		}
 	}
 
+	private void CreateListenWorkload()
+	{
+		try {
+			mReceiveThread = new Thread (new ThreadStart(ListenForDataWorkload));
+			mReceiveThread.IsBackground = true;
+			mReceiveThread.Start();
+		}
+		catch (Exception e) {
+			Debug.Log("On client connect exception " + e);
+			OnConnectionError(e);
+		}
+	}
+
 	public void AttemptToLogin()
 	{
 		ProtoOpenSession open_session = new ProtoOpenSession();
@@ -484,7 +497,7 @@ public class TCPClient : MonoBehaviour {
 	   Debug.Log("OnConnectionEstablished!!!");
 	   //Upon connection we create the send workload which will be responsible for
 	   //sending messages to the server through the tpc connection.
-	   CreateSendWorkload();
+	   //CreateSendWorkload();
 	   //Now the workload is running we push the message to the send queue to be
 	   //consumed by the workload
 	   ProtoOpenSession open_session = new ProtoOpenSession();
@@ -505,15 +518,8 @@ public class TCPClient : MonoBehaviour {
 		Debug.Log("Trying ConnectToTcpServer " + remote_ip + ":" + remote_port);
 		mServerIP = remote_ip;
 		mServerPort = remote_port;
-		try {
-			mReceiveThread = new Thread (new ThreadStart(ListenForDataWorkload));
-			mReceiveThread.IsBackground = true;
-			mReceiveThread.Start();
-		}
-		catch (Exception e) {
-			Debug.Log("On client connect exception " + e);
-			OnConnectionError(e);
-		}
+		CreateSendWorkload();
+		CreateListenWorkload();
 	}
 
 	private int ProcessPacket(short id, byte[] data){
@@ -542,40 +548,39 @@ public class TCPClient : MonoBehaviour {
 			}
 			while (!mAppQuit) {
 				// Get a stream object for reading
-				using (NetworkStream stream = mSocket.GetStream()) {
+				using (NetworkStream stream = mSocket.GetStream()){
 					int length;
-					// Read incomming stream into byte arrary.
-					//while(stream.DataAvailable)
+					if(stream.CanRead)
 					{
-					while ((length = stream.Read(bytes, 0, bytes.Length)) != 0) {
-						// Copy the bytes received from the network to the array incommingData
-						var incommingData = new byte[length];
-						Array.Copy(bytes, 0, incommingData, 0, length);
-						Debug.Log("Read " + length + " bytes from server. " + incommingData + "{" + incommingData + "}");
-						// Apprend the bytes to any excisting data previously received
-						mIncommingData.AddRange(incommingData);
-						//Attempt to build as many packets and process them
-						bool failed_to_build_packet = false;
-						// We consume the packets
-						while( mIncommingData.Count>=4 && !failed_to_build_packet)
-						{
-							var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
-							Debug.Log(" msg_size len " + msg_size.Length);
-							var header	 	= mIncommingData.GetRange(0, 2).ToArray();
+							while ((length = stream.Read(bytes, 0, bytes.Length)) != 0){
+								// Copy the bytes received from the network to the array incommingData
+								var incommingData = new byte[length];
+								Array.Copy(bytes, 0, incommingData, 0, length);
+								Debug.Log("Read " + length + " bytes from server. " + incommingData + "{" + incommingData + "}");
+								// Apprend the bytes to any excisting data previously received
+								mIncommingData.AddRange(incommingData);
+								//Attempt to build as many packets and process them
+								bool failed_to_build_packet = false;
+								// We consume the packets
+								while( mIncommingData.Count>=4 && !failed_to_build_packet)
+								{
+									var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
+									Debug.Log(" msg_size len " + msg_size.Length);
+									var header	 	= mIncommingData.GetRange(0, 2).ToArray();
 
-							short decoded_size = ProtoBase.DecodeShort(msg_size);
-							Debug.Log(" Msg_size: " + decoded_size);
-							short message_id = ProtoBase.DecodeShort(header);
-							Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
-							failed_to_build_packet = (decoded_size > 1024);
-							//Drop the heade and size fields
-							var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();
-							mIncommingData.RemoveRange(0,decoded_size);
-							ProcessPacket(message_id, message_data);
-						}
+									short decoded_size = ProtoBase.DecodeShort(msg_size);
+									Debug.Log(" Msg_size: " + decoded_size);
+									short message_id = ProtoBase.DecodeShort(header);
+									Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
+									failed_to_build_packet = (decoded_size > 1024);
+									//Drop the heade and size fields
+									var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();
+									mIncommingData.RemoveRange(0,decoded_size);
+									ProcessPacket(message_id, message_data);
+								}
+							}
 					}
 				}
-			}
 			}
 			Debug.Log("ListenForDataWorkload thread finished due to OnApplicationQuit event!");
 		}
@@ -590,6 +595,7 @@ public class TCPClient : MonoBehaviour {
 	}
 
 	private void WaitAndSendMessageWorkload() {
+
 		while (!mAppQuit) {
 			try {
 				if( mSocket!=null && mSocket.Connected )
