@@ -517,10 +517,6 @@ public class TCPClient : MonoBehaviour {
 	   ProtoOpenSession open_session = new ProtoOpenSession();
 	   SendMessage(open_session);
    }
-	/// <summary>
-	/// This method attempt to establish a TCP connection with the remote host
-	/// passed in as remote_ip and remote_port
-	/// </summary>
 	public void ConnectToTcpServer (string remote_ip, string remote_port, string operation="NOOP") {
 		mOperationUponSessionOpened = operation;
 		mAppQuit = false;
@@ -544,15 +540,14 @@ public class TCPClient : MonoBehaviour {
             Debug.Log("TCPCLIENT Application ending after " + Time.time + " seconds");
 			mAppQuit = true;
 			if(mReceiveThread!=null){
+				mReceiveThread.Abort();
 				mReceiveThread.Join();
 			}
 			if(mSendThread!=null){
+				mSendThread.Abort();
 				mSendThread.Join();
 			}
     }
-	/// <summary>
-	/// Runs in background mReceiveThread; Listens for incomming data.
-	/// </summary>
 	private void ListenForDataWorkload() {
 		try {
 			mSocket = new TcpClient(mServerIP, Convert.ToInt32(mServerPort));
