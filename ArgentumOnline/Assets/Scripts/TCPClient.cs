@@ -448,9 +448,9 @@ public class TCPClient : MonoBehaviour {
 		}
 	}
 
-   private void OnConnectionError(Exception e){
-	   Debug.Log("OnConnectionError " + e.Message);
-	   mEventsQueue.Enqueue(Tuple.Create("Connection Error",e.Message));
+   private void OnConnectionError(string title, string msg){
+	   Debug.Log("OnConnectionError " + msg);
+	   mEventsQueue.Enqueue(Tuple.Create(title,msg));
    }
 
 	private void CreateSendWorkload()
@@ -468,7 +468,7 @@ public class TCPClient : MonoBehaviour {
 	    }
 		catch (Exception e) {
 			Debug.Log("On client connect exception " + e);
-			OnConnectionError(e);
+			OnConnectionError("Error", "CreateSendWorkload");
 		}
 	}
 
@@ -489,7 +489,7 @@ public class TCPClient : MonoBehaviour {
 		}
 		catch (Exception e) {
 			Debug.Log("On client connect exception " + e);
-			OnConnectionError(e);
+			OnConnectionError("Error", "CreateListenWorkload");
 		}
 	}
 
@@ -594,7 +594,14 @@ public class TCPClient : MonoBehaviour {
 			Debug.Log("ListenForDataWorkload thread finished due to OnApplicationQuit event!");
 		}
 		catch (SocketException socketException){
-			Debug.Log("Socket exception: " + socketException);
+			Debug.Log("Socket exception (" + socketException.ErrorCode  + ") " + socketException);
+			switch(socketException.ErrorCode){
+				case 10061:
+					OnConnectionError("CONNECTION_ERROR_MSGBOX_TITLE","CONNECTION_ERROR_CANNOT_REACH_SERVER");
+					break;
+				default:
+					break;
+			}
 			//OnConnectionError(socketException);
 		}
 		catch(Exception e){

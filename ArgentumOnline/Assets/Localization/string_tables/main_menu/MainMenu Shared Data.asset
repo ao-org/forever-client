@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: MainMenu Shared Data
   m_EditorClassIdentifier: 
-  m_NextAvailableId: 22
+  m_NextAvailableId: 24
   m_TableName: MainMenu
   m_TableNameGuidString: ce04b8004cef60dc193130c9173065bb
   m_Entries:
@@ -98,6 +98,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 21
     m_Key: SIGNUP_CREATE_ACCOUNT_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22
+    m_Key: CONNECTION_ERROR_CANNOT_REACH_SERVER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23
+    m_Key: CONNECTION_ERROR_MSGBOX_TITLE
     m_Metadata:
       m_Items: []
   m_Metadata:

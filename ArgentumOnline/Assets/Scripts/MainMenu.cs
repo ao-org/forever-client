@@ -22,6 +22,8 @@ public class MainMenu : MonoBehaviour
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_PASSWORD;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_USERNAME;
     public LocalizedString InputErrText_INPUT_ERROR_TITLE;
+    public LocalizedString ConnectionErrText_CONNECTION_ERROR_MSGBOX_TITLE;
+    public LocalizedString ConnectionErrText_CONNECTION_ERROR_CANNOT_REACH_SERVER;
 
     private void CreateAndInitLocalizedStrings(){
         mLocalizedStringMappings = new Dictionary<string,LocalizedString>();
@@ -31,6 +33,8 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["INPUT_ERROR_INVALID_PASSWORD"]= InputErrText_INPUT_ERROR_INVALID_PASSWORD;
         mLocalizedStringMappings["INPUT_ERROR_INVALID_USER"]= InputErrText_INPUT_ERROR_INVALID_USERNAME;
         mLocalizedStringMappings["INPUT_ERROR_TITLE"]= InputErrText_INPUT_ERROR_TITLE;
+        mLocalizedStringMappings["CONNECTION_ERROR_MSGBOX_TITLE"]= ConnectionErrText_CONNECTION_ERROR_MSGBOX_TITLE;
+        mLocalizedStringMappings["CONNECTION_ERROR_CANNOT_REACH_SERVER"]= ConnectionErrText_CONNECTION_ERROR_CANNOT_REACH_SERVER;
     }
     public void OnApplicationQuit(){
             Debug.Log("Application ending after " + Time.time + " seconds");

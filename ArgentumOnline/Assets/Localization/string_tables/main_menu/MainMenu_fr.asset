@@ -102,5 +102,13 @@ MonoBehaviour:
     m_Localized: Ouvrir compte
     m_Metadata:
       m_Items: []
+  - m_Id: 22
+    m_Localized: Ce n'est pas posible de conecter avec server
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23
+    m_Localized: Connection error
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

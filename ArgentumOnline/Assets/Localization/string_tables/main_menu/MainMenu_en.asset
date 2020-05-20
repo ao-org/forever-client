@@ -103,5 +103,13 @@ MonoBehaviour:
     m_Localized: Create account
     m_Metadata:
       m_Items: []
+  - m_Id: 22
+    m_Localized: Cannot reach the remote server.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23
+    m_Localized: Connection error
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

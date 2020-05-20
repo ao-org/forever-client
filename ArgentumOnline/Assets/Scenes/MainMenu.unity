@@ -8654,6 +8654,18 @@ MonoBehaviour:
     m_TableEntryReference:
       m_KeyId: 11
       m_Key: 
+  ConnectionErrText_CONNECTION_ERROR_MSGBOX_TITLE:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 23
+      m_Key: 
+  ConnectionErrText_CONNECTION_ERROR_CANNOT_REACH_SERVER:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 22
+      m_Key: 
 --- !u!1 &2063136098
 GameObject:
   m_ObjectHideFlags: 0

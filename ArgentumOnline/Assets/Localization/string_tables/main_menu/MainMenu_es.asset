@@ -104,5 +104,13 @@ MonoBehaviour:
     m_Localized: Crear cuenta
     m_Metadata:
       m_Items: []
+  - m_Id: 22
+    m_Localized: No se ha podido conectar con el servidor.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23
+    m_Localized: Error de conexion
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
