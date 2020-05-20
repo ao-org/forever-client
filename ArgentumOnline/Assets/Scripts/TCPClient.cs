@@ -455,6 +455,12 @@ public class TCPClient : MonoBehaviour {
 
 	private void CreateSendWorkload()
 	{
+		Debug.Log("CreateSendWorkload");
+		if(mSendThread!=null){
+			Debug.Log("Destroying thread " + mSendThread.Name);
+			mSendThread.Abort();
+			mSendThread = null;
+		}
 		try {
  			mSendThread = new Thread (new ThreadStart(WaitAndSendMessageWorkload));
 			mSendThread.IsBackground = true;
@@ -468,9 +474,17 @@ public class TCPClient : MonoBehaviour {
 
 	private void CreateListenWorkload()
 	{
+		Debug.Log("CreateListenWorkload");
+		if(mReceiveThread!=null){
+			Debug.Log("Destroying thread " + mReceiveThread.Name);
+			mReceiveThread.Abort();
+			mReceiveThread = null;
+		}
 		try {
 			mReceiveThread = new Thread (new ThreadStart(ListenForDataWorkload));
 			mReceiveThread.IsBackground = true;
+			mReceiveThread.Name = "ListenForDataWorkload" + DateTime.Now;
+			Debug.Log("Creating thread " + " ListenForDataWorkload" + DateTime.Now);
 			mReceiveThread.Start();
 		}
 		catch (Exception e) {
