@@ -99,6 +99,31 @@ public class MainMenu : MonoBehaviour
     }
     public void CreateAccount(){
         Debug.Log("CreateAccount");
+        InputField signup_username_input    = GameObject.Find("SignUpUsernameInputField").GetComponent<InputField>();
+        InputField signup_password_input    = GameObject.Find("SignUpPasswordInputField").GetComponent<InputField>();
+        InputField signup_first_name_input  = GameObject.Find("SignUpFirstNameInputField").GetComponent<InputField>();
+        InputField signup_last_name_input   = GameObject.Find("SignUpLastNameInputField").GetComponent<InputField>();
+        InputField signup_email_input       = GameObject.Find("SignUpEmailInputField").GetComponent<InputField>();
+        InputField signup_dob_input         = GameObject.Find("SignUpDOBInputField").GetComponent<InputField>();
+        InputField signup_pob_input         = GameObject.Find("SignUpPOBInputField").GetComponent<InputField>();
+        InputField signup_secretq1_input    = GameObject.Find("SignUpSecretQ1InputField").GetComponent<InputField>();
+        InputField signup_secretq2_input    = GameObject.Find("SignUpSecretQ2InputField").GetComponent<InputField>();
+        InputField signup_secreta1_input    = GameObject.Find("SignUpSecretA1InputField").GetComponent<InputField>();
+        InputField signup_secreta2_input    = GameObject.Find("SignUpSecretA2InputField").GetComponent<InputField>();
+        Debug.Assert(signup_username_input!=null);
+        Debug.Assert(signup_password_input!=null);
+        Debug.Assert(signup_first_name_input!=null);
+        Debug.Assert(signup_last_name_input!=null);
+        Debug.Assert(signup_email_input!=null);
+        Debug.Assert(signup_dob_input!=null);
+        Debug.Assert(signup_pob_input!=null);
+        Debug.Assert(signup_secretq1_input!=null);
+        Debug.Assert(signup_secretq2_input!=null);
+        Debug.Assert(signup_secreta2_input!=null);
+        Debug.Assert(signup_secreta1_input!=null);
+        string username_str             = signup_username_input.text;
+        string password_str             = signup_password_input.text;
+
     }
 
     public void PlayGame(){
@@ -106,7 +131,10 @@ public class MainMenu : MonoBehaviour
       InputField server_port_input    = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
       InputField username_input       = GameObject.Find("UsernameInputField").GetComponent<InputField>();
       InputField password_input       = GameObject.Find("PasswordInputField").GetComponent<InputField>();
-
+      Debug.Assert(server_address_input!=null);
+      Debug.Assert(server_port_input!=null);
+      Debug.Assert(username_input!=null);
+      Debug.Assert(password_input!=null);
       string username_str             = username_input.text;
       string password_str             = password_input.text;
       string server_address_string    = server_address_input.text;

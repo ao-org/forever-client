@@ -645,13 +645,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 192182591}
   m_TextComponent: {fileID: 398650712}
   m_Placeholder: {fileID: 525944617}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 5
+  m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 6
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 4
   m_CharacterLimit: 16
   m_OnEndEdit:
     m_PersistentCalls:
@@ -1339,7 +1339,7 @@ GameObject:
   - component: {fileID: 388759806}
   - component: {fileID: 388759805}
   m_Layer: 5
-  m_Name: SignUpFirstNameField
+  m_Name: SignUpFirstNameInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1408,13 +1408,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 388759806}
   m_TextComponent: {fileID: 766119195}
   m_Placeholder: {fileID: 1785130984}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 5
+  m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 6
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 4
   m_CharacterLimit: 16
   m_OnEndEdit:
     m_PersistentCalls:
@@ -1701,8 +1701,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 406126527}
   m_TextComponent: {fileID: 515866276}
   m_Placeholder: {fileID: 711217927}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -2319,8 +2319,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 485669571}
   m_TextComponent: {fileID: 1064588697}
   m_Placeholder: {fileID: 1248674286}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -4223,8 +4223,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1081461593}
   m_TextComponent: {fileID: 1145488064}
   m_Placeholder: {fileID: 393479523}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -4978,13 +4978,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1227442536}
   m_TextComponent: {fileID: 1875971340}
   m_Placeholder: {fileID: 1606621928}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 2
+  m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 16
   m_OnEndEdit:
     m_PersistentCalls:
@@ -5511,13 +5511,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1281459646}
   m_TextComponent: {fileID: 1266157180}
   m_Placeholder: {fileID: 376891788}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 5
+  m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 6
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 4
   m_CharacterLimit: 16
   m_OnEndEdit:
     m_PersistentCalls:
@@ -5650,8 +5650,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1305621269}
   m_TextComponent: {fileID: 2100071826}
   m_Placeholder: {fileID: 1640251105}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -5953,7 +5953,7 @@ GameObject:
   - component: {fileID: 1477552481}
   - component: {fileID: 1477552480}
   m_Layer: 5
-  m_Name: SignUpEmailField
+  m_Name: SignUpEmailInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6022,13 +6022,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1477552481}
   m_TextComponent: {fileID: 377047256}
   m_Placeholder: {fileID: 104538516}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 6
+  m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 7
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_CharacterLimit: 16
   m_OnEndEdit:
     m_PersistentCalls:
@@ -7803,7 +7803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1882666553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8567,8 +8567,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -38.3, y: 159.2}
-  m_SizeDelta: {x: -243.9, y: -311.1}
+  m_AnchoredPosition: {x: -46.69995, y: -10.775024}
+  m_SizeDelta: {x: -262.5, y: -21.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011106876
 MonoBehaviour:
