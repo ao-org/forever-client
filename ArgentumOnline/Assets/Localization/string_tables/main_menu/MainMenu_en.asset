@@ -111,5 +111,9 @@ MonoBehaviour:
     m_Localized: Connection error
     m_Metadata:
       m_Items: []
+  - m_Id: 24
+    m_Localized: Mobile
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

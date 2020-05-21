@@ -298,9 +298,76 @@ public class ProtoLoginRequest : ProtoBase
 	}
 }
 
+
+
+
 public class ProtoSignupRequest : ProtoBase
 {
-	public ProtoSignupRequest(string username, string password, string token){
+	private string Dictionary2Json(IDictionary<string,string> user_data){
+		string json_account = "{ \"username\": \"" + user_data["USERNAME"] + "\",";
+		json_account += "\"password\": \"" + user_data["PASSWORD"]+ "\",";
+		json_account += "\"personal\": [{";
+		json_account += "\"dob\": \"" + user_data["DOB"]+ "\",";
+		json_account += "\"pob\": \"" + user_data["POB"]+ "\",";
+		json_account += "\"email\": \"" + user_data["EMAIL"]+ "\",";
+		json_account += "\"firstname\": \"" + user_data["FIRST_NAME"]+ "\",";
+		json_account += "\"lastname\": \"" + user_data["LAST_NAME"]+ "\",";
+		json_account += "\"lastname\": \"" + user_data["LAST_NAME"]+ "\",";
+		json_account += "\"mobile\": \"" + user_data["MOBILE"]+ "\"}],";
+		json_account += "\"passwordrecovery\": [{";
+		json_account += "\"secretanswer1\": \"" + user_data["SECRETA1"]+ "\",";
+		json_account += "\"secretanswer2\": \"" + user_data["SECRETA2"]+ "\",";
+		json_account += "\"secretquestion1\": \"" + user_data["SECRETQ1"]+ "\",";
+		json_account += "\"secretquestion2\": \"" + user_data["SECRETQ2"]+ "\"}]}";
+
+		return json_account;
+		/*
+		json_account = "{" +
+						    "password": "Pablo17",
+						    "passwordrecovery": [
+						        {
+						            "secretanswer1": "Satanas",
+						            "secretanswer2": "Rojo",
+						            "secretanswer3": "Rocky",
+						            "secretquestion1": "Cual es el nombre de mi primer mascota?",
+						            "secretquestion2": "Cual es mi color favorito?",
+						            "secretquestion3": "Pelicula preferida?"
+						        }
+						    ],
+						    "personal": [
+						        {
+						            "dob": "01/01/1900",
+						            "email": "gulfas@gmail.com",
+						            "favoritegame": "argentum",
+						            "firstname": "Pablo",
+						            "lastname": "Marquez",
+						            "mobile": "777777777",
+						            "nationality": "argentinean",
+						            "pob": "Guadalajara"
+						        }
+						    ],
+						    "username": "morgolock127"
+						}"
+						*/
+
+	}
+
+	public ProtoSignupRequest(IDictionary<string,string> user_data, string token){
+		Debug.Log("ProtoSignupRequest: " + user_data["USERNAME"]);
+		Debug.Assert(user_data["USERNAME"].Length>0);
+		Debug.Assert(user_data["PASSWORD"].Length>0);
+		short header = EncodeShort(ProtoBase.ProtocolNumbers["SIGNUP_REQUEST"]);
+		string json_account = Dictionary2Json(user_data);
+		Debug.Log("Account :" + json_account);
+		var encrypted_data = CryptoHelper.Encrypt(json_account, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
+		Debug.Log("encrypted account : " + Encoding.ASCII.GetString(encrypted_data));
+
+		int buffer_size = /* header */ 4 + encrypted_data.Length;
+		short encoded_size = (short)EncodeShort((short)buffer_size);
+		mBytes = new Byte[buffer_size];
+		ProtoBase.WriteShortToArray(mBytes,0,header);
+		ProtoBase.WriteShortToArray(mBytes,2,encoded_size);
+		Array.Copy(encrypted_data, 0, mBytes, 4, encrypted_data.Length);
 	}
 
 }
@@ -323,6 +390,7 @@ public class TCPClient : MonoBehaviour {
 	private string 		mServerPort;
 	private string		mUsername;
 	private string		mPassword;
+	private IDictionary<string,string>  mSignupData;
 	private MainMenu	mMainMenu;
 	private bool		mAppQuit;
 
@@ -346,17 +414,24 @@ public class TCPClient : MonoBehaviour {
 
 	private string mOperationUponSessionOpened = "NOOP";
 
-	static Dictionary<short, Func<TCPClient, byte[], int>> PocessFunctions
+	static Dictionary<short, Func<TCPClient, byte[], int>> ProcessFunctions
         = new Dictionary<short, Func<TCPClient, byte[], int>>
     {
         { ProtoBase.ProtocolNumbers["SESSION_OPENED"], (@this, x) => @this.ProcessSessionOpened(x) },
 		{ ProtoBase.ProtocolNumbers["SESSION_ERROR"], (@this, x) => @this.ProcessSessionError(x) },
 		{ ProtoBase.ProtocolNumbers["LOGIN_OKAY"], (@this, x) => @this.ProcessLoginOkay(x) },
-		{ ProtoBase.ProtocolNumbers["LOGIN_ERROR"], (@this, x) => @this.ProcessLoginError(x) }
+		{ ProtoBase.ProtocolNumbers["LOGIN_ERROR"], (@this, x) => @this.ProcessLoginError(x) },
+		{ ProtoBase.ProtocolNumbers["SIGNUP_OKAY"], (@this, x) => @this.ProcessSignupOkay(x) },
+		{ ProtoBase.ProtocolNumbers["SIGNUP_ERROR"], (@this, x) => @this.ProcessSignupError(x) }
+
+
     };
 	public void SetUsernameAndPassword(string u, string p){
 		mUsername = u;
 		mPassword = p;
+	}
+	public void SetSignupData(IDictionary<string,string> data){
+		mSignupData = data;
 	}
 	public int ProcessSessionOpened(byte[] encrypted_token){
 		Debug.Log("ProcessOpenSession");
@@ -388,8 +463,8 @@ public class TCPClient : MonoBehaviour {
 				break;
 		 	 case "SIGNUP_REQUEST":
 			 	Debug.Log("Session opened, attempting to signup.");
-			   //var login_request = new ProtoLoginRequest(mUsername, mPassword, CryptoHelper.PublicKey);
-			   //SendMessage(login_request);
+			    var signup_request = new ProtoSignupRequest(mSignupData, CryptoHelper.PublicKey);
+			    SendMessage(signup_request);
 			   	break;
 			 default:
 			  	break;
@@ -415,6 +490,19 @@ public class TCPClient : MonoBehaviour {
 		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
 		return 1;
 	}
+	public int ProcessSignupOkay(byte[] data){
+		Debug.Log("ProcessSignupOkay");
+		mEventsQueue.Enqueue(Tuple.Create("SIGNUP_OKAY",""));
+		return 1;
+	}
+	public int ProcessSignupError(byte[] data){
+		Debug.Log("ProcessSignupError");
+		short error_code = ProtoBase.DecodeShort(data);
+		var error_string = ProtoBase.LoginErrorCodeToString(error_code);
+		mEventsQueue.Enqueue(Tuple.Create("SIGNUP_ERROR_MSG_BOX_TITLE",error_string));
+		return 1;
+	}
+
 	void Start (){
 		Debug.Log("Initializing TCPClient");
 		mIncommingData = new List<byte>();
@@ -495,6 +583,7 @@ public class TCPClient : MonoBehaviour {
 
 	public void AttemptToLogin()
 	{
+		mOperationUponSessionOpened = "LOGIN_REQUEST";
 		ProtoOpenSession open_session = new ProtoOpenSession();
  	  	SendMessage(open_session);
 	}
@@ -533,7 +622,8 @@ public class TCPClient : MonoBehaviour {
 	}
 
 	private int ProcessPacket(short id, byte[] data){
-		return PocessFunctions[id](this,data);
+		Debug.Assert(ProcessFunctions.ContainsKey(id));
+		return ProcessFunctions[id](this,data);
 	}
 
 	public void OnApplicationQuit(){
