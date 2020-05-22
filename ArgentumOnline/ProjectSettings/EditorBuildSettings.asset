@@ -38,6 +38,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/35.unity
     guid: a97f96916c0f76246a0d061eb8786c7b
+  - enabled: 1
+    path: Assets/Scenes/Ullathorpe(1).unity
+    guid: 96ab5793929e7884d9a872ad9f9e149d
+  - enabled: 1
+    path: Assets/Scenes/2.unity
+    guid: 091697467d95af445afd8d673e361c08
+  - enabled: 1
+    path: Assets/Scenes/3.unity
+    guid: 01861c23d312d0e4381b87ac33310792
+  - enabled: 1
+    path: Assets/Scenes/4.unity
+    guid: b6f7f3c0eac72e84fa45921c53e9f5fa
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 2399d7483c923c5bc95e20fcdcdbeeec,
       type: 2}
