@@ -40,16 +40,6 @@ public class MainMenu : MonoBehaviour
     public LocalizedString SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
     public LocalizedString SignupErrText_INVALID_EMAIL;
 
-/*
-
-    {"PASSWORD_TOO_SHORT"					, 0x0E},
-    {"PASSWORD_TOO_LONG"					, 0x0F},
-    {"PASSWORD_IS_NOT_ALNUM"				, 0x10},
-    {"INVALID_PASSWORD_RESET_CODE"			, 0x15},
-    {"INVALID_PASSWORD_RESET_HOST"			, 0x16},
-    {"TRY_LATER"							, 0x17},
-    {"INVALID_DELETE_CODE"					, 0x19},
-*/
     private void CreateAndInitLocalizedStrings(){
         mLocalizedStringMappings = new Dictionary<string,LocalizedString>();
         mLocalizedStringMappings["LOGIN_ERROR_MSG_BOX_TITLE"]= LoginErrText_MSGBOX_TITLE;
@@ -78,6 +68,10 @@ public class MainMenu : MonoBehaviour
     public void OnApplicationQuit(){
             Debug.Log("Application ending after " + Time.time + " seconds");
     }
+    public void OnAccountCreated(){
+            Debug.Log("AccountCreated");
+            mActivateDialog.transform.localScale = new Vector3(1, 1, 1);
+    }
     private void Update(){
         if (Input.GetKeyDown(KeyCode.Tab)){
             Selectable next = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ?
@@ -99,6 +93,8 @@ public class MainMenu : MonoBehaviour
     }
     private TCPClient mTcpClient;
     private GameObject mMessageBox;
+    private GameObject mSignupDialog;
+    private GameObject mActivateDialog;
     private void Start()
     {
          CreateAndInitLocalizedStrings();
@@ -109,6 +105,14 @@ public class MainMenu : MonoBehaviour
          mMessageBox = GameObject.Find("MessageBox");
          Debug.Assert(mMessageBox!=null);
          mMessageBox.transform.localScale = new Vector3(0, 0, 0);
+
+         mSignupDialog = GameObject.Find("SignupDialog");
+         Debug.Assert(mSignupDialog!=null);
+//         mSignupDialog.transform.localScale = new Vector3(0, 0, 0);
+
+         mActivateDialog = GameObject.Find("ActivateDialog");
+         Debug.Assert(mActivateDialog!=null);
+         mActivateDialog.transform.localScale = new Vector3(0, 0, 0);
     }
     void Awake(){
         //var translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("PLAY_BUTTON");

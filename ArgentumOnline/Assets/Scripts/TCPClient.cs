@@ -491,12 +491,18 @@ public class TCPClient : MonoBehaviour {
 			if (mEventsQueue.Count > 0){
 				Tuple<string, string> e;
 				if (mEventsQueue.TryDequeue(out e)){
-					if(e.Item2 !=null){
-						Debug.Log("Event {" + e.Item2 + "}");
-						ShowMessageBox(e.Item1,e.Item2);
+
+					if(e.Item1 == "SIGNUP_OKAY"){
+						mMainMenu.OnAccountCreated();
 					}
-					else{
-						ShowMessageBox(e.Item1,"Whatever");
+					else { // normal message box
+						if(e.Item2 !=null){
+							Debug.Log("Event {" + e.Item2 + "}");
+							ShowMessageBox(e.Item1,e.Item2);
+						}
+						else{
+							ShowMessageBox(e.Item1,"Whatever");
+						}
 					}
 				}
 			}
@@ -599,6 +605,11 @@ public class TCPClient : MonoBehaviour {
 	public void OnApplicationQuit(){
             Debug.Log("TCPCLIENT Application ending after " + Time.time + " seconds");
 			mAppQuit = true;
+			if(mSocket!=null){
+				//mSocket.GetStream().Close();
+				mSocket.Close();
+				mSocket = null;
+			}
 			if(mReceiveThread!=null){
 				mReceiveThread.Abort();
 				mReceiveThread.Join();
@@ -607,6 +618,7 @@ public class TCPClient : MonoBehaviour {
 				mSendThread.Abort();
 				mSendThread.Join();
 			}
+
     }
 	private void ListenForDataWorkload() {
 		try {
@@ -621,6 +633,7 @@ public class TCPClient : MonoBehaviour {
 					int length;
 					if(stream.CanRead)
 					{
+							stream.ReadTimeout = 1000;
 							while ((length = stream.Read(bytes, 0, bytes.Length)) != 0){
 								// Copy the bytes received from the network to the array incommingData
 								var incommingData = new byte[length];
@@ -636,7 +649,6 @@ public class TCPClient : MonoBehaviour {
 									var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
 									Debug.Log(" msg_size len " + msg_size.Length);
 									var header	 	= mIncommingData.GetRange(0, 2).ToArray();
-
 									short decoded_size = ProtoBase.DecodeShort(msg_size);
 									Debug.Log(" Msg_size: " + decoded_size);
 									short message_id = ProtoBase.DecodeShort(header);
@@ -671,7 +683,6 @@ public class TCPClient : MonoBehaviour {
 	}
 
 	private void WaitAndSendMessageWorkload() {
-
 		while (!mAppQuit) {
 			try {
 				if( mSocket!=null && mSocket.Connected )
@@ -681,11 +692,11 @@ public class TCPClient : MonoBehaviour {
 				while (mSendQueue.Count > 0)
 				{
 					if (stream.CanWrite) {
+						stream.WriteTimeout = 1000;
 						ProtoBase msg;
 						if (mSendQueue.TryDequeue(out msg))
       					{
 							Debug.Assert(msg.Data()!=null);
-         					Debug.Log("msg {" + msg.Data() + "}");
 							stream.Write(msg.Data(), 0, msg.Size());
 						}
 					}

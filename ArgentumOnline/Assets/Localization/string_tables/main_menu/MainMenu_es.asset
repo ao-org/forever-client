@@ -172,5 +172,19 @@ MonoBehaviour:
     m_Localized: INVALID_EMAIL
     m_Metadata:
       m_Items: []
+  - m_Id: 40
+    m_Localized: La cuenta ha sido creada exitosamente. Antes de utilizarla debu
+      activarla. Le hemos enviado un correo elecronico con un codigo que debe ingresar
+      aqui para activar la cuenta.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41
+    m_Localized: Activar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
