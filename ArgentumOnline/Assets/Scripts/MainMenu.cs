@@ -17,24 +17,63 @@ public class MainMenu : MonoBehaviour
 {
     private EventSystem mEventSystem;
     public LocalizedString LoginErrText_MSGBOX_TITLE;
+    public LocalizedString SignupErrText_MSGBOX_TITLE;
     public LocalizedString LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION;
     public LocalizedString LoginErrText_ACCOUNT_DOESNT_EXIST;
+    public LocalizedString SignupErrText_ACCOUNT_ALREADY_EXIST;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_PASSWORD;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_USERNAME;
     public LocalizedString InputErrText_INPUT_ERROR_TITLE;
     public LocalizedString ConnectionErrText_CONNECTION_ERROR_MSGBOX_TITLE;
     public LocalizedString ConnectionErrText_CONNECTION_ERROR_CANNOT_REACH_SERVER;
 
+    public LocalizedString SignupErrText_PASSWORD_TOO_SHORT;
+    public LocalizedString SignupErrText_PASSWORD_TOO_LONG;
+    public LocalizedString SignupErrText_PASSWORD_IS_NOT_ALNUM;
+    public LocalizedString SignupErrText_USERNAME_TOO_SHORT;
+    public LocalizedString SignupErrText_USERNAME_TOO_LONG;
+    public LocalizedString SignupErrText_USERNAME_IS_NOT_ALNUM;
+    public LocalizedString SignupErrText_PASSWORD_CANNOT_CONTAIN_USERNAME;
+    public LocalizedString SignupErrText_USERNAME_CANNOT_START_WITH_NUMBER;
+    public LocalizedString SignupErrText_PASSWORD_MUST_HAVE_ONE_UPPERCASE;
+    public LocalizedString SignupErrText_PASSWORD_MUST_HAVE_ONE_LOWERCASE;
+    public LocalizedString SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
+    public LocalizedString SignupErrText_INVALID_EMAIL;
+
+/*
+
+    {"PASSWORD_TOO_SHORT"					, 0x0E},
+    {"PASSWORD_TOO_LONG"					, 0x0F},
+    {"PASSWORD_IS_NOT_ALNUM"				, 0x10},
+    {"INVALID_PASSWORD_RESET_CODE"			, 0x15},
+    {"INVALID_PASSWORD_RESET_HOST"			, 0x16},
+    {"TRY_LATER"							, 0x17},
+    {"INVALID_DELETE_CODE"					, 0x19},
+*/
     private void CreateAndInitLocalizedStrings(){
         mLocalizedStringMappings = new Dictionary<string,LocalizedString>();
         mLocalizedStringMappings["LOGIN_ERROR_MSG_BOX_TITLE"]= LoginErrText_MSGBOX_TITLE;
+        mLocalizedStringMappings["SIGNUP_ERROR_MSG_BOX_TITLE"]= SignupErrText_MSGBOX_TITLE;
         mLocalizedStringMappings["USER_ALREADY_HOLDS_ACTIVE_SESSION"]= LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION;
         mLocalizedStringMappings["ACCOUNT_DOESNT_EXIST"]= LoginErrText_ACCOUNT_DOESNT_EXIST;
+        mLocalizedStringMappings["ACCOUNT_ALREADY_EXISTS"]= SignupErrText_ACCOUNT_ALREADY_EXIST;
         mLocalizedStringMappings["INPUT_ERROR_INVALID_PASSWORD"]= InputErrText_INPUT_ERROR_INVALID_PASSWORD;
         mLocalizedStringMappings["INPUT_ERROR_INVALID_USER"]= InputErrText_INPUT_ERROR_INVALID_USERNAME;
         mLocalizedStringMappings["INPUT_ERROR_TITLE"]= InputErrText_INPUT_ERROR_TITLE;
         mLocalizedStringMappings["CONNECTION_ERROR_MSGBOX_TITLE"]= ConnectionErrText_CONNECTION_ERROR_MSGBOX_TITLE;
         mLocalizedStringMappings["CONNECTION_ERROR_CANNOT_REACH_SERVER"]= ConnectionErrText_CONNECTION_ERROR_CANNOT_REACH_SERVER;
+        mLocalizedStringMappings["PASSWORD_TOO_SHORT"]= SignupErrText_PASSWORD_TOO_SHORT;
+        mLocalizedStringMappings["PASSWORD_TOO_LONG"]= SignupErrText_PASSWORD_TOO_LONG;
+        mLocalizedStringMappings["PASSWORD_IS_NOT_ALNUM"]= SignupErrText_PASSWORD_IS_NOT_ALNUM;
+        mLocalizedStringMappings["USERNAME_TOO_SHORT"]= SignupErrText_USERNAME_TOO_SHORT;
+        mLocalizedStringMappings["USERNAME_TOO_LONG"]= SignupErrText_USERNAME_TOO_LONG;
+        mLocalizedStringMappings["USERNAME_IS_NOT_ALNUM"]= SignupErrText_USERNAME_IS_NOT_ALNUM;
+        mLocalizedStringMappings["PASSWORD_CANNOT_CONTAIN_USERNAME"]= SignupErrText_PASSWORD_CANNOT_CONTAIN_USERNAME;
+        mLocalizedStringMappings["USERNAME_CANNOT_START_WITH_NUMBER"]= SignupErrText_USERNAME_CANNOT_START_WITH_NUMBER;
+        mLocalizedStringMappings["PASSWORD_MUST_HAVE_ONE_UPPERCASE"]= SignupErrText_PASSWORD_MUST_HAVE_ONE_UPPERCASE;
+        mLocalizedStringMappings["PASSWORD_MUST_HAVE_ONE_LOWERCASE"]= SignupErrText_PASSWORD_MUST_HAVE_ONE_LOWERCASE;
+        mLocalizedStringMappings["PASSWORD_MUST_HAVE_TWO_NUMBERS"]= SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
+        mLocalizedStringMappings["INVALID_EMAIL"]= SignupErrText_INVALID_EMAIL;
     }
     public void OnApplicationQuit(){
             Debug.Log("Application ending after " + Time.time + " seconds");

@@ -321,37 +321,7 @@ public class ProtoSignupRequest : ProtoBase
 		json_account += "\"secretquestion2\": \"" + user_data["SECRETQ2"]+ "\"}]}";
 
 		return json_account;
-		/*
-		json_account = "{" +
-						    "password": "Pablo17",
-						    "passwordrecovery": [
-						        {
-						            "secretanswer1": "Satanas",
-						            "secretanswer2": "Rojo",
-						            "secretanswer3": "Rocky",
-						            "secretquestion1": "Cual es el nombre de mi primer mascota?",
-						            "secretquestion2": "Cual es mi color favorito?",
-						            "secretquestion3": "Pelicula preferida?"
-						        }
-						    ],
-						    "personal": [
-						        {
-						            "dob": "01/01/1900",
-						            "email": "gulfas@gmail.com",
-						            "favoritegame": "argentum",
-						            "firstname": "Pablo",
-						            "lastname": "Marquez",
-						            "mobile": "777777777",
-						            "nationality": "argentinean",
-						            "pob": "Guadalajara"
-						        }
-						    ],
-						    "username": "morgolock127"
-						}"
-						*/
-
 	}
-
 	public ProtoSignupRequest(IDictionary<string,string> user_data, string token){
 		Debug.Log("ProtoSignupRequest: " + user_data["USERNAME"]);
 		Debug.Assert(user_data["USERNAME"].Length>0);

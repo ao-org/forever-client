@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: MainMenu Shared Data
   m_EditorClassIdentifier: 
-  m_NextAvailableId: 25
+  m_NextAvailableId: 40
   m_TableName: MainMenu
   m_TableNameGuidString: ce04b8004cef60dc193130c9173065bb
   m_Entries:
@@ -110,6 +110,62 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 24
     m_Key: SIGNUP_MOBILE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25
+    m_Key: SIGNUP_ERROR_MSG_BOX_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26
+    m_Key: ACCOUNT_ALREADY_EXISTS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27
+    m_Key: PASSWORD_TOO_SHORT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28
+    m_Key: PASSWORD_TOO_LONG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29
+    m_Key: PASSWORD_IS_NOT_ALNUM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30
+    m_Key: USERNAME_TOO_SHORT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31
+    m_Key: USERNAME_TOO_LONG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32
+    m_Key: USERNAME_IS_NOT_ALNUM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33
+    m_Key: PASSWORD_CANNOT_CONTAIN_USERNAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34
+    m_Key: USERNAME_CANNOT_START_WITH_NUMBER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35
+    m_Key: PASSWORD_MUST_HAVE_ONE_UPPERCASE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36
+    m_Key: PASSWORD_MUST_HAVE_ONE_LOWERCASE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37
+    m_Key: PASSWORD_MUST_HAVE_TWO_NUMBERS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38
+    m_Key: INVALID_EMAIL
     m_Metadata:
       m_Items: []
   m_Metadata:

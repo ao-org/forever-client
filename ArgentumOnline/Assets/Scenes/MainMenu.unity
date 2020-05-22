@@ -8766,6 +8766,12 @@ MonoBehaviour:
     m_TableEntryReference:
       m_KeyId: 6
       m_Key: 
+  SignupErrText_MSGBOX_TITLE:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 25
+      m_Key: 
   LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION:
     m_TableReference:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
@@ -8777,6 +8783,12 @@ MonoBehaviour:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 7
+      m_Key: 
+  SignupErrText_ACCOUNT_ALREADY_EXIST:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 26
       m_Key: 
   InputErrText_INPUT_ERROR_INVALID_PASSWORD:
     m_TableReference:
@@ -8807,6 +8819,78 @@ MonoBehaviour:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 22
+      m_Key: 
+  SignupErrText_PASSWORD_TOO_SHORT:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 27
+      m_Key: 
+  SignupErrText_PASSWORD_TOO_LONG:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 28
+      m_Key: 
+  SignupErrText_PASSWORD_IS_NOT_ALNUM:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 29
+      m_Key: 
+  SignupErrText_USERNAME_TOO_SHORT:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 30
+      m_Key: 
+  SignupErrText_USERNAME_TOO_LONG:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 31
+      m_Key: 
+  SignupErrText_USERNAME_IS_NOT_ALNUM:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 32
+      m_Key: 
+  SignupErrText_PASSWORD_CANNOT_CONTAIN_USERNAME:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 33
+      m_Key: 
+  SignupErrText_USERNAME_CANNOT_START_WITH_NUMBER:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 34
+      m_Key: 
+  SignupErrText_PASSWORD_MUST_HAVE_ONE_UPPERCASE:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 35
+      m_Key: 
+  SignupErrText_PASSWORD_MUST_HAVE_ONE_LOWERCASE:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 36
+      m_Key: 
+  SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 37
+      m_Key: 
+  SignupErrText_INVALID_EMAIL:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 38
       m_Key: 
 --- !u!1 &2063136098
 GameObject:
