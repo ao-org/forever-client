@@ -77,6 +77,10 @@ public class MainMenu : MonoBehaviour
         mActivateDialog.transform.localScale = new Vector3(0, 0, 0);
         mSignupDialog.transform.localScale = new Vector3(0, 0, 0);
     }
+    public void OnSignupCanceled(){
+        Debug.Log("OnSignupCanceled");
+        mSignupDialog.transform.localScale = new Vector3(0, 0, 0);
+    }
     public void OnSendCodeButton(){
         Debug.Log("OnSendCodeButton");
     }
