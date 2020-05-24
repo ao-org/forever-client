@@ -306,6 +306,7 @@ public class ProtoSignupRequest : ProtoBase
 	private string Dictionary2Json(IDictionary<string,string> user_data){
 		string json_account = "{ \"username\": \"" + user_data["USERNAME"] + "\",";
 		json_account += "\"password\": \"" + user_data["PASSWORD"]+ "\",";
+		json_account += "\"language\": \"" + user_data["LANGUAGE"]+ "\",";
 		json_account += "\"personal\": [{";
 		json_account += "\"dob\": \"" + user_data["DOB"]+ "\",";
 		json_account += "\"pob\": \"" + user_data["POB"]+ "\",";

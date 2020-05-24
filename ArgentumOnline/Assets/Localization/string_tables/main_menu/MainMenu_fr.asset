@@ -182,5 +182,9 @@ MonoBehaviour:
     m_Localized: Cancel
     m_Metadata:
       m_Items: []
+  - m_Id: 43
+    m_Localized: Langue
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

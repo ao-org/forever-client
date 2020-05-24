@@ -69,9 +69,18 @@ public class MainMenu : MonoBehaviour
             Debug.Log("Application ending after " + Time.time + " seconds");
     }
     public void OnAccountCreated(){
-            Debug.Log("AccountCreated");
-            mActivateDialog.transform.localScale = new Vector3(1, 1, 1);
+        Debug.Log("AccountCreated");
+        mActivateDialog.transform.localScale = new Vector3(1, 1, 1);
     }
+    public void OnActivationCanceled(){
+        Debug.Log("AccountCreated");
+        mActivateDialog.transform.localScale = new Vector3(0, 0, 0);
+        mSignupDialog.transform.localScale = new Vector3(0, 0, 0);
+    }
+    public void OnSendCodeButton(){
+        Debug.Log("OnSendCodeButton");
+    }
+
     private void Update(){
         if (Input.GetKeyDown(KeyCode.Tab)){
             Selectable next = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ?
@@ -160,11 +169,13 @@ public class MainMenu : MonoBehaviour
         InputField signup_mobile_input      = GameObject.Find("SignUpMobileInputField").GetComponent<InputField>();
         InputField server_address_input     = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
         InputField server_port_input        = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
+        InputField signup_language_input         = GameObject.Find("SignUpLanguageInputField").GetComponent<InputField>();
         Debug.Assert(signup_username_input!=null);
         Debug.Assert(signup_password_input!=null);
         Debug.Assert(signup_first_name_input!=null);
         Debug.Assert(signup_last_name_input!=null);
         Debug.Assert(signup_email_input!=null);
+        Debug.Assert(signup_language_input!=null);
         Debug.Assert(signup_dob_input!=null);
         Debug.Assert(signup_pob_input!=null);
         Debug.Assert(signup_secretq1_input!=null);
@@ -188,6 +199,7 @@ public class MainMenu : MonoBehaviour
         string secreta2_string          = signup_secreta1_input.text;
         string secreta1_string          = signup_secreta2_input.text;
         string mobile_string            = signup_mobile_input.text;
+        string language_string          = signup_language_input.text;
 
         if(username_str == null || username_str.Length<3){
             this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_USER",true);
@@ -211,6 +223,7 @@ public class MainMenu : MonoBehaviour
                 { "DOB", dob_string },
                 { "POB", pob_string },
                 { "MOBILE", mobile_string },
+                { "LANGUAGE", language_string },
                 { "SECRETQ1", secretq1_string },
                 { "SECRETQ2", secretq2_string },
                 { "SECRETA2", secreta2_string },
