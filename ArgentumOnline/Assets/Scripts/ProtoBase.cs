@@ -82,7 +82,6 @@ public class ProtoBase
 		Debug.Assert(false);
 		return "TRY_LATER";
 	}
-
 	static public string PrivateKey = "pablomarquezARG1";
 	public ProtoBase(){}
 	public ProtoBase(uint size) {
@@ -99,13 +98,11 @@ public class ProtoBase
 		byte ret = (byte)(s&0xFF);
 		return ret;
 	}
-	static public void WriteShortToArray(byte[] dst, int index, short s)
-	{
+	static public void WriteShortToArray(byte[] dst, int index, short s){
 		Debug.Assert(dst!=null);
 		dst[index] = GetLowByte(s);
 		dst[1+index] = GetHighByte(s);
 	}
-
 	static public short EncodeShort(short s){
 		 /*
 		 	Different computers use different conventions for ordering the bytes within multibyte integer values. Some computers put
@@ -116,9 +113,7 @@ public class ProtoBase
 			The HostToNetworkOrder method converts multibyte integer values that are stored on the host system from the byte order
 			used by the host to the byte order used by the network
 		 */
-		 short i = System.Net.IPAddress.HostToNetworkOrder(s);
-		 Debug.Log("System.Net.IPAddress.HostToNetworkOrder(" + s + ")" + " i " + i);
-		 return i;
+		 return System.Net.IPAddress.HostToNetworkOrder(s);
 	}
 	static public short DecodeShort(byte[] bytes){
 		Debug.Assert(bytes.Length==2);

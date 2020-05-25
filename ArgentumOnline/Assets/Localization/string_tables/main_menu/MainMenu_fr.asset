@@ -194,5 +194,9 @@ MonoBehaviour:
     m_Localized: Must activate account
     m_Metadata:
       m_Items: []
+  - m_Id: 46
+    m_Localized: Codigo de activacion invalido
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

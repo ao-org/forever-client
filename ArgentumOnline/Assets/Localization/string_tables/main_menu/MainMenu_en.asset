@@ -196,5 +196,9 @@ MonoBehaviour:
     m_Localized: Must active the account before login.
     m_Metadata:
       m_Items: []
+  - m_Id: 46
+    m_Localized: Please type in a valid activation code
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

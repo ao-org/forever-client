@@ -198,5 +198,9 @@ MonoBehaviour:
     m_Localized: La cuenta aun no ha sido activada, por favor active la cuenta.
     m_Metadata:
       m_Items: []
+  - m_Id: 46
+    m_Localized: Por favor ingrese un codigo de activacion valido.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

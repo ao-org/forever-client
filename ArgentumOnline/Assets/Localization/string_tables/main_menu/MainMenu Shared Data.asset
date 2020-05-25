@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: MainMenu Shared Data
   m_EditorClassIdentifier: 
-  m_NextAvailableId: 46
+  m_NextAvailableId: 50
   m_TableName: MainMenu
   m_TableNameGuidString: ce04b8004cef60dc193130c9173065bb
   m_Entries:
@@ -190,6 +190,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 45
     m_Key: LOGIN_ERROR_MUST_ACTIVATE_ACCOUNT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46
+    m_Key: INPUT_ERROR_INVALID_ACTIVATION_CODE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47
+    m_Key: New Entry 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48
+    m_Key: New Entry 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49
+    m_Key: New Entry 3
     m_Metadata:
       m_Items: []
   m_Metadata:

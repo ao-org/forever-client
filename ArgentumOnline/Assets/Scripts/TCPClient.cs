@@ -32,6 +32,7 @@ public class TCPClient : MonoBehaviour {
 	private string 		mServerPort;
 	private string		mUsername;
 	private string		mPassword;
+	private string		mCode;
 	private IDictionary<string,string>  mSignupData;
 	private MainMenu	mMainMenu;
 	private bool		mAppQuit;
@@ -64,10 +65,15 @@ public class TCPClient : MonoBehaviour {
 		{ ProtoBase.ProtocolNumbers["LOGIN_OKAY"], (@this, x) => @this.ProcessLoginOkay(x) },
 		{ ProtoBase.ProtocolNumbers["LOGIN_ERROR"], (@this, x) => @this.ProcessLoginError(x) },
 		{ ProtoBase.ProtocolNumbers["SIGNUP_OKAY"], (@this, x) => @this.ProcessSignupOkay(x) },
-		{ ProtoBase.ProtocolNumbers["SIGNUP_ERROR"], (@this, x) => @this.ProcessSignupError(x) }
+		{ ProtoBase.ProtocolNumbers["SIGNUP_ERROR"], (@this, x) => @this.ProcessSignupError(x) },
+		{ ProtoBase.ProtocolNumbers["ACTIVATE_OKAY"], (@this, x) => @this.ProcessActivationOkay(x) },
+		{ ProtoBase.ProtocolNumbers["ACTIVATE_ERROR"], (@this, x) => @this.ProcessActivationError(x) }
 
 
     };
+	public void SetActivationCode(string code){
+		mCode = code;
+	}
 	public void SetUsernameAndPassword(string u, string p){
 		mUsername = u;
 		mPassword = p;
@@ -135,6 +141,21 @@ public class TCPClient : MonoBehaviour {
 		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
 		return 1;
 	}
+
+	public int ProcessActivationOkay(byte[] data){
+		Debug.Log("ProcessActivationOkay");
+		//mEventsQueue.Enqueue(Tuple.Create("LOGIN_OKAY",""));
+		return 1;
+	}
+	public int ProcessActivationError(byte[] data){
+		Debug.Log("ProcessActivationError");
+		short error_code = ProtoBase.DecodeShort(data);
+		var error_string = ProtoBase.LoginErrorCodeToString(error_code);
+		//mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
+		return 1;
+	}
+
+
 	public int ProcessSignupOkay(byte[] data){
 		Debug.Log("ProcessSignupOkay");
 		mEventsQueue.Enqueue(Tuple.Create("SIGNUP_OKAY",""));
@@ -239,11 +260,18 @@ public class TCPClient : MonoBehaviour {
  	  	SendMessage(open_session);
 	}
 
+	public void AttemptToActivate()
+	{
+		mOperationUponSessionOpened = "ACTIVATE_REQUEST";
+		ProtoOpenSession open_session = new ProtoOpenSession();
+ 	  	SendMessage(open_session);
+	}
+
 	public void AttemptToSignup()
 	{
-		Debug.Log("AttemptToSignup");
-		//ProtoOpenSession open_session = new ProtoOpenSession();
- 	  	//SendMessage(open_session);
+		mOperationUponSessionOpened = "SIGNUP_REQUEST";
+		ProtoOpenSession open_session = new ProtoOpenSession();
+		SendMessage(open_session);
 	}
 
    	private void OnConnectionEstablished()

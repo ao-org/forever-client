@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour
     public LocalizedString SignupErrText_ACCOUNT_ALREADY_EXIST;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_PASSWORD;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_USERNAME;
+    public LocalizedString InputErrText_INPUT_ERROR_INVALID_ACTIVATION_CODE;
     public LocalizedString InputErrText_INPUT_ERROR_TITLE;
     public LocalizedString ConnectionErrText_CONNECTION_ERROR_MSGBOX_TITLE;
     public LocalizedString ConnectionErrText_CONNECTION_ERROR_CANNOT_REACH_SERVER;
@@ -65,6 +66,7 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["PASSWORD_MUST_HAVE_TWO_NUMBERS"]= SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
         mLocalizedStringMappings["INVALID_EMAIL"]= SignupErrText_INVALID_EMAIL;
         mLocalizedStringMappings["MUST_ACTIVATE_ACCOUNT"]= LoginErrText_MUST_ACTIVATE_ACCOUNT;
+        mLocalizedStringMappings["INPUT_ERROR_INVALID_ACTIVATION_CODE"]= InputErrText_INPUT_ERROR_INVALID_ACTIVATION_CODE;
     }
     public void OnApplicationQuit(){
             Debug.Log("Application ending after " + Time.time + " seconds");
@@ -84,6 +86,43 @@ public class MainMenu : MonoBehaviour
     }
     public void OnSendCodeButton(){
         Debug.Log("OnSendCodeButton");
+        InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
+        InputField server_port_input    = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
+        //InputField username_input       = GameObject.Find("UsernameInputField").GetComponent<InputField>();
+        //InputField password_input       = GameObject.Find("PasswordInputField").GetComponent<InputField>();
+        InputField code_input           = GameObject.Find("ActivateCodeInputField").GetComponent<InputField>();
+
+        Debug.Assert(server_address_input!=null);
+        Debug.Assert(server_port_input!=null);
+        //Debug.Assert(username_input!=null);
+        //Debug.Assert(password_input!=null);
+        Debug.Assert(code_input!=null);
+        //string username_str             = username_input.text;
+        //string password_str             = password_input.text;
+        string server_address_string    = server_address_input.text;
+        string server_port_string       = server_port_input.text;
+        string code_string              = code_input.text;
+
+        if(code_string == null || code_string.Length<8){
+            this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_ACTIVATION_CODE",true);
+            return;
+        }
+        try {
+          //Attempt to connect to game Server
+          if( mTcpClient.IsConnected()){
+              mTcpClient.AttemptToActivate();
+          }
+          else {
+              Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
+              //mTcpClient.SetUsernameAndPassword(username_str,password_str);
+              // username and password already setup in the signup flow
+              mTcpClient.SetActivationCode(code_string);
+              mTcpClient.ConnectToTcpServer(server_address_string,server_port_string,"ACTIVATE_REQUEST");
+          }
+        }
+        catch (Exception e){
+                Debug.Log("Failed to connect to server " + e);
+        }
     }
 
     private void Update(){

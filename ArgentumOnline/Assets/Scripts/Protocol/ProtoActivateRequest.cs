@@ -5,34 +5,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Sockets;
 using System.Text;
 using UnityEngine;
 
 public class ProtoActivateRequest : ProtoBase
 {
 	public ProtoActivateRequest(string username, string password, string token){
-		Debug.Log("ProtoLoginRequest: " + username + " " + password);
+		Debug.Log("ProtoActivateRequest: " + username + " " + password);
 		Debug.Assert(username.Length>0);
 		Debug.Assert(password.Length>0);
-		short header = EncodeShort(ProtoBase.ProtocolNumbers["LOGIN_REQUEST"]);
+		short header = EncodeShort(ProtoBase.ProtocolNumbers["ACTIVATE_REQUEST"]);
 		var encrypted_username = CryptoHelper.Encrypt(username, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
 		var encrypted_password = CryptoHelper.Encrypt(password, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
-		Debug.Log("encrypted username : " + Encoding.ASCII.GetString(encrypted_username));
-		//var sdf =CryptoHelper.Decrypt(Encoding.ASCII.GetBytes(encrypted_username), Encoding.ASCII.GetBytes(CryptoHelper.PublicKey))
-
-
-		//Debug.Log("encrypted_token(" + encrypted_token.Length + ") " + Encoding.ASCII.GetString(encrypted_token));
-		//var du	= CryptoHelper.Decrypt(n,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
-		string  asd = CryptoHelper.Decrypt(encrypted_username, Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
-		Debug.Log("DEC encrypted username : [" +  asd + "]");
-		///Debug.Assert(username == asd);
-
-		Debug.Log("Decrypted Token : " + CryptoHelper.Token);
-
-
-		Debug.Log("encrypted password : " + Encoding.ASCII.GetString(encrypted_password));
-
 		int buffer_size = /* header */ 4 + /* len(encrypted_username) */ 2 +
 						   /* actual size of encrypted_username*/ encrypted_username.Length +
 						   /* len(encrypted_password) */ 2 +
