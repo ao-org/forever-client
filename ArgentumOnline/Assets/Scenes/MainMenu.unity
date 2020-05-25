@@ -10223,6 +10223,12 @@ MonoBehaviour:
     m_TableEntryReference:
       m_KeyId: 7
       m_Key: 
+  LoginErrText_MUST_ACTIVATE_ACCOUNT:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 45
+      m_Key: 
   SignupErrText_ACCOUNT_ALREADY_EXIST:
     m_TableReference:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb

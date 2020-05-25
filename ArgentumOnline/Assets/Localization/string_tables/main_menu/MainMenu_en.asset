@@ -192,5 +192,9 @@ MonoBehaviour:
     m_Localized: Back
     m_Metadata:
       m_Items: []
+  - m_Id: 45
+    m_Localized: Must active the account before login.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

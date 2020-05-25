@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     public LocalizedString SignupErrText_MSGBOX_TITLE;
     public LocalizedString LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION;
     public LocalizedString LoginErrText_ACCOUNT_DOESNT_EXIST;
+    public LocalizedString LoginErrText_MUST_ACTIVATE_ACCOUNT;
     public LocalizedString SignupErrText_ACCOUNT_ALREADY_EXIST;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_PASSWORD;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_USERNAME;
@@ -64,6 +65,7 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["PASSWORD_MUST_HAVE_ONE_LOWERCASE"]= SignupErrText_PASSWORD_MUST_HAVE_ONE_LOWERCASE;
         mLocalizedStringMappings["PASSWORD_MUST_HAVE_TWO_NUMBERS"]= SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
         mLocalizedStringMappings["INVALID_EMAIL"]= SignupErrText_INVALID_EMAIL;
+        mLocalizedStringMappings["MUST_ACTIVATE_ACCOUNT"]= LoginErrText_MUST_ACTIVATE_ACCOUNT;
     }
     public void OnApplicationQuit(){
             Debug.Log("Application ending after " + Time.time + " seconds");

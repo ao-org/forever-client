@@ -194,5 +194,9 @@ MonoBehaviour:
     m_Localized: Atras
     m_Metadata:
       m_Items: []
+  - m_Id: 45
+    m_Localized: La cuenta aun no ha sido activada, por favor active la cuenta.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

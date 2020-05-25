@@ -190,5 +190,9 @@ MonoBehaviour:
     m_Localized: Cancel
     m_Metadata:
       m_Items: []
+  - m_Id: 45
+    m_Localized: Must activate account
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
