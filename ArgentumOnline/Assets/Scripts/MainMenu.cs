@@ -1,7 +1,6 @@
 /*
-    Copyright 2020, Pablo Ignacio Marquez Tello aka Morgolock, All rights reserved.
-    Argentum Online Clasico
-    noland.studios@gmail.com
+		Argentum Forever - Copyright 2020, Pablo Ignacio Marquez Tello aka Morgolock, All rights reserved.
+		gulfas@gmail.com
 */
 using System;
 ﻿using System.Collections;
@@ -175,13 +174,13 @@ public class MainMenu : MonoBehaviour
         InputField signup_mobile_input      = GameObject.Find("SignUpMobileInputField").GetComponent<InputField>();
         InputField server_address_input     = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
         InputField server_port_input        = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
-        InputField signup_language_input         = GameObject.Find("SignUpLanguageInputField").GetComponent<InputField>();
+        Dropdown signup_language_dropdown   = GameObject.Find("SignUpLanguageDropdown").GetComponent<Dropdown>();
         Debug.Assert(signup_username_input!=null);
         Debug.Assert(signup_password_input!=null);
         Debug.Assert(signup_first_name_input!=null);
         Debug.Assert(signup_last_name_input!=null);
         Debug.Assert(signup_email_input!=null);
-        Debug.Assert(signup_language_input!=null);
+        Debug.Assert(signup_language_dropdown!=null);
         Debug.Assert(signup_dob_input!=null);
         Debug.Assert(signup_pob_input!=null);
         Debug.Assert(signup_secretq1_input!=null);
@@ -205,7 +204,10 @@ public class MainMenu : MonoBehaviour
         string secreta2_string          = signup_secreta1_input.text;
         string secreta1_string          = signup_secreta2_input.text;
         string mobile_string            = signup_mobile_input.text;
-        string language_string          = signup_language_input.text;
+        //string language_string          = signup_language_input.text;
+        var drop_value = signup_language_dropdown.value;
+        //Change the message to say the name of the current Dropdown selection using the value
+        string language_string = signup_language_dropdown.options[drop_value].text;
 
         if(username_str == null || username_str.Length<3){
             this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_USER",true);
