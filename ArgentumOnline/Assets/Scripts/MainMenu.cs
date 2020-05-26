@@ -41,6 +41,10 @@ public class MainMenu : MonoBehaviour
     public LocalizedString SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
     public LocalizedString SignupErrText_INVALID_EMAIL;
 
+    public LocalizedString ActivateOkayText_ACTIVATE_OKAY;
+    public LocalizedString ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
+    public LocalizedString ActivateErrText_ACTIVATE_MSG_BOX_TITLE;
+
     private void CreateAndInitLocalizedStrings(){
         mLocalizedStringMappings = new Dictionary<string,LocalizedString>();
         mLocalizedStringMappings["LOGIN_ERROR_MSG_BOX_TITLE"]= LoginErrText_MSGBOX_TITLE;
@@ -67,6 +71,9 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["INVALID_EMAIL"]= SignupErrText_INVALID_EMAIL;
         mLocalizedStringMappings["MUST_ACTIVATE_ACCOUNT"]= LoginErrText_MUST_ACTIVATE_ACCOUNT;
         mLocalizedStringMappings["INPUT_ERROR_INVALID_ACTIVATION_CODE"]= InputErrText_INPUT_ERROR_INVALID_ACTIVATION_CODE;
+        mLocalizedStringMappings["ACTIVATE_OKAY"]= ActivateOkayText_ACTIVATE_OKAY;
+        mLocalizedStringMappings["ACTIVATE_ERROR_INVALID_CODE"]= ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
+        mLocalizedStringMappings["ACTIVATE_MSG_BOX_TITLE"]= ActivateErrText_ACTIVATE_MSG_BOX_TITLE;
     }
     public void OnApplicationQuit(){
             Debug.Log("Application ending after " + Time.time + " seconds");
@@ -74,6 +81,12 @@ public class MainMenu : MonoBehaviour
     public void OnAccountCreated(){
         Debug.Log("AccountCreated");
         mActivateDialog.transform.localScale = new Vector3(1, 1, 1);
+    }
+    public void OnAccountActivated(){
+        Debug.Log("AccountActivated");
+        mActivateDialog.transform.localScale = new Vector3(0, 0, 0);
+        mSignupDialog.transform.localScale = new Vector3(0, 0, 0);
+        this.ShowMessageBox("ACTIVATE_MSG_BOX_TITLE","ACTIVATE_OKAY",true);
     }
     public void OnActivationCanceled(){
         Debug.Log("AccountCreated");

@@ -202,5 +202,18 @@ MonoBehaviour:
     m_Localized: Por favor ingrese un codigo de activacion valido.
     m_Metadata:
       m_Items: []
+  - m_Id: 47
+    m_Localized: La cuenta ha sido activada correctamente. Ya puede utilizarla.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48
+    m_Localized: El codigo de activacion no es valido. Por favor verifique que no
+      ha cometido un error al ingresarlo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49
+    m_Localized: Activacion de cuenta
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

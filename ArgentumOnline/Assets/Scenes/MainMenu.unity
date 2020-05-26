@@ -10735,6 +10735,24 @@ MonoBehaviour:
     m_TableEntryReference:
       m_KeyId: 38
       m_Key: 
+  ActivateOkayText_ACTIVATE_OKAY:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 47
+      m_Key: 
+  ActivateErrText_ACTIVATE_ERROR_INVALID_CODE:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 48
+      m_Key: 
+  ActivateErrText_ACTIVATE_MSG_BOX_TITLE:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 49
+      m_Key: 
 --- !u!1 &2035008412
 GameObject:
   m_ObjectHideFlags: 0

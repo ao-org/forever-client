@@ -200,5 +200,18 @@ MonoBehaviour:
     m_Localized: Please type in a valid activation code
     m_Metadata:
       m_Items: []
+  - m_Id: 47
+    m_Localized: The account has been activated successfully and is ready to play.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48
+    m_Localized: The activation code is wrong. Please double check you typed the
+      right code.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49
+    m_Localized: Account activation
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

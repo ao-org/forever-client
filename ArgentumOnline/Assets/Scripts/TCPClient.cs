@@ -114,7 +114,7 @@ public class TCPClient : MonoBehaviour {
 			   	break;
 			case "ACTIVATE_REQUEST":
    			 	Debug.Log("Session opened, attempting to activate.");
-   			    var activate_request = new ProtoActivateRequest(mUsername, mPassword, CryptoHelper.PublicKey);
+   			    var activate_request = new ProtoActivateRequest(mUsername, mCode, CryptoHelper.PublicKey);
    			    SendMessage(activate_request);
    			   	break;
 			 default:
@@ -144,18 +144,16 @@ public class TCPClient : MonoBehaviour {
 
 	public int ProcessActivationOkay(byte[] data){
 		Debug.Log("ProcessActivationOkay");
-		//mEventsQueue.Enqueue(Tuple.Create("LOGIN_OKAY",""));
+		mEventsQueue.Enqueue(Tuple.Create("ACTIVATE_OKAY",""));
 		return 1;
 	}
 	public int ProcessActivationError(byte[] data){
 		Debug.Log("ProcessActivationError");
 		short error_code = ProtoBase.DecodeShort(data);
 		var error_string = ProtoBase.LoginErrorCodeToString(error_code);
-		//mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
+		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
 		return 1;
 	}
-
-
 	public int ProcessSignupOkay(byte[] data){
 		Debug.Log("ProcessSignupOkay");
 		mEventsQueue.Enqueue(Tuple.Create("SIGNUP_OKAY",""));
@@ -190,6 +188,9 @@ public class TCPClient : MonoBehaviour {
 
 					if(e.Item1 == "SIGNUP_OKAY"){
 						mMainMenu.OnAccountCreated();
+					}
+					else if(e.Item1 == "ACTIVATE_OKAY") {
+						mMainMenu.OnAccountActivated();
 					}
 					else { // normal message box
 						if(e.Item2 !=null){

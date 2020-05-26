@@ -198,5 +198,17 @@ MonoBehaviour:
     m_Localized: Codigo de activacion invalido
     m_Metadata:
       m_Items: []
+  - m_Id: 47
+    m_Localized: Activation reussi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48
+    m_Localized: El codigo de activacion no es valido.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49
+    m_Localized: Activacion du compte
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
