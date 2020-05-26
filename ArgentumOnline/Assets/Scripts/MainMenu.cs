@@ -75,8 +75,12 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["ACTIVATE_ERROR_INVALID_CODE"]= ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
         mLocalizedStringMappings["ACTIVATE_MSG_BOX_TITLE"]= ActivateErrText_ACTIVATE_MSG_BOX_TITLE;
     }
+    public void OnRegisterButtonClicked(){
+        Debug.Log("OnRegisterButtonClicked");
+        mSignupDialog.transform.localScale = new Vector3(1, 1, 1);
+    }
     public void OnApplicationQuit(){
-            Debug.Log("Application ending after " + Time.time + " seconds");
+        Debug.Log("Application ending after " + Time.time + " seconds");
     }
     public void OnAccountCreated(){
         Debug.Log("AccountCreated");
