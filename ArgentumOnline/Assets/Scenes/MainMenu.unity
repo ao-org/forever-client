@@ -591,7 +591,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 192.168.0.41
+  m_Text: 86.21.218.127
 --- !u!222 &92132599
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4476,7 +4476,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 127.0.0.1
+  m_Text: 86.21.218.127
 --- !u!222 &782889074
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7624,7 +7624,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 5
-  m_CharacterLimit: 16
+  m_CharacterLimit: 40
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -8297,7 +8297,7 @@ RectTransform:
   m_GameObject: {fileID: 1531115119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437073039}
   m_Father: {fileID: 2011106875}
@@ -11355,7 +11355,7 @@ MonoBehaviour:
   m_CaretColor: {r: 1, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0, g: 0.3955756, b: 0.9056604, a: 0.7529412}
-  m_Text: 192.168.0.41
+  m_Text: 86.21.218.127
   m_CaretBlinkRate: 4
   m_CaretWidth: 3
   m_ReadOnly: 0
