@@ -578,7 +578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 392a9caf0eabba0538f4a5bfc7c3d1e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e12a5e238cae4464d85703b31ad8015b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2572,8 +2572,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8036436757062663352, guid: 00c047dd2fb3456419b8714860b12d35,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: c069fd4b48cb77540b96d04fd43ab191, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4569,7 +4568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dcccba87af4b5dbbbaab46932e77fa02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7960d5063c9825e48872aa227eae8dff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9138,17 +9137,17 @@ MonoBehaviour:
   m_Options:
     m_Options:
     - m_Text: "Espa\xF1ol"
-      m_Image: {fileID: 21300000, guid: dcccba87af4b5dbbbaab46932e77fa02, type: 3}
+      m_Image: {fileID: 21300000, guid: 7960d5063c9825e48872aa227eae8dff, type: 3}
     - m_Text: Ingles
-      m_Image: {fileID: 21300000, guid: e9a144608cc0020158f5f8c01d924c75, type: 3}
+      m_Image: {fileID: 21300000, guid: 34049fe79c8510848a0244846c35f459, type: 3}
     - m_Text: Portugues
-      m_Image: {fileID: 21300000, guid: bb61654791d7b0cd894b491e67812f37, type: 3}
+      m_Image: {fileID: 21300000, guid: 3b842a8d901db8f4f84fbc0a49e08e54, type: 3}
     - m_Text: Aleman
-      m_Image: {fileID: 21300000, guid: b556309837f30d23d87a68f483fffc54, type: 3}
+      m_Image: {fileID: 21300000, guid: a518322a68274784ab58909a73133193, type: 3}
     - m_Text: Italiano
-      m_Image: {fileID: 21300000, guid: d59527177fd542161a7532715fe7fd16, type: 3}
+      m_Image: {fileID: 21300000, guid: bdf4a8dbac62a894b8e4b697b03f4239, type: 3}
     - m_Text: Frances
-      m_Image: {fileID: 21300000, guid: eba784ad330900549869abc9585d155a, type: 3}
+      m_Image: {fileID: 21300000, guid: 46e9c510f7c8a4741a223baea7621362, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10723,7 +10722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5c1a5eaf70ccc104aa9461445bd0e40a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0337a91bd2eebf644829ba1f478a3a54, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
