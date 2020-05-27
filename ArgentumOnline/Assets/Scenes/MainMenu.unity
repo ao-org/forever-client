@@ -4557,7 +4557,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706354924}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4568,7 +4568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7960d5063c9825e48872aa227eae8dff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f6cd0e17968e169b8d1d27623fb019a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9137,17 +9137,17 @@ MonoBehaviour:
   m_Options:
     m_Options:
     - m_Text: "Espa\xF1ol"
-      m_Image: {fileID: 21300000, guid: 7960d5063c9825e48872aa227eae8dff, type: 3}
+      m_Image: {fileID: 21300000, guid: 0f6cd0e17968e169b8d1d27623fb019a, type: 3}
     - m_Text: Ingles
-      m_Image: {fileID: 21300000, guid: 34049fe79c8510848a0244846c35f459, type: 3}
+      m_Image: {fileID: 21300000, guid: 76c8faf1b547343d2935195cf211e52e, type: 3}
     - m_Text: Portugues
-      m_Image: {fileID: 21300000, guid: 3b842a8d901db8f4f84fbc0a49e08e54, type: 3}
+      m_Image: {fileID: 21300000, guid: e89f7d6951db465bdb29a16dd33b3943, type: 3}
     - m_Text: Aleman
-      m_Image: {fileID: 21300000, guid: a518322a68274784ab58909a73133193, type: 3}
+      m_Image: {fileID: 21300000, guid: 25f3e93021b487e08993a074d3a593de, type: 3}
     - m_Text: Italiano
-      m_Image: {fileID: 21300000, guid: bdf4a8dbac62a894b8e4b697b03f4239, type: 3}
+      m_Image: {fileID: 21300000, guid: e7f1ce3e4a747a4299afe3147abe4799, type: 3}
     - m_Text: Frances
-      m_Image: {fileID: 21300000, guid: 46e9c510f7c8a4741a223baea7621362, type: 3}
+      m_Image: {fileID: 21300000, guid: d4089f79f60bf0abca521dce2db1c48b, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
