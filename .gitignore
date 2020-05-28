@@ -502,4 +502,4 @@ ArgentumOnline/Assets/EffectExamples/Blood/Materials/BloodPoolParticle.mat
 ArgentumOnline/Assets/EffectExamples/Blood/Materials.meta
 ArgentumOnline/Assets/EffectExamples/Blood.meta
 ArgentumOnline/Assets/EffectExamples.meta
-*.meta
+#*.meta
