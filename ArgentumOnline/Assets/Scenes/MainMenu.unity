@@ -3905,7 +3905,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f0d619b5dcbe600449f16acd0a9867d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b34a1f2bc52744f7eb7c2c6be843ddcd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4495,7 +4495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2bfbd842aacd64ab7919a6412002b533, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae2e51e42be1c4e38a861a160feda982, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4557,7 +4557,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706354924}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4568,7 +4568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7960d5063c9825e48872aa227eae8dff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd1b63c048c754db9a3f7de332f28898, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9137,17 +9137,17 @@ MonoBehaviour:
   m_Options:
     m_Options:
     - m_Text: "Espa\xF1ol"
-      m_Image: {fileID: 21300000, guid: 7960d5063c9825e48872aa227eae8dff, type: 3}
+      m_Image: {fileID: 21300000, guid: cd1b63c048c754db9a3f7de332f28898, type: 3}
     - m_Text: Ingles
-      m_Image: {fileID: 21300000, guid: 34049fe79c8510848a0244846c35f459, type: 3}
+      m_Image: {fileID: 21300000, guid: 6937d27ba0fbc4ec7b91dee6acf25f4f, type: 3}
     - m_Text: Portugues
-      m_Image: {fileID: 21300000, guid: 3b842a8d901db8f4f84fbc0a49e08e54, type: 3}
+      m_Image: {fileID: 21300000, guid: 9e9b9f3e4e3274a6d87d45f852301f78, type: 3}
     - m_Text: Aleman
-      m_Image: {fileID: 21300000, guid: a518322a68274784ab58909a73133193, type: 3}
+      m_Image: {fileID: 21300000, guid: 0937f15a8953a45c5a4e9e18e1c02f25, type: 3}
     - m_Text: Italiano
-      m_Image: {fileID: 21300000, guid: bdf4a8dbac62a894b8e4b697b03f4239, type: 3}
+      m_Image: {fileID: 21300000, guid: 851c9323c7fb54409a06b1d644daab56, type: 3}
     - m_Text: Frances
-      m_Image: {fileID: 21300000, guid: 46e9c510f7c8a4741a223baea7621362, type: 3}
+      m_Image: {fileID: 21300000, guid: 4c61a8c67fcf143c9a92cfe886537016, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10722,7 +10722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0337a91bd2eebf644829ba1f478a3a54, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bfbd842aacd64ab7919a6412002b533, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
