@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: arena_basic_tileset1_69
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -5798602471754065683, guid: 5b0a2d2bb263aef46aa52086013f2ab3,
+  m_Sprite: {fileID: -5798602471754065683, guid: ecb2003bae8789d4c8adde4ed4d5fd08,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
