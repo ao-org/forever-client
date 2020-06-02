@@ -231,11 +231,11 @@ public class MainMenu : MonoBehaviour
         InputField server_address_input     = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
         InputField server_port_input        = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
         Dropdown signup_language_dropdown   = GameObject.Find("SignUpLanguageDropdown").GetComponent<Dropdown>();
+        Debug.Assert(signup_email_input != null);
         Debug.Assert(signup_username_input!=null);
         Debug.Assert(signup_password_input!=null);
         Debug.Assert(signup_first_name_input!=null);
         Debug.Assert(signup_last_name_input!=null);
-        Debug.Assert(signup_email_input!=null);
         Debug.Assert(signup_language_dropdown!=null);
         Debug.Assert(signup_dob_input!=null);
         Debug.Assert(signup_pob_input!=null);
@@ -265,7 +265,12 @@ public class MainMenu : MonoBehaviour
         //Change the message to say the name of the current Dropdown selection using the value
         string language_string = signup_language_dropdown.options[drop_value].text;
 
-        if(username_str == null || username_str.Length<3){
+        /*if (email_strin == null || email_strin.Length < 3)
+        {
+            this.ShowMessageBox("INPUT_ERROR_TITLE", "INPUT_ERROR_INVALID_USER", true);
+            return;
+        }*/
+        if (username_str == null || username_str.Length<3){
             this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_USER",true);
             return;
         }
