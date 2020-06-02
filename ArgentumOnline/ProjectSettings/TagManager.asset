@@ -43,6 +43,27 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Navegable0
+    uniqueID: 4154931969
+    locked: 0
+  - name: Navegable1
+    uniqueID: 2621947321
+    locked: 0
+  - name: Navegable2
+    uniqueID: 3144377809
+    locked: 0
+  - name: Navegable3
+    uniqueID: 3533970133
+    locked: 0
+  - name: TilemapNivel1
+    uniqueID: 66285257
+    locked: 0
+  - name: TilemapNivel2
+    uniqueID: 2773515329
+    locked: 0
+  - name: TilemapNivel3
+    uniqueID: 2491555065
+    locked: 0
   - name: test
     uniqueID: 2249683405
     locked: 0
