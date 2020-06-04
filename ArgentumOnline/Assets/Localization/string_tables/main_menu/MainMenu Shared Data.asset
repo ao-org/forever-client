@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: MainMenu Shared Data
   m_EditorClassIdentifier: 
-  m_NextAvailableId: 57
+  m_NextAvailableId: 60
   m_TableName: MainMenu
   m_TableNameGuidString: ce04b8004cef60dc193130c9173065bb
   m_Entries:
@@ -208,12 +208,10 @@ MonoBehaviour:
     m_Key: ACTIVATE_MSG_BOX_TITLE
     m_Metadata:
       m_Items: []
-  - m_Id: 50
-    m_Key: New Entry
-    m_Metadata:
-      m_Items: []
   - m_Id: 51
-    m_Key: New Entry 1
+    m_Key: 'INVALID_CONFIRM_EMAIL
+
+'
     m_Metadata:
       m_Items: []
   - m_Id: 52
@@ -234,6 +232,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 56
     m_Key: New Entry 7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58
+    m_Key: New Entry 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59
+    m_Key: New Entry 3
     m_Metadata:
       m_Items: []
   m_Metadata:

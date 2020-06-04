@@ -210,5 +210,15 @@ MonoBehaviour:
     m_Localized: Activacion du compte
     m_Metadata:
       m_Items: []
+  - m_Id: 51
+    m_Localized: INVALID_CONFIRM_EMAIL
+    m_Metadata:
+      m_Items:
+      - id: 0
   references:
     version: 1
+    00000000:
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_TimeStamp: 01:27:33.573131
+        m_CommentText: Comment Text

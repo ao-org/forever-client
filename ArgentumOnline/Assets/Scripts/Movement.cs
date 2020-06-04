@@ -29,7 +29,10 @@ public class Movement : MonoBehaviour
     private Direction dir = Movement.Direction.South;
     private float WalkSpeed = 8.0f;
     private Rigidbody2D mBody;
-    private Tilemap mWaterTilemap;
+    private Tilemap mWaterTilemap; //comentar ccz
+    private Tilemap mNavegable1;
+    private Tilemap mNavegable2;
+    private Tilemap mNavegable3;
     private Tilemap mTilemapLevel1;
     private Animator mAnimator;
     public Direction GetDirection() { return dir; }
@@ -52,7 +55,11 @@ public class Movement : MonoBehaviour
     void Start(){
         mAnimator = gameObject.GetComponent<Animator>();
         mBody = GetComponent<Rigidbody2D>();
-        mWaterTilemap = GameObject.Find("Tilemap_base").GetComponent<Tilemap>();
+
+        mWaterTilemap = GameObject.Find("Tilemap_base").GetComponent<Tilemap>(); //comentar ccz
+        mNavegable1 = GameObject.Find("Navegable1").GetComponent<Tilemap>();
+        mNavegable2 = GameObject.Find("Navegable2").GetComponent<Tilemap>();
+        mNavegable3 = GameObject.Find("Navegable3").GetComponent<Tilemap>();
         mTilemapLevel1 = GameObject.Find("TilemapNivel1").GetComponent<Tilemap>();
     }
     private bool IsThereSomething(Vector3 pos){
@@ -60,9 +67,13 @@ public class Movement : MonoBehaviour
         return mTilemapLevel1.HasTile(cellPosition);
     }
     private bool IsThereWater(Vector3 pos){
-        Vector3Int cellPosition = mWaterTilemap.WorldToCell(pos);
+        Vector3Int cellPosition = mWaterTilemap.WorldToCell(pos); //comentar ccz
+        Vector3Int cellNavegable1 = mWaterTilemap.WorldToCell(pos);
+        Vector3Int cellNavegable2 = mWaterTilemap.WorldToCell(pos);
+        Vector3Int cellNavegable3 = mWaterTilemap.WorldToCell(pos);
         //UnityEngine.Debug.Log("Pos " + cellPosition);
-        return mWaterTilemap.HasTile(cellPosition);
+        return mNavegable1.HasTile(cellNavegable1) || mNavegable2.HasTile(cellNavegable2) || mNavegable3.HasTile(cellNavegable3);
+        //return mWaterTilemap.HasTile(cellPosition); //comentar ccz
     }
     private bool TryToMove(Vector3 pos){
         if(IsThereWater(pos))

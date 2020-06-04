@@ -40,6 +40,7 @@ public class MainMenu : MonoBehaviour
     public LocalizedString SignupErrText_PASSWORD_MUST_HAVE_ONE_LOWERCASE;
     public LocalizedString SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
     public LocalizedString SignupErrText_INVALID_EMAIL;
+    public LocalizedString SignupErrText_INVALID_CONFIRM_EMAIL;
 
     public LocalizedString ActivateOkayText_ACTIVATE_OKAY;
     public LocalizedString ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
@@ -69,6 +70,7 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["PASSWORD_MUST_HAVE_ONE_LOWERCASE"]= SignupErrText_PASSWORD_MUST_HAVE_ONE_LOWERCASE;
         mLocalizedStringMappings["PASSWORD_MUST_HAVE_TWO_NUMBERS"]= SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
         mLocalizedStringMappings["INVALID_EMAIL"]= SignupErrText_INVALID_EMAIL;
+        mLocalizedStringMappings["INVALID_CONFIRM_EMAIL"] = SignupErrText_INVALID_CONFIRM_EMAIL;
         mLocalizedStringMappings["MUST_ACTIVATE_ACCOUNT"]= LoginErrText_MUST_ACTIVATE_ACCOUNT;
         mLocalizedStringMappings["INPUT_ERROR_INVALID_ACTIVATION_CODE"]= InputErrText_INPUT_ERROR_INVALID_ACTIVATION_CODE;
         mLocalizedStringMappings["ACTIVATE_OKAY"]= ActivateOkayText_ACTIVATE_OKAY;
@@ -221,6 +223,7 @@ public class MainMenu : MonoBehaviour
         InputField signup_first_name_input  = GameObject.Find("SignUpFirstNameInputField").GetComponent<InputField>();
         InputField signup_last_name_input   = GameObject.Find("SignUpLastNameInputField").GetComponent<InputField>();
         InputField signup_email_input       = GameObject.Find("SignUpEmailInputField").GetComponent<InputField>();
+        InputField signup_confirm_email_input       = GameObject.Find("SignUpConfirmEmailInputField").GetComponent<InputField>();
         InputField signup_dob_input         = GameObject.Find("SignUpDOBInputField").GetComponent<InputField>();
         InputField signup_pob_input         = GameObject.Find("SignUpPOBInputField").GetComponent<InputField>();
         InputField signup_secretq1_input    = GameObject.Find("SignUpSecretQ1InputField").GetComponent<InputField>();
@@ -232,6 +235,7 @@ public class MainMenu : MonoBehaviour
         InputField server_port_input        = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
         Dropdown signup_language_dropdown   = GameObject.Find("SignUpLanguageDropdown").GetComponent<Dropdown>();
         Debug.Assert(signup_email_input != null);
+        Debug.Assert(signup_confirm_email_input != null);
         Debug.Assert(signup_username_input!=null);
         Debug.Assert(signup_password_input!=null);
         Debug.Assert(signup_first_name_input!=null);
@@ -253,6 +257,7 @@ public class MainMenu : MonoBehaviour
         string first_name_string        = signup_first_name_input.text;
         string last_name_string         = signup_last_name_input.text;
         string email_string             = signup_email_input.text;
+        string confirm_email_string = signup_confirm_email_input.text;
         string dob_string               = signup_dob_input.text;
         string pob_string               = signup_pob_input.text;
         string secretq1_string          = signup_secretq1_input.text;
@@ -264,18 +269,28 @@ public class MainMenu : MonoBehaviour
         var drop_value = signup_language_dropdown.value;
         //Change the message to say the name of the current Dropdown selection using the value
         string language_string = signup_language_dropdown.options[drop_value].text;
-
-        /*if (email_strin == null || email_strin.Length < 3)
+        if (email_string == null || !email_string.Contains("@"))
         {
-            this.ShowMessageBox("INPUT_ERROR_TITLE", "INPUT_ERROR_INVALID_USER", true);
+            this.ShowMessageBox("INPUT_ERROR_TITLE", "INVALID_EMAIL", true);
             return;
-        }*/
+        }
+        if (confirm_email_string == null || (email_string != confirm_email_string))
+        {
+            //this.ShowMessageBox("INPUT_ERROR_TITLE", "INVALID_CONFIRM_EMAIL", true);
+            this.ShowMessageBox("INPUT_ERROR_TITLE", "INVALID_EMAIL", true);
+            return;
+        }
         if (username_str == null || username_str.Length<3){
             this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_USER",true);
             return;
         }
         if(password_str == null || password_str.Length<3){
             this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_PASSWORD",true);
+            return;
+        }
+        if (password_str == null || password_str.Length < 3)
+        {
+            this.ShowMessageBox("INPUT_ERROR_TITLE", "INPUT_ERROR_INVALID_PASSWORD", true);
             return;
         }
 

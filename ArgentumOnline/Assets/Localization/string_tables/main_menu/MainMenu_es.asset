@@ -169,7 +169,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 38
-    m_Localized: INVALID_EMAIL
+    m_Localized: Email invalido.
     m_Metadata:
       m_Items: []
   - m_Id: 40
@@ -213,6 +213,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 49
     m_Localized: Activacion de cuenta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51
+    m_Localized: Confirmacion de email invalida
     m_Metadata:
       m_Items: []
   references:
