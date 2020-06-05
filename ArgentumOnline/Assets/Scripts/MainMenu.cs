@@ -277,7 +277,7 @@ public class MainMenu : MonoBehaviour
         if (confirm_email_string == null || (email_string != confirm_email_string))
         {
             //this.ShowMessageBox("INPUT_ERROR_TITLE", "INVALID_CONFIRM_EMAIL", true);
-            this.ShowMessageBox("INPUT_ERROR_TITLE", "INVALID_EMAIL", true);
+            this.ShowMessageBox("INPUT_ERROR_TITLE", "INVALID_CONFIRM_EMAIL", true);
             return;
         }
         if (username_str == null || username_str.Length<3){
