@@ -4529,7 +4529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -744, y: 408.2}
+  m_AnchoredPosition: {x: -578, y: 366}
   m_SizeDelta: {x: 258.8, y: 112.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &613997722
@@ -13766,6 +13766,12 @@ MonoBehaviour:
     m_TableEntryReference:
       m_KeyId: 9
       m_Key: 
+  InputErrText_INPUT_ERROR_INVALID_CONFIRM_PASSWORD:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 52
+      m_Key: 
   InputErrText_INPUT_ERROR_INVALID_USERNAME:
     m_TableReference:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
@@ -13873,6 +13879,18 @@ MonoBehaviour:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 51
+      m_Key: 
+  SignupErrText_INVALID_FIRST_LAST_NAME:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 53
+      m_Key: 
+  SignupErrText_TERMS_NOT_ACCEPTED:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 54
       m_Key: 
   ActivateOkayText_ACTIVATE_OKAY:
     m_TableReference:

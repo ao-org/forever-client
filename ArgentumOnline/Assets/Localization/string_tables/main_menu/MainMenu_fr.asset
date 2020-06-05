@@ -215,6 +215,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - id: 0
+  - m_Id: 52
+    m_Localized: INPUT_ERROR_INVALID_CONFIRM_PASSWORD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53
+    m_Localized: INVALID_FIRST_LAST_NAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54
+    m_Localized: TERMS_NOT_ACCEPTED
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
     00000000:

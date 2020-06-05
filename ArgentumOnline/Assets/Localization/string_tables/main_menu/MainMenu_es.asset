@@ -219,5 +219,17 @@ MonoBehaviour:
     m_Localized: Confirmacion de email invalida
     m_Metadata:
       m_Items: []
+  - m_Id: 52
+    m_Localized: Confirmacion de clave invalida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53
+    m_Localized: Complete Nombre y Apellido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54
+    m_Localized: Debe aceptar los terminos y condiciones
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

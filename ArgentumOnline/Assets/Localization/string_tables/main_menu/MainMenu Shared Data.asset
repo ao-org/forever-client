@@ -215,15 +215,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 52
-    m_Key: New Entry 2
+    m_Key: INPUT_ERROR_INVALID_CONFIRM_PASSWORD
     m_Metadata:
       m_Items: []
   - m_Id: 53
-    m_Key: New Entry 4
+    m_Key: INVALID_FIRST_LAST_NAME
     m_Metadata:
       m_Items: []
   - m_Id: 54
-    m_Key: New Entry 5
+    m_Key: TERMS_NOT_ACCEPTED
     m_Metadata:
       m_Items: []
   - m_Id: 55

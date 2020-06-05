@@ -11,6 +11,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using UnityEngine.Localization;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class MainMenu : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class MainMenu : MonoBehaviour
     public LocalizedString LoginErrText_MUST_ACTIVATE_ACCOUNT;
     public LocalizedString SignupErrText_ACCOUNT_ALREADY_EXIST;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_PASSWORD;
+    public LocalizedString InputErrText_INPUT_ERROR_INVALID_CONFIRM_PASSWORD;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_USERNAME;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_ACTIVATION_CODE;
     public LocalizedString InputErrText_INPUT_ERROR_TITLE;
@@ -41,6 +43,8 @@ public class MainMenu : MonoBehaviour
     public LocalizedString SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
     public LocalizedString SignupErrText_INVALID_EMAIL;
     public LocalizedString SignupErrText_INVALID_CONFIRM_EMAIL;
+    public LocalizedString SignupErrText_INVALID_FIRST_LAST_NAME;
+    public LocalizedString SignupErrText_TERMS_NOT_ACCEPTED;
 
     public LocalizedString ActivateOkayText_ACTIVATE_OKAY;
     public LocalizedString ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
@@ -54,6 +58,7 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["ACCOUNT_DOESNT_EXIST"]= LoginErrText_ACCOUNT_DOESNT_EXIST;
         mLocalizedStringMappings["ACCOUNT_ALREADY_EXISTS"]= SignupErrText_ACCOUNT_ALREADY_EXIST;
         mLocalizedStringMappings["INPUT_ERROR_INVALID_PASSWORD"]= InputErrText_INPUT_ERROR_INVALID_PASSWORD;
+        mLocalizedStringMappings["INPUT_ERROR_INVALID_CONFIRM_PASSWORD"] = InputErrText_INPUT_ERROR_INVALID_CONFIRM_PASSWORD;
         mLocalizedStringMappings["INPUT_ERROR_INVALID_USER"]= InputErrText_INPUT_ERROR_INVALID_USERNAME;
         mLocalizedStringMappings["INPUT_ERROR_TITLE"]= InputErrText_INPUT_ERROR_TITLE;
         mLocalizedStringMappings["CONNECTION_ERROR_MSGBOX_TITLE"]= ConnectionErrText_CONNECTION_ERROR_MSGBOX_TITLE;
@@ -71,6 +76,8 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["PASSWORD_MUST_HAVE_TWO_NUMBERS"]= SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
         mLocalizedStringMappings["INVALID_EMAIL"]= SignupErrText_INVALID_EMAIL;
         mLocalizedStringMappings["INVALID_CONFIRM_EMAIL"] = SignupErrText_INVALID_CONFIRM_EMAIL;
+        mLocalizedStringMappings["INVALID_FIRST_LAST_NAME"] = SignupErrText_INVALID_FIRST_LAST_NAME;
+        mLocalizedStringMappings["TERMS_NOT_ACCEPTED"] = SignupErrText_TERMS_NOT_ACCEPTED;
         mLocalizedStringMappings["MUST_ACTIVATE_ACCOUNT"]= LoginErrText_MUST_ACTIVATE_ACCOUNT;
         mLocalizedStringMappings["INPUT_ERROR_INVALID_ACTIVATION_CODE"]= InputErrText_INPUT_ERROR_INVALID_ACTIVATION_CODE;
         mLocalizedStringMappings["ACTIVATE_OKAY"]= ActivateOkayText_ACTIVATE_OKAY;
@@ -158,7 +165,7 @@ public class MainMenu : MonoBehaviour
             }
             //Here is the navigating back part:
             else {
-                next = Selectable.allSelectables[0];
+                next =  Selectable.allSelectables[0];
                 mEventSystem.SetSelectedGameObject(next.gameObject);
             }
         }
@@ -167,11 +174,12 @@ public class MainMenu : MonoBehaviour
     private GameObject mMessageBox;
     private GameObject mSignupDialog;
     private GameObject mActivateDialog;
+    private GameObject mToggle;
     private void Start()
     {
-         CreateAndInitLocalizedStrings();
-         mEventSystem = EventSystem.current;
-         GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("TCPClient")[0];
+        CreateAndInitLocalizedStrings();
+        mEventSystem = EventSystem.current;
+        GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("TCPClient")[0];
          mTcpClient = tcp_client_object.GetComponent<TCPClient>();
          mTcpClient.SetMainMenu(this);
          mMessageBox = GameObject.Find("MessageBox");
@@ -180,9 +188,10 @@ public class MainMenu : MonoBehaviour
 
          mSignupDialog = GameObject.Find("SignupDialog");
          Debug.Assert(mSignupDialog!=null);
-//         mSignupDialog.transform.localScale = new Vector3(0, 0, 0);
+        //         mSignupDialog.transform.localScale = new Vector3(0, 0, 0);
+        mToggle = GameObject.Find("Toggle");
 
-         mActivateDialog = GameObject.Find("ActivateDialog");
+        mActivateDialog = GameObject.Find("ActivateDialog");
          Debug.Assert(mActivateDialog!=null);
          mActivateDialog.transform.localScale = new Vector3(0, 0, 0);
     }
@@ -220,6 +229,7 @@ public class MainMenu : MonoBehaviour
         Debug.Log("CreateAccount");
         InputField signup_username_input    = GameObject.Find("SignUpUsernameInputField").GetComponent<InputField>();
         InputField signup_password_input    = GameObject.Find("SignUpPasswordInputField").GetComponent<InputField>();
+        InputField signup_confirm_password_input    = GameObject.Find("SignUpConfirmPasswordInputField").GetComponent<InputField>();
         InputField signup_first_name_input  = GameObject.Find("SignUpFirstNameInputField").GetComponent<InputField>();
         InputField signup_last_name_input   = GameObject.Find("SignUpLastNameInputField").GetComponent<InputField>();
         InputField signup_email_input       = GameObject.Find("SignUpEmailInputField").GetComponent<InputField>();
@@ -238,6 +248,7 @@ public class MainMenu : MonoBehaviour
         Debug.Assert(signup_confirm_email_input != null);
         Debug.Assert(signup_username_input!=null);
         Debug.Assert(signup_password_input!=null);
+        Debug.Assert(signup_confirm_password_input != null);
         Debug.Assert(signup_first_name_input!=null);
         Debug.Assert(signup_last_name_input!=null);
         Debug.Assert(signup_language_dropdown!=null);
@@ -252,12 +263,13 @@ public class MainMenu : MonoBehaviour
         Debug.Assert(server_port_input!=null);
         string username_str             = signup_username_input.text;
         string password_str             = signup_password_input.text;
+        string confirm_password_str     = signup_confirm_password_input.text;
         string server_address_string    = server_address_input.text;
         string server_port_string       = server_port_input.text;
         string first_name_string        = signup_first_name_input.text;
         string last_name_string         = signup_last_name_input.text;
         string email_string             = signup_email_input.text;
-        string confirm_email_string = signup_confirm_email_input.text;
+        string confirm_email_string     = signup_confirm_email_input.text;
         string dob_string               = signup_dob_input.text;
         string pob_string               = signup_pob_input.text;
         string secretq1_string          = signup_secretq1_input.text;
@@ -284,13 +296,29 @@ public class MainMenu : MonoBehaviour
             this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_USER",true);
             return;
         }
-        if(password_str == null || password_str.Length<3){
+        if(password_str == null || password_str.Length<6 || !password_str.All(char.IsLetterOrDigit))
+        {
             this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_PASSWORD",true);
             return;
         }
-        if (password_str == null || password_str.Length < 3)
+        if (confirm_password_str == null || confirm_password_str != password_str)
         {
-            this.ShowMessageBox("INPUT_ERROR_TITLE", "INPUT_ERROR_INVALID_PASSWORD", true);
+            this.ShowMessageBox("INPUT_ERROR_TITLE", "INPUT_ERROR_INVALID_CONFIRM_PASSWORD", true);
+            return;
+        }
+        if (first_name_string == null || last_name_string == null) 
+        {
+            this.ShowMessageBox("INPUT_ERROR_TITLE", "INVALID_FIRST_LAST_NAME", true);
+            return;
+        }
+        if (mobile_string == null)
+        {
+            this.ShowMessageBox("INPUT_ERROR_TITLE", "INVALID_FIRST_LAST_NAME", true);
+            return;
+        }
+        if(!mToggle.GetComponent<Toggle>().isOn)
+        {
+            this.ShowMessageBox("INPUT_ERROR_TITLE", "TERMS_NOT_ACCEPTED", true);
             return;
         }
 

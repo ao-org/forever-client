@@ -217,5 +217,17 @@ MonoBehaviour:
     m_Localized: Email confirmation doesnt match
     m_Metadata:
       m_Items: []
+  - m_Id: 52
+    m_Localized: Password confirmation doesnt match
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53
+    m_Localized: fill name or last name field
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54
+    m_Localized: TERMS_NOT_ACCEPTED
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
