@@ -29,6 +29,24 @@ TextureImporter:
   - first:
       213: -2820932636482699058
     second: objetos_ciudad_spritesheet1_0
+  - first:
+      213: 3827919198112065305
+    second: objetos_ciudad_spritesheet1_8
+  - first:
+      213: -452353225000879443
+    second: objetos_ciudad_spritesheet1_9
+  - first:
+      213: -7985297769047631760
+    second: objetos_ciudad_spritesheet1_10
+  - first:
+      213: -6511777461519137341
+    second: objetos_ciudad_spritesheet1_11
+  - first:
+      213: -5382797778364722314
+    second: objetos_ciudad_spritesheet1_12
+  - first:
+      213: -8302193284303052737
+    second: objetos_ciudad_spritesheet1_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -130,9 +148,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1154
+        y: 1152
         width: 128
-        height: 126
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1025
+        y: 1024
         width: 128
         height: 128
       alignment: 0
@@ -247,6 +265,174 @@ TextureImporter:
       bones: []
       spriteID: 1ca50f60fcff105b0800000000000000
       internalID: -5403756813228156223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objetos_ciudad_spritesheet1_6
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 672
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f53e198a427311770800000000000000
+      internalID: 8579699395703989087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objetos_ciudad_spritesheet1_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 377
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d964364db6d49450800000000000000
+      internalID: 6094732304154126809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objetos_ciudad_spritesheet1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9172e50ca308f1530800000000000000
+      internalID: 3827919198112065305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objetos_ciudad_spritesheet1_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daaf1d6732be8b9f0800000000000000
+      internalID: -452353225000879443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objetos_ciudad_spritesheet1_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 078523aacf58e2190800000000000000
+      internalID: -7985297769047631760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objetos_ciudad_spritesheet1_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c5c1cd46e481a5a0800000000000000
+      internalID: -6511777461519137341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objetos_ciudad_spritesheet1_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6731fca90f57c45b0800000000000000
+      internalID: -5382797778364722314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objetos_ciudad_spritesheet1_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30ab70e13fa8cc80800000000000000
+      internalID: -8302193284303052737
       vertices: []
       indices: 
       edges: []
