@@ -13870,9 +13870,9 @@ MonoBehaviour:
       m_Key: 
   SignupErrText_INVALID_CONFIRM_EMAIL:
     m_TableReference:
-      m_TableName: 
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 51
       m_Key: 
   ActivateOkayText_ACTIVATE_OKAY:
     m_TableReference:

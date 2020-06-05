@@ -99,7 +99,7 @@ public class Movement : MonoBehaviour
       if (RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.NorthEast;
               mAnimator.Play("WalkNoreste");
-              Vector3 newpos = transform.position + Vector3.right * WalkSpeed * Time.deltaTime + Vector3.up * WalkSpeed * Time.deltaTime;
+              Vector3 newpos = transform.position + Vector3.right * WalkSpeed * Time.deltaTime * 0.65f + Vector3.up * WalkSpeed * Time.deltaTime * 0.65f;
               TryToMove(newpos);
       }
       else // North
@@ -119,7 +119,7 @@ public class Movement : MonoBehaviour
       if (RightArrowPressed && DownArrowPressed && ! UpArrowPressed && !LeftArrowPressed) {
               dir = Direction.SouthEast;
               mAnimator.Play("WalkSureste");
-              TryToMove(transform.position + Vector3.right * WalkSpeed * Time.deltaTime + Vector3.down * WalkSpeed * Time.deltaTime);
+              TryToMove(transform.position + Vector3.right * WalkSpeed * Time.deltaTime * 0.65f + Vector3.down * WalkSpeed * Time.deltaTime * 0.65f);
       }
       else
       if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed) {
@@ -137,13 +137,13 @@ public class Movement : MonoBehaviour
       if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
               dir = Direction.NorthWest;
               mAnimator.Play("WalkNoroeste");
-              TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime + Vector3.up * WalkSpeed * Time.deltaTime );
+              TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime * 0.65f + Vector3.up * WalkSpeed * Time.deltaTime * 0.65f);
       }
       else
       if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed) {
               dir = Direction.SouthWest;
               mAnimator.Play("WalkSuroeste");
-              TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime + Vector3.down * WalkSpeed * Time.deltaTime );
+              TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime * 0.65f + Vector3.down * WalkSpeed * Time.deltaTime * 0.65f);
       }
       if(!Moving) {
             switch(dir)
