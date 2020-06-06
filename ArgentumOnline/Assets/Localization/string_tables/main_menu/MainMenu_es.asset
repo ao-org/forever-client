@@ -231,5 +231,15 @@ MonoBehaviour:
     m_Localized: Debe aceptar los terminos y condiciones
     m_Metadata:
       m_Items: []
+  - m_Id: 56
+    m_Localized: 'This software is strictly private, confidential and personal to
+      its recipients and should not be copied, distributed or reproduced in whole
+      or in part, nor passed to any third party. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55
+    m_Localized: Terminos y Condiciones
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

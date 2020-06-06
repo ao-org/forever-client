@@ -231,5 +231,13 @@ MonoBehaviour:
     m_Localized: TERMS_NOT_ACCEPTED
     m_Metadata:
       m_Items: []
+  - m_Id: 55
+    m_Localized: TERMS_CONDITIONS_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56
+    m_Localized: TERMS_CONDITIONS_TEXT
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

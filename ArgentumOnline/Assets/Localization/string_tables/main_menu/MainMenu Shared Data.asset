@@ -227,11 +227,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 55
-    m_Key: New Entry 6
+    m_Key: TERMS_CONDITIONS_TITLE
     m_Metadata:
       m_Items: []
   - m_Id: 56
-    m_Key: New Entry 7
+    m_Key: TERMS_CONDITIONS_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 57

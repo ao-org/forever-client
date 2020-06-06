@@ -50,6 +50,9 @@ public class MainMenu : MonoBehaviour
     public LocalizedString ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
     public LocalizedString ActivateErrText_ACTIVATE_MSG_BOX_TITLE;
 
+    public LocalizedString SignupText_TERMS_CONDITIONS_TITLE;
+    public LocalizedString SignupText_TERMS_CONDITIONS_TEXT;
+
     private void CreateAndInitLocalizedStrings(){
         mLocalizedStringMappings = new Dictionary<string,LocalizedString>();
         mLocalizedStringMappings["LOGIN_ERROR_MSG_BOX_TITLE"]= LoginErrText_MSGBOX_TITLE;
@@ -83,6 +86,10 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["ACTIVATE_OKAY"]= ActivateOkayText_ACTIVATE_OKAY;
         mLocalizedStringMappings["ACTIVATE_ERROR_INVALID_CODE"]= ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
         mLocalizedStringMappings["ACTIVATE_MSG_BOX_TITLE"]= ActivateErrText_ACTIVATE_MSG_BOX_TITLE;
+
+        //Ver si se hace por pdf, web o server text
+        mLocalizedStringMappings["TERMS_CONDITIONS_TITLE"] = SignupText_TERMS_CONDITIONS_TITLE;
+        mLocalizedStringMappings["TERMS_CONDITIONS_TEXT"] = SignupText_TERMS_CONDITIONS_TEXT;
     }
     public void OnRegisterButtonClicked(){
         Debug.Log("OnRegisterButtonClicked");
@@ -397,5 +404,10 @@ public class MainMenu : MonoBehaviour
     public void QuitGame(){
         Debug.Log("QuitGame");
         Application.Quit();
+    }
+    public void ShowTermsAndConditions()
+    {
+        Debug.Log("ShowTermsAndConditions");
+        this.ShowMessageBox("TERMS_CONDITIONS_TITLE", "TERMS_CONDITIONS_TEXT", true);
     }
 }
