@@ -88,6 +88,9 @@ TagManager:
   - name: Fantasma
     uniqueID: 275239855
     locked: 0
+  - name: ParedDungeon2
+    uniqueID: 3341407273
+    locked: 0
   - name: Sombras
     uniqueID: 1974829813
     locked: 0
