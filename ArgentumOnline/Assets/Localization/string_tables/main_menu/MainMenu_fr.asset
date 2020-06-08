@@ -235,6 +235,10 @@ MonoBehaviour:
     m_Localized: TERMS_CONDITIONS_TEXT
     m_Metadata:
       m_Items: []
+  - m_Id: 57
+    m_Localized: Le mot de cle n'est pas valide
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
     00000000:
