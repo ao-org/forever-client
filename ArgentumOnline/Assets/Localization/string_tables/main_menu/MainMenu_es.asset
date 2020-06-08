@@ -241,5 +241,9 @@ MonoBehaviour:
     m_Localized: Terminos y Condiciones
     m_Metadata:
       m_Items: []
+  - m_Id: 57
+    m_Localized: La clave es incorrecta.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

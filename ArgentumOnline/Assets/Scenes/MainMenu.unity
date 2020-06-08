@@ -13765,6 +13765,12 @@ MonoBehaviour:
     m_TableEntryReference:
       m_KeyId: 45
       m_Key: 
+  LoginErrText_LOGIN_ERROR_WRONG_PASSWORD:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 57
+      m_Key: 
   SignupErrText_ACCOUNT_ALREADY_EXIST:
     m_TableReference:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb

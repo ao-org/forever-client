@@ -21,6 +21,8 @@ public class MainMenu : MonoBehaviour
     public LocalizedString LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION;
     public LocalizedString LoginErrText_ACCOUNT_DOESNT_EXIST;
     public LocalizedString LoginErrText_MUST_ACTIVATE_ACCOUNT;
+
+    public LocalizedString LoginErrText_LOGIN_ERROR_WRONG_PASSWORD;
     public LocalizedString SignupErrText_ACCOUNT_ALREADY_EXIST;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_PASSWORD;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_CONFIRM_PASSWORD;
@@ -86,7 +88,7 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["ACTIVATE_OKAY"]= ActivateOkayText_ACTIVATE_OKAY;
         mLocalizedStringMappings["ACTIVATE_ERROR_INVALID_CODE"]= ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
         mLocalizedStringMappings["ACTIVATE_MSG_BOX_TITLE"]= ActivateErrText_ACTIVATE_MSG_BOX_TITLE;
-
+        mLocalizedStringMappings["WRONG_PASSWORD"]= LoginErrText_LOGIN_ERROR_WRONG_PASSWORD;
         //Ver si se hace por pdf, web o server text
         mLocalizedStringMappings["TERMS_CONDITIONS_TITLE"] = SignupText_TERMS_CONDITIONS_TITLE;
         mLocalizedStringMappings["TERMS_CONDITIONS_TEXT"] = SignupText_TERMS_CONDITIONS_TEXT;
@@ -213,8 +215,8 @@ public class MainMenu : MonoBehaviour
         string final_title_string = title;
         string final_text_string  = text;
         if(localize){
-            Debug.Assert(mLocalizedStringMappings.ContainsKey(title));
-            Debug.Assert(mLocalizedStringMappings.ContainsKey(text));
+            Debug.Assert(mLocalizedStringMappings.ContainsKey(title), "Missing the Localized String in the Dictionary");
+            Debug.Assert(mLocalizedStringMappings.ContainsKey(text) , "Missing the Localized String in the Dictionary");
             var localizedText = mLocalizedStringMappings[title].GetLocalizedString();
             Debug.Assert(localizedText.IsDone);
             Debug.Log("LocalizedString " + localizedText.Result);
@@ -313,7 +315,7 @@ public class MainMenu : MonoBehaviour
             this.ShowMessageBox("INPUT_ERROR_TITLE", "INPUT_ERROR_INVALID_CONFIRM_PASSWORD", true);
             return;
         }
-        if (first_name_string == null || last_name_string == null) 
+        if (first_name_string == null || last_name_string == null)
         {
             this.ShowMessageBox("INPUT_ERROR_TITLE", "INVALID_FIRST_LAST_NAME", true);
             return;
