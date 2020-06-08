@@ -131,20 +131,10 @@ public class TCPClient : MonoBehaviour {
 		mEventsQueue.Enqueue(Tuple.Create("Cannot open session",error_string));
 		return 1;
 	}
+
 	public int ProcessLoginOkay(byte[] data){
 		Debug.Log("ProcessLoginOkay");
-
-		// Successfully logged into the account, now we start the process to log into the Player character
-
-		// First we disconnect from the LOGIN Server
-		try{
-			mSocket.Close();
-		}
-		catch(Exception e)
-		{
-			Debug.Log("mSocket.Close() exception " + e.Message);
-		}
-		//mEventsQueue.Enqueue(Tuple.Create("LOGIN_OKAY",""));
+		mEventsQueue.Enqueue(Tuple.Create("LOGIN_OKAY",""));
 		return 1;
 	}
 	public int ProcessLoginError(byte[] data){
@@ -215,6 +205,9 @@ public class TCPClient : MonoBehaviour {
 					}
 					else if(e.Item1 == "ACTIVATE_OKAY") {
 						mMainMenu.OnAccountActivated();
+					}
+					else if(e.Item1 == "LOGIN_OKAY"){
+						mMainMenu.OnLoginOkay();
 					}
 					else { // normal message box
 						if(e.Item2 !=null){
@@ -350,44 +343,51 @@ public class TCPClient : MonoBehaviour {
     }
 	private void ListenForDataWorkload() {
 		try {
-			mSocket = new TcpClient(mServerIP, Convert.ToInt32(mServerPort));
-			//mSocket.LingerSta = new LingerOption(true,0);
-			Byte[] bytes = new Byte[1024];
+			mSocket = new TcpClient();
+			mSocket.LingerState = new LingerOption(true,0);
+			mSocket.ReceiveTimeout = 1000;
+			mSocket.SendTimeout = 1000;
+			mSocket.Connect(mServerIP, Convert.ToInt32(mServerPort));
 			if(mSocket.Connected){
 				OnConnectionEstablished();
 			}
+			//mSocket.GetStream().ReadTimeout = 1000;
+			//mSocket.GetStream().WriteTimeout = 1000;
+			Byte[] bytes = new Byte[1024];
 			while (!mAppQuit) {
 				// Get a stream object for reading
 				using (NetworkStream stream = mSocket.GetStream()){
 					int length;
-					if(stream.CanRead)
-					{
-							stream.ReadTimeout = 1000;
-							while ((length = stream.Read(bytes, 0, bytes.Length)) != 0){
-								// Copy the bytes received from the network to the array incommingData
-								var incommingData = new byte[length];
-								Array.Copy(bytes, 0, incommingData, 0, length);
-								Debug.Log("Read " + length + " bytes from server. " + incommingData + "{" + incommingData + "}");
-								// Apprend the bytes to any excisting data previously received
-								mIncommingData.AddRange(incommingData);
-								//Attempt to build as many packets and process them
-								bool failed_to_build_packet = false;
-								// We consume the packets
-								while( mIncommingData.Count>=4 && !failed_to_build_packet)
-								{
-									var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
-									Debug.Log(" msg_size len " + msg_size.Length);
-									var header	 	= mIncommingData.GetRange(0, 2).ToArray();
-									short decoded_size = ProtoBase.DecodeShort(msg_size);
-									Debug.Log(" Msg_size: " + decoded_size);
-									short message_id = ProtoBase.DecodeShort(header);
-									Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
-									failed_to_build_packet = (decoded_size > 1024);
-									//Drop the heade and size fields
-									var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();
-									mIncommingData.RemoveRange(0,decoded_size);
-									ProcessPacket(message_id, message_data);
-								}
+					if(stream.CanRead){
+							try {
+									while ((length = stream.Read(bytes, 0, bytes.Length)) != 0){
+										// Copy the bytes received from the network to the array incommingData
+										var incommingData = new byte[length];
+										Array.Copy(bytes, 0, incommingData, 0, length);
+										Debug.Log("Read " + length + " bytes from server. " + incommingData + "{" + incommingData + "}");
+										// Apprend the bytes to any excisting data previously received
+										mIncommingData.AddRange(incommingData);
+										//Attempt to build as many packets and process them
+										bool failed_to_build_packet = false;
+										// We consume the packets
+										while( mIncommingData.Count>=4 && !failed_to_build_packet){
+											var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
+											Debug.Log(" msg_size len " + msg_size.Length);
+											var header	 	= mIncommingData.GetRange(0, 2).ToArray();
+											short decoded_size = ProtoBase.DecodeShort(msg_size);
+											Debug.Log(" Msg_size: " + decoded_size);
+											short message_id = ProtoBase.DecodeShort(header);
+											Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
+											failed_to_build_packet = (decoded_size > 1024);
+											//Drop the heade and size fields
+											var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();
+											mIncommingData.RemoveRange(0,decoded_size);
+											ProcessPacket(message_id, message_data);
+										}
+									}
+							}
+							catch(IOException e){
+								Debug.Log("Timeout? IOException (" + e.Message  + ") " + e);
 							}
 					}
 				}
@@ -405,6 +405,11 @@ public class TCPClient : MonoBehaviour {
 			}
 			//OnConnectionError(socketException);
 		}
+		catch(ThreadAbortException e) {
+            Console.WriteLine("Thread - caught ThreadAbortException - resetting.");
+            Console.WriteLine("Exception message: {0}", e.Message);
+            //Thread.ResetAbort();
+        }
 		catch(Exception e){
 			Debug.Log("Socket exception: " + e);
 			//OnConnectionError(e);
@@ -416,29 +421,31 @@ public class TCPClient : MonoBehaviour {
 			try {
 				if( mSocket!=null && mSocket.Connected )
 				{
-				// Get a stream object for writing.
-				NetworkStream stream = mSocket.GetStream();
-				while (mSendQueue.Count > 0)
-				{
-					if (stream.CanWrite) {
-						stream.WriteTimeout = 1000;
-						ProtoBase msg;
-						if (mSendQueue.TryDequeue(out msg))
-      					{
-							Debug.Assert(msg.Data()!=null);
-							stream.Write(msg.Data(), 0, msg.Size());
+					// Get a stream object for writing.
+					NetworkStream stream = mSocket.GetStream();
+					while (mSendQueue.Count > 0)
+					{
+						if (stream.CanWrite) {
+							ProtoBase msg;
+							if (mSendQueue.TryDequeue(out msg))
+	      					{
+								Debug.Assert(msg.Data()!=null);
+								stream.Write(msg.Data(), 0, msg.Size());
+							}
 						}
 					}
-				}
 				}
 			}
 			catch (SocketException socketException) {
 				Debug.Log("Socket exception: " + socketException);
 				//OnConnectionError(socketException);
 			}
+			catch(ThreadAbortException e) {
+	            Console.WriteLine("Thread - caught ThreadAbortException - resetting.");
+	            Console.WriteLine("Exception message: {0}", e.Message);
+	        }
 			catch(Exception e){
 				Debug.Log("Socket exception: " + e);
-				//OnConnectionError(e);
 			}
 		}
 		Debug.Log("WaitAndSendMessageWorkload thread finished due to OnApplicationQuit event!");

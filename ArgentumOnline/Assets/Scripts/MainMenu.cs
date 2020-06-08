@@ -104,6 +104,11 @@ public class MainMenu : MonoBehaviour
         Debug.Log("AccountCreated");
         mActivateDialog.transform.localScale = new Vector3(1, 1, 1);
     }
+    public void OnLoginOkay(){
+        Debug.Log("LOGIN_OKAY");
+
+        
+    }
     public void OnAccountActivated(){
         Debug.Log("AccountActivated");
         mActivateDialog.transform.localScale = new Vector3(0, 0, 0);
