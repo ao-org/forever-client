@@ -67,7 +67,9 @@ public class TCPClient : MonoBehaviour {
 		{ ProtoBase.ProtocolNumbers["SIGNUP_OKAY"], (@this, x) => @this.ProcessSignupOkay(x) },
 		{ ProtoBase.ProtocolNumbers["SIGNUP_ERROR"], (@this, x) => @this.ProcessSignupError(x) },
 		{ ProtoBase.ProtocolNumbers["ACTIVATE_OKAY"], (@this, x) => @this.ProcessActivationOkay(x) },
-		{ ProtoBase.ProtocolNumbers["ACTIVATE_ERROR"], (@this, x) => @this.ProcessActivationError(x) }
+		{ ProtoBase.ProtocolNumbers["ACTIVATE_ERROR"], (@this, x) => @this.ProcessActivationError(x) },
+		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_OKAY"], (@this, x) => @this.ProcessPlayCharacterOkay(x) },
+		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_ERROR"], (@this, x) => @this.ProcessPlayCharacterError(x) }
 
 
     };
@@ -131,7 +133,18 @@ public class TCPClient : MonoBehaviour {
 	}
 	public int ProcessLoginOkay(byte[] data){
 		Debug.Log("ProcessLoginOkay");
-		mEventsQueue.Enqueue(Tuple.Create("LOGIN_OKAY",""));
+
+		// Successfully logged into the account, now we start the process to log into the Player character
+
+		// First we disconnect from the LOGIN Server
+		try{
+			mSocket.Close();
+		}
+		catch(Exception e)
+		{
+			Debug.Log("mSocket.Close() exception " + e.Message);
+		}
+		//mEventsQueue.Enqueue(Tuple.Create("LOGIN_OKAY",""));
 		return 1;
 	}
 	public int ProcessLoginError(byte[] data){
@@ -141,7 +154,18 @@ public class TCPClient : MonoBehaviour {
 		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
 		return 1;
 	}
-
+	public int ProcessPlayCharacterOkay(byte[] data){
+		Debug.Log("ProcessPlayCharacterOkay");
+		mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
+		return 1;
+	}
+	public int ProcessPlayCharacterError(byte[] data){
+		Debug.Log("ProcessPlayCharacterError");
+		short error_code = ProtoBase.DecodeShort(data);
+		var error_string = ProtoBase.LoginErrorCodeToString(error_code);
+		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
+		return 1;
+	}
 	public int ProcessActivationOkay(byte[] data){
 		Debug.Log("ProcessActivationOkay");
 		mEventsQueue.Enqueue(Tuple.Create("ACTIVATE_OKAY",""));
@@ -327,6 +351,7 @@ public class TCPClient : MonoBehaviour {
 	private void ListenForDataWorkload() {
 		try {
 			mSocket = new TcpClient(mServerIP, Convert.ToInt32(mServerPort));
+			//mSocket.LingerSta = new LingerOption(true,0);
 			Byte[] bytes = new Byte[1024];
 			if(mSocket.Connected){
 				OnConnectionEstablished();

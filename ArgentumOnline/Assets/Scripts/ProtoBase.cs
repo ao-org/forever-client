@@ -49,6 +49,7 @@ public class ProtoBase
 
 	static public IDictionary<string,short> ProtocolNumbers = new Dictionary<string,short>()
                         {
+							// Account
                         	{"OPEN_SESSION"			, unchecked((short)0x00AA)},
 							{"SESSION_OPENED"		, unchecked((short)0xBBBB)},
 							{"SESSION_ERROR"		, unchecked((short)0xBBB1)},
@@ -71,7 +72,11 @@ public class ProtoBase
 							{"FORGOT_PASSWORD_OKAY"	, unchecked((short)0x2014)},
 							{"FORGOT_PASSWORD_ERROR", unchecked((short)0x2015)},
 							{"RESET_PASSWORD"		, unchecked((short)0xFBFB)},
-							{"RESET_PASSWORD_OKAY"	, unchecked((short)0x2016)}
+							{"RESET_PASSWORD_OKAY"	, unchecked((short)0x2016)},
+							// WORLD
+							{"PLAY_CHARACTER"		, unchecked((short)0xF001)},
+							{"PLAY_CHARACTER_OKAY" 	, unchecked((short)0xF002)},
+							{"PLAY_CHARACTER_ERROR"	, unchecked((short)0xF003)}
 						};
 
 	static public string LoginErrorCodeToString(short code){
