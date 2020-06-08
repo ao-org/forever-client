@@ -12,32 +12,26 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c0720812262c794509e1051fa1df19fd
   - enabled: 1
-    path: Assets/Scenes/World.unity
-    guid: d0651cb6e3e498dda9cdc83209b6ed94
-  - enabled: 1
     path: Assets/Scenes/Iglesia.unity
     guid: 9c049a325f46953488477e8cd6a8dea6
   - enabled: 1
-    path: Assets/Scenes/Catacumbas(4).unity
-    guid: 9a2bd35681292614fad3131231c16060
-  - enabled: 1
-    path: Assets/Scenes/Catacumbas(3).unity
-    guid: a6b9b038081370242b6e8b662162d368
+    path: Assets/Scenes/Catacumbas(1).unity
+    guid: b7304e14c6752b4438c5316632becb76
   - enabled: 1
     path: Assets/Scenes/Catacumbas(2).unity
     guid: 5be73fc4ff8d37142ac8eadacd6ac0f1
   - enabled: 1
-    path: Assets/Scenes/Catacumbas(1).unity
-    guid: b7304e14c6752b4438c5316632becb76
+    path: Assets/Scenes/Catacumbas(3).unity
+    guid: a6b9b038081370242b6e8b662162d368
+  - enabled: 1
+    path: Assets/Scenes/Catacumbas(4).unity
+    guid: 9a2bd35681292614fad3131231c16060
   - enabled: 1
     path: Assets/Scenes/Catacumbas(5).unity
     guid: 16539aae97cc12f4383516c2c8722c1a
   - enabled: 1
     path: Assets/Scenes/Catacumbas(6).unity
     guid: 17cb182a75434454090343732a6c00cc
-  - enabled: 1
-    path: Assets/Scenes/35.unity
-    guid: a97f96916c0f76246a0d061eb8786c7b
   - enabled: 1
     path: Assets/Scenes/Ullathorpe(1).unity
     guid: 96ab5793929e7884d9a872ad9f9e149d
@@ -50,6 +44,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4.unity
     guid: b6f7f3c0eac72e84fa45921c53e9f5fa
+  - enabled: 1
+    path: Assets/Scenes/35.unity
+    guid: a97f96916c0f76246a0d061eb8786c7b
+  - enabled: 1
+    path: Assets/Scenes/NewbieDungeon(37).unity
+    guid: 56ffea2b738bf054f851b1cb049cb98e
+  - enabled: 1
+    path: Assets/Scenes/NewbieDungeon(167).unity
+    guid: 756989065e86bf645824177b63f2e4e8
+  - enabled: 1
+    path: Assets/Scenes/NewbieDungeon(168).unity
+    guid: 741003d64e1626744940972e33e86d43
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 2399d7483c923c5bc95e20fcdcdbeeec,
       type: 2}
