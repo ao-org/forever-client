@@ -194,20 +194,20 @@ public class MainMenu : MonoBehaviour
         CreateAndInitLocalizedStrings();
         mEventSystem = EventSystem.current;
         GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("LoginClient")[0];
-         mLoginClient = tcp_client_object.GetComponent<LoginClient>();
-         mLoginClient.SetMainMenu(this);
-         mMessageBox = GameObject.Find("MessageBox");
-         Debug.Assert(mMessageBox!=null);
-         mMessageBox.transform.localScale = new Vector3(0, 0, 0);
+        mLoginClient = tcp_client_object.GetComponent<LoginClient>();
+        mLoginClient.SetMainMenu(this);
+        mMessageBox = GameObject.Find("MessageBox");
+        Debug.Assert(mMessageBox!=null);
+        mMessageBox.transform.localScale = new Vector3(0, 0, 0);
 
-         mSignupDialog = GameObject.Find("SignupDialog");
-         Debug.Assert(mSignupDialog!=null);
+        mSignupDialog = GameObject.Find("SignupDialog");
+        Debug.Assert(mSignupDialog!=null);
         //         mSignupDialog.transform.localScale = new Vector3(0, 0, 0);
         mToggle = GameObject.Find("Toggle");
 
         mActivateDialog = GameObject.Find("ActivateDialog");
-         Debug.Assert(mActivateDialog!=null);
-         mActivateDialog.transform.localScale = new Vector3(0, 0, 0);
+        Debug.Assert(mActivateDialog!=null);
+        mActivateDialog.transform.localScale = new Vector3(0, 0, 0);
     }
     void Awake(){
         //var translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("PLAY_BUTTON");

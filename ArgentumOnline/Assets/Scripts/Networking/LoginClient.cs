@@ -17,9 +17,10 @@ using System.Linq;
 
 public class LoginClient : MonoBehaviour {
 	#region private members
-	private TcpClient 	mSocket;
+	private TcpClient 	mLoginClient;
+	private WorldClient mWorldClient;
 	/*
-		NetworkStream stream = mSocket.GetStream() will be accesed from two different threads: Receive and Send workloads.
+		NetworkStream stream = mLoginClient.GetStream() will be accesed from two different threads: Receive and Send workloads.
 		According to MS Documentation there is no need for a mutex as this is supposed to be thread safe when using just 2 threads:
 		Read and write operations can be performed simultaneously on an instance of the NetworkStream class without the need
 		for synchronization. As long as there is one unique thread for the write operations and one unique thread for the read
@@ -42,11 +43,11 @@ public class LoginClient : MonoBehaviour {
 	}
 
 	public bool IsConnected(){
-		if(mSocket == null){
+		if(mLoginClient == null){
 			return false;
 		}
 		else {
-			return mSocket.Connected;
+			return mLoginClient.Connected;
 		}
 	}
 	// Construct a ConcurrentQueue for Sending messages to the server
@@ -67,11 +68,7 @@ public class LoginClient : MonoBehaviour {
 		{ ProtoBase.ProtocolNumbers["SIGNUP_OKAY"], (@this, x) => @this.ProcessSignupOkay(x) },
 		{ ProtoBase.ProtocolNumbers["SIGNUP_ERROR"], (@this, x) => @this.ProcessSignupError(x) },
 		{ ProtoBase.ProtocolNumbers["ACTIVATE_OKAY"], (@this, x) => @this.ProcessActivationOkay(x) },
-		{ ProtoBase.ProtocolNumbers["ACTIVATE_ERROR"], (@this, x) => @this.ProcessActivationError(x) },
-		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_OKAY"], (@this, x) => @this.ProcessPlayCharacterOkay(x) },
-		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_ERROR"], (@this, x) => @this.ProcessPlayCharacterError(x) }
-
-
+		{ ProtoBase.ProtocolNumbers["ACTIVATE_ERROR"], (@this, x) => @this.ProcessActivationError(x) }
     };
 	public void SetActivationCode(string code){
 		mCode = code;
@@ -144,18 +141,6 @@ public class LoginClient : MonoBehaviour {
 		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
 		return 1;
 	}
-	public int ProcessPlayCharacterOkay(byte[] data){
-		Debug.Log("ProcessPlayCharacterOkay");
-		mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
-		return 1;
-	}
-	public int ProcessPlayCharacterError(byte[] data){
-		Debug.Log("ProcessPlayCharacterError");
-		short error_code = ProtoBase.DecodeShort(data);
-		var error_string = ProtoBase.LoginErrorCodeToString(error_code);
-		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
-		return 1;
-	}
 	public int ProcessActivationOkay(byte[] data){
 		Debug.Log("ProcessActivationOkay");
 		mEventsQueue.Enqueue(Tuple.Create("ACTIVATE_OKAY",""));
@@ -180,7 +165,6 @@ public class LoginClient : MonoBehaviour {
 		mEventsQueue.Enqueue(Tuple.Create("SIGNUP_ERROR_MSG_BOX_TITLE",error_string));
 		return 1;
 	}
-
 	void Start (){
 		Debug.Log("Initializing ");
 		mIncommingData = new List<byte>();
@@ -306,7 +290,7 @@ public class LoginClient : MonoBehaviour {
 	public void ConnectToTcpServer (string remote_ip, string remote_port, string operation="NOOP") {
 		mOperationUponSessionOpened = operation;
 		mAppQuit = false;
-		if( mSocket!=null && mSocket.Connected )
+		if( mLoginClient!=null && mLoginClient.Connected )
 		{
 				Debug.Log("Already connected to the server!.");
 				return;
@@ -324,9 +308,9 @@ public class LoginClient : MonoBehaviour {
 	}
 
 	private void StopNetworkWorkloads(){
-		if(mSocket!=null){
-			mSocket.Close();
-			mSocket = null;
+		if(mLoginClient!=null){
+			mLoginClient.Close();
+			mLoginClient = null;
 		}
 		if(mReceiveThread!=null){
 			mReceiveThread.Abort();
@@ -347,21 +331,21 @@ public class LoginClient : MonoBehaviour {
     }
 	private void ListenForDataWorkload() {
 		try {
-			mSocket = new TcpClient();
-			mSocket.LingerState = new LingerOption(true,0);
-			mSocket.ReceiveTimeout = 1000;
-			mSocket.SendTimeout = 1000;
-			mSocket.NoDelay = true;
-			mSocket.Connect(mServerIP, Convert.ToInt32(mServerPort));
-			if(mSocket.Connected){
+			mLoginClient = new TcpClient();
+			mLoginClient.LingerState = new LingerOption(true,0);
+			mLoginClient.ReceiveTimeout = 1000;
+			mLoginClient.SendTimeout = 1000;
+			mLoginClient.NoDelay = true;
+			mLoginClient.Connect(mServerIP, Convert.ToInt32(mServerPort));
+			if(mLoginClient.Connected){
 				OnConnectionEstablished();
 			}
-			//mSocket.GetStream().ReadTimeout = 1000;
-			//mSocket.GetStream().WriteTimeout = 1000;
+			//mLoginClient.GetStream().ReadTimeout = 1000;
+			//mLoginClient.GetStream().WriteTimeout = 1000;
 			Byte[] bytes = new Byte[1024];
 			while (!mAppQuit) {
 				// Get a stream object for reading
-				using (NetworkStream stream = mSocket.GetStream()){
+				using (NetworkStream stream = mLoginClient.GetStream()){
 					int length;
 					if(stream.CanRead){
 							try {
@@ -420,16 +404,16 @@ public class LoginClient : MonoBehaviour {
 			//OnConnectionError(e);
 		}
 
-		Debug.Log("ListenForDataWorkload finished");
+		Debug.Log("LoginClient::ListenForDataWorkload finished");
 	}
 
 	private void WaitAndSendMessageWorkload() {
 		while (!mAppQuit) {
 			try {
-				if( mSocket!=null && mSocket.Connected )
+				if( mLoginClient!=null && mLoginClient.Connected )
 				{
 					// Get a stream object for writing.
-					NetworkStream stream = mSocket.GetStream();
+					NetworkStream stream = mLoginClient.GetStream();
 					while (mSendQueue.Count > 0)
 					{
 						if (stream.CanWrite) {
@@ -455,7 +439,7 @@ public class LoginClient : MonoBehaviour {
 				Debug.Log("Socket exception: " + e);
 			}
 		}
-		Debug.Log("WaitAndSendMessageWorkload finished.");
+		Debug.Log("LoginCliet::WaitAndSendMessageWorkload finished.");
 	}
 
 	/// <summary>
