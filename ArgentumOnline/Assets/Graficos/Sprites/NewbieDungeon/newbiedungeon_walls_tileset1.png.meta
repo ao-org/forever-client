@@ -83,6 +83,9 @@ TextureImporter:
   - first:
       213: -704196095175179391
     second: newbiedungeon_walls_tileset1_26
+  - first:
+      213: -4100882453250968095
+    second: newbiedungeon_walls_tileset1_27
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,8 +125,8 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
-  spriteMeshType: 1
+  spriteExtrude: 32
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -299,7 +302,7 @@ TextureImporter:
         serializedVersion: 2
         x: 768
         y: 1408
-        width: 128
+        width: 127
         height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -383,7 +386,7 @@ TextureImporter:
         serializedVersion: 2
         x: 768
         y: 1280
-        width: 128
+        width: 127
         height: 128
       alignment: 9
       pivot: {x: 0.49647188, y: 0.51550996}
@@ -467,7 +470,7 @@ TextureImporter:
         serializedVersion: 2
         x: 768
         y: 896
-        width: 128
+        width: 127
         height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -730,6 +733,27 @@ TextureImporter:
       bones: []
       spriteID: 183cdd6e1613a36f0800000000000000
       internalID: -704196095175179391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newbiedungeon_walls_tileset1_27
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 896
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5f75cd22db617c0800000000000000
+      internalID: -4100882453250968095
       vertices: []
       indices: 
       edges: []

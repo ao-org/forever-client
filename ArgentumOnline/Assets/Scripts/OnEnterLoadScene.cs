@@ -32,15 +32,15 @@ public class OnEnterLoadScene : MonoBehaviour
             GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
             UnityEngine.Debug.Assert(player!=null);
 
-            float x = float.Parse(teleport_x);
-            float y = float.Parse(teleport_y);
             if(!lockx){
+                float x = float.Parse(teleport_x);
                 WarpingDestination.teleport_x = x;
             }
             else {
                 WarpingDestination.teleport_x = player.transform.position.x;
             }
             if (!locky){
+                float y = float.Parse(teleport_y);
                 WarpingDestination.teleport_y = y;
             }
             else {
