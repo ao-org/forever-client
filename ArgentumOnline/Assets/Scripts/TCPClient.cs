@@ -347,6 +347,7 @@ public class TCPClient : MonoBehaviour {
 			mSocket.LingerState = new LingerOption(true,0);
 			mSocket.ReceiveTimeout = 1000;
 			mSocket.SendTimeout = 1000;
+			mSocket.NoDelay = true;
 			mSocket.Connect(mServerIP, Convert.ToInt32(mServerPort));
 			if(mSocket.Connected){
 				OnConnectionEstablished();
