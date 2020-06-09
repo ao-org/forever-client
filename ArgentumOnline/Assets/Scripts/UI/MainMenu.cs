@@ -106,6 +106,26 @@ public class MainMenu : MonoBehaviour
     }
     public void OnLoginOkay(){
         Debug.Log("LOGIN_OKAY");
+        //At this point the LoginClient logged into the user's account and we hold a valid session Token
+        InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
+        Debug.Assert(server_address_input!=null);
+        string server_address_string    = server_address_input.text;
+        string server_port_string       = "6000";
+
+        try {
+          //Attempt to connect to game Server
+          if( mWorldClient.IsConnected()){
+              mWorldClient.AttemptToLogin();
+          }
+          else {
+              Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
+              mLoginClient.SetUsernameAndPassword("morgolock","Pablo17");
+              mWorldClient.ConnectToTcpServer(server_address_string,server_port_string,"LOGIN_REQUEST");
+          }
+        }
+        catch (Exception e){
+  			     Debug.Log("Failed to connect to server " + e);
+        }
 
 
     }
@@ -185,6 +205,7 @@ public class MainMenu : MonoBehaviour
         }
     }
     private LoginClient mLoginClient;
+    private WorldClient mWorldClient;
     private GameObject mMessageBox;
     private GameObject mSignupDialog;
     private GameObject mActivateDialog;
@@ -193,9 +214,15 @@ public class MainMenu : MonoBehaviour
     {
         CreateAndInitLocalizedStrings();
         mEventSystem = EventSystem.current;
-        GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("LoginClient")[0];
-        mLoginClient = tcp_client_object.GetComponent<LoginClient>();
+        // setup login client
+        GameObject login_client_object = GameObject.FindGameObjectsWithTag("LoginClient")[0];
+        mLoginClient = login_client_object.GetComponent<LoginClient>();
         mLoginClient.SetMainMenu(this);
+        //
+        GameObject world_client_object = GameObject.FindGameObjectsWithTag("WorldClient")[0];
+        mWorldClient = world_client_object.GetComponent<WorldClient>();
+        mWorldClient.SetMainMenu(this);
+
         mMessageBox = GameObject.Find("MessageBox");
         Debug.Assert(mMessageBox!=null);
         mMessageBox.transform.localScale = new Vector3(0, 0, 0);
