@@ -107,7 +107,7 @@ public class MainMenu : MonoBehaviour
     public void OnLoginOkay(){
         Debug.Log("LOGIN_OKAY");
 
-        
+
     }
     public void OnAccountActivated(){
         Debug.Log("AccountActivated");
@@ -149,15 +149,15 @@ public class MainMenu : MonoBehaviour
         }
         try {
           //Attempt to connect to game Server
-          if( mTcpClient.IsConnected()){
-              mTcpClient.AttemptToActivate();
+          if( mLoginClient.IsConnected()){
+              mLoginClient.AttemptToActivate();
           }
           else {
               Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
-              //mTcpClient.SetUsernameAndPassword(username_str,password_str);
+              //mLoginClient.SetUsernameAndPassword(username_str,password_str);
               // username and password already setup in the signup flow
-              mTcpClient.SetActivationCode(code_string);
-              mTcpClient.ConnectToTcpServer(server_address_string,server_port_string,"ACTIVATE_REQUEST");
+              mLoginClient.SetActivationCode(code_string);
+              mLoginClient.ConnectToTcpServer(server_address_string,server_port_string,"ACTIVATE_REQUEST");
           }
         }
         catch (Exception e){
@@ -184,7 +184,7 @@ public class MainMenu : MonoBehaviour
             }
         }
     }
-    private TCPClient mTcpClient;
+    private LoginClient mLoginClient;
     private GameObject mMessageBox;
     private GameObject mSignupDialog;
     private GameObject mActivateDialog;
@@ -193,9 +193,9 @@ public class MainMenu : MonoBehaviour
     {
         CreateAndInitLocalizedStrings();
         mEventSystem = EventSystem.current;
-        GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("TCPClient")[0];
-         mTcpClient = tcp_client_object.GetComponent<TCPClient>();
-         mTcpClient.SetMainMenu(this);
+        GameObject tcp_client_object = GameObject.FindGameObjectsWithTag("LoginClient")[0];
+         mLoginClient = tcp_client_object.GetComponent<LoginClient>();
+         mLoginClient.SetMainMenu(this);
          mMessageBox = GameObject.Find("MessageBox");
          Debug.Assert(mMessageBox!=null);
          mMessageBox.transform.localScale = new Vector3(0, 0, 0);
@@ -337,7 +337,7 @@ public class MainMenu : MonoBehaviour
         }
 
         try {
-            mTcpClient.SetUsernameAndPassword(username_str,password_str);
+            mLoginClient.SetUsernameAndPassword(username_str,password_str);
 
             Dictionary<string, string> signup_data = new Dictionary<string,string>
             {
@@ -355,14 +355,14 @@ public class MainMenu : MonoBehaviour
                 { "SECRETA2", secreta2_string },
                 { "SECRETA1", secreta1_string },
             };
-            mTcpClient.SetSignupData(signup_data);
+            mLoginClient.SetSignupData(signup_data);
             //Attempt to connect to game Server
-            if( mTcpClient.IsConnected()){
-                mTcpClient.AttemptToSignup();
+            if( mLoginClient.IsConnected()){
+                mLoginClient.AttemptToSignup();
             }
             else {
                 Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
-                mTcpClient.ConnectToTcpServer(server_address_string,server_port_string,"SIGNUP_REQUEST");
+                mLoginClient.ConnectToTcpServer(server_address_string,server_port_string,"SIGNUP_REQUEST");
             }
         }
         catch (Exception e){
@@ -395,13 +395,13 @@ public class MainMenu : MonoBehaviour
 
       try {
         //Attempt to connect to game Server
-        if( mTcpClient.IsConnected()){
-            mTcpClient.AttemptToLogin();
+        if( mLoginClient.IsConnected()){
+            mLoginClient.AttemptToLogin();
         }
         else {
             Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
-            mTcpClient.SetUsernameAndPassword(username_str,password_str);
-            mTcpClient.ConnectToTcpServer(server_address_string,server_port_string,"LOGIN_REQUEST");
+            mLoginClient.SetUsernameAndPassword(username_str,password_str);
+            mLoginClient.ConnectToTcpServer(server_address_string,server_port_string,"LOGIN_REQUEST");
         }
       }
       catch (Exception e){

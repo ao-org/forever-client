@@ -15,7 +15,7 @@ using UnityEngine.UI;
 using System.IO;
 using System.Linq;
 
-public class TCPClient : MonoBehaviour {
+public class LoginClient : MonoBehaviour {
 	#region private members
 	private TcpClient 	mSocket;
 	/*
@@ -57,8 +57,8 @@ public class TCPClient : MonoBehaviour {
 
 	private string mOperationUponSessionOpened = "NOOP";
 
-	static Dictionary<short, Func<TCPClient, byte[], int>> ProcessFunctions
-        = new Dictionary<short, Func<TCPClient, byte[], int>>
+	static Dictionary<short, Func<LoginClient, byte[], int>> ProcessFunctions
+        = new Dictionary<short, Func<LoginClient, byte[], int>>
     {
         { ProtoBase.ProtocolNumbers["SESSION_OPENED"], (@this, x) => @this.ProcessSessionOpened(x) },
 		{ ProtoBase.ProtocolNumbers["SESSION_ERROR"], (@this, x) => @this.ProcessSessionError(x) },
@@ -182,7 +182,7 @@ public class TCPClient : MonoBehaviour {
 	}
 
 	void Start (){
-		Debug.Log("Initializing TCPClient");
+		Debug.Log("Initializing ");
 		mIncommingData = new List<byte>();
 		mAppQuit = false;
 	}
@@ -341,7 +341,7 @@ public class TCPClient : MonoBehaviour {
 
 	}
 	public void OnApplicationQuit(){
-            Debug.Log("TCPCLIENT Application ending after " + Time.time + " seconds");
+            Debug.Log("LoginClient Application ending after " + Time.time + " seconds");
 			mAppQuit = true;
 			StopNetworkWorkloads();
     }

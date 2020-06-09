@@ -6,6 +6,9 @@ TagManager:
   tags:
   - TCPClient
   - MsgBox
+  - WorldClient
+  - LoginClient
+  - ChatClient
   layers:
   - Default
   - TransparentFX
