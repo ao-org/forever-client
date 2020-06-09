@@ -323,23 +323,27 @@ public class TCPClient : MonoBehaviour {
 		return ProcessFunctions[id](this,data);
 	}
 
+	private void StopNetworkWorkloads(){
+		if(mSocket!=null){
+			mSocket.Close();
+			mSocket = null;
+		}
+		if(mReceiveThread!=null){
+			mReceiveThread.Abort();
+			mReceiveThread.Join();
+			mReceiveThread = null;
+		}
+		if(mSendThread!=null){
+			mSendThread.Abort();
+			mSendThread.Join();
+			mSendThread =null;
+		}
+
+	}
 	public void OnApplicationQuit(){
             Debug.Log("TCPCLIENT Application ending after " + Time.time + " seconds");
 			mAppQuit = true;
-			if(mSocket!=null){
-				//mSocket.GetStream().Close();
-				mSocket.Close();
-				mSocket = null;
-			}
-			if(mReceiveThread!=null){
-				mReceiveThread.Abort();
-				mReceiveThread.Join();
-			}
-			if(mSendThread!=null){
-				mSendThread.Abort();
-				mSendThread.Join();
-			}
-
+			StopNetworkWorkloads();
     }
 	private void ListenForDataWorkload() {
 		try {
@@ -407,14 +411,16 @@ public class TCPClient : MonoBehaviour {
 			//OnConnectionError(socketException);
 		}
 		catch(ThreadAbortException e) {
-            Console.WriteLine("Thread - caught ThreadAbortException - resetting.");
-            Console.WriteLine("Exception message: {0}", e.Message);
+            Debug.Log("Thread - caught ThreadAbortException - resetting.");
+            Debug.Log("Exception message: {0}" + e.Message);
             //Thread.ResetAbort();
         }
 		catch(Exception e){
 			Debug.Log("Socket exception: " + e);
 			//OnConnectionError(e);
 		}
+
+		Debug.Log("ListenForDataWorkload finished");
 	}
 
 	private void WaitAndSendMessageWorkload() {
@@ -442,14 +448,14 @@ public class TCPClient : MonoBehaviour {
 				//OnConnectionError(socketException);
 			}
 			catch(ThreadAbortException e) {
-	            Console.WriteLine("Thread - caught ThreadAbortException - resetting.");
-	            Console.WriteLine("Exception message: {0}", e.Message);
+	            Debug.Log("Thread - caught ThreadAbortException - resetting.");
+	            Debug.Log("Exception message: {0}" + e.Message);
 	        }
 			catch(Exception e){
 				Debug.Log("Socket exception: " + e);
 			}
 		}
-		Debug.Log("WaitAndSendMessageWorkload thread finished due to OnApplicationQuit event!");
+		Debug.Log("WaitAndSendMessageWorkload finished.");
 	}
 
 	/// <summary>
