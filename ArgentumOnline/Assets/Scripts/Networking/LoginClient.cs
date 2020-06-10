@@ -376,7 +376,7 @@ public class LoginClient : MonoBehaviour {
 									}
 							}
 							catch(IOException e){
-								Debug.Log("Timeout? IOException (" + e.Message  + ") " + e);
+								Debug.Log("Login::stream.read() Timeout: (" + e.Message  + ") " );
 							}
 					}
 				}
@@ -421,7 +421,12 @@ public class LoginClient : MonoBehaviour {
 							if (mSendQueue.TryDequeue(out msg))
 	      					{
 								Debug.Assert(msg.Data()!=null);
-								stream.Write(msg.Data(), 0, msg.Size());
+								try{
+									stream.Write(msg.Data(), 0, msg.Size());
+								}
+								catch(IOException e){
+    								Debug.Log("Login::stream.write() Timeout: (" + e.Message  + ") " );
+    							}
 							}
 						}
 					}

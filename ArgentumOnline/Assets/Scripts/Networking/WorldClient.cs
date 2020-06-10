@@ -262,6 +262,7 @@ public class WorldClient : MonoBehaviour {
 					int length;
 					if(stream.CanRead){
 							try {
+
 									while ((length = stream.Read(bytes, 0, bytes.Length)) != 0){
 										// Copy the bytes received from the network to the array incommingData
 										var incommingData = new byte[length];
@@ -289,7 +290,7 @@ public class WorldClient : MonoBehaviour {
 									}
 							}
 							catch(IOException e){
-								Debug.Log("Timeout? IOException (" + e.Message  + ") " + e);
+								Debug.Log("World::stream.read() Timeout: (" + e.Message  + ") " );
 							}
 					}
 				}
@@ -334,7 +335,13 @@ public class WorldClient : MonoBehaviour {
 							if (mSendQueue.TryDequeue(out msg))
 	      					{
 								Debug.Assert(msg.Data()!=null);
-								stream.Write(msg.Data(), 0, msg.Size());
+                                try{
+                                    stream.Write(msg.Data(), 0, msg.Size());
+                                }
+                                catch(IOException e){
+    								Debug.Log("World::stream.write() Timeout: (" + e.Message  + ") " );
+    							}
+
 							}
 						}
 					}

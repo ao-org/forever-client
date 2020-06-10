@@ -214,11 +214,11 @@ public class MainMenu : MonoBehaviour
     {
         CreateAndInitLocalizedStrings();
         mEventSystem = EventSystem.current;
-        // setup login client
+        // setup the login client
         GameObject login_client_object = GameObject.FindGameObjectsWithTag("LoginClient")[0];
         mLoginClient = login_client_object.GetComponent<LoginClient>();
         mLoginClient.SetMainMenu(this);
-        //
+        // setup the world client
         GameObject world_client_object = GameObject.FindGameObjectsWithTag("WorldClient")[0];
         mWorldClient = world_client_object.GetComponent<WorldClient>();
         mWorldClient.SetMainMenu(this);
