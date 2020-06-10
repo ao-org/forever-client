@@ -124,7 +124,7 @@ public class WorldClient : MonoBehaviour {
 	}
 
     private void OnConnectionError(string title, string msg){
-	   Debug.Log("OnConnectionError " + msg);
+	   Debug.Log("mWorldClientConnectionError " + msg);
 	   mEventsQueue.Enqueue(Tuple.Create(title,msg));
     }
 
@@ -142,7 +142,7 @@ public class WorldClient : MonoBehaviour {
 			mSendThread.Start();
 	    }
 		catch (Exception e) {
-			Debug.Log("On client connect exception " + e);
+			Debug.Log("WorldServer::On client connect exception " + e);
 			OnConnectionError("Error", "CreateSendWorkload");
 		}
 	}
@@ -163,7 +163,7 @@ public class WorldClient : MonoBehaviour {
 			mReceiveThread.Start();
 		}
 		catch (Exception e) {
-			Debug.Log("On client connect exception " + e);
+			Debug.Log("WorldServer::On client connect exception " + e);
 			OnConnectionError("Error", "CreateListenWorkload");
 		}
 	}
@@ -191,7 +191,7 @@ public class WorldClient : MonoBehaviour {
 
    	private void OnConnectionEstablished()
    	{
-	   Debug.Log("OnConnectionEstablished!!!");
+	   Debug.Log("WorldServer::OnConnectionEstablished!!!");
 	   //Upon connection we create the send workload which will be responsible for
 	   //sending messages to the server through the tpc connection.
 	   //CreateSendWorkload();

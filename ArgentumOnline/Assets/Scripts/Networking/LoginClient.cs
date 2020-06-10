@@ -211,7 +211,7 @@ public class LoginClient : MonoBehaviour {
 	}
 
    private void OnConnectionError(string title, string msg){
-	   Debug.Log("OnConnectionError " + msg);
+	   Debug.Log("LoginServer::OnConnectionError " + msg);
 	   mEventsQueue.Enqueue(Tuple.Create(title,msg));
    }
 
@@ -229,7 +229,7 @@ public class LoginClient : MonoBehaviour {
 			mSendThread.Start();
 	    }
 		catch (Exception e) {
-			Debug.Log("On client connect exception " + e);
+			Debug.Log("LoginServer::On client connect exception " + e);
 			OnConnectionError("Error", "CreateSendWorkload");
 		}
 	}
@@ -250,7 +250,7 @@ public class LoginClient : MonoBehaviour {
 			mReceiveThread.Start();
 		}
 		catch (Exception e) {
-			Debug.Log("On client connect exception " + e);
+			Debug.Log("LoginServer::On client connect exception " + e);
 			OnConnectionError("Error", "CreateListenWorkload");
 		}
 	}
@@ -278,7 +278,7 @@ public class LoginClient : MonoBehaviour {
 
    	private void OnConnectionEstablished()
    	{
-	   Debug.Log("OnConnectionEstablished!!!");
+	   Debug.Log("LoginServer::OnConnectionEstablished!!!");
 	   //Upon connection we create the send workload which will be responsible for
 	   //sending messages to the server through the tpc connection.
 	   //CreateSendWorkload();
