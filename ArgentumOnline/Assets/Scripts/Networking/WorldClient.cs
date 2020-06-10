@@ -168,38 +168,12 @@ public class WorldClient : MonoBehaviour {
 		}
 	}
 
-	public void AttemptToLogin()
-	{
-		mOperationUponSessionOpened = "LOGIN_REQUEST";
-		ProtoOpenSession open_session = new ProtoOpenSession();
- 	  	SendMessage(open_session);
-	}
-
-	public void AttemptToActivate()
-	{
-		mOperationUponSessionOpened = "ACTIVATE_REQUEST";
-		ProtoOpenSession open_session = new ProtoOpenSession();
- 	  	SendMessage(open_session);
-	}
-
-	public void AttemptToSignup()
-	{
-		mOperationUponSessionOpened = "SIGNUP_REQUEST";
-		ProtoOpenSession open_session = new ProtoOpenSession();
-		SendMessage(open_session);
-	}
-
    	private void OnConnectionEstablished()
    	{
 	   Debug.Log("WorldServer::OnConnectionEstablished!!!");
-	   //Upon connection we create the send workload which will be responsible for
-	   //sending messages to the server through the tpc connection.
-	   //CreateSendWorkload();
-	   //Now the workload is running we push the message to the send queue to be
-	   //consumed by the workload
-	   ProtoOpenSession open_session = new ProtoOpenSession();
-	   SendMessage(open_session);
-   }
+	   ProtoPlayCharacter play_char_msg = new ProtoPlayCharacter("Seneca", CryptoHelper.Token);
+	   SendMessage(play_char_msg);
+    }
 	public void ConnectToTcpServer (string remote_ip, string remote_port, string operation="NOOP") {
 		mOperationUponSessionOpened = operation;
 		mAppQuit = false;
@@ -226,12 +200,12 @@ public class WorldClient : MonoBehaviour {
 			mSocket = null;
 		}
 		if(mReceiveThread!=null){
-			mReceiveThread.Abort();
+			//mReceiveThread.Abort();
 			mReceiveThread.Join();
 			mReceiveThread = null;
 		}
 		if(mSendThread!=null){
-			mSendThread.Abort();
+			//mSendThread.Abort();
 			mSendThread.Join();
 			mSendThread =null;
 		}

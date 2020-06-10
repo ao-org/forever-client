@@ -114,14 +114,9 @@ public class MainMenu : MonoBehaviour
 
         try {
           //Attempt to connect to game Server
-          if( mWorldClient.IsConnected()){
-              mWorldClient.AttemptToLogin();
-          }
-          else {
-              Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
-              mLoginClient.SetUsernameAndPassword("morgolock","Pablo17");
-              mWorldClient.ConnectToTcpServer(server_address_string,server_port_string,"LOGIN_REQUEST");
-          }
+              Debug.Log("World Server address: " + server_address_string + ":" + server_port_string);
+              //mWorldClient.SetUsernameAndPassword("morgolock","Pablo17");
+              mWorldClient.ConnectToTcpServer(server_address_string,server_port_string);
         }
         catch (Exception e){
   			     Debug.Log("Failed to connect to server " + e);

@@ -279,11 +279,6 @@ public class LoginClient : MonoBehaviour {
    	private void OnConnectionEstablished()
    	{
 	   Debug.Log("LoginServer::OnConnectionEstablished!!!");
-	   //Upon connection we create the send workload which will be responsible for
-	   //sending messages to the server through the tpc connection.
-	   //CreateSendWorkload();
-	   //Now the workload is running we push the message to the send queue to be
-	   //consumed by the workload
 	   ProtoOpenSession open_session = new ProtoOpenSession();
 	   SendMessage(open_session);
    }
