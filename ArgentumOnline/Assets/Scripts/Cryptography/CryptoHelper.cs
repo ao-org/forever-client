@@ -25,7 +25,7 @@ public class CryptoHelper
 		{
 			var d= System.Text.Encoding.ASCII.GetString(b64encoded).ToCharArray();
     		byte[] decodedByteArray = Convert.FromBase64CharArray(d, 0, d.Length);
-			if(decodedByteArray.Length>500)
+			if((decodedByteArray.Length%16)!=0)
 				Array.Resize(ref decodedByteArray, decodedByteArray.Length + 100);
     		return decodedByteArray;
 		}
