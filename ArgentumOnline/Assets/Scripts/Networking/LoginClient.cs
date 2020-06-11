@@ -104,7 +104,8 @@ public class LoginClient : MonoBehaviour {
 			string golden = Encoding.ASCII.GetString(encrypted_token);
 			var test_encrypted_token = CryptoHelper.Encrypt(CryptoHelper.Token, Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
 			string silver = Encoding.ASCII.GetString(test_encrypted_token);
-			Debug.Log("test_encrypted_token(" + silver.Length + ") " + silver);
+			Debug.Log("silver_token(" + silver.Length + ") " + silver);
+			Debug.Log("golden_token(" + encrypted_token.Length + ") " + Encoding.ASCII.GetString(encrypted_token));
 	    	Debug.Assert(silver == golden);
 		}
 
