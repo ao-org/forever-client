@@ -47,6 +47,7 @@ public class MainMenu : MonoBehaviour
     public LocalizedString SignupErrText_INVALID_CONFIRM_EMAIL;
     public LocalizedString SignupErrText_INVALID_FIRST_LAST_NAME;
     public LocalizedString SignupErrText_TERMS_NOT_ACCEPTED;
+    public LocalizedString Signup_RESEND_CODE_OK;
 
     public LocalizedString ActivateOkayText_ACTIVATE_OKAY;
     public LocalizedString ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
@@ -83,12 +84,14 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["INVALID_CONFIRM_EMAIL"] = SignupErrText_INVALID_CONFIRM_EMAIL;
         mLocalizedStringMappings["INVALID_FIRST_LAST_NAME"] = SignupErrText_INVALID_FIRST_LAST_NAME;
         mLocalizedStringMappings["TERMS_NOT_ACCEPTED"] = SignupErrText_TERMS_NOT_ACCEPTED;
+        mLocalizedStringMappings["RESEND_CODE_OK"] = Signup_RESEND_CODE_OK;
         mLocalizedStringMappings["MUST_ACTIVATE_ACCOUNT"]= LoginErrText_MUST_ACTIVATE_ACCOUNT;
         mLocalizedStringMappings["INPUT_ERROR_INVALID_ACTIVATION_CODE"]= InputErrText_INPUT_ERROR_INVALID_ACTIVATION_CODE;
         mLocalizedStringMappings["ACTIVATE_OKAY"]= ActivateOkayText_ACTIVATE_OKAY;
         mLocalizedStringMappings["ACTIVATE_ERROR_INVALID_CODE"]= ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
         mLocalizedStringMappings["ACTIVATE_MSG_BOX_TITLE"]= ActivateErrText_ACTIVATE_MSG_BOX_TITLE;
         mLocalizedStringMappings["WRONG_PASSWORD"]= LoginErrText_LOGIN_ERROR_WRONG_PASSWORD;
+        
         //Ver si se hace por pdf, web o server text
         mLocalizedStringMappings["TERMS_CONDITIONS_TITLE"] = SignupText_TERMS_CONDITIONS_TITLE;
         mLocalizedStringMappings["TERMS_CONDITIONS_TEXT"] = SignupText_TERMS_CONDITIONS_TEXT;

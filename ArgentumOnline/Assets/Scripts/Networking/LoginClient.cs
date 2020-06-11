@@ -68,7 +68,9 @@ public class LoginClient : MonoBehaviour {
 		{ ProtoBase.ProtocolNumbers["SIGNUP_OKAY"], (@this, x) => @this.ProcessSignupOkay(x) },
 		{ ProtoBase.ProtocolNumbers["SIGNUP_ERROR"], (@this, x) => @this.ProcessSignupError(x) },
 		{ ProtoBase.ProtocolNumbers["ACTIVATE_OKAY"], (@this, x) => @this.ProcessActivationOkay(x) },
-		{ ProtoBase.ProtocolNumbers["ACTIVATE_ERROR"], (@this, x) => @this.ProcessActivationError(x) }
+		{ ProtoBase.ProtocolNumbers["ACTIVATE_ERROR"], (@this, x) => @this.ProcessActivationError(x) },
+        { ProtoBase.ProtocolNumbers["CODE_REQ_OKAY"], (@this, x) => @this.ProcessCodeReqOk(x) },
+        { ProtoBase.ProtocolNumbers["CODE_REQ_ERROR"], (@this, x) => @this.ProcessCodeReqError(x) }
     };
 	public void SetActivationCode(string code){
 		mCode = code;
@@ -168,7 +170,21 @@ public class LoginClient : MonoBehaviour {
 		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
 		return 1;
 	}
-	public int ProcessSignupOkay(byte[] data){
+    public int ProcessCodeReqOk(byte[] data)
+    {
+        Debug.Log("ProcessCodeReqOk");
+        mEventsQueue.Enqueue(Tuple.Create("RESEND_CODE_OK", ""));
+        return 1;
+    }
+    public int ProcessCodeReqError(byte[] data)
+    {
+        Debug.Log("ProcessCodeReqError");
+        short error_code = ProtoBase.DecodeShort(data);
+        var error_string = ProtoBase.LoginErrorCodeToString(error_code);
+        mEventsQueue.Enqueue(Tuple.Create("ACTIVATE_MSG_BOX_TITLE", error_string));
+        return 1;
+    }
+    public int ProcessSignupOkay(byte[] data){
 		Debug.Log("ProcessSignupOkay");
 		mEventsQueue.Enqueue(Tuple.Create("SIGNUP_OKAY",""));
 		return 1;

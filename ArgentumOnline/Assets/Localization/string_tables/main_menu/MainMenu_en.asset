@@ -243,5 +243,9 @@ MonoBehaviour:
     m_Localized: The password is not correct.
     m_Metadata:
       m_Items: []
+  - m_Id: 58
+    m_Localized: Activation code sent. Check your inbox email.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -243,5 +243,9 @@ MonoBehaviour:
     m_Localized: La clave es incorrecta.
     m_Metadata:
       m_Items: []
+  - m_Id: 58
+    m_Localized: RESEND_CODE_OK
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

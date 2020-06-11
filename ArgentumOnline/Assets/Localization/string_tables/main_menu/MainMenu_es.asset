@@ -245,5 +245,9 @@ MonoBehaviour:
     m_Localized: La clave es incorrecta.
     m_Metadata:
       m_Items: []
+  - m_Id: 58
+    m_Localized: Se envio el codigo. Verifique su correo electronico.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
