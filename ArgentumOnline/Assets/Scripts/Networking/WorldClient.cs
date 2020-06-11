@@ -65,9 +65,13 @@ public class WorldClient : MonoBehaviour {
 		mUsername = u;
 		mPassword = p;
 	}
-	public int ProcessPlayCharacterOkay(byte[] data){
+	public int ProcessPlayCharacterOkay(byte[] encrypted_character){
 		Debug.Log("ProcessPlayCharacterOkay");
-		mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
+        Debug.Log("encrypted_character len = " + Encoding.ASCII.GetString(encrypted_character).Length + " "  + Encoding.ASCII.GetString(encrypted_character) );
+        var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
+        Debug.Log("decrypted_data: " + decrypted_char);
+        //CryptoHelper.Encrypt(d, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
+		//mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
 		return 1;
 	}
 	public int ProcessPlayCharacterError(byte[] data){
@@ -249,12 +253,12 @@ public class WorldClient : MonoBehaviour {
 										// We consume the packets
 										while( mIncommingData.Count>=4 && !failed_to_build_packet){
 											var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
-											Debug.Log(" msg_size len " + msg_size.Length);
+											//Debug.Log(" msg_size len " + msg_size.Length);
 											var header	 	= mIncommingData.GetRange(0, 2).ToArray();
 											short decoded_size = ProtoBase.DecodeShort(msg_size);
-											Debug.Log(" Msg_size: " + decoded_size);
+											//Debug.Log(" Msg_size: " + decoded_size);
 											short message_id = ProtoBase.DecodeShort(header);
-											Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
+											//Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
 											failed_to_build_packet = (decoded_size > 1024);
 											//Drop the heade and size fields
 											var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();

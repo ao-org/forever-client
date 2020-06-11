@@ -99,6 +99,15 @@ public class LoginClient : MonoBehaviour {
 		CryptoHelper.Token	= CryptoHelper.Decrypt(encrypted_token,Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
 		Debug.Log("Decrypted Token : " + CryptoHelper.Token);
 		CryptoHelper.PublicKey = CryptoHelper.Token.Substring(0,16);
+
+		{ //DEBUGGING, to be removed
+			string golden = Encoding.ASCII.GetString(encrypted_token);
+			var test_encrypted_token = CryptoHelper.Encrypt(CryptoHelper.Token, Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
+			string silver = Encoding.ASCII.GetString(test_encrypted_token);
+			Debug.Log("test_encrypted_token(" + silver.Length + ") " + silver);
+	    	Debug.Assert(silver == golden);
+		}
+
 		switch(mOperationUponSessionOpened)
 		{
 			 case "LOGIN_REQUEST":
@@ -335,8 +344,6 @@ public class LoginClient : MonoBehaviour {
 			if(mLoginClient.Connected){
 				OnConnectionEstablished();
 			}
-			//mLoginClient.GetStream().ReadTimeout = 1000;
-			//mLoginClient.GetStream().WriteTimeout = 1000;
 			Byte[] bytes = new Byte[1024];
 			while (!mAppQuit) {
 				// Get a stream object for reading
@@ -356,12 +363,9 @@ public class LoginClient : MonoBehaviour {
 										// We consume the packets
 										while( mIncommingData.Count>=4 && !failed_to_build_packet){
 											var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
-											Debug.Log(" msg_size len " + msg_size.Length);
 											var header	 	= mIncommingData.GetRange(0, 2).ToArray();
 											short decoded_size = ProtoBase.DecodeShort(msg_size);
-											Debug.Log(" Msg_size: " + decoded_size);
 											short message_id = ProtoBase.DecodeShort(header);
-											Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
 											failed_to_build_packet = (decoded_size > 1024);
 											//Drop the heade and size fields
 											var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();
@@ -392,7 +396,6 @@ public class LoginClient : MonoBehaviour {
 		catch(ThreadAbortException e) {
             Debug.Log("Thread - caught ThreadAbortException - resetting.");
             Debug.Log("Exception message: {0}" + e.Message);
-            //Thread.ResetAbort();
         }
 		catch(Exception e){
 			Debug.Log("Socket exception: " + e);
