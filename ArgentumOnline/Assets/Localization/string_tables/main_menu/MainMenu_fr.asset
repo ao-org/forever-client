@@ -239,6 +239,10 @@ MonoBehaviour:
     m_Localized: Le mot de cle n'est pas valide
     m_Metadata:
       m_Items: []
+  - m_Id: 58
+    m_Localized: RESEND_CODE_OK
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
     00000000:
