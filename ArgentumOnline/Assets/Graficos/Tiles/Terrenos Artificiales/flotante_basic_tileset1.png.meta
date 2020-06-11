@@ -619,7 +619,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -630,7 +630,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 128
@@ -711,7 +711,7 @@ TextureImporter:
       name: flotante_basic_tileset1_1
       rect:
         serializedVersion: 2
-        x: 266
+        x: 134
         y: 1190
         width: 128
         height: 128
@@ -732,7 +732,7 @@ TextureImporter:
       name: flotante_basic_tileset1_2
       rect:
         serializedVersion: 2
-        x: 530
+        x: 266
         y: 1190
         width: 128
         height: 128
@@ -753,7 +753,7 @@ TextureImporter:
       name: flotante_basic_tileset1_3
       rect:
         serializedVersion: 2
-        x: 662
+        x: 398
         y: 1190
         width: 128
         height: 128
@@ -774,7 +774,7 @@ TextureImporter:
       name: flotante_basic_tileset1_4
       rect:
         serializedVersion: 2
-        x: 794
+        x: 530
         y: 1190
         width: 128
         height: 128
@@ -795,7 +795,7 @@ TextureImporter:
       name: flotante_basic_tileset1_5
       rect:
         serializedVersion: 2
-        x: 926
+        x: 662
         y: 1190
         width: 128
         height: 128
@@ -816,7 +816,7 @@ TextureImporter:
       name: flotante_basic_tileset1_6
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 794
         y: 1190
         width: 128
         height: 128
@@ -837,7 +837,7 @@ TextureImporter:
       name: flotante_basic_tileset1_7
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 926
         y: 1190
         width: 128
         height: 128
@@ -858,8 +858,8 @@ TextureImporter:
       name: flotante_basic_tileset1_8
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1058
+        x: 1058
+        y: 1190
         width: 128
         height: 128
       alignment: 0
@@ -879,8 +879,8 @@ TextureImporter:
       name: flotante_basic_tileset1_9
       rect:
         serializedVersion: 2
-        x: 134
-        y: 1058
+        x: 1190
+        y: 1190
         width: 128
         height: 128
       alignment: 0
@@ -900,7 +900,7 @@ TextureImporter:
       name: flotante_basic_tileset1_10
       rect:
         serializedVersion: 2
-        x: 266
+        x: 2
         y: 1058
         width: 128
         height: 128
@@ -921,7 +921,7 @@ TextureImporter:
       name: flotante_basic_tileset1_11
       rect:
         serializedVersion: 2
-        x: 398
+        x: 134
         y: 1058
         width: 128
         height: 128
@@ -942,7 +942,7 @@ TextureImporter:
       name: flotante_basic_tileset1_12
       rect:
         serializedVersion: 2
-        x: 530
+        x: 266
         y: 1058
         width: 128
         height: 128
@@ -963,7 +963,7 @@ TextureImporter:
       name: flotante_basic_tileset1_13
       rect:
         serializedVersion: 2
-        x: 662
+        x: 398
         y: 1058
         width: 128
         height: 128
@@ -984,7 +984,7 @@ TextureImporter:
       name: flotante_basic_tileset1_14
       rect:
         serializedVersion: 2
-        x: 794
+        x: 530
         y: 1058
         width: 128
         height: 128
@@ -1005,7 +1005,7 @@ TextureImporter:
       name: flotante_basic_tileset1_15
       rect:
         serializedVersion: 2
-        x: 926
+        x: 662
         y: 1058
         width: 128
         height: 128
@@ -1026,7 +1026,7 @@ TextureImporter:
       name: flotante_basic_tileset1_16
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 794
         y: 1058
         width: 128
         height: 128
@@ -1047,7 +1047,7 @@ TextureImporter:
       name: flotante_basic_tileset1_17
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 926
         y: 1058
         width: 128
         height: 128
@@ -1068,8 +1068,8 @@ TextureImporter:
       name: flotante_basic_tileset1_18
       rect:
         serializedVersion: 2
-        x: 2
-        y: 926
+        x: 1058
+        y: 1058
         width: 128
         height: 128
       alignment: 0
@@ -1089,8 +1089,8 @@ TextureImporter:
       name: flotante_basic_tileset1_19
       rect:
         serializedVersion: 2
-        x: 266
-        y: 926
+        x: 1190
+        y: 1058
         width: 128
         height: 128
       alignment: 0
@@ -1110,7 +1110,7 @@ TextureImporter:
       name: flotante_basic_tileset1_20
       rect:
         serializedVersion: 2
-        x: 530
+        x: 2
         y: 926
         width: 128
         height: 128
@@ -1131,7 +1131,7 @@ TextureImporter:
       name: flotante_basic_tileset1_21
       rect:
         serializedVersion: 2
-        x: 662
+        x: 134
         y: 926
         width: 128
         height: 128
@@ -1152,7 +1152,7 @@ TextureImporter:
       name: flotante_basic_tileset1_22
       rect:
         serializedVersion: 2
-        x: 794
+        x: 266
         y: 926
         width: 128
         height: 128
@@ -1173,7 +1173,7 @@ TextureImporter:
       name: flotante_basic_tileset1_23
       rect:
         serializedVersion: 2
-        x: 926
+        x: 398
         y: 926
         width: 128
         height: 128
@@ -1194,7 +1194,7 @@ TextureImporter:
       name: flotante_basic_tileset1_24
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 530
         y: 926
         width: 128
         height: 128
@@ -1215,7 +1215,7 @@ TextureImporter:
       name: flotante_basic_tileset1_25
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 662
         y: 926
         width: 128
         height: 128
@@ -1236,8 +1236,8 @@ TextureImporter:
       name: flotante_basic_tileset1_26
       rect:
         serializedVersion: 2
-        x: 2
-        y: 794
+        x: 794
+        y: 926
         width: 128
         height: 128
       alignment: 0
@@ -1257,8 +1257,8 @@ TextureImporter:
       name: flotante_basic_tileset1_27
       rect:
         serializedVersion: 2
-        x: 134
-        y: 794
+        x: 926
+        y: 926
         width: 128
         height: 128
       alignment: 0
@@ -1278,8 +1278,8 @@ TextureImporter:
       name: flotante_basic_tileset1_28
       rect:
         serializedVersion: 2
-        x: 266
-        y: 794
+        x: 1058
+        y: 926
         width: 128
         height: 128
       alignment: 0
@@ -1299,8 +1299,8 @@ TextureImporter:
       name: flotante_basic_tileset1_29
       rect:
         serializedVersion: 2
-        x: 398
-        y: 794
+        x: 1190
+        y: 926
         width: 128
         height: 128
       alignment: 0
@@ -1320,7 +1320,7 @@ TextureImporter:
       name: flotante_basic_tileset1_30
       rect:
         serializedVersion: 2
-        x: 530
+        x: 2
         y: 794
         width: 128
         height: 128
@@ -1341,7 +1341,7 @@ TextureImporter:
       name: flotante_basic_tileset1_31
       rect:
         serializedVersion: 2
-        x: 662
+        x: 134
         y: 794
         width: 128
         height: 128
@@ -1362,7 +1362,7 @@ TextureImporter:
       name: flotante_basic_tileset1_32
       rect:
         serializedVersion: 2
-        x: 794
+        x: 266
         y: 794
         width: 128
         height: 128
@@ -1383,7 +1383,7 @@ TextureImporter:
       name: flotante_basic_tileset1_33
       rect:
         serializedVersion: 2
-        x: 926
+        x: 398
         y: 794
         width: 128
         height: 128
@@ -1404,7 +1404,7 @@ TextureImporter:
       name: flotante_basic_tileset1_34
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 530
         y: 794
         width: 128
         height: 128
@@ -1425,7 +1425,7 @@ TextureImporter:
       name: flotante_basic_tileset1_35
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 662
         y: 794
         width: 128
         height: 128
@@ -1446,8 +1446,8 @@ TextureImporter:
       name: flotante_basic_tileset1_36
       rect:
         serializedVersion: 2
-        x: 2
-        y: 662
+        x: 794
+        y: 794
         width: 128
         height: 128
       alignment: 0
@@ -1467,8 +1467,8 @@ TextureImporter:
       name: flotante_basic_tileset1_37
       rect:
         serializedVersion: 2
-        x: 134
-        y: 662
+        x: 926
+        y: 794
         width: 128
         height: 128
       alignment: 0
@@ -1488,8 +1488,8 @@ TextureImporter:
       name: flotante_basic_tileset1_38
       rect:
         serializedVersion: 2
-        x: 266
-        y: 662
+        x: 1058
+        y: 794
         width: 128
         height: 128
       alignment: 0
@@ -1509,8 +1509,8 @@ TextureImporter:
       name: flotante_basic_tileset1_39
       rect:
         serializedVersion: 2
-        x: 398
-        y: 662
+        x: 1190
+        y: 794
         width: 128
         height: 128
       alignment: 0
@@ -1530,7 +1530,7 @@ TextureImporter:
       name: flotante_basic_tileset1_40
       rect:
         serializedVersion: 2
-        x: 530
+        x: 2
         y: 662
         width: 128
         height: 128
@@ -1551,7 +1551,7 @@ TextureImporter:
       name: flotante_basic_tileset1_41
       rect:
         serializedVersion: 2
-        x: 662
+        x: 134
         y: 662
         width: 128
         height: 128
@@ -1572,7 +1572,7 @@ TextureImporter:
       name: flotante_basic_tileset1_42
       rect:
         serializedVersion: 2
-        x: 794
+        x: 266
         y: 662
         width: 128
         height: 128
@@ -1593,7 +1593,7 @@ TextureImporter:
       name: flotante_basic_tileset1_43
       rect:
         serializedVersion: 2
-        x: 926
+        x: 398
         y: 662
         width: 128
         height: 128
@@ -1614,7 +1614,7 @@ TextureImporter:
       name: flotante_basic_tileset1_44
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 530
         y: 662
         width: 128
         height: 128
@@ -1635,7 +1635,7 @@ TextureImporter:
       name: flotante_basic_tileset1_45
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 662
         y: 662
         width: 128
         height: 128
@@ -1656,8 +1656,8 @@ TextureImporter:
       name: flotante_basic_tileset1_46
       rect:
         serializedVersion: 2
-        x: 2
-        y: 530
+        x: 794
+        y: 662
         width: 128
         height: 128
       alignment: 0
@@ -1677,8 +1677,8 @@ TextureImporter:
       name: flotante_basic_tileset1_47
       rect:
         serializedVersion: 2
-        x: 134
-        y: 530
+        x: 926
+        y: 662
         width: 128
         height: 128
       alignment: 0
@@ -1698,8 +1698,8 @@ TextureImporter:
       name: flotante_basic_tileset1_48
       rect:
         serializedVersion: 2
-        x: 266
-        y: 530
+        x: 1058
+        y: 662
         width: 128
         height: 128
       alignment: 0
@@ -1719,8 +1719,8 @@ TextureImporter:
       name: flotante_basic_tileset1_49
       rect:
         serializedVersion: 2
-        x: 398
-        y: 530
+        x: 1190
+        y: 662
         width: 128
         height: 128
       alignment: 0
@@ -1740,7 +1740,7 @@ TextureImporter:
       name: flotante_basic_tileset1_50
       rect:
         serializedVersion: 2
-        x: 530
+        x: 2
         y: 530
         width: 128
         height: 128
@@ -1761,7 +1761,7 @@ TextureImporter:
       name: flotante_basic_tileset1_51
       rect:
         serializedVersion: 2
-        x: 662
+        x: 134
         y: 530
         width: 128
         height: 128
@@ -1782,7 +1782,7 @@ TextureImporter:
       name: flotante_basic_tileset1_52
       rect:
         serializedVersion: 2
-        x: 794
+        x: 266
         y: 530
         width: 128
         height: 128
@@ -1803,7 +1803,7 @@ TextureImporter:
       name: flotante_basic_tileset1_53
       rect:
         serializedVersion: 2
-        x: 926
+        x: 398
         y: 530
         width: 128
         height: 128
@@ -1824,7 +1824,7 @@ TextureImporter:
       name: flotante_basic_tileset1_54
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 530
         y: 530
         width: 128
         height: 128
@@ -1845,7 +1845,7 @@ TextureImporter:
       name: flotante_basic_tileset1_55
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 662
         y: 530
         width: 128
         height: 128
@@ -1866,8 +1866,8 @@ TextureImporter:
       name: flotante_basic_tileset1_56
       rect:
         serializedVersion: 2
-        x: 2
-        y: 398
+        x: 794
+        y: 530
         width: 128
         height: 128
       alignment: 0
@@ -1887,8 +1887,8 @@ TextureImporter:
       name: flotante_basic_tileset1_57
       rect:
         serializedVersion: 2
-        x: 134
-        y: 398
+        x: 926
+        y: 530
         width: 128
         height: 128
       alignment: 0
@@ -1908,8 +1908,8 @@ TextureImporter:
       name: flotante_basic_tileset1_58
       rect:
         serializedVersion: 2
-        x: 266
-        y: 398
+        x: 1058
+        y: 530
         width: 128
         height: 128
       alignment: 0
@@ -1929,8 +1929,8 @@ TextureImporter:
       name: flotante_basic_tileset1_59
       rect:
         serializedVersion: 2
-        x: 398
-        y: 398
+        x: 1190
+        y: 530
         width: 128
         height: 128
       alignment: 0
@@ -1950,7 +1950,7 @@ TextureImporter:
       name: flotante_basic_tileset1_60
       rect:
         serializedVersion: 2
-        x: 530
+        x: 2
         y: 398
         width: 128
         height: 128
@@ -1971,7 +1971,7 @@ TextureImporter:
       name: flotante_basic_tileset1_61
       rect:
         serializedVersion: 2
-        x: 662
+        x: 134
         y: 398
         width: 128
         height: 128
@@ -1992,7 +1992,7 @@ TextureImporter:
       name: flotante_basic_tileset1_62
       rect:
         serializedVersion: 2
-        x: 794
+        x: 266
         y: 398
         width: 128
         height: 128
@@ -2013,7 +2013,7 @@ TextureImporter:
       name: flotante_basic_tileset1_63
       rect:
         serializedVersion: 2
-        x: 926
+        x: 398
         y: 398
         width: 128
         height: 128
@@ -2034,7 +2034,7 @@ TextureImporter:
       name: flotante_basic_tileset1_64
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 530
         y: 398
         width: 128
         height: 128
@@ -2055,7 +2055,7 @@ TextureImporter:
       name: flotante_basic_tileset1_65
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 662
         y: 398
         width: 128
         height: 128
@@ -2076,8 +2076,8 @@ TextureImporter:
       name: flotante_basic_tileset1_66
       rect:
         serializedVersion: 2
-        x: 2
-        y: 266
+        x: 794
+        y: 398
         width: 128
         height: 128
       alignment: 0
@@ -2097,8 +2097,8 @@ TextureImporter:
       name: flotante_basic_tileset1_67
       rect:
         serializedVersion: 2
-        x: 134
-        y: 266
+        x: 926
+        y: 398
         width: 128
         height: 128
       alignment: 0
@@ -2118,8 +2118,8 @@ TextureImporter:
       name: flotante_basic_tileset1_68
       rect:
         serializedVersion: 2
-        x: 266
-        y: 266
+        x: 1058
+        y: 398
         width: 128
         height: 128
       alignment: 0
@@ -2139,8 +2139,8 @@ TextureImporter:
       name: flotante_basic_tileset1_69
       rect:
         serializedVersion: 2
-        x: 398
-        y: 266
+        x: 1190
+        y: 398
         width: 128
         height: 128
       alignment: 0
@@ -2160,7 +2160,7 @@ TextureImporter:
       name: flotante_basic_tileset1_70
       rect:
         serializedVersion: 2
-        x: 530
+        x: 2
         y: 266
         width: 128
         height: 128
@@ -2181,7 +2181,7 @@ TextureImporter:
       name: flotante_basic_tileset1_71
       rect:
         serializedVersion: 2
-        x: 662
+        x: 134
         y: 266
         width: 128
         height: 128
@@ -2202,7 +2202,7 @@ TextureImporter:
       name: flotante_basic_tileset1_72
       rect:
         serializedVersion: 2
-        x: 794
+        x: 266
         y: 266
         width: 128
         height: 128
@@ -2223,7 +2223,7 @@ TextureImporter:
       name: flotante_basic_tileset1_73
       rect:
         serializedVersion: 2
-        x: 926
+        x: 398
         y: 266
         width: 128
         height: 128
@@ -2244,7 +2244,7 @@ TextureImporter:
       name: flotante_basic_tileset1_74
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 530
         y: 266
         width: 128
         height: 128
@@ -2265,7 +2265,7 @@ TextureImporter:
       name: flotante_basic_tileset1_75
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 662
         y: 266
         width: 128
         height: 128
@@ -2286,8 +2286,8 @@ TextureImporter:
       name: flotante_basic_tileset1_76
       rect:
         serializedVersion: 2
-        x: 2
-        y: 134
+        x: 794
+        y: 266
         width: 128
         height: 128
       alignment: 0
@@ -2307,8 +2307,8 @@ TextureImporter:
       name: flotante_basic_tileset1_77
       rect:
         serializedVersion: 2
-        x: 134
-        y: 134
+        x: 926
+        y: 266
         width: 128
         height: 128
       alignment: 0
@@ -2328,8 +2328,8 @@ TextureImporter:
       name: flotante_basic_tileset1_78
       rect:
         serializedVersion: 2
-        x: 266
-        y: 134
+        x: 1058
+        y: 266
         width: 128
         height: 128
       alignment: 0
@@ -2349,8 +2349,8 @@ TextureImporter:
       name: flotante_basic_tileset1_79
       rect:
         serializedVersion: 2
-        x: 398
-        y: 134
+        x: 1190
+        y: 266
         width: 128
         height: 128
       alignment: 0
@@ -2370,7 +2370,7 @@ TextureImporter:
       name: flotante_basic_tileset1_80
       rect:
         serializedVersion: 2
-        x: 530
+        x: 2
         y: 134
         width: 128
         height: 128
@@ -2391,7 +2391,7 @@ TextureImporter:
       name: flotante_basic_tileset1_81
       rect:
         serializedVersion: 2
-        x: 662
+        x: 134
         y: 134
         width: 128
         height: 128
@@ -2412,7 +2412,7 @@ TextureImporter:
       name: flotante_basic_tileset1_82
       rect:
         serializedVersion: 2
-        x: 794
+        x: 266
         y: 134
         width: 128
         height: 128
@@ -2433,7 +2433,7 @@ TextureImporter:
       name: flotante_basic_tileset1_83
       rect:
         serializedVersion: 2
-        x: 926
+        x: 398
         y: 134
         width: 128
         height: 128
@@ -2454,7 +2454,7 @@ TextureImporter:
       name: flotante_basic_tileset1_84
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 530
         y: 134
         width: 128
         height: 128
@@ -2475,7 +2475,7 @@ TextureImporter:
       name: flotante_basic_tileset1_85
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 662
         y: 134
         width: 128
         height: 128
@@ -2496,8 +2496,8 @@ TextureImporter:
       name: flotante_basic_tileset1_86
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
+        x: 794
+        y: 134
         width: 128
         height: 128
       alignment: 0
@@ -2517,8 +2517,8 @@ TextureImporter:
       name: flotante_basic_tileset1_87
       rect:
         serializedVersion: 2
-        x: 134
-        y: 2
+        x: 926
+        y: 134
         width: 128
         height: 128
       alignment: 0
@@ -2538,8 +2538,8 @@ TextureImporter:
       name: flotante_basic_tileset1_88
       rect:
         serializedVersion: 2
-        x: 266
-        y: 2
+        x: 1058
+        y: 134
         width: 128
         height: 128
       alignment: 0
@@ -2559,8 +2559,8 @@ TextureImporter:
       name: flotante_basic_tileset1_89
       rect:
         serializedVersion: 2
-        x: 398
-        y: 2
+        x: 1190
+        y: 134
         width: 128
         height: 128
       alignment: 0
@@ -2580,7 +2580,7 @@ TextureImporter:
       name: flotante_basic_tileset1_90
       rect:
         serializedVersion: 2
-        x: 530
+        x: 2
         y: 2
         width: 128
         height: 128
@@ -2601,7 +2601,7 @@ TextureImporter:
       name: flotante_basic_tileset1_91
       rect:
         serializedVersion: 2
-        x: 662
+        x: 134
         y: 2
         width: 128
         height: 128
@@ -2622,7 +2622,7 @@ TextureImporter:
       name: flotante_basic_tileset1_92
       rect:
         serializedVersion: 2
-        x: 794
+        x: 266
         y: 2
         width: 128
         height: 128
@@ -2643,7 +2643,7 @@ TextureImporter:
       name: flotante_basic_tileset1_93
       rect:
         serializedVersion: 2
-        x: 926
+        x: 398
         y: 2
         width: 128
         height: 128
@@ -2664,7 +2664,7 @@ TextureImporter:
       name: flotante_basic_tileset1_94
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 530
         y: 2
         width: 128
         height: 128
@@ -2685,7 +2685,7 @@ TextureImporter:
       name: flotante_basic_tileset1_95
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 662
         y: 2
         width: 128
         height: 128
@@ -2698,6 +2698,90 @@ TextureImporter:
       bones: []
       spriteID: 25a150a5ff09353a0800000000000000
       internalID: -6677834396058969518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset1_96
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125e29c3d6ca34fc0800000000000000
+      internalID: -3511773699251182303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset1_97
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f06549dffe0941c0800000000000000
+      internalID: -4519064259064930063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset1_98
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b2cf0241c91e400800000000000000
+      internalID: 351733856178285421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset1_99
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0722ef7dac67d8880800000000000000
+      internalID: -8607092699255922064
       vertices: []
       indices: 
       edges: []

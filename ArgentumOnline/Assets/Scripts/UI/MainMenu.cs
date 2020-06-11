@@ -439,4 +439,38 @@ public class MainMenu : MonoBehaviour
         Debug.Log("ShowTermsAndConditions");
         this.ShowMessageBox("TERMS_CONDITIONS_TITLE", "TERMS_CONDITIONS_TEXT", true);
     }
+    public void ResendActivationCode()
+    {
+        Debug.Log("public void ResendActivationCode()");
+        InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
+        InputField server_port_input = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
+        InputField username_input = GameObject.Find("SignUpUsernameInputField").GetComponent<InputField>();
+        InputField email_input = GameObject.Find("SignUpEmailInputField").GetComponent<InputField>();
+        Debug.Assert(server_address_input != null);
+        Debug.Assert(server_port_input != null);
+        Debug.Assert(username_input != null);
+        Debug.Assert(email_input != null);
+        string username_str = username_input.text;
+        string email_str = email_input.text;
+        string server_address_string = server_address_input.text;
+        string server_port_string = server_port_input.text;
+
+        try
+        {
+            //Attempt to connect to game Server
+            if (mLoginClient.IsConnected())
+            {
+                mLoginClient.AttemptToReSendCode();
+            }
+            else
+            {
+                Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
+                mLoginClient.ConnectToTcpServer(server_address_string, server_port_string, "CODE_REQUEST");
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Failed to connect to server " + e);
+        }
+    }
 }

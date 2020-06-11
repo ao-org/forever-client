@@ -125,7 +125,12 @@ public class LoginClient : MonoBehaviour {
    			    var activate_request = new ProtoActivateRequest(mUsername, mCode, CryptoHelper.PublicKey);
    			    SendMessage(activate_request);
    			   	break;
-			 default:
+            case "CODE_REQUEST":
+                Debug.Log("Session opened, attempting to resend activation code.");
+                var code_request = new ProtoCodeRequest(mSignupData["USERNAME"], mSignupData["EMAIL"], CryptoHelper.PublicKey);
+                SendMessage(code_request);
+                break;
+            default:
 			  	break;
 		}
 		mOperationUponSessionOpened = "NOOP";
@@ -285,7 +290,14 @@ public class LoginClient : MonoBehaviour {
 		SendMessage(open_session);
 	}
 
-   	private void OnConnectionEstablished()
+    public void AttemptToReSendCode()
+    {
+        mOperationUponSessionOpened = "CODE_REQUEST";
+        ProtoOpenSession open_session = new ProtoOpenSession();
+        SendMessage(open_session);
+    }
+
+    private void OnConnectionEstablished()
    	{
 	   Debug.Log("LoginServer::OnConnectionEstablished!!!");
 	   ProtoOpenSession open_session = new ProtoOpenSession();
