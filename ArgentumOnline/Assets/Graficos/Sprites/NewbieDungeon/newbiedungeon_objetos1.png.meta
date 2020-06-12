@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 531922007207449847
     second: newbiedungeon_objetos1_1
+  - first:
+      213: -7707709872144605621
+    second: newbiedungeon_objetos1_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,7 +104,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -122,7 +125,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,6 +133,27 @@ TextureImporter:
       bones: []
       spriteID: 7f410df4f34c16700800000000000000
       internalID: 531922007207449847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newbiedungeon_objetos1_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 643
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e9c0f55b6b80590800000000000000
+      internalID: -7707709872144605621
       vertices: []
       indices: 
       edges: []
