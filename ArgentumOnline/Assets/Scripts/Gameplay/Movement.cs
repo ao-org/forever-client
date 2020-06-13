@@ -89,6 +89,7 @@ public class Movement : MonoBehaviour
     }
     // Update is called once per frame
     void Update(){
+
         if (Input.GetKey(KeyCode.A))
         {
             switch (dir)
@@ -112,9 +113,8 @@ public class Movement : MonoBehaviour
                 default:
                     UnityEngine.Debug.Assert(false, "Bad direction"); break;
             }
+            return;
         }
-        return;
-
         bool RightArrowPressed  = Input.GetKey(KeyCode.RightArrow);
       bool LeftArrowPressed   = Input.GetKey(KeyCode.LeftArrow);
       bool UpArrowPressed     = Input.GetKey(KeyCode.UpArrow);
@@ -123,57 +123,89 @@ public class Movement : MonoBehaviour
 
         
         float walkDiagDelta = 0.7f;
-      // NorthEast
-      if (RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
+        float bkWalkSpeed = WalkSpeed;
+        bool running = false;
+        if (Input.GetKey(KeyCode.R))
+        {
+            WalkSpeed *= 1.5f;
+            running = true;
+        }
+        // NorthEast
+        if (RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.NorthEast;
-              mAnimator.Play("WalkNoreste");
+              if (running)
+                mAnimator.Play("RunNoreste");
+              else
+                mAnimator.Play("WalkNoreste");
               Vector3 newpos = transform.position + Vector3.right * WalkSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkSpeed * Time.deltaTime * walkDiagDelta;
               TryToMove(newpos);
       }
       else // North
       if (!RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.North;
-              mAnimator.Play("WalkNorte");
+            if (running)
+                mAnimator.Play("RunNorte");
+            else
+                mAnimator.Play("WalkNorte");
               TryToMove(transform.position+Vector3.up * WalkSpeed * Time.deltaTime);
       }
       else // South
       if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.South;
-              mAnimator.Play("WalkSur");
+            if (running)
+                mAnimator.Play("RunSur");
+            else
+                mAnimator.Play("WalkSur");
               Vector3 newpos = transform.position + Vector3.down * WalkSpeed * Time.deltaTime;
               TryToMove(newpos);
       }
       else // SouthEast
       if (RightArrowPressed && DownArrowPressed && ! UpArrowPressed && !LeftArrowPressed) {
               dir = Direction.SouthEast;
-              mAnimator.Play("WalkSureste");
+            if(running)
+                mAnimator.Play("RunSureste");
+            else
+                mAnimator.Play("WalkSureste");
               TryToMove(transform.position + Vector3.right * WalkSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkSpeed * Time.deltaTime * walkDiagDelta);
       }
       else
       if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed) {
               dir = Direction.East;
-              mAnimator.Play("WalkEste");
+            if (running)
+                mAnimator.Play("RunEste");
+            else
+                mAnimator.Play("WalkEste");
               TryToMove(transform.position + Vector3.right * WalkSpeed * Time.deltaTime);
       }
       else
       if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
               dir = Direction.West;
-              mAnimator.Play("WalkOeste");
+            if (running)
+                mAnimator.Play("RunOeste");
+            else
+                mAnimator.Play("WalkOeste");
               TryToMove(transform.position +  Vector3.left* WalkSpeed * Time.deltaTime);
       }
       else
       if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
               dir = Direction.NorthWest;
-              mAnimator.Play("WalkNoroeste");
+            if (running)
+                mAnimator.Play("RunNoroeste");
+            else
+                mAnimator.Play("WalkNoroeste");
               TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkSpeed * Time.deltaTime * walkDiagDelta);
       }
       else
       if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed) {
               dir = Direction.SouthWest;
-              mAnimator.Play("WalkSuroeste");
+            if (running)
+                mAnimator.Play("RunSuroeste");
+            else
+                mAnimator.Play("WalkSuroeste");
               TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkSpeed * Time.deltaTime * walkDiagDelta);
       }
-      if(!Moving) {
+        WalkSpeed = bkWalkSpeed;
+        if (!Moving) {
             switch(dir)
             {
                 case Direction.South:
@@ -196,30 +228,7 @@ public class Movement : MonoBehaviour
                     UnityEngine.Debug.Assert(false, "Bad direction"); break;
             }
       }
-        if (Input.GetKey(KeyCode.A))
-        {
-            switch (dir)
-            {
-                case Direction.South:
-                    mAnimator.Play("AttackSur"); break;
-                case Direction.North:
-                    mAnimator.Play("AttackNorte"); break;
-                case Direction.West:
-                    mAnimator.Play("AttackOeste"); break;
-                case Direction.East:
-                    mAnimator.Play("AttackEste"); break;
-                case Direction.SouthWest:
-                    mAnimator.Play("AttackSuroeste"); break;
-                case Direction.NorthWest:
-                    mAnimator.Play("AttackNoroeste"); break;
-                case Direction.NorthEast:
-                    mAnimator.Play("AttackNoreste"); break;
-                case Direction.SouthEast:
-                    mAnimator.Play("AttackSureste"); break;
-                default:
-                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
-            }
-        }
+        
 
     }
 }
