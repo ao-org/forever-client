@@ -27,7 +27,8 @@ public class Movement : MonoBehaviour
         NorthEast = 7
     }
     private Direction dir = Movement.Direction.South;
-    private float WalkSpeed = 8.0f;
+    private float WalkSpeed = 6.0f;
+    private float WalkRunSpeed = 6.0f;
     private bool running = false;
     private Rigidbody2D mBody;
     private Tilemap mWaterTilemap; //comentar ccz
@@ -91,7 +92,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update(){
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             switch (dir)
             {
@@ -125,16 +126,22 @@ public class Movement : MonoBehaviour
 
         
         float walkDiagDelta = 0.7f;
-        float bkWalkSpeed = WalkSpeed;
-        
-        if (Input.GetKey(KeyCode.R))
+
+
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            WalkSpeed *= 1.5f;
             if (running)
+            {
                 running = false;
+                WalkRunSpeed = WalkSpeed;
+            }
             else
+            {
                 running = true;
+                WalkRunSpeed = WalkSpeed * 1.5f;
+            }
         }
+
         // NorthEast
         if (RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.NorthEast;
@@ -142,7 +149,7 @@ public class Movement : MonoBehaviour
                 mAnimator.Play("RunNoreste");
               else
                 mAnimator.Play("WalkNoreste");
-              Vector3 newpos = transform.position + Vector3.right * WalkSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkSpeed * Time.deltaTime * walkDiagDelta;
+              Vector3 newpos = transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta;
               TryToMove(newpos);
       }
       else // North
@@ -152,7 +159,7 @@ public class Movement : MonoBehaviour
                 mAnimator.Play("RunNorte");
             else
                 mAnimator.Play("WalkNorte");
-              TryToMove(transform.position+Vector3.up * WalkSpeed * Time.deltaTime);
+              TryToMove(transform.position+Vector3.up * WalkRunSpeed * Time.deltaTime);
       }
       else // South
       if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed) {
@@ -161,7 +168,7 @@ public class Movement : MonoBehaviour
                 mAnimator.Play("RunSur");
             else
                 mAnimator.Play("WalkSur");
-              Vector3 newpos = transform.position + Vector3.down * WalkSpeed * Time.deltaTime;
+              Vector3 newpos = transform.position + Vector3.down * WalkRunSpeed * Time.deltaTime;
               TryToMove(newpos);
       }
       else // SouthEast
@@ -171,7 +178,7 @@ public class Movement : MonoBehaviour
                 mAnimator.Play("RunSureste");
             else
                 mAnimator.Play("WalkSureste");
-              TryToMove(transform.position + Vector3.right * WalkSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkSpeed * Time.deltaTime * walkDiagDelta);
+              TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
       }
       else
       if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed) {
@@ -180,7 +187,7 @@ public class Movement : MonoBehaviour
                 mAnimator.Play("RunEste");
             else
                 mAnimator.Play("WalkEste");
-              TryToMove(transform.position + Vector3.right * WalkSpeed * Time.deltaTime);
+              TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime);
       }
       else
       if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
@@ -189,7 +196,7 @@ public class Movement : MonoBehaviour
                 mAnimator.Play("RunOeste");
             else
                 mAnimator.Play("WalkOeste");
-              TryToMove(transform.position +  Vector3.left* WalkSpeed * Time.deltaTime);
+              TryToMove(transform.position +  Vector3.left* WalkRunSpeed * Time.deltaTime);
       }
       else
       if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
@@ -198,7 +205,7 @@ public class Movement : MonoBehaviour
                 mAnimator.Play("RunNoroeste");
             else
                 mAnimator.Play("WalkNoroeste");
-              TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkSpeed * Time.deltaTime * walkDiagDelta);
+              TryToMove(transform.position + Vector3.left* WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
       }
       else
       if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed) {
@@ -207,9 +214,9 @@ public class Movement : MonoBehaviour
                 mAnimator.Play("RunSuroeste");
             else
                 mAnimator.Play("WalkSuroeste");
-              TryToMove(transform.position + Vector3.left* WalkSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkSpeed * Time.deltaTime * walkDiagDelta);
+              TryToMove(transform.position + Vector3.left* WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
       }
-        WalkSpeed = bkWalkSpeed;
+        
         if (!Moving) {
             switch(dir)
             {
