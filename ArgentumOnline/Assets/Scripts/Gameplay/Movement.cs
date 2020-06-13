@@ -30,6 +30,7 @@ public class Movement : MonoBehaviour
     private float WalkSpeed = 6.0f;
     private float WalkRunSpeed = 6.0f;
     private bool running = false;
+    private bool isDead = false;
     private Rigidbody2D mBody;
     private Tilemap mWaterTilemap; //comentar ccz
     private Tilemap mNavegable1;
@@ -91,12 +92,51 @@ public class Movement : MonoBehaviour
     }
     // Update is called once per frame
     void Update(){
+        if (isDead)
+        {
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                mAnimator.Play("StandSur");
+                isDead = false;
+                running = false;
+            }
+            else
+                return;
+        }
+
         if (mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackSur") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackNorte") ||
             mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackOeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackEste") ||
             mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackNoroeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackNoreste") ||
             mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackSureste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackSuroeste"))
         {
             return;
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            switch (dir)
+            {
+                case Direction.South:
+                    mAnimator.Play("DeadSur"); break;
+                case Direction.North:
+                    mAnimator.Play("DeadNorte"); break;
+                case Direction.West:
+                    mAnimator.Play("DeadOeste"); break;
+                case Direction.East:
+                    mAnimator.Play("DeadEste"); break;
+                case Direction.SouthWest:
+                    mAnimator.Play("DeadSuroeste"); break;
+                case Direction.NorthWest:
+                    mAnimator.Play("DeadNoroeste"); break;
+                case Direction.NorthEast:
+                    mAnimator.Play("DeadNoreste"); break;
+                case Direction.SouthEast:
+                    mAnimator.Play("DeadSureste"); break;
+                default:
+                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
+            }
+            isDead = true;
+            return;
+
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
