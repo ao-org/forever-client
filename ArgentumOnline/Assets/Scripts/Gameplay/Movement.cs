@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
     }
     private Direction dir = Movement.Direction.South;
     private float WalkSpeed = 8.0f;
+    private bool running = false;
     private Rigidbody2D mBody;
     private Tilemap mWaterTilemap; //comentar ccz
     private Tilemap mNavegable1;
@@ -115,6 +116,7 @@ public class Movement : MonoBehaviour
             }
             return;
         }
+        
         bool RightArrowPressed  = Input.GetKey(KeyCode.RightArrow);
       bool LeftArrowPressed   = Input.GetKey(KeyCode.LeftArrow);
       bool UpArrowPressed     = Input.GetKey(KeyCode.UpArrow);
@@ -124,11 +126,14 @@ public class Movement : MonoBehaviour
         
         float walkDiagDelta = 0.7f;
         float bkWalkSpeed = WalkSpeed;
-        bool running = false;
+        
         if (Input.GetKey(KeyCode.R))
         {
             WalkSpeed *= 1.5f;
-            running = true;
+            if (running)
+                running = false;
+            else
+                running = true;
         }
         // NorthEast
         if (RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
