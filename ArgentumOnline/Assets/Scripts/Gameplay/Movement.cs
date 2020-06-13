@@ -27,8 +27,8 @@ public class Movement : MonoBehaviour
         NorthEast = 7
     }
     private Direction dir = Movement.Direction.South;
-    private float WalkSpeed = 6.0f;
-    private float WalkRunSpeed = 6.0f;
+    private float WalkSpeed = 5.0f;
+    private float WalkRunSpeed = 5.0f;
     private bool running = false;
     private bool isDead = false;
     private Rigidbody2D mBody;
@@ -184,7 +184,7 @@ public class Movement : MonoBehaviour
             else
             {
                 running = true;
-                WalkRunSpeed = WalkSpeed * 1.5f;
+                WalkRunSpeed = WalkSpeed * 2.2f;
             }
         }
 
