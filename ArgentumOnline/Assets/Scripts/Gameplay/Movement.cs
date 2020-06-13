@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour
         }
         else {
             dir = Direction.South;
-            gameObject.GetComponent<Animator>().Play("WalkSur");
+            gameObject.GetComponent<Animator>().Play("StandSur");
         }
     }
     // Start is called before the first frame update
@@ -89,14 +89,40 @@ public class Movement : MonoBehaviour
     }
     // Update is called once per frame
     void Update(){
-      bool RightArrowPressed  = Input.GetKey(KeyCode.RightArrow);
+        if (Input.GetKey(KeyCode.A))
+        {
+            switch (dir)
+            {
+                case Direction.South:
+                    mAnimator.Play("AttackSur"); break;
+                case Direction.North:
+                    mAnimator.Play("AttackNorte"); break;
+                case Direction.West:
+                    mAnimator.Play("AttackOeste"); break;
+                case Direction.East:
+                    mAnimator.Play("AttackEste"); break;
+                case Direction.SouthWest:
+                    mAnimator.Play("AttackSuroeste"); break;
+                case Direction.NorthWest:
+                    mAnimator.Play("AttackNoroeste"); break;
+                case Direction.NorthEast:
+                    mAnimator.Play("AttackNoreste"); break;
+                case Direction.SouthEast:
+                    mAnimator.Play("AttackSureste"); break;
+                default:
+                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
+            }
+        }
+        return;
+
+        bool RightArrowPressed  = Input.GetKey(KeyCode.RightArrow);
       bool LeftArrowPressed   = Input.GetKey(KeyCode.LeftArrow);
       bool UpArrowPressed     = Input.GetKey(KeyCode.UpArrow);
       bool DownArrowPressed   = Input.GetKey(KeyCode.DownArrow);
       bool Moving             = RightArrowPressed || LeftArrowPressed || UpArrowPressed    || DownArrowPressed;
 
-
-      float walkDiagDelta = 0.7f;
+        
+        float walkDiagDelta = 0.7f;
       // NorthEast
       if (RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.NorthEast;
@@ -175,24 +201,25 @@ public class Movement : MonoBehaviour
             switch (dir)
             {
                 case Direction.South:
-                    mAnimator.Play("DeadSur"); break;
+                    mAnimator.Play("AttackSur"); break;
                 case Direction.North:
-                    mAnimator.Play("DeadNorte"); break;
+                    mAnimator.Play("AttackNorte"); break;
                 case Direction.West:
-                    mAnimator.Play("DeadOeste"); break;
+                    mAnimator.Play("AttackOeste"); break;
                 case Direction.East:
-                    mAnimator.Play("DeadEste"); break;
+                    mAnimator.Play("AttackEste"); break;
                 case Direction.SouthWest:
-                    mAnimator.Play("DeadSuroeste"); break;
+                    mAnimator.Play("AttackSuroeste"); break;
                 case Direction.NorthWest:
-                    mAnimator.Play("DeadNoroeste"); break;
+                    mAnimator.Play("AttackNoroeste"); break;
                 case Direction.NorthEast:
-                    mAnimator.Play("DeadNoreste"); break;
+                    mAnimator.Play("AttackNoreste"); break;
                 case Direction.SouthEast:
-                    mAnimator.Play("DeadSureste"); break;
+                    mAnimator.Play("AttackSureste"); break;
                 default:
                     UnityEngine.Debug.Assert(false, "Bad direction"); break;
             }
         }
+
     }
 }
