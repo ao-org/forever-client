@@ -14,6 +14,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System.Linq;
+using System.Xml;
 
 public class WorldClient : MonoBehaviour {
 	#region private members
@@ -68,8 +69,17 @@ public class WorldClient : MonoBehaviour {
 	public int ProcessPlayCharacterOkay(byte[] encrypted_character){
 		Debug.Log("ProcessPlayCharacterOkay");
         Debug.Log("encrypted_character len = " + Encoding.ASCII.GetString(encrypted_character).Length + " "  + Encoding.ASCII.GetString(encrypted_character) );
-        var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
+        var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
         Debug.Log("decrypted_data: " + decrypted_char);
+		try{
+			//XElement contacts = XElement.Parse(decrypted_char);
+			var doc = new XmlDocument();
+			doc.LoadXml(decrypted_char);
+			Debug.Log("Parsed PC XML sucessfully!!!!!!!");
+		}
+		catch (Exception e){
+			Debug.Log("Failed to parse XML charfile: " + e.Message);
+		}
         //CryptoHelper.Encrypt(d, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
 		//mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
 		return 1;
