@@ -27,8 +27,10 @@ public class Movement : MonoBehaviour
         NorthEast = 7
     }
     private Direction dir = Movement.Direction.South;
-    private float WalkSpeed = 5.0f;
-    private float WalkRunSpeed = 5.0f;
+    private float WalkSpeed = 6.0f; //Velocidad caminar
+    private float runDelta = 2.2f; // delta Velocidad correr. se multiplica por la velocidad de caminar
+    private float walkDiagDelta = 0.7f; //Delta de velocidad de las diagonales. (No modificar 0.7 default
+    private float WalkRunSpeed;
     private bool running = false;
     private bool isDead = false;
     private Rigidbody2D mBody;
@@ -58,7 +60,7 @@ public class Movement : MonoBehaviour
     void Start(){
         mAnimator = gameObject.GetComponent<Animator>();
         mBody = GetComponent<Rigidbody2D>();
-
+        WalkRunSpeed = WalkSpeed;
         mWaterTilemap = GameObject.Find("Tilemap_base").GetComponent<Tilemap>(); //comentar ccz
         mNavegable1 = GameObject.Find("Navegable1").GetComponent<Tilemap>();
         mNavegable2 = GameObject.Find("Navegable2").GetComponent<Tilemap>();
@@ -99,6 +101,7 @@ public class Movement : MonoBehaviour
                 mAnimator.Play("StandSur");
                 isDead = false;
                 running = false;
+                WalkRunSpeed = WalkSpeed;
             }
             else
                 return;
@@ -171,8 +174,7 @@ public class Movement : MonoBehaviour
       bool Moving             = RightArrowPressed || LeftArrowPressed || UpArrowPressed    || DownArrowPressed;
 
         
-        float walkDiagDelta = 0.7f;
-
+        
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -184,7 +186,7 @@ public class Movement : MonoBehaviour
             else
             {
                 running = true;
-                WalkRunSpeed = WalkSpeed * 2.2f;
+                WalkRunSpeed = WalkSpeed * runDelta;
             }
         }
 
