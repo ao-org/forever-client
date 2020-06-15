@@ -88,8 +88,9 @@ public class WorldClient : MonoBehaviour {
 		}
 		catch (Exception e){
 			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
+			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
 		}
-		mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+
 		return 1;
 	}
 	public int ProcessPlayCharacterError(byte[] data){
@@ -118,9 +119,9 @@ public class WorldClient : MonoBehaviour {
 			if (mEventsQueue.Count > 0){
 				Tuple<string, string> e;
 				if (mEventsQueue.TryDequeue(out e)){
-
 					if(e.Item1 == "PLAY_CHARACTER_OKAY"){
 						Debug.Log("PLAY_CHARACTER_OKAY");
+						//ShowMessageBox("PLAY_CHARACTER_OKAY_TITLE","PLAY_CHARACTER_OKAY_TEXT");
 						SceneManager.LoadScene(mPlayerCharacter.position().Item1);
 					}
 					else if(e.Item1 == "PLAY_CHARACTER_ERROR") {

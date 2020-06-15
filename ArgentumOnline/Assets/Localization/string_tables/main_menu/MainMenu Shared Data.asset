@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: MainMenu Shared Data
   m_EditorClassIdentifier: 
-  m_NextAvailableId: 60
+  m_NextAvailableId: 63
   m_TableName: MainMenu
   m_TableNameGuidString: ce04b8004cef60dc193130c9173065bb
   m_Entries:
@@ -243,7 +243,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 59
-    m_Key: New Entry 3
+    m_Key: PLAY_CHARACTER_OKAY_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60
+    m_Key: PLAY_CHARACTER_OKAY_TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61
+    m_Key: PLAY_CHARACTER_ERROR_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62
+    m_Key: PLAY_CHARACTER_ERROR_TEXT
     m_Metadata:
       m_Items: []
   m_Metadata:

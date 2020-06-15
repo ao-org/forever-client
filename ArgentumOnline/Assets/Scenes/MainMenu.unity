@@ -13832,6 +13832,30 @@ MonoBehaviour:
     m_TableEntryReference:
       m_KeyId: 45
       m_Key: 
+  WorldErrText_PLAY_CHARACTER_OKAY_TITLE:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 59
+      m_Key: 
+  WorldErrText_PLAY_CHARACTER_OKAY_TEXT:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 60
+      m_Key: 
+  WorldErrText_PLAY_CHARACTER_ERROR_TITLE:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 61
+      m_Key: 
+  WorldErrText_PLAY_CHARACTER_ERROR_TEXT:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 62
+      m_Key: 
   LoginErrText_LOGIN_ERROR_WRONG_PASSWORD:
     m_TableReference:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
@@ -13978,9 +14002,9 @@ MonoBehaviour:
       m_Key: 
   Signup_RESEND_CODE_OK:
     m_TableReference:
-      m_TableName: 
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 58
       m_Key: 
   ActivateOkayText_ACTIVATE_OKAY:
     m_TableReference:

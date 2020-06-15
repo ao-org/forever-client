@@ -22,6 +22,11 @@ public class MainMenu : MonoBehaviour
     public LocalizedString LoginErrText_ACCOUNT_DOESNT_EXIST;
     public LocalizedString LoginErrText_MUST_ACTIVATE_ACCOUNT;
 
+    public LocalizedString WorldErrText_PLAY_CHARACTER_OKAY_TITLE;
+    public LocalizedString WorldErrText_PLAY_CHARACTER_OKAY_TEXT;
+    public LocalizedString WorldErrText_PLAY_CHARACTER_ERROR_TITLE;
+    public LocalizedString WorldErrText_PLAY_CHARACTER_ERROR_TEXT;
+
     public LocalizedString LoginErrText_LOGIN_ERROR_WRONG_PASSWORD;
     public LocalizedString SignupErrText_ACCOUNT_ALREADY_EXIST;
     public LocalizedString InputErrText_INPUT_ERROR_INVALID_PASSWORD;
@@ -91,7 +96,12 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["ACTIVATE_ERROR_INVALID_CODE"]= ActivateErrText_ACTIVATE_ERROR_INVALID_CODE;
         mLocalizedStringMappings["ACTIVATE_MSG_BOX_TITLE"]= ActivateErrText_ACTIVATE_MSG_BOX_TITLE;
         mLocalizedStringMappings["WRONG_PASSWORD"]= LoginErrText_LOGIN_ERROR_WRONG_PASSWORD;
-        
+
+        mLocalizedStringMappings["PLAY_CHARACTER_OKAY_TITLE"]= WorldErrText_PLAY_CHARACTER_OKAY_TITLE;
+        mLocalizedStringMappings["PLAY_CHARACTER_OKAY_TEXT"]= WorldErrText_PLAY_CHARACTER_OKAY_TEXT;
+        mLocalizedStringMappings["PLAY_CHARACTER_ERROR_TITLE"]= WorldErrText_PLAY_CHARACTER_ERROR_TITLE;
+        mLocalizedStringMappings["PLAY_CHARACTER_ERROR_TEXT"]= WorldErrText_PLAY_CHARACTER_ERROR_TEXT;
+
         //Ver si se hace por pdf, web o server text
         mLocalizedStringMappings["TERMS_CONDITIONS_TITLE"] = SignupText_TERMS_CONDITIONS_TITLE;
         mLocalizedStringMappings["TERMS_CONDITIONS_TEXT"] = SignupText_TERMS_CONDITIONS_TEXT;

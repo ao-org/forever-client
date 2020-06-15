@@ -249,5 +249,21 @@ MonoBehaviour:
     m_Localized: Se envio el codigo. Verifique su correo electronico.
     m_Metadata:
       m_Items: []
+  - m_Id: 59
+    m_Localized: PLAY_CHARACTER_OKAY_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60
+    m_Localized: PLAY_CHARACTER_OKAY_TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61
+    m_Localized: PLAY_CHARACTER_ERROR_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62
+    m_Localized: PLAY_CHARACTER_ERROR_TEXT
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
