@@ -72,6 +72,7 @@ public class WorldClient : MonoBehaviour {
         var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log("decrypted_data: " + decrypted_char);
 		var doc = new XmlDocument();
+		PlayerCharacter pc;
 		try{
 			doc.LoadXml(decrypted_char);
 			Debug.Log("Parsed PC XML sucessfully!!!!!!!");
@@ -80,7 +81,7 @@ public class WorldClient : MonoBehaviour {
 			Debug.Log("Failed to parse XML charfile: " + e.Message);
 		}
 		try{
-			var player_character = new PlayerCharacter(doc);
+			pc = new PlayerCharacter(doc);
 			Debug.Log("Player Character created sucessfully!!!!!!!");
 		}
 		catch (Exception e){
