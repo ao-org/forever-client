@@ -6,7 +6,7 @@ public class DontDestroy : MonoBehaviour
 {
     void Awake()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("TCPClient");
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("WorldClient");
 
         if (objs.Length > 1)
         {

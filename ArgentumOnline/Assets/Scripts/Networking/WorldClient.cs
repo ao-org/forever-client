@@ -15,6 +15,7 @@ using UnityEngine.UI;
 using System.IO;
 using System.Linq;
 using System.Xml;
+using UnityEngine.SceneManagement;
 
 public class WorldClient : MonoBehaviour {
 	#region private members
@@ -35,6 +36,7 @@ public class WorldClient : MonoBehaviour {
 	private string		mPassword;
 	private MainMenu	mMainMenu;
 	private bool		mAppQuit;
+	private PlayerCharacter mPlayerCharacter;
 
 	public bool IsSessionOpen(){
 		return CryptoHelper.PublicKey.Length > 0;
@@ -72,7 +74,6 @@ public class WorldClient : MonoBehaviour {
         var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log("decrypted_data: " + decrypted_char);
 		var doc = new XmlDocument();
-		PlayerCharacter pc;
 		try{
 			doc.LoadXml(decrypted_char);
 			Debug.Log("Parsed PC XML sucessfully!!!!!!!");
@@ -81,13 +82,14 @@ public class WorldClient : MonoBehaviour {
 			Debug.Log("Failed to parse XML charfile: " + e.Message);
 		}
 		try{
-			pc = new PlayerCharacter(doc);
+			mPlayerCharacter = new PlayerCharacter(doc);
 			Debug.Log("Player Character created sucessfully!!!!!!!");
+			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
 		}
 		catch (Exception e){
 			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
 		}
-		//mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
+		mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
 		return 1;
 	}
 	public int ProcessPlayCharacterError(byte[] data){
@@ -117,23 +119,15 @@ public class WorldClient : MonoBehaviour {
 				Tuple<string, string> e;
 				if (mEventsQueue.TryDequeue(out e)){
 
-					if(e.Item1 == "SIGNUP_OKAY"){
-						mMainMenu.OnAccountCreated();
+					if(e.Item1 == "PLAY_CHARACTER_OKAY"){
+						Debug.Log("PLAY_CHARACTER_OKAY");
+						SceneManager.LoadScene(mPlayerCharacter.position().Item1);
 					}
-					else if(e.Item1 == "ACTIVATE_OKAY") {
-						mMainMenu.OnAccountActivated();
+					else if(e.Item1 == "PLAY_CHARACTER_ERROR") {
+						Debug.Log("PLAY_CHARACTER_ERROR");
 					}
-					else if(e.Item1 == "LOGIN_OKAY"){
-						mMainMenu.OnLoginOkay();
-					}
-					else { // normal message box
-						if(e.Item2 !=null){
-							Debug.Log("Event {" + e.Item2 + "}");
-							ShowMessageBox(e.Item1,e.Item2);
-						}
-						else{
-							ShowMessageBox(e.Item1,"Whatever");
-						}
+					else{
+						Debug.Assert(false);
 					}
 				}
 			}
