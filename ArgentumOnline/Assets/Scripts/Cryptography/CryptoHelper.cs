@@ -58,6 +58,7 @@ public class CryptoHelper
 
 		public static string Decrypt(byte[] input, byte[] key)
 		{
+			//TODO: Add mutex to ensure thread safety
 			Debug.Assert(input.Length>0);
 			Debug.Assert(key.Length>0);
 			// Check arguments.
@@ -106,43 +107,44 @@ public class CryptoHelper
 
 		public static byte[] Encrypt(string plainText, byte[] Key)
 		{
-					Debug.Assert(plainText.Length>0);
-					Debug.Assert(Key.Length>0);
-					Debug.Log("Encrypt plainText= " +plainText + " len " + plainText.Length);
-		            // Check arguments.
-		            if (plainText == null || plainText.Length <= 0)
-		                throw new ArgumentNullException("plainText");
-		            if (Key == null || Key.Length <= 0)
-		                throw new ArgumentNullException("Key");
-		            byte[] encrypted;
-		            // Create an Aes object
-		            // with the specified key and IV.
-		            using (Aes aesAlg = Aes.Create())
-		            {
-						aesAlg.KeySize = 128;
-						aesAlg.BlockSize = 128;
-						aesAlg.FeedbackSize = 8;
-		                aesAlg.Key = Key;
-		                aesAlg.Mode = CipherMode.CFB;
-						aesAlg.Padding = PaddingMode.Zeros;
-						aesAlg.IV =  Key;
-		                // Create an encryptor to perform the stream transform.
-		                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
-		                // Create the streams used for encryption.
-		                using (MemoryStream msEncrypt = new MemoryStream())
-		                {
-		                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-		                    {
-		                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-		                        {
-		                            //Write all data to the stream.
-		                            swEncrypt.Write(plainText);
-		                        }
-		                        encrypted = msEncrypt.ToArray();
-		                    }
-		                }
-		            }
-					Debug.Log("encrypted.length = " + encrypted.Length);
-		            return EncryptBase64(encrypted);
+			//TODO: Add mutex to ensure thread safety
+			Debug.Assert(plainText.Length>0);
+			Debug.Assert(Key.Length>0);
+			Debug.Log("Encrypt plainText= " +plainText + " len " + plainText.Length);
+            // Check arguments.
+            if (plainText == null || plainText.Length <= 0)
+                throw new ArgumentNullException("plainText");
+            if (Key == null || Key.Length <= 0)
+                throw new ArgumentNullException("Key");
+            byte[] encrypted;
+            // Create an Aes object
+            // with the specified key and IV.
+            using (Aes aesAlg = Aes.Create())
+            {
+				aesAlg.KeySize = 128;
+				aesAlg.BlockSize = 128;
+				aesAlg.FeedbackSize = 8;
+                aesAlg.Key = Key;
+                aesAlg.Mode = CipherMode.CFB;
+				aesAlg.Padding = PaddingMode.Zeros;
+				aesAlg.IV =  Key;
+                // Create an encryptor to perform the stream transform.
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+                // Create the streams used for encryption.
+                using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                        {
+                            //Write all data to the stream.
+                            swEncrypt.Write(plainText);
+                        }
+                        encrypted = msEncrypt.ToArray();
+                    }
+                }
+            }
+			Debug.Log("encrypted.length = " + encrypted.Length);
+            return EncryptBase64(encrypted);
 		}
 }

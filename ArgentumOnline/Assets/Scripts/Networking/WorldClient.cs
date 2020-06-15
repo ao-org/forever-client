@@ -70,14 +70,21 @@ public class WorldClient : MonoBehaviour {
 		Debug.Log("ProcessPlayCharacterOkay");
         Debug.Log("encrypted_character len = " + Encoding.ASCII.GetString(encrypted_character).Length + " "  + Encoding.ASCII.GetString(encrypted_character) );
         var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-        Debug.Log("decrypted_data: " + decrypted_char);
+		Debug.Log("decrypted_data: " + decrypted_char);
+		var doc = new XmlDocument();
 		try{
-			var doc = new XmlDocument();
 			doc.LoadXml(decrypted_char);
 			Debug.Log("Parsed PC XML sucessfully!!!!!!!");
 		}
 		catch (Exception e){
 			Debug.Log("Failed to parse XML charfile: " + e.Message);
+		}
+		try{
+			var player_character = new PlayerCharacter(doc);
+			Debug.Log("Player Character created sucessfully!!!!!!!");
+		}
+		catch (Exception e){
+			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
 		}
 		//mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
 		return 1;
