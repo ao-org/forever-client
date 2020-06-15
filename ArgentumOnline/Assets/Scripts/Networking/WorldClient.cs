@@ -72,7 +72,6 @@ public class WorldClient : MonoBehaviour {
         var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
         Debug.Log("decrypted_data: " + decrypted_char);
 		try{
-			//XElement contacts = XElement.Parse(decrypted_char);
 			var doc = new XmlDocument();
 			doc.LoadXml(decrypted_char);
 			Debug.Log("Parsed PC XML sucessfully!!!!!!!");
@@ -80,7 +79,6 @@ public class WorldClient : MonoBehaviour {
 		catch (Exception e){
 			Debug.Log("Failed to parse XML charfile: " + e.Message);
 		}
-        //CryptoHelper.Encrypt(d, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
 		//mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
 		return 1;
 	}

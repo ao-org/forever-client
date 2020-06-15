@@ -19,27 +19,18 @@ public class CryptoHelper
 {
 		public static string PublicKey = null;
 		public static string Token = null;
-		public static int BufferSize = 1024*2;
 
-		public static byte[] Base64DecodeString(byte[] b64encoded)
-		{
-			var d= System.Text.Encoding.ASCII.GetString(b64encoded).ToCharArray();
-    		byte[] decodedByteArray = Convert.FromBase64CharArray(d, 0, d.Length);
-			if((decodedByteArray.Length%16)!=0)
-				Array.Resize(ref decodedByteArray, decodedByteArray.Length + 100);
-    		return decodedByteArray;
+		public static byte[] PadArray(byte[] array){
+			if((array.Length%16)!=0){
+				Array.Resize(ref array, array.Length + 100);
+			}
+			return array;
 		}
 
-		public static byte[] Base64EncodeBytes(byte[] bytes)
-		{
-			Debug.Assert(bytes.Length>0);
-			char[] encodedArray = new char[BufferSize*4];
-			int size = Convert.ToBase64CharArray (bytes, 0, bytes.Length,encodedArray , 0,Base64FormattingOptions.None);
-			Debug.Assert(size<encodedArray.Length);
-			var d = System.Text.Encoding.ASCII.GetBytes(encodedArray);
-			byte[] outArray = new byte[size];
-			Array.Copy(d,0, outArray, 0, size);
-			return outArray;
+		public static byte[] Base64DecodeString(byte[] b64encoded){
+			var d= System.Text.Encoding.ASCII.GetString(b64encoded).ToCharArray();
+    		byte[] decodedByteArray = Convert.FromBase64CharArray(d, 0, d.Length);
+    		return decodedByteArray;
 		}
 
 		public static byte[] DecryptBase64(byte[] data)
@@ -76,12 +67,10 @@ public class CryptoHelper
 				throw new ArgumentNullException("Key");
 
 			string plaintext = null;
-			byte[] decodedByteArray =  Base64DecodeString(input);
-			byte[] dummy=  DecryptBase64(input);
-
-			Debug.Log("decodedByteArray len " + decodedByteArray.Length);
-			//Debug.Log("decodedByteArray  " + System.Text.Encoding.ASCII.GetString(decodedByteArray));
-			byte[] buffer = new byte[decodedByteArray.Length];
+			byte[] base64_decoded_array =  Base64DecodeString(input);
+			var size_base64_decoded_array = base64_decoded_array.Length;
+			base64_decoded_array = PadArray(base64_decoded_array);
+			byte[] buffer = new byte[base64_decoded_array.Length];
 			int offset =0;
 			int num_read =0;
 		  	using (Aes aesAlg = Aes.Create())
@@ -97,52 +86,23 @@ public class CryptoHelper
 				// Create a decryptor to perform the stream transform.
 				ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 				// Create the streams used for decryption.
-				using (MemoryStream memoryStream = new MemoryStream(decodedByteArray)){
+				using (MemoryStream memoryStream = new MemoryStream(base64_decoded_array)){
 					using (CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read)){
 
 						do {
 							num_read = cryptoStream.Read(buffer,offset, 1);
-							Debug.Log("num_read " + num_read + " offset " + offset);
 							offset+=num_read;
-						} while(offset<=dummy.Length-1);
-
-//						num_read = cryptoStream.Read(buffer,0, buffer.Length-1);
-/*
-						using (StreamReader streamReader = new StreamReader(cryptoStream)){
-  							// Read the decrypted bytes from the decrypting stream
-							// and place them in a string.
-
-							plaintext = streamReader.ReadToEnd();
-						}
-*/
+						} while(offset<=size_base64_decoded_array-1);
 						cryptoStream.Close();
 					}
 
 				}
 			}
-			/*
-			Debug.Log("decrypt offset: " + offset);
-			byte[] fbuffer = new byte[offset];
-			Array.Copy(buffer, 0, fbuffer, 0, offset);
-			*/
 			plaintext = System.Text.Encoding.ASCII.GetString(buffer);
 			Debug.Log("plaintext " + plaintext);
 			return plaintext;
-
 		}
 
-
-
-
-
-
-		public static void print_byte_array(byte[] byteArray){
-			for (int x = 0; x < byteArray.Length; x++)
-    		{
-    			Debug.Log("{0:X2} " + byteArray[x]);
-    			//if (((x+1)%20) == 0) Console.WriteLine();
-			}
-		}
 
 		public static byte[] Encrypt(string plainText, byte[] Key)
 		{
