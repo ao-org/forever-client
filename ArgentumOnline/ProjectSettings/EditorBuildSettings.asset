@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Catacumbas(1).unity
+    guid: b7304e14c6752b4438c5316632becb76
+  - enabled: 1
     path: Assets/Scenes/Nix(34).unity
     guid: bfb1288927cc0b34287afa033c33dc84
   - enabled: 1
@@ -14,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Iglesia.unity
     guid: 9c049a325f46953488477e8cd6a8dea6
-  - enabled: 1
-    path: Assets/Scenes/Catacumbas(1).unity
-    guid: b7304e14c6752b4438c5316632becb76
   - enabled: 1
     path: Assets/Scenes/Catacumbas(2).unity
     guid: 5be73fc4ff8d37142ac8eadacd6ac0f1

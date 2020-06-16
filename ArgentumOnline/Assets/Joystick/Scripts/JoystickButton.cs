@@ -71,6 +71,8 @@ public class JoystickButton : MonoBehaviour
         {
             Image image = runButton.image;
             deadButton.image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
+            runButton.image.color = new Color(image.color.r, image.color.g, image.color.b, 0.3f);
+            mRun = false;
         }
         else
         {
