@@ -13,7 +13,10 @@ using System.Globalization;
 public class PlayerCharacter : MonoBehaviour
 {
 
-    public PlayerCharacter(XmlDocument xml_doc){
+    public PlayerCharacter(){
+    }
+
+    public void CreateFromXml(XmlDocument xml_doc){
         var selectnode = "Character";
         var nodes = xml_doc.SelectNodes(selectnode);
         Debug.Assert(nodes.Count>0);
