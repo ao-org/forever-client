@@ -88,7 +88,10 @@ TagManager:
   - name: ParedDung
     uniqueID: 3883579211
     locked: 0
-  - name: Fantasma
+  - name: Navales
+    uniqueID: 3902288205
+    locked: 0
+  - name: Players
     uniqueID: 275239855
     locked: 0
   - name: ParedDungeon2

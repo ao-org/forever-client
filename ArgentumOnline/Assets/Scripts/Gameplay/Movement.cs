@@ -31,12 +31,10 @@ public class Movement : MonoBehaviour
     private float runDelta = 2.2f; // delta Velocidad correr. se multiplica por la velocidad de caminar
     private float walkDiagDelta = 0.7f; //Delta de velocidad de las diagonales. (No modificar 0.7 default
     private float WalkRunSpeed;
-    //private bool running = false;
-    //private bool isDead = false;
+    private bool running = false;
+    private bool isDead = false;
     private Rigidbody2D mBody;
-    private Joystick mJoystick;
-    private JoystickButton mJoystickButton;
-    private Tilemap mWaterTilemap; 
+    private Tilemap mWaterTilemap; //comentar ccz
     private Tilemap mNavegable1;
     private Tilemap mNavegable2;
     private Tilemap mNavegable3;
@@ -60,10 +58,6 @@ public class Movement : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start(){
-        mJoystick = GameObject.Find("Joystick").GetComponent<Joystick>();
-        mJoystickButton = GameObject.Find("Botones").GetComponent<JoystickButton>();
-        mJoystick.Start();
-        mJoystickButton.Start();
         mAnimator = gameObject.GetComponent<Animator>();
         mBody = GetComponent<Rigidbody2D>();
         WalkRunSpeed = WalkSpeed;
@@ -100,48 +94,18 @@ public class Movement : MonoBehaviour
     }
     // Update is called once per frame
     void Update(){
-        
-        if (mJoystickButton.mDead)
+        if (isDead)
         {
-            if (mJoystickButton.mAlive)
-            {
-                switch (dir)
-                {
-                    case Direction.South:
-                        mAnimator.Play("DeadSur"); break;
-                    case Direction.North:
-                        mAnimator.Play("DeadNorte"); break;
-                    case Direction.West:
-                        mAnimator.Play("DeadOeste"); break;
-                    case Direction.East:
-                        mAnimator.Play("DeadEste"); break;
-                    case Direction.SouthWest:
-                        mAnimator.Play("DeadSuroeste"); break;
-                    case Direction.NorthWest:
-                        mAnimator.Play("DeadNoroeste"); break;
-                    case Direction.NorthEast:
-                        mAnimator.Play("DeadNoreste"); break;
-                    case Direction.SouthEast:
-                        mAnimator.Play("DeadSureste"); break;
-                    default:
-                        UnityEngine.Debug.Assert(false, "Bad direction"); break;
-                }
-                mJoystickButton.mAlive = false;
-
-            }
-            else
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 mAnimator.Play("StandSur");
-                mJoystickButton.mDead = false;
-                mJoystickButton.mRun = false;
+                isDead = false;
+                running = false;
                 WalkRunSpeed = WalkSpeed;
-                mJoystickButton.mAlive = true;
             }
-            mJoystickButton.mDead = false;
+            else
+                return;
         }
-        if (!mJoystickButton.mAlive)
-            return;
-
 
         if (mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackSur") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackNorte") ||
             mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackOeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackEste") ||
@@ -150,8 +114,34 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-        
-        if (mJoystickButton.mAttack)
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            switch (dir)
+            {
+                case Direction.South:
+                    mAnimator.Play("DeadSur"); break;
+                case Direction.North:
+                    mAnimator.Play("DeadNorte"); break;
+                case Direction.West:
+                    mAnimator.Play("DeadOeste"); break;
+                case Direction.East:
+                    mAnimator.Play("DeadEste"); break;
+                case Direction.SouthWest:
+                    mAnimator.Play("DeadSuroeste"); break;
+                case Direction.NorthWest:
+                    mAnimator.Play("DeadNoroeste"); break;
+                case Direction.NorthEast:
+                    mAnimator.Play("DeadNoreste"); break;
+                case Direction.SouthEast:
+                    mAnimator.Play("DeadSureste"); break;
+                default:
+                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
+            }
+            isDead = true;
+            return;
+
+        }
+        if (Input.GetKeyDown(KeyCode.A))
         {
             switch (dir)
             {
@@ -174,37 +164,36 @@ public class Movement : MonoBehaviour
                 default:
                     UnityEngine.Debug.Assert(false, "Bad direction"); break;
             }
-            mJoystickButton.mAttack = false;
             return;
         }
+        
+        bool RightArrowPressed  = Input.GetKey(KeyCode.RightArrow);
+      bool LeftArrowPressed   = Input.GetKey(KeyCode.LeftArrow);
+      bool UpArrowPressed     = Input.GetKey(KeyCode.UpArrow);
+      bool DownArrowPressed   = Input.GetKey(KeyCode.DownArrow);
+      bool Moving             = RightArrowPressed || LeftArrowPressed || UpArrowPressed    || DownArrowPressed;
 
-        bool RightArrowPressed = false;
-        bool LeftArrowPressed = false;
-        bool UpArrowPressed = false;
-        bool DownArrowPressed = false;
+        
+        
 
-        Vector3 direction = Vector3.forward * mJoystick.Vertical + Vector3.right * mJoystick.Horizontal;
-
-        if (direction.x > 0.5) RightArrowPressed = true;
-        if (direction.x < -0.5) LeftArrowPressed = true;
-        if (direction.z > 0.5) UpArrowPressed = true;
-        if (direction.z < -0.5) DownArrowPressed = true;
-
-        bool Moving = RightArrowPressed || LeftArrowPressed || UpArrowPressed || DownArrowPressed;
-
-        if (!mJoystickButton.mRun)
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            WalkRunSpeed = WalkSpeed;
-        }
-        else
-        {
-            WalkRunSpeed = WalkSpeed * runDelta;
+            if (running)
+            {
+                running = false;
+                WalkRunSpeed = WalkSpeed;
+            }
+            else
+            {
+                running = true;
+                WalkRunSpeed = WalkSpeed * runDelta;
+            }
         }
 
         // NorthEast
         if (RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.NorthEast;
-              if (mJoystickButton.mRun)
+              if (running)
                 mAnimator.Play("RunNoreste");
               else
                 mAnimator.Play("WalkNoreste");
@@ -214,7 +203,7 @@ public class Movement : MonoBehaviour
       else // North
       if (!RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.North;
-            if (mJoystickButton.mRun)
+            if (running)
                 mAnimator.Play("RunNorte");
             else
                 mAnimator.Play("WalkNorte");
@@ -223,7 +212,7 @@ public class Movement : MonoBehaviour
       else // South
       if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed) {
               dir = Direction.South;
-            if (mJoystickButton.mRun)
+            if (running)
                 mAnimator.Play("RunSur");
             else
                 mAnimator.Play("WalkSur");
@@ -233,7 +222,7 @@ public class Movement : MonoBehaviour
       else // SouthEast
       if (RightArrowPressed && DownArrowPressed && ! UpArrowPressed && !LeftArrowPressed) {
               dir = Direction.SouthEast;
-            if(mJoystickButton.mRun)
+            if(running)
                 mAnimator.Play("RunSureste");
             else
                 mAnimator.Play("WalkSureste");
@@ -242,7 +231,7 @@ public class Movement : MonoBehaviour
       else
       if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed) {
               dir = Direction.East;
-            if (mJoystickButton.mRun)
+            if (running)
                 mAnimator.Play("RunEste");
             else
                 mAnimator.Play("WalkEste");
@@ -251,7 +240,7 @@ public class Movement : MonoBehaviour
       else
       if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
               dir = Direction.West;
-            if (mJoystickButton.mRun)
+            if (running)
                 mAnimator.Play("RunOeste");
             else
                 mAnimator.Play("WalkOeste");
@@ -260,7 +249,7 @@ public class Movement : MonoBehaviour
       else
       if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
               dir = Direction.NorthWest;
-            if (mJoystickButton.mRun)
+            if (running)
                 mAnimator.Play("RunNoroeste");
             else
                 mAnimator.Play("WalkNoroeste");
@@ -269,7 +258,7 @@ public class Movement : MonoBehaviour
       else
       if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed) {
               dir = Direction.SouthWest;
-            if (mJoystickButton.mRun)
+            if (running)
                 mAnimator.Play("RunSuroeste");
             else
                 mAnimator.Play("WalkSuroeste");
