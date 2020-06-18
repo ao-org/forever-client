@@ -120,8 +120,14 @@ public class WorldClient : MonoBehaviour {
 			GameObject tilemap = GameObject.Find("Tilemap_base");
 			Debug.Assert(tilemap != null);
 			// GameObject.FindGameObjectsWithTag("Tilemap")[0];
-			Instantiate(player, char_pos.position, Quaternion.identity, tilemap.transform);
-			player.SetActive(true);
+			var new_player_character = Instantiate(player, char_pos.position, Quaternion.identity, tilemap.transform);
+			new_player_character.SetActive(true);
+ 			Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
+			char_pos.position =  v3pos + offset;
+			var p = Instantiate(player, char_pos.position, Quaternion.identity, tilemap.transform);
+			var c = p.GetComponent<Camera>();
+			Debug.Assert(c != null);
+			p.SetActive(true);
 
 		}
 		catch (Exception e){
