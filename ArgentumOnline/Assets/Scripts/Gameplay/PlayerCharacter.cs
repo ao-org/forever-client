@@ -37,7 +37,7 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
-    public Tuple<string,float,float> position(){
+    public Tuple<string,float,float> Position(){
         return Tuple.Create(mMap,mPos.Item1, mPos.Item2);
     }
 

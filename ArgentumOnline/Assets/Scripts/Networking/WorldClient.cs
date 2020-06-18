@@ -52,29 +52,6 @@ public class WorldClient : MonoBehaviour {
 		}
 		return 1;
 	}
-
-	private void InstantiatePlayerCharacterFromXml(){
-		try{
-			mPlayerCharacter = gameObject.AddComponent<PlayerCharacter>();
-			mPlayerCharacter.CreateFromXml(mPlayerCharacterXml);
-			Debug.Log("Player Character created sucessfully!!!!!!!");
-		}
-		catch (Exception e){
-			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
-		}
-	}
-	private void InstantiatePlayerCharacterSprite(){
-		try{
-			GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-			Vector3 pc_pos = player.transform.position;
-			Debug.Log("______________PC " + pc_pos.ToString() );
-		}
-		catch (Exception e){
-			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
-		}
-	}
 	public int ProcessPlayCharacterError(byte[] data){
 		Debug.Log("ProcessPlayCharacterError");
 		short error_code = ProtoBase.DecodeShort(data);
@@ -116,7 +93,42 @@ public class WorldClient : MonoBehaviour {
 			InstantiatePlayerCharacterSprite();
 		}
     }
+	private void InstantiatePlayerCharacterFromXml(){
+		try{
+			mPlayerCharacter = gameObject.AddComponent<PlayerCharacter>();
+			mPlayerCharacter.CreateFromXml(mPlayerCharacterXml);
+			Debug.Log("Player Character created sucessfully!!!!!!!");
+		}
+		catch (Exception e){
+			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
+			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+		}
+	}
+	private void InstantiatePlayerCharacterSprite(){
+		try{
+			GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+			Debug.Assert(player != null, "Cannot find PLAYER in Map");
+			player.SetActive(false);
+			//Vector3 pc_pos = player.transform.position;
+			//Debug.Log("______________PC " + pc_pos.ToString() );
 
+			var pc_pos = mPlayerCharacter.Position();
+			Vector3  v3pos = new Vector3(pc_pos.Item2,pc_pos.Item3, 0);
+			//Debug.Log("char_pos.position" + char_pos.position.ToString() );
+			Transform  char_pos = player.transform;
+			char_pos.position =  v3pos;
+			GameObject tilemap = GameObject.Find("Tilemap_base");
+			Debug.Assert(tilemap != null);
+			// GameObject.FindGameObjectsWithTag("Tilemap")[0];
+			Instantiate(player, char_pos.position, Quaternion.identity, tilemap.transform);
+			player.SetActive(true);
+
+		}
+		catch (Exception e){
+			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
+			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+		}
+	}
 	void Update(){
 		try {
 			if (mEventsQueue.Count > 0){
@@ -128,7 +140,7 @@ public class WorldClient : MonoBehaviour {
 						// The PLAY_CHARACTER_OKAY process has two steps:
 						// 			First step: Load the new scene.
 						//			Second step: Spawn the Character
-						SceneManager.LoadScene(mPlayerCharacter.position().Item1);
+						SceneManager.LoadScene(mPlayerCharacter.Position().Item1);
 						// Set the flag to true to spawn the PC after scene loading
 						mSpawningPlayerCharacter = true;
 					}
