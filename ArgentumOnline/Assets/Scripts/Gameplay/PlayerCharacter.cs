@@ -13,7 +13,10 @@ using System.Globalization;
 public class PlayerCharacter : MonoBehaviour
 {
 
-    public PlayerCharacter(XmlDocument xml_doc){
+    public PlayerCharacter(){
+    }
+
+    public void CreateFromXml(XmlDocument xml_doc){
         var selectnode = "Character";
         var nodes = xml_doc.SelectNodes(selectnode);
         Debug.Assert(nodes.Count>0);
@@ -34,7 +37,7 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
-    public Tuple<string,float,float> position(){
+    public Tuple<string,float,float> Position(){
         return Tuple.Create(mMap,mPos.Item1, mPos.Item2);
     }
 

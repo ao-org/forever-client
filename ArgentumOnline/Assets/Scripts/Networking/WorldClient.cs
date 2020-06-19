@@ -18,26 +18,6 @@ using System.Xml;
 using UnityEngine.SceneManagement;
 
 public class WorldClient : MonoBehaviour {
-	#region private members
-	private TcpClient 	mSocket;
-	/*
-		NetworkStream stream = mSocket.GetStream() will be accesed from two different threads: Receive and Send workloads.
-		According to MS Documentation there is no need for a mutex as this is supposed to be thread safe when using just 2 threads:
-		Read and write operations can be performed simultaneously on an instance of the NetworkStream class without the need
-		for synchronization. As long as there is one unique thread for the write operations and one unique thread for the read
-		operations, there will be no cross-interference between read and write threads and no synchronization is required.
-	*/
-	private List<byte>	mIncommingData;
-	private Thread 		mReceiveThread;
-	private Thread 		mSendThread;
-	private string 		mServerIP;
-	private string 		mServerPort;
-	private string		mUsername;
-	private string		mPassword;
-	private MainMenu	mMainMenu;
-	private bool		mAppQuit;
-	private PlayerCharacter mPlayerCharacter;
-
 	public bool IsSessionOpen(){
 		return CryptoHelper.PublicKey.Length > 0;
 	}
@@ -50,20 +30,6 @@ public class WorldClient : MonoBehaviour {
 			return mSocket.Connected;
 		}
 	}
-	// Construct a ConcurrentQueue for Sending messages to the server
-    private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
-	// Connection events queue
-	private ConcurrentQueue<Tuple<string, string>> mEventsQueue = new ConcurrentQueue<Tuple<string, string>>();
-	#endregion
-
-	private string mOperationUponSessionOpened = "NOOP";
-
-	static Dictionary<short, Func<WorldClient, byte[], int>> ProcessFunctions
-        = new Dictionary<short, Func<WorldClient, byte[], int>>
-    {
-		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_OKAY"], (@this, x) => @this.ProcessPlayCharacterOkay(x) },
-		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_ERROR"], (@this, x) => @this.ProcessPlayCharacterError(x) }
-    };
 	public void SetUsernameAndPassword(string u, string p){
 		mUsername = u;
 		mPassword = p;
@@ -73,24 +39,17 @@ public class WorldClient : MonoBehaviour {
         Debug.Log("encrypted_character len = " + Encoding.ASCII.GetString(encrypted_character).Length + " "  + Encoding.ASCII.GetString(encrypted_character) );
         var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log("decrypted_data: " + decrypted_char);
-		var doc = new XmlDocument();
+		//Can only be done from the main thread
 		try{
-			doc.LoadXml(decrypted_char);
+			mPlayerCharacterXml = new XmlDocument();
+			mPlayerCharacterXml.LoadXml(decrypted_char);
 			Debug.Log("Parsed PC XML sucessfully!!!!!!!");
-		}
-		catch (Exception e){
-			Debug.Log("Failed to parse XML charfile: " + e.Message);
-		}
-		try{
-			mPlayerCharacter = new PlayerCharacter(doc);
-			Debug.Log("Player Character created sucessfully!!!!!!!");
 			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
 		}
 		catch (Exception e){
-			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
+			Debug.Log("Failed to parse XML charfile: " + e.Message);
 			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
 		}
-
 		return 1;
 	}
 	public int ProcessPlayCharacterError(byte[] data){
@@ -105,6 +64,7 @@ public class WorldClient : MonoBehaviour {
 		Debug.Log("Initializing WorldClient");
 		mIncommingData = new List<byte>();
 		mAppQuit = false;
+		mSpawningPlayerCharacter = false;
 	}
 	public void SetMainMenu(MainMenu m){
 		Debug.Assert(m!=null);
@@ -114,6 +74,67 @@ public class WorldClient : MonoBehaviour {
 		Debug.Log("ShowMessageBox " + title + " " + message);
 		mMainMenu.ShowMessageBox(title,message,true);
 	}
+
+    void OnEnable(){
+        Debug.Log("OnEnable called");
+		SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+	void OnDisable(){
+       Debug.Log("OnDisable");
+       SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
+		if( mSpawningPlayerCharacter ){
+			//Second step PLAY_CHARACTER_OKAY
+			Debug.Log("Must spawn Player Character");
+			InstantiatePlayerCharacterSprite();
+		}
+    }
+	private void InstantiatePlayerCharacterFromXml(){
+		try{
+			mPlayerCharacter = gameObject.AddComponent<PlayerCharacter>();
+			mPlayerCharacter.CreateFromXml(mPlayerCharacterXml);
+			Debug.Log("Player Character created sucessfully!!!!!!!");
+		}
+		catch (Exception e){
+			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
+			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+		}
+	}
+	private void InstantiatePlayerCharacterSprite(){
+		try{
+			GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+			Debug.Assert(player != null, "Cannot find PLAYER in Map");
+			player.SetActive(false);
+			//Vector3 pc_pos = player.transform.position;
+			//Debug.Log("______________PC " + pc_pos.ToString() );
+
+			var pc_pos = mPlayerCharacter.Position();
+			Vector3  v3pos = new Vector3(pc_pos.Item2,pc_pos.Item3, 0);
+			//Debug.Log("char_pos.position" + char_pos.position.ToString() );
+			Transform  char_pos = player.transform;
+			char_pos.position =  v3pos;
+			GameObject tilemap = GameObject.Find("Tilemap_base");
+			Debug.Assert(tilemap != null);
+			// GameObject.FindGameObjectsWithTag("Tilemap")[0];
+			var new_player_character = Instantiate(player, char_pos.position, Quaternion.identity, tilemap.transform);
+			new_player_character.SetActive(true);
+ 			Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
+			char_pos.position =  v3pos + offset;
+			var p = Instantiate(player, char_pos.position, Quaternion.identity, tilemap.transform);
+			var c = p.GetComponent<Camera>();
+			Debug.Assert(c != null);
+			p.SetActive(true);
+
+		}
+		catch (Exception e){
+			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
+			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+		}
+	}
 	void Update(){
 		try {
 			if (mEventsQueue.Count > 0){
@@ -121,11 +142,17 @@ public class WorldClient : MonoBehaviour {
 				if (mEventsQueue.TryDequeue(out e)){
 					if(e.Item1 == "PLAY_CHARACTER_OKAY"){
 						Debug.Log("PLAY_CHARACTER_OKAY");
-						//ShowMessageBox("PLAY_CHARACTER_OKAY_TITLE","PLAY_CHARACTER_OKAY_TEXT");
-						SceneManager.LoadScene(mPlayerCharacter.position().Item1);
+						InstantiatePlayerCharacterFromXml();
+						// The PLAY_CHARACTER_OKAY process has two steps:
+						// 			First step: Load the new scene.
+						//			Second step: Spawn the Character
+						SceneManager.LoadScene(mPlayerCharacter.Position().Item1);
+						// Set the flag to true to spawn the PC after scene loading
+						mSpawningPlayerCharacter = true;
 					}
 					else if(e.Item1 == "PLAY_CHARACTER_ERROR") {
 						Debug.Log("PLAY_CHARACTER_ERROR");
+						//ShowMessageBox("PLAY_CHARACTER_OKAY_TITLE","PLAY_CHARACTER_OKAY_TEXT");
 					}
 					else{
 						Debug.Assert(false);
@@ -357,4 +384,39 @@ public class WorldClient : MonoBehaviour {
 	private void SendMessage(ProtoBase msg) {
 		mSendQueue.Enqueue(msg);
 	}
+
+	private TcpClient 	mSocket;
+	/*
+		NetworkStream stream = mSocket.GetStream() will be accesed from two different threads: Receive and Send workloads.
+		According to MS Documentation there is no need for a mutex as this is supposed to be thread safe when using just 2 threads:
+		Read and write operations can be performed simultaneously on an instance of the NetworkStream class without the need
+		for synchronization. As long as there is one unique thread for the write operations and one unique thread for the read
+		operations, there will be no cross-interference between read and write threads and no synchronization is required.
+	*/
+	private List<byte>				mIncommingData;
+	private Thread 					mReceiveThread;
+	private Thread 					mSendThread;
+	private string 					mServerIP;
+	private string 					mServerPort;
+	private string					mUsername;
+	private string					mPassword;
+	private MainMenu				mMainMenu;
+	private bool					mAppQuit;
+	private bool					mSpawningPlayerCharacter;
+	private PlayerCharacter 		mPlayerCharacter;
+	// Construct a ConcurrentQueue for Sending messages to the server
+    private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
+	// Connection events queue
+	private ConcurrentQueue<Tuple<string, string>> mEventsQueue = new ConcurrentQueue<Tuple<string, string>>();
+	private string mOperationUponSessionOpened = "NOOP";
+	private static Dictionary<short, Func<WorldClient, byte[], int>> ProcessFunctions
+        = new Dictionary<short, Func<WorldClient, byte[], int>>
+    {
+		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_OKAY"], (@this, x) => @this.ProcessPlayCharacterOkay(x) },
+		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_ERROR"], (@this, x) => @this.ProcessPlayCharacterError(x) }
+    };
+	private XmlDocument				mPlayerCharacterXml;
+
+
+
 }
