@@ -56,6 +56,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewbieDungeon(168).unity
     guid: 741003d64e1626744940972e33e86d43
+  - enabled: 1
+    path: Assets/Scenes/78.unity
+    guid: c6173501871cb2d45a3d9e6a5a2b4d18
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 2399d7483c923c5bc95e20fcdcdbeeec,
       type: 2}
