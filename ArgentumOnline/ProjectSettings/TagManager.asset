@@ -8,6 +8,7 @@ TagManager:
   - WorldClient
   - LoginClient
   - ChatClient
+  - Human
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Names
   - 
   - 
   - 
@@ -101,4 +102,7 @@ TagManager:
     locked: 0
   - name: Grilla Limites
     uniqueID: 3671939143
+    locked: 0
+  - name: Names
+    uniqueID: 4190191567
     locked: 0

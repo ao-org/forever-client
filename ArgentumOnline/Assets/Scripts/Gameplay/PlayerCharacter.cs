@@ -41,6 +41,10 @@ public class PlayerCharacter : MonoBehaviour
         return Tuple.Create(mMap,mPos.Item1, mPos.Item2);
     }
 
+    public string Name(){
+        return mName;
+    }
+
     private string mName;
     private Tuple<float,float> mPos;
     private string mMap;

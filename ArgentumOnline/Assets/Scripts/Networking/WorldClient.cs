@@ -109,25 +109,30 @@ public class WorldClient : MonoBehaviour {
 			GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
 			Debug.Assert(player != null, "Cannot find PLAYER in Map");
 			player.SetActive(false);
-			//Vector3 pc_pos = player.transform.position;
-			//Debug.Log("______________PC " + pc_pos.ToString() );
-
 			var pc_pos = mPlayerCharacter.Position();
 			Vector3  v3pos = new Vector3(pc_pos.Item2,pc_pos.Item3, 0);
 			//Debug.Log("char_pos.position" + char_pos.position.ToString() );
 			Transform  char_pos = player.transform;
 			char_pos.position =  v3pos;
-			GameObject tilemap = GameObject.Find("Tilemap_base");
-			Debug.Assert(tilemap != null);
-			// GameObject.FindGameObjectsWithTag("Tilemap")[0];
-			var new_player_character = Instantiate(player, char_pos.position, Quaternion.identity, tilemap.transform);
+			GameObject world = GameObject.Find("World");
+			Debug.Assert(world != null);
+			var new_player_character = Instantiate(player, char_pos.position, Quaternion.identity, world.transform);
+			new_player_character.name = mPlayerCharacter.Name();
+		//	Text myText = new_player_character.AddComponent<TextMe>();
+    	//	myText.text = mPlayerCharacter.Name();
 			new_player_character.SetActive(true);
+
+
  			Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
 			char_pos.position =  v3pos + offset;
-			var p = Instantiate(player, char_pos.position, Quaternion.identity, tilemap.transform);
-			var c = p.GetComponent<Camera>();
-			Debug.Assert(c != null);
+			var p = Instantiate(player, char_pos.position, Quaternion.identity, world.transform);
+			p.tag = "Human";
+			p.name = "Human";
+			Destroy(p.transform.Find("MainCamera").gameObject);
+			Destroy(p.GetComponent<Movement>());
 			p.SetActive(true);
+
+			Destroy(player);
 
 		}
 		catch (Exception e){
