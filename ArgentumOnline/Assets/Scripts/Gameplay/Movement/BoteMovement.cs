@@ -13,7 +13,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MovementBote : Movement
+public class BoteMovement : Movement
 {
 
     public float WalkSpeed = 6.0f; //Velocidad normal

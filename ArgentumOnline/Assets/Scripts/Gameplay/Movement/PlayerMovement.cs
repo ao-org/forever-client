@@ -13,7 +13,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MovementPlayer : Movement
+public class PlayerMovement : Movement
 {
     public float WalkSpeed = 6.0f; //Velocidad normal
     private float runDelta = 2.2f; // delta Velocidad correr. se multiplica por la velocidad de caminar
