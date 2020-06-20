@@ -47,7 +47,7 @@ public class OnEnterLoadScene : MonoBehaviour
                 WarpingDestination.teleport_y = player.transform.position.y;
             }
             UnityEngine.Debug.Log("Teleporting player to x:" + WarpingDestination.teleport_x + " y:" + WarpingDestination.teleport_y);
-            WarpingDestination.direction= GetComponent<Movement>().GetDirection();
+            WarpingDestination.direction= player.GetComponent<Movement>().GetDirection();
             WarpingDestination.warping = true;
         }
         else {
