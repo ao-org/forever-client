@@ -26,22 +26,17 @@ public class Movement : MonoBehaviour
         NorthWest = 6,
         NorthEast = 7
     }
-    private Direction dir = Movement.Direction.South;
-    private float WalkSpeed = 6.0f; //Velocidad caminar
-    private float runDelta = 2.2f; // delta Velocidad correr. se multiplica por la velocidad de caminar
-    private float walkDiagDelta = 0.7f; //Delta de velocidad de las diagonales. (No modificar 0.7 default
-    private float WalkRunSpeed;
-    private bool running = false;
-    private bool isDead = false;
-    private Rigidbody2D mBody;
-    private Tilemap mWaterTilemap; //comentar ccz
-    private Tilemap mNavegable1;
-    private Tilemap mNavegable2;
-    private Tilemap mNavegable3;
-    private Tilemap mTilemapLevel1;
-    private Animator mAnimator;
-    public Direction GetDirection() { return dir; }
-    void Awake(){
+    public Direction dir;
+    public Rigidbody2D mBody;
+    public Tilemap mWaterTilemap;
+    public Tilemap mNavegable0;
+    public Tilemap mNavegable1;
+    public Tilemap mNavegable2;
+    public Tilemap mNavegable3;
+    public Tilemap mTilemapLevel1;
+    public Animator mAnimator;
+    public Direction GetDirection() { return dir; }//fg
+    public virtual void Awake(){
         if (WarpingDestination.warping){
             UnityEngine.Debug.Log("Warp X:" + WarpingDestination.teleport_x + " Y:" + WarpingDestination.teleport_y);
             Vector3 newpos = transform.position;
@@ -57,237 +52,31 @@ public class Movement : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start(){
+    public virtual void Start(){
         mAnimator = gameObject.GetComponent<Animator>();
         mBody = GetComponent<Rigidbody2D>();
-        WalkRunSpeed = WalkSpeed;
-        mWaterTilemap = GameObject.Find("Tilemap_base").GetComponent<Tilemap>(); //comentar ccz
+        mWaterTilemap = GameObject.Find("Tilemap_base").GetComponent<Tilemap>();
+        mNavegable0 = GameObject.Find("Navegable0").GetComponent<Tilemap>();
         mNavegable1 = GameObject.Find("Navegable1").GetComponent<Tilemap>();
         mNavegable2 = GameObject.Find("Navegable2").GetComponent<Tilemap>();
         mNavegable3 = GameObject.Find("Navegable3").GetComponent<Tilemap>();
         mTilemapLevel1 = GameObject.Find("TilemapNivel1").GetComponent<Tilemap>();
     }
-    private bool IsThereSomething(Vector3 pos){
+    public bool IsThereSomething(Vector3 pos){
         Vector3Int cellPosition = mTilemapLevel1.WorldToCell(pos);
         return mTilemapLevel1.HasTile(cellPosition);
     }
-    private bool IsThereWater(Vector3 pos){
-        Vector3Int cellPosition = mWaterTilemap.WorldToCell(pos); //comentar ccz
+    public bool IsThereWater(Vector3 pos){
+        Vector3Int cellPosition = mWaterTilemap.WorldToCell(pos);
+        Vector3Int cellNavegable0 = mWaterTilemap.WorldToCell(pos);
         Vector3Int cellNavegable1 = mWaterTilemap.WorldToCell(pos);
         Vector3Int cellNavegable2 = mWaterTilemap.WorldToCell(pos);
         Vector3Int cellNavegable3 = mWaterTilemap.WorldToCell(pos);
-        //UnityEngine.Debug.Log("Pos " + cellPosition);
-        return mNavegable1.HasTile(cellNavegable1) || mNavegable2.HasTile(cellNavegable2) || mNavegable3.HasTile(cellNavegable3);
-        //return mWaterTilemap.HasTile(cellPosition); //comentar ccz
+        return mNavegable0.HasTile(cellNavegable0) || mNavegable1.HasTile(cellNavegable1) || mNavegable2.HasTile(cellNavegable2) || mNavegable3.HasTile(cellNavegable3);
     }
-    private bool TryToMove(Vector3 pos){
-        if(IsThereWater(pos))
-        {
-            // nothing to do
-            return false;
-        }
-        else
-        {
-            mBody.MovePosition(pos);
-            return true;
-        }
-    }
+  
     // Update is called once per frame
     void Update(){
-        if (isDead)
-        {
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                mAnimator.Play("StandSur");
-                isDead = false;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-            }
-            else
-                return;
-        }
-
-        if (mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackSur") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackNorte") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackOeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackEste") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackNoroeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackNoreste") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackSureste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackSuroeste"))
-        {
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            switch (dir)
-            {
-                case Direction.South:
-                    mAnimator.Play("DeadSur"); break;
-                case Direction.North:
-                    mAnimator.Play("DeadNorte"); break;
-                case Direction.West:
-                    mAnimator.Play("DeadOeste"); break;
-                case Direction.East:
-                    mAnimator.Play("DeadEste"); break;
-                case Direction.SouthWest:
-                    mAnimator.Play("DeadSuroeste"); break;
-                case Direction.NorthWest:
-                    mAnimator.Play("DeadNoroeste"); break;
-                case Direction.NorthEast:
-                    mAnimator.Play("DeadNoreste"); break;
-                case Direction.SouthEast:
-                    mAnimator.Play("DeadSureste"); break;
-                default:
-                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
-            }
-            isDead = true;
-            return;
-
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            switch (dir)
-            {
-                case Direction.South:
-                    mAnimator.Play("AttackSur"); break;
-                case Direction.North:
-                    mAnimator.Play("AttackNorte"); break;
-                case Direction.West:
-                    mAnimator.Play("AttackOeste"); break;
-                case Direction.East:
-                    mAnimator.Play("AttackEste"); break;
-                case Direction.SouthWest:
-                    mAnimator.Play("AttackSuroeste"); break;
-                case Direction.NorthWest:
-                    mAnimator.Play("AttackNoroeste"); break;
-                case Direction.NorthEast:
-                    mAnimator.Play("AttackNoreste"); break;
-                case Direction.SouthEast:
-                    mAnimator.Play("AttackSureste"); break;
-                default:
-                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
-            }
-            return;
-        }
-        
-        bool RightArrowPressed  = Input.GetKey(KeyCode.RightArrow);
-      bool LeftArrowPressed   = Input.GetKey(KeyCode.LeftArrow);
-      bool UpArrowPressed     = Input.GetKey(KeyCode.UpArrow);
-      bool DownArrowPressed   = Input.GetKey(KeyCode.DownArrow);
-      bool Moving             = RightArrowPressed || LeftArrowPressed || UpArrowPressed    || DownArrowPressed;
-
-        
-        
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (running)
-            {
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-            }
-            else
-            {
-                running = true;
-                WalkRunSpeed = WalkSpeed * runDelta;
-            }
-        }
-
-        // NorthEast
-        if (RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
-              dir = Direction.NorthEast;
-              if (running)
-                mAnimator.Play("RunNoreste");
-              else
-                mAnimator.Play("WalkNoreste");
-              Vector3 newpos = transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta;
-              TryToMove(newpos);
-      }
-      else // North
-      if (!RightArrowPressed && UpArrowPressed && ! DownArrowPressed && !LeftArrowPressed) {
-              dir = Direction.North;
-            if (running)
-                mAnimator.Play("RunNorte");
-            else
-                mAnimator.Play("WalkNorte");
-              TryToMove(transform.position+Vector3.up * WalkRunSpeed * Time.deltaTime);
-      }
-      else // South
-      if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed) {
-              dir = Direction.South;
-            if (running)
-                mAnimator.Play("RunSur");
-            else
-                mAnimator.Play("WalkSur");
-              Vector3 newpos = transform.position + Vector3.down * WalkRunSpeed * Time.deltaTime;
-              TryToMove(newpos);
-      }
-      else // SouthEast
-      if (RightArrowPressed && DownArrowPressed && ! UpArrowPressed && !LeftArrowPressed) {
-              dir = Direction.SouthEast;
-            if(running)
-                mAnimator.Play("RunSureste");
-            else
-                mAnimator.Play("WalkSureste");
-              TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-      }
-      else
-      if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed) {
-              dir = Direction.East;
-            if (running)
-                mAnimator.Play("RunEste");
-            else
-                mAnimator.Play("WalkEste");
-              TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime);
-      }
-      else
-      if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
-              dir = Direction.West;
-            if (running)
-                mAnimator.Play("RunOeste");
-            else
-                mAnimator.Play("WalkOeste");
-              TryToMove(transform.position +  Vector3.left* WalkRunSpeed * Time.deltaTime);
-      }
-      else
-      if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed) {
-              dir = Direction.NorthWest;
-            if (running)
-                mAnimator.Play("RunNoroeste");
-            else
-                mAnimator.Play("WalkNoroeste");
-              TryToMove(transform.position + Vector3.left* WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-      }
-      else
-      if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed) {
-              dir = Direction.SouthWest;
-            if (running)
-                mAnimator.Play("RunSuroeste");
-            else
-                mAnimator.Play("WalkSuroeste");
-              TryToMove(transform.position + Vector3.left* WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-      }
-        
-        if (!Moving) {
-            switch(dir)
-            {
-                case Direction.South:
-                    mAnimator.Play("StandSur");break;
-                case Direction.North:
-                    mAnimator.Play("StandNorte");break;
-                case Direction.West:
-                    mAnimator.Play("StandOeste");break;
-                case Direction.East:
-                    mAnimator.Play("StandEste");break;
-                case Direction.SouthWest:
-                    mAnimator.Play("StandSuroeste");break;
-                case Direction.NorthWest:
-                    mAnimator.Play("StandNoroeste");break;
-                case Direction.NorthEast:
-                    mAnimator.Play("StandNoreste");break;
-                case Direction.SouthEast:
-                    mAnimator.Play("StandSureste");break;
-                default:
-                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
-            }
-      }
         
 
     }
