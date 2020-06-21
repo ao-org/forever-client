@@ -105,16 +105,18 @@ public class WorldClient : MonoBehaviour {
 			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
 		}
 	}
-	private GameObject SpawnHuman(string name, Vector3 pos, GameObject clonable, GameObject parent){
+	private GameObject SpawnHuman(string name, string tag, Vector3 pos, GameObject clonable, GameObject parent){
 		var p = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
-		p.tag = "Human";
+		p.tag = tag;
 		p.name = name;
 		var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
 		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
 		Debug.Assert(textName!=null);
 		textName.text = name;
-		Destroy(p.transform.Find("MainCamera").gameObject);
-		Destroy(p.GetComponent<Movement>());
+		if(tag!="Player"){
+				Destroy(p.transform.Find("MainCamera").gameObject);
+				Destroy(p.GetComponent<Movement>());
+		}
 		return p;
 	}
 	private void InstantiatePlayerCharacterSprite(){
@@ -131,29 +133,22 @@ public class WorldClient : MonoBehaviour {
 			char_pos.position =  v3pos;
 			GameObject world = GameObject.Find("World");
 			Debug.Assert(world != null);
-			var new_player_character = Instantiate(player, char_pos.position, Quaternion.identity, world.transform);
-			new_player_character.name = mPlayerCharacter.Name();
-
-			var np_canvas = new_player_character.transform.Find("CanvasPlayer").gameObject;
-			TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
-			Debug.Assert(textName!=null);
-			textName.text = mPlayerCharacter.Name();
+			var new_player_character = SpawnHuman(mPlayerCharacter.Name(),"Player",char_pos.position,player,world);
 			new_player_character.SetActive(true);
-
 
  			Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
 			char_pos.position =  v3pos + offset;
-			var p = SpawnHuman("Haracin",char_pos.position,player,world);
+			var p = SpawnHuman("Haracin","Human",char_pos.position,player,world);
 			p.SetActive(true);
 
 			offset = new Vector3(-4.0f, 2.0f, 0);
 			char_pos.position =  v3pos + offset;
-			var p2 = SpawnHuman("Chijiro",char_pos.position,player,world);
+			var p2 = SpawnHuman("Chijiro","Human",char_pos.position,player,world);
 			p2.SetActive(true);
 
 			offset = new Vector3(2.0f, 2.0f, 0);
 			char_pos.position =  v3pos + offset;
-			var p3 = SpawnHuman("Morgolock",char_pos.position,player,world);
+			var p3 = SpawnHuman("Morgolock","Human",char_pos.position,player,world);
 			p3.SetActive(true);
 
 			Destroy(player);
