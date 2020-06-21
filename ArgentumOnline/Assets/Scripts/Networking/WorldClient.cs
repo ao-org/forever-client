@@ -105,6 +105,18 @@ public class WorldClient : MonoBehaviour {
 			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
 		}
 	}
+	private GameObject SpawnHuman(string name, Vector3 pos, GameObject clonable, GameObject parent){
+		var p = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
+		p.tag = "Human";
+		p.name = name;
+		var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
+		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
+		Debug.Assert(textName!=null);
+		textName.text = name;
+		Destroy(p.transform.Find("MainCamera").gameObject);
+		Destroy(p.GetComponent<Movement>());
+		return p;
+	}
 	private void InstantiatePlayerCharacterSprite(){
 		try{
 			GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
@@ -131,12 +143,18 @@ public class WorldClient : MonoBehaviour {
 
  			Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
 			char_pos.position =  v3pos + offset;
-			var p = Instantiate(player, char_pos.position, Quaternion.identity, world.transform);
-			p.tag = "Human";
-			p.name = "Human";
-			Destroy(p.transform.Find("MainCamera").gameObject);
-			Destroy(p.GetComponent<Movement>());
+			var p = SpawnHuman("Haracin",char_pos.position,player,world);
 			p.SetActive(true);
+
+			offset = new Vector3(-4.0f, 2.0f, 0);
+			char_pos.position =  v3pos + offset;
+			var p2 = SpawnHuman("Chijiro",char_pos.position,player,world);
+			p2.SetActive(true);
+
+			offset = new Vector3(2.0f, 2.0f, 0);
+			char_pos.position =  v3pos + offset;
+			var p3 = SpawnHuman("Morgolock",char_pos.position,player,world);
+			p3.SetActive(true);
 
 			Destroy(player);
 
