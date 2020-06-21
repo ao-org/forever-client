@@ -16,6 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Xml;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class WorldClient : MonoBehaviour {
 	public bool IsSessionOpen(){
@@ -109,6 +110,8 @@ public class WorldClient : MonoBehaviour {
 			GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
 			Debug.Assert(player != null, "Cannot find PLAYER in Map");
 			player.SetActive(false);
+
+			// Clone plater, set position and name
 			var pc_pos = mPlayerCharacter.Position();
 			Vector3  v3pos = new Vector3(pc_pos.Item2,pc_pos.Item3, 0);
 			//Debug.Log("char_pos.position" + char_pos.position.ToString() );
@@ -118,8 +121,11 @@ public class WorldClient : MonoBehaviour {
 			Debug.Assert(world != null);
 			var new_player_character = Instantiate(player, char_pos.position, Quaternion.identity, world.transform);
 			new_player_character.name = mPlayerCharacter.Name();
-		//	Text myText = new_player_character.AddComponent<TextMe>();
-    	//	myText.text = mPlayerCharacter.Name();
+
+			var np_canvas = new_player_character.transform.Find("CanvasPlayer").gameObject;
+			TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
+			Debug.Assert(textName!=null);
+			textName.text = mPlayerCharacter.Name();
 			new_player_character.SetActive(true);
 
 
