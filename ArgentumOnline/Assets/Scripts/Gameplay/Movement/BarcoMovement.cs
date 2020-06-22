@@ -12,123 +12,115 @@ using System.Diagnostics;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UI;
 
-public class PlayerMovement : Movement
+public class BarcoMovement : Movement
 {
+
     public float WalkSpeed = 6.0f; //Velocidad normal
     private float runDelta = 2.2f; // delta Velocidad correr. se multiplica por la velocidad de caminar
     private float walkDiagDelta = 0.7f; //Delta de velocidad de las diagonales. (No modificar 0.7 default)
     private float WalkRunSpeed;
     private bool running = false;
     private bool isDead = false;
-    private int life = 100;
-    private int health;
-    private bool IsPhantom;
-    public Slider healthSlider;
-    private RuntimeAnimatorController mPhantomAnimatorController;
-    private RuntimeAnimatorController mAnimatorController;
+
     public override void Awake()
     {
         base.Awake();
-        health = life;
-        healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
-        //mAnimator.runtimeAnimatorController = (RuntimeAnimatorController)AssetDatabase.LoadAssetAtPath("Assets/Animations/Phantom/Phantom.controller", typeof(RuntimeAnimatorController));
-        mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
     }
     // Start is called before the first frame update
     public override void Start()
     {
-        base.Start();
         dir = Direction.South;
         WalkRunSpeed = WalkSpeed;
-        IsPhantom = false;
-        mAnimatorController = mAnimator.runtimeAnimatorController;
+        base.Start();
     }
+
     private bool TryToMove(Vector3 pos)
     {
-        if (IsThereWater(pos))
-        {
-            // nothing to do
-            return false;
-        }
-        else
+        if (IsThereWaterForBarco(pos))
         {
             mBody.MovePosition(pos);
             return true;
         }
-    }
-    public void TakeDamage(int damage)
-    {
-        if (!IsPhantom)
+        else
         {
-            health -= damage;
-            healthSlider.value = health;
-
-            if (health <= 0)
-            {
-                PlayAnimation("Dead");
-                isDead = true;
-            }
+            // nothing to do
+            return false;
         }
-        return;
-
     }
     // Update is called once per frame
     void Update()
     {
-        
-        if (isDead && !IsPhantom)
+        if (isDead)
         {
-            if (!IsAnimationLastFrame())
-                return;
-            else
+            if (Input.GetKeyDown(KeyCode.L))
             {
-                mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
-                PlayAnimation("Stand");
+                mAnimator.Play("StandSur");
                 isDead = false;
-                IsPhantom = true;
                 running = false;
-                WalkRunSpeed = WalkSpeed;
-                return;
             }
-            
+            else
+                return;
         }
 
-        if (IsAnimationPlaying("Attack"))
+        if (mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackSur") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackNorte") ||
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackOeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackEste") ||
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackNoroeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackNoreste") ||
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackSureste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName("AttackSuroeste"))
         {
             return;
         }
         if (Input.GetKeyDown(KeyCode.M))
         {
-            if (!IsPhantom)
+            switch (this.dir)
             {
-                PlayAnimation("Dead");
-                healthSlider.value = 0;
-                isDead = true;
-                return;
+                case Direction.South:
+                    mAnimator.Play("DeadSur"); break;
+                case Direction.North:
+                    mAnimator.Play("DeadNorte"); break;
+                case Direction.West:
+                    mAnimator.Play("DeadOeste"); break;
+                case Direction.East:
+                    mAnimator.Play("DeadEste"); break;
+                case Direction.SouthWest:
+                    mAnimator.Play("DeadSuroeste"); break;
+                case Direction.NorthWest:
+                    mAnimator.Play("DeadNoroeste"); break;
+                case Direction.NorthEast:
+                    mAnimator.Play("DeadNoreste"); break;
+                case Direction.SouthEast:
+                    mAnimator.Play("DeadSureste"); break;
+                default:
+                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
             }
+            isDead = true;
+            return;
 
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            PlayAnimation("Attack");
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            if (IsPhantom)
+            switch (dir)
             {
-                mAnimator.runtimeAnimatorController = mAnimatorController;
-                PlayAnimation("Stand");
-                isDead = false;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-                health = life;
-                IsPhantom = false;
-                healthSlider.value = life;
-                return;
+                case Direction.South:
+                    mAnimator.Play("AttackSur"); break;
+                case Direction.North:
+                    mAnimator.Play("AttackNorte"); break;
+                case Direction.West:
+                    mAnimator.Play("AttackOeste"); break;
+                case Direction.East:
+                    mAnimator.Play("AttackEste"); break;
+                case Direction.SouthWest:
+                    mAnimator.Play("AttackSuroeste"); break;
+                case Direction.NorthWest:
+                    mAnimator.Play("AttackNoroeste"); break;
+                case Direction.NorthEast:
+                    mAnimator.Play("AttackNoreste"); break;
+                case Direction.SouthEast:
+                    mAnimator.Play("AttackSureste"); break;
+                default:
+                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
             }
+            return;
         }
 
         bool RightArrowPressed = Input.GetKey(KeyCode.RightArrow);
@@ -142,18 +134,15 @@ public class PlayerMovement : Movement
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (!IsPhantom)
+            if (running)
             {
-                if (running)
-                {
-                    running = false;
-                    WalkRunSpeed = WalkSpeed;
-                }
-                else
-                {
-                    running = true;
-                    WalkRunSpeed = WalkSpeed * runDelta;
-                }
+                running = false;
+                WalkRunSpeed = WalkSpeed;
+            }
+            else
+            {
+                running = true;
+                WalkRunSpeed = WalkSpeed * runDelta;
             }
         }
 
@@ -242,51 +231,30 @@ public class PlayerMovement : Movement
 
         if (!Moving)
         {
-            PlayAnimation("Stand");
+            switch (dir)
+            {
+                case Direction.South:
+                    mAnimator.Play("StandSur"); break;
+                case Direction.North:
+                    mAnimator.Play("StandNorte"); break;
+                case Direction.West:
+                    mAnimator.Play("StandOeste"); break;
+                case Direction.East:
+                    mAnimator.Play("StandEste"); break;
+                case Direction.SouthWest:
+                    mAnimator.Play("StandSuroeste"); break;
+                case Direction.NorthWest:
+                    mAnimator.Play("StandNoroeste"); break;
+                case Direction.NorthEast:
+                    mAnimator.Play("StandNoreste"); break;
+                case Direction.SouthEast:
+                    mAnimator.Play("StandSureste"); break;
+                default:
+                    UnityEngine.Debug.Assert(false, "Bad direction"); break;
+            }
         }
 
 
-    }
-
-    private bool IsAnimationPlaying(string anim)
-    {
-        if (mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sur") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Norte") ||
-                mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Oeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Este") ||
-                mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Noroeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Noreste") ||
-                mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sureste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Suroeste"))
-        {
-            return true;
-        }
-        return false;
-    }
-
-    private void PlayAnimation(string anim)
-    {
-        switch (dir)
-        {
-            case Direction.South:
-                mAnimator.Play(anim + "Sur"); break;
-            case Direction.North:
-                mAnimator.Play(anim + "Norte"); break;
-            case Direction.West:
-                mAnimator.Play(anim + "Oeste"); break;
-            case Direction.East:
-                mAnimator.Play(anim + "Este"); break;
-            case Direction.SouthWest:
-                mAnimator.Play(anim + "Suroeste"); break;
-            case Direction.NorthWest:
-                mAnimator.Play(anim + "Noroeste"); break;
-            case Direction.NorthEast:
-                mAnimator.Play(anim + "Noreste"); break;
-            case Direction.SouthEast:
-                mAnimator.Play(anim + "Sureste"); break;
-            default:
-                UnityEngine.Debug.Assert(false, "PlayAnimation-Bad direction"); break;
-        }
-
-    }
-    private bool IsAnimationLastFrame()
-    {
-        return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
     }
 }
+
