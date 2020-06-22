@@ -23,8 +23,10 @@ public class PlayerMovement : Movement
     private bool running = false;
     private bool isDead = false;
     private int life = 100;
-    private int health;
+    private float health;
+    private bool takeDamage = false;
     public bool IsPhantom;
+    private float damageValue = 0f;
     public Slider healthSlider;
     public Slider manaSlider;
     private RuntimeAnimatorController mPhantomAnimatorController;
@@ -64,17 +66,27 @@ public class PlayerMovement : Movement
             return true;
         }
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (!IsPhantom)
         {
-            health -= damage;
-            healthSlider.value = health;
-
-            if (health <= 0)
+            takeDamage = true;
+            damageValue += damage;
+            UnityEngine.Debug.Log("Damage: " + damageValue);
+        }
+        return;
+    }
+    public void QuitDamage(float damage)
+    {
+        if (!IsPhantom)
+        {
+            UnityEngine.Debug.Log("DamageBeforeExit: " + damageValue);
+            damageValue -= damage;
+            UnityEngine.Debug.Log("DamageAfterExit: " + damageValue);
+            if (damageValue <= 0f)
             {
-                PlayAnimation("Dead");
-                isDead = true;
+                takeDamage = false;
+                damageValue = 0;
             }
         }
         return;
@@ -83,7 +95,18 @@ public class PlayerMovement : Movement
     // Update is called once per frame
     void Update()
     {
-        
+        if (takeDamage && !IsPhantom)
+        {
+            UnityEngine.Debug.Log("Damage: " + damageValue);
+            health -= damageValue;
+            healthSlider.value = health;
+            if (health <= 0)
+            {
+                damageValue = 0;
+                PlayAnimation("Dead");
+                isDead = true;
+            }
+        }
         if (isDead && !IsPhantom)
         {
             if (!IsAnimationLastFrame())
@@ -296,4 +319,5 @@ public class PlayerMovement : Movement
     {
         return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
     }
+    
 }

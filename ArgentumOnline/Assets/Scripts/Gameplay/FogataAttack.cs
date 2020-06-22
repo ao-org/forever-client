@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FogataAttack : MonoBehaviour
 {
-    public int EnemyDamage = 10;
+    private float EnemyDamage = 0.1f;
     GameObject player;
     PlayerMovement playerLife;
     private void Awake()
@@ -27,7 +27,16 @@ public class FogataAttack : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            UnityEngine.Debug.Log("OnEnterCollider");
             playerLife.TakeDamage(EnemyDamage);
+        }
+    }
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            UnityEngine.Debug.Log("OnExitCollider");
+            playerLife.QuitDamage(EnemyDamage);
         }
     }
 }
