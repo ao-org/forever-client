@@ -25,7 +25,7 @@ public class FogataAttack : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.CompareTag("Player"))
+        if (col.CompareTag("Player"))
         {
             playerLife.TakeDamage(EnemyDamage);
         }

@@ -24,8 +24,9 @@ public class PlayerMovement : Movement
     private bool isDead = false;
     private int life = 100;
     private int health;
-    private bool IsPhantom;
+    public bool IsPhantom;
     public Slider healthSlider;
+    public Slider manaSlider;
     private RuntimeAnimatorController mPhantomAnimatorController;
     private RuntimeAnimatorController mAnimatorController;
     public override void Awake()
@@ -33,7 +34,7 @@ public class PlayerMovement : Movement
         base.Awake();
         health = life;
         healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
-        //mAnimator.runtimeAnimatorController = (RuntimeAnimatorController)AssetDatabase.LoadAssetAtPath("Assets/Animations/Phantom/Phantom.controller", typeof(RuntimeAnimatorController));
+        manaSlider = GameObject.Find("SliderMana").GetComponent<Slider>();
         mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
     }
     // Start is called before the first frame update
@@ -42,8 +43,13 @@ public class PlayerMovement : Movement
         base.Start();
         dir = Direction.South;
         WalkRunSpeed = WalkSpeed;
-        IsPhantom = false;
         mAnimatorController = mAnimator.runtimeAnimatorController;
+        if (IsPhantom)
+        {
+            mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
+            healthSlider.gameObject.SetActive(false);
+            manaSlider.gameObject.SetActive(false);
+        }
     }
     private bool TryToMove(Vector3 pos)
     {
@@ -90,6 +96,8 @@ public class PlayerMovement : Movement
                 IsPhantom = true;
                 running = false;
                 WalkRunSpeed = WalkSpeed;
+                healthSlider.gameObject.SetActive(false);
+                manaSlider.gameObject.SetActive(false);
                 return;
             }
             
@@ -126,6 +134,8 @@ public class PlayerMovement : Movement
                 WalkRunSpeed = WalkSpeed;
                 health = life;
                 IsPhantom = false;
+                healthSlider.gameObject.SetActive(true);
+                manaSlider.gameObject.SetActive(true);
                 healthSlider.value = life;
                 return;
             }
@@ -142,18 +152,15 @@ public class PlayerMovement : Movement
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (!IsPhantom)
+            if (running)
             {
-                if (running)
-                {
-                    running = false;
-                    WalkRunSpeed = WalkSpeed;
-                }
-                else
-                {
-                    running = true;
-                    WalkRunSpeed = WalkSpeed * runDelta;
-                }
+                running = false;
+                WalkRunSpeed = WalkSpeed;
+            }
+            else
+            {
+                running = true;
+                WalkRunSpeed = WalkSpeed * runDelta;
             }
         }
 
