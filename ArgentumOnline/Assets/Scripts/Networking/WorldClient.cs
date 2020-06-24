@@ -53,6 +53,26 @@ public class WorldClient : MonoBehaviour {
 		}
 		return 1;
 	}
+	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
+		Debug.Log("ProcessSpawnCharacter");
+		/*
+        Debug.Log("encrypted_character len = " + Encoding.ASCII.GetString(encrypted_character).Length + " "  + Encoding.ASCII.GetString(encrypted_character) );
+        var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		Debug.Log("decrypted_data: " + decrypted_char);
+		//Can only be done from the main thread
+		try{
+			mPlayerCharacterXml = new XmlDocument();
+			mPlayerCharacterXml.LoadXml(decrypted_char);
+			Debug.Log("Parsed PC XML sucessfully!!!!!!!");
+			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
+		}
+		catch (Exception e){
+			Debug.Log("Failed to parse XML charfile: " + e.Message);
+			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+		}
+		*/
+		return 1;
+	}
 	public int ProcessPlayCharacterError(byte[] data){
 		Debug.Log("ProcessPlayCharacterError");
 		short error_code = ProtoBase.DecodeShort(data);
@@ -286,8 +306,8 @@ public class WorldClient : MonoBehaviour {
 		try {
 			mSocket = new TcpClient();
 			mSocket.LingerState = new LingerOption(true,0);
-			mSocket.ReceiveTimeout = 1000;
-			mSocket.SendTimeout = 1000;
+			//mSocket.ReceiveTimeout = 1000;
+			//mSocket.SendTimeout = 1000;
 			mSocket.NoDelay = true;
 			mSocket.Connect(mServerIP, Convert.ToInt32(mServerPort));
 			if(mSocket.Connected){
@@ -295,7 +315,7 @@ public class WorldClient : MonoBehaviour {
 			}
 			//mSocket.GetStream().ReadTimeout = 1000;
 			//mSocket.GetStream().WriteTimeout = 1000;
-			Byte[] bytes = new Byte[1024];
+			Byte[] bytes = new Byte[1024*1024];
 			while (!mAppQuit) {
 				// Get a stream object for reading
 				using (NetworkStream stream = mSocket.GetStream()){
@@ -437,7 +457,8 @@ public class WorldClient : MonoBehaviour {
         = new Dictionary<short, Func<WorldClient, byte[], int>>
     {
 		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_OKAY"], (@this, x) => @this.ProcessPlayCharacterOkay(x) },
-		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_ERROR"], (@this, x) => @this.ProcessPlayCharacterError(x) }
+		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_ERROR"], (@this, x) => @this.ProcessPlayCharacterError(x) },
+		{ ProtoBase.ProtocolNumbers["SPAWN_CHARACTER"], (@this, x) => @this.ProcessSpawnCharacter(x) }
     };
 	private XmlDocument				mPlayerCharacterXml;
 

@@ -76,7 +76,9 @@ public class ProtoBase
 							// WORLD
 							{"PLAY_CHARACTER"		, unchecked((short)0xF001)},
 							{"PLAY_CHARACTER_OKAY" 	, unchecked((short)0xF002)},
-							{"PLAY_CHARACTER_ERROR"	, unchecked((short)0xF003)}
+							{"PLAY_CHARACTER_ERROR"	, unchecked((short)0xF003)},
+							{"SPAWN_CHARACTER"		, unchecked((short)0xF004)}
+
 						};
 
 	static public string LoginErrorCodeToString(short code){
