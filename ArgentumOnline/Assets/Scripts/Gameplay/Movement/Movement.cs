@@ -74,7 +74,16 @@ public class Movement : MonoBehaviour
         Vector3Int cellNavegable3 = mWaterTilemap.WorldToCell(pos);
         return mNavegable0.HasTile(cellNavegable0) || mNavegable1.HasTile(cellNavegable1) || mNavegable2.HasTile(cellNavegable2) || mNavegable3.HasTile(cellNavegable3);
     }
-  
+    public bool IsThereWaterForBarco(Vector3 pos)
+    {
+        Vector3Int cellPosition = mWaterTilemap.WorldToCell(pos);
+        Vector3Int cellNavegable0 = mWaterTilemap.WorldToCell(pos);
+        Vector3Int cellNavegable1 = mWaterTilemap.WorldToCell(pos);
+        Vector3Int cellNavegable2 = mWaterTilemap.WorldToCell(pos);
+        Vector3Int cellNavegable3 = mWaterTilemap.WorldToCell(pos);
+        return mNavegable2.HasTile(cellNavegable2) || mNavegable3.HasTile(cellNavegable3);
+    }
+
     // Update is called once per frame
     void Update(){
         
