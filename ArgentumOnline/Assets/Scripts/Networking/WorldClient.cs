@@ -129,20 +129,22 @@ public class WorldClient : MonoBehaviour {
 		var p = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
 		p.tag = tag;
 		p.name = name;
-		var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
-		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
-		Debug.Assert(textName!=null);
-		textName.text = name;
+		//var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
+		//TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
+		//Debug.Assert(textName!=null);
+		//textName.text = name;
 		if(tag!="Player"){
-				Destroy(p.transform.Find("MainCamera").gameObject);
+				//Destroy(p.transform.Find("MainCamera").gameObject);
 				Destroy(p.GetComponent<Movement>());
 		}
 		return p;
 	}
 	private void InstantiatePlayerCharacterSprite(){
 		try{
-			GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-			Debug.Assert(player != null, "Cannot find PLAYER in Map");
+			//GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+            //Load Characters from Resources
+            GameObject player = (GameObject)Resources.Load("Characters/Human");
+            Debug.Assert(player != null, "Cannot find PLAYER in Map");
 			player.SetActive(false);
 
 			// Clone plater, set position and name
@@ -155,23 +157,28 @@ public class WorldClient : MonoBehaviour {
 			Debug.Assert(world != null);
 			var new_player_character = SpawnHuman(mPlayerCharacter.Name(),"Player",char_pos.position,player,world);
 			new_player_character.SetActive(true);
+            //Set Main Camera positionand make it child of Player
+            GameObject cameraObj = GameObject.FindGameObjectsWithTag("MainCamera")[0];
+            Debug.Assert(cameraObj != null, "Cannot find Camera in Map");
+            cameraObj.transform.position = new Vector3(v3pos.x, v3pos.y, -1);
+            cameraObj.transform.SetParent(new_player_character.transform);
 
- 			Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
+            Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
 			char_pos.position =  v3pos + offset;
 			var p = SpawnHuman("Haracin","Human",char_pos.position,player,world);
 			p.SetActive(true);
-
-			offset = new Vector3(-4.0f, 2.0f, 0);
+            UnityEngine.Debug.Log("HARACIN********");
+            offset = new Vector3(-4.0f, 2.0f, 0);
 			char_pos.position =  v3pos + offset;
 			var p2 = SpawnHuman("Chijiro","Human",char_pos.position,player,world);
 			p2.SetActive(true);
-
-			offset = new Vector3(2.0f, 2.0f, 0);
+            UnityEngine.Debug.Log("CHIJIRO********");
+            offset = new Vector3(2.0f, 2.0f, 0);
 			char_pos.position =  v3pos + offset;
 			var p3 = SpawnHuman("Morgolock","Human",char_pos.position,player,world);
 			p3.SetActive(true);
 
-			Destroy(player);
+			//Destroy(player);
 
 		}
 		catch (Exception e){

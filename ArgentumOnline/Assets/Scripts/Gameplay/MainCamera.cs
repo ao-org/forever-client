@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera1 : MonoBehaviour
+public class MainCamera : MonoBehaviour
 {
     //private Camera mCamera;
     // Start is called before the first frame update
@@ -23,5 +23,10 @@ public class Camera1 : MonoBehaviour
             if (Camera.main.orthographicSize < 4)
                 Camera.main.orthographicSize = 4;
         }
+    }
+
+    public void Move(Vector3 position)
+    {
+        this.transform.position = position;
     }
 }
