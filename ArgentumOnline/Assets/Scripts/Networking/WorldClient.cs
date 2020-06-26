@@ -113,10 +113,10 @@ public class WorldClient : MonoBehaviour {
 			InstantiatePlayerCharacterSprite();
 		}
     }
-	private Character InstantiatePlayerCharacterFromXml(XmlDocument xml_doc){
+	private Character InstantiateCharacterFromXml(XmlDocument xml_doc,string selectnode){
 		try{
 			var pc = gameObject.AddComponent<Character>();
-			pc.CreateFromXml(xml_doc);
+			pc.CreateFromXml(xml_doc,selectnode);
 			Debug.Log("Player Character created sucessfully!!!!!!!");
 			return pc;
 		}
@@ -125,17 +125,6 @@ public class WorldClient : MonoBehaviour {
 			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
 		}
 		return null;
-	}
-	private void InstantiateCharacterFromXml(XmlDocument doc){
-		try{
-			mPlayerCharacter = gameObject.AddComponent<Character>();
-			mPlayerCharacter.CreateFromXml(mPlayerCharacterXml);
-			Debug.Log("Player Character created sucessfully!!!!!!!");
-		}
-		catch (Exception e){
-			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
-		}
 	}
 
 	private GameObject SpawnHuman(string name, string tag, Vector3 pos, GameObject clonable, GameObject parent){
@@ -176,6 +165,7 @@ public class WorldClient : MonoBehaviour {
             cameraObj.transform.position = new Vector3(v3pos.x, v3pos.y, -1);
             cameraObj.transform.SetParent(new_player_character.transform);
 
+			/*
             Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
 			char_pos.position =  v3pos + offset;
 			var p = SpawnHuman("Haracin","Human",char_pos.position,player,world);
@@ -190,7 +180,7 @@ public class WorldClient : MonoBehaviour {
 			char_pos.position =  v3pos + offset;
 			var p3 = SpawnHuman("Morgolock","Human",char_pos.position,player,world);
 			p3.SetActive(true);
-
+			*/
 			//Destroy(player);
 
 			mSpawningPlayerCharacter = false;
@@ -203,38 +193,33 @@ public class WorldClient : MonoBehaviour {
 	}
 	void Update(){
 		try {
-			/*
-			if (mSpawnQueue.Count > 0){
-				Tuple<XmlDocument> e;
-				while(mSpawnQueue.Length>0){
-					if (mSpawnQueue.TryDequeue(out e)){
-						if(e.Item1 == "PLAY_CHARACTER_OKAY"){
-							Debug.Log("PLAY_CHARACTER_OKAY");
-							InstantiatePlayerCharacterFromXml();
-							// The PLAY_CHARACTER_OKAY process has two steps:
-							// 			First step: Load the new scene.
-							//			Second step: Spawn the Character
-							SceneManager.LoadScene(mPlayerCharacter.Position().Item1);
-							// Set the flag to true to spawn the PC after scene loading
-							mSpawningPlayerCharacter = true;
-						}
-						else if(e.Item1 == "PLAY_CHARACTER_ERROR") {
-							Debug.Log("PLAY_CHARACTER_ERROR");
-							//ShowMessageBox("PLAY_CHARACTER_OKAY_TITLE","PLAY_CHARACTER_OKAY_TEXT");
-						}
-						else{
-							Debug.Assert(false);
-						}
-					}
+			while(mSpawnQueue.Count>0){
+				XmlDocument e;
+				if (mSpawnQueue.TryDequeue(out e)){
+					 GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+					 Debug.Assert(player != null, "Cannot find PLAYER in Map");
+					 Character c = InstantiateCharacterFromXml(e,"Spawn");
+
+					 var spawn_pos = c.Position();
+					 Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
+					 Transform  char_pos = player.transform;
+		 			 char_pos.position =  v3pos;
+		 			 GameObject world = GameObject.Find("World");
+		 			 Debug.Assert(world != null);
+
+					 Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
+					 char_pos.position =  v3pos + offset;
+					 SpawnHuman(c.Name(),"Human",char_pos.position,player,world);
+
 				}
 			}
-			*/
+
 			if (mEventsQueue.Count > 0){
 				Tuple<string, string> e;
 				if (mEventsQueue.TryDequeue(out e)){
 					if(e.Item1 == "PLAY_CHARACTER_OKAY"){
 						Debug.Log("PLAY_CHARACTER_OKAY");
-						mPlayerCharacter = InstantiatePlayerCharacterFromXml(mPlayerCharacterXml);
+						mPlayerCharacter = InstantiateCharacterFromXml(mPlayerCharacterXml,"Character");
 						// The PLAY_CHARACTER_OKAY process has two steps:
 						// 			First step: Load the new scene.
 						//			Second step: Spawn the Character

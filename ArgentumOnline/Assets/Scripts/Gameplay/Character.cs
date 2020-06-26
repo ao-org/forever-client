@@ -16,8 +16,7 @@ public class Character : MonoBehaviour
     public Character(){
     }
 
-    public void CreateFromXml(XmlDocument xml_doc){
-        var selectnode = "Character";
+    public void CreateFromXml(XmlDocument xml_doc,string selectnode){
         var nodes = xml_doc.SelectNodes(selectnode);
         Debug.Assert(nodes.Count>0);
         foreach (XmlNode nod in nodes)

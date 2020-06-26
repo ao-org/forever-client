@@ -10,18 +10,18 @@ public class FogataAttack : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerLife = player.GetComponent<PlayerMovement>();
+        //playerLife = player.GetComponent<PlayerMovement>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void OnTriggerEnter2D(Collider2D col)
     {
