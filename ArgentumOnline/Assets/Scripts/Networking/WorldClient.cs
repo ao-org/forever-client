@@ -131,10 +131,10 @@ public class WorldClient : MonoBehaviour {
 		var p = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
 		p.tag = tag;
 		p.name = name;
-		//var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
-		//TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
-		//Debug.Assert(textName!=null);
-		//textName.text = name;
+		var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
+		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
+		Debug.Assert(textName!=null);
+		textName.text = name;
 		if(tag!="Player"){
 				//Destroy(p.transform.Find("MainCamera").gameObject);
 				Destroy(p.GetComponent<Movement>());
@@ -196,10 +196,11 @@ public class WorldClient : MonoBehaviour {
 			while(mSpawnQueue.Count>0){
 				XmlDocument e;
 				if (mSpawnQueue.TryDequeue(out e)){
-					 GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-					 Debug.Assert(player != null, "Cannot find PLAYER in Map");
-					 Character c = InstantiateCharacterFromXml(e,"Spawn");
+					 GameObject player = (GameObject)Resources.Load("Characters/Human");
+		             Debug.Assert(player != null, "Cannot find PLAYER in Map");
+		 			 player.SetActive(false);
 
+					 Character c = InstantiateCharacterFromXml(e,"Spawn");
 					 var spawn_pos = c.Position();
 					 Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
 					 Transform  char_pos = player.transform;
@@ -209,7 +210,9 @@ public class WorldClient : MonoBehaviour {
 
 					 Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
 					 char_pos.position =  v3pos + offset;
-					 SpawnHuman(c.Name(),"Human",char_pos.position,player,world);
+					 var x = SpawnHuman(c.Name(),"Human",char_pos.position,player,world);
+					 x.SetActive(true);
+					 //Destroy(player);
 
 				}
 			}
