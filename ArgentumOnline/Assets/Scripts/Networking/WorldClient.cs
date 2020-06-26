@@ -55,22 +55,21 @@ public class WorldClient : MonoBehaviour {
 	}
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
 		Debug.Log("ProcessSpawnCharacter");
-		/*
-        Debug.Log("encrypted_character len = " + Encoding.ASCII.GetString(encrypted_character).Length + " "  + Encoding.ASCII.GetString(encrypted_character) );
-        var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		Debug.Log("decrypted_data: " + decrypted_char);
-		//Can only be done from the main thread
+		Debug.Log("encrypted_spawn_info len = " + Encoding.ASCII.GetString(encrypted_spawn_info).Length + " "  + Encoding.ASCII.GetString(encrypted_spawn_info) );
+        var decrypted_info = CryptoHelper.Decrypt(encrypted_spawn_info,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		Debug.Log("decrypted_data: " + decrypted_info);
+
 		try{
-			mPlayerCharacterXml = new XmlDocument();
-			mPlayerCharacterXml.LoadXml(decrypted_char);
-			Debug.Log("Parsed PC XML sucessfully!!!!!!!");
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
+			//Can only be done from the main thread
+			var SpawnCharacterXml = new XmlDocument();
+			SpawnCharacterXml.LoadXml(decrypted_info);
+			Debug.Log("Parsed Spawn XML sucessfully!!!!!!!");
+			mSpawnQueue.Enqueue(SpawnCharacterXml);
 		}
 		catch (Exception e){
 			Debug.Log("Failed to parse XML charfile: " + e.Message);
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+			Debug.Assert(false);
 		}
-		*/
 		return 1;
 	}
 	public int ProcessPlayCharacterError(byte[] data){
@@ -114,9 +113,22 @@ public class WorldClient : MonoBehaviour {
 			InstantiatePlayerCharacterSprite();
 		}
     }
-	private void InstantiatePlayerCharacterFromXml(){
+	private Character InstantiatePlayerCharacterFromXml(XmlDocument xml_doc){
 		try{
-			mPlayerCharacter = gameObject.AddComponent<PlayerCharacter>();
+			var pc = gameObject.AddComponent<Character>();
+			pc.CreateFromXml(xml_doc);
+			Debug.Log("Player Character created sucessfully!!!!!!!");
+			return pc;
+		}
+		catch (Exception e){
+			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
+			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+		}
+		return null;
+	}
+	private void InstantiateCharacterFromXml(XmlDocument doc){
+		try{
+			mPlayerCharacter = gameObject.AddComponent<Character>();
 			mPlayerCharacter.CreateFromXml(mPlayerCharacterXml);
 			Debug.Log("Player Character created sucessfully!!!!!!!");
 		}
@@ -125,6 +137,7 @@ public class WorldClient : MonoBehaviour {
 			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
 		}
 	}
+
 	private GameObject SpawnHuman(string name, string tag, Vector3 pos, GameObject clonable, GameObject parent){
 		var p = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
 		p.tag = tag;
@@ -173,6 +186,8 @@ public class WorldClient : MonoBehaviour {
 
 			Destroy(player);
 
+			mSpawningPlayerCharacter = false;
+
 		}
 		catch (Exception e){
 			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
@@ -181,12 +196,38 @@ public class WorldClient : MonoBehaviour {
 	}
 	void Update(){
 		try {
+			/*
+			if (mSpawnQueue.Count > 0){
+				Tuple<XmlDocument> e;
+				while(mSpawnQueue.Length>0){
+					if (mSpawnQueue.TryDequeue(out e)){
+						if(e.Item1 == "PLAY_CHARACTER_OKAY"){
+							Debug.Log("PLAY_CHARACTER_OKAY");
+							InstantiatePlayerCharacterFromXml();
+							// The PLAY_CHARACTER_OKAY process has two steps:
+							// 			First step: Load the new scene.
+							//			Second step: Spawn the Character
+							SceneManager.LoadScene(mPlayerCharacter.Position().Item1);
+							// Set the flag to true to spawn the PC after scene loading
+							mSpawningPlayerCharacter = true;
+						}
+						else if(e.Item1 == "PLAY_CHARACTER_ERROR") {
+							Debug.Log("PLAY_CHARACTER_ERROR");
+							//ShowMessageBox("PLAY_CHARACTER_OKAY_TITLE","PLAY_CHARACTER_OKAY_TEXT");
+						}
+						else{
+							Debug.Assert(false);
+						}
+					}
+				}
+			}
+			*/
 			if (mEventsQueue.Count > 0){
 				Tuple<string, string> e;
 				if (mEventsQueue.TryDequeue(out e)){
 					if(e.Item1 == "PLAY_CHARACTER_OKAY"){
 						Debug.Log("PLAY_CHARACTER_OKAY");
-						InstantiatePlayerCharacterFromXml();
+						mPlayerCharacter = InstantiatePlayerCharacterFromXml(mPlayerCharacterXml);
 						// The PLAY_CHARACTER_OKAY process has two steps:
 						// 			First step: Load the new scene.
 						//			Second step: Spawn the Character
@@ -447,11 +488,13 @@ public class WorldClient : MonoBehaviour {
 	private MainMenu				mMainMenu;
 	private bool					mAppQuit;
 	private bool					mSpawningPlayerCharacter;
-	private PlayerCharacter 		mPlayerCharacter;
+	private Character 		mPlayerCharacter;
 	// Construct a ConcurrentQueue for Sending messages to the server
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	// Connection events queue
 	private ConcurrentQueue<Tuple<string, string>> mEventsQueue = new ConcurrentQueue<Tuple<string, string>>();
+	private ConcurrentQueue<XmlDocument> mSpawnQueue = new ConcurrentQueue<XmlDocument>();
+
 	private string mOperationUponSessionOpened = "NOOP";
 	private static Dictionary<short, Func<WorldClient, byte[], int>> ProcessFunctions
         = new Dictionary<short, Func<WorldClient, byte[], int>>

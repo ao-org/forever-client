@@ -10,10 +10,10 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Globalization;
 
-public class PlayerCharacter : MonoBehaviour
+public class Character : MonoBehaviour
 {
 
-    public PlayerCharacter(){
+    public Character(){
     }
 
     public void CreateFromXml(XmlDocument xml_doc){
