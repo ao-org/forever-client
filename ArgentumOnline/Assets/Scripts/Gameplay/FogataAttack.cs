@@ -5,11 +5,11 @@ using UnityEngine;
 public class FogataAttack : MonoBehaviour
 {
     private float EnemyDamage = 0.1f;
-    GameObject player;
-    PlayerMovement playerLife;
+    private GameObject player;
+    private PlayerMovement playerLife;
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
         //playerLife = player.GetComponent<PlayerMovement>();
     }
     // Start is called before the first frame update
@@ -27,6 +27,8 @@ public class FogataAttack : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerLife = player.GetComponent<PlayerMovement>();
             UnityEngine.Debug.Log("OnEnterCollider");
             playerLife.TakeDamage(EnemyDamage);
         }
@@ -35,6 +37,8 @@ public class FogataAttack : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerLife = player.GetComponent<PlayerMovement>();
             UnityEngine.Debug.Log("OnExitCollider");
             playerLife.QuitDamage(EnemyDamage);
         }

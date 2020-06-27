@@ -33,17 +33,18 @@ public class PlayerMovement : Movement
     private RuntimeAnimatorController mAnimatorController;
     public override void Awake()
     {
+        //DontDestroyOnLoad(this.gameObject);
         base.Awake();
         health = life;
         healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
         manaSlider = GameObject.Find("SliderMana").GetComponent<Slider>();
         mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
+        dir = Direction.South;
     }
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
-        dir = Direction.South;
         WalkRunSpeed = WalkSpeed;
         mAnimatorController = mAnimator.runtimeAnimatorController;
         if (IsPhantom)
