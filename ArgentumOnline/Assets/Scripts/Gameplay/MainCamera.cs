@@ -17,7 +17,7 @@ public class MainCamera : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") != 0f)
         {
             float delta = 1.0f; //Cambiar esta variable para acelerar o no el scroll del mouse
-            Camera.main.orthographicSize += Input.GetAxis("Mouse ScrollWheel") * delta;
+            Camera.main.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * delta;
             if (Camera.main.orthographicSize > 12)
                 Camera.main.orthographicSize = 12;
             if (Camera.main.orthographicSize < 4)
