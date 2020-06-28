@@ -21,7 +21,9 @@ public class Character : MonoBehaviour
         Debug.Assert(nodes.Count>0);
         foreach (XmlNode nod in nodes)
         {
+
             mName   = nod["name"].InnerText;
+            mUUID   = nod["uuid"].InnerText;
             Debug.Log("Name: " + mName);
             mMap = nod["position"]["map"].InnerText;
             Debug.Log("Position Map = " + mMap );
@@ -43,8 +45,11 @@ public class Character : MonoBehaviour
     public string Name(){
         return mName;
     }
-
+    public string UUID(){
+        return mUUID;
+    }
     private string mName;
+    private string mUUID;
     private Tuple<float,float> mPos;
     private string mMap;
 

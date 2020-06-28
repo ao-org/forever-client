@@ -53,6 +53,15 @@ public class WorldClient : MonoBehaviour {
 		}
 		return 1;
 	}
+	public int ProcessCharacterLeftMap(byte[] encrypted_uuid){
+		Debug.Log("ProcessCharacterLeftMap");
+		Debug.Log("encrypted_uuid len = " + Encoding.ASCII.GetString(encrypted_uuid).Length + " "  + Encoding.ASCII.GetString(encrypted_uuid) );
+        var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		Debug.Log("decrypted_data: " + decrypted_uuid);
+		mEventsQueue.Enqueue(Tuple.Create("CHARACTER_LEFT_MAP",decrypted_uuid));
+		return 1;
+	}
+
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
 		Debug.Log("ProcessSpawnCharacter");
 		Debug.Log("encrypted_spawn_info len = " + Encoding.ASCII.GetString(encrypted_spawn_info).Length + " "  + Encoding.ASCII.GetString(encrypted_spawn_info) );
@@ -127,24 +136,22 @@ public class WorldClient : MonoBehaviour {
 		return null;
 	}
 
-	private GameObject SpawnHuman(string name, string tag, Vector3 pos, GameObject clonable, GameObject parent){
+	private GameObject SpawnHuman(string uuid, string name, string tag, Vector3 pos, GameObject clonable, GameObject parent){
 		var p = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
 		p.tag = tag;
-		p.name = name;
+		p.name = uuid;
 		var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
 		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
 		Debug.Assert(textName!=null);
-		textName.text = name;
+		textName.text = name+" ["+uuid+"]";
 		if(tag!="Player"){
-				//Destroy(p.transform.Find("MainCamera").gameObject);
 				Destroy(p.GetComponent<Movement>());
 		}
 		return p;
 	}
 	private void InstantiatePlayerCharacterSprite(){
 		try{
-			//GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-            //Load Characters from Resources
+            // Load character Prefab
             GameObject player = (GameObject)Resources.Load("Characters/Human");
             Debug.Assert(player != null, "Cannot find PLAYER in Resources prefabs");
 			player.SetActive(false);
@@ -152,19 +159,14 @@ public class WorldClient : MonoBehaviour {
 			// Clone plater, set position and name
 			var pc_pos = mPlayerCharacter.Position();
 			Vector3  v3pos = new Vector3(pc_pos.Item2,pc_pos.Item3, 0);
-			//Debug.Log("char_pos.position" + char_pos.position.ToString() );
 			Transform  char_pos = player.transform;
 			char_pos.position =  v3pos;
 			GameObject world = GameObject.Find("World");
 			Debug.Assert(world != null);
-			var new_player_character = SpawnHuman(mPlayerCharacter.Name(),"Player",char_pos.position,player,world);
+			var new_player_character = SpawnHuman(mPlayerCharacter.UUID(),mPlayerCharacter.Name(),"Player",char_pos.position,player,world);
 			new_player_character.SetActive(true);
 
             //Set Main Camera positionand make it child of Player
-            /*GameObject cameraObj = GameObject.FindGameObjectsWithTag("MainCamera")[0];
-            Debug.Assert(cameraObj != null, "Cannot find Camera in Map");
-            cameraObj.transform.position = new Vector3(v3pos.x, v3pos.y, -1);
-            cameraObj.transform.SetParent(new_player_character.transform);*/
             GameObject cameraObj = (GameObject)Resources.Load("Cameras/MainCamera");
             Debug.Assert(cameraObj != null, "Cannot find Camera in Resources prefabs");
             Vector3 cameraPos = new Vector3(v3pos.x, v3pos.y, -1);
@@ -172,26 +174,8 @@ public class WorldClient : MonoBehaviour {
             mainCamera.transform.SetParent(new_player_character.transform);
             new_player_character.transform.parent = null;
             DontDestroyOnLoad(new_player_character.gameObject);
-            /*
-            Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
-			char_pos.position =  v3pos + offset;
-			var p = SpawnHuman("Haracin","Human",char_pos.position,player,world);
-			p.SetActive(true);
-            UnityEngine.Debug.Log("HARACIN********");
-            offset = new Vector3(-4.0f, 2.0f, 0);
-			char_pos.position =  v3pos + offset;
-			var p2 = SpawnHuman("Chijiro","Human",char_pos.position,player,world);
-			p2.SetActive(true);
-            UnityEngine.Debug.Log("CHIJIRO********");
-            offset = new Vector3(2.0f, 2.0f, 0);
-			char_pos.position =  v3pos + offset;
-			var p3 = SpawnHuman("Morgolock","Human",char_pos.position,player,world);
-			p3.SetActive(true);
-			*/
-            //Destroy(player);
 
             mSpawningPlayerCharacter = false;
-
 		}
 		catch (Exception e){
 			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
@@ -217,10 +201,8 @@ public class WorldClient : MonoBehaviour {
 
 					 Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
 					 char_pos.position =  v3pos + offset;
-					 var x = SpawnHuman(c.Name(),"Human",char_pos.position,player,world);
+					 var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world);
 					 x.SetActive(true);
-					 //Destroy(player);
-
 				}
 			}
 
@@ -236,6 +218,13 @@ public class WorldClient : MonoBehaviour {
 						SceneManager.LoadScene(mPlayerCharacter.Position().Item1);
 						// Set the flag to true to spawn the PC after scene loading
 						mSpawningPlayerCharacter = true;
+					}
+					else if(e.Item1 == "CHARACTER_LEFT_MAP") {
+						Debug.Log("CHARACTER_LEFT_MAP");
+						 var remove_char = GameObject.Find(e.Item2);
+						 Debug.Assert(remove_char!=null);
+						 remove_char.SetActive(false);
+						 Destroy(remove_char);
 					}
 					else if(e.Item1 == "PLAY_CHARACTER_ERROR") {
 						Debug.Log("PLAY_CHARACTER_ERROR");
@@ -503,7 +492,8 @@ public class WorldClient : MonoBehaviour {
     {
 		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_OKAY"], (@this, x) => @this.ProcessPlayCharacterOkay(x) },
 		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_ERROR"], (@this, x) => @this.ProcessPlayCharacterError(x) },
-		{ ProtoBase.ProtocolNumbers["SPAWN_CHARACTER"], (@this, x) => @this.ProcessSpawnCharacter(x) }
+		{ ProtoBase.ProtocolNumbers["SPAWN_CHARACTER"], (@this, x) => @this.ProcessSpawnCharacter(x) },
+		{ ProtoBase.ProtocolNumbers["CHARACTER_LEFT_MAP"], (@this, x) => @this.ProcessCharacterLeftMap(x) }
     };
 	private XmlDocument				mPlayerCharacterXml;
 
