@@ -27,12 +27,16 @@ public class OnEnterLoadScene : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         UnityEngine.Debug.Log("OnEnterLoadScene " + col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-        if(col.CompareTag("Player")){
-            SceneManager.LoadScene(scene);
+        if (col.CompareTag("Player"))
+        {
+            
             GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-            UnityEngine.Debug.Assert(player!=null);
+            UnityEngine.Debug.Assert(player != null);
+            PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
+            playerScript.Start();
+            UnityEngine.Debug.Assert(player != null);
 
-            if(!lockx){
+            /*if (!lockx){
                 float x = float.Parse(teleport_x);
                 WarpingDestination.teleport_x = x;
             }
@@ -46,12 +50,48 @@ public class OnEnterLoadScene : MonoBehaviour
             else {
                 WarpingDestination.teleport_y = player.transform.position.y;
             }
+            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -1);
             UnityEngine.Debug.Log("Teleporting player to x:" + WarpingDestination.teleport_x + " y:" + WarpingDestination.teleport_y);
             WarpingDestination.direction= player.GetComponent<Movement>().GetDirection();
             WarpingDestination.warping = true;
         }
         else {
             UnityEngine.Debug.Log("Error! No puedo encontrar el tag PLAYER!");
+        }*/
+            Vector3 newPos = new Vector3(0, 0, 0);
+            if (!lockx)
+            {
+                float x = float.Parse(teleport_x);
+                newPos.x = x;
+                UnityEngine.Debug.Log("TELEPORT X: " + newPos.x.ToString());
+            }
+            else
+            {
+                newPos.x = player.transform.position.x;
+                UnityEngine.Debug.Log("TELEPORT X (Locked): " + newPos.x.ToString());
+            }
+            if (!locky)
+            {
+                float y = float.Parse(teleport_y);
+                newPos.y = y;
+                UnityEngine.Debug.Log("TELEPORT Y: " + newPos.y.ToString());
+            }
+            else
+            {
+                newPos.y = player.transform.position.y;
+                UnityEngine.Debug.Log("TELEPORT Y (Locked): " + newPos.y.ToString());
+            }
+            UnityEngine.Debug.Log("TELEPORT X Y: " + player.transform.position.x.ToString() + player.transform.position.y.ToString());
+            UnityEngine.Debug.Log("Scene Name: " + scene);
+            //SceneManager.LoadScene(scene);
+            player.transform.position = new Vector3(newPos.x, newPos.y, 0);
+            SceneManager.LoadScene(scene);
+            UnityEngine.Debug.Log("TELEPORT X Y: " + player.transform.position.x.ToString() + player.transform.position.y.ToString());
+            
+            UnityEngine.Debug.Log("Teleporting player to x:" + WarpingDestination.teleport_x + " y:" + WarpingDestination.teleport_y);
+            WarpingDestination.direction = player.GetComponent<PlayerMovement>().GetDirection();
+            WarpingDestination.warping = true;
+            
         }
     }
 }

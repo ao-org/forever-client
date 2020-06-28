@@ -37,8 +37,12 @@ public class PlayerMovement : Movement
         base.Awake();
         health = life;
         healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
+        UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
         manaSlider = GameObject.Find("SliderMana").GetComponent<Slider>();
+        UnityEngine.Debug.Assert(manaSlider != null, "Cannot find Mana Slider in Player");
         mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
+        UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
+        //mAnimatorController = mAnimator.runtimeAnimatorController;
         dir = Direction.South;
     }
     // Start is called before the first frame update
@@ -46,13 +50,16 @@ public class PlayerMovement : Movement
     {
         base.Start();
         WalkRunSpeed = WalkSpeed;
-        mAnimatorController = mAnimator.runtimeAnimatorController;
+        
+        
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
             healthSlider.gameObject.SetActive(false);
             manaSlider.gameObject.SetActive(false);
         }
+        else
+            mAnimatorController = mAnimator.runtimeAnimatorController;
     }
     private bool TryToMove(Vector3 pos)
     {
@@ -151,7 +158,13 @@ public class PlayerMovement : Movement
         {
             if (IsPhantom)
             {
+                if (mAnimatorController != null) { UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name); }
+                //UnityEngine.Debug.Log("Player Update: " + mPhantomAnimatorController.name);
+                else
+                    UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
+
                 mAnimator.runtimeAnimatorController = mAnimatorController;
+
                 PlayAnimation("Stand");
                 isDead = false;
                 running = false;
