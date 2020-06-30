@@ -61,7 +61,26 @@ public class WorldClient : MonoBehaviour {
 		mEventsQueue.Enqueue(Tuple.Create("CHARACTER_LEFT_MAP",decrypted_uuid));
 		return 1;
 	}
+	static byte[] SliceArray(byte[] source,int offset, int length)
+	{
+    	var destfoo = new byte[length];
+    	Array.Copy(source, offset, destfoo, 0, length);
+    	return destfoo;
+	}
 
+	public int ProcessCharacterMoved(byte[] encrypted_data){
+		Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterMoved");
+		var uuid_len = ProtoBase.DecodeShort(SliceArray(encrypted_data,0,2));
+		var encrypted_uuid = SliceArray(encrypted_data,2,uuid_len);
+		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
+		var nxny_len = ProtoBase.DecodeShort(SliceArray(encrypted_data,2+uuid_len,2));
+		var encrypted_nxny = SliceArray(encrypted_data,4+uuid_len,nxny_len);
+		Debug.Log(">>>>>>>>>>>>>>>>>>Decoding and decrypting nxny");
+
+
+		return 1;
+	}
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
 		Debug.Log("ProcessSpawnCharacter");
 		Debug.Log("encrypted_spawn_info len = " + Encoding.ASCII.GetString(encrypted_spawn_info).Length + " "  + Encoding.ASCII.GetString(encrypted_spawn_info) );
@@ -499,7 +518,8 @@ public class WorldClient : MonoBehaviour {
 		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_OKAY"], (@this, x) => @this.ProcessPlayCharacterOkay(x) },
 		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_ERROR"], (@this, x) => @this.ProcessPlayCharacterError(x) },
 		{ ProtoBase.ProtocolNumbers["SPAWN_CHARACTER"], (@this, x) => @this.ProcessSpawnCharacter(x) },
-		{ ProtoBase.ProtocolNumbers["CHARACTER_LEFT_MAP"], (@this, x) => @this.ProcessCharacterLeftMap(x) }
+		{ ProtoBase.ProtocolNumbers["CHARACTER_LEFT_MAP"], (@this, x) => @this.ProcessCharacterLeftMap(x) },
+		{ ProtoBase.ProtocolNumbers["CHARACTER_MOVED"], (@this, x) => @this.ProcessCharacterMoved(x) }
     };
 	private XmlDocument				mPlayerCharacterXml;
 
