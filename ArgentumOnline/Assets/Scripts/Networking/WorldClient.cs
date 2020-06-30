@@ -184,7 +184,7 @@ public class WorldClient : MonoBehaviour {
 	}
 	void Update(){
 		try {
-			while(mSpawnQueue.Count>0){
+			while(mSpawnQueue.Count>0 && !mSpawningPlayerCharacter){
 				XmlDocument e;
 				if (mSpawnQueue.TryDequeue(out e)){
 					 GameObject player = (GameObject)Resources.Load("Characters/Human");
@@ -211,13 +211,14 @@ public class WorldClient : MonoBehaviour {
 				if (mEventsQueue.TryDequeue(out e)){
 					if(e.Item1 == "PLAY_CHARACTER_OKAY"){
 						Debug.Log("PLAY_CHARACTER_OKAY");
+						mSpawningPlayerCharacter = true;
 						mPlayerCharacter = InstantiateCharacterFromXml(mPlayerCharacterXml,"Character");
 						// The PLAY_CHARACTER_OKAY process has two steps:
 						// 			First step: Load the new scene.
 						//			Second step: Spawn the Character
 						SceneManager.LoadScene(mPlayerCharacter.Position().Item1);
 						// Set the flag to true to spawn the PC after scene loading
-						mSpawningPlayerCharacter = true;
+
 					}
 					else if(e.Item1 == "CHARACTER_LEFT_MAP") {
 						Debug.Log("CHARACTER_LEFT_MAP");

@@ -78,7 +78,9 @@ public class ProtoBase
 							{"PLAY_CHARACTER_OKAY" 	, unchecked((short)0xF002)},
 							{"PLAY_CHARACTER_ERROR"	, unchecked((short)0xF003)},
 							{"SPAWN_CHARACTER"		, unchecked((short)0xF004)},
-							{"CHARACTER_LEFT_MAP"	, unchecked((short)0xF005)}
+							{"CHARACTER_LEFT_MAP"	, unchecked((short)0xF005)},
+							{"CHARACTER_MOVE_REQ"	, unchecked((short)0xF006)},
+							{"CHARACTER_MOVED"		, unchecked((short)0xF007)}
 
 						};
 

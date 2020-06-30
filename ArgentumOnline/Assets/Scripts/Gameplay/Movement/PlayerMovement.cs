@@ -50,8 +50,8 @@ public class PlayerMovement : Movement
     {
         base.Start();
         WalkRunSpeed = WalkSpeed;
-        
-        
+
+
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
@@ -70,6 +70,7 @@ public class PlayerMovement : Movement
         }
         else
         {
+            var p = new ProtoMoveRequest(pos, CryptoHelper.Token);
             mBody.MovePosition(pos);
             return true;
         }
@@ -131,7 +132,7 @@ public class PlayerMovement : Movement
                 manaSlider.gameObject.SetActive(false);
                 return;
             }
-            
+
         }
 
         if (IsAnimationPlaying("Attack"))
@@ -333,5 +334,5 @@ public class PlayerMovement : Movement
     {
         return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
     }
-    
+
 }
