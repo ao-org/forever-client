@@ -31,6 +31,8 @@ public class PlayerMovement : Movement
     public Slider manaSlider;
     private RuntimeAnimatorController mPhantomAnimatorController;
     private RuntimeAnimatorController mAnimatorController;
+    private WorldClient mWorldClient;
+
     public override void Awake()
     {
         //DontDestroyOnLoad(this.gameObject);
@@ -42,6 +44,8 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(manaSlider != null, "Cannot find Mana Slider in Player");
         mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
+        mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
+        UnityEngine.Debug.Assert(mWorldClient != null);
         //mAnimatorController = mAnimator.runtimeAnimatorController;
         dir = Direction.South;
     }
@@ -70,7 +74,7 @@ public class PlayerMovement : Movement
         }
         else
         {
-            var p = new ProtoMoveRequest(pos, CryptoHelper.Token);
+            mWorldClient.OnPlayerMoved(pos);
             mBody.MovePosition(pos);
             return true;
         }

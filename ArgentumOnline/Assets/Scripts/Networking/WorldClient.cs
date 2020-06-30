@@ -286,7 +286,12 @@ public class WorldClient : MonoBehaviour {
 			OnConnectionError("Error", "CreateListenWorkload");
 		}
 	}
-
+	public void OnPlayerMoved(Vector3 newpos)
+	{
+	   Debug.Log("WorldServer::OnPlayerMoved!!!");
+	   var p = new ProtoMoveRequest(newpos, CryptoHelper.Token);
+	   SendMessage(p);
+	}
    	private void OnConnectionEstablished()
    	{
 	   Debug.Log("WorldServer::OnConnectionEstablished!!!");

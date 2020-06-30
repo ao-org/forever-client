@@ -1,7 +1,6 @@
 /*
-		Copyright 2020, Pablo Ignacio Marquez Tello aka Morgolock, All rights reserved.
-		Argentum Online Clasico
-		noland.studios@gmail.com
+		Argentum Forever - Copyright 2020, Pablo Ignacio Marquez Tello aka Morgolock, All rights reserved.
+		gulfas@gmail.com
 */
 using System;
 using System.Collections;
@@ -110,7 +109,7 @@ public class CryptoHelper
 			//TODO: Add mutex to ensure thread safety
 			Debug.Assert(plainText.Length>0);
 			Debug.Assert(Key.Length>0);
-			Debug.Log("Encrypt plainText= " +plainText + " len " + plainText.Length);
+			//Debug.Log("Encrypt plainText= " +plainText + " len " + plainText.Length);
             // Check arguments.
             if (plainText == null || plainText.Length <= 0)
                 throw new ArgumentNullException("plainText");
@@ -144,7 +143,7 @@ public class CryptoHelper
                     }
                 }
             }
-			Debug.Log("encrypted.length = " + encrypted.Length);
+			//Debug.Log("encrypted.length = " + encrypted.Length);
             return EncryptBase64(encrypted);
 		}
 }
