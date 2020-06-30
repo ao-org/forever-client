@@ -76,9 +76,16 @@ public class WorldClient : MonoBehaviour {
 		Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
 		var nxny_len = ProtoBase.DecodeShort(SliceArray(encrypted_data,2+uuid_len,2));
 		var encrypted_nxny = SliceArray(encrypted_data,4+uuid_len,nxny_len);
-		Debug.Log(">>>>>>>>>>>>>>>>>>Decoding and decrypting nxny");
 
 
+		string decrypted_nxny = CryptoHelper.Decrypt(encrypted_nxny,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		Debug.Log(">>>>>>>>>>>>>len decryption " + decrypted_nxny.Length);
+		Debug.Log(">>>>>>>>>>>>>>>>>>decrypted_nxny: " + decrypted_nxny + " length = " + decrypted_nxny.Length);
+		//Debug.Log(">>>>>>>>>>>>>>>>>>>>> decode64: " + CryptoHelper.DecryptBase64(Encoding.UTF8.GetBytes("MzOjQAAAAEA=")));
+		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
+		//Debug.Log(">>>>>>>>>>>> " + Encoding.ASCII.GetString(Encoding.UTF8.GetBytes(decrypted_nxny)));
+		//var b64decoded_nxny = CryptoHelper.DecryptBase64(Encoding.UTF8.GetBytes(decrypted_nxny+"="));
+		Debug.Log(">>>>>>>>>>>>>>>>>>b64decoded_nxny: " + base64_decoded_array);
 		return 1;
 	}
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
@@ -433,6 +440,7 @@ public class WorldClient : MonoBehaviour {
 		catch(Exception e){
 			Debug.Log("Socket exception: " + e);
 			//OnConnectionError(e);
+			throw e;
 		}
 
 		Debug.Log("WorldClient::ListenForDataWorkload finished");

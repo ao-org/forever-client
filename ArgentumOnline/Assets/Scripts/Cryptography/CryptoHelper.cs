@@ -20,7 +20,7 @@ public class CryptoHelper
 		public static string Token = null;
 
 		public static byte[] PadArray(byte[] array){
-			if((array.Length%16)!=0){
+			if( (array.Length%16)!=0){
 				Array.Resize(ref array, array.Length + 100);
 			}
 			return array;
@@ -98,8 +98,14 @@ public class CryptoHelper
 
 				}
 			}
-			plaintext = System.Text.Encoding.ASCII.GetString(buffer);
-			Debug.Log("plaintext " + plaintext);
+			//
+			// remove zeros padding which were added in the call above PadArray(base64_decoded_array);
+			byte[] final_buffer = new byte[size_base64_decoded_array];
+			Array.Copy(buffer, 0, final_buffer, 0, final_buffer.Length);
+	    	plaintext = System.Text.Encoding.ASCII.GetString(final_buffer);
+
+			//plaintext = System.Text.Encoding.ASCII.GetString(buffer);
+			//Debug.Log("plaintext " + plaintext);
 			return plaintext;
 		}
 
