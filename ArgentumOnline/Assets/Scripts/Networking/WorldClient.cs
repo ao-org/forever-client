@@ -74,9 +74,10 @@ public class WorldClient : MonoBehaviour {
 		Debug.Log(">>>>>>>>>>>>>len decryption " + decrypted_nxny.Length);
 		Debug.Log(">>>>>>>>>>>>>>>>>>decrypted_nxny: " + decrypted_nxny + " length = " + decrypted_nxny.Length);
 		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
-		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0); //SliceArray(base64_decoded_array,0,4);
-		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4); //SliceArray(base64_decoded_array,4,4);
+		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
+		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
 		Debug.Log(">>>>>>>>>>>>>>>>>> nx: " + nx + " ny: " + ny);
+		mMovementsQueue.Enqueue(Tuple.Create(decrypted_uuid,nx,ny));
 		return 1;
 	}
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
@@ -111,6 +112,7 @@ public class WorldClient : MonoBehaviour {
 		mIncommingData = new List<byte>();
 		mAppQuit = false;
 		mSpawningPlayerCharacter = false;
+		mSceneLoaded = false;
 	}
 	public void SetMainMenu(MainMenu m){
 		Debug.Assert(m!=null);
@@ -137,6 +139,7 @@ public class WorldClient : MonoBehaviour {
 			//Second step PLAY_CHARACTER_OKAY
 			Debug.Log("Must spawn Player Character");
 			InstantiatePlayerCharacterSprite();
+			mSceneLoaded = true;
 		}
     }
 	private Character InstantiateCharacterFromXml(XmlDocument xml_doc,string selectnode){
@@ -163,6 +166,7 @@ public class WorldClient : MonoBehaviour {
 		textName.text = name+" ["+uuid+"]";
 		if(tag!="Player"){
 				Destroy(p.GetComponent<Movement>());
+				p.AddComponent<CharacterMovement>();
 		}
 		return p;
 	}
@@ -201,7 +205,7 @@ public class WorldClient : MonoBehaviour {
 	}
 	void Update(){
 		try {
-			while(mSpawnQueue.Count>0 && !mSpawningPlayerCharacter){
+			while(mSpawnQueue.Count>0 && mSceneLoaded){
 				XmlDocument e;
 				if (mSpawnQueue.TryDequeue(out e)){
 					 GameObject player = (GameObject)Resources.Load("Characters/Human");
@@ -216,8 +220,8 @@ public class WorldClient : MonoBehaviour {
 		 			 GameObject world = GameObject.Find("World");
 		 			 Debug.Assert(world != null);
 
-					 Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
-					 char_pos.position =  v3pos + offset;
+					 //Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
+					 char_pos.position =  v3pos; // + offset;
 					 var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world);
 					 x.SetActive(true);
 				}
@@ -253,6 +257,19 @@ public class WorldClient : MonoBehaviour {
 					}
 				}
 			}
+
+			if (mMovementsQueue.Count>0 && !mSpawningPlayerCharacter){
+				Tuple<string, float,float> e;
+				if (mMovementsQueue.TryDequeue(out e)){
+					GameObject pc = GameObject.Find(e.Item1);
+					Debug.Assert(pc!=null);
+					var p = pc.GetComponent<CharacterMovement>();
+					Debug.Assert(p!=null);
+					Debug.Log("Movement ("+ e.Item1+") x="+e.Item2 + " y="+e.Item3 );
+				}
+			}
+
+
 		}
 		catch (Exception e) {
 			Debug.Log("Failed to read events" + e.Message);
@@ -503,11 +520,13 @@ public class WorldClient : MonoBehaviour {
 	private MainMenu				mMainMenu;
 	private bool					mAppQuit;
 	private bool					mSpawningPlayerCharacter;
+	private bool					mSceneLoaded;
 	private Character 		mPlayerCharacter;
 	// Construct a ConcurrentQueue for Sending messages to the server
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	// Connection events queue
 	private ConcurrentQueue<Tuple<string, string>> mEventsQueue = new ConcurrentQueue<Tuple<string, string>>();
+	private ConcurrentQueue<Tuple<string, float,float>> mMovementsQueue = new ConcurrentQueue<Tuple<string, float,float>>();
 	private ConcurrentQueue<XmlDocument> mSpawnQueue = new ConcurrentQueue<XmlDocument>();
 
 	private string mOperationUponSessionOpened = "NOOP";
