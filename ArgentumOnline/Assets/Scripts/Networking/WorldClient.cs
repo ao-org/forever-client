@@ -61,31 +61,22 @@ public class WorldClient : MonoBehaviour {
 		mEventsQueue.Enqueue(Tuple.Create("CHARACTER_LEFT_MAP",decrypted_uuid));
 		return 1;
 	}
-	static byte[] SliceArray(byte[] source,int offset, int length)
-	{
-    	var destfoo = new byte[length];
-    	Array.Copy(source, offset, destfoo, 0, length);
-    	return destfoo;
-	}
 
 	public int ProcessCharacterMoved(byte[] encrypted_data){
 		Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterMoved");
-		var uuid_len = ProtoBase.DecodeShort(SliceArray(encrypted_data,0,2));
-		var encrypted_uuid = SliceArray(encrypted_data,2,uuid_len);
+		var uuid_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,0,2));
+		var encrypted_uuid = ProtoBase.SliceArray(encrypted_data,2,uuid_len);
 		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
-		var nxny_len = ProtoBase.DecodeShort(SliceArray(encrypted_data,2+uuid_len,2));
-		var encrypted_nxny = SliceArray(encrypted_data,4+uuid_len,nxny_len);
-
-
+		var nxny_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,2+uuid_len,2));
+		var encrypted_nxny = ProtoBase.SliceArray(encrypted_data,4+uuid_len,nxny_len);
 		string decrypted_nxny = CryptoHelper.Decrypt(encrypted_nxny,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log(">>>>>>>>>>>>>len decryption " + decrypted_nxny.Length);
 		Debug.Log(">>>>>>>>>>>>>>>>>>decrypted_nxny: " + decrypted_nxny + " length = " + decrypted_nxny.Length);
-		//Debug.Log(">>>>>>>>>>>>>>>>>>>>> decode64: " + CryptoHelper.DecryptBase64(Encoding.UTF8.GetBytes("MzOjQAAAAEA=")));
 		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
-		//Debug.Log(">>>>>>>>>>>> " + Encoding.ASCII.GetString(Encoding.UTF8.GetBytes(decrypted_nxny)));
-		//var b64decoded_nxny = CryptoHelper.DecryptBase64(Encoding.UTF8.GetBytes(decrypted_nxny+"="));
-		Debug.Log(">>>>>>>>>>>>>>>>>>b64decoded_nxny: " + base64_decoded_array);
+		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0); //SliceArray(base64_decoded_array,0,4);
+		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4); //SliceArray(base64_decoded_array,4,4);
+		Debug.Log(">>>>>>>>>>>>>>>>>> nx: " + nx + " ny: " + ny);
 		return 1;
 	}
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){

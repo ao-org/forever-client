@@ -131,5 +131,11 @@ public class ProtoBase
 		short i = System.Net.IPAddress.NetworkToHostOrder(in_as_short);
 		return i;
 	}
+	static public byte[] SliceArray(byte[] source,int offset, int length)
+	{
+		var dst = new byte[length];
+		Array.Copy(source, offset, dst, 0, length);
+		return dst;
+	}
 	static public void print_bytes(byte[] array){}
 }
