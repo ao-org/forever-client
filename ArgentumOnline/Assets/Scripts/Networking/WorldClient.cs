@@ -258,7 +258,7 @@ public class WorldClient : MonoBehaviour {
 				}
 			}
 
-			if (mMovementsQueue.Count>0 && !mSpawningPlayerCharacter){
+			while (mMovementsQueue.Count>0 && !mSpawningPlayerCharacter){
 				Tuple<string, float,float> e;
 				if (mMovementsQueue.TryDequeue(out e)){
 					GameObject pc = GameObject.Find(e.Item1);
