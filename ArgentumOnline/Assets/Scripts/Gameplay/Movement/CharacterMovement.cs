@@ -31,8 +31,13 @@ public class CharacterMovement : Movement
     public Slider manaSlider;
     private RuntimeAnimatorController mPhantomAnimatorController;
     private RuntimeAnimatorController mAnimatorController;
-    private WorldClient mWorldClient;
 
+    private Queue<Tuple<float,float>> mMovementsQueue = new Queue<Tuple<float,float>>();
+
+
+    public void PushMovement(Tuple<float,float> newpos){
+        mMovementsQueue.Enqueue(newpos);
+    }
     public override void Awake()
     {
         //DontDestroyOnLoad(this.gameObject);
@@ -44,9 +49,6 @@ public class CharacterMovement : Movement
         UnityEngine.Debug.Assert(manaSlider != null, "Cannot find Mana Slider in Player");
         mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
-        mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
-        UnityEngine.Debug.Assert(mWorldClient != null);
-        //mAnimatorController = mAnimator.runtimeAnimatorController;
         dir = Direction.South;
     }
     // Start is called before the first frame update
@@ -74,7 +76,6 @@ public class CharacterMovement : Movement
         }
         else
         {
-            mWorldClient.OnPlayerMoved(pos);
             mBody.MovePosition(pos);
             return true;
         }
@@ -143,68 +144,23 @@ public class CharacterMovement : Movement
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (!IsPhantom)
-            {
-                PlayAnimation("Dead");
-                healthSlider.value = 0;
-                isDead = true;
-                return;
-            }
 
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            PlayAnimation("Attack");
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            if (IsPhantom)
-            {
-                if (mAnimatorController != null) { UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name); }
-                //UnityEngine.Debug.Log("Player Update: " + mPhantomAnimatorController.name);
-                else
-                    UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
+        if (mMovementsQueue.Count > 0){
+            Tuple<float,float> e = mMovementsQueue.Dequeue();
+            var old_pos = transform.position;
+            var new_pos = new Vector3(e.Item1,e.Item2,old_pos.z);
+            var delta = new_pos-old_pos;
+            UnityEngine.Debug.Log("delta : x=" + delta.x + " y="+ delta.y );
 
-                mAnimator.runtimeAnimatorController = mAnimatorController;
 
-                PlayAnimation("Stand");
-                isDead = false;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-                health = life;
-                IsPhantom = false;
-                healthSlider.gameObject.SetActive(true);
-                manaSlider.gameObject.SetActive(true);
-                healthSlider.value = life;
-                return;
-            }
-        }
 
-        bool RightArrowPressed = Input.GetKey(KeyCode.RightArrow);
-        bool LeftArrowPressed = Input.GetKey(KeyCode.LeftArrow);
-        bool UpArrowPressed = Input.GetKey(KeyCode.UpArrow);
-        bool DownArrowPressed = Input.GetKey(KeyCode.DownArrow);
+        bool RightArrowPressed  = delta.x>0.0f;
+        bool LeftArrowPressed   = delta.x<0.0f;
+        bool UpArrowPressed     = delta.y<0.0f;
+        bool DownArrowPressed   = delta.y>0.0f;
         bool Moving = RightArrowPressed || LeftArrowPressed || UpArrowPressed || DownArrowPressed;
 
 
-
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (running)
-            {
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-            }
-            else
-            {
-                running = true;
-                WalkRunSpeed = WalkSpeed * runDelta;
-            }
-        }
 
         // NorthEast
         if (RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
@@ -214,8 +170,8 @@ public class CharacterMovement : Movement
                 mAnimator.Play("RunNoreste");
             else
                 mAnimator.Play("WalkNoreste");
-            Vector3 newpos = transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta;
-            TryToMove(newpos);
+            //Vector3 newpos = transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta;
+            TryToMove(new_pos);
         }
         else // North
       if (!RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
@@ -225,7 +181,7 @@ public class CharacterMovement : Movement
                 mAnimator.Play("RunNorte");
             else
                 mAnimator.Play("WalkNorte");
-            TryToMove(transform.position + Vector3.up * WalkRunSpeed * Time.deltaTime);
+            TryToMove(new_pos/*transform.position + Vector3.up * WalkRunSpeed * Time.deltaTime*/);
         }
         else // South
       if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed)
@@ -235,8 +191,8 @@ public class CharacterMovement : Movement
                 mAnimator.Play("RunSur");
             else
                 mAnimator.Play("WalkSur");
-            Vector3 newpos = transform.position + Vector3.down * WalkRunSpeed * Time.deltaTime;
-            TryToMove(newpos);
+            //Vector3 newpos = transform.position + Vector3.down * WalkRunSpeed * Time.deltaTime;
+            TryToMove(new_pos);
         }
         else // SouthEast
       if (RightArrowPressed && DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
@@ -246,7 +202,7 @@ public class CharacterMovement : Movement
                 mAnimator.Play("RunSureste");
             else
                 mAnimator.Play("WalkSureste");
-            TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
+            TryToMove(new_pos);
         }
         else
       if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
@@ -256,7 +212,7 @@ public class CharacterMovement : Movement
                 mAnimator.Play("RunEste");
             else
                 mAnimator.Play("WalkEste");
-            TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime);
+            TryToMove(new_pos);
         }
         else
       if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
@@ -266,7 +222,7 @@ public class CharacterMovement : Movement
                 mAnimator.Play("RunOeste");
             else
                 mAnimator.Play("WalkOeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime);
+            TryToMove(new_pos);
         }
         else
       if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
@@ -276,7 +232,7 @@ public class CharacterMovement : Movement
                 mAnimator.Play("RunNoroeste");
             else
                 mAnimator.Play("WalkNoroeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
+            TryToMove(new_pos);
         }
         else
       if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed)
@@ -286,13 +242,15 @@ public class CharacterMovement : Movement
                 mAnimator.Play("RunSuroeste");
             else
                 mAnimator.Play("WalkSuroeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
+            TryToMove(new_pos);
         }
+
 
         if (!Moving)
         {
             PlayAnimation("Stand");
         }
+    }
 
 
     }

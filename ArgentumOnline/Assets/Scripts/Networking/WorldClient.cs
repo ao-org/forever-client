@@ -266,6 +266,7 @@ public class WorldClient : MonoBehaviour {
 					var p = pc.GetComponent<CharacterMovement>();
 					Debug.Assert(p!=null);
 					Debug.Log("Movement ("+ e.Item1+") x="+e.Item2 + " y="+e.Item3 );
+					p.PushMovement(Tuple.Create(e.Item2,e.Item3));
 				}
 			}
 
