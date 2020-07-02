@@ -13,6 +13,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovement : Movement
 {
@@ -24,11 +25,14 @@ public class PlayerMovement : Movement
     private bool isDead = false;
     private int life = 100;
     private float health;
+    private Vector3 scaleHuman;
     private bool takeDamage = false;
     public bool IsPhantom;
     private float damageValue = 0f;
     public Slider healthSlider;
     public Slider manaSlider;
+    private TextMeshProUGUI textToHead;
+    private TextMeshProUGUI textName;
     private RuntimeAnimatorController mPhantomAnimatorController;
     private RuntimeAnimatorController mAnimatorController;
     private WorldClient mWorldClient;
@@ -42,10 +46,14 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
         manaSlider = GameObject.Find("SliderMana").GetComponent<Slider>();
         UnityEngine.Debug.Assert(manaSlider != null, "Cannot find Mana Slider in Player");
+        textToHead = GameObject.Find("TextToHead").GetComponent<TextMeshProUGUI>();
+        UnityEngine.Debug.Assert(textToHead != null, "Cannot find Text To Head in Player");
+        textName = GameObject.Find("TextName").GetComponent<TextMeshProUGUI>();
+        UnityEngine.Debug.Assert(textName != null, "Cannot find Text Name in Player");
         mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
-        mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
-        UnityEngine.Debug.Assert(mWorldClient != null);
+        //mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
+        //UnityEngine.Debug.Assert(mWorldClient != null);
         //mAnimatorController = mAnimator.runtimeAnimatorController;
         dir = Direction.South;
     }
@@ -55,15 +63,18 @@ public class PlayerMovement : Movement
         base.Start();
         WalkRunSpeed = WalkSpeed;
 
-
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
             healthSlider.gameObject.SetActive(false);
             manaSlider.gameObject.SetActive(false);
+            textToHead.gameObject.SetActive(false);
         }
         else
+        {
+            scaleHuman = this.transform.localScale;
             mAnimatorController = mAnimator.runtimeAnimatorController;
+        }
     }
     private bool TryToMove(Vector3 pos)
     {
@@ -74,7 +85,7 @@ public class PlayerMovement : Movement
         }
         else
         {
-            mWorldClient.OnPlayerMoved(pos);
+            //mWorldClient.OnPlayerMoved(pos);
             mBody.MovePosition(pos);
             return true;
         }
@@ -134,6 +145,10 @@ public class PlayerMovement : Movement
                 WalkRunSpeed = WalkSpeed;
                 healthSlider.gameObject.SetActive(false);
                 manaSlider.gameObject.SetActive(false);
+                textToHead.gameObject.SetActive(false);
+                textName.transform.localScale = new Vector3(2.4f,2.4f, 1);
+                this.transform.localScale = new Vector3(1, 1, 1);
+                
                 return;
             }
 
@@ -178,6 +193,9 @@ public class PlayerMovement : Movement
                 IsPhantom = false;
                 healthSlider.gameObject.SetActive(true);
                 manaSlider.gameObject.SetActive(true);
+                textToHead.gameObject.SetActive(true);
+                textName.transform.localScale = new Vector3(1.6f, 1.6f, 1);
+                this.transform.localScale =scaleHuman;
                 healthSlider.value = life;
                 return;
             }
