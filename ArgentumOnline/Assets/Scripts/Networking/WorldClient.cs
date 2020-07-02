@@ -376,7 +376,8 @@ public class WorldClient : MonoBehaviour {
 			StopNetworkWorkloads();
     }
 	private void ListenForDataWorkload() {
-		try {
+		try
+		{
 			mSocket = new TcpClient();
 			mSocket.LingerState = new LingerOption(true,0);
 			//mSocket.ReceiveTimeout = 1000;
@@ -400,21 +401,26 @@ public class WorldClient : MonoBehaviour {
 										// Copy the bytes received from the network to the array incommingData
 										var incommingData = new byte[length];
 										Array.Copy(bytes, 0, incommingData, 0, length);
-										Debug.Log("Read " + length + " bytes from server. " + incommingData + "{" + incommingData + "}");
+										//Debug.Log("Read " + length + " bytes from server. " + incommingData + "{" + incommingData + "}");
 										// Apprend the bytes to any excisting data previously received
 										mIncommingData.AddRange(incommingData);
 										//Attempt to build as many packets and process them
-										bool failed_to_build_packet = false;
+										//bool failed_to_build_packet = false;
 										// We consume the packets
-										while( mIncommingData.Count>=4 && !failed_to_build_packet){
+										while( mIncommingData.Count>=4 /*&& !failed_to_build_packet*/){
 											var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
 											//Debug.Log(" msg_size len " + msg_size.Length);
 											var header	 	= mIncommingData.GetRange(0, 2).ToArray();
 											short decoded_size = ProtoBase.DecodeShort(msg_size);
+											if(decoded_size>mIncommingData.Count )
+											{
+												// not enough bytes to build packet
+												break;
+											}
 											//Debug.Log(" Msg_size: " + decoded_size);
 											short message_id = ProtoBase.DecodeShort(header);
 											//Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
-											failed_to_build_packet = (decoded_size > 1024);
+											//failed_to_build_packet = (decoded_size > 1024);
 											//Drop the heade and size fields
 											var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();
 											mIncommingData.RemoveRange(0,decoded_size);
@@ -430,6 +436,7 @@ public class WorldClient : MonoBehaviour {
 			}
 			Debug.Log("ListenForDataWorkload thread finished due to OnApplicationQuit event!");
 		}
+
 		catch (SocketException socketException){
 			Debug.Log("Socket exception (" + socketException.ErrorCode  + ") " + socketException);
 			switch(socketException.ErrorCode){
@@ -449,7 +456,7 @@ public class WorldClient : MonoBehaviour {
 		catch(Exception e){
 			Debug.Log("Socket exception: " + e);
 			//OnConnectionError(e);
-			throw e;
+			//throw e;
 		}
 
 		Debug.Log("WorldClient::ListenForDataWorkload finished");
