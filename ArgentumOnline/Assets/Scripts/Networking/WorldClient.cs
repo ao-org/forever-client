@@ -262,11 +262,17 @@ public class WorldClient : MonoBehaviour {
 				Tuple<string, float,float> e;
 				if (mMovementsQueue.TryDequeue(out e)){
 					GameObject pc = GameObject.Find(e.Item1);
-					Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
-					var p = pc.GetComponent<CharacterMovement>();
-					Debug.Assert(p!=null);
-					Debug.Log("Movement ("+ e.Item1+") x="+e.Item2 + " y="+e.Item3 );
-					p.PushMovement(Tuple.Create(e.Item2,e.Item3));
+					if(pc == null){
+						//Client might have left
+						Debug.Log("Ignoring Movement because cannot find player: " + e.Item1);
+					}
+					else {
+						Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
+						var p = pc.GetComponent<CharacterMovement>();
+						Debug.Assert(p!=null);
+						Debug.Log("Movement ("+ e.Item1+") x="+e.Item2 + " y="+e.Item3 );
+						p.PushMovement(Tuple.Create(e.Item2,e.Item3));
+					}
 				}
 			}
 
