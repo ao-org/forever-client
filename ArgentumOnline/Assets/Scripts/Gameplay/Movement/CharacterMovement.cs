@@ -145,7 +145,7 @@ public class CharacterMovement : Movement
             return;
         }
 
-        if (mMovementsQueue.Count > 0){
+        while (mMovementsQueue.Count > 0){
             Tuple<float,float> e = mMovementsQueue.Dequeue();
             var old_pos = transform.position;
             var new_pos = new Vector3(e.Item1,e.Item2,old_pos.z);

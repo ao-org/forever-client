@@ -262,7 +262,7 @@ public class WorldClient : MonoBehaviour {
 				Tuple<string, float,float> e;
 				if (mMovementsQueue.TryDequeue(out e)){
 					GameObject pc = GameObject.Find(e.Item1);
-					Debug.Assert(pc!=null);
+					Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
 					var p = pc.GetComponent<CharacterMovement>();
 					Debug.Assert(p!=null);
 					Debug.Log("Movement ("+ e.Item1+") x="+e.Item2 + " y="+e.Item3 );
