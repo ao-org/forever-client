@@ -20,34 +20,28 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -4352586920886819158, guid: 64a28f7aabfefc0418b560c7924d6b5c,
+      value: {fileID: 6453777659886904337, guid: 64a28f7aabfefc0418b560c7924d6b5c,
         type: 3}
     - time: 0.083333336
-      value: {fileID: -2572937497262915839, guid: 64a28f7aabfefc0418b560c7924d6b5c,
+      value: {fileID: 1288760293726781168, guid: 64a28f7aabfefc0418b560c7924d6b5c,
         type: 3}
     - time: 0.16666667
-      value: {fileID: 6705774516325477386, guid: 64a28f7aabfefc0418b560c7924d6b5c,
+      value: {fileID: -2785898119111597048, guid: 64a28f7aabfefc0418b560c7924d6b5c,
         type: 3}
     - time: 0.25
-      value: {fileID: -459769427074297835, guid: 64a28f7aabfefc0418b560c7924d6b5c,
+      value: {fileID: 3563477207349177722, guid: 64a28f7aabfefc0418b560c7924d6b5c,
         type: 3}
     - time: 0.33333334
-      value: {fileID: 6698421475609194959, guid: 64a28f7aabfefc0418b560c7924d6b5c,
+      value: {fileID: -895262313376505074, guid: 64a28f7aabfefc0418b560c7924d6b5c,
         type: 3}
     - time: 0.41666666
-      value: {fileID: -3959034279247196532, guid: 64a28f7aabfefc0418b560c7924d6b5c,
+      value: {fileID: -8193750766516586038, guid: 64a28f7aabfefc0418b560c7924d6b5c,
         type: 3}
     - time: 0.5
-      value: {fileID: -2963497730838767137, guid: 64a28f7aabfefc0418b560c7924d6b5c,
+      value: {fileID: 1653999913160112900, guid: 64a28f7aabfefc0418b560c7924d6b5c,
         type: 3}
     - time: 0.5833333
-      value: {fileID: -8503072873989430124, guid: 64a28f7aabfefc0418b560c7924d6b5c,
-        type: 3}
-    - time: 0.6666667
-      value: {fileID: -1513286319991216393, guid: 64a28f7aabfefc0418b560c7924d6b5c,
-        type: 3}
-    - time: 0.75
-      value: {fileID: -5636927557022085861, guid: 64a28f7aabfefc0418b560c7924d6b5c,
+      value: {fileID: 6018172170682815282, guid: 64a28f7aabfefc0418b560c7924d6b5c,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -68,27 +62,25 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -4352586920886819158, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
-    - {fileID: -2572937497262915839, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
-    - {fileID: 6705774516325477386, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
-    - {fileID: -459769427074297835, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
-    - {fileID: 6698421475609194959, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
-    - {fileID: -3959034279247196532, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
-    - {fileID: -2963497730838767137, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
-    - {fileID: -8503072873989430124, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
-    - {fileID: -1513286319991216393, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
-    - {fileID: -5636927557022085861, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
+    - {fileID: 6453777659886904337, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
+    - {fileID: 1288760293726781168, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
+    - {fileID: -2785898119111597048, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
+    - {fileID: 3563477207349177722, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
+    - {fileID: -895262313376505074, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
+    - {fileID: -8193750766516586038, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
+    - {fileID: 1653999913160112900, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
+    - {fileID: 6018172170682815282, guid: 64a28f7aabfefc0418b560c7924d6b5c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 0.6666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
