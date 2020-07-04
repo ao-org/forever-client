@@ -178,11 +178,11 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.5660378, g: 0.5633678, b: 0.5633678, a: 1}
     m_HighlightedColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -10502,8 +10502,8 @@ MonoBehaviour:
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0, g: 0.3955756, b: 0.9056604, a: 0.7529412}
   m_Text: morgolock
-  m_CaretBlinkRate: 4
-  m_CaretWidth: 3
+  m_CaretBlinkRate: 1
+  m_CaretWidth: 5
   m_ReadOnly: 0
 --- !u!114 &1477904665
 MonoBehaviour:
@@ -10929,7 +10929,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.27367392, g: 0.39348164, b: 0.7735849, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -10968,8 +10968,8 @@ MonoBehaviour:
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0, g: 0.3955756, b: 0.9056604, a: 0.7529412}
   m_Text: 
-  m_CaretBlinkRate: 4
-  m_CaretWidth: 3
+  m_CaretBlinkRate: 1
+  m_CaretWidth: 5
   m_ReadOnly: 0
 --- !u!114 &1525763470
 MonoBehaviour:
@@ -13832,6 +13832,12 @@ MonoBehaviour:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 45
+      m_Key: 
+  LoginErrText_INVALID_PUBLIC_KEY:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 64
       m_Key: 
   WorldErrText_PLAY_CHARACTER_OKAY_TITLE:
     m_TableReference:

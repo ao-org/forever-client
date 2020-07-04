@@ -263,7 +263,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 64
-    m_Key: New Entry 1
+    m_Key: INVALID_PUBLIC_KEY
     m_Metadata:
       m_Items: []
   - m_Id: 65
