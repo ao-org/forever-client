@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
     public LocalizedString WorldErrText_PLAY_CHARACTER_OKAY_TEXT;
     public LocalizedString WorldErrText_PLAY_CHARACTER_ERROR_TITLE;
     public LocalizedString WorldErrText_PLAY_CHARACTER_ERROR_TEXT;
+    public LocalizedString WorldErrText_CONNECTION_CLOSED_BY_SERVER_TEXT;
 
     public LocalizedString LoginErrText_LOGIN_ERROR_WRONG_PASSWORD;
     public LocalizedString SignupErrText_ACCOUNT_ALREADY_EXIST;
@@ -101,6 +102,7 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["PLAY_CHARACTER_OKAY_TEXT"]= WorldErrText_PLAY_CHARACTER_OKAY_TEXT;
         mLocalizedStringMappings["PLAY_CHARACTER_ERROR_TITLE"]= WorldErrText_PLAY_CHARACTER_ERROR_TITLE;
         mLocalizedStringMappings["PLAY_CHARACTER_ERROR_TEXT"]= WorldErrText_PLAY_CHARACTER_ERROR_TEXT;
+        mLocalizedStringMappings["CONNECTION_CLOSED_BY_SERVER_TEXT"]= WorldErrText_CONNECTION_CLOSED_BY_SERVER_TEXT;
 
         //Ver si se hace por pdf, web o server text
         mLocalizedStringMappings["TERMS_CONDITIONS_TITLE"] = SignupText_TERMS_CONDITIONS_TITLE;
