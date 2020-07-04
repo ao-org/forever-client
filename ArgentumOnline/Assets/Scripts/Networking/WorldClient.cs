@@ -134,7 +134,6 @@ public class WorldClient : MonoBehaviour {
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
 		if( mSpawningPlayerCharacter ){
 			//Second step PLAY_CHARACTER_OKAY
 			Debug.Log("Must spawn Player Character");
@@ -204,14 +203,14 @@ public class WorldClient : MonoBehaviour {
 		}
 	}
 	void Update(){
-		try {
+		try
+		{
 			while(mSpawnQueue.Count>0 && mSceneLoaded){
 				XmlDocument e;
 				if (mSpawnQueue.TryDequeue(out e)){
 					 GameObject player = (GameObject)Resources.Load("Characters/Human");
 		             Debug.Assert(player != null, "Cannot find PLAYER in Map");
 		 			 player.SetActive(false);
-
 					 Character c = InstantiateCharacterFromXml(e,"Spawn");
 					 var spawn_pos = c.Position();
 					 Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
@@ -219,8 +218,6 @@ public class WorldClient : MonoBehaviour {
 		 			 char_pos.position =  v3pos;
 		 			 GameObject world = GameObject.Find("World");
 		 			 Debug.Assert(world != null);
-
-					 //Vector3  offset = new Vector3(-2.0f, 2.0f, 0);
 					 char_pos.position =  v3pos; // + offset;
 					 var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world);
 					 x.SetActive(true);
@@ -252,6 +249,12 @@ public class WorldClient : MonoBehaviour {
 						Debug.Log("PLAY_CHARACTER_ERROR");
 						//ShowMessageBox("PLAY_CHARACTER_OKAY_TITLE","PLAY_CHARACTER_OKAY_TEXT");
 					}
+					else if(e.Item1 == "CONNECTION_ERROR_MSGBOX_TITLE"){
+						//ShowMessageBox("CONNECTION_ERROR_MSGBOX_TITLE",e.Item2);
+						//TODO CREATE MESSAGE BOX TO NOTIFY USER ABOUT EVENTS
+						Debug.Log("DECONECTADO DEL SERVIDOR");
+						SceneManager.LoadScene("MainMenu");
+					}
 					else{
 						Debug.Assert(false);
 					}
@@ -280,6 +283,7 @@ public class WorldClient : MonoBehaviour {
 		}
 		catch (Exception e) {
 			Debug.Log("Failed to read events" + e.Message);
+
 		}
 	}
 
@@ -401,41 +405,35 @@ public class WorldClient : MonoBehaviour {
 				using (NetworkStream stream = mSocket.GetStream()){
 					int length;
 					if(stream.CanRead){
-							try {
-
-									while ((length = stream.Read(bytes, 0, bytes.Length)) != 0){
-										// Copy the bytes received from the network to the array incommingData
-										var incommingData = new byte[length];
-										Array.Copy(bytes, 0, incommingData, 0, length);
-										//Debug.Log("Read " + length + " bytes from server. " + incommingData + "{" + incommingData + "}");
-										// Apprend the bytes to any excisting data previously received
-										mIncommingData.AddRange(incommingData);
-										//Attempt to build as many packets and process them
-										//bool failed_to_build_packet = false;
-										// We consume the packets
-										while( mIncommingData.Count>=4 /*&& !failed_to_build_packet*/){
-											var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
-											//Debug.Log(" msg_size len " + msg_size.Length);
-											var header	 	= mIncommingData.GetRange(0, 2).ToArray();
-											short decoded_size = ProtoBase.DecodeShort(msg_size);
-											if(decoded_size>mIncommingData.Count )
-											{
-												// not enough bytes to build packet
-												break;
-											}
-											//Debug.Log(" Msg_size: " + decoded_size);
-											short message_id = ProtoBase.DecodeShort(header);
-											//Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
-											//failed_to_build_packet = (decoded_size > 1024);
-											//Drop the heade and size fields
-											var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();
-											mIncommingData.RemoveRange(0,decoded_size);
-											ProcessPacket(message_id, message_data);
-										}
+							while ((length = stream.Read(bytes, 0, bytes.Length)) != 0){
+								// Copy the bytes received from the network to the array incommingData
+								var incommingData = new byte[length];
+								Array.Copy(bytes, 0, incommingData, 0, length);
+								//Debug.Log("Read " + length + " bytes from server. " + incommingData + "{" + incommingData + "}");
+								// Apprend the bytes to any excisting data previously received
+								mIncommingData.AddRange(incommingData);
+								//Attempt to build as many packets and process them
+								//bool failed_to_build_packet = false;
+								// We consume the packets
+								while( mIncommingData.Count>=4 /*&& !failed_to_build_packet*/){
+									var msg_size 	= mIncommingData.GetRange(2, 2).ToArray();
+									//Debug.Log(" msg_size len " + msg_size.Length);
+									var header	 	= mIncommingData.GetRange(0, 2).ToArray();
+									short decoded_size = ProtoBase.DecodeShort(msg_size);
+									if(decoded_size>mIncommingData.Count )
+									{
+										// not enough bytes to build packet
+										break;
 									}
-							}
-							catch(IOException e){
-								Debug.Log("World::stream.read() Timeout: (" + e.Message  + ") " );
+									//Debug.Log(" Msg_size: " + decoded_size);
+									short message_id = ProtoBase.DecodeShort(header);
+									//Debug.Log(String.Format("{0,10:X}", header[0]) + " " + String.Format("{0,10:X}", header[1]));
+									//failed_to_build_packet = (decoded_size > 1024);
+									//Drop the heade and size fields
+									var message_data	 	= mIncommingData.GetRange(4,decoded_size-4).ToArray();
+									mIncommingData.RemoveRange(0,decoded_size);
+									ProcessPacket(message_id, message_data);
+								}
 							}
 					}
 				}
@@ -443,26 +441,14 @@ public class WorldClient : MonoBehaviour {
 			Debug.Log("ListenForDataWorkload thread finished due to OnApplicationQuit event!");
 		}
 
-		catch (SocketException socketException){
-			Debug.Log("Socket exception (" + socketException.ErrorCode  + ") " + socketException);
-			switch(socketException.ErrorCode){
-				case 10061:
-					OnConnectionError("CONNECTION_ERROR_MSGBOX_TITLE","CONNECTION_ERROR_CANNOT_REACH_SERVER");
-					break;
-				default:
-					break;
-			}
-			//OnConnectionError(socketException);
-		}
-		catch(ThreadAbortException e) {
+	    catch(ThreadAbortException e) {
             Debug.Log("Thread - caught ThreadAbortException - resetting.");
             Debug.Log("Exception message: {0}" + e.Message);
             //Thread.ResetAbort();
         }
 		catch(Exception e){
-			Debug.Log("Socket exception: " + e);
-			//OnConnectionError(e);
-			//throw e;
+			Debug.Log("WorldClient::ListenForDataWorkload::Exception: " + e.Message);
+			OnConnectionError("CONNECTION_ERROR_MSGBOX_TITLE","CONNECTION_CLOSED_BY_SERVER_TEXT");
 		}
 
 		Debug.Log("WorldClient::ListenForDataWorkload finished");

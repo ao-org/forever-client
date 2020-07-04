@@ -3640,7 +3640,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -13856,6 +13856,12 @@ MonoBehaviour:
       m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 62
+      m_Key: 
+  WorldErrText_CONNECTION_CLOSED_BY_SERVER_TEXT:
+    m_TableReference:
+      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+    m_TableEntryReference:
+      m_KeyId: 63
       m_Key: 
   LoginErrText_LOGIN_ERROR_WRONG_PASSWORD:
     m_TableReference:

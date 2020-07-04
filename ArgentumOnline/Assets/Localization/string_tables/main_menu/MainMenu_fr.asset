@@ -259,6 +259,10 @@ MonoBehaviour:
     m_Localized: PLAY_CHARACTER_ERROR_TEXT
     m_Metadata:
       m_Items: []
+  - m_Id: 63
+    m_Localized: CONNECTION_CLOSED_BY_SERVER_TEXT
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
     00000000:
