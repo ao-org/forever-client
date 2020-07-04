@@ -263,6 +263,10 @@ MonoBehaviour:
     m_Localized: CONNECTION_CLOSED_BY_SERVER_TEXT
     m_Metadata:
       m_Items: []
+  - m_Id: 64
+    m_Localized: INVALID_PUBLIC_KEY
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
     00000000:

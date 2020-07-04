@@ -20,8 +20,12 @@ public class CryptoHelper
 		public static string Token = null;
 
 		public static byte[] PadArray(byte[] array){
-			if( (array.Length%16)!=0){
-				Array.Resize(ref array, array.Length + 100);
+			var al = array.Length;
+			if( (al%16)!=0){
+				Array.Resize(ref array, al + 100);
+				for(int j=al; j < al+100; ++j){
+					array[j]=0;
+				}
 			}
 			return array;
 		}

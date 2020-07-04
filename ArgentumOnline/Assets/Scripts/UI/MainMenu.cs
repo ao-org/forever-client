@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     public LocalizedString LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION;
     public LocalizedString LoginErrText_ACCOUNT_DOESNT_EXIST;
     public LocalizedString LoginErrText_MUST_ACTIVATE_ACCOUNT;
+    public LocalizedString LoginErrText_INVALID_PUBLIC_KEY;
 
     public LocalizedString WorldErrText_PLAY_CHARACTER_OKAY_TITLE;
     public LocalizedString WorldErrText_PLAY_CHARACTER_OKAY_TEXT;
@@ -87,6 +88,7 @@ public class MainMenu : MonoBehaviour
         mLocalizedStringMappings["PASSWORD_MUST_HAVE_ONE_LOWERCASE"]= SignupErrText_PASSWORD_MUST_HAVE_ONE_LOWERCASE;
         mLocalizedStringMappings["PASSWORD_MUST_HAVE_TWO_NUMBERS"]= SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS;
         mLocalizedStringMappings["INVALID_EMAIL"]= SignupErrText_INVALID_EMAIL;
+        mLocalizedStringMappings["INVALID_PUBLIC_KEY"]= LoginErrText_INVALID_PUBLIC_KEY;
         mLocalizedStringMappings["INVALID_CONFIRM_EMAIL"] = SignupErrText_INVALID_CONFIRM_EMAIL;
         mLocalizedStringMappings["INVALID_FIRST_LAST_NAME"] = SignupErrText_INVALID_FIRST_LAST_NAME;
         mLocalizedStringMappings["TERMS_NOT_ACCEPTED"] = SignupErrText_TERMS_NOT_ACCEPTED;
