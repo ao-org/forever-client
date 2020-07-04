@@ -139,6 +139,15 @@ public class WorldClient : MonoBehaviour {
 			Debug.Log("Must spawn Player Character");
 			InstantiatePlayerCharacterSprite();
 			mSceneLoaded = true;
+		}else {
+			if(mPlayerCharacter!=null){
+				GameObject p = GameObject.Find(mPlayerCharacter.UUID());
+				if(p != null){
+					p.SetActive(false);
+					Destroy(p);
+				}
+			}
+
 		}
     }
 	private Character InstantiateCharacterFromXml(XmlDocument xml_doc,string selectnode){
