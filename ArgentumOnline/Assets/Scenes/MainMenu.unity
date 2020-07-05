@@ -11300,7 +11300,7 @@ RectTransform:
   m_GameObject: {fileID: 1531115119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 437073039}
   m_Father: {fileID: 2011106875}
@@ -12503,7 +12503,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1816668318
 GameObject:
   m_ObjectHideFlags: 0
@@ -12677,7 +12677,7 @@ RectTransform:
   m_GameObject: {fileID: 1833864588}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 312966592}
   m_Father: {fileID: 2011106875}
@@ -14367,6 +14367,7 @@ MonoBehaviour:
     m_TableEntryReference:
       m_KeyId: 56
       m_Key: 
+  IsLoginPanel: 0
 --- !u!1 &2030888962
 GameObject:
   m_ObjectHideFlags: 0

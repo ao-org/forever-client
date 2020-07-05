@@ -272,7 +272,8 @@ public class MainMenu : MonoBehaviour
 
     public void ShowMessageBox(string title,string text, bool localize = false)
     {
-        mLoadingWindow.transform.localScale = new Vector3(0f, 0f, 0f);
+        if (mLoadingWindow != null)
+            mLoadingWindow.transform.localScale = new Vector3(0f, 0f, 0f);
         string final_title_string = title;
         string final_text_string  = text;
         if(localize){
