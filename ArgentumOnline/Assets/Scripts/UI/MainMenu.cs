@@ -62,6 +62,7 @@ public class MainMenu : MonoBehaviour
 
     public LocalizedString SignupText_TERMS_CONDITIONS_TITLE;
     public LocalizedString SignupText_TERMS_CONDITIONS_TEXT;
+    public bool IsLoginPanel; 
 
     private void CreateAndInitLocalizedStrings(){
         mLocalizedStringMappings = new Dictionary<string,LocalizedString>();
@@ -113,6 +114,7 @@ public class MainMenu : MonoBehaviour
     public void OnRegisterButtonClicked(){
         Debug.Log("OnRegisterButtonClicked");
         mSignupDialog.transform.localScale = new Vector3(1, 1, 1);
+        IsLoginPanel = false;
         InputField emailSignUpInput = GameObject.Find("SignUpEmailInputField").GetComponent<InputField>();
         emailSignUpInput.Select();
         emailSignUpInput.ActivateInputField();
@@ -201,6 +203,12 @@ public class MainMenu : MonoBehaviour
     }
 
     private void Update(){
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log("Return key was pressed.");
+            if (IsLoginPanel)
+                this.PlayGame();
+        }
         if (Input.GetKeyDown(KeyCode.Tab)){
             Selectable next = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ?
             mEventSystem.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnUp() :
@@ -224,11 +232,13 @@ public class MainMenu : MonoBehaviour
     private GameObject mMessageBox;
     private GameObject mSignupDialog;
     private GameObject mActivateDialog;
+    private GameObject mLoadingWindow;
     private GameObject mToggle;
     private void Start()
     {
         CreateAndInitLocalizedStrings();
         mEventSystem = EventSystem.current;
+        IsLoginPanel = true;
         // setup the login client
         GameObject login_client_object = GameObject.FindGameObjectsWithTag("LoginClient")[0];
         mLoginClient = login_client_object.GetComponent<LoginClient>();
@@ -250,7 +260,7 @@ public class MainMenu : MonoBehaviour
         mActivateDialog = GameObject.Find("ActivateDialog");
         Debug.Assert(mActivateDialog!=null);
         mActivateDialog.transform.localScale = new Vector3(0, 0, 0);
-        InputField userLoginInput = GameObject.Find("InputFieldputField").GetComponent<InputField>();
+        InputField userLoginInput = GameObject.Find("UsernameInputField").GetComponent<InputField>();
         userLoginInput.Select();
         userLoginInput.ActivateInputField();
     }
@@ -262,6 +272,7 @@ public class MainMenu : MonoBehaviour
 
     public void ShowMessageBox(string title,string text, bool localize = false)
     {
+        mLoadingWindow.transform.localScale = new Vector3(0f, 0f, 0f);
         string final_title_string = title;
         string final_text_string  = text;
         if(localize){
@@ -429,7 +440,11 @@ public class MainMenu : MonoBehaviour
       string server_address_string    = server_address_input.text;
       string server_port_string       = server_port_input.text;
 
-      if(username_str == null || username_str.Length<3){
+      mLoadingWindow = GameObject.Find("MessageLoading");
+      Debug.Assert(mLoadingWindow != null);
+      mLoadingWindow.transform.localScale = new Vector3(1f, 1f, 1f);
+
+      if (username_str == null || username_str.Length<3){
           this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_USER",true);
           return;
       }
@@ -437,7 +452,7 @@ public class MainMenu : MonoBehaviour
           this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_PASSWORD",true);
           return;
       }
-
+      
       try {
         //Attempt to connect to game Server
         if( mLoginClient.IsConnected()){
@@ -447,7 +462,7 @@ public class MainMenu : MonoBehaviour
             Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
             mLoginClient.SetUsernameAndPassword(username_str,password_str);
             mLoginClient.ConnectToTcpServer(server_address_string,server_port_string,"LOGIN_REQUEST");
-        }
+        }  
       }
       catch (Exception e){
 			     Debug.Log("Failed to connect to server " + e);
