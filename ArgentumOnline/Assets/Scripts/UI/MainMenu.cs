@@ -113,6 +113,9 @@ public class MainMenu : MonoBehaviour
     public void OnRegisterButtonClicked(){
         Debug.Log("OnRegisterButtonClicked");
         mSignupDialog.transform.localScale = new Vector3(1, 1, 1);
+        InputField emailSignUpInput = GameObject.Find("SignUpEmailInputField").GetComponent<InputField>();
+        emailSignUpInput.Select();
+        emailSignUpInput.ActivateInputField();
     }
     public void OnApplicationQuit(){
         Debug.Log("Application ending after " + Time.time + " seconds");
@@ -247,6 +250,9 @@ public class MainMenu : MonoBehaviour
         mActivateDialog = GameObject.Find("ActivateDialog");
         Debug.Assert(mActivateDialog!=null);
         mActivateDialog.transform.localScale = new Vector3(0, 0, 0);
+        InputField userLoginInput = GameObject.Find("InputFieldputField").GetComponent<InputField>();
+        userLoginInput.Select();
+        userLoginInput.ActivateInputField();
     }
     void Awake(){
         //var translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("PLAY_BUTTON");
