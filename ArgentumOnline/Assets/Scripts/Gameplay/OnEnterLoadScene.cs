@@ -33,7 +33,7 @@ public class OnEnterLoadScene : MonoBehaviour
             GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
             UnityEngine.Debug.Assert(player != null);
             PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
-            playerScript.Start();
+            
             UnityEngine.Debug.Assert(player != null);
 
             /*if (!lockx){
@@ -86,6 +86,7 @@ public class OnEnterLoadScene : MonoBehaviour
             //SceneManager.LoadScene(scene);
             
             SceneManager.LoadScene(scene);
+            //playerScript.Start();
             //player.transform.position = new Vector3(newPos.x, newPos.y, 0);
             playerScript.SetTeleportingPos(new Vector3(newPos.x, newPos.y, 0));
             UnityEngine.Debug.Log("TELEPORT X Y: " + player.transform.position.x.ToString() + player.transform.position.y.ToString());

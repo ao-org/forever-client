@@ -145,6 +145,7 @@ public class WorldClient : MonoBehaviour {
 				if(p != null){
                     PlayerMovement playerScript = p.GetComponent<PlayerMovement>();
                     p.transform.position = playerScript.GetTeleportingPos();
+                    playerScript.Start();
                     //p.SetActive(false);
                     //Destroy(p);
                 }
