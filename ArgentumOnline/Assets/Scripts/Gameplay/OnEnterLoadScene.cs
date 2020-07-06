@@ -84,8 +84,10 @@ public class OnEnterLoadScene : MonoBehaviour
             UnityEngine.Debug.Log("TELEPORT X Y: " + player.transform.position.x.ToString() + player.transform.position.y.ToString());
             UnityEngine.Debug.Log("Scene Name: " + scene);
             //SceneManager.LoadScene(scene);
-            player.transform.position = new Vector3(newPos.x, newPos.y, 0);
+            
             SceneManager.LoadScene(scene);
+            //player.transform.position = new Vector3(newPos.x, newPos.y, 0);
+            playerScript.SetTeleportingPos(new Vector3(newPos.x, newPos.y, 0));
             UnityEngine.Debug.Log("TELEPORT X Y: " + player.transform.position.x.ToString() + player.transform.position.y.ToString());
             
             UnityEngine.Debug.Log("Teleporting player to x:" + WarpingDestination.teleport_x + " y:" + WarpingDestination.teleport_y);

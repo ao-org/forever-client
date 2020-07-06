@@ -26,6 +26,7 @@ public class PlayerMovement : Movement
     private int life = 100;
     private float health;
     private Vector3 scaleHuman;
+    private Vector3 teleportingPos;
     private bool takeDamage = false;
     public bool IsPhantom;
     private float damageValue = 0f;
@@ -62,7 +63,8 @@ public class PlayerMovement : Movement
     {
         base.Start();
         WalkRunSpeed = WalkSpeed;
-
+        //mBody.constraints = RigidbodyConstraints.FreezePositionX;
+        //mBody.constraints = RigidbodyConstraints.FreezePositionY;
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
@@ -100,6 +102,15 @@ public class PlayerMovement : Movement
         }
         return;
     }
+    public void SetTeleportingPos(Vector3 newPos )
+    {
+        teleportingPos = newPos;
+        return;
+    }
+    public Vector3 GetTeleportingPos()
+    {
+        return teleportingPos;
+    }
     public void QuitDamage(float damage)
     {
         if (!IsPhantom)
@@ -119,6 +130,7 @@ public class PlayerMovement : Movement
     // Update is called once per frame
     void Update()
     {
+        mBody.velocity = Vector3.zero;
         if (takeDamage && !IsPhantom)
         {
             UnityEngine.Debug.Log("Damage: " + damageValue);
