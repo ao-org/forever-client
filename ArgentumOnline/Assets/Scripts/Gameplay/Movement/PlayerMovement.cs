@@ -20,7 +20,7 @@ public class PlayerMovement : Movement
     public float WalkSpeed = 6.0f; //Velocidad normal
     private float runDelta = 2.2f; // delta Velocidad correr. se multiplica por la velocidad de caminar
     private float walkDiagDelta = 0.7f; //Delta de velocidad de las diagonales. (No modificar 0.7 default)
-    private float WalkRunSpeed;
+    private float WalkRunSpeed = 6.0f;
     private bool running = false;
     private bool isDead = false;
     private int life = 100;
@@ -62,7 +62,7 @@ public class PlayerMovement : Movement
     public override void Start()
     {
         base.Start();
-        WalkRunSpeed = WalkSpeed;
+        //WalkRunSpeed = WalkSpeed;
         //mBody.constraints = RigidbodyConstraints.FreezePositionX;
         //mBody.constraints = RigidbodyConstraints.FreezePositionY;
         if (IsPhantom)
