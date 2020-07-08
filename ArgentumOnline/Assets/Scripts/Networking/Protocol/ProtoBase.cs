@@ -80,7 +80,16 @@ public class ProtoBase
 							{"SPAWN_CHARACTER"		, unchecked((short)0xF004)},
 							{"CHARACTER_LEFT_MAP"	, unchecked((short)0xF005)},
 							{"CHARACTER_MOVE_REQ"	, unchecked((short)0xF006)},
-							{"CHARACTER_MOVED"		, unchecked((short)0xF007)}
+							{"CHARACTER_MOVED"		, unchecked((short)0xF007)},
+							// CHAT
+							{"CHAT_JOIN"			, unchecked((short)0x1001)},
+							{"CHAT_JOIN_ERROR" 		, unchecked((short)0x2003)},
+							{"CHAT_JOIN_OKAY"		, unchecked((short)0x3002)},
+							{"CHARACTER_JOINED"		, unchecked((short)0x4004)},
+							{"CHARACTER_LEFT_CHAT"	, unchecked((short)0x5005)},
+							{"CHARACTER_SAYS"		, unchecked((short)0x6006)},
+							{"CHARACTER_SAID"		, unchecked((short)0x6007)}
+
 
 						};
 
