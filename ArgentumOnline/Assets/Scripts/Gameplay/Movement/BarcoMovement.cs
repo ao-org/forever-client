@@ -22,6 +22,8 @@ public class BarcoMovement : Movement
     private float WalkRunSpeed;
     private bool running = false;
     private bool isDead = false;
+    public bool isActive = false;
+    public GameObject player = null;
 
     public override void Awake()
     {
@@ -51,6 +53,18 @@ public class BarcoMovement : Movement
     // Update is called once per frame
     void Update()
     {
+        if (!isActive)
+            return;
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            isActive = false;
+            player.SetActive(true);
+            GameObject mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
+            Vector3 cameraPos = new Vector3(player.transform.position.x, player.transform.position.y, -1);
+            mainCamera.transform.position = cameraPos;
+            mainCamera.transform.SetParent(player.transform);
+            return;
+        }
         if (isDead)
         {
             if (Input.GetKeyDown(KeyCode.L))
