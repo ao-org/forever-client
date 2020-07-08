@@ -62,7 +62,7 @@ public class MainMenu : MonoBehaviour
 
     public LocalizedString SignupText_TERMS_CONDITIONS_TITLE;
     public LocalizedString SignupText_TERMS_CONDITIONS_TEXT;
-    public bool IsLoginPanel; 
+    public bool IsLoginPanel;
 
     private void CreateAndInitLocalizedStrings(){
         mLocalizedStringMappings = new Dictionary<string,LocalizedString>();
@@ -132,19 +132,24 @@ public class MainMenu : MonoBehaviour
         InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
         Debug.Assert(server_address_input!=null);
         string server_address_string    = server_address_input.text;
-        string server_port_string       = "6000";
-
+        string world_server_port_string       = "6000";
+        string chat_server_port_string        = "7007";
         try {
-          //Attempt to connect to game Server
-              Debug.Log("World Server address: " + server_address_string + ":" + server_port_string);
-              //mWorldClient.SetUsernameAndPassword("morgolock","Pablo17");
-              mWorldClient.ConnectToTcpServer(server_address_string,server_port_string);
+              //Attempt to connect to game Server
+              Debug.Log("World Server address: " + server_address_string + ":" + world_server_port_string);
+              mWorldClient.ConnectToTcpServer(server_address_string,world_server_port_string);
         }
         catch (Exception e){
-  			     Debug.Log("Failed to connect to server " + e);
+  			     Debug.Log("Failed to connect to world server " + e);
         }
-
-
+        try {
+              //Attempt to connect to game Server
+              Debug.Log("Chat Server address: " + server_address_string + ":" + chat_server_port_string);
+              mChatClient.ConnectToTcpServer(server_address_string,chat_server_port_string);
+        }
+        catch (Exception e){
+  			     Debug.Log("Failed to connect to chat server " + e);
+        }
     }
     public void OnAccountActivated(){
         Debug.Log("AccountActivated");
@@ -229,6 +234,7 @@ public class MainMenu : MonoBehaviour
     }
     private LoginClient mLoginClient;
     private WorldClient mWorldClient;
+    private ChatClient mChatClient;
     private GameObject mMessageBox;
     private GameObject mSignupDialog;
     private GameObject mActivateDialog;
@@ -247,6 +253,10 @@ public class MainMenu : MonoBehaviour
         GameObject world_client_object = GameObject.FindGameObjectsWithTag("WorldClient")[0];
         mWorldClient = world_client_object.GetComponent<WorldClient>();
         mWorldClient.SetMainMenu(this);
+        // setup the chat client
+        GameObject chat_client_object = GameObject.FindGameObjectsWithTag("ChatClient")[0];
+        mChatClient = chat_client_object.GetComponent<ChatClient>();
+        mChatClient.SetMainMenu(this);
 
         mMessageBox = GameObject.Find("MessageBox");
         Debug.Assert(mMessageBox!=null);
@@ -453,7 +463,7 @@ public class MainMenu : MonoBehaviour
           this.ShowMessageBox("INPUT_ERROR_TITLE","INPUT_ERROR_INVALID_PASSWORD",true);
           return;
       }
-      
+
       try {
         //Attempt to connect to game Server
         if( mLoginClient.IsConnected()){
@@ -463,7 +473,7 @@ public class MainMenu : MonoBehaviour
             Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
             mLoginClient.SetUsernameAndPassword(username_str,password_str);
             mLoginClient.ConnectToTcpServer(server_address_string,server_port_string,"LOGIN_REQUEST");
-        }  
+        }
       }
       catch (Exception e){
 			     Debug.Log("Failed to connect to server " + e);
