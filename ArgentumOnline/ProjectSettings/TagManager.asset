@@ -9,6 +9,7 @@ TagManager:
   - LoginClient
   - ChatClient
   - Human
+  - Barco
   layers:
   - Default
   - TransparentFX
