@@ -11,10 +11,18 @@ using UnityEngine;
 
 public class ProtoPlayCharacter : ProtoBase
 {
-	public ProtoPlayCharacter(string charname, string token){
+	/*
+		Constructor takes a third param proto_id because the same message structure
+		is used to log into the world and chat servers, only difference is the message ID
+
+		World Server: PLAY_CHARACTER
+		Chat Server: CHAT_JOIN
+	*/
+	public ProtoPlayCharacter(string charname, string token, string proto_id){
 		Debug.Log("ProtoPlayCharacter: " + charname + " " + token );
 		Debug.Assert(charname.Length>0);
-		short header = EncodeShort(ProtoBase.ProtocolNumbers["PLAY_CHARACTER"]);
+		Debug.Assert("PLAY_CHARACTER"==proto_id || "CHAT_JOIN" == proto_id);
+		short header = EncodeShort(ProtoBase.ProtocolNumbers[proto_id]);
 		var encrypted_charname = CryptoHelper.Encrypt(charname, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
 		var encrypted_token = CryptoHelper.Encrypt(token, Encoding.ASCII.GetBytes(ProtoBase.PrivateKey));
         Debug.Log("encrypted_token " + encrypted_token);

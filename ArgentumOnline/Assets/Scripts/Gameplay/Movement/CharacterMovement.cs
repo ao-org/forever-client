@@ -150,7 +150,7 @@ public class CharacterMovement : Movement
             var old_pos = transform.position;
             var new_pos = new Vector3(e.Item1,e.Item2,old_pos.z);
             var delta = new_pos-old_pos;
-            UnityEngine.Debug.Log("delta : x=" + delta.x + " y="+ delta.y );
+            //UnityEngine.Debug.Log("delta : x=" + delta.x + " y="+ delta.y );
 
 
 

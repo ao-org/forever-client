@@ -35,12 +35,14 @@ public class ChatClient : MonoBehaviour {
 		mUsername = u;
 		mPassword = p;
 	}
-	public int ProcessPlayCharacterOkay(byte[] encrypted_character){
-		Debug.Log("ProcessPlayCharacterOkay");
+    
+	public int ProcessChatJoinOkay(byte[] encrypted_character){
+		Debug.Log("ProcessChatJoinOkay");
         Debug.Log("encrypted_character len = " + Encoding.ASCII.GetString(encrypted_character).Length + " "  + Encoding.ASCII.GetString(encrypted_character) );
         var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		Debug.Log("decrypted_data: " + decrypted_char);
+		Debug.Log("decrypted chat data: " + decrypted_char);
 		//Can only be done from the main thread
+        /*
 		try{
 			mPlayerCharacterXml = new XmlDocument();
 			mPlayerCharacterXml.LoadXml(decrypted_char);
@@ -51,41 +53,33 @@ public class ChatClient : MonoBehaviour {
 			Debug.Log("Failed to parse XML charfile: " + e.Message);
 			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
 		}
+        */
 		return 1;
 	}
-	public int ProcessCharacterLeftMap(byte[] encrypted_uuid){
-		Debug.Log("ProcessCharacterLeftMap");
+	public int ProcessCharacterLeftChat(byte[] encrypted_uuid){
+		Debug.Log("ProcessCharacterLeftChat");
 		Debug.Log("encrypted_uuid len = " + Encoding.ASCII.GetString(encrypted_uuid).Length + " "  + Encoding.ASCII.GetString(encrypted_uuid) );
         var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log("decrypted_data: " + decrypted_uuid);
-		mEventsQueue.Enqueue(Tuple.Create("CHARACTER_LEFT_MAP",decrypted_uuid));
+		//mEventsQueue.Enqueue(Tuple.Create("CHARACTER_LEFT_CHAT",decrypted_uuid));
 		return 1;
 	}
 
-	public int ProcessCharacterMoved(byte[] encrypted_data){
-		//Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterMoved");
-		var uuid_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,0,2));
-		var encrypted_uuid = ProtoBase.SliceArray(encrypted_data,2,uuid_len);
-		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		//Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
-		var nxny_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,2+uuid_len,2));
-		var encrypted_nxny = ProtoBase.SliceArray(encrypted_data,4+uuid_len,nxny_len);
-		string decrypted_nxny = CryptoHelper.Decrypt(encrypted_nxny,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		//Debug.Log(">>>>>>>>>>>>>len decryption " + decrypted_nxny.Length);
-		//Debug.Log(">>>>>>>>>>>>>>>>>>decrypted_nxny: " + decrypted_nxny + " length = " + decrypted_nxny.Length);
-		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
-		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
-		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
-		//Debug.Log(">>>>>>>>>>>>>>>>>> nx: " + nx + " ny: " + ny);
+	public int ProcessCharacterSaid(byte[] encrypted_data){
+		Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterSaid");
+        var decrypted_chat = CryptoHelper.Decrypt(encrypted_data,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		Debug.Log("decrypted chat data: " + decrypted_chat);
+        /*
 		mMovementsQueue.Enqueue(Tuple.Create(decrypted_uuid,nx,ny));
+        */
 		return 1;
 	}
-	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
-		Debug.Log("ProcessSpawnCharacter");
+	public int ProcessCharacterJoined(byte[] encrypted_spawn_info){
+		Debug.Log("ProcessCharacterJoined");
 		Debug.Log("encrypted_spawn_info len = " + Encoding.ASCII.GetString(encrypted_spawn_info).Length + " "  + Encoding.ASCII.GetString(encrypted_spawn_info) );
         var decrypted_info = CryptoHelper.Decrypt(encrypted_spawn_info,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log("decrypted_data: " + decrypted_info);
-
+/*
 		try{
 			//Can only be done from the main thread
 			var SpawnCharacterXml = new XmlDocument();
@@ -97,10 +91,11 @@ public class ChatClient : MonoBehaviour {
 			Debug.Log("Failed to parse XML charfile: " + e.Message);
 			Debug.Assert(false);
 		}
+        */
 		return 1;
 	}
-	public int ProcessPlayCharacterError(byte[] data){
-		Debug.Log("ProcessPlayCharacterError");
+	public int ProcessChatJoinError(byte[] data){
+		Debug.Log("ProcessChatJoinError");
 		short error_code = ProtoBase.DecodeShort(data);
 		var error_string = ProtoBase.LoginErrorCodeToString(error_code);
 		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
@@ -352,7 +347,7 @@ public class ChatClient : MonoBehaviour {
    	private void OnConnectionEstablished()
    	{
 	   Debug.Log("WorldServer::OnConnectionEstablished!!!");
-	   ProtoPlayCharacter play_char_msg = new ProtoPlayCharacter("Seneca", CryptoHelper.Token);
+	   ProtoPlayCharacter play_char_msg = new ProtoPlayCharacter("Seneca", CryptoHelper.Token,"CHAT_JOIN");
 	   SendMessage(play_char_msg);
     }
 	public void ConnectToTcpServer (string remote_ip, string remote_port, string operation="NOOP") {
@@ -545,11 +540,11 @@ public class ChatClient : MonoBehaviour {
 	private static Dictionary<short, Func<ChatClient, byte[], int>> ProcessFunctions
         = new Dictionary<short, Func<ChatClient, byte[], int>>
     {
-		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_OKAY"], (@this, x) => @this.ProcessPlayCharacterOkay(x) },
-		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_ERROR"], (@this, x) => @this.ProcessPlayCharacterError(x) },
-		{ ProtoBase.ProtocolNumbers["SPAWN_CHARACTER"], (@this, x) => @this.ProcessSpawnCharacter(x) },
-		{ ProtoBase.ProtocolNumbers["CHARACTER_LEFT_MAP"], (@this, x) => @this.ProcessCharacterLeftMap(x) },
-		{ ProtoBase.ProtocolNumbers["CHARACTER_MOVED"], (@this, x) => @this.ProcessCharacterMoved(x) }
+		{ ProtoBase.ProtocolNumbers["CHAT_JOIN_OKAY"], (@this, x) => @this.ProcessChatJoinOkay(x) },
+		{ ProtoBase.ProtocolNumbers["CHAT_JOIN_ERROR"], (@this, x) => @this.ProcessChatJoinError(x) },
+		{ ProtoBase.ProtocolNumbers["CHARACTER_JOINED"], (@this, x) => @this.ProcessCharacterJoined(x) },
+		{ ProtoBase.ProtocolNumbers["CHARACTER_LEFT_CHAT"], (@this, x) => @this.ProcessCharacterLeftChat(x) },
+		{ ProtoBase.ProtocolNumbers["CHARACTER_SAID"], (@this, x) => @this.ProcessCharacterSaid(x) }
     };
 	private XmlDocument				mPlayerCharacterXml;
 

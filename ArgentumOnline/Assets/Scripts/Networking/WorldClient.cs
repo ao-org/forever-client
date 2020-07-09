@@ -285,7 +285,7 @@ public class WorldClient : MonoBehaviour {
 						Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
 						var p = pc.GetComponent<CharacterMovement>();
 						Debug.Assert(p!=null);
-						Debug.Log("Movement ("+ e.Item1+") x="+e.Item2 + " y="+e.Item3 );
+						//Debug.Log("Movement ("+ e.Item1+") x="+e.Item2 + " y="+e.Item3 );
 						p.PushMovement(Tuple.Create(e.Item2,e.Item3));
 					}
 				}
@@ -352,7 +352,7 @@ public class WorldClient : MonoBehaviour {
    	private void OnConnectionEstablished()
    	{
 	   Debug.Log("WorldServer::OnConnectionEstablished!!!");
-	   ProtoPlayCharacter play_char_msg = new ProtoPlayCharacter("Seneca", CryptoHelper.Token);
+	   ProtoPlayCharacter play_char_msg = new ProtoPlayCharacter("Seneca", CryptoHelper.Token, "PLAY_CHARACTER");
 	   SendMessage(play_char_msg);
     }
 	public void ConnectToTcpServer (string remote_ip, string remote_port, string operation="NOOP") {

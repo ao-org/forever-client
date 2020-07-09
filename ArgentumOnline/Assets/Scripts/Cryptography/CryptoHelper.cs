@@ -86,7 +86,6 @@ public class CryptoHelper
 				aesAlg.Padding = PaddingMode.Zeros;
 				aesAlg.IV =  key;
 				aesAlg.Key  = key;
-				Debug.Log("buffer len " + buffer.Length);
 				// Create a decryptor to perform the stream transform.
 				ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 				// Create the streams used for decryption.
@@ -102,17 +101,12 @@ public class CryptoHelper
 
 				}
 			}
-			//
 			// remove zeros padding which were added in the call above PadArray(base64_decoded_array);
 			byte[] final_buffer = new byte[size_base64_decoded_array];
 			Array.Copy(buffer, 0, final_buffer, 0, final_buffer.Length);
 	    	plaintext = System.Text.Encoding.ASCII.GetString(final_buffer);
-
-			//plaintext = System.Text.Encoding.ASCII.GetString(buffer);
-			//Debug.Log("plaintext " + plaintext);
 			return plaintext;
 		}
-
 
 		public static byte[] Encrypt(string plainText, byte[] Key)
 		{
