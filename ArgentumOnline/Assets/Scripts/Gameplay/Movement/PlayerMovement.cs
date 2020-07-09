@@ -37,6 +37,7 @@ public class PlayerMovement : Movement
     private RuntimeAnimatorController mPhantomAnimatorController;
     private RuntimeAnimatorController mAnimatorController;
     private WorldClient mWorldClient;
+    private SpriteRenderer spriteRenderer;
 
     public override void Awake()
     {
@@ -55,16 +56,26 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
         //mAnimatorController = mAnimator.runtimeAnimatorController;
         dir = Direction.South;
+    }
+    void LateUpdate()
+    {
+
+        //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
+        //spriteRenderer.sortingOrder = (int)transform.position.y * -1;
     }
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
         //WalkRunSpeed = WalkSpeed;
-        //mBody.constraints = RigidbodyConstraints.FreezePositionX;
-        //mBody.constraints = RigidbodyConstraints.FreezePositionY;
+        mBody.AddForce(new Vector2(0,0));
+        mBody.velocity = Vector3.zero;
+        mBody.angularVelocity = 0;
+        mBody.gravityScale = 0f;
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
@@ -130,7 +141,25 @@ public class PlayerMovement : Movement
     // Update is called once per frame
     void Update()
     {
-        mBody.velocity = Vector3.zero;
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            
+            GameObject barco = GameObject.FindGameObjectsWithTag("Barco")[0];
+            UnityEngine.Debug.Assert(barco != null);
+            BarcoMovement barcoScript = barco.GetComponent<BarcoMovement>();
+            UnityEngine.Debug.Assert(barcoScript != null);
+            barcoScript.isActive = true;
+            //GameObject barcoCamera = barco.GetComponent<MainCamera>();
+            GameObject mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
+            Vector3 cameraPos = new Vector3(barco.transform.position.x, barco.transform.position.y, -1);
+            mainCamera.transform.position = cameraPos;
+            mainCamera.transform.SetParent(barco.transform);
+            GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+            barcoScript.player = player;
+            player.SetActive(false);
+            return;
+        }
         if (takeDamage && !IsPhantom)
         {
             UnityEngine.Debug.Log("Damage: " + damageValue);
