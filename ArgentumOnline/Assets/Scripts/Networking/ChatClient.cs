@@ -35,25 +35,13 @@ public class ChatClient : MonoBehaviour {
 		mUsername = u;
 		mPassword = p;
 	}
-    
+
 	public int ProcessChatJoinOkay(byte[] encrypted_character){
 		Debug.Log("ProcessChatJoinOkay");
         Debug.Log("encrypted_character len = " + Encoding.ASCII.GetString(encrypted_character).Length + " "  + Encoding.ASCII.GetString(encrypted_character) );
         var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log("decrypted chat data: " + decrypted_char);
-		//Can only be done from the main thread
-        /*
-		try{
-			mPlayerCharacterXml = new XmlDocument();
-			mPlayerCharacterXml.LoadXml(decrypted_char);
-			Debug.Log("Parsed PC XML sucessfully!!!!!!!");
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
-		}
-		catch (Exception e){
-			Debug.Log("Failed to parse XML charfile: " + e.Message);
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
-		}
-        */
+        mEventsQueue.Enqueue(Tuple.Create("CHAT_JOIN_OKAY",""));
 		return 1;
 	}
 	public int ProcessCharacterLeftChat(byte[] encrypted_uuid){
@@ -74,24 +62,23 @@ public class ChatClient : MonoBehaviour {
         */
 		return 1;
 	}
-	public int ProcessCharacterJoined(byte[] encrypted_spawn_info){
+	public int ProcessCharacterJoined(byte[] encrypted_joined_info){
 		Debug.Log("ProcessCharacterJoined");
-		Debug.Log("encrypted_spawn_info len = " + Encoding.ASCII.GetString(encrypted_spawn_info).Length + " "  + Encoding.ASCII.GetString(encrypted_spawn_info) );
-        var decrypted_info = CryptoHelper.Decrypt(encrypted_spawn_info,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		Debug.Log("encrypted_joined_info len = " + Encoding.ASCII.GetString(encrypted_joined_info).Length + " "  + Encoding.ASCII.GetString(encrypted_joined_info) );
+        var decrypted_info = CryptoHelper.Decrypt(encrypted_joined_info,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log("decrypted_data: " + decrypted_info);
-/*
 		try{
 			//Can only be done from the main thread
-			var SpawnCharacterXml = new XmlDocument();
-			SpawnCharacterXml.LoadXml(decrypted_info);
-			Debug.Log("Parsed Spawn XML sucessfully!!!!!!!");
-			mSpawnQueue.Enqueue(SpawnCharacterXml);
+			var CharacterJoinedXml = new XmlDocument();
+			CharacterJoinedXml.LoadXml(decrypted_info);
+			Debug.Log("Parsed CharacterJoinedChat XML sucessfully!!!!!!!");
+			mJoinedQueue.Enqueue(CharacterJoinedXml);
 		}
 		catch (Exception e){
-			Debug.Log("Failed to parse XML charfile: " + e.Message);
+			Debug.Log("Failed to parse XML charjoined: " + e.Message);
 			Debug.Assert(false);
 		}
-        */
+
 		return 1;
 	}
 	public int ProcessChatJoinError(byte[] data){
@@ -120,101 +107,21 @@ public class ChatClient : MonoBehaviour {
 
     void OnEnable(){
         Debug.Log("OnEnable called");
-		SceneManager.sceneLoaded += OnSceneLoaded;
+		//SceneManager.sceneLoaded += OnSceneLoaded;
     }
 	void OnDisable(){
        Debug.Log("OnDisable");
-       SceneManager.sceneLoaded -= OnSceneLoaded;
+       //SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log("OnSceneLoaded: " + scene.name);
-		if( mSpawningPlayerCharacter ){
-			//Second step PLAY_CHARACTER_OKAY
-			Debug.Log("Must spawn Player Character");
-			InstantiatePlayerCharacterSprite();
-			mSceneLoaded = true;
-		}else {
-			if(mPlayerCharacter!=null){
-				GameObject p = GameObject.Find(mPlayerCharacter.UUID());
-				if(p != null){
-                    PlayerMovement playerScript = p.GetComponent<PlayerMovement>();
-                    p.transform.position = playerScript.GetTeleportingPos();
-                    playerScript.Start();
-                    //p.SetActive(false);
-                    //Destroy(p);
-                }
-			}
 
-		}
-    }
-	private Character InstantiateCharacterFromXml(XmlDocument xml_doc,string selectnode){
-		try{
-			var pc = gameObject.AddComponent<Character>();
-			pc.CreateFromXml(xml_doc,selectnode);
-			Debug.Log("Player Character created sucessfully!!!!!!!");
-			return pc;
-		}
-		catch (Exception e){
-			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
-		}
-		return null;
-	}
-
-	private GameObject SpawnHuman(string uuid, string name, string tag, Vector3 pos, GameObject clonable, GameObject parent){
-		var p = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
-		p.tag = tag;
-		p.name = uuid;
-		var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
-		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
-		Debug.Assert(textName!=null);
-		textName.text = name+" ["+uuid+"]";
-		if(tag!="Player"){
-				Destroy(p.GetComponent<Movement>());
-				p.AddComponent<CharacterMovement>();
-		}
-		return p;
-	}
-	private void InstantiatePlayerCharacterSprite(){
-		try{
-            // Load character Prefab
-            GameObject player = (GameObject)Resources.Load("Characters/Human");
-            Debug.Assert(player != null, "Cannot find PLAYER in Resources prefabs");
-			player.SetActive(false);
-
-			// Clone plater, set position and name
-			var pc_pos = mPlayerCharacter.Position();
-			Vector3  v3pos = new Vector3(pc_pos.Item2,pc_pos.Item3, 0);
-			Transform  char_pos = player.transform;
-			char_pos.position =  v3pos;
-			GameObject world = GameObject.Find("World");
-			Debug.Assert(world != null);
-			var new_player_character = SpawnHuman(mPlayerCharacter.UUID(),mPlayerCharacter.Name(),"Player",char_pos.position,player,world);
-			new_player_character.SetActive(true);
-
-            //Set Main Camera positionand make it child of Player
-            GameObject cameraObj = (GameObject)Resources.Load("Cameras/MainCamera");
-            Debug.Assert(cameraObj != null, "Cannot find Camera in Resources prefabs");
-            Vector3 cameraPos = new Vector3(v3pos.x, v3pos.y, -1);
-            var mainCamera = Instantiate(cameraObj, cameraPos, Quaternion.identity, null);
-            mainCamera.transform.SetParent(new_player_character.transform);
-            new_player_character.transform.parent = null;
-            DontDestroyOnLoad(new_player_character.gameObject);
-
-            mSpawningPlayerCharacter = false;
-		}
-		catch (Exception e){
-			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
-		}
-	}
 	void Update(){
 		try
 		{
-			while(mSpawnQueue.Count>0 && mSceneLoaded){
+			while(mJoinedQueue.Count>0 && mSceneLoaded){
 				XmlDocument e;
-				if (mSpawnQueue.TryDequeue(out e)){
+				if (mJoinedQueue.TryDequeue(out e)){
+
+                    /*
 					 GameObject player = (GameObject)Resources.Load("Characters/Human");
 		             Debug.Assert(player != null, "Cannot find PLAYER in Map");
 		 			 player.SetActive(false);
@@ -228,39 +135,36 @@ public class ChatClient : MonoBehaviour {
 					 char_pos.position =  v3pos; // + offset;
 					 var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world);
 					 x.SetActive(true);
+                     */
 				}
 			}
 
 			if (mEventsQueue.Count > 0){
+
 				Tuple<string, string> e;
 				if (mEventsQueue.TryDequeue(out e)){
-					if(e.Item1 == "PLAY_CHARACTER_OKAY"){
-						Debug.Log("PLAY_CHARACTER_OKAY");
-						mSpawningPlayerCharacter = true;
-						mPlayerCharacter = InstantiateCharacterFromXml(mPlayerCharacterXml,"Character");
-						// The PLAY_CHARACTER_OKAY process has two steps:
-						// 			First step: Load the new scene.
-						//			Second step: Spawn the Character
-						SceneManager.LoadScene(mPlayerCharacter.Position().Item1);
-						// Set the flag to true to spawn the PC after scene loading
-
+					Debug.Log("Event " + e.Item1);
+					if(e.Item1 == "CHAT_JOIN_OKAY"){
+						Debug.Log("CHAT_JOIN_OKAY");
 					}
-					else if(e.Item1 == "CHARACTER_LEFT_MAP") {
-						Debug.Log("CHARACTER_LEFT_MAP");
-						 var remove_char = GameObject.Find(e.Item2);
-						 Debug.Assert(remove_char!=null);
-						 remove_char.SetActive(false);
-						 Destroy(remove_char);
+					else if(e.Item1 == "CHARACTER_LEFT_CHAT") {
+  					     Debug.Log("CHARACTER_LEFT_MAP");
 					}
-					else if(e.Item1 == "PLAY_CHARACTER_ERROR") {
-						Debug.Log("PLAY_CHARACTER_ERROR");
+					else if(e.Item1 == "CHAT_JOIN_ERROR") {
+						Debug.Log("CHAT_JOIN_ERROR");
 						//ShowMessageBox("PLAY_CHARACTER_OKAY_TITLE","PLAY_CHARACTER_OKAY_TEXT");
 					}
+					else if(e.Item1 == "CHARACTER_JOINED") {
+
+                    }
+					else if(e.Item1 == "CHARACTER_SAID") {
+
+                    }
 					else if(e.Item1 == "CONNECTION_ERROR_MSGBOX_TITLE"){
 						//ShowMessageBox("CONNECTION_ERROR_MSGBOX_TITLE",e.Item2);
 						//TODO CREATE MESSAGE BOX TO NOTIFY USER ABOUT EVENTS
 						Debug.Log("DECONECTADO DEL SERVIDOR");
-						SceneManager.LoadScene("MainMenu");
+
 					}
 					else{
 						Debug.Assert(false);
@@ -268,9 +172,11 @@ public class ChatClient : MonoBehaviour {
 				}
 			}
 
-			while (mMovementsQueue.Count>0 && !mSpawningPlayerCharacter){
-				Tuple<string, float,float> e;
-				if (mMovementsQueue.TryDequeue(out e)){
+			while (mChatQueue.Count>0){
+
+				XmlDocument e;
+				if (mChatQueue.TryDequeue(out e)){
+                    /*
 					GameObject pc = GameObject.Find(e.Item1);
 					if(pc == null){
 						//Client might have left
@@ -283,6 +189,7 @@ public class ChatClient : MonoBehaviour {
 						Debug.Log("Movement ("+ e.Item1+") x="+e.Item2 + " y="+e.Item3 );
 						p.PushMovement(Tuple.Create(e.Item2,e.Item3));
 					}
+                    */
 				}
 			}
 
@@ -533,8 +440,8 @@ public class ChatClient : MonoBehaviour {
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	// Connection events queue
 	private ConcurrentQueue<Tuple<string, string>> mEventsQueue = new ConcurrentQueue<Tuple<string, string>>();
-	private ConcurrentQueue<Tuple<string, float,float>> mMovementsQueue = new ConcurrentQueue<Tuple<string, float,float>>();
-	private ConcurrentQueue<XmlDocument> mSpawnQueue = new ConcurrentQueue<XmlDocument>();
+	private ConcurrentQueue<XmlDocument> mChatQueue = new ConcurrentQueue<XmlDocument>();
+	private ConcurrentQueue<XmlDocument> mJoinedQueue = new ConcurrentQueue<XmlDocument>();
 
 	private string mOperationUponSessionOpened = "NOOP";
 	private static Dictionary<short, Func<ChatClient, byte[], int>> ProcessFunctions
