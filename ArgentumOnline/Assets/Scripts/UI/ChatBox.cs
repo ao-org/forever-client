@@ -14,7 +14,10 @@ public class ChatBox : MonoBehaviour
     List<ChatMessage> messageList = new List<ChatMessage>();
     void Start()
     {
-        
+        // setup the chat client
+        GameObject chat_client_object = GameObject.FindGameObjectsWithTag("ChatClient")[0];
+        mChatClient = chat_client_object.GetComponent<ChatClient>();
+        Debug.Assert(mChatClient!=null);
     }
     static int inc = 0;
     void Update()
@@ -79,7 +82,11 @@ public class ChatBox : MonoBehaviour
         }
         return color;
     }
+    private ChatClient mChatClient;
 }
+
+
+
 [System.Serializable]
 public class ChatMessage
 {
