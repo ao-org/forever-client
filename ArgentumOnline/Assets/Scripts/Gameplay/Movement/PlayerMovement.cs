@@ -142,9 +142,10 @@ public class PlayerMovement : Movement
     void Update()
     {
 
+/*
         if (Input.GetKeyDown(KeyCode.B))
         {
-            
+
             GameObject barco = GameObject.FindGameObjectsWithTag("Barco")[0];
             UnityEngine.Debug.Assert(barco != null);
             BarcoMovement barcoScript = barco.GetComponent<BarcoMovement>();
@@ -160,6 +161,7 @@ public class PlayerMovement : Movement
             player.SetActive(false);
             return;
         }
+        */
         if (takeDamage && !IsPhantom)
         {
             UnityEngine.Debug.Log("Damage: " + damageValue);
@@ -189,7 +191,7 @@ public class PlayerMovement : Movement
                 textToHead.gameObject.SetActive(false);
                 textName.transform.localScale = new Vector3(2.4f,2.4f, 1);
                 this.transform.localScale = new Vector3(1, 1, 1);
-                
+
                 return;
             }
 
