@@ -15,6 +15,7 @@ using UnityEngine.UI;
 using System.IO;
 using System.Linq;
 using System.Xml;
+using System.Globalization;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -125,6 +126,26 @@ public class ChatClient : MonoBehaviour {
        //SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+	private Tuple<string, string, string, float,float> GetChatMessageFromXml(XmlDocument chat){
+        var nodes = chat.SelectNodes("Chat");
+        Debug.Assert(nodes.Count>0);
+		string uuid;
+		string pmap;
+		string words;
+		float fposx;
+		float fposy;
+        //foreach (XmlNode nod in nodes)
+		var nod = nodes[0];
+        words  	= nod["Sentence"]["words"].InnerText;
+        uuid   	= nod["Sentence"]["uuid"].InnerText;
+        pmap 	= nod["position"]["map"].InnerText;
+        string xstr = nod["position"]["x"].InnerText;
+        string ystr = nod["position"]["y"].InnerText;
+        fposx = float.Parse(xstr, CultureInfo.InvariantCulture.NumberFormat);
+        fposy = float.Parse(ystr, CultureInfo.InvariantCulture.NumberFormat);
+		return Tuple.Create(uuid,words,pmap,fposx,fposy);
+    }
+
 	void Update(){
 		try
 		{
@@ -181,7 +202,8 @@ public class ChatClient : MonoBehaviour {
 					GameObject p = GameObject.Find("ChatBox");
 					if(p!=null){
 						var cb = p.GetComponent<ChatBox>();
-						cb.SendMessageToChatBox("User said", ChatMessage.MessageType.system);
+						var ci = GetChatMessageFromXml(e);
+						cb.SendMessageToChatBox("User("+  ci.Item1 +") said: " +ci.Item2, ChatMessage.MessageType.system);
 
 					}
 				}
