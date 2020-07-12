@@ -57,6 +57,17 @@ public class ChatClient : MonoBehaviour {
 		Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterSaid");
         var decrypted_chat = CryptoHelper.Decrypt(encrypted_data,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log("decrypted chat data: " + decrypted_chat);
+		try{
+			//Can only be done from the main thread
+			var ChatXml = new XmlDocument();
+			ChatXml.LoadXml(decrypted_chat);
+			Debug.Log("Parsed ChatXML sucessfully!!!!!!!");
+			mChatQueue.Enqueue(ChatXml);
+		}
+		catch (Exception e){
+			Debug.Log("Failed to parse XML charjoined: " + e.Message);
+			Debug.Assert(false);
+		}
         /*
 		mMovementsQueue.Enqueue(Tuple.Create(decrypted_uuid,nx,ny));
         */
@@ -120,22 +131,13 @@ public class ChatClient : MonoBehaviour {
 			while(mJoinedQueue.Count>0 && mSceneLoaded){
 				XmlDocument e;
 				if (mJoinedQueue.TryDequeue(out e)){
+					Debug.Log("mJoinedQueue");
+					GameObject p = GameObject.Find("ChatBox");
+					if(p!=null){
+						var cb = p.GetComponent<ChatBox>();
+						cb.SendMessageToChatBox("User joined", ChatMessage.MessageType.system);
 
-                    /*
-					 GameObject player = (GameObject)Resources.Load("Characters/Human");
-		             Debug.Assert(player != null, "Cannot find PLAYER in Map");
-		 			 player.SetActive(false);
-					 Character c = InstantiateCharacterFromXml(e,"Spawn");
-					 var spawn_pos = c.Position();
-					 Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
-					 Transform  char_pos = player.transform;
-		 			 char_pos.position =  v3pos;
-		 			 GameObject world = GameObject.Find("World");
-		 			 Debug.Assert(world != null);
-					 char_pos.position =  v3pos; // + offset;
-					 var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world);
-					 x.SetActive(true);
-                     */
+					}
 				}
 			}
 
@@ -173,23 +175,15 @@ public class ChatClient : MonoBehaviour {
 			}
 
 			while (mChatQueue.Count>0){
-
 				XmlDocument e;
 				if (mChatQueue.TryDequeue(out e)){
-                    /*
-					GameObject pc = GameObject.Find(e.Item1);
-					if(pc == null){
-						//Client might have left
-						Debug.Log("Ignoring Movement because cannot find player: " + e.Item1);
+					Debug.Log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ChatQuee");
+					GameObject p = GameObject.Find("ChatBox");
+					if(p!=null){
+						var cb = p.GetComponent<ChatBox>();
+						cb.SendMessageToChatBox("User said", ChatMessage.MessageType.system);
+
 					}
-					else {
-						Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
-						var p = pc.GetComponent<CharacterMovement>();
-						Debug.Assert(p!=null);
-						Debug.Log("Movement ("+ e.Item1+") x="+e.Item2 + " y="+e.Item3 );
-						p.PushMovement(Tuple.Create(e.Item2,e.Item3));
-					}
-                    */
 				}
 			}
 
