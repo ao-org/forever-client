@@ -107,6 +107,7 @@ public class ChatClient : MonoBehaviour {
 		mAppQuit = false;
 		mSpawningPlayerCharacter = false;
 		mSceneLoaded = false;
+		UUID2Name.Clear();
 	}
 	public void SetMainMenu(MainMenu m){
 		Debug.Assert(m!=null);
@@ -134,7 +135,6 @@ public class ChatClient : MonoBehaviour {
 		string words;
 		float fposx;
 		float fposy;
-        //foreach (XmlNode nod in nodes)
 		var nod = nodes[0];
         words  	= nod["Sentence"]["words"].InnerText;
         uuid   	= nod["Sentence"]["uuid"].InnerText;
@@ -146,18 +146,38 @@ public class ChatClient : MonoBehaviour {
 		return Tuple.Create(uuid,words,pmap,fposx,fposy);
     }
 
+	private Tuple<string, string, string, float,float> GetJoinedMessageFromXml(XmlDocument chat){
+		var nodes = chat.SelectNodes("Spawn");
+		Debug.Assert(nodes.Count>0);
+		string uuid;
+		string pmap;
+		string name;
+		float fposx;
+		float fposy;
+		var nod = nodes[0];
+		name  	= nod["name"].InnerText;
+		uuid   	= nod["uuid"].InnerText;
+		pmap 	= nod["position"]["map"].InnerText;
+		string xstr = nod["position"]["x"].InnerText;
+		string ystr = nod["position"]["y"].InnerText;
+		fposx = float.Parse(xstr, CultureInfo.InvariantCulture.NumberFormat);
+		fposy = float.Parse(ystr, CultureInfo.InvariantCulture.NumberFormat);
+		return Tuple.Create(uuid,name,pmap,fposx,fposy);
+	}
+
 	void Update(){
 		try
 		{
-			while(mJoinedQueue.Count>0 && mSceneLoaded){
+			while(mJoinedQueue.Count>0){
 				XmlDocument e;
 				if (mJoinedQueue.TryDequeue(out e)){
 					Debug.Log("mJoinedQueue");
 					GameObject p = GameObject.Find("ChatBox");
 					if(p!=null){
 						var cb = p.GetComponent<ChatBox>();
-						cb.SendMessageToChatBox("User joined", ChatMessage.MessageType.system);
-
+						var ji = GetJoinedMessageFromXml(e);
+						UUID2Name[ji.Item1]=ji.Item2;
+						cb.SendMessageToChatBox(ji.Item2 + " joined the game.", ChatMessage.MessageType.system);
 					}
 				}
 			}
@@ -198,7 +218,6 @@ public class ChatClient : MonoBehaviour {
 			while (mChatQueue.Count>0){
 				XmlDocument e;
 				if (mChatQueue.TryDequeue(out e)){
-					Debug.Log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ChatQuee");
 					GameObject p = GameObject.Find("ChatBox");
 					if(p!=null){
 						var cb = p.GetComponent<ChatBox>();
@@ -460,6 +479,8 @@ public class ChatClient : MonoBehaviour {
 	private ConcurrentQueue<XmlDocument> mJoinedQueue = new ConcurrentQueue<XmlDocument>();
 
 	private string mOperationUponSessionOpened = "NOOP";
+	private Dictionary<string, string> UUID2Name = new Dictionary<string,string>();
+
 	private static Dictionary<short, Func<ChatClient, byte[], int>> ProcessFunctions
         = new Dictionary<short, Func<ChatClient, byte[], int>>
     {
