@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ChatBox : MonoBehaviour
 {
@@ -66,6 +67,18 @@ public class ChatBox : MonoBehaviour
         newMessage.textObject.text = newMessage.text;
         newMessage.textObject.color = MessageTypeColor(messageType);
         messageList.Add(newMessage);
+        Debug.Assert(mChatClient!=null);
+        GameObject player_object = GameObject.FindGameObjectsWithTag("Player")[0];
+        Debug.Assert(player_object!=null);
+        var  char_pos = player_object.transform.position;
+        var  words = newMessage.text;
+        var active_scene = SceneManager.GetActiveScene();
+        var sceneName = active_scene.name;
+        var posx = char_pos.x;
+        var posy = char_pos.y;
+        var uuid = player_object.name;
+        Debug.Log("ChatBox: " + words + " " + name + " " + posx.ToString() + " " + sceneName);
+        mChatClient.OnPlayerSays(uuid, sceneName, posx, posy, words);
     }
 
     Color MessageTypeColor(ChatMessage.MessageType messagetype)

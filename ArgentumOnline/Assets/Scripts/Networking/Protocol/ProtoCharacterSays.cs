@@ -12,11 +12,11 @@ using UnityEngine;
 public class ProtoCharacterSays : ProtoBase
 {
 
-	public ProtoCharacterSays(Character character, string words, string token){
-		Debug.Log("ProtoCharacterSays: " + character.Name() + " " + words);
+	public ProtoCharacterSays(string uuid, string map, float posx, float posy, string words, string token){
+		Debug.Log("ProtoCharacterSays: " + uuid + " " + words);
 		short header = EncodeShort(ProtoBase.ProtocolNumbers["CHARACTER_SAYS"]);
 
-		string xml_chat = CreateXMLChatString(character,words);
+		string xml_chat = CreateXMLChatString(uuid,map,posx,posy,words);
 		Debug.Log("Account :" + xml_chat);
 		var encrypted_data = CryptoHelper.Encrypt(xml_chat, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
 		Debug.Log("encrypted account : " + Encoding.ASCII.GetString(encrypted_data));
@@ -29,18 +29,17 @@ public class ProtoCharacterSays : ProtoBase
 		Array.Copy(encrypted_data, 0, mBytes, 4, encrypted_data.Length);
 	}
 
-    private string CreateXMLChatString(Character c, string words){
-        var char_pos = c.Position();
+    private string CreateXMLChatString(string uuid, string map, float posx, float posy, string words){
         string xml_string = @"<?xml version=""1.0""?>
                 <Chat>
                     <Sentence>
                             <words> " + words + @"</words>
-                            <uuid>  "  + c.UUID() + @"</uuid>
+                            <uuid>  "  + uuid + @"</uuid>
                     </Sentence>
                     <position>
-                            <map>  " + char_pos.Item1 + @"</map>
-                            <x> " + char_pos.Item2.ToString()  + @"</x>
-                            <y> " + char_pos.Item3.ToString()  + @"</y>
+                            <map>  " + map + @"</map>
+                            <x> " + posx.ToString()  + @"</x>
+                            <y> " + posy.ToString()  + @"</y>
                     </position>
                 </Chat>";
         return xml_string;

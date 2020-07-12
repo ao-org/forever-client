@@ -245,10 +245,10 @@ public class ChatClient : MonoBehaviour {
 			OnConnectionError("Error", "CreateListenWorkload");
 		}
 	}
-	public void OnPlayerMoved(Vector3 newpos)
+	public void OnPlayerSays(string uuid, string map, float posx, float posy, string words)
 	{
-	   Debug.Log("WorldServer::OnPlayerMoved!!!");
-	   var p = new ProtoMoveRequest(newpos, CryptoHelper.Token);
+	   Debug.Log("WorldServer::OnPlayerSays!!!");
+	   var p = new ProtoCharacterSays(uuid,map,posx,posy,words,CryptoHelper.Token);
 	   SendMessage(p);
 	}
    	private void OnConnectionEstablished()
