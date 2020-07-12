@@ -222,7 +222,8 @@ public class ChatClient : MonoBehaviour {
 					if(p!=null){
 						var cb = p.GetComponent<ChatBox>();
 						var ci = GetChatMessageFromXml(e);
-						cb.SendMessageToChatBox("User("+  ci.Item1 +") said: " +ci.Item2, ChatMessage.MessageType.system);
+						var name = UUID2Name[ci.Item1];
+						cb.SendMessageToChatBox( name + " said: " +ci.Item2, ChatMessage.MessageType.system);
 
 					}
 				}
