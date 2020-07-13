@@ -177,7 +177,7 @@ public class ChatClient : MonoBehaviour {
 						var cb = p.GetComponent<ChatBox>();
 						var ji = GetJoinedMessageFromXml(e);
 						UUID2Name[ji.Item1]=ji.Item2;
-						cb.SendMessageToChatBox(ji.Item2 + " joined the game.", ChatMessage.MessageType.player);
+						cb.SendMessageToChatBox(ji.Item2 + " joined the game.", ChatMessage.MessageType.system);
 					}
 				}
 			}
@@ -223,7 +223,7 @@ public class ChatClient : MonoBehaviour {
 						var cb = p.GetComponent<ChatBox>();
 						var ci = GetChatMessageFromXml(e);
 						var name = UUID2Name[ci.Item1];
-						cb.SendMessageToChatBox( name + " said: " +ci.Item2, ChatMessage.MessageType.system);
+						cb.SendMessageToChatBox( name + " said: " +ci.Item2, ChatMessage.MessageType.player);
 
 					}
 				}
