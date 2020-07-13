@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ChatBox : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ChatBox : MonoBehaviour
     private bool panelView = true;
     private bool close = false;
     private ChatClient mChatClient;
+    private float timeLeft = 30.0f;
 
     [SerializeField]
     List<ChatMessage> messageList = new List<ChatMessage>();
@@ -26,6 +28,17 @@ public class ChatBox : MonoBehaviour
 
     void Update()
     {
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+        {
+            GameObject player_object = GameObject.FindGameObjectsWithTag("Player")[0];
+            Debug.Assert(player_object != null);
+            var np_canvas = player_object.transform.Find("CanvasPlayer").gameObject;
+            TextMeshProUGUI textToHead = np_canvas.transform.Find("TextToHead").GetComponent<TextMeshProUGUI>();
+            Debug.Assert(textToHead != null);
+            textToHead.text = "";
+            timeLeft = 30.0f;
+        }
         if (close)
         {
             //if (Input.GetKeyDown(KeyCode.C))
@@ -71,10 +84,14 @@ public class ChatBox : MonoBehaviour
         newMessage.textObject.text = newMessage.text;
         newMessage.textObject.color = MessageTypeColor(messageType);
         messageList.Add(newMessage);
-        if(messageType == ChatMessage.MessageType.player){
+        if (messageType == ChatMessage.MessageType.player){
             Debug.Assert(mChatClient!=null);
             GameObject player_object = GameObject.FindGameObjectsWithTag("Player")[0];
             Debug.Assert(player_object!=null);
+            var np_canvas = player_object.transform.Find("CanvasPlayer").gameObject;
+            TextMeshProUGUI textToHead = np_canvas.transform.Find("TextToHead").GetComponent<TextMeshProUGUI>();
+            Debug.Assert(textToHead != null);
+            textToHead.text = text;
             var  char_pos = player_object.transform.position;
             var  words = newMessage.text;
             var active_scene = SceneManager.GetActiveScene();
