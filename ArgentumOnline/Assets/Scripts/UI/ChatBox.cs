@@ -14,12 +14,15 @@ public class ChatBox : MonoBehaviour
     private bool panelView = true;
     private bool close = false;
     private ChatClient mChatClient;
-    private float timeLeft = 30.0f;
+    private float timeTextToHeadMax = 7.0f;
+    private float timeTextToHeadLeft;
+    private bool checkTextToHeadTime = false;
 
     [SerializeField]
     List<ChatMessage> messageList = new List<ChatMessage>();
     void Start()
     {
+        timeTextToHeadLeft = timeTextToHeadMax;
         // setup the chat client
         GameObject chat_client_object = GameObject.FindGameObjectsWithTag("ChatClient")[0];
         mChatClient = chat_client_object.GetComponent<ChatClient>();
@@ -28,16 +31,22 @@ public class ChatBox : MonoBehaviour
 
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-        if (timeLeft < 0)
+        if (checkTextToHeadTime)
         {
-            GameObject player_object = GameObject.FindGameObjectsWithTag("Player")[0];
-            Debug.Assert(player_object != null);
-            var np_canvas = player_object.transform.Find("CanvasPlayer").gameObject;
-            TextMeshProUGUI textToHead = np_canvas.transform.Find("TextToHead").GetComponent<TextMeshProUGUI>();
-            Debug.Assert(textToHead != null);
-            textToHead.text = "";
-            timeLeft = 30.0f;
+            timeTextToHeadLeft -= Time.deltaTime;
+            if (timeTextToHeadLeft < 0)
+            {
+
+                Debug.Log("ChekTime to Head is ZERO");
+                GameObject player_object = GameObject.FindGameObjectsWithTag("Player")[0];
+                Debug.Assert(player_object != null);
+                var np_canvas = player_object.transform.Find("CanvasPlayer").gameObject;
+                TextMeshProUGUI textToHead = np_canvas.transform.Find("TextToHead").GetComponent<TextMeshProUGUI>();
+                Debug.Assert(textToHead != null);
+                textToHead.text = "";
+                timeTextToHeadLeft = timeTextToHeadMax;
+                checkTextToHeadTime = false;
+            }
         }
         if (close)
         {
@@ -92,6 +101,7 @@ public class ChatBox : MonoBehaviour
             TextMeshProUGUI textToHead = np_canvas.transform.Find("TextToHead").GetComponent<TextMeshProUGUI>();
             Debug.Assert(textToHead != null);
             textToHead.text = text;
+            checkTextToHeadTime = true;
             var  char_pos = player_object.transform.position;
             var  words = newMessage.text;
             var active_scene = SceneManager.GetActiveScene();
