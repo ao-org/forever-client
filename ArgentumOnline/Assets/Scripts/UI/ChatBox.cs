@@ -19,9 +19,9 @@ public class ChatBox : MonoBehaviour
     void Start()
     {
         // setup the chat client
-        /*GameObject chat_client_object = GameObject.FindGameObjectsWithTag("ChatClient")[0];
+        GameObject chat_client_object = GameObject.FindGameObjectsWithTag("ChatClient")[0];
         mChatClient = chat_client_object.GetComponent<ChatClient>();
-        Debug.Assert(mChatClient!=null);*/
+        Debug.Assert(mChatClient!=null);
     }
 
     void Update()
@@ -83,7 +83,7 @@ public class ChatBox : MonoBehaviour
             var posy = char_pos.y;
             var uuid = player_object.name;
             Debug.Log("ChatBox: " + words + " " + name + " " + posx.ToString() + " " + sceneName);
-            //mChatClient.OnPlayerSays(uuid, sceneName, posx, posy, words);
+            mChatClient.OnPlayerSays(uuid, sceneName, posx, posy, words);
         }
     }
 
