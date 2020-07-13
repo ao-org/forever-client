@@ -28,7 +28,8 @@ public class ChatBox : MonoBehaviour
     {
         if (close)
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            //if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.C))
             {
                 GameObject mChatDialog = GameObject.Find("ChatDialog");
                 Debug.Assert(mChatDialog != null);
@@ -49,7 +50,11 @@ public class ChatBox : MonoBehaviour
         {
             //if (!chatInput.isFocused && Input.GetKeyDown(KeyCode.Return)) { }
                 //chatInput.ActivateInputField();
-        }        
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SendMessageToChatBox("System Message received...", ChatMessage.MessageType.system);
+        }
     }
 
     public void SendMessageToChatBox(string text, ChatMessage.MessageType messageType = ChatMessage.MessageType.player)
@@ -98,16 +103,24 @@ public class ChatBox : MonoBehaviour
     }
     public void MinimizeMaximize()
     {
-        GameObject mChatDialog = GameObject.Find("ChatView");
-        Debug.Assert(mChatDialog != null);
+        GameObject chatView = GameObject.Find("ChatView");
+        Debug.Assert(chatView != null);
+        var canvasGroup = chatView.GetComponent<CanvasGroup>();
         if (panelView)
         {
-            mChatDialog.transform.localScale = new Vector3(0, 0, 0);
+            chatView.transform.localScale = new Vector3(0, 0, 0);
             panelView = false;
         }
         else
         {
-            mChatDialog.transform.localScale = new Vector3(1, 1, 0);
+            chatView.transform.localScale = new Vector3(1, 1, 0);
+            GameObject scrollView = GameObject.Find("ScrollView");
+            ScrollRect scrollRect = scrollView.GetComponent<ScrollRect>();
+            Debug.Assert(scrollRect != null);
+            //Canvas.ForceUpdateCanvases();
+            scrollRect.content.GetComponent<VerticalLayoutGroup>().CalculateLayoutInputVertical();
+            scrollRect.content.GetComponent<ContentSizeFitter>().SetLayoutVertical();
+            scrollRect.verticalNormalizedPosition = 0;
             panelView = true;
         }
 
