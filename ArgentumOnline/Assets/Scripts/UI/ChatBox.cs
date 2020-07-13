@@ -10,19 +10,33 @@ public class ChatBox : MonoBehaviour
     public GameObject chatPanel, textObject;
     public InputField chatInput;
     public Color playerColorMsg, infoColorMsg, systemColorMsg;
+    private bool panelView = true;
+    private bool close = false;
+    private ChatClient mChatClient;
 
     [SerializeField]
     List<ChatMessage> messageList = new List<ChatMessage>();
     void Start()
     {
         // setup the chat client
-        GameObject chat_client_object = GameObject.FindGameObjectsWithTag("ChatClient")[0];
+        /*GameObject chat_client_object = GameObject.FindGameObjectsWithTag("ChatClient")[0];
         mChatClient = chat_client_object.GetComponent<ChatClient>();
-        Debug.Assert(mChatClient!=null);
+        Debug.Assert(mChatClient!=null);*/
     }
-    static int inc = 0;
+
     void Update()
     {
+        if (close)
+        {
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                GameObject mChatDialog = GameObject.Find("ChatDialog");
+                Debug.Assert(mChatDialog != null);
+                mChatDialog.transform.localScale = new Vector3(0.6f, 0.6f, 0);
+                close = false;
+            }
+            return;
+        }
         if (chatInput.text != "")
         {
             if (Input.GetKeyDown(KeyCode.Return))
@@ -33,24 +47,9 @@ public class ChatBox : MonoBehaviour
         }
         else
         {
-            if (!chatInput.isFocused && Input.GetKeyDown(KeyCode.Return))
-                chatInput.ActivateInputField();
-        }
-        if (!chatInput.isFocused)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("Key Space");
-                SendMessageToChatBox("*********Space Key Pressed!****** " + inc.ToString());
-                inc++;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Key Space");
-            SendMessageToChatBox("*********Space Key Pressed!****** " + inc.ToString(), ChatMessage.MessageType.system);
-            inc++;
-        }
+            //if (!chatInput.isFocused && Input.GetKeyDown(KeyCode.Return)) { }
+                //chatInput.ActivateInputField();
+        }        
     }
 
     public void SendMessageToChatBox(string text, ChatMessage.MessageType messageType = ChatMessage.MessageType.player)
@@ -79,7 +78,7 @@ public class ChatBox : MonoBehaviour
             var posy = char_pos.y;
             var uuid = player_object.name;
             Debug.Log("ChatBox: " + words + " " + name + " " + posx.ToString() + " " + sceneName);
-            mChatClient.OnPlayerSays(uuid, sceneName, posx, posy, words);
+            //mChatClient.OnPlayerSays(uuid, sceneName, posx, posy, words);
         }
     }
 
@@ -97,7 +96,30 @@ public class ChatBox : MonoBehaviour
         }
         return color;
     }
-    private ChatClient mChatClient;
+    public void MinimizeMaximize()
+    {
+        GameObject mChatDialog = GameObject.Find("ChatView");
+        Debug.Assert(mChatDialog != null);
+        if (panelView)
+        {
+            mChatDialog.transform.localScale = new Vector3(0, 0, 0);
+            panelView = false;
+        }
+        else
+        {
+            mChatDialog.transform.localScale = new Vector3(1, 1, 0);
+            panelView = true;
+        }
+
+    }
+    public void Close()
+    {
+        GameObject mChatDialog = GameObject.Find("ChatDialog");
+        Debug.Assert(mChatDialog != null);
+        mChatDialog.transform.localScale = new Vector3(0, 0, 0);
+        close = true;
+    }
+    //private ChatClient mChatClient;
 }
 
 
