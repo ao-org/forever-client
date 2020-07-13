@@ -64,7 +64,7 @@ public class ChatBox : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                SendMessageToChatBox(chatInput.text);
+                SendMessageToChatBox(chatInput.text,  ChatMessage.MessageType.me);
                 chatInput.text = "";
             }
         }
@@ -93,7 +93,7 @@ public class ChatBox : MonoBehaviour
         newMessage.textObject.text = newMessage.text;
         newMessage.textObject.color = MessageTypeColor(messageType);
         messageList.Add(newMessage);
-        if (messageType == ChatMessage.MessageType.player){
+        if (messageType == ChatMessage.MessageType.me){
             Debug.Assert(mChatClient!=null);
             GameObject player_object = GameObject.FindGameObjectsWithTag("Player")[0];
             Debug.Assert(player_object!=null);
@@ -174,6 +174,7 @@ public class ChatMessage
     public enum MessageType
     {
         player,
+        me,
         info,
         system
     }

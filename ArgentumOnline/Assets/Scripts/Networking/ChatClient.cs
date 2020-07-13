@@ -130,20 +130,20 @@ public class ChatClient : MonoBehaviour {
 	private Tuple<string, string, string, float,float> GetChatMessageFromXml(XmlDocument chat){
         var nodes = chat.SelectNodes("Chat");
         Debug.Assert(nodes.Count>0);
-		string uuid;
+		string name;
 		string pmap;
 		string words;
 		float fposx;
 		float fposy;
 		var nod = nodes[0];
         words  	= nod["Sentence"]["words"].InnerText;
-        uuid   	= nod["Sentence"]["uuid"].InnerText;
+		name  	= nod["Sentence"]["name"].InnerText;;
         pmap 	= nod["position"]["map"].InnerText;
         string xstr = nod["position"]["x"].InnerText;
         string ystr = nod["position"]["y"].InnerText;
         fposx = float.Parse(xstr, CultureInfo.InvariantCulture.NumberFormat);
         fposy = float.Parse(ystr, CultureInfo.InvariantCulture.NumberFormat);
-		return Tuple.Create(uuid,words,pmap,fposx,fposy);
+		return Tuple.Create(name,words,pmap,fposx,fposy);
     }
 
 	private Tuple<string, string, string, float,float> GetJoinedMessageFromXml(XmlDocument chat){
@@ -222,9 +222,7 @@ public class ChatClient : MonoBehaviour {
 					if(p!=null){
 						var cb = p.GetComponent<ChatBox>();
 						var ci = GetChatMessageFromXml(e);
-						var name = UUID2Name[ci.Item1];
-						cb.SendMessageToChatBox( name + " said: " +ci.Item2, ChatMessage.MessageType.player);
-
+						cb.SendMessageToChatBox( ci.Item1 + " said: " +ci.Item2, ChatMessage.MessageType.player);
 					}
 				}
 			}
