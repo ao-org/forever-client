@@ -177,7 +177,7 @@ public class ChatClient : MonoBehaviour {
 						var cb = p.GetComponent<ChatBox>();
 						var ji = GetJoinedMessageFromXml(e);
 						UUID2Name[ji.Item1]=ji.Item2;
-						cb.SendMessageToChatBox(ji.Item2 + " joined the game.", ChatMessage.MessageType.system);
+						cb.SendMessageToChatBox(ji.Item2 + " joined the game.", ChatMessage.MessageType.player);
 					}
 				}
 			}
