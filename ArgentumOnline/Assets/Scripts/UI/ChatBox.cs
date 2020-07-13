@@ -51,10 +51,10 @@ public class ChatBox : MonoBehaviour
             //if (!chatInput.isFocused && Input.GetKeyDown(KeyCode.Return)) { }
                 //chatInput.ActivateInputField();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             SendMessageToChatBox("System Message received...", ChatMessage.MessageType.system);
-        }
+        }*/
     }
 
     public void SendMessageToChatBox(string text, ChatMessage.MessageType messageType = ChatMessage.MessageType.player)
