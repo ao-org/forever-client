@@ -10,7 +10,7 @@ public class ChatBox : MonoBehaviour
     public int maxMessages = 25;
     public GameObject chatPanel, textObject;
     public InputField chatInput;
-    public Color playerColorMsg, infoColorMsg, systemColorMsg;
+    public Color playerColorMsg, infoColorMsg, systemColorMsg, meColorMsg, wisperColorMsg;
     private bool panelView = true;
     private bool close = false;
     private ChatClient mChatClient;
@@ -116,7 +116,7 @@ public class ChatBox : MonoBehaviour
 
     Color MessageTypeColor(ChatMessage.MessageType messagetype)
     {
-        Color color = playerColorMsg;
+        Color color = meColorMsg;
         switch(messagetype)
         {
             case ChatMessage.MessageType.info:
@@ -124,6 +124,12 @@ public class ChatBox : MonoBehaviour
                 break;
             case ChatMessage.MessageType.system:
                 color = systemColorMsg;
+                break;
+            case ChatMessage.MessageType.player:
+                color = playerColorMsg;
+                break;
+            case ChatMessage.MessageType.wisper:
+                color = wisperColorMsg;
                 break;
         }
         return color;
@@ -176,6 +182,7 @@ public class ChatMessage
         player,
         me,
         info,
-        system
+        system,
+        wisper
     }
 }
