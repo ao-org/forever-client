@@ -105,8 +105,6 @@ public class ChatClient : MonoBehaviour {
 		Debug.Log("Initializing ChatClient");
 		mIncommingData = new List<byte>();
 		mAppQuit = false;
-		mSpawningPlayerCharacter = false;
-		mSceneLoaded = false;
 		UUID2Name.Clear();
 	}
 	public void SetMainMenu(MainMenu m){
@@ -467,8 +465,6 @@ public class ChatClient : MonoBehaviour {
 	private string					mPassword;
 	private MainMenu				mMainMenu;
 	private bool					mAppQuit;
-	private bool					mSpawningPlayerCharacter;
-	private bool					mSceneLoaded;
 	private Character 		mPlayerCharacter;
 	// Construct a ConcurrentQueue for Sending messages to the server
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
