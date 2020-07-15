@@ -604,9 +604,11 @@ MonoBehaviour:
   textObject: {fileID: 7926538342088334561, guid: 562291b3ffba13240a6cbd343cadeaa1,
     type: 3}
   chatInput: {fileID: 729883485221098417}
-  playerColorMsg: {r: 0.9433962, g: 0.9211463, b: 0.9211463, a: 0.7058824}
-  infoColorMsg: {r: 0.9339623, g: 0.84374005, b: 0.101326115, a: 0.7058824}
+  playerColorMsg: {r: 1, g: 1, b: 1, a: 1}
+  infoColorMsg: {r: 0.13803846, g: 0.8867924, b: 0.1968544, a: 1}
   systemColorMsg: {r: 0.9056604, g: 0.09825563, b: 0.09825563, a: 1}
+  meColorMsg: {r: 0.38416696, g: 0.5373191, b: 0.9150943, a: 1}
+  wisperColorMsg: {r: 0.9433962, g: 0.906598, b: 0.057849795, a: 1}
   messageList: []
 --- !u!1 &729883485033957706
 GameObject:
