@@ -29,35 +29,16 @@ public class OnEnterLoadScene : MonoBehaviour
         UnityEngine.Debug.Log("OnEnterLoadScene " + col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         if (col.CompareTag("Player"))
         {
-            
+
             GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
             UnityEngine.Debug.Assert(player != null);
             PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
-            
             UnityEngine.Debug.Assert(player != null);
 
-            /*if (!lockx){
-                float x = float.Parse(teleport_x);
-                WarpingDestination.teleport_x = x;
-            }
-            else {
-                WarpingDestination.teleport_x = player.transform.position.x;
-            }
-            if (!locky){
-                float y = float.Parse(teleport_y);
-                WarpingDestination.teleport_y = y;
-            }
-            else {
-                WarpingDestination.teleport_y = player.transform.position.y;
-            }
-            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -1);
-            UnityEngine.Debug.Log("Teleporting player to x:" + WarpingDestination.teleport_x + " y:" + WarpingDestination.teleport_y);
-            WarpingDestination.direction= player.GetComponent<Movement>().GetDirection();
-            WarpingDestination.warping = true;
-        }
-        else {
-            UnityEngine.Debug.Log("Error! No puedo encontrar el tag PLAYER!");
-        }*/
+            GameObject wc = GameObject.Find("WorldClient");
+            UnityEngine.Debug.Assert(wc != null);
+            var client = wc.GetComponent<WorldClient>();
+
             Vector3 newPos = new Vector3(0, 0, 0);
             if (!lockx)
             {
@@ -81,20 +62,16 @@ public class OnEnterLoadScene : MonoBehaviour
                 newPos.y = player.transform.position.y;
                 UnityEngine.Debug.Log("TELEPORT Y (Locked): " + newPos.y.ToString());
             }
+            client.OnPlayerOnEnterLoadScene(scene,newPos);
             UnityEngine.Debug.Log("TELEPORT X Y: " + player.transform.position.x.ToString() + player.transform.position.y.ToString());
             UnityEngine.Debug.Log("Scene Name: " + scene);
-            //SceneManager.LoadScene(scene);
-            
             SceneManager.LoadScene(scene);
-            //playerScript.Start();
-            //player.transform.position = new Vector3(newPos.x, newPos.y, 0);
             playerScript.SetTeleportingPos(new Vector3(newPos.x, newPos.y, 0));
             UnityEngine.Debug.Log("TELEPORT X Y: " + player.transform.position.x.ToString() + player.transform.position.y.ToString());
-            
             UnityEngine.Debug.Log("Teleporting player to x:" + WarpingDestination.teleport_x + " y:" + WarpingDestination.teleport_y);
             WarpingDestination.direction = player.GetComponent<PlayerMovement>().GetDirection();
             WarpingDestination.warping = true;
-            
+
         }
     }
 }

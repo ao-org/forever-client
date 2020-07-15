@@ -349,6 +349,12 @@ public class WorldClient : MonoBehaviour {
 	   var p = new ProtoMoveRequest(newpos, CryptoHelper.Token);
 	   SendMessage(p);
 	}
+	public void OnPlayerOnEnterLoadScene(string scene, Vector3 newpos)
+	{
+	   Debug.Log("WorldServer::OnPlayerMoved!!!");
+	   var p = new ProtoMapRequest(scene,newpos, CryptoHelper.Token);
+	   SendMessage(p);
+	}
    	private void OnConnectionEstablished()
    	{
 	   Debug.Log("WorldServer::OnConnectionEstablished!!!");
