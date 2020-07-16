@@ -38,6 +38,12 @@ public class PruebaPlayerMovement : Movement
     private RuntimeAnimatorController mAnimatorController;
     //private WorldClient mWorldClient;
     private SpriteRenderer spriteRenderer;
+    //Codigo prueba para abolir fisica entre rigidbody players
+    public Vector3 position, velocity, forward;
+    private float angularVelocity;
+    public Quaternion rotation;
+    public bool isColliding;
+    private int playersColliding = 0;
 
     public override void Awake()
     {
@@ -67,7 +73,75 @@ public class PruebaPlayerMovement : Movement
 
         if (spriteRenderer.isVisible)
             spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
+        //if (isColliding)
+        {
+            /*if (!IsFacingObject())
+            {
+                mBody.constraints = RigidbodyConstraints2D.None;
+            }*/
+            //mBody.isKinematic = true;
+            //mBody.velocity = Vector3.zero;
+            //mBody.angularVelocity = 0f;
+        }
     }
+    void FixedUpdate()
+    {
+        //IsFacingObject();
+    }
+    private bool IsFacingObject()
+    {
+        GameObject human = GameObject.FindGameObjectsWithTag("Human")[0];
+        UnityEngine.Debug.Assert(human != null);
+        GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+        UnityEngine.Debug.Assert(player != null);
+
+        /*float dot = Vector3.Dot(forward, (human.transform.position - transform.position).normalized);
+        if (dot > 0.7f)
+        {
+            UnityEngine.Debug.Log("********LookingAt");
+            return true;
+        }
+        UnityEngine.Debug.Log("********NOT LookingAt");
+        return false; */
+
+        float angle = 45;
+        if (Vector3.Angle(forward, human.transform.position - player.transform.position) < angle)
+        {
+            UnityEngine.Debug.Log("********LookingAt");
+            return true;
+        }
+        UnityEngine.Debug.Log("********NOT LookingAt");
+        return false;
+    }
+ 
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.collider.tag == "Human")
+        {
+            //mBody.constraints = RigidbodyConstraints2D.FreezeAll;
+            UnityEngine.Debug.Log("touch Player enter****************************");
+            isColliding = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Human")
+        {
+            UnityEngine.Debug.Log("touch Player exit****************************");
+            isColliding = false;
+        }
+        /*if (collision.collider.tag == "Player")
+        {
+            playersColliding -= 1;
+            UnityEngine.Debug.Log("touch Human***************" + playersColliding + "*************");
+            if (playersColliding == 0) { }
+                mBody.constraints = RigidbodyConstraints2D.None;
+        }*/
+    }
+    
     // Start is called before the first frame update
     public override void Start()
     {
@@ -100,6 +174,10 @@ public class PruebaPlayerMovement : Movement
         else
         {
             //mWorldClient.OnPlayerMoved(pos);
+            forward = new Vector3(pos.x - transform.position.x, pos.y - transform.position.y, 0);
+            //UnityEngine.Debug.Log("IsColliding: " + isColliding.ToString());
+            if (isColliding && IsFacingObject())
+                return false;
             mBody.MovePosition(pos);
             return true;
         }
@@ -142,8 +220,7 @@ public class PruebaPlayerMovement : Movement
     // Update is called once per frame
     void Update()
     {
-
-/*
+        /*
         if (Input.GetKeyDown(KeyCode.B))
         {
 
