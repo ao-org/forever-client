@@ -504,10 +504,10 @@ TextureImporter:
       name: objetos_altar_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 740
-        y: 298
-        width: 384
-        height: 182
+        x: 640
+        y: 129
+        width: 386
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
