@@ -39,11 +39,13 @@ public class PruebaPlayerMovement : Movement
     //private WorldClient mWorldClient;
     private SpriteRenderer spriteRenderer;
     //Codigo prueba para abolir fisica entre rigidbody players
-    public Vector3 position, velocity, forward;
+    public Vector3 position, velocity, forward, oldPos;
     private float angularVelocity;
     public Quaternion rotation;
     public bool isColliding;
     private int playersColliding = 0;
+    private bool isTryingToMove = false;
+    private Vector3 newpos; 
 
     public override void Awake()
     {
@@ -72,7 +74,15 @@ public class PruebaPlayerMovement : Movement
     {
 
         if (spriteRenderer.isVisible)
-            spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
+        {
+            Bounds bounds = spriteRenderer.bounds;
+            var pivotX = -bounds.center.x / bounds.extents.x / 2 + 0.5f;
+            var pivotY = -bounds.center.y / bounds.extents.y / 2 + 0.5f;
+            //var pixelsToUnits = spriteRenderer.textureRect.width / bounds.size.x;
+            Vector3 v3 = new Vector3(pivotX, pivotY,0);
+            //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
+            spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
+        }
         //if (isColliding)
         {
             /*if (!IsFacingObject())
@@ -87,6 +97,8 @@ public class PruebaPlayerMovement : Movement
     void FixedUpdate()
     {
         //IsFacingObject();
+        //if (isTryingToMove)
+            //mBody.MovePosition(pos);
     }
     private bool IsFacingObject()
     {
@@ -104,7 +116,7 @@ public class PruebaPlayerMovement : Movement
         UnityEngine.Debug.Log("********NOT LookingAt");
         return false; */
 
-        float angle = 45;
+        float angle = 70;
         if (Vector3.Angle(forward, human.transform.position - player.transform.position) < angle)
         {
             UnityEngine.Debug.Log("********LookingAt");
@@ -120,7 +132,6 @@ public class PruebaPlayerMovement : Movement
 
         if (collision.collider.tag == "Human")
         {
-            //mBody.constraints = RigidbodyConstraints2D.FreezeAll;
             UnityEngine.Debug.Log("touch Player enter****************************");
             isColliding = true;
         }
@@ -133,13 +144,6 @@ public class PruebaPlayerMovement : Movement
             UnityEngine.Debug.Log("touch Player exit****************************");
             isColliding = false;
         }
-        /*if (collision.collider.tag == "Player")
-        {
-            playersColliding -= 1;
-            UnityEngine.Debug.Log("touch Human***************" + playersColliding + "*************");
-            if (playersColliding == 0) { }
-                mBody.constraints = RigidbodyConstraints2D.None;
-        }*/
     }
     
     // Start is called before the first frame update
@@ -176,9 +180,19 @@ public class PruebaPlayerMovement : Movement
             //mWorldClient.OnPlayerMoved(pos);
             forward = new Vector3(pos.x - transform.position.x, pos.y - transform.position.y, 0);
             //UnityEngine.Debug.Log("IsColliding: " + isColliding.ToString());
-            if (isColliding && IsFacingObject())
-                return false;
+            //if (isColliding && IsFacingObject())
+            //  return false;
+            oldPos = transform.position;
+            newpos = pos;
+            UnityEngine.Debug.Log("**ANTES***PosX: " + transform.position.x.ToString() + "- PosY: " + transform.position.y.ToString());
+            //UnityEngine.Debug.Log("ANTES**Velocity mag: " + mBody.velocity.magnitude.ToString());
+            isTryingToMove = true;
             mBody.MovePosition(pos);
+            //transform.Translate(pos);
+            //transform.position = pos;
+            //UnityEngine.Debug.Log("**DESPUES***PosX: " + mBody.position.x.ToString() + "- PosY: " + mBody.position.y.ToString());
+            //UnityEngine.Debug.Log("DESPUES**Velocity mag: " + mBody.velocity.magnitude.ToString());
+            //UnityEngine.Debug.Log("**DESPUES**PosX: " + transform.position.x.ToString() + "- PosY: " + transform.position.y.ToString());
             return true;
         }
     }
@@ -217,9 +231,21 @@ public class PruebaPlayerMovement : Movement
         return;
 
     }
+    
     // Update is called once per frame
     void Update()
     {
+        if (isTryingToMove)
+        {
+            UnityEngine.Debug.Log("**DESPUES***PosX: " + transform.position.x.ToString() + "- PosY: " + transform.position.y.ToString());
+            isTryingToMove = false;
+            if (!isColliding && oldPos != transform.position)
+            {
+                UnityEngine.Debug.Log("Sent Move to Server");
+                //mWorldClient.OnPlayerMoved(newpos);
+                isTryingToMove = false;
+            }
+        }
         /*
         if (Input.GetKeyDown(KeyCode.B))
         {

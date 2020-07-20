@@ -56,7 +56,7 @@ public class CharacterMovement : Movement
     {
         base.Start();
         WalkRunSpeed = WalkSpeed;
-
+        mBody.isKinematic = true;
 
         if (IsPhantom)
         {
