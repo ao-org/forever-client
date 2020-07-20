@@ -45,7 +45,9 @@ public class PruebaPlayerMovement : Movement
     public bool isColliding;
     private int playersColliding = 0;
     private bool isTryingToMove = false;
-    private Vector3 newpos; 
+    private Vector3 newpos;
+    private Vector2 mMovement;
+    private string mAnimation = "";
 
     public override void Awake()
     {
@@ -63,58 +65,23 @@ public class PruebaPlayerMovement : Movement
         mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
         spriteRenderer = GetComponent<SpriteRenderer>();
-        //mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
-        //UnityEngine.Debug.Assert(mWorldClient != null);
-        //spriteRenderer = GetComponent<SpriteRenderer>();
-        //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
-        //mAnimatorController = mAnimator.runtimeAnimatorController;
         dir = Direction.South;
     }
     void LateUpdate()
     {
 
         if (spriteRenderer.isVisible)
-        {
-            Bounds bounds = spriteRenderer.bounds;
-            var pivotX = -bounds.center.x / bounds.extents.x / 2 + 0.5f;
-            var pivotY = -bounds.center.y / bounds.extents.y / 2 + 0.5f;
-            //var pixelsToUnits = spriteRenderer.textureRect.width / bounds.size.x;
-            Vector3 v3 = new Vector3(pivotX, pivotY,0);
-            //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
+
             spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
-        }
-        //if (isColliding)
-        {
-            /*if (!IsFacingObject())
-            {
-                mBody.constraints = RigidbodyConstraints2D.None;
-            }*/
-            //mBody.isKinematic = true;
-            //mBody.velocity = Vector3.zero;
-            //mBody.angularVelocity = 0f;
-        }
+
     }
-    void FixedUpdate()
-    {
-        //IsFacingObject();
-        //if (isTryingToMove)
-            //mBody.MovePosition(pos);
-    }
+    
     private bool IsFacingObject()
     {
         GameObject human = GameObject.FindGameObjectsWithTag("Human")[0];
         UnityEngine.Debug.Assert(human != null);
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
         UnityEngine.Debug.Assert(player != null);
-
-        /*float dot = Vector3.Dot(forward, (human.transform.position - transform.position).normalized);
-        if (dot > 0.7f)
-        {
-            UnityEngine.Debug.Log("********LookingAt");
-            return true;
-        }
-        UnityEngine.Debug.Log("********NOT LookingAt");
-        return false; */
 
         float angle = 70;
         if (Vector3.Angle(forward, human.transform.position - player.transform.position) < angle)
@@ -150,7 +117,6 @@ public class PruebaPlayerMovement : Movement
     public override void Start()
     {
         base.Start();
-        //WalkRunSpeed = WalkSpeed;
         mBody.AddForce(new Vector2(0,0));
         mBody.velocity = Vector3.zero;
         mBody.angularVelocity = 0;
@@ -177,22 +143,13 @@ public class PruebaPlayerMovement : Movement
         }
         else
         {
-            //mWorldClient.OnPlayerMoved(pos);
             forward = new Vector3(pos.x - transform.position.x, pos.y - transform.position.y, 0);
-            //UnityEngine.Debug.Log("IsColliding: " + isColliding.ToString());
-            //if (isColliding && IsFacingObject())
-            //  return false;
             oldPos = transform.position;
             newpos = pos;
-            UnityEngine.Debug.Log("**ANTES***PosX: " + transform.position.x.ToString() + "- PosY: " + transform.position.y.ToString());
-            //UnityEngine.Debug.Log("ANTES**Velocity mag: " + mBody.velocity.magnitude.ToString());
+            //UnityEngine.Debug.Log("**ANTES***PosX: " + transform.position.x.ToString() + "- PosY: " + transform.position.y.ToString());
             isTryingToMove = true;
-            mBody.MovePosition(pos);
-            //transform.Translate(pos);
-            //transform.position = pos;
-            //UnityEngine.Debug.Log("**DESPUES***PosX: " + mBody.position.x.ToString() + "- PosY: " + mBody.position.y.ToString());
-            //UnityEngine.Debug.Log("DESPUES**Velocity mag: " + mBody.velocity.magnitude.ToString());
-            //UnityEngine.Debug.Log("**DESPUES**PosX: " + transform.position.x.ToString() + "- PosY: " + transform.position.y.ToString());
+            //mBody.MovePosition(pos);
+            mBody.MovePosition(mBody.position + mMovement * WalkRunSpeed * Time.fixedDeltaTime);
             return true;
         }
     }
@@ -237,11 +194,11 @@ public class PruebaPlayerMovement : Movement
     {
         if (isTryingToMove)
         {
-            UnityEngine.Debug.Log("**DESPUES***PosX: " + transform.position.x.ToString() + "- PosY: " + transform.position.y.ToString());
+            //UnityEngine.Debug.Log("**DESPUES***PosX: " + transform.position.x.ToString() + "- PosY: " + transform.position.y.ToString());
             isTryingToMove = false;
-            if (!isColliding && oldPos != transform.position)
+            if (!isColliding)
             {
-                UnityEngine.Debug.Log("Sent Move to Server");
+                //UnityEngine.Debug.Log("Sent Move to Server");
                 //mWorldClient.OnPlayerMoved(newpos);
                 isTryingToMove = false;
             }
@@ -302,164 +259,110 @@ public class PruebaPlayerMovement : Movement
         }
 
         if (IsAnimationPlaying("Attack"))
+            return;
+
+        if (Input.GetKey(KeyCode.LeftControl))
         {
+            Attack();
             return;
         }
+        
         if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (!IsPhantom)
-            {
-                PlayAnimation("Dead");
-                healthSlider.value = 0;
-                isDead = true;
-                return;
-            }
-
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            PlayAnimation("Attack");
-            return;
-        }
+            Dead();
+        
         if (Input.GetKeyDown(KeyCode.L))
-        {
-            if (IsPhantom)
-            {
-                if (mAnimatorController != null) { UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name); }
-                //UnityEngine.Debug.Log("Player Update: " + mPhantomAnimatorController.name);
-                else
-                    UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
-
-                mAnimator.runtimeAnimatorController = mAnimatorController;
-
-                PlayAnimation("Stand");
-                isDead = false;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-                health = life;
-                IsPhantom = false;
-                healthSlider.gameObject.SetActive(true);
-                manaSlider.gameObject.SetActive(true);
-                textToHead.gameObject.SetActive(true);
-                textName.transform.localScale = new Vector3(1.6f, 1.6f, 1);
-                this.transform.localScale =scaleHuman;
-                healthSlider.value = life;
-                return;
-            }
-        }
-
-        bool RightArrowPressed = Input.GetKey(KeyCode.RightArrow);
-        bool LeftArrowPressed = Input.GetKey(KeyCode.LeftArrow);
-        bool UpArrowPressed = Input.GetKey(KeyCode.UpArrow);
-        bool DownArrowPressed = Input.GetKey(KeyCode.DownArrow);
-        bool Moving = RightArrowPressed || LeftArrowPressed || UpArrowPressed || DownArrowPressed;
-
-
-
-
+            Live();
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (running)
-            {
                 running = false;
+            else
+                running = true;
+        }
+
+        mMovement.x = Input.GetAxisRaw("Horizontal");
+        mMovement.y = Input.GetAxisRaw("Vertical");
+
+        mAnimation = "Stand";
+        if (mMovement.x != 0f || mMovement.y != 0f)
+        {
+            if (!running)
+            {
                 WalkRunSpeed = WalkSpeed;
+                mAnimation = "Walk";
             }
             else
             {
-                running = true;
                 WalkRunSpeed = WalkSpeed * runDelta;
+                mAnimation = "Run";
             }
         }
+        
 
-        // NorthEast
-        if (RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.NorthEast;
-            if (running)
-                mAnimator.Play("RunNoreste");
-            else
-                mAnimator.Play("WalkNoreste");
-            Vector3 newpos = transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta;
-            TryToMove(newpos);
-        }
-        else // North
-      if (!RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.North;
-            if (running)
-                mAnimator.Play("RunNorte");
-            else
-                mAnimator.Play("WalkNorte");
-            TryToMove(transform.position + Vector3.up * WalkRunSpeed * Time.deltaTime);
-        }
-        else // South
-      if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.South;
-            if (running)
-                mAnimator.Play("RunSur");
-            else
-                mAnimator.Play("WalkSur");
-            Vector3 newpos = transform.position + Vector3.down * WalkRunSpeed * Time.deltaTime;
-            TryToMove(newpos);
-        }
-        else // SouthEast
-      if (RightArrowPressed && DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.SouthEast;
-            if (running)
-                mAnimator.Play("RunSureste");
-            else
-                mAnimator.Play("WalkSureste");
-            TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-        }
-        else
-      if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.East;
-            if (running)
-                mAnimator.Play("RunEste");
-            else
-                mAnimator.Play("WalkEste");
-            TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime);
-        }
-        else
-      if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
-        {
-            dir = Direction.West;
-            if (running)
-                mAnimator.Play("RunOeste");
-            else
-                mAnimator.Play("WalkOeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime);
-        }
-        else
-      if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
-        {
-            dir = Direction.NorthWest;
-            if (running)
-                mAnimator.Play("RunNoroeste");
-            else
-                mAnimator.Play("WalkNoroeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-        }
-        else
-      if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed)
-        {
-            dir = Direction.SouthWest;
-            if (running)
-                mAnimator.Play("RunSuroeste");
-            else
-                mAnimator.Play("WalkSuroeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-        }
+        if (mMovement.x != 0f && mMovement.y != 0f) mMovement *= walkDiagDelta;
 
-        if (!Moving)
+        if (mMovement.x == 0f && mMovement.y > 0f) dir = Direction.North;
+        if (mMovement.x > 0f && mMovement.y > 0f) dir = Direction.NorthEast;
+        if (mMovement.x > 0f && mMovement.y == 0f) dir = Direction.East;
+        if (mMovement.x > 0f && mMovement.y < 0f) dir = Direction.SouthEast;
+        if (mMovement.x == 0f && mMovement.y < 0f) dir = Direction.South;
+        if (mMovement.x < 0f && mMovement.y < 0f) dir = Direction.SouthWest;
+        if (mMovement.x < 0f && mMovement.y == 0f) dir = Direction.West;
+        if (mMovement.x < 0f && mMovement.y > 0f) dir = Direction.NorthWest;
+    }
+
+    void FixedUpdate()
+    {
+        if (IsAnimationPlaying("Attack"))
+            return;
+        PlayAnimation(mAnimation);
+        TryToMove(newpos);
+        //IsFacingObject();
+        //if (isTryingToMove)
+        //mBody.MovePosition(pos);
+    }
+
+    public void Attack()
+    {
+        PlayAnimation("Attack");
+    }
+
+    public void Dead()
+    {
+        if (!IsPhantom)
         {
+            PlayAnimation("Dead");
+            healthSlider.value = 0;
+            isDead = true;
+            return;
+        }
+    }
+
+    public void Live()
+    {
+        if (IsPhantom)
+        {
+            if (mAnimatorController != null) { UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name); }
+            else
+                UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
+
+            mAnimator.runtimeAnimatorController = mAnimatorController;
+
             PlayAnimation("Stand");
+            isDead = false;
+            running = false;
+            WalkRunSpeed = WalkSpeed;
+            health = life;
+            IsPhantom = false;
+            healthSlider.gameObject.SetActive(true);
+            manaSlider.gameObject.SetActive(true);
+            textToHead.gameObject.SetActive(true);
+            textName.transform.localScale = new Vector3(1.6f, 1.6f, 1);
+            this.transform.localScale = scaleHuman;
+            healthSlider.value = life;
+            return;
         }
-
-
     }
 
     private bool IsAnimationPlaying(string anim)
@@ -499,6 +402,10 @@ public class PruebaPlayerMovement : Movement
         }
 
     }
+    /*private string GetAnimation(string action)
+    {
+
+    }*/
     private bool IsAnimationLastFrame()
     {
         return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
