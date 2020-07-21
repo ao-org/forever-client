@@ -202,7 +202,7 @@ public class PlayerMovement : Movement
             if (!isColliding)
             {
                 //UnityEngine.Debug.Log("Sent Move to Server");
-                mWorldClient.OnPlayerMoved(newpos);
+                //mWorldClient.OnPlayerMoved(mMovement);
                 isTryingToMove = false;
             }
         }
@@ -321,6 +321,7 @@ public class PlayerMovement : Movement
             return;
         PlayAnimation(mAnimation);
         TryToMove(newpos);
+        mWorldClient.OnPlayerMoved(mBody.position + mMovement * WalkRunSpeed * Time.fixedDeltaTime);
         //IsFacingObject();
         //if (isTryingToMove)
         //mBody.MovePosition(pos);

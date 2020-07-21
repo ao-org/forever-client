@@ -125,10 +125,7 @@ public class CharacterMovement : Movement
     public override void Start()
     {
         base.Start();
-        mBody.AddForce(new Vector2(0,0));
-        mBody.velocity = Vector3.zero;
-        mBody.angularVelocity = 0;
-        mBody.gravityScale = 0f;
+        mBody.isKinematic = true;
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
@@ -200,17 +197,6 @@ public class CharacterMovement : Movement
     // Update is called once per frame
     void Update()
     {
-        if (isTryingToMove)
-        {
-            //UnityEngine.Debug.Log("**DESPUES***PosX: " + transform.position.x.ToString() + "- PosY: " + transform.position.y.ToString());
-            isTryingToMove = false;
-            if (!isColliding)
-            {
-                //UnityEngine.Debug.Log("Sent Move to Server");
-                mWorldClient.OnPlayerMoved(newpos);
-                isTryingToMove = false;
-            }
-        }
         /*
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -294,6 +280,8 @@ public class CharacterMovement : Movement
             var old_pos = transform.position;
             var new_pos = new Vector3(e.Item1, e.Item2, old_pos.z);
             mMovement = new_pos - old_pos;
+            //var mMovement = new Vector3(e.Item1, e.Item2, old_pos.z);
+            //mMovement = new_pos - old_pos;
         }
 
         mAnimation = "Stand";
@@ -310,9 +298,9 @@ public class CharacterMovement : Movement
                 mAnimation = "Run";
             }
         }
-        
 
-        if (mMovement.x != 0f && mMovement.y != 0f) mMovement *= walkDiagDelta;
+
+        if (mMovement.x != 0f && mMovement.y != 0f) { mMovement *= walkDiagDelta; isTryingToMove = true; };
 
         if (mMovement.x == 0f && mMovement.y > 0f) dir = Direction.North;
         if (mMovement.x > 0f && mMovement.y > 0f) dir = Direction.NorthEast;
@@ -329,7 +317,7 @@ public class CharacterMovement : Movement
         if (IsAnimationPlaying("Attack"))
             return;
         PlayAnimation(mAnimation);
-        TryToMove(newpos);
+        TryToMove(mMovement);
         //IsFacingObject();
         //if (isTryingToMove)
         //mBody.MovePosition(pos);
