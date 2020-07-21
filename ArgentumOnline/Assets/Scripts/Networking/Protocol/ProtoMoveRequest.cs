@@ -12,7 +12,7 @@ using UnityEngine;
 public class ProtoMoveRequest : ProtoBase
 {
 	public ProtoMoveRequest(Vector3 pos, string token){
-		Debug.Log("ProtoMoveRequest x:" + pos.x + " y:" + pos.y);
+		//Debug.Log("ProtoMoveRequest x:" + pos.x + " y:" + pos.y);
 		short header = EncodeShort(ProtoBase.ProtocolNumbers["CHARACTER_MOVE_REQ"]);
         var bytes_nxny = new Byte[8];
         byte[] bytes_nx = BitConverter.GetBytes(pos.x);
@@ -20,11 +20,10 @@ public class ProtoMoveRequest : ProtoBase
         bytes_nx.CopyTo(bytes_nxny,0);
         bytes_ny.CopyTo(bytes_nxny,4);
         byte[] b64encoded_bytes_nxny = CryptoHelper.EncryptBase64(bytes_nxny);
-        Debug.Log("b64encoded nxny : " + Encoding.ASCII.GetString(b64encoded_bytes_nxny));
+        //Debug.Log("b64encoded nxny : " + Encoding.ASCII.GetString(b64encoded_bytes_nxny));
         var str_b64encoded= System.Text.Encoding.ASCII.GetString(b64encoded_bytes_nxny);
         var encrypted_nxny = CryptoHelper.Encrypt(str_b64encoded, Encoding.ASCII.GetBytes(CryptoHelper.PublicKey));
-        Debug.Log("encrypted nxny : " + Encoding.ASCII.GetString(encrypted_nxny));
-
+        //Debug.Log("encrypted nxny : " + Encoding.ASCII.GetString(encrypted_nxny));
         int buffer_size = /* header */ 4 + /* actual size of encrypted_nxny*/ encrypted_nxny.Length;
         short encoded_size = (short)EncodeShort((short)buffer_size);
         mBytes = new Byte[buffer_size];

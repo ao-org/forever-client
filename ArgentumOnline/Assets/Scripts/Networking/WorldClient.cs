@@ -345,7 +345,7 @@ public class WorldClient : MonoBehaviour {
 	}
 	public void OnPlayerMoved(Vector3 newpos)
 	{
-	   Debug.Log("WorldServer::OnPlayerMoved!!!");
+	   //Debug.Log("WorldServer::OnPlayerMoved!!!");
 	   var p = new ProtoMoveRequest(newpos, CryptoHelper.Token);
 	   SendMessage(p);
 	}
