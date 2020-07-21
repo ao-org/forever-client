@@ -89,6 +89,25 @@ public class PlayerMovement : Movement
             mAnimatorController = mAnimator.runtimeAnimatorController;
         }
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+
+            if (collision.collider.tag == "Human")
+            {
+                UnityEngine.Debug.Log("touch Player enter "+ collision.collider.name +" ****************************");
+
+            }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+            if (collision.collider.tag == "Human")
+            {
+                UnityEngine.Debug.Log("touch Player exit****************************");
+            }
+    }
+
+
     private bool TryToMove(Vector3 pos)
     {
         if (IsThereWater(pos))
