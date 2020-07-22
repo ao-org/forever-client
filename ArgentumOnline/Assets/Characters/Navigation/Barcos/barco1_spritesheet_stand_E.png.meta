@@ -119,6 +119,9 @@ TextureImporter:
   - first:
       213: -1002137426724641482
     second: barco1_spritesheet_stand_E_3
+  - first:
+      213: -5124528904718725551
+    second: barco1_spritesheet_stand_E_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -216,27 +219,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barco1_spritesheet_stand_E_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 768
-        width: 768
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c29eae27506966910800000000000000
-      internalID: 1830315248719685932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: barco1_spritesheet_stand_E_1
       rect:
         serializedVersion: 2
@@ -244,8 +226,8 @@ TextureImporter:
         y: 768
         width: 768
         height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,8 +247,8 @@ TextureImporter:
         y: 0
         width: 768
         height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,8 +268,8 @@ TextureImporter:
         y: 0
         width: 768
         height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -295,6 +277,27 @@ TextureImporter:
       bones: []
       spriteID: 63524f7e151b712f0800000000000000
       internalID: -1002137426724641482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barco1_spritesheet_stand_E_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 768
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ec401bc1402e8b0800000000000000
+      internalID: -5124528904718725551
       vertices: []
       indices: 
       edges: []

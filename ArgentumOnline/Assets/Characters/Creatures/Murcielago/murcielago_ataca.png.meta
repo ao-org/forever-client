@@ -305,6 +305,453 @@ TextureImporter:
   - first:
       213: -1887591530389753594
     second: murcielago_ataca_27
+  - first:
+      213: -1681077645814003630
+    second: murcielago_ataca_28
+  - first:
+      213: 290428740425172144
+    second: murcielago_ataca_29
+  - first:
+      213: 6674454663542579412
+    second: murcielago_ataca_30
+  - first:
+      213: 7414211827438022947
+    second: murcielago_ataca_31
+  - first:
+      213: 1489673696599996186
+    second: murcielago_ataca_32
+  - first:
+      213: 6199123495173345561
+    second: murcielago_ataca_33
+  - first:
+      213: -9043533833419927229
+    second: murcielago_ataca_34
+  - first:
+      213: 3979094970714282316
+    second: murcielago_ataca_35
+  - first:
+      213: 6055694792361251251
+    second: murcielago_ataca_36
+  - first:
+      213: 4069534254785225373
+    second: murcielago_ataca_37
+  - first:
+      213: -25893096388232105
+    second: murcielago_ataca_38
+  - first:
+      213: 3014780851853974028
+    second: murcielago_ataca_39
+  - first:
+      213: 3118667247694172280
+    second: murcielago_ataca_73
+  - first:
+      213: -5446425532979892019
+    second: murcielago_ataca_74
+  - first:
+      213: -5611034581871860903
+    second: murcielago_ataca_75
+  - first:
+      213: -1754180484921418749
+    second: murcielago_ataca_76
+  - first:
+      213: 3302224192156206730
+    second: murcielago_ataca_77
+  - first:
+      213: 6221097423518632455
+    second: murcielago_ataca_78
+  - first:
+      213: -7778936519848165653
+    second: murcielago_ataca_79
+  - first:
+      213: 6733291783589107557
+    second: murcielago_ataca_80
+  - first:
+      213: -2160483386651283821
+    second: murcielago_ataca_81
+  - first:
+      213: -5545722550063833127
+    second: murcielago_ataca_82
+  - first:
+      213: -3752453187943533457
+    second: murcielago_ataca_83
+  - first:
+      213: -2099835415690360119
+    second: murcielago_ataca_84
+  - first:
+      213: 8330438687840279772
+    second: murcielago_ataca_85
+  - first:
+      213: 6516473719465203664
+    second: murcielago_ataca_86
+  - first:
+      213: 6987165814330499145
+    second: murcielago_ataca_87
+  - first:
+      213: 597052387846756447
+    second: murcielago_ataca_88
+  - first:
+      213: -3472995032093878874
+    second: murcielago_ataca_89
+  - first:
+      213: 5700868665249092282
+    second: murcielago_ataca_90
+  - first:
+      213: -3260878645673960557
+    second: murcielago_ataca_91
+  - first:
+      213: -2778599956602106077
+    second: murcielago_ataca_92
+  - first:
+      213: -5552288695273208725
+    second: murcielago_ataca_93
+  - first:
+      213: -5344838665885212333
+    second: murcielago_ataca_94
+  - first:
+      213: 7565824782754507204
+    second: murcielago_ataca_95
+  - first:
+      213: 8808746570323201805
+    second: murcielago_ataca_96
+  - first:
+      213: -3873891496531974226
+    second: murcielago_ataca_97
+  - first:
+      213: 7356689343533459540
+    second: murcielago_ataca_98
+  - first:
+      213: -145715009020507525
+    second: murcielago_ataca_99
+  - first:
+      213: -2064582241332859381
+    second: murcielago_ataca_100
+  - first:
+      213: 5025166439525261522
+    second: murcielago_ataca_101
+  - first:
+      213: -3189888432224092955
+    second: murcielago_ataca_102
+  - first:
+      213: 5663887282516685098
+    second: murcielago_ataca_103
+  - first:
+      213: -5604766017472778103
+    second: murcielago_ataca_104
+  - first:
+      213: 5805968631959336318
+    second: murcielago_ataca_105
+  - first:
+      213: 127653885608724685
+    second: murcielago_ataca_106
+  - first:
+      213: 7930326931121799775
+    second: murcielago_ataca_107
+  - first:
+      213: 7403232498860008901
+    second: murcielago_ataca_108
+  - first:
+      213: -5146580898217864544
+    second: murcielago_ataca_109
+  - first:
+      213: -6460282760826591914
+    second: murcielago_ataca_110
+  - first:
+      213: 8365413075792476188
+    second: murcielago_ataca_111
+  - first:
+      213: 8660019982149478485
+    second: murcielago_ataca_112
+  - first:
+      213: 378765190957758931
+    second: murcielago_ataca_113
+  - first:
+      213: 4904624482209862018
+    second: murcielago_ataca_114
+  - first:
+      213: 5155609737528978982
+    second: murcielago_ataca_115
+  - first:
+      213: 3996619689119457327
+    second: murcielago_ataca_116
+  - first:
+      213: 8754614310880914089
+    second: murcielago_ataca_117
+  - first:
+      213: 4290341578440657705
+    second: murcielago_ataca_118
+  - first:
+      213: -4730535968272771975
+    second: murcielago_ataca_119
+  - first:
+      213: 2649697739632413607
+    second: murcielago_ataca_120
+  - first:
+      213: 1179142260345389846
+    second: murcielago_ataca_121
+  - first:
+      213: -6953583209194025312
+    second: murcielago_ataca_122
+  - first:
+      213: 2349122172864419449
+    second: murcielago_ataca_123
+  - first:
+      213: 4272760040890123030
+    second: murcielago_ataca_124
+  - first:
+      213: 4856700803328316824
+    second: murcielago_ataca_125
+  - first:
+      213: -721451877254544342
+    second: murcielago_ataca_126
+  - first:
+      213: 3498666250178600111
+    second: murcielago_ataca_127
+  - first:
+      213: 4679449306795662853
+    second: murcielago_ataca_128
+  - first:
+      213: -6862454793552757261
+    second: murcielago_ataca_129
+  - first:
+      213: 7406381986856692607
+    second: murcielago_ataca_130
+  - first:
+      213: -8301873886155667104
+    second: murcielago_ataca_131
+  - first:
+      213: 64703185464921019
+    second: murcielago_ataca_132
+  - first:
+      213: -8784549137790305112
+    second: murcielago_ataca_133
+  - first:
+      213: 5687006183562729315
+    second: murcielago_ataca_134
+  - first:
+      213: 2571969993585351355
+    second: murcielago_ataca_135
+  - first:
+      213: 8052538064831638260
+    second: murcielago_ataca_136
+  - first:
+      213: -4315300571981785783
+    second: murcielago_ataca_137
+  - first:
+      213: -5128044432261646177
+    second: murcielago_ataca_138
+  - first:
+      213: 2711529067355105233
+    second: murcielago_ataca_139
+  - first:
+      213: 7140041534037302719
+    second: murcielago_ataca_140
+  - first:
+      213: 8969618229628267314
+    second: murcielago_ataca_141
+  - first:
+      213: -5844698330891743414
+    second: murcielago_ataca_142
+  - first:
+      213: -7979536932484847192
+    second: murcielago_ataca_143
+  - first:
+      213: -2618409211158148329
+    second: murcielago_ataca_144
+  - first:
+      213: 7951135304877522362
+    second: murcielago_ataca_145
+  - first:
+      213: -7487402889317257866
+    second: murcielago_ataca_146
+  - first:
+      213: 2980100898823636431
+    second: murcielago_ataca_147
+  - first:
+      213: 8892654689981243374
+    second: murcielago_ataca_148
+  - first:
+      213: -7430206472525495610
+    second: murcielago_ataca_149
+  - first:
+      213: -6199119026512229424
+    second: murcielago_ataca_150
+  - first:
+      213: -6556993499035997352
+    second: murcielago_ataca_151
+  - first:
+      213: -6139408225149939227
+    second: murcielago_ataca_152
+  - first:
+      213: -3498050801084750941
+    second: murcielago_ataca_153
+  - first:
+      213: -4327019968387988405
+    second: murcielago_ataca_154
+  - first:
+      213: -6130150377994864662
+    second: murcielago_ataca_155
+  - first:
+      213: -4286674283423986701
+    second: murcielago_ataca_156
+  - first:
+      213: 3890329786245756183
+    second: murcielago_ataca_157
+  - first:
+      213: -8594085521531840744
+    second: murcielago_ataca_158
+  - first:
+      213: 5989731606119249079
+    second: murcielago_ataca_159
+  - first:
+      213: -2842052751623707805
+    second: murcielago_ataca_160
+  - first:
+      213: 3012759341916040160
+    second: murcielago_ataca_161
+  - first:
+      213: 1440961058324660280
+    second: murcielago_ataca_162
+  - first:
+      213: 5554277352811338507
+    second: murcielago_ataca_163
+  - first:
+      213: 8548000406783241736
+    second: murcielago_ataca_164
+  - first:
+      213: 5376078064656961250
+    second: murcielago_ataca_165
+  - first:
+      213: -4485925239628902007
+    second: murcielago_ataca_166
+  - first:
+      213: 8670110664324123904
+    second: murcielago_ataca_167
+  - first:
+      213: -275393654130116662
+    second: murcielago_ataca_168
+  - first:
+      213: -2773951005712755912
+    second: murcielago_ataca_169
+  - first:
+      213: 3917426265819444286
+    second: murcielago_ataca_170
+  - first:
+      213: 6070761262616148048
+    second: murcielago_ataca_171
+  - first:
+      213: -417736221340427477
+    second: murcielago_ataca_172
+  - first:
+      213: -846542359087627221
+    second: murcielago_ataca_173
+  - first:
+      213: 55112932326770389
+    second: murcielago_ataca_174
+  - first:
+      213: 8230799117968172764
+    second: murcielago_ataca_175
+  - first:
+      213: -5219290968862412816
+    second: murcielago_ataca_176
+  - first:
+      213: 2339231019755468874
+    second: murcielago_ataca_177
+  - first:
+      213: -7472757709580611305
+    second: murcielago_ataca_178
+  - first:
+      213: -4050338125721701298
+    second: murcielago_ataca_179
+  - first:
+      213: -8104396968297767710
+    second: murcielago_ataca_180
+  - first:
+      213: -7648448568394704153
+    second: murcielago_ataca_181
+  - first:
+      213: -5474289813875169849
+    second: murcielago_ataca_182
+  - first:
+      213: -4507064955497880000
+    second: murcielago_ataca_183
+  - first:
+      213: 5733326004593391824
+    second: murcielago_ataca_184
+  - first:
+      213: -4069337617167070420
+    second: murcielago_ataca_185
+  - first:
+      213: -7892273198983864488
+    second: murcielago_ataca_186
+  - first:
+      213: 5820675295639930996
+    second: murcielago_ataca_187
+  - first:
+      213: -498994873438701220
+    second: murcielago_ataca_188
+  - first:
+      213: -5327106020671869706
+    second: murcielago_ataca_189
+  - first:
+      213: 1514847237002691141
+    second: murcielago_ataca_190
+  - first:
+      213: -9135440394830490361
+    second: murcielago_ataca_191
+  - first:
+      213: 2453907372462297351
+    second: murcielago_ataca_192
+  - first:
+      213: -5346963299615992239
+    second: murcielago_ataca_193
+  - first:
+      213: 7772143899322054223
+    second: murcielago_ataca_194
+  - first:
+      213: -2132650500901677651
+    second: murcielago_ataca_195
+  - first:
+      213: 5018490896702132451
+    second: murcielago_ataca_196
+  - first:
+      213: -8603828049535107011
+    second: murcielago_ataca_197
+  - first:
+      213: 8191858199258481222
+    second: murcielago_ataca_198
+  - first:
+      213: 754831878103538503
+    second: murcielago_ataca_199
+  - first:
+      213: -3964333014007055967
+    second: murcielago_ataca_200
+  - first:
+      213: 5267671891743566196
+    second: murcielago_ataca_201
+  - first:
+      213: -2841810192757724301
+    second: murcielago_ataca_202
+  - first:
+      213: 1420660075648923374
+    second: murcielago_ataca_203
+  - first:
+      213: 3379584452467796566
+    second: murcielago_ataca_204
+  - first:
+      213: 2405715067730110920
+    second: murcielago_ataca_205
+  - first:
+      213: 242405845045258019
+    second: murcielago_ataca_206
+  - first:
+      213: 946181877185754241
+    second: murcielago_ataca_207
+  - first:
+      213: -6667765768595403802
+    second: murcielago_ataca_208
+  - first:
+      213: -8506313441126862337
+    second: murcielago_ataca_209
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -409,8 +856,8 @@ TextureImporter:
         y: 2744
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -430,8 +877,8 @@ TextureImporter:
         y: 2744
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -451,8 +898,8 @@ TextureImporter:
         y: 2744
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -472,8 +919,8 @@ TextureImporter:
         y: 2744
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -493,8 +940,8 @@ TextureImporter:
         y: 2744
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -514,8 +961,8 @@ TextureImporter:
         y: 2352
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -535,8 +982,8 @@ TextureImporter:
         y: 2352
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -556,8 +1003,8 @@ TextureImporter:
         y: 2352
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -577,8 +1024,8 @@ TextureImporter:
         y: 2352
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -598,8 +1045,8 @@ TextureImporter:
         y: 2352
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -619,8 +1066,8 @@ TextureImporter:
         y: 1960
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -640,8 +1087,8 @@ TextureImporter:
         y: 1960
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -661,8 +1108,8 @@ TextureImporter:
         y: 1960
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -682,8 +1129,8 @@ TextureImporter:
         y: 1960
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -703,8 +1150,8 @@ TextureImporter:
         y: 1960
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -724,8 +1171,8 @@ TextureImporter:
         y: 1568
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -745,8 +1192,8 @@ TextureImporter:
         y: 1568
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -766,8 +1213,8 @@ TextureImporter:
         y: 1568
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -787,8 +1234,8 @@ TextureImporter:
         y: 1568
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -808,8 +1255,8 @@ TextureImporter:
         y: 1568
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -829,8 +1276,8 @@ TextureImporter:
         y: 1176
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -850,8 +1297,8 @@ TextureImporter:
         y: 1176
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -871,8 +1318,8 @@ TextureImporter:
         y: 1176
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -892,8 +1339,8 @@ TextureImporter:
         y: 1176
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -913,8 +1360,8 @@ TextureImporter:
         y: 1176
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -934,8 +1381,8 @@ TextureImporter:
         y: 784
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -955,8 +1402,8 @@ TextureImporter:
         y: 784
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -976,8 +1423,8 @@ TextureImporter:
         y: 784
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -997,15 +1444,15 @@ TextureImporter:
         y: 784
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c39068ffa3cd6ee60800000000000000
-      internalID: 7991316734768711996
+      spriteID: 2580861b9cc9ba8e0800000000000000
+      internalID: -1681077645814003630
       vertices: []
       indices: 
       edges: []
@@ -1018,15 +1465,15 @@ TextureImporter:
         y: 784
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98bfea91cdf599620800000000000000
-      internalID: 2781359643806333833
+      spriteID: 0b44b91966fc70400800000000000000
+      internalID: 290428740425172144
       vertices: []
       indices: 
       edges: []
@@ -1039,15 +1486,15 @@ TextureImporter:
         y: 392
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa8c42ad3e2e72410800000000000000
-      internalID: 1452378873095571631
+      spriteID: 4d0a7e9572d60ac50800000000000000
+      internalID: 6674454663542579412
       vertices: []
       indices: 
       edges: []
@@ -1060,15 +1507,15 @@ TextureImporter:
         y: 392
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 896223a1f62ae5380800000000000000
-      internalID: -8980562008865626472
+      spriteID: 32171f7ff5294e660800000000000000
+      internalID: 7414211827438022947
       vertices: []
       indices: 
       edges: []
@@ -1081,15 +1528,15 @@ TextureImporter:
         y: 392
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b55e34cf71e85ee0800000000000000
-      internalID: -1272018955862649420
+      spriteID: a17f51d95526ca410800000000000000
+      internalID: 1489673696599996186
       vertices: []
       indices: 
       edges: []
@@ -1102,15 +1549,15 @@ TextureImporter:
         y: 392
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf683c9369fd5d870800000000000000
-      internalID: 8707111290897925884
+      spriteID: 911d59879f5b70650800000000000000
+      internalID: 6199123495173345561
       vertices: []
       indices: 
       edges: []
@@ -1123,15 +1570,15 @@ TextureImporter:
         y: 392
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59aedcaac04277240800000000000000
-      internalID: 4789336365555640981
+      spriteID: 34157c8a4e9ee7280800000000000000
+      internalID: -9043533833419927229
       vertices: []
       indices: 
       edges: []
@@ -1144,15 +1591,15 @@ TextureImporter:
         y: 0
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12ca48fa917732870800000000000000
-      internalID: 8656893860938820641
+      spriteID: c49d7f03bc5983730800000000000000
+      internalID: 3979094970714282316
       vertices: []
       indices: 
       edges: []
@@ -1165,15 +1612,15 @@ TextureImporter:
         y: 0
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9114c4b423386600800000000000000
-      internalID: 461675194550063515
+      spriteID: 3b110e644562a0450800000000000000
+      internalID: 6055694792361251251
       vertices: []
       indices: 
       edges: []
@@ -1186,15 +1633,15 @@ TextureImporter:
         y: 0
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fb18ff3187199f10800000000000000
-      internalID: 2276876930503941104
+      spriteID: d92e1c9e7d3e97830800000000000000
+      internalID: 4069534254785225373
       vertices: []
       indices: 
       edges: []
@@ -1207,15 +1654,15 @@ TextureImporter:
         y: 0
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93e4ef6f6c0981210800000000000000
-      internalID: 1303951276345544249
+      spriteID: 75cf4a3bd5204aff0800000000000000
+      internalID: -25893096388232105
       vertices: []
       indices: 
       edges: []
@@ -1228,15 +1675,15 @@ TextureImporter:
         y: 0
         width: 392
         height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4a85d2132bdcf450800000000000000
-      internalID: 6124010537003354698
+      spriteID: c0ad7663637a6d920800000000000000
+      internalID: 3014780851853974028
       vertices: []
       indices: 
       edges: []
