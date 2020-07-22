@@ -38,6 +38,7 @@ public class PlayerMovement : Movement
     private RuntimeAnimatorController mAnimatorController;
     private WorldClient mWorldClient;
     private SpriteRenderer spriteRenderer;
+    private GameObject mCollidingChar;
 
     public override void Awake()
     {
@@ -97,6 +98,7 @@ public class PlayerMovement : Movement
             if (collision.collider.tag == "Human")
             {
                 UnityEngine.Debug.Log("touch Player enter "+ collision.collider.name +" ****************************");
+                mCollidingChar = collision.collider.gameObject;
 
             }
     }
@@ -108,8 +110,19 @@ public class PlayerMovement : Movement
             {
                 UnityEngine.Debug.Log("touch Player exit****************************");
             }
+            mCollidingChar = null;
     }
 
+    void OnAttack(){
+        if(mCollidingChar != null){
+            UnityEngine.Debug.Log("OnAttack victim:" + mCollidingChar.name);
+            mWorldClient.OnPlayerMeleeAttacked(mCollidingChar.name);
+        }
+        else {
+            mWorldClient.OnPlayerMeleeAttacked("NONE");
+        }
+
+    }
 
     private bool TryToMove(Vector3 pos)
     {
@@ -239,6 +252,7 @@ public class PlayerMovement : Movement
         if (Input.GetKeyDown(KeyCode.A))
         {
             PlayAnimation("Attack");
+            OnAttack();
             return;
         }
         if (Input.GetKeyDown(KeyCode.L))

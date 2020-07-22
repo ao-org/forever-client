@@ -61,7 +61,26 @@ public class WorldClient : MonoBehaviour {
 		mEventsQueue.Enqueue(Tuple.Create("CHARACTER_LEFT_MAP",decrypted_uuid));
 		return 1;
 	}
-
+	public int ProcessCharacterMelee(byte[] encrypted_data){
+		Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterMelee");
+		/*
+		var uuid_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,0,2));
+		var encrypted_uuid = ProtoBase.SliceArray(encrypted_data,2,uuid_len);
+		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		//Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
+		var nxny_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,2+uuid_len,2));
+		var encrypted_nxny = ProtoBase.SliceArray(encrypted_data,4+uuid_len,nxny_len);
+		string decrypted_nxny = CryptoHelper.Decrypt(encrypted_nxny,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		//Debug.Log(">>>>>>>>>>>>>len decryption " + decrypted_nxny.Length);
+		//Debug.Log(">>>>>>>>>>>>>>>>>>decrypted_nxny: " + decrypted_nxny + " length = " + decrypted_nxny.Length);
+		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
+		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
+		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
+		//Debug.Log(">>>>>>>>>>>>>>>>>> nx: " + nx + " ny: " + ny);
+		mMovementsQueue.Enqueue(Tuple.Create(decrypted_uuid,nx,ny));
+		*/
+		return 1;
+	}
 	public int ProcessCharacterMoved(byte[] encrypted_data){
 		//Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterMoved");
 		var uuid_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,0,2));
@@ -343,6 +362,12 @@ public class WorldClient : MonoBehaviour {
 			OnConnectionError("Error", "CreateListenWorkload");
 		}
 	}
+	public void OnPlayerMeleeAttacked(string victim_uuid)
+	{
+	   //Debug.Log("WorldServer::OnPlayerMoved!!!");
+	   //var p = new ProtoMoveRequest(newpos, CryptoHelper.Token);
+	   //SendMessage(p);
+	}
 	public void OnPlayerMoved(Vector3 newpos)
 	{
 	   //Debug.Log("WorldServer::OnPlayerMoved!!!");
@@ -555,8 +580,9 @@ public class WorldClient : MonoBehaviour {
 		{ ProtoBase.ProtocolNumbers["PLAY_CHARACTER_ERROR"], (@this, x) => @this.ProcessPlayCharacterError(x) },
 		{ ProtoBase.ProtocolNumbers["SPAWN_CHARACTER"], (@this, x) => @this.ProcessSpawnCharacter(x) },
 		{ ProtoBase.ProtocolNumbers["CHARACTER_LEFT_MAP"], (@this, x) => @this.ProcessCharacterLeftMap(x) },
+		{ ProtoBase.ProtocolNumbers["CHARACTER_MELEE"], (@this, x) => @this.ProcessCharacterMelee(x) },
 		{ ProtoBase.ProtocolNumbers["CHARACTER_MOVED"], (@this, x) => @this.ProcessCharacterMoved(x) }
-    };
+	};
 	private XmlDocument				mPlayerCharacterXml;
 
 

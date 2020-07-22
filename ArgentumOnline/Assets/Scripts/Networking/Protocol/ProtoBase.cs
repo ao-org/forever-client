@@ -82,6 +82,8 @@ public class ProtoBase
 							{"CHARACTER_MOVE_REQ"	, unchecked((short)0xF006)},
 							{"CHARACTER_MOVED"		, unchecked((short)0xF007)},
 							{"CHARACTER_MAP_REQ"	, unchecked((short)0xF008)},
+							{"CHARACTER_MELEE_REQ"	, unchecked((short)0xF009)},
+							{"CHARACTER_MELEE"		, unchecked((short)0xF00A)},
 							// CHAT
 							{"CHAT_JOIN"			, unchecked((short)0x1001)},
 							{"CHAT_JOIN_ERROR" 		, unchecked((short)0x2003)},
