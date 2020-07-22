@@ -63,11 +63,9 @@ public class WorldClient : MonoBehaviour {
 	}
 	public int ProcessCharacterMelee(byte[] encrypted_data){
 		Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterMelee");
+		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_data,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
 		/*
-		var uuid_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,0,2));
-		var encrypted_uuid = ProtoBase.SliceArray(encrypted_data,2,uuid_len);
-		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		//Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
 		var nxny_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,2+uuid_len,2));
 		var encrypted_nxny = ProtoBase.SliceArray(encrypted_data,4+uuid_len,nxny_len);
 		string decrypted_nxny = CryptoHelper.Decrypt(encrypted_nxny,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
@@ -77,8 +75,9 @@ public class WorldClient : MonoBehaviour {
 		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
 		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
 		//Debug.Log(">>>>>>>>>>>>>>>>>> nx: " + nx + " ny: " + ny);
-		mActionQueue.Enqueue(Tuple.Create(decrypted_uuid,nx,ny));
 		*/
+		mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MELEE"],decrypted_uuid,0.0f,0.0f));
+
 		return 1;
 	}
 	public int ProcessCharacterMoved(byte[] encrypted_data){

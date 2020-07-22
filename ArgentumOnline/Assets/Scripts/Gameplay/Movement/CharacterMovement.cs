@@ -254,6 +254,10 @@ public class CharacterMovement : Movement
                     PlayAnimation("Stand");
                 }
             }
+            else if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_MELEE"])
+            {
+                PlayAnimation("Attack");
+            }
     }
 
 
