@@ -149,12 +149,18 @@ public class WorldClient : MonoBehaviour {
 			if(mPlayerCharacter!=null){
 				GameObject p = GameObject.Find(mPlayerCharacter.UUID());
 				if(p != null){
-                    PlayerMovement playerScript = p.GetComponent<PlayerMovement>();
-                    p.transform.position = playerScript.GetTeleportingPos();
-                    playerScript.Start();
-					//We need this, otherwise we get multiple clones
-                    //p.SetActive(false);
-                    //Destroy(p);
+					// If the server closed by server due to inactivity we
+					// need to Destroy the Player Character
+					if(scene.name == "MainMenu"){
+						//We need this, otherwise we get multiple clones
+                    	p.SetActive(false);
+                    	Destroy(p);
+					}
+					else {
+                    	PlayerMovement playerScript = p.GetComponent<PlayerMovement>();
+                    	p.transform.position = playerScript.GetTeleportingPos();
+                    	playerScript.Start();
+					}
                 }
 			}
 
@@ -243,7 +249,7 @@ public class WorldClient : MonoBehaviour {
 					 var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world);
 					 x.SetActive(true);
 				}
-			}			
+			}
 
 			if (mEventsQueue.Count > 0){
 				Tuple<string, string> e;
