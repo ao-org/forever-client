@@ -220,7 +220,7 @@ public class ChatClient : MonoBehaviour {
 					if(p!=null){
 						var cb = p.GetComponent<ChatBox>();
 						var ci = GetChatMessageFromXml(e);
-						cb.SendMessageToChatBox( ci.Item1 + " said: " +ci.Item2, ChatMessage.MessageType.player);
+						cb.SendMessageToChatBox( ci.Item1 + ": " +ci.Item2, ChatMessage.MessageType.player);
 					}
 				}
 			}
