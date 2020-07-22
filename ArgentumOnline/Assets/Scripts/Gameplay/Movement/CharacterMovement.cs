@@ -57,6 +57,7 @@ public class CharacterMovement : Movement
         base.Start();
         WalkRunSpeed = WalkSpeed;
         mBody.isKinematic = true;
+//        mBody.useFullKinematicContacts =true;
 
         if (IsPhantom)
         {
@@ -109,6 +110,10 @@ public class CharacterMovement : Movement
     // Update is called once per frame
     void Update()
     {
+        { // Reset the force, we do not want the physics engine to move the Player
+            mBody.velocity = Vector2.zero;
+            mBody.angularVelocity = 0f;
+        }
         if (takeDamage && !IsPhantom)
         {
             UnityEngine.Debug.Log("Damage: " + damageValue);

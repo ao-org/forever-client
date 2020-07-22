@@ -76,6 +76,8 @@ public class PlayerMovement : Movement
         mBody.velocity = Vector3.zero;
         mBody.angularVelocity = 0;
         mBody.gravityScale = 0f;
+        //mBody.isKinematic = true;
+        //mBody.useFullKinematicContacts =true;
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
@@ -91,7 +93,7 @@ public class PlayerMovement : Movement
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-
+            UnityEngine.Debug.Log("OnCollisionEnter2D****************************");
             if (collision.collider.tag == "Human")
             {
                 UnityEngine.Debug.Log("touch Player enter "+ collision.collider.name +" ****************************");
@@ -101,6 +103,7 @@ public class PlayerMovement : Movement
 
     void OnCollisionExit2D(Collision2D collision)
     {
+            UnityEngine.Debug.Log("OnCollisionExit2D****************************");
             if (collision.collider.tag == "Human")
             {
                 UnityEngine.Debug.Log("touch Player exit****************************");
@@ -160,6 +163,8 @@ public class PlayerMovement : Movement
     // Update is called once per frame
     void Update()
     {
+        mBody.velocity = Vector2.zero;
+        mBody.angularVelocity = 0f;
 
 /*
         if (Input.GetKeyDown(KeyCode.B))
