@@ -155,6 +155,8 @@ public class WorldClient : MonoBehaviour {
 						//We need this, otherwise we get multiple clones
                     	p.SetActive(false);
                     	Destroy(p);
+						mSpawningPlayerCharacter = false;
+						mSceneLoaded = false;
 					}
 					else {
                     	PlayerMovement playerScript = p.GetComponent<PlayerMovement>();
