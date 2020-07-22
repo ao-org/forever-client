@@ -77,7 +77,7 @@ public class WorldClient : MonoBehaviour {
 		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
 		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
 		//Debug.Log(">>>>>>>>>>>>>>>>>> nx: " + nx + " ny: " + ny);
-		mMovementsQueue.Enqueue(Tuple.Create(decrypted_uuid,nx,ny));
+		mActionQueue.Enqueue(Tuple.Create(decrypted_uuid,nx,ny));
 		*/
 		return 1;
 	}
@@ -96,7 +96,7 @@ public class WorldClient : MonoBehaviour {
 		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
 		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
 		//Debug.Log(">>>>>>>>>>>>>>>>>> nx: " + nx + " ny: " + ny);
-		mMovementsQueue.Enqueue(Tuple.Create(decrypted_uuid,nx,ny));
+		mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MOVED"],decrypted_uuid,nx,ny));
 		return 1;
 	}
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
@@ -292,20 +292,19 @@ public class WorldClient : MonoBehaviour {
 				}
 			}
 
-			while (mMovementsQueue.Count>0 && !mSpawningPlayerCharacter){
-				Tuple<string, float,float> e;
-				if (mMovementsQueue.TryDequeue(out e)){
-					GameObject pc = GameObject.Find(e.Item1);
+			while (mActionQueue.Count>0 && !mSpawningPlayerCharacter){
+				Tuple<short,string, float,float> e;
+				if (mActionQueue.TryDequeue(out e)){
+					GameObject pc = GameObject.Find(e.Item2);
 					if(pc == null){
 						//Client might have left
-						Debug.Log("Ignoring Movement because cannot find player: " + e.Item1);
+						Debug.Log("Ignoring Movement because cannot find player: " + e.Item2);
 					}
 					else {
 						Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
 						var p = pc.GetComponent<CharacterMovement>();
 						Debug.Assert(p!=null);
-						//Debug.Log("Movement ("+ e.Item1+") x="+e.Item2 + " y="+e.Item3 );
-						p.PushMovement(Tuple.Create(e.Item2,e.Item3));
+						p.PushMovement(Tuple.Create(e.Item1,e.Item3,e.Item4));
 					}
 				}
 			}
@@ -569,7 +568,7 @@ public class WorldClient : MonoBehaviour {
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	// Connection events queue
 	private ConcurrentQueue<Tuple<string, string>> mEventsQueue = new ConcurrentQueue<Tuple<string, string>>();
-	private ConcurrentQueue<Tuple<string, float,float>> mMovementsQueue = new ConcurrentQueue<Tuple<string, float,float>>();
+	private ConcurrentQueue<Tuple<short,string, float,float>> mActionQueue = new ConcurrentQueue<Tuple<short,string, float,float>>();
 	private ConcurrentQueue<XmlDocument> mSpawnQueue = new ConcurrentQueue<XmlDocument>();
 
 	private string mOperationUponSessionOpened = "NOOP";
