@@ -10,11 +10,7 @@ public class PruebaNPCMovement : Movement
     public Quaternion rotation;
     public bool isColliding;
     private int playersColliding = 0;
-    public override void Awake()
-    {
-        //DontDestroyOnLoad(this.gameObject);
-        base.Awake();
-    }
+    
         // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +24,7 @@ public class PruebaNPCMovement : Movement
             //mBody.isKinematic = true;
             mBody.velocity = Vector3.zero;
             mBody.angularVelocity = 0f;
-         
+
         }
         //mBody.AddForce(new Vector2(0, 0));
     }
@@ -89,6 +85,6 @@ public class PruebaNPCMovement : Movement
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

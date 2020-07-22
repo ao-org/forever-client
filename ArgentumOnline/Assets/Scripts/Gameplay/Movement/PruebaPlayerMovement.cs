@@ -49,24 +49,7 @@ public class PruebaPlayerMovement : Movement
     private Vector2 mMovement;
     private string mAnimation = "";
 
-    public override void Awake()
-    {
-        //DontDestroyOnLoad(this.gameObject);
-        base.Awake();
-        health = life;
-        healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
-        UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
-        manaSlider = GameObject.Find("SliderMana").GetComponent<Slider>();
-        UnityEngine.Debug.Assert(manaSlider != null, "Cannot find Mana Slider in Player");
-        textToHead = GameObject.Find("TextToHead").GetComponent<TextMeshProUGUI>();
-        UnityEngine.Debug.Assert(textToHead != null, "Cannot find Text To Head in Player");
-        textName = GameObject.Find("TextName").GetComponent<TextMeshProUGUI>();
-        UnityEngine.Debug.Assert(textName != null, "Cannot find Text Name in Player");
-        mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
-        UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        dir = Direction.South;
-    }
+
     void LateUpdate()
     {
 
@@ -75,7 +58,7 @@ public class PruebaPlayerMovement : Movement
             spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
 
     }
-    
+
     private bool IsFacingObject()
     {
         GameObject human = GameObject.FindGameObjectsWithTag("Human")[0];
@@ -92,8 +75,8 @@ public class PruebaPlayerMovement : Movement
         UnityEngine.Debug.Log("********NOT LookingAt");
         return false;
     }
- 
-    
+
+
     void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -112,7 +95,7 @@ public class PruebaPlayerMovement : Movement
             isColliding = false;
         }
     }
-    
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -188,7 +171,7 @@ public class PruebaPlayerMovement : Movement
         return;
 
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -266,13 +249,13 @@ public class PruebaPlayerMovement : Movement
             Attack();
             return;
         }
-        
+
         if (Input.GetKeyDown(KeyCode.M))
             Dead();
-        
+
         if (Input.GetKeyDown(KeyCode.L))
             Live();
-        
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (running)
@@ -298,7 +281,7 @@ public class PruebaPlayerMovement : Movement
                 mAnimation = "Run";
             }
         }
-        
+
 
         if (mMovement.x != 0f && mMovement.y != 0f) mMovement *= walkDiagDelta;
 

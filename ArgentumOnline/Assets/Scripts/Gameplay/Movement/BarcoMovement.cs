@@ -25,10 +25,6 @@ public class BarcoMovement : Movement
     public bool isActive = false;
     public GameObject player = null;
 
-    public override void Awake()
-    {
-        base.Awake();
-    }
     // Start is called before the first frame update
     public override void Start()
     {
@@ -271,4 +267,3 @@ public class BarcoMovement : Movement
 
     }
 }
-

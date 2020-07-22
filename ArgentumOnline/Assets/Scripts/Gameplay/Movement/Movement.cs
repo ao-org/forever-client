@@ -36,21 +36,6 @@ public class Movement : MonoBehaviour
     public Tilemap mTilemapLevel1;
     public Animator mAnimator;
     public Direction GetDirection() { return dir; }//fg
-    public virtual void Awake(){
-        if (WarpingDestination.warping){
-            UnityEngine.Debug.Log("Warp X:" + WarpingDestination.teleport_x + " Y:" + WarpingDestination.teleport_y);
-            Vector3 newpos = transform.position;
-            newpos.x = WarpingDestination.teleport_x;
-            newpos.y = WarpingDestination.teleport_y;
-            this.transform.position = newpos;
-            WarpingDestination.warping = false;
-            this.dir = WarpingDestination.direction;
-        }
-        else {
-            dir = Direction.South;
-            gameObject.GetComponent<Animator>().Play("StandSur");
-        }
-    }
     // Start is called before the first frame update
     public virtual void Start(){
         mAnimator = gameObject.GetComponent<Animator>();
@@ -94,7 +79,7 @@ public class Movement : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        
+
 
     }
 }

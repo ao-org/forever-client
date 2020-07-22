@@ -38,19 +38,7 @@ public class CharacterMovement : Movement
     public void PushMovement(Tuple<short,float,float> newpos){
         mActionQueue.Enqueue(newpos);
     }
-    public override void Awake()
-    {
-        //DontDestroyOnLoad(this.gameObject);
-        base.Awake();
-        health = life;
-        healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
-        UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
-        manaSlider = GameObject.Find("SliderMana").GetComponent<Slider>();
-        UnityEngine.Debug.Assert(manaSlider != null, "Cannot find Mana Slider in Player");
-        mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
-        UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
-        dir = Direction.South;
-    }
+    
     // Start is called before the first frame update
     public override void Start()
     {

@@ -23,10 +23,7 @@ public class BoteMovement : Movement
     private bool running = false;
     private bool isDead = false;
 
-    public override void Awake()
-    {
-        base.Awake();
-    }
+
     // Start is called before the first frame update
     public override void Start()
     {

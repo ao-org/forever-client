@@ -62,22 +62,10 @@ public class WorldClient : MonoBehaviour {
 		return 1;
 	}
 	public int ProcessCharacterMelee(byte[] encrypted_data){
-		Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterMelee");
+		//Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterMelee");
 		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_data,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
-		/*
-		var nxny_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,2+uuid_len,2));
-		var encrypted_nxny = ProtoBase.SliceArray(encrypted_data,4+uuid_len,nxny_len);
-		string decrypted_nxny = CryptoHelper.Decrypt(encrypted_nxny,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		//Debug.Log(">>>>>>>>>>>>>len decryption " + decrypted_nxny.Length);
-		//Debug.Log(">>>>>>>>>>>>>>>>>>decrypted_nxny: " + decrypted_nxny + " length = " + decrypted_nxny.Length);
-		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
-		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
-		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
-		//Debug.Log(">>>>>>>>>>>>>>>>>> nx: " + nx + " ny: " + ny);
-		*/
+		//Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
 		mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MELEE"],decrypted_uuid,0.0f,0.0f));
-
 		return 1;
 	}
 	public int ProcessCharacterMoved(byte[] encrypted_data){
@@ -164,6 +152,7 @@ public class WorldClient : MonoBehaviour {
                     PlayerMovement playerScript = p.GetComponent<PlayerMovement>();
                     p.transform.position = playerScript.GetTeleportingPos();
                     playerScript.Start();
+					//We need this, otherwise we get multiple clones
                     //p.SetActive(false);
                     //Destroy(p);
                 }
@@ -194,9 +183,10 @@ public class WorldClient : MonoBehaviour {
 		Debug.Assert(textName!=null);
 		textName.text = name+" ["+uuid+"]";
 		if(tag!="Player"){
-				Destroy(p.GetComponent<Movement>());
+				Destroy(p.GetComponent<PlayerMovement>());
 				p.AddComponent<CharacterMovement>();
 		}
+		Debug.Log("Pos " + pos.x + " " + pos.y);
 		return p;
 	}
 	private void InstantiatePlayerCharacterSprite(){
@@ -239,20 +229,21 @@ public class WorldClient : MonoBehaviour {
 				XmlDocument e;
 				if (mSpawnQueue.TryDequeue(out e)){
 					 GameObject player = (GameObject)Resources.Load("Characters/Human");
-		             Debug.Assert(player != null, "Cannot find PLAYER in Map");
-		 			 player.SetActive(false);
+					 Debug.Assert(player != null, "Cannot find PLAYER in Map");
+					 player.SetActive(false);
 					 Character c = InstantiateCharacterFromXml(e,"Spawn");
 					 var spawn_pos = c.Position();
 					 Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
 					 Transform  char_pos = player.transform;
-		 			 char_pos.position =  v3pos;
-		 			 GameObject world = GameObject.Find("World");
-		 			 Debug.Assert(world != null);
+					 char_pos.position =  v3pos;
+					 GameObject world = GameObject.Find("World");
+					 Debug.Assert(world != null);
 					 char_pos.position =  v3pos; // + offset;
+					 Debug.Log("spawn x " + spawn_pos.Item2 + " " + spawn_pos.Item3 );
 					 var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world);
 					 x.SetActive(true);
 				}
-			}
+			}			
 
 			if (mEventsQueue.Count > 0){
 				Tuple<string, string> e;

@@ -32,16 +32,7 @@ public class NPCMovement : Movement
     public Slider healthSlider;
     private TextMeshProUGUI textName;
 
-    public override void Awake()
-    {
-        base.Awake();
-        health = life;
-        healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
-        UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in NPC");
-        textName = GameObject.Find("TextName").GetComponent<TextMeshProUGUI>();
-        UnityEngine.Debug.Assert(textName != null, "Cannot find Text Name in NPC");
-        dir = Direction.South;
-    }
+    
     // Start is called before the first frame update
     public override void Start()
     {
@@ -132,7 +123,7 @@ public class NPCMovement : Movement
             PlayAnimation("Attack");
             return;
         }
-  
+
 
         bool RightArrowPressed = Input.GetKey(KeyCode.RightArrow);
         bool LeftArrowPressed = Input.GetKey(KeyCode.LeftArrow);

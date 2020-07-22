@@ -40,10 +40,23 @@ public class PlayerMovement : Movement
     private SpriteRenderer spriteRenderer;
     private GameObject mCollidingChar;
 
-    public override void Awake()
-    {
-        //DontDestroyOnLoad(this.gameObject);
-        base.Awake();
+
+    public void Awake()
+    {/*
+        if (WarpingDestination.warping){
+            UnityEngine.Debug.Log("Warp X:" + WarpingDestination.teleport_x + " Y:" + WarpingDestination.teleport_y);
+            Vector3 newpos = transform.position;
+            newpos.x = WarpingDestination.teleport_x;
+            newpos.y = WarpingDestination.teleport_y;
+            this.transform.position = newpos;
+            WarpingDestination.warping = false;
+            this.dir = WarpingDestination.direction;
+        }
+        else {
+            dir = Direction.South;
+            gameObject.GetComponent<Animator>().Play("StandSur");
+        }
+*/
         health = life;
         healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
         UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
