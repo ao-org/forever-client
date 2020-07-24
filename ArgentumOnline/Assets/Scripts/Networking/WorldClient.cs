@@ -361,9 +361,9 @@ public class WorldClient : MonoBehaviour {
 	}
 	public void OnPlayerMeleeAttacked(string victim_uuid)
 	{
-	   //Debug.Log("WorldServer::OnPlayerMoved!!!");
-	   //var p = new ProtoMoveRequest(newpos, CryptoHelper.Token);
-	   //SendMessage(p);
+	   Debug.Log("WorldServer::OnPlayerMeleeAttacked!!!");
+	   var p = new ProtoMeleeRequest(victim_uuid, CryptoHelper.Token);
+	   SendMessage(p);
 	}
 	public void OnPlayerMoved(Vector3 newpos)
 	{

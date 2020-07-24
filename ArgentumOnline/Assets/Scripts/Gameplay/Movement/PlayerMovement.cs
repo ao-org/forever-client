@@ -132,9 +132,8 @@ public class PlayerMovement : Movement
             mWorldClient.OnPlayerMeleeAttacked(mCollidingChar.name);
         }
         else {
-            mWorldClient.OnPlayerMeleeAttacked("NONE");
+            mWorldClient.OnPlayerMeleeAttacked("Z");
         }
-
     }
 
     private bool TryToMove(Vector3 pos)
