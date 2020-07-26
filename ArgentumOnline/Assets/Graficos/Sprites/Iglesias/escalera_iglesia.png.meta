@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: -514961163400995697
     second: escalera_iglesia_4
+  - first:
+      213: 54844183603907335
+    second: escalera_iglesia_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,9 +142,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 530
-        y: 641
+        y: 651
         width: 400
-        height: 895
+        height: 885
       alignment: 9
       pivot: {x: 0.5036664, y: 0.6376112}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,9 +183,9 @@ TextureImporter:
       name: escalera_iglesia_3
       rect:
         serializedVersion: 2
-        x: 383
+        x: 260
         y: 129
-        width: 512
+        width: 248
         height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -214,6 +217,27 @@ TextureImporter:
       bones: []
       spriteID: f8c9c5edc8d7ad8f0800000000000000
       internalID: -514961163400995697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: escalera_iglesia_5
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 129
+        width: 256
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b05b19e78d2c000800000000000000
+      internalID: 54844183603907335
       vertices: []
       indices: 
       edges: []
