@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine.Localization.Settings;
 using UnityEngine.Localization;
 using UnityEngine.EventSystems;
 using System.Linq;
@@ -280,32 +281,39 @@ public class MainMenu : MonoBehaviour
     }
     private IDictionary<string,LocalizedString> mLocalizedStringMappings;
 
+
+
     public void ShowMessageBox(string title,string text, bool localize = false)
-    {
-        if (mLoadingWindow != null)
-            mLoadingWindow.transform.localScale = new Vector3(0f, 0f, 0f);
-        string final_title_string = title;
-        string final_text_string  = text;
-        if(localize){
-            Debug.Assert(mLocalizedStringMappings.ContainsKey(title), "Missing the Localized String in the Dictionary");
-            Debug.Assert(mLocalizedStringMappings.ContainsKey(text) , "Missing the Localized String in the Dictionary");
-            var localizedText = mLocalizedStringMappings[title].GetLocalizedString();
-            Debug.Assert(localizedText.IsDone);
-            Debug.Log("LocalizedString " + localizedText.Result);
-            final_title_string = localizedText.Result;
-            localizedText = mLocalizedStringMappings[text].GetLocalizedString();
-            Debug.Assert(localizedText.IsDone);
-            Debug.Log("LocalizedString " + localizedText.Result);
-            final_text_string = localizedText.Result;
-        }
-        Text TitleText = GameObject.Find("MsgBoxTitle").GetComponent<Text>();
-        Debug.Assert(TitleText!=null);
-        TitleText.text = final_title_string;
-        Text BodyText = GameObject.Find("MsgBoxText").GetComponent<Text>();
-        Debug.Assert(BodyText!=null);
-        BodyText.text = final_text_string;
-        mMessageBox.transform.localScale = new Vector3(1f, 1f, 1f);
+        {
+            if (mLoadingWindow != null)
+                mLoadingWindow.transform.localScale = new Vector3(0f, 0f, 0f);
+            string final_title_string = title;
+            string final_text_string  = text;
+            Text TitleText = GameObject.Find("MsgBoxTitle").GetComponent<Text>();
+            Text BodyText = GameObject.Find("MsgBoxText").GetComponent<Text>();
+            if (localize){
+
+                var localizedTitle = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("MainMenu", title);
+                if (localizedTitle.IsDone)
+                    final_title_string = localizedTitle.Result;
+                else
+                    localizedTitle.Completed += (o) => TitleText.text = o.Result;
+
+                var localizedText = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("MainMenu", text);
+                if (localizedText.IsDone)
+                    final_text_string = localizedText.Result;
+                else
+                    localizedText.Completed += (o) => BodyText.text = o.Result;
+            }
+            Debug.Assert(TitleText!=null);
+            TitleText.text = final_title_string;
+            Debug.Assert(BodyText!=null);
+            BodyText.text = final_text_string;
+            mMessageBox.transform.localScale = new Vector3(1f, 1f, 1f);
     }
+
+
+
     public void CreateAccount(){
         Debug.Log("CreateAccount");
         InputField signup_username_input    = GameObject.Find("SignUpUsernameInputField").GetComponent<InputField>();
