@@ -3577,7 +3577,7 @@ GameObject:
   - component: {fileID: 440353544}
   - component: {fileID: 440353543}
   m_Layer: 0
-  m_Name: MsgBoxText
+  m_Name: MsgBoxText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12417,7 +12417,7 @@ GameObject:
   - component: {fileID: 1685690482}
   - component: {fileID: 1685690481}
   m_Layer: 0
-  m_Name: MsgBoxText2
+  m_Name: MsgBoxText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
