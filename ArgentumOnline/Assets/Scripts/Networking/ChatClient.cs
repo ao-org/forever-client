@@ -69,11 +69,16 @@ public class ChatClient : MonoBehaviour {
 			Debug.Log("Failed to parse XML charjoined: " + e.Message);
 			Debug.Assert(false);
 		}
-        /*
-		mMovementsQueue.Enqueue(Tuple.Create(decrypted_uuid,nx,ny));
-        */
 		return 1;
 	}
+	public int ProcessQOTD(byte[] encrypted_quote){
+		Debug.Log("ProcessQOTD");
+		var decrypted_q = CryptoHelper.Decrypt(encrypted_quote,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		Debug.Log("decrypted_data: " + decrypted_q);
+		mEventsQueue.Enqueue(Tuple.Create("QOTD",decrypted_q));
+		return 1;
+	}
+
 	public int ProcessCharacterJoined(byte[] encrypted_joined_info){
 		Debug.Log("ProcessCharacterJoined");
 		Debug.Log("encrypted_joined_info len = " + Encoding.ASCII.GetString(encrypted_joined_info).Length + " "  + Encoding.ASCII.GetString(encrypted_joined_info) );
@@ -166,11 +171,13 @@ public class ChatClient : MonoBehaviour {
 	void Update(){
 		try
 		{
-			while(mJoinedQueue.Count>0){
+			GameObject p = GameObject.Find("ChatBox");
+
+			while(mJoinedQueue.Count>0 && p!=null){
 				XmlDocument e;
 				if (mJoinedQueue.TryDequeue(out e)){
 					Debug.Log("mJoinedQueue");
-					GameObject p = GameObject.Find("ChatBox");
+					//GameObject p = GameObject.Find("ChatBox");
 					if(p!=null){
 						var cb = p.GetComponent<ChatBox>();
 						var ji = GetJoinedMessageFromXml(e);
@@ -180,7 +187,8 @@ public class ChatClient : MonoBehaviour {
 				}
 			}
 
-			if (mEventsQueue.Count > 0){
+
+			if (mEventsQueue.Count > 0 && p!=null){
 
 				Tuple<string, string> e;
 				if (mEventsQueue.TryDequeue(out e)){
@@ -201,6 +209,15 @@ public class ChatClient : MonoBehaviour {
 					else if(e.Item1 == "CHARACTER_SAID") {
 
                     }
+					else if(e.Item1 == "QOTD") {
+						Debug.Log("QOTDQOTDQOTDQOTDQOTDQOTDQOTDQOTDQOTD");
+						//GameObject p = GameObject.Find("ChatBox");
+						if(p!=null){
+							var cb = p.GetComponent<ChatBox>();
+							cb.SendMessageToChatBox( "QOTD: " + e.Item2, ChatMessage.MessageType.system);
+						}
+
+                    }
 					else if(e.Item1 == "CONNECTION_ERROR_MSGBOX_TITLE"){
 						//ShowMessageBox("CONNECTION_ERROR_MSGBOX_TITLE",e.Item2);
 						//TODO CREATE MESSAGE BOX TO NOTIFY USER ABOUT EVENTS
@@ -213,10 +230,10 @@ public class ChatClient : MonoBehaviour {
 				}
 			}
 
-			while (mChatQueue.Count>0){
+			while (mChatQueue.Count>0 && p!=null){
 				XmlDocument e;
 				if (mChatQueue.TryDequeue(out e)){
-					GameObject p = GameObject.Find("ChatBox");
+					//GameObject p = GameObject.Find("ChatBox");
 					if(p!=null){
 						var cb = p.GetComponent<ChatBox>();
 						var ci = GetChatMessageFromXml(e);
@@ -483,6 +500,7 @@ public class ChatClient : MonoBehaviour {
 		{ ProtoBase.ProtocolNumbers["CHAT_JOIN_ERROR"], (@this, x) => @this.ProcessChatJoinError(x) },
 		{ ProtoBase.ProtocolNumbers["CHARACTER_JOINED"], (@this, x) => @this.ProcessCharacterJoined(x) },
 		{ ProtoBase.ProtocolNumbers["CHARACTER_LEFT_CHAT"], (@this, x) => @this.ProcessCharacterLeftChat(x) },
+		{ ProtoBase.ProtocolNumbers["QOTD"], (@this, x) => @this.ProcessQOTD(x) },
 		{ ProtoBase.ProtocolNumbers["CHARACTER_SAID"], (@this, x) => @this.ProcessCharacterSaid(x) }
     };
 	private XmlDocument				mPlayerCharacterXml;
