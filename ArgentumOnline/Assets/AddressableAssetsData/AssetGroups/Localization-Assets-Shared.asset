@@ -21,7 +21,14 @@ MonoBehaviour:
     m_Address: MainMenu Shared Data
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_mainAssetType: 
+    m_mainAssetType: UnityEngine.Localization.Tables.SharedTableData, Unity.Localization,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_GUID: e9539db44300341479db59aeb853a9e8
+    m_Address: MainMenu Shared Data
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_mainAssetType: UnityEngine.Localization.Tables.SharedTableData, Unity.Localization,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 1a0b68dd51c58207fa57fb5a24c90bb6, type: 2}
   m_SchemaSet:

@@ -24,6 +24,13 @@ MonoBehaviour:
     - Locale
     m_mainAssetType: UnityEngine.Localization.Locale, Unity.Localization, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  - m_GUID: 322986dc50c482a4db7d6dea894742d4
+    m_Address: Italian (it)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    m_mainAssetType: UnityEngine.Localization.Locale, Unity.Localization, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - m_GUID: 80231a178da40e407bcff1653d97c674
     m_Address: French (fr)
     m_ReadOnly: 1
