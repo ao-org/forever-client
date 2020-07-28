@@ -38,31 +38,21 @@ public class ChatClient : MonoBehaviour {
 	}
 
 	public int ProcessChatJoinOkay(byte[] encrypted_character){
-		Debug.Log("ProcessChatJoinOkay");
-        Debug.Log("encrypted_character len = " + Encoding.ASCII.GetString(encrypted_character).Length + " "  + Encoding.ASCII.GetString(encrypted_character) );
         var decrypted_char = CryptoHelper.Decrypt(encrypted_character,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		Debug.Log("decrypted chat data: " + decrypted_char);
         mEventsQueue.Enqueue(Tuple.Create("CHAT_JOIN_OKAY",""));
 		return 1;
 	}
-	public int ProcessCharacterLeftChat(byte[] encrypted_uuid){
-		Debug.Log("ProcessCharacterLeftChat");
-		Debug.Log("encrypted_uuid len = " + Encoding.ASCII.GetString(encrypted_uuid).Length + " "  + Encoding.ASCII.GetString(encrypted_uuid) );
-        var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		Debug.Log("decrypted_data: " + decrypted_uuid);
-		//mEventsQueue.Enqueue(Tuple.Create("CHARACTER_LEFT_CHAT",decrypted_uuid));
+	public int ProcessCharacterLeftChat(byte[] encrypted_name){
+        var decrypted_name = CryptoHelper.Decrypt(encrypted_name,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		mEventsQueue.Enqueue(Tuple.Create("CHARACTER_LEFT_CHAT",decrypted_name));
 		return 1;
 	}
-
 	public int ProcessCharacterSaid(byte[] encrypted_data){
-		Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterSaid");
         var decrypted_chat = CryptoHelper.Decrypt(encrypted_data,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		Debug.Log("decrypted chat data: " + decrypted_chat);
 		try{
 			//Can only be done from the main thread
 			var ChatXml = new XmlDocument();
 			ChatXml.LoadXml(decrypted_chat);
-			Debug.Log("Parsed ChatXML sucessfully!!!!!!!");
 			mChatQueue.Enqueue(ChatXml);
 		}
 		catch (Exception e){
@@ -74,7 +64,6 @@ public class ChatClient : MonoBehaviour {
 	public int ProcessQOTD(byte[] encrypted_quote){
 		Debug.Log("ProcessQOTD");
 		var decrypted_q = CryptoHelper.Decrypt(encrypted_quote,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		Debug.Log("decrypted_data: " + decrypted_q);
 		mEventsQueue.Enqueue(Tuple.Create("QOTD",decrypted_q));
 		return 1;
 	}
@@ -177,11 +166,9 @@ public class ChatClient : MonoBehaviour {
 				XmlDocument e;
 				if (mJoinedQueue.TryDequeue(out e)){
 					Debug.Log("mJoinedQueue");
-					//GameObject p = GameObject.Find("ChatBox");
 					if(p!=null){
 						var cb = p.GetComponent<ChatBox>();
 						var ji = GetJoinedMessageFromXml(e);
-						UUID2Name[ji.Item1]=ji.Item2;
 						cb.SendMessageToChatBox(ji.Item2 + " joined the game.", ChatMessage.MessageType.system);
 					}
 				}
@@ -197,7 +184,10 @@ public class ChatClient : MonoBehaviour {
 						Debug.Log("CHAT_JOIN_OKAY");
 					}
 					else if(e.Item1 == "CHARACTER_LEFT_CHAT") {
-  					     Debug.Log("CHARACTER_LEFT_MAP");
+						if(p!=null){
+							var cb = p.GetComponent<ChatBox>();
+							cb.SendMessageToChatBox(e.Item2 + " left the game.", ChatMessage.MessageType.system);
+						}
 					}
 					else if(e.Item1 == "CHAT_JOIN_ERROR") {
 						Debug.Log("CHAT_JOIN_ERROR");
@@ -210,13 +200,10 @@ public class ChatClient : MonoBehaviour {
 
                     }
 					else if(e.Item1 == "QOTD") {
-						Debug.Log("QOTDQOTDQOTDQOTDQOTDQOTDQOTDQOTDQOTD");
-						//GameObject p = GameObject.Find("ChatBox");
 						if(p!=null){
 							var cb = p.GetComponent<ChatBox>();
 							cb.SendMessageToChatBox( "QOTD: " + e.Item2, ChatMessage.MessageType.system);
 						}
-
                     }
 					else if(e.Item1 == "CONNECTION_ERROR_MSGBOX_TITLE"){
 						//ShowMessageBox("CONNECTION_ERROR_MSGBOX_TITLE",e.Item2);
