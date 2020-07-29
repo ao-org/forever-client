@@ -271,5 +271,17 @@ MonoBehaviour:
     m_Localized: Conferma email
     m_Metadata:
       m_Items: []
+  - m_Id: 78
+    m_Localized: Termini e condizioni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79
+    m_Localized: Ho letto e accetto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80
+    m_Localized: Creare un profilo
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

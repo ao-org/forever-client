@@ -272,5 +272,17 @@ MonoBehaviour:
     m_Localized: Confirmez votre email
     m_Metadata:
       m_Items: []
+  - m_Id: 78
+    m_Localized: Termes et conditions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79
+    m_Localized: "J'ai lu et accept\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80
+    m_Localized: "Cr\xE9er un compte"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
