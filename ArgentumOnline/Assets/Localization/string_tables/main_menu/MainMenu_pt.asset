@@ -31,155 +31,154 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4
-    m_Localized: Nombre de usuario
+    m_Localized: "Nome de usu\xE1rio"
     m_Metadata:
       m_Items: []
   - m_Id: 5
-    m_Localized: Clave
+    m_Localized: Senha
     m_Metadata:
       m_Items: []
   - m_Id: 6
-    m_Localized: Error de login
+    m_Localized: "Erro de autentica\xE7\xE3o"
     m_Metadata:
       m_Items: []
   - m_Id: 7
-    m_Localized: La cuenta no existe
+    m_Localized: "Essa conta n\xE3o existe"
     m_Metadata:
       m_Items: []
   - m_Id: 8
-    m_Localized: La cuenta esta siendo utilizada en este momento y no se permiten
-      mas de un conexion por cuenta.
+    m_Localized: "A conta est\xE1 sendo usada no momento e n\xE3o \xE9 permitido
+      mais de uma conex\xE3o por conta."
     m_Metadata:
       m_Items: []
   - m_Id: 9
-    m_Localized: Por favor ingrese una clave alfanumerica que tenga un minimo de
-      seis caracteres
+    m_Localized: "Digite uma senha alfanum\xE9rica com no m\xEDnimo seis caracteres."
     m_Metadata:
       m_Items: []
   - m_Id: 10
-    m_Localized: Por favor ingrese un usuario valido
+    m_Localized: "Por favor, insira um usu\xE1rio v\xE1lido."
     m_Metadata:
       m_Items: []
   - m_Id: 11
-    m_Localized: Error de input
+    m_Localized: Erro de entrada
     m_Metadata:
       m_Items: []
   - m_Id: 12
-    m_Localized: Nombre
+    m_Localized: Nome
     m_Metadata:
       m_Items: []
   - m_Id: 13
-    m_Localized: Apellido
+    m_Localized: Sobrenome
     m_Metadata:
       m_Items: []
   - m_Id: 14
-    m_Localized: Correo
+    m_Localized: "Correio eletr\xF4nico"
     m_Metadata:
       m_Items: []
   - m_Id: 15
-    m_Localized: Fecha nacimiento
+    m_Localized: Data de nascimento
     m_Metadata:
       m_Items: []
   - m_Id: 16
-    m_Localized: Lugar de nacimiento
+    m_Localized: Local de nascimento
     m_Metadata:
       m_Items: []
   - m_Id: 17
-    m_Localized: Pregunta secreta 1
+    m_Localized: Pergunta secreta 1
     m_Metadata:
       m_Items: []
   - m_Id: 18
-    m_Localized: Pregunta secreta 2
+    m_Localized: Pergunta secreta 2
     m_Metadata:
       m_Items: []
   - m_Id: 19
-    m_Localized: Respuesta 1
+    m_Localized: Resposta 1
     m_Metadata:
       m_Items: []
   - m_Id: 20
-    m_Localized: Respuesta 2
+    m_Localized: resposta 2
     m_Metadata:
       m_Items: []
   - m_Id: 21
-    m_Localized: Crear cuenta
+    m_Localized: Criar uma conta
     m_Metadata:
       m_Items: []
   - m_Id: 22
-    m_Localized: No se ha podido conectar con el servidor.
+    m_Localized: "N\xE3o pode conectar ao servidor."
     m_Metadata:
       m_Items: []
   - m_Id: 23
-    m_Localized: Error de conexion
+    m_Localized: "Erro de conex\xE3o."
     m_Metadata:
       m_Items: []
   - m_Id: 24
-    m_Localized: Movil
+    m_Localized: "M\xF3vel"
     m_Metadata:
       m_Items: []
   - m_Id: 25
-    m_Localized: Error de creacion de cuenta
+    m_Localized: "Erro de cria\xE7\xE3o da conta."
     m_Metadata:
       m_Items: []
   - m_Id: 26
-    m_Localized: La cuenta ya existe, pruebe un nombre de usuario diferente.
+    m_Localized: "A conta j\xE1 existe, tente um nome de usu\xE1rio diferente."
     m_Metadata:
       m_Items: []
   - m_Id: 27
-    m_Localized: PASSWORD_TOO_SHORT
+    m_Localized: "A senha \xE9 muito curta."
     m_Metadata:
       m_Items: []
   - m_Id: 28
-    m_Localized: PASSWORD_TOO_LONG
+    m_Localized: "A senha \xE9 muito longa."
     m_Metadata:
       m_Items: []
   - m_Id: 29
-    m_Localized: PASSWORD_IS_NOT_ALNUM
+    m_Localized: "A senha n\xE3o \xE9 alfanum\xE9rica."
     m_Metadata:
       m_Items: []
   - m_Id: 30
-    m_Localized: USERNAME_TOO_SHORT
+    m_Localized: "Nome de usu\xE1rio muito curto."
     m_Metadata:
       m_Items: []
   - m_Id: 31
-    m_Localized: USERNAME_TOO_LONG
+    m_Localized: "Nome de usu\xE1rio muito longo."
     m_Metadata:
       m_Items: []
   - m_Id: 32
-    m_Localized: USERNAME_IS_NOT_ALNUM
+    m_Localized: "o nome de usu\xE1rio n\xE3o \xE9 alfanum\xE9rico"
     m_Metadata:
       m_Items: []
   - m_Id: 33
-    m_Localized: PASSWORD_CANNOT_CONTAIN_USERNAME
+    m_Localized: "A senha deve ser diferente do nome de usu\xE1rio."
     m_Metadata:
       m_Items: []
   - m_Id: 34
-    m_Localized: USERNAME_CANNOT_START_WITH_NUMBER
+    m_Localized: "O nome de usu\xE1rio n\xE3o pode come\xE7ar com um n\xFAmero."
     m_Metadata:
       m_Items: []
   - m_Id: 35
-    m_Localized: PASSWORD_MUST_HAVE_ONE_UPPERCASE
+    m_Localized: "A senha deve conter pelo menos uma letra mai\xFAscula."
     m_Metadata:
       m_Items: []
   - m_Id: 36
-    m_Localized: PASSWORD_MUST_HAVE_ONE_LOWERCASE
+    m_Localized: "A senha deve conter pelo menos uma letra min\xFAscula."
     m_Metadata:
       m_Items: []
   - m_Id: 37
-    m_Localized: PASSWORD_MUST_HAVE_TWO_NUMBERS
+    m_Localized: "A senha deve ter pelo menos dois n\xFAmeros."
     m_Metadata:
       m_Items: []
   - m_Id: 38
-    m_Localized: INVALID_EMAIL
+    m_Localized: "Email inv\xE1lido."
     m_Metadata:
       m_Items: []
   - m_Id: 40
-    m_Localized: La cuenta ha sido creada exitosamente. Antes de utilizarla debu
-      activarla. Le hemos enviado un correo elecronico con un codigo que debe ingresar
-      aqui para activar la cuenta.
+    m_Localized: "A conta foi criada com sucesso! Ele deve ser ativado antes de poder
+      ser usado.\r\nEnvi\xE1mos um e-mail com um c\xF3digo que voc\xEA deve inserir
+      aqui para ativar a conta."
     m_Metadata:
       m_Items: []
   - m_Id: 41
-    m_Localized: Activar
+    m_Localized: Ativar
     m_Metadata:
       m_Items: []
   - m_Id: 42
@@ -195,44 +194,40 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 45
-    m_Localized: La cuenta aun no ha sido activada, por favor active la cuenta.
+    m_Localized: "A conta ainda n\xE3o foi ativada, ative a conta."
     m_Metadata:
       m_Items: []
   - m_Id: 46
-    m_Localized: Por favor ingrese un codigo de activacion valido.
+    m_Localized: "Digite um c\xF3digo de ativa\xE7\xE3o v\xE1lido."
     m_Metadata:
       m_Items: []
   - m_Id: 47
-    m_Localized: La cuenta ha sido activada correctamente. Ya puede utilizarla.
+    m_Localized: "A conta foi ativada com sucesso! J\xE1 pode ser usado."
     m_Metadata:
       m_Items: []
   - m_Id: 48
-    m_Localized: El codigo de activacion no es valido. Por favor verifique que no
-      ha cometido un error al ingresarlo.
+    m_Localized: "O c\xF3digo de ativa\xE7\xE3o n\xE3o \xE9 v\xE1lido. Verifique
+      se voc\xEA n\xE3o cometeu um erro ao inseri-lo."
     m_Metadata:
       m_Items: []
   - m_Id: 49
-    m_Localized: Activacion de cuenta
-    m_Metadata:
-      m_Items: []
-  - m_Id: 51
-    m_Localized: INVALID_CONFIRM_EMAIL
+    m_Localized: "Ativa\xE7\xE3o de conta"
     m_Metadata:
       m_Items: []
   - m_Id: 52
-    m_Localized: INPUT_ERROR_INVALID_CONFIRM_PASSWORD
+    m_Localized: "Confirma\xE7\xE3o de senha inv\xE1lida"
     m_Metadata:
       m_Items: []
   - m_Id: 53
-    m_Localized: INVALID_FIRST_LAST_NAME
+    m_Localized: Preencha o nome e o sobrenome.
     m_Metadata:
       m_Items: []
   - m_Id: 54
-    m_Localized: TERMS_NOT_ACCEPTED
+    m_Localized: "Voc\xEA deve aceitar os Termos e Condi\xE7\xF5es."
     m_Metadata:
       m_Items: []
   - m_Id: 55
-    m_Localized: TERMS_CONDITIONS_TITLE
+    m_Localized: "Termos e Condi\xE7\xF5es"
     m_Metadata:
       m_Items: []
   - m_Id: 56
@@ -268,7 +263,40 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 64
-    m_Localized: INVALID_PUBLIC_KEY
+    m_Localized: "Atualize o cliente para a vers\xE3o mais recente.\r\nSe o problema
+      persistir, entre em contato com o suporte t\xE9cnico."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67
+    m_Localized: Senha incorreta.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71
+    m_Localized: "Emails n\xE3o coincidem."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72
+    m_Localized: "C\xF3digo de ativa\xE7\xE3o incorreto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68
+    m_Localized: "Nome de usu\xE1rio Inv\xE1lido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73
+    m_Localized: Registrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76
+    m_Localized: Confirmar senha.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75
+    m_Localized: "Nome de usu\xE1rio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74
+    m_Localized: Confirmar email
     m_Metadata:
       m_Items: []
   references:

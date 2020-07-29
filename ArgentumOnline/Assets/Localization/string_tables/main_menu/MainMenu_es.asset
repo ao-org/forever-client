@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5
-    m_Localized: Clave
+    m_Localized: "Contrase\xF1a"
     m_Metadata:
       m_Items: []
   - m_Id: 6
@@ -53,15 +53,15 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 9
     m_Localized: Por favor ingrese una clave alfanumerica que tenga un minimo de
-      seis caracteres
+      seis caracteres.
     m_Metadata:
       m_Items: []
   - m_Id: 10
-    m_Localized: Por favor ingrese un usuario valido
+    m_Localized: Por favor ingrese un usuario valido.
     m_Metadata:
       m_Items: []
   - m_Id: 11
-    m_Localized: Error de input
+    m_Localized: Error de entrada
     m_Metadata:
       m_Items: []
   - m_Id: 12
@@ -73,7 +73,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 14
-    m_Localized: Correo electronico
+    m_Localized: "Correo electr\xF3nico"
     m_Metadata:
       m_Items: []
   - m_Id: 15
@@ -109,7 +109,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 23
-    m_Localized: Error de conexion
+    m_Localized: Error de conexion.
     m_Metadata:
       m_Items: []
   - m_Id: 24
@@ -117,7 +117,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 25
-    m_Localized: Error de creacion de cuenta
+    m_Localized: Error de creacion de cuenta.
     m_Metadata:
       m_Items: []
   - m_Id: 26
@@ -125,57 +125,59 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 27
-    m_Localized: PASSWORD_TOO_SHORT
+    m_Localized: "La contrase\xF1a es demasiado corta."
     m_Metadata:
       m_Items: []
   - m_Id: 28
-    m_Localized: PASSWORD_TOO_LONG
+    m_Localized: "La contrase\xF1a es demasiado larga."
     m_Metadata:
       m_Items: []
   - m_Id: 29
-    m_Localized: PASSWORD_IS_NOT_ALNUM
+    m_Localized: "La contrase\xF1a no es alfanum\xE9rica"
     m_Metadata:
       m_Items: []
   - m_Id: 30
-    m_Localized: USERNAME_TOO_SHORT
+    m_Localized: Nombre de usuario demasiado corto.
     m_Metadata:
       m_Items: []
   - m_Id: 31
-    m_Localized: USERNAME_TOO_LONG
+    m_Localized: Nombre de usuario demasiado corto.
     m_Metadata:
       m_Items: []
   - m_Id: 32
-    m_Localized: USERNAME_IS_NOT_ALNUM
+    m_Localized: "El nombre de usuario no es alfanum\xE9rico."
     m_Metadata:
       m_Items: []
   - m_Id: 33
-    m_Localized: PASSWORD_CANNOT_CONTAIN_USERNAME
+    m_Localized: "La contrase\xF1a debe ser diferente al nombre de usuario.."
     m_Metadata:
       m_Items: []
   - m_Id: 34
-    m_Localized: USERNAME_CANNOT_START_WITH_NUMBER
+    m_Localized: El nombre de usuario no puede comenzar con un numero.
     m_Metadata:
       m_Items: []
   - m_Id: 35
-    m_Localized: PASSWORD_MUST_HAVE_ONE_UPPERCASE
+    m_Localized: "La contrase\xF1a debe contener al menos una may\xFAscula."
     m_Metadata:
       m_Items: []
   - m_Id: 36
-    m_Localized: PASSWORD_MUST_HAVE_ONE_LOWERCASE
+    m_Localized: "La contrase\xF1a debe contener al menos una min\xFAscula."
     m_Metadata:
       m_Items: []
   - m_Id: 37
-    m_Localized: PASSWORD_MUST_HAVE_TWO_NUMBERS
+    m_Localized: "La contrase\xF1a debe tener al menos dos n\xFAmeros."
     m_Metadata:
       m_Items: []
   - m_Id: 38
-    m_Localized: Email invalido.
+    m_Localized: "Correo electr\xF3nico invalido."
     m_Metadata:
       m_Items: []
   - m_Id: 40
-    m_Localized: La cuenta ha sido creada exitosamente. Antes de utilizarla debu
-      activarla. Le hemos enviado un correo elecronico con un codigo que debe ingresar
-      aqui para activar la cuenta.
+    m_Localized: 'La cuenta ha sido creada exitosamente!. Debe activarse antes de
+      poder ser usada.
+
+      Le hemos enviado un correo elecronico con un codigo
+      que debe ingresar aqui para activar la cuenta.'
     m_Metadata:
       m_Items: []
   - m_Id: 41
@@ -199,7 +201,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 46
-    m_Localized: Por favor ingrese un codigo de activacion valido.
+    m_Localized: "Por favor ingrese un c\xF3digo de activacion v\xE1lido."
     m_Metadata:
       m_Items: []
   - m_Id: 47
@@ -215,12 +217,8 @@ MonoBehaviour:
     m_Localized: Activacion de cuenta
     m_Metadata:
       m_Items: []
-  - m_Id: 51
-    m_Localized: Confirmacion de email invalida
-    m_Metadata:
-      m_Items: []
   - m_Id: 52
-    m_Localized: Confirmacion de clave invalida
+    m_Localized: "Confirmaci\xF3n de contrase\xF1a invalida"
     m_Metadata:
       m_Items: []
   - m_Id: 53
@@ -228,49 +226,52 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 54
-    m_Localized: Debe aceptar los terminos y condiciones
-    m_Metadata:
-      m_Items: []
-  - m_Id: 56
-    m_Localized: 'This software is strictly private, confidential and personal to
-      its recipients and should not be copied, distributed or reproduced in whole
-      or in part, nor passed to any third party. '
+    m_Localized: "Debe aceptar los t\xE9rminos y condiciones."
     m_Metadata:
       m_Items: []
   - m_Id: 55
-    m_Localized: Terminos y Condiciones
-    m_Metadata:
-      m_Items: []
-  - m_Id: 57
-    m_Localized: La clave es incorrecta.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 58
-    m_Localized: Se envio el codigo. Verifique su correo electronico.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 59
-    m_Localized: PLAY_CHARACTER_OKAY_TITLE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 60
-    m_Localized: PLAY_CHARACTER_OKAY_TEXT
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61
-    m_Localized: PLAY_CHARACTER_ERROR_TITLE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 62
-    m_Localized: PLAY_CHARACTER_ERROR_TEXT
-    m_Metadata:
-      m_Items: []
-  - m_Id: 63
-    m_Localized: El servidor cerro la conexion por inactividad.
+    m_Localized: "T\xE9rminos y Condiciones"
     m_Metadata:
       m_Items: []
   - m_Id: 64
-    m_Localized: INVALID_PUBLIC_KEY
+    m_Localized: "Por favor actualice el cliente a la \xFAltima versi\xF3n.\r\nSi
+      el problema persiste comuniquese con soporte t\xE9cnico."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67
+    m_Localized: "Contrase\xF1a incorrecta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71
+    m_Localized: Los correos electronicos no coinciden.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72
+    m_Localized: "C\xF3digo de activaci\xF3n incorrecto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68
+    m_Localized: "Nombre de usuario inv\xE1lido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73
+    m_Localized: Registrarse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76
+    m_Localized: "Confirmar contrase\xF1a."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75
+    m_Localized: Nombre de usuario
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74
+    m_Localized: "Confirmar correo electr\xF3nico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80
+    m_Localized: sdadsa
     m_Metadata:
       m_Items: []
   references:

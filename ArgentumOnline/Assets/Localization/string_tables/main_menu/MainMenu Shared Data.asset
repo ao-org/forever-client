@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: MainMenu Shared Data
   m_EditorClassIdentifier: 
-  m_NextAvailableId: 66
+  m_NextAvailableId: 81
   m_TableName: MainMenu
   m_TableNameGuidString: ce04b8004cef60dc193130c9173065bb
   m_Entries:
@@ -208,12 +208,6 @@ MonoBehaviour:
     m_Key: ACTIVATE_MSG_BOX_TITLE
     m_Metadata:
       m_Items: []
-  - m_Id: 51
-    m_Key: 'INVALID_CONFIRM_EMAIL
-
-'
-    m_Metadata:
-      m_Items: []
   - m_Id: 52
     m_Key: INPUT_ERROR_INVALID_CONFIRM_PASSWORD
     m_Metadata:
@@ -230,44 +224,52 @@ MonoBehaviour:
     m_Key: TERMS_CONDITIONS_TITLE
     m_Metadata:
       m_Items: []
-  - m_Id: 56
-    m_Key: TERMS_CONDITIONS_TEXT
-    m_Metadata:
-      m_Items: []
-  - m_Id: 57
-    m_Key: WRONG_PASSOWRD
-    m_Metadata:
-      m_Items: []
-  - m_Id: 58
-    m_Key: RESEND_CODE_OK
-    m_Metadata:
-      m_Items: []
-  - m_Id: 59
-    m_Key: PLAY_CHARACTER_OKAY_TITLE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 60
-    m_Key: PLAY_CHARACTER_OKAY_TEXT
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61
-    m_Key: PLAY_CHARACTER_ERROR_TITLE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 62
-    m_Key: PLAY_CHARACTER_ERROR_TEXT
-    m_Metadata:
-      m_Items: []
-  - m_Id: 63
-    m_Key: CONNECTION_CLOSED_BY_SERVER_TEXT
-    m_Metadata:
-      m_Items: []
   - m_Id: 64
     m_Key: INVALID_PUBLIC_KEY
     m_Metadata:
       m_Items: []
-  - m_Id: 65
-    m_Key: New Entry 2
+  - m_Id: 67
+    m_Key: WRONG_PASSWORD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68
+    m_Key: INPUT_ERROR_INVALID_USER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71
+    m_Key: INVALID_CONFIRM_EMAIL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72
+    m_Key: INVALID_ACTIVATION_CODE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73
+    m_Key: REGISTER_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74
+    m_Key: CONFIRM_EMAIL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75
+    m_Key: SINGUP_USERNAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76
+    m_Key: CONFIRM_PASSWORD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78
+    m_Key: TERMS_AND_CONDITIONS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79
+    m_Key: I_HAVE_READ_AND_ACCEPT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80
+    m_Key: ACCOUNT_CREATION
     m_Metadata:
       m_Items: []
   m_Metadata:

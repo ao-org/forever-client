@@ -47,19 +47,21 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 8
-    m_Localized: User est online
+    m_Localized: "Le compte est actuellement utilis\xE9 et pas plus d'une connexion
+      par compte n'est autoris\xE9e."
     m_Metadata:
       m_Items: []
   - m_Id: 9
-    m_Localized: Mot de clee n'est pas valide
+    m_Localized: "Veuillez saisir un mot de passe alphanum\xE9rique comportant au
+      moins six caract\xE8res"
     m_Metadata:
       m_Items: []
   - m_Id: 10
-    m_Localized: Compte n'est pas valide
+    m_Localized: Veuillez saisir un utilisateur valide.
     m_Metadata:
       m_Items: []
   - m_Id: 11
-    m_Localized: Input error
+    m_Localized: "Erreur d'entr\xE9e"
     m_Metadata:
       m_Items: []
   - m_Id: 12
@@ -67,15 +69,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13
-    m_Localized: Nom
+    m_Localized: Le nom
     m_Metadata:
       m_Items: []
   - m_Id: 14
-    m_Localized: Corrier
+    m_Localized: "Courrier \xE9lectronique"
     m_Metadata:
       m_Items: []
   - m_Id: 15
-    m_Localized: Date de naisancce
+    m_Localized: Date de naissance
     m_Metadata:
       m_Items: []
   - m_Id: 16
@@ -103,11 +105,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 22
-    m_Localized: Ce n'est pas posible de conecter avec server
+    m_Localized: 'Ce n''est pas posible de conecter avec server.
+
+'
     m_Metadata:
       m_Items: []
   - m_Id: 23
-    m_Localized: Connection error
+    m_Localized: Erreur de connexion.
     m_Metadata:
       m_Items: []
   - m_Id: 24
@@ -115,63 +119,65 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 25
-    m_Localized: Compte error
+    m_Localized: "Erreur de cr\xE9ation de compte."
     m_Metadata:
       m_Items: []
   - m_Id: 26
-    m_Localized: Compte deja existe
+    m_Localized: "Le compte existe d\xE9j\xE0, veuillez essayer un autre nom d'utilisateur."
     m_Metadata:
       m_Items: []
   - m_Id: 27
-    m_Localized: PASSWORD_TOO_SHORT
+    m_Localized: Le mot de passe est trop court.
     m_Metadata:
       m_Items: []
   - m_Id: 28
-    m_Localized: PASSWORD_TOO_LONG
+    m_Localized: Le mot de passe est trop long.
     m_Metadata:
       m_Items: []
   - m_Id: 29
-    m_Localized: PASSWORD_IS_NOT_ALNUM
+    m_Localized: "Le mot de passe n'est pas alphanum\xE9rique."
     m_Metadata:
       m_Items: []
   - m_Id: 30
-    m_Localized: USERNAME_TOO_SHORT
+    m_Localized: Nom d'utilisateur trop court.
     m_Metadata:
       m_Items: []
   - m_Id: 31
-    m_Localized: USERNAME_TOO_LONG
+    m_Localized: "A senha \xE9 muito longa."
     m_Metadata:
       m_Items: []
   - m_Id: 32
-    m_Localized: USERNAME_IS_NOT_ALNUM
+    m_Localized: "Le nom d'utilisateur n'est pas alphanum\xE9rique."
     m_Metadata:
       m_Items: []
   - m_Id: 33
-    m_Localized: PASSWORD_CANNOT_CONTAIN_USERNAME
+    m_Localized: "Le mot de passe doit \xEAtre diff\xE9rent du nom d'utilisateur."
     m_Metadata:
       m_Items: []
   - m_Id: 34
-    m_Localized: USERNAME_CANNOT_START_WITH_NUMBER
+    m_Localized: Le nom d'utilisateur ne peut pas commencer par un nombre.
     m_Metadata:
       m_Items: []
   - m_Id: 35
-    m_Localized: PASSWORD_MUST_HAVE_ONE_UPPERCASE
+    m_Localized: Le mot de passe doit contenir au moins une lettre majuscule.
     m_Metadata:
       m_Items: []
   - m_Id: 36
-    m_Localized: PASSWORD_MUST_HAVE_ONE_LOWERCASE
+    m_Localized: Le mot de passe doit contenir au moins une minuscule.
     m_Metadata:
       m_Items: []
   - m_Id: 37
-    m_Localized: PASSWORD_MUST_HAVE_TWO_NUMBERS
+    m_Localized: Le mot de passe doit comporter au moins deux chiffres.
     m_Metadata:
       m_Items: []
   - m_Id: 38
-    m_Localized: INVALID_EMAIL
+    m_Localized: Email invalide.
     m_Metadata:
       m_Items: []
   - m_Id: 40
-    m_Localized: Compted creation reussi
+    m_Localized: "Le compte a \xE9t\xE9 cr\xE9\xE9 avec succ\xE8s! Il doit \xEAtre
+      activ\xE9 avant de pouvoir \xEAtre utilis\xE9.\r\nNous vous avons envoy\xE9
+      un e-mail avec un code que vous devez saisir ici pour activer le compte."
     m_Metadata:
       m_Items: []
   - m_Id: 41
@@ -179,98 +185,92 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 42
-    m_Localized: Cancel
+    m_Localized: Annuler
     m_Metadata:
       m_Items: []
   - m_Id: 43
-    m_Localized: Langue
+    m_Localized: Langage
     m_Metadata:
       m_Items: []
   - m_Id: 44
-    m_Localized: Cancel
+    m_Localized: "Derri\xE8re"
     m_Metadata:
       m_Items: []
   - m_Id: 45
-    m_Localized: Must activate account
+    m_Localized: "Le compte n'a pas encore \xE9t\xE9 activ\xE9, veuillez activer
+      le compte."
     m_Metadata:
       m_Items: []
   - m_Id: 46
-    m_Localized: Codigo de activacion invalido
+    m_Localized: Veuillez saisir un code d'activation valide.
     m_Metadata:
       m_Items: []
   - m_Id: 47
-    m_Localized: Activation reussi
+    m_Localized: "Le compte a \xE9t\xE9 activ\xE9 avec succ\xE8s! Il peut d\xE9j\xE0
+      \xEAtre utilis\xE9."
     m_Metadata:
       m_Items: []
   - m_Id: 48
-    m_Localized: El codigo de activacion no es valido.
+    m_Localized: "Le code d'activation n'est pas valide. Veuillez v\xE9rifier que
+      vous n'avez pas fait d'erreur lors de la saisie."
     m_Metadata:
       m_Items: []
   - m_Id: 49
-    m_Localized: Activacion du compte
+    m_Localized: Activation de compte
     m_Metadata:
       m_Items: []
-  - m_Id: 51
-    m_Localized: INVALID_CONFIRM_EMAIL
-    m_Metadata:
-      m_Items:
-      - id: 0
   - m_Id: 52
-    m_Localized: INPUT_ERROR_INVALID_CONFIRM_PASSWORD
+    m_Localized: Confirmation de mot de passe invalide.
     m_Metadata:
       m_Items: []
   - m_Id: 53
-    m_Localized: INVALID_FIRST_LAST_NAME
+    m_Localized: "Remplissez le pr\xE9nom et le nom."
     m_Metadata:
       m_Items: []
   - m_Id: 54
-    m_Localized: TERMS_NOT_ACCEPTED
+    m_Localized: Vous devez accepter les Termes et Conditions.
     m_Metadata:
       m_Items: []
   - m_Id: 55
-    m_Localized: TERMS_CONDITIONS_TITLE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 56
-    m_Localized: TERMS_CONDITIONS_TEXT
-    m_Metadata:
-      m_Items: []
-  - m_Id: 57
-    m_Localized: Le mot de cle n'est pas valide
-    m_Metadata:
-      m_Items: []
-  - m_Id: 58
-    m_Localized: RESEND_CODE_OK
-    m_Metadata:
-      m_Items: []
-  - m_Id: 59
-    m_Localized: PLAY_CHARACTER_OKAY_TITLE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 60
-    m_Localized: PLAY_CHARACTER_OKAY_TEXT
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61
-    m_Localized: PLAY_CHARACTER_ERROR_TITLE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 62
-    m_Localized: PLAY_CHARACTER_ERROR_TEXT
-    m_Metadata:
-      m_Items: []
-  - m_Id: 63
-    m_Localized: CONNECTION_CLOSED_BY_SERVER_TEXT
+    m_Localized: Termes et conditions
     m_Metadata:
       m_Items: []
   - m_Id: 64
-    m_Localized: INVALID_PUBLIC_KEY
+    m_Localized: "Veuillez mettre \xE0 jour le client avec la derni\xE8re version.\r\nSi
+      le probl\xE8me persiste, contactez le support technique."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67
+    m_Localized: Mot de passe incorrect.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71
+    m_Localized: Les emails ne correspondent pas.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72
+    m_Localized: Code d'activation incorrect.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68
+    m_Localized: Nom d'utilisateur invalide.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73
+    m_Localized: Enregistrement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76
+    m_Localized: Confirmer mot de passe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75
+    m_Localized: Nom d'utilisateur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74
+    m_Localized: Confirmez votre email
     m_Metadata:
       m_Items: []
   references:
     version: 1
-    00000000:
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_TimeStamp: 01:27:33.573131
-        m_CommentText: Comment Text
