@@ -91,8 +91,8 @@ public class ProtoBase
 							{"CHARACTER_JOINED"		, unchecked((short)0x4004)},
 							{"CHARACTER_LEFT_CHAT"	, unchecked((short)0x5005)},
 							{"CHARACTER_SAYS"		, unchecked((short)0x6006)},
-							{"CHARACTER_SAID"		, unchecked((short)0x6007)}
-
+							{"CHARACTER_SAID"		, unchecked((short)0x6007)},
+							{"QOTD"					, unchecked((short)0x6008)}
 
 						};
 
