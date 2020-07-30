@@ -9,7 +9,10 @@ public class LightingBufferMesh : LightingBufferBase {
 			return;
 		}
 
-		if (id.meshFilter == null) {
+		MeshFilter meshFilter = id.shape.GetMeshFilter();
+
+
+		if (meshFilter == null) {
 			return;
 		}
 
@@ -131,7 +134,8 @@ public class LightingBufferMesh : LightingBufferBase {
 				return;
 			}
 
-			if (id.meshRenderer == null) {
+			MeshRenderer meshRenderer = id.shape.GetMeshRenderer();
+			if (meshRenderer == null) {
 				return;
 			}
 
@@ -147,7 +151,7 @@ public class LightingBufferMesh : LightingBufferBase {
 			MeshVertice vertice;
 			MeshUV uv;
 
-			material.mainTexture = id.meshRenderer.sharedMaterial.mainTexture;
+			material.mainTexture = meshRenderer.sharedMaterial.mainTexture;
 
 			offset.x = -buffer.lightSource.transform.position.x;
 			offset.y = -buffer.lightSource.transform.position.y;

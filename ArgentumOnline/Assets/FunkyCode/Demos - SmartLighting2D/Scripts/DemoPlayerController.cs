@@ -12,8 +12,7 @@ public class DemoPlayerController : MonoBehaviour
 
     LightingCollider2D collider;
     
-    void Start()
-    {
+    void Start() {
         spriteRenderer = body.GetComponent<SpriteRenderer>();
 
         collider = GetComponent<LightingCollider2D>();

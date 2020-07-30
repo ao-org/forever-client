@@ -1,8 +1,19 @@
-﻿### Beta 1.1.0 - 11.12.2019
+﻿### Beta 1.1.2 - 18.02.2020
+
+### Beta 1.1.1 - 10.02.2020
+ [ADDED] HDR Support
+ [ADDED] Super Tilemap Editor: sprite mask type
+ [FIXED] STE Support did not work after isometric tilemap update
+ [FIXED] Lights flicker when loading blur sprites in real time
+ [CHANGED] Improved Performance when using OnRender mode
+
+
+### Beta 1.1.0 - 24.01.2020
  [ADDED] Isometric Tilemap Support
  [ADDED] Multiple Camera Support
  [ADDED] New LightingTextureRenderer Component
- [ADDED] New profile Settings system
+ [ADDED] New LightingParticleRenderer Component
+ [ADDED] New profile settings using scriptable objects
 
 
 ### Beta 1.0.9 - 04.11.2019

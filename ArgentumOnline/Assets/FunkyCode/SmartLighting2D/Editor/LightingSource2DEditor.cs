@@ -9,7 +9,10 @@ using System.Linq;
 [CanEditMultipleObjects]
 [CustomEditor(typeof(LightingSource2D))]
 public class LightingSource2DEditor : Editor {
-	static bool foldout = true;
+	static bool foldout_layers = true;
+	static bool foldout_sprite = true;
+	static bool foldout_shader = true;
+	static bool foldout_sorting = true;
 
 	override public void OnInspectorGUI() {
 		LightingSource2D script = target as LightingSource2D;
@@ -21,8 +24,8 @@ public class LightingSource2DEditor : Editor {
 			System.Array.Resize(ref script.layerSetting, layerCount );
 		}
 
-		foldout = EditorGUILayout.Foldout(foldout, "Layers" );
-		if (foldout) {
+		foldout_layers = EditorGUILayout.Foldout(foldout_layers, "Layers" );
+		if (foldout_layers) {
 			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
 			for(int i = 0; i < script.layerSetting.Length; i++) {
 				if (script.layerSetting[i] == null) {
@@ -47,7 +50,12 @@ public class LightingSource2DEditor : Editor {
 			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 		}
 
-		Color newColor = EditorGUILayout.ColorField("Color", script.lightColor);
+		Color newColor = Color.white;
+		if (Lighting2D.commonSettings.hdr) {
+			newColor = EditorGUILayout.ColorField(new GUIContent("Color"), script.lightColor, true, true, true);
+		} else {
+			newColor = EditorGUILayout.ColorField("Color", script.lightColor);
+		}
 		
 		if (script.lightColor.Equals(newColor) == false) {
 			newColor.a = 1f;
@@ -83,46 +91,49 @@ public class LightingSource2DEditor : Editor {
 				break;
 		}
 
-		EditorGUILayout.Foldout(true, "Light Sprite" );
-		EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-		script.lightSprite = (LightingSource2D.LightSprite)EditorGUILayout.EnumPopup("Light Sprite", script.lightSprite);
+		foldout_sprite = EditorGUILayout.Foldout(foldout_sprite, "Light Sprite" );
 
-		if (script.lightSprite == LightingSource2D.LightSprite.Custom) {
-			script.spriteFlipX = EditorGUILayout.Toggle("Flip X", script.spriteFlipX);
-			script.spriteFlipY = EditorGUILayout.Toggle("Flip Y", script.spriteFlipY);
-			Sprite newSprite = (Sprite)EditorGUILayout.ObjectField("Sprite", script.sprite, typeof(Sprite), true);
-			if (newSprite != script.sprite) {
-				script.sprite = newSprite;
+		if (foldout_sprite) {
+			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
+			script.lightSprite = (LightingSource2D.LightSprite)EditorGUILayout.EnumPopup("Light Sprite", script.lightSprite);
 
-				LightingMainBuffer2D.ForceUpdate();
+			if (script.lightSprite == LightingSource2D.LightSprite.Custom) {
+				script.spriteFlipX = EditorGUILayout.Toggle("Flip X", script.spriteFlipX);
+				script.spriteFlipY = EditorGUILayout.Toggle("Flip Y", script.spriteFlipY);
+				Sprite newSprite = (Sprite)EditorGUILayout.ObjectField("Sprite", script.sprite, typeof(Sprite), true);
+				if (newSprite != script.sprite) {
+					script.sprite = newSprite;
+
+					LightingMainBuffer2D.ForceUpdate();
+				}
+				
+			} else {
+				if (script.sprite != LightingSource2D.GetDefaultSprite()) {
+					script.sprite = LightingSource2D.GetDefaultSprite();
+
+					LightingMainBuffer2D.ForceUpdate();
+				}
 			}
-			
-		} else {
-			if (script.sprite != LightingSource2D.GetDefaultSprite()) {
-				script.sprite = LightingSource2D.GetDefaultSprite();
-
-				LightingMainBuffer2D.ForceUpdate();
-			}
+			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 		}
-		EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
+		
+		
+		foldout_shader = EditorGUILayout.Foldout(foldout_shader, "Additive Shader" );
+		if (foldout_shader) {
+			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
 
-		EditorGUILayout.Foldout(foldout, "Additive Shader" );
-		EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
+			script.additive = EditorGUILayout.Toggle("Enable", script.additive);
+			script.additive_alpha = EditorGUILayout.Slider("Alpha", script.additive_alpha, 0, 1);
 
-		script.additive = EditorGUILayout.Toggle("Enable", script.additive);
-		script.additive_alpha = EditorGUILayout.Slider("Alpha", script.additive_alpha, 0, 1);
+			foldout_sorting = EditorGUILayout.Foldout(foldout_sorting, "Sorting Layer" );
 
-		EditorGUILayout.Foldout(true, "Sorting Layer" );
-			//if (foldout_sortingLayer) {
-			//	EditorGUILayout.Slider("Sorting Layer ID",0, 0, 31);
-		script.sortingOrder = EditorGUILayout.IntField("Sorting Layer Order", script.sortingOrder);
-		script.sortingLayer = EditorGUILayout.TextField("Sorting Layer Name", script.sortingLayer);
+			if (foldout_sorting) {
+				script.sortingOrder = EditorGUILayout.IntField("Sorting Layer Order", script.sortingOrder);
+				script.sortingLayer = EditorGUILayout.TextField("Sorting Layer Name", script.sortingLayer);
+			}
 
-			//}
-		EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
-		//if (script.additive) {
-			
-		//}
+			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
+		}
 	
 		script.enableCollisions = EditorGUILayout.Toggle("Apply Shadows & Masks", script.enableCollisions);
 
@@ -130,10 +141,7 @@ public class LightingSource2DEditor : Editor {
 	
 		script.eventHandling = EditorGUILayout.Toggle("Apply Event Handling" , script.eventHandling);
 
-		script.whenInsideCollider= (LightingSource2D.WhenInsideCollider)EditorGUILayout.EnumPopup("Apply Light Inside Collider", script.whenInsideCollider);
-
-		// script.disableWhenInvisible = EditorGUILayout.Toggle("Disable When Invisible", script.disableWhenInvisible);
-		
+		script.whenInsideCollider = (LightingSource2D.WhenInsideCollider)EditorGUILayout.EnumPopup("Apply Light Inside Collider", script.whenInsideCollider);
 		
 		float newPenumbraSize = EditorGUILayout.Slider("Penumbra Size (Inverse)", script.occlusionSize, 1, 60);;
 		

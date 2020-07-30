@@ -27,7 +27,7 @@ public class LightingSpriteBuffer {
 	public class WithAtlas {
 
 		static public void Draw(Camera camera, Vector2D offset, float z) {
-			material = manager.materials.GetAdditive();
+			material = Lighting2D.materials.GetAdditive();
 			material.SetColor ("_TintColor", Color.white);
 			material.mainTexture = SpriteAtlasManager.GetAtlasPage().GetTexture();
 
@@ -75,7 +75,7 @@ public class LightingSpriteBuffer {
 
 			GL.End();
 
-			material = manager.materials.GetAtlasMaterial();
+			material = Lighting2D.materials.GetAtlasMaterial();
 			material.SetPass (0);
 
 			GL.Begin (GL.TRIANGLES);
@@ -164,7 +164,7 @@ public class LightingSpriteBuffer {
 						color = id.color;
 						color.a = id.alpha;
 
-						material = manager.materials.GetAdditive();
+						material = Lighting2D.materials.GetAdditive();
 						material.SetColor ("_TintColor", color);
 
 						material.mainTexture = id.GetSprite().texture;
@@ -175,7 +175,7 @@ public class LightingSpriteBuffer {
 
 					case LightingSpriteRenderer2D.Type.WhiteMask:
 
-						material = manager.materials.GetWhiteSprite();
+						material = Lighting2D.materials.GetWhiteSprite();
 						
 						material.mainTexture = id.GetSprite().texture;
 						LightingGraphics.WithoutAtlas.DrawSprite(material, id.spriteRenderer, offset.ToVector2() + position + id.offsetPosition, scale, rot, z);
@@ -185,7 +185,7 @@ public class LightingSpriteBuffer {
 
 					case LightingSpriteRenderer2D.Type.BlackMask:
 
-						material = manager.materials.GetBlackSprite();
+						material = Lighting2D.materials.GetBlackSprite();
 
 						material.mainTexture = id.GetSprite().texture;
 						LightingGraphics.WithoutAtlas.DrawSprite(material, id.spriteRenderer, offset.ToVector2() + position + id.offsetPosition, scale, rot, z);

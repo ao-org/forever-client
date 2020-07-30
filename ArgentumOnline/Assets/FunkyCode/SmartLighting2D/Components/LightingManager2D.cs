@@ -23,16 +23,19 @@ public class LightingManager2D : MonoBehaviour {
 	public CameraSettings[] cameraSettings = new CameraSettings[1];
 
 	public bool debug = false;
-	public bool disableEngine = false;
-
-	public LightingManager2DMaterials materials = new LightingManager2DMaterials();
 
 	public const int lightingLayer = 8;
-	public const bool culling = true;
 
 	public int version = 0;
 
-	public static bool initialized = false; // Sets Lighting Settings for Lighting2D at the start of the scene
+	// Workaround, happened with cinemachine. Lights appear WHITE for first initialization update
+	private bool gpu_initialized = false;
+
+	private static bool initialized = false; // Sets Lighting Settings for Lighting2D at the start of the scene
+
+	public bool IsInitialized() {
+		return(gpu_initialized);
+	}
 
 	public Camera GetCamera(int id) {
 		CameraSettings cameraSetting = cameraSettings[id];
@@ -113,19 +116,22 @@ public class LightingManager2D : MonoBehaviour {
 		}
 	}
 
-	public void Awake() {
+	public void SetupProfile() {
 		if (LightingManager2D.initialized == false) {
 			Lighting2DSettingsProfile profile = Lighting2D.GetProfile();
 			Lighting2D.UpdateByProfile(profile);
 			LightingManager2D.initialized = true;
+
+			SpriteAtlasManager.Initialize();
+			Lighting2D.materials.Reset();
+
 		}
+	}
 
-		SpriteAtlasManager.Initialize();
+	public void Awake() {
+		LightingManager2D.initialized = false;
+		SetupProfile();
 
-		materials.Initialize();
-
-		SpriteAtlasManager.Update();
-		
 		if (instance != null && instance != this) {
 			instance = this;
 			Debug.LogWarning("Smart Lighting2D: Lighting Manager duplicate was found, old instance destroyed.", gameObject);
@@ -139,8 +145,29 @@ public class LightingManager2D : MonoBehaviour {
 	}
 
 	void Update() {
+		SetupProfile();
+
+		if (Lighting2D.materials.Initialize(Lighting2D.commonSettings.hdr)) {
+
+			foreach(LightingMainBuffer2D buffer in new List<LightingMainBuffer2D>(LightingMainBuffer2D.list)) {
+				DestroyImmediate(buffer.gameObject);
+			}
+
+			foreach(LightingBuffer2D buffer in new List<LightingBuffer2D>(LightingBuffer2D.list)) {
+				DestroyImmediate(buffer.gameObject);
+			}
+		}
+
 		for(int i = 0; i < cameraSettings.Length; i++) {
 			LightingMainBuffer2D.Get(GetCamera(i));
+		}
+
+		foreach(LightingSource2D source in LightingSource2D.GetList()) {
+			source.Update_Loop();
+		}
+
+		foreach(LightingCollider2D collider in LightingCollider2D.GetList()) {
+			collider.Update_Loop();
 		}
 
 		if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.L)) {
@@ -150,18 +177,15 @@ public class LightingManager2D : MonoBehaviour {
 		SpriteAtlasManager.Update();
 
 		foreach(LightingMainBuffer2D buffer in LightingMainBuffer2D.list) {
-			if (disableEngine) {
-				buffer.enabled = false;
+			if (Lighting2D.disable) {
 				buffer.bufferCamera.enabled = false;	
 				return;
 			}
 
 			if (buffer != null) {
 				if (Lighting2D.commonSettings.darknessBuffer) {
-					buffer.enabled = true;
 					buffer.bufferCamera.enabled = true;
 				} else {
-					buffer.enabled = false;
 					buffer.bufferCamera.enabled = false;
 				}
 			}
@@ -178,20 +202,23 @@ public class LightingManager2D : MonoBehaviour {
 
 	// Post-Rendering Mode Drawing	
 	public void OnRenderObject() {
-		if (disableEngine) {
+		if (Lighting2D.disable) {
 			return;
 		}
-
+		
 		for(int id = 0; id < cameraSettings.Length; id++) {
 			Camera camera = GetCamera(id);
+
 			if (Camera.current != camera) {
-				return;
+				continue;
 			}
 
 			if (Lighting2D.renderingMode == Lighting2D.RenderingMode.OnPostRender) {
 				Lighting2DRender.PostRender(camera);
 			}
 		}
+	
+		gpu_initialized = true;
 	}
 
 	static public float GetSunDirection() {

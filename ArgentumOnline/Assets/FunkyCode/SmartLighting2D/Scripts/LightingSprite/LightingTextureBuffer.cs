@@ -30,7 +30,7 @@ public class LightingTextureBuffer {
 					continue;
 				}
 
-				material = manager.materials.GetAdditive();
+				material = Lighting2D.materials.GetAdditive();
 				material.SetColor ("_TintColor", id.color);
 
 				material.mainTexture = id.texture;

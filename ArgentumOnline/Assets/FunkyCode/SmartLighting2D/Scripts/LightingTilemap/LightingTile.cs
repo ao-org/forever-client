@@ -50,12 +50,16 @@ public class LightingTile {
 				
 			} else {
 				// Rectangle
-				Vector2 size = tilemap.cellSize * 0.5f;
+				Vector2 size = tilemap.properties.cellSize * 0.5f;
 
 				world_polygon = new List<Polygon2D>();
 
 				switch(tilemap.mapType) {
 					case LightingTilemapCollider2D.MapType.UnityEngineTilemapRectangle:
+						#if (SuperTilemapEditor)
+							case LightingTilemapCollider2D.MapType.SuperTilemapEditor:
+						#endif
+
 						world_polygon.Add(Polygon2D.CreateRect(size));
 					break;
 
@@ -121,13 +125,16 @@ public class LightingTile {
 
 			switch(tilemap.mapType) {
 				case LightingTilemapCollider2D.MapType.UnityEngineTilemapRectangle:
+					#if (SuperTilemapEditor)
+						case LightingTilemapCollider2D.MapType.SuperTilemapEditor:
+					#endif
+
 					mesh.vertices = new Vector3[]{new Vector2(-x, -y), new Vector2(x, -y), new Vector2(x, y), new Vector2(-x, y)};
 				break;
 
 				case LightingTilemapCollider2D.MapType.UnityEngineTilemapIsometric:
 					mesh.vertices = new Vector3[]{new Vector2(0, y), new Vector2(x, y / 2), new Vector2(0, 0), new Vector2(-x, y / 2)};
 				break;
-
 			}
 
 			mesh.triangles = new int[]{0, 1, 2, 2, 3, 0};

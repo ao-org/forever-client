@@ -6,14 +6,18 @@ public class LightingRoomCollider {
 
     static MeshVertice vertice;
     
-    static public void Mask(LightingRoom2D id, Vector2D offset, float z) {
+    static public void Mask(Camera camera, LightingRoom2D id, Vector2D offset, float z) {
         MeshVertices vertices = id.shape.GetMesh_Vertices_MaskType(id.transform);
 
         if (vertices == null || vertices.veclist == null || vertices.veclist.Count < 1) {
            return;
         }
 
-        GL.Color(id.color);
+        Debug.Log("draw");
+
+        GL.Color(id.color); // id.color
+
+        Debug.Log(vertices.veclist.Count);
 
         for (int i = 0; i < vertices.veclist.Count; i ++) {
             vertice = vertices.veclist[i];

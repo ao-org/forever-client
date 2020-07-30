@@ -9,18 +9,26 @@ public class DayLightingTilemap {
 
     static LightingManager2D manager;
 
+	/*
+
     static public void Shadow(Camera camera, Vector2D offset, float z) {
+		if (true) {
+			return;
+		}
+
         #if UNITY_2018_1_OR_NEWER
 
         manager = LightingManager2D.Get();
 
 		bool draw = false;
 
-		Material materialWhite = manager.materials.GetWhiteSprite();
+		Material materialWhite = Lighting2D.materials.GetWhiteSprite();
+
+		
 	
 		// Day Soft Shadows
 		foreach (LightingTilemapCollider2D id in LightingTilemapCollider2D.GetList()) {
-			if (id.map == null) {
+			if (id.rectangleMap.map == null) {
 				continue;
 			}
 
@@ -38,11 +46,11 @@ public class DayLightingTilemap {
 			}
 
 			Vector2D tilesetOffset = new Vector2D(offset);
-			tilesetOffset += new Vector2D(id.area.position.x, id.area.position.y);
+			tilesetOffset += new Vector2D(id.properties.area.position.x, id.properties.area.position.y);
 
-			for(int x = 0; x < id.area.size.x; x++) {
-				for(int y = 0; y < id.area.size.y; y++) {
-					if (id.map[x, y] == null) {
+			for(int x = 0; x < id.properties.area.size.x; x++) {
+				for(int y = 0; y < id.properties.area.size.y; y++) {
+					if (id.rectangleMap.map[x, y] == null) {
 						continue;
 					}
 
@@ -63,7 +71,7 @@ public class DayLightingTilemap {
 		
 		// Day Soft Shadows Penumbra
 		foreach (LightingTilemapCollider2D id in LightingTilemapCollider2D.GetList()) {
-			if (id.map == null) {
+			if (id.rectangleMap.map == null) {
 				continue;
 			}
 
@@ -73,7 +81,7 @@ public class DayLightingTilemap {
 
 			
 			if (draw == false) {		
-				manager.materials.GetShadowBlur().SetPass (0);
+				Lighting2D.materials.GetShadowBlur().SetPass (0);
 
 				GL.Begin (GL.TRIANGLES);
 				/////////////////////////////////////////////////////////////////////////////////Max2D.SetColor (Color.white);
@@ -82,11 +90,11 @@ public class DayLightingTilemap {
 			}
 
 			Vector2D tilesetOffset = new Vector2D(offset);
-			tilesetOffset += new Vector2D(id.area.position.x, id.area.position.y);
+			tilesetOffset += new Vector2D(id.properties.area.position.x, id.properties.area.position.y);
 
-			for(int x = 0; x < id.area.size.x; x++) {
-				for(int y = 0; y < id.area.size.y; y++) {
-					if (id.map[x, y] == null) {
+			for(int x = 0; x < id.properties.area.size.x; x++) {
+				for(int y = 0; y < id.properties.area.size.y; y++) {
+					if (id.rectangleMap.map[x, y] == null) {
 						continue;
 					}
 
@@ -106,7 +114,7 @@ public class DayLightingTilemap {
 
 		// Tilemap Daylighting Masks
 		foreach (LightingTilemapCollider2D id in LightingTilemapCollider2D.GetList()) {
-			if (id.map == null) {
+			if (id.rectangleMap.map == null) {
 				continue;
 			}
 
@@ -119,16 +127,16 @@ public class DayLightingTilemap {
 			float rotationYScale = Mathf.Sin(rot.x + Mathf.PI / 2);
 			float rotationXScale = Mathf.Sin(rot.y + Mathf.PI / 2);
 
-			float scaleX = id.transform.lossyScale.x * rotationXScale * id.cellSize.x;
-			float scaleY = id.transform.lossyScale.y * rotationYScale * id.cellSize.y;
+			float scaleX = id.transform.lossyScale.x * rotationXScale * id.properties.cellSize.x;
+			float scaleY = id.transform.lossyScale.y * rotationYScale * id.properties.cellSize.y;
 
 			Vector2D tilesetOffset = new Vector2D(offset);
-			tilesetOffset += new Vector2D(id.area.position.x, id.area.position.y);
-			tilesetOffset += new Vector2D(id.cellAnchor.x,id.cellAnchor.y);
+			tilesetOffset += new Vector2D(id.properties.area.position.x, id.properties.area.position.y);
+			tilesetOffset += new Vector2D(id.properties.cellAnchor.x,id.properties.cellAnchor.y);
 
-			for(int x = 0; x < id.area.size.x; x++) {
-				for(int y = 0; y < id.area.size.y; y++) {
-					LightingTile tile = id.map[x, y];
+			for(int x = 0; x < id.properties.area.size.x; x++) {
+				for(int y = 0; y < id.properties.area.size.y; y++) {
+					LightingTile tile = id.rectangleMap.map[x, y];
 					if (tile == null) {
 						continue;
 					}
@@ -216,4 +224,6 @@ public class DayLightingTilemap {
 			Max2D.Vertex3 (zC, z);
 		}
 	}
+
+	*/
 }

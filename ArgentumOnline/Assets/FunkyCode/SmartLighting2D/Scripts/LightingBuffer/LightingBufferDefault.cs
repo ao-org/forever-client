@@ -51,8 +51,8 @@ public class LightingBufferDefault {
         drawShadows = (layer.type != LightingLayerType.MaskOnly);
 
 		// Materials
-		materialWhite = manager.materials.GetWhiteSprite();
-		materialBlack = manager.materials.GetBlackSprite();
+		materialWhite = Lighting2D.materials.GetWhiteSprite();
+		materialBlack = Lighting2D.materials.GetBlackSprite();
 
 		// Drawing
 		if (Lighting2D.atlasSettings.lightingSpriteAtlas && SpriteAtlasManager.GetAtlasPage() != null) {
@@ -65,7 +65,7 @@ public class LightingBufferDefault {
 	public class WithAtlas {
 
 		public static void Draw(LightingBuffer2D buffer, LayerSetting layer) {
-			manager.materials.GetAtlasMaterial().SetPass(0);
+			Lighting2D.materials.GetAtlasMaterial().SetPass(0);
 
 			GL.Begin(GL.TRIANGLES);
 
@@ -98,6 +98,10 @@ public class LightingBufferDefault {
 						if ((int)tilemapList[id].lightingCollisionLayer != layerID) {
 							continue;
 						}
+
+						#if (SuperTilemapEditor)
+							LightingBufferSTE.Shadow(buffer, tilemapList[id], lightSizeSquared, z);
+						#endif
 
 						// Tilemap Shadow
 						LightingBufferTilemapRectangle.Shadow(buffer, tilemapList[id], lightSizeSquared, z);
@@ -179,7 +183,11 @@ public class LightingBufferDefault {
 						material = materialBlack;
 					}
 
+					material.mainTexture = batch.virtualSpriteRenderer.sprite.texture;
+
 					LightingGraphics.WithoutAtlas.DrawSprite(material, batch.virtualSpriteRenderer, batch.polyOffset, batch.tileSize, 0, z);
+
+					material.mainTexture = null;
 				}
 				
 				buffer.partiallyBatchedList_Tilemap.Clear();
@@ -200,7 +208,7 @@ public class LightingBufferDefault {
 		}
 
 		public static void Shadows(LightingBuffer2D buffer, LayerSetting layer) {
-			manager.materials.GetAtlasMaterial().SetPass(0);
+			Lighting2D.materials.GetAtlasMaterial().SetPass(0);
 
 			GL.Begin(GL.TRIANGLES);
 
@@ -233,6 +241,9 @@ public class LightingBufferDefault {
 					if ((int)tilemapList[id].lightingCollisionLayer != layerID) {
 						continue;
 					}
+					#if (SuperTilemapEditor)
+						LightingBufferSTE.Shadow(buffer, tilemapList[id], lightSizeSquared, z);
+					#endif
 
 					LightingBufferTilemapIsometric.Shadow(buffer, tilemapList[id], lightSizeSquared, z);
 					LightingBufferTilemapRectangle.Shadow(buffer, tilemapList[id], lightSizeSquared, z);
@@ -244,7 +255,7 @@ public class LightingBufferDefault {
 		}
 
 		static public void Mask(LightingBuffer2D buffer, LayerSetting layer) {
-			manager.materials.GetAtlasMaterial().SetPass(0);
+			Lighting2D.materials.GetAtlasMaterial().SetPass(0);
 			GL.Begin(GL.TRIANGLES);
 
 			GL.Color(Color.white);
@@ -272,6 +283,10 @@ public class LightingBufferDefault {
 					if ((int)tilemapList[id].lightingMaskLayer != layerID) {
 						continue;
 					}
+					#if (SuperTilemapEditor)
+						LightingBufferSTE.MaskShape(buffer, tilemapList[id], z);
+					#endif
+
 					LightingBufferTilemapRectangle.MaskShape(buffer, tilemapList[id], z);
 					LightingBufferTilemapIsometric.MaskShape(buffer, tilemapList[id], z);
 				}
@@ -317,6 +332,11 @@ public class LightingBufferDefault {
 					}
 					LightingBufferTilemapRectangle.WithoutAtlas.MaskSprite(buffer, tilemapList[id], materialWhite, materialBlack, z);
 					LightingBufferTilemapIsometric.WithoutAtlas.MaskSprite(buffer, tilemapList[id], materialWhite, z);
+
+					#if (SuperTilemapEditor)
+						LightingBufferSTE.WithoutAtlas.MaskSprite(buffer, tilemapList[id], materialWhite, z);
+					#endif
+					
 				}
 			#endif
 		}
