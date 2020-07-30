@@ -11,7 +11,9 @@ public class LightingBufferSprite : LightingBufferBase {
 				return;
 			}
 
-			if (id.shape.GetOriginalSprite() == null || id.spriteRenderer == null) {
+			SpriteRenderer spriteRenderer = id.shape.GetSpriteRenderer();
+
+			if (id.shape.GetOriginalSprite() == null || spriteRenderer == null) {
 				return;
 			}
 
@@ -40,9 +42,9 @@ public class LightingBufferSprite : LightingBufferBase {
 			scale.x = id.transform.lossyScale.x;
 			scale.y = id.transform.lossyScale.y;
 
-			spriteRenderer.sprite = sprite;
+			virtualSpriteRenderer.sprite = sprite;
 
-			LightingGraphics.WithAtlas.DrawSprite(spriteRenderer, buffer.lightSource.layerSetting[0], id.maskMode, p, scale, id.transform.rotation.eulerAngles.z, z);
+			LightingGraphics.WithAtlas.DrawSprite(virtualSpriteRenderer, buffer.lightSource.layerSetting[0], id.maskMode, p, scale, id.transform.rotation.eulerAngles.z, z);
 			
 			LightingDebug.maskGenerations ++;		
 		}
@@ -55,8 +57,10 @@ public class LightingBufferSprite : LightingBufferBase {
                 return;
             }
 
+			SpriteRenderer spriteRenderer = id.shape.GetSpriteRenderer();
+
             Sprite sprite = id.shape.GetOriginalSprite();
-            if (sprite == null || id.spriteRenderer == null) {
+            if (sprite == null || spriteRenderer == null) {
                 return;
             }
 
@@ -71,7 +75,7 @@ public class LightingBufferSprite : LightingBufferBase {
 
             material.mainTexture = sprite.texture;
         
-            LightingGraphics.WithoutAtlas.DrawSprite(material, id.spriteRenderer, p, scale, id.transform.rotation.eulerAngles.z, z);
+            LightingGraphics.WithoutAtlas.DrawSprite(material, spriteRenderer, p, scale, id.transform.rotation.eulerAngles.z, z);
 
             material.mainTexture = null;
             

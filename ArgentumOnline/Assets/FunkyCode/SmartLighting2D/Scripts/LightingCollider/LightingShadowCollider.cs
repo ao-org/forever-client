@@ -83,10 +83,44 @@ public class LightingColliderShape {
 
 	private CustomPhysicsShape customPhysicsShape = null;
 
-	public LightingCollider2D lightingCollider2D;
+	public GameObject gameObject;
 
-	public void SetLightingCollider2D(LightingCollider2D id) {
-		lightingCollider2D = id;
+	private SpriteRenderer spriteRenderer;
+	private MeshFilter meshFilter;
+	private MeshRenderer meshRenderer;
+	private SkinnedMeshRenderer skinnedMeshRenderer;
+
+	public SpriteRenderer GetSpriteRenderer() {
+		if (spriteRenderer == null) {
+			spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		}
+		return(spriteRenderer);
+	}
+
+	public SkinnedMeshRenderer GetSkinnedMeshRenderer() {
+		if (skinnedMeshRenderer == null) {
+			skinnedMeshRenderer = gameObject.GetComponent<SkinnedMeshRenderer>();
+		}
+		return(skinnedMeshRenderer);
+	}
+
+	public MeshFilter GetMeshFilter() {
+		if (meshFilter == null) {
+			meshFilter = gameObject.GetComponent<MeshFilter>();
+		}
+		return(meshFilter);
+	}
+
+	public MeshRenderer GetMeshRenderer() {
+		if (meshRenderer == null) {
+			meshRenderer = gameObject.GetComponent<MeshRenderer>();
+		}
+		return(meshRenderer);
+	}
+
+
+	public void SetGameObject(GameObject g) {
+		gameObject = g;
 	}
 
 	public CustomPhysicsShape GetPhysicsShape() {
@@ -166,6 +200,14 @@ public class LightingColliderShape {
 			case LightingCollider2D.ColliderType.SpriteCustomPhysicsShape:
 				return(GetFrustumDistance_Shape() * multiplier);
 		}
+
+		switch (maskType) {
+            case LightingCollider2D.MaskType.Sprite:
+			case LightingCollider2D.MaskType.SpriteCustomPhysicsShape:
+                return (GetFrustumDistance_Shape() * multiplier); // Now this works fine
+			case LightingCollider2D.MaskType.Collider:
+				return(GetFrustumDistance_Collider(transform) * multiplier);
+        }
 		return(1000f);
 	}
 	
@@ -283,8 +325,8 @@ public class LightingColliderShape {
 
 	public MeshObject GetMesh_Mesh() {
        if (colliderShape.mesh == null) {
-		   if (lightingCollider2D.meshFilter != null) {
-				Mesh mesh = lightingCollider2D.meshFilter.sharedMesh;
+		   if (GetMeshFilter() != null) {
+				Mesh mesh = GetMeshFilter().sharedMesh;
 				colliderShape.mesh = new MeshObject(mesh);
 		   }
 		}
@@ -293,8 +335,8 @@ public class LightingColliderShape {
 
 	public MeshObject GetMesh_SkinnedMesh() {
        if (skinnedMeshShape.mesh == null) {
-		   if (lightingCollider2D.skinnedMeshRenderer != null) {
-				Mesh mesh = lightingCollider2D.skinnedMeshRenderer.sharedMesh;
+		   if (GetSkinnedMeshRenderer() != null) {
+				Mesh mesh = GetSkinnedMeshRenderer().sharedMesh;
 				skinnedMeshShape.mesh = new MeshObject(mesh);
 		   }
 		}
@@ -592,9 +634,9 @@ public class LightingColliderShape {
 			skinnedMeshShape.polygons_world = new List<Polygon2D>();
 
 			for (int i = 0; i < meshObject.triangles.GetLength (0); i = i + 3) {
-				vecA = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i]]);
-				vecB = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 1]]);
-				vecC = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 2]]);
+				vecA = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i]]);
+				vecB = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 1]]);
+				vecC = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 2]]);
 
 				poly = new Polygon2D();
 				poly.AddPoint(vecA.x, vecA.y);
@@ -612,9 +654,9 @@ public class LightingColliderShape {
 			skinnedMeshShape.polygons_world = skinnedMeshShape.polygons_world_cache;
 
 			for (int i = 0; i < meshObject.triangles.GetLength (0); i = i + 3) {
-				vecA = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i]]);
-				vecB = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 1]]);
-				vecC = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 2]]);
+				vecA = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i]]);
+				vecB = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 1]]);
+				vecC = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 2]]);
 
 				poly = skinnedMeshShape.polygons_world[count];
 				poly.pointsList[0].x = vecA.x;
@@ -652,9 +694,9 @@ public class LightingColliderShape {
 			meshShape.polygons_world = new List<Polygon2D>();
 
 			for (int i = 0; i < meshObject.triangles.GetLength (0); i = i + 3) {
-				vecA = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i]]);
-				vecB = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 1]]);
-				vecC = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 2]]);
+				vecA = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i]]);
+				vecB = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 1]]);
+				vecC = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 2]]);
 
 				poly = new Polygon2D();
 				poly.AddPoint(vecA.x, vecA.y);
@@ -671,9 +713,9 @@ public class LightingColliderShape {
 			meshShape.polygons_world = meshShape.polygons_world_cache;
 
 			for (int i = 0; i < meshObject.triangles.GetLength (0); i = i + 3) {
-				vecA = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i]]);
-				vecB = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 1]]);
-				vecC = lightingCollider2D.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 2]]);
+				vecA = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i]]);
+				vecB = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 1]]);
+				vecC = gameObject.transform.TransformPoint(meshObject.vertices [meshObject.triangles [i + 2]]);
 
 				poly = meshShape.polygons_world[count];
 				poly.pointsList[0].x = vecA.x;

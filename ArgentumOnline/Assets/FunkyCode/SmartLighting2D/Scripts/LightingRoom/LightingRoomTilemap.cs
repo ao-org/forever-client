@@ -35,8 +35,8 @@ public class LightingRoomTilemap {
 
 		LightingManager2D manager = LightingManager2D.Get();
 
-		Material material_blackmask = manager.materials.GetBlackSprite();
-		Material material_multiply = manager.materials.GetMultiply();
+		Material material_blackmask = Lighting2D.materials.GetBlackSprite();
+		Material material_multiply = Lighting2D.materials.GetMultiply();
 
 		Material material = null;
 
@@ -53,6 +53,7 @@ public class LightingRoomTilemap {
 		SetupLocation(camera, id);
 
 		//bool invisible = true; //(id.maskMode == LightingMaskMode.Invisible);
+
 
 		for(int x = newPositionInt.x - sizeInt; x < newPositionInt.x + sizeInt; x++) {
 			for(int y = newPositionInt.y - sizeInt; y < newPositionInt.y + sizeInt; y++) {
@@ -130,8 +131,8 @@ public class LightingRoomTilemap {
 		//	tilemapOffset.y -= id.area.size.y / 2;
 		//}
 
-		tileSize.x = scale.x / id.cellSize.x;
-		tileSize.y = scale.y / id.cellSize.y;
+		tileSize.x = scale.x * id.cellSize.x;
+		tileSize.y = scale.y * id.cellSize.y;
 	}
 
     static public int LightTilemapSize(LightingTilemapRoom2D id, Camera camera) {

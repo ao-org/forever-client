@@ -15,14 +15,14 @@ public class LinearBlur
     static  private int _windowSize;
 
     static public Texture2D GetTextureFromSprite(Sprite sprite) {
+         // Backup the currently set RenderTexture
+        RenderTexture previous = RenderTexture.active;
+
          // Create a temporary RenderTexture of the same size as the texture
         RenderTexture tmp = RenderTexture.GetTemporary(sprite.texture.width, sprite.texture.height, 0, RenderTextureFormat.Default, RenderTextureReadWrite.Linear);
         
         // Blit the pixels on texture to the RenderTexture
         Graphics.Blit(sprite.texture, tmp);
-
-         // Backup the currently set RenderTexture
-        RenderTexture previous = RenderTexture.active;
 
         // Set the current RenderTexture to the temporary one we created
         RenderTexture.active = tmp;
@@ -38,11 +38,11 @@ public class LinearBlur
         myTexture2D.ReadPixels(tempRect, 0, 0);
         myTexture2D.Apply();
 
-        // Reset the active RenderTexture
-        RenderTexture.active = previous;
-
         // Release the temporary RenderTexture
         RenderTexture.ReleaseTemporary(tmp);
+
+       // RenderTexture.active = null;
+        RenderTexture.active = previous;
 
         return(myTexture2D);
     }

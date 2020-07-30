@@ -72,6 +72,45 @@ public class LightingGraphics {
 			GL.End (); 
 		}
 
+		static public void DrawTextureRect(Material material, Vector2 pos, Vector2 size, float rotation, Rect rect, float z = 0f) {
+			if (material.mainTexture == null) {
+				return;
+			}
+
+			Mesh mesh = GetRenderMesh();
+			meshUV[0].x = rect.x;
+			meshUV[0].y = rect.y;
+
+			meshUV[1].x = rect.x + rect.width;
+			meshUV[1].y = rect.y;
+
+			meshUV[2].x = rect.x + rect.width;
+			meshUV[2].y = rect.y + rect.height;
+
+			meshUV[3].x = rect.x;
+			meshUV[3].y = rect.y + rect.height;
+			mesh.uv = meshUV;
+
+			Vector3 matrixPosition = Vector3.zero;
+			matrixPosition.z = z;
+			matrixPosition.x = pos.x;
+			matrixPosition.y = pos.y;
+
+			Quaternion matrixRotation = Quaternion.Euler(0, 0, rotation);
+
+			Vector3 matrixScale = new Vector3(1, 1, 1);
+			matrixScale.x = size.x;
+			matrixScale.y = size.y;
+
+			Matrix4x4 matrix = Matrix4x4.TRS(matrixPosition, matrixRotation, matrixScale);
+
+			material.SetPass (0); 
+
+			Graphics.DrawMeshNow(mesh, matrix);
+
+			GL.End (); 
+		}
+
 		static public void DrawSprite(Material material, SpriteRenderer spriteRenderer, Vector2 pos, Vector2 size, float rot, float z = 0f) {
 			virtualSpriteRenderer.Set(spriteRenderer);
 			
@@ -165,6 +204,7 @@ public class LightingGraphics {
 			GL.End (); 
 		}
 	}
+	
 
 	public class WithAtlas {
 		////////////// Sprite Atlas Sprite

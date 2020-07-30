@@ -139,8 +139,10 @@ public class LightingBufferSkinnedMesh : LightingBufferBase {
 			MeshVertice vertice;
 			MeshUV uv;
 
-			if (id.skinnedMeshRenderer.sharedMaterial != null) {
-				material.mainTexture = id.skinnedMeshRenderer.sharedMaterial.mainTexture;
+			SkinnedMeshRenderer skinnedMeshRenderer = id.shape.GetSkinnedMeshRenderer();
+
+			if (skinnedMeshRenderer.sharedMaterial != null) {
+				material.mainTexture = skinnedMeshRenderer.sharedMaterial.mainTexture;
 			}
 
 			offset.x = -buffer.lightSource.transform.position.x;

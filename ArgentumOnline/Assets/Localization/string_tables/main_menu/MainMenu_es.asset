@@ -271,7 +271,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 80
-    m_Localized: sdadsa
+    m_Localized: Crear cuenta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78
+    m_Localized: "T\xE9rminos y condiciones"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79
+    m_Localized: He leido y acepto
     m_Metadata:
       m_Items: []
   references:

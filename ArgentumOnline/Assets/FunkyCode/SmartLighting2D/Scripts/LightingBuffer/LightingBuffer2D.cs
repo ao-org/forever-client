@@ -20,6 +20,8 @@ public class LightingBuffer2D : MonoBehaviour {
 
 	public BufferShadowRenderer shadowRenderer = null;
 	public BufferLightTextureRenderer lightTextureRenderer = null;
+
+
 	
 	public bool LWRP_disable = false;
 
@@ -94,10 +96,20 @@ public class LightingBuffer2D : MonoBehaviour {
 		textureSize = _textureSize;
 
 		LightingDebug.NewRenderTextures ++;
+
+		RenderTextureFormat format = RenderTextureFormat.DefaultHDR;
+
+		if (Lighting2D.commonSettings.hdr == false) {
+			format = RenderTextureFormat.Default;
+		}
 		
-		renderTexture = new RenderTexture(textureSize, textureSize, 16, Lighting2D.lightingSourceSettings.textureFormat);
+		renderTexture = new RenderTexture(textureSize, textureSize, 0, format);
 
 		name = "Buffer " + GetCount() + " (size: " + textureSize + ")";
+
+		if (Lighting2D.commonSettings.hdr) {
+			name = "HDR " + name;
+		}
 	}
 
 	void SetUpCamera() {
@@ -109,18 +121,27 @@ public class LightingBuffer2D : MonoBehaviour {
 		bufferCamera.targetTexture = renderTexture;
 		bufferCamera.farClipPlane = 0.5f;
 		bufferCamera.nearClipPlane = 0f;
-		bufferCamera.allowHDR = false;
+
+		if (Lighting2D.commonSettings.hdr) {
+			bufferCamera.allowHDR = true;
+		} else {
+			bufferCamera.allowHDR = false;
+		}
+
 		bufferCamera.allowMSAA = false;
 		bufferCamera.enabled = false;
 	}
 
 	// Does not work
 	void Update() {
+		if (Lighting2D.commonSettings.hdr != bufferCamera.allowHDR) {
+			bufferCamera.allowHDR = Lighting2D.commonSettings.hdr;
+		}
+
 		if (LWRP_disable) {
 			LWRP_disable = false;
 
 			//bufferCamera.enabled = false;
-			
 		}
 	}
 
@@ -171,7 +192,7 @@ public class LightingBuffer2D : MonoBehaviour {
 		lightTextureRenderer.GetMeshRenderer();
 		lightTextureRenderer.GetMeshFilter();
 
-		lightTextureRenderer.meshRenderer.sharedMaterial = LightingManager2D.Get().materials.GetMultiply();
+		lightTextureRenderer.meshRenderer.sharedMaterial = Lighting2D.materials.GetMultiply();
 
 		Sprite lightSprite = lightSource.GetSprite();
 
@@ -192,7 +213,7 @@ public class LightingBuffer2D : MonoBehaviour {
 		if (Lighting2D.renderingPipeline != Lighting2D.RenderingPipeline.Standard) {
 			return;
 		}
-
+		
 		LateUpdate ();
 
 		LightingBufferShadow.FillWhite.Calculate();

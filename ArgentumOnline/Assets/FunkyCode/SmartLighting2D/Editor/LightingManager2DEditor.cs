@@ -110,9 +110,6 @@ public class LightingManager2DEditor : Editor {
 			}
 		}
 
-		//script.debug = EditorGUILayout.Toggle("Debug", script.debug);
-		script.disableEngine = EditorGUILayout.Toggle("Disable Engine", script.disableEngine);
-
 		string buttonName = "Re-Initialize";
 		if (script.version < Lighting2D.VERSION) {
 			buttonName += " (Outdated)";

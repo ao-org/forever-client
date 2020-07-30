@@ -145,7 +145,7 @@ public class LightingSourceTexture {
 		size.x = buffer.bufferCamera.orthographicSize;
         size.y = buffer.bufferCamera.orthographicSize;
 
-        Material material = LightingManager2D.Get().materials.GetMultiply();
+        Material material = Lighting2D.materials.GetMultiply();
 
         if (buffer.lightSource != null) {
             Sprite lightSprite = buffer.lightSource.GetSprite();
@@ -157,6 +157,8 @@ public class LightingSourceTexture {
             material.color = Color.white;
 		}
 
+        
+		
 		if (buffer.lightSource.rotationEnabled) {
 			// Light Rotation!!!
             CalculatePoints(buffer);

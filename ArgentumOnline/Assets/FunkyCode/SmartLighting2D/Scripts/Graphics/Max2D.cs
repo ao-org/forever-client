@@ -173,5 +173,35 @@ namespace Lighting2DUtility {
 
             GL.PopMatrix ();
         }
+
+        static public void DrawImage(Material material, Vector2 pos, Vector2 size, Rect uv, float z = 0f){
+            GL.PushMatrix ();
+            material.SetPass (0); 
+
+            float rot = 0;
+
+            rot = rot * Mathf.Deg2Rad + Mathf.PI;
+
+            float rectAngle = Mathf.Atan2(size.y, size.x);
+            float dist = Mathf.Sqrt(size.x * size.x + size.y * size.y);
+
+            Vector2 v1 = new Vector2(pos.x + Mathf.Cos(rectAngle + rot) * dist, pos.y + Mathf.Sin(rectAngle + rot) * dist);
+            Vector2 v2 = new Vector2(pos.x + Mathf.Cos(-rectAngle + rot) * dist, pos.y + Mathf.Sin(-rectAngle + rot) * dist);
+            Vector2 v3 = new Vector2(pos.x + Mathf.Cos(rectAngle + Mathf.PI + rot) * dist, pos.y + Mathf.Sin(rectAngle + Mathf.PI + rot) * dist);
+            Vector2 v4 = new Vector2(pos.x + Mathf.Cos(-rectAngle + Mathf.PI + rot) * dist, pos.y + Mathf.Sin(-rectAngle + Mathf.PI + rot) * dist);
+            
+            GL.Begin (GL.QUADS);
+            GL.TexCoord2 (uv.x, uv.y);
+            GL.Vertex3 (v1.x, v1.y, z);
+            GL.TexCoord2 (uv.x, uv.y + uv.height);
+            GL.Vertex3 (v2.x, v2.y, z);
+            GL.TexCoord2 (uv.x + uv.width, uv.y + uv.height);
+            GL.Vertex3 (v3.x, v3.y, z);
+            GL.TexCoord2 (uv.x + uv.width, uv.y);
+            GL.Vertex3 (v4.x, v4.y, z);
+            GL.End ();
+
+            GL.PopMatrix ();
+        }
     }
 }

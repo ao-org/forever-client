@@ -13,7 +13,7 @@ public class LightingBufferBase {
 	public static List<List<Pair2D>> polygonPairs;
 	public static Polygon2D polygon = null;
 	public static List<Pair2D> pairList;
-	public static VirtualSpriteRenderer spriteRenderer = new VirtualSpriteRenderer();
+	public static VirtualSpriteRenderer virtualSpriteRenderer = new VirtualSpriteRenderer();
 	public static MeshObject tileMesh;
 	public static Vector2D tilemapOffset = Vector2D.Zero();
 	public static LightingTile tile;

@@ -58,8 +58,8 @@ public class LightingBufferSorted {
         maskEffect = (layer.effect == LightingLayerEffect.InvisibleBellow);
 
         // Materials
-        materialWhite = manager.materials.GetWhiteSprite();
-        materialBlack = manager.materials.GetBlackSprite();
+        materialWhite = Lighting2D.materials.GetWhiteSprite();
+        materialBlack = Lighting2D.materials.GetBlackSprite();
 
         // Draw Mask & Shadows?
         drawMask = (layer.type != LightingLayerType.ShadowOnly);
@@ -77,7 +77,7 @@ public class LightingBufferSorted {
     class WithAtlas {
 
         public static void Draw(LightingBuffer2D buffer, LayerSetting layer) {
-            manager.materials.GetAtlasMaterial().SetPass(0);
+            Lighting2D.materials.GetAtlasMaterial().SetPass(0);
 
             GL.Begin(GL.TRIANGLES);
            
@@ -134,7 +134,7 @@ public class LightingBufferSorted {
                                 }
                                 buffer.partiallyBatchedList_Collider.Clear();
 
-                                manager.materials.GetAtlasMaterial().SetPass(0);
+                                Lighting2D.materials.GetAtlasMaterial().SetPass(0);
                                 GL.Begin(GL.TRIANGLES);
                             }
                         }
@@ -164,7 +164,7 @@ public class LightingBufferSorted {
                                     }
                                     buffer.partiallyBatchedList_Tilemap.Clear();
 
-                                    manager.materials.GetAtlasMaterial().SetPass(0);
+                                    Lighting2D.materials.GetAtlasMaterial().SetPass(0);
                                     GL.Begin(GL.TRIANGLES);
                                 }
                             }   
@@ -193,7 +193,7 @@ public class LightingBufferSorted {
                             switch(depth.collider.shape.colliderType) {
                                 case LightingCollider2D.ColliderType.Collider:
                                 case LightingCollider2D.ColliderType.SpriteCustomPhysicsShape:
-                                     manager.materials.GetAtlasMaterial().SetPass(0);
+                                     Lighting2D.materials.GetAtlasMaterial().SetPass(0);
                             
                                     GL.Begin(GL.TRIANGLES);
 
@@ -229,7 +229,7 @@ public class LightingBufferSorted {
                     #if UNITY_2018_1_OR_NEWER
 
                         case ColliderDepth.Type.Tile:
-                            manager.materials.GetAtlasMaterial().SetPass(0);
+                            Lighting2D.materials.GetAtlasMaterial().SetPass(0);
                                 
                             GL.Begin(GL.TRIANGLES);
 
@@ -284,7 +284,7 @@ public class LightingBufferSorted {
     #if UNITY_2018_1_OR_NEWER
 
         static public void SortTilemap(LightingBuffer2D buffer, LightingTilemapCollider2D id, LayerSetting layer) {
-            if (id.map == null) {
+            if (id.rectangleMap.map == null) {
                 return;
             }
 
@@ -303,8 +303,8 @@ public class LightingBufferSorted {
             float rotationXScale = Mathf.Sin(rot.y + Mathf.PI / 2);
             float rotationYScale = Mathf.Sin(rot.x + Mathf.PI / 2);
 
-            float posScaleX = id.transform.lossyScale.x * rotationXScale * id.cellSize.x;
-            float posScaleY = id.transform.lossyScale.y * rotationYScale * id.cellSize.y;
+            float posScaleX = id.transform.lossyScale.x * rotationXScale * id.properties.cellSize.x;
+            float posScaleY = id.transform.lossyScale.y * rotationYScale * id.properties.cellSize.y;
 
             Vector2 offset = Vector2.zero;
 
@@ -317,11 +317,11 @@ public class LightingBufferSorted {
                         continue;
                     }
 
-                    if (x >= id.area.size.x || y >= id.area.size.y) {
+                    if (x >= id.properties.area.size.x || y >= id.properties.area.size.y) {
                         continue;
                     }
 
-                    tile = id.map[x, y];
+                    tile = id.rectangleMap.map[x, y];
                     if (tile == null) {
                         continue;
                     }
@@ -336,7 +336,7 @@ public class LightingBufferSorted {
                     polyOffset.x *= posScaleX;
                     polyOffset.y *= posScaleY;
 
-                    if (LightingManager2D.culling && tile.InRange(polyOffset.ToVector2(), source2D.transform.position, 2 + source2D.lightSize / 2)) {
+                    if (tile.InRange(polyOffset.ToVector2(), source2D.transform.position, 2 + source2D.lightSize / 2)) {
                         LightingDebug.culled ++;
                         continue;
                     }

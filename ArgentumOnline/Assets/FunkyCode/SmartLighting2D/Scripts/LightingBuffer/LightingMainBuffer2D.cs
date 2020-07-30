@@ -37,7 +37,7 @@ public class LightingMainBuffer2D : MonoBehaviour {
 
 	static public LightingMainBuffer2D Get(Camera camera) {
 
-		foreach(LightingMainBuffer2D mainBuffer in Object.FindObjectsOfType(typeof(LightingMainBuffer2D))) {
+		foreach(LightingMainBuffer2D mainBuffer in list) {
 			if (mainBuffer.regularCamera == camera) {
 				return(mainBuffer);
 			}
@@ -56,7 +56,7 @@ public class LightingMainBuffer2D : MonoBehaviour {
 	}
 
 	 public static void ForceUpdate() {
-		foreach(LightingMainBuffer2D buffer in Object.FindObjectsOfType(typeof(LightingMainBuffer2D))) {
+		foreach(LightingMainBuffer2D buffer in new List<LightingMainBuffer2D>(list)) {
 			buffer.gameObject.SetActive(false);
 			buffer.gameObject.SetActive(true);
 		}
@@ -82,14 +82,32 @@ public class LightingMainBuffer2D : MonoBehaviour {
 		LightingDebug.NewRenderTextures ++;
 
 		if (screenWidth > 0 && screenHeight > 0) {
-			renderTexture = new RenderTexture (screenWidth, screenHeight, 16, Lighting2D.lightingSourceSettings.textureFormat);
+			RenderTextureFormat format = RenderTextureFormat.Default;
+			if (Lighting2D.commonSettings.hdr == false) {
+				name = "Camera Buffer";
+	
+				format = RenderTextureFormat.Default;
+			} else {
+				name = "HDR Camera Buffer";
+				format = RenderTextureFormat.DefaultHDR;
+			}
+
+			renderTexture = new RenderTexture (screenWidth, screenHeight, 0, format);
 			renderTexture.Create ();
 		}
 	}
 
+	public void ClearMaterial() {
+		material = null;
+	}
+
 	public Material GetMaterial() {
 		if (material == null || material.Get() == null) {
-			material = LightingMaterial.Load(Max2D.shaderPath + "Particles/Multiply");
+			if (Lighting2D.commonSettings.hdr) {
+				material = LightingMaterial.Load("SmartLighting2D/Multiply HDR");
+			} else {
+				material = LightingMaterial.Load(Max2D.shaderPath + "Particles/Multiply");
+			}
 		}
 
 		material.SetTexture(renderTexture);
@@ -100,15 +118,19 @@ public class LightingMainBuffer2D : MonoBehaviour {
 	void SetUpCamera() {
 		bufferCamera = gameObject.AddComponent<Camera> ();
 		bufferCamera.clearFlags = CameraClearFlags.Color;
-		bufferCamera.backgroundColor = Color.black;
+		bufferCamera.backgroundColor = Color.white;
 		bufferCamera.cameraType = CameraType.Game;
 		bufferCamera.orthographic = true;
 		bufferCamera.targetTexture = renderTexture;
 		bufferCamera.farClipPlane = 1f;
 		bufferCamera.nearClipPlane = 0f;
 		bufferCamera.allowMSAA = false;
-		bufferCamera.allowHDR = false;
+		bufferCamera.allowHDR = Lighting2D.commonSettings.hdr;
 		bufferCamera.enabled = false;
+	}
+
+	void Update() {
+	
 	}
 
 	void LateUpdate () {
@@ -135,16 +157,20 @@ public class LightingMainBuffer2D : MonoBehaviour {
 
 		cameraSize = bufferCamera.orthographicSize;
 
-		bufferCamera.backgroundColor = Lighting2D.commonSettings.darknessColor;
-
 		transform.position = new Vector3(0, 0, camera.transform.position.z - cameraOffset);
 		transform.rotation = camera.transform.rotation;
 
-		ForceUpdate();
+		ForceUpdateSelf();
 
 		if (Lighting2D.renderingPipeline == Lighting2D.RenderingPipeline.Scriptable) {
 			LWRP_OnPostRender();
 		}
+
+		if (Lighting2D.commonSettings.hdr != bufferCamera.allowHDR) {
+			bufferCamera.allowHDR = Lighting2D.commonSettings.hdr;
+		}
+
+		bufferCamera.backgroundColor = Color.white; // Never Change it
 	}
 
 	// Light Weight Pipeline
@@ -156,7 +182,7 @@ public class LightingMainBuffer2D : MonoBehaviour {
 			return;
 		}
 
-		float z = transform.position.z;
+		float z = transform.position.z;		
 
 		// Day Lighting Not Supported
 
@@ -177,7 +203,7 @@ public class LightingMainBuffer2D : MonoBehaviour {
 
 		Camera camera = regularCamera;
 		
-		Material material = manager.materials.GetAdditive();
+		Material material = Lighting2D.materials.GetAdditive();
 
 		foreach (LightingSource2D id in LightingSource2D.GetList()) {
 			if (id.buffer == null) {
@@ -239,14 +265,16 @@ public class LightingMainBuffer2D : MonoBehaviour {
 		GL.PushMatrix();
 		
 		if (Lighting2D.dayLightingSettings.drawDayShadows) {
-			//DayLighting.Draw(offset, z);
+			DayLighting2D.Draw(camera, offset, z);
 		}
+
+		DarknessColor(camera, z);
 	
 		if (Lighting2D.commonSettings.drawRooms) {
-			//DrawRooms(offset, z);
+			DrawRooms(camera, offset, z);
 			
 			#if UNITY_2018_1_OR_NEWER
-				//DrawTilemapRooms(offset, z);
+				DrawTilemapRooms(camera, offset, z);
 			#endif
 		}
 
@@ -254,19 +282,26 @@ public class LightingMainBuffer2D : MonoBehaviour {
 
 		LightingTextureBuffer.Draw(camera, offset, z);
 
-		DrawLightingBuffers(regularCamera, z);
-
-		if (Lighting2D.commonSettings.drawOcclusion) {
-			LightingOcclusionCollider.Draw(offset, z);
-		}
+		DrawLightingBuffers(camera, z);
 
 		GL.PopMatrix();
+	}
+
+	static void DarknessColor(Camera camera, float z) {
+		LightingManager2D manager = LightingManager2D.Get();
+
+		Color color = Lighting2D.commonSettings.darknessColor;
+
+		Material material = Lighting2D.materials.GetAlphaBlend();		
+		material.SetColor ("_TintColor", color);
+
+		Lighting2DUtility.Max2D.DrawImage(material, Vector2.zero, Lighting2DRender.GetSize(camera), new Rect(0, 0, 1, 1), z);
 	}
 
 	public void OnPreCull() {
 		LightingManager2D manager = LightingManager2D.Get();
 
-		if (manager.disableEngine) {
+		if (Lighting2D.disable) {
 			return;
 		}
 
@@ -285,11 +320,15 @@ public class LightingMainBuffer2D : MonoBehaviour {
 	void DrawRooms(Camera camera, Vector2D offset, float z) {
 		LightingManager2D manager = LightingManager2D.Get();
 
-		manager.materials.GetAtlasMaterial().SetPass(0);
+		Lighting2D.materials.GetAtlasMaterial().SetPass(0);
 		GL.Begin(GL.TRIANGLES);
 
+		//Max2DMatrix.c_x = 0;
+		//Max2DMatrix.c_y = 0;
+
 		foreach (LightingRoom2D id in LightingRoom2D.GetList()) {
-			//LightingRoomCollider.Mask(camera, id, offset, z);
+		
+			LightingRoomCollider.Mask(camera, id, offset, z);
 		}
 
 		GL.End();
@@ -300,7 +339,7 @@ public class LightingMainBuffer2D : MonoBehaviour {
 			LightingManager2D manager = LightingManager2D.Get();
 
 			foreach (LightingTilemapRoom2D id in LightingTilemapRoom2D.GetList()) {
-			//	LightingRoomTilemap.MaskSpriteWithoutAtlas(camera, id, offset, z);
+				LightingRoomTilemap.MaskSpriteWithoutAtlas(camera, id, offset, z);
 			}
 		}
 	#endif
@@ -309,7 +348,7 @@ public class LightingMainBuffer2D : MonoBehaviour {
 	void DrawLightingBuffers(Camera camera, float z) {
 		LightingManager2D manager = LightingManager2D.Get();
 
-		Material material = manager.materials.GetAdditive();
+		Material material = Lighting2D.materials.GetAdditive();
 
 		foreach (LightingSource2D id in LightingSource2D.GetList()) {
 			if (id.buffer == null) {

@@ -95,6 +95,11 @@ public class FBOManager : MonoBehaviour
 
 	static public LightingBuffer2D PullBuffer(int textureSize, LightingSource2D lightSource) {
 		LightingManager2D manager = LightingManager2D.Get();
+		
+		if (manager.IsInitialized() == false) {
+			return(null);
+		}
+
         if (Lighting2D.lightingSourceSettings.fixedLightBufferSize) {
             textureSize = LightingRender.GetTextureSize(Lighting2D.lightingSourceSettings.fixedLightTextureSize);
         }

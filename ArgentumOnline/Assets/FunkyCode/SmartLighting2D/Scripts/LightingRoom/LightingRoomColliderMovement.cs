@@ -10,8 +10,8 @@ public class LightingRoomColliderMovement {
 	private Vector2 movedScale = Vector3.zero;
 	private float movedRotation = 0;
 	
-	private bool flipX = false;
-	private bool flipY = false;
+	//private bool flipX = false;
+	//private bool flipY = false;
 
 	public void Reset() {
 		movedPosition = Vector2.zero;
