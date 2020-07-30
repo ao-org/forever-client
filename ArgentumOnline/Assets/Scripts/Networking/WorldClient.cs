@@ -170,7 +170,7 @@ public class WorldClient : MonoBehaviour {
     }
 	private Character InstantiateCharacterFromXml(XmlDocument xml_doc,string selectnode){
 		try{
-			var pc = gameObject.AddComponent<Character>();
+			var pc = new Character();
 			pc.CreateFromXml(xml_doc,selectnode);
 			Debug.Log("Player Character created sucessfully!!!!!!!");
 			return pc;

@@ -10,7 +10,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Globalization;
 
-public class Character : MonoBehaviour
+public class Character 
 {
 
     public Character(){
