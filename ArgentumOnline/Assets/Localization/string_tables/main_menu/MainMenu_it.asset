@@ -136,11 +136,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 27
-    m_Localized: "La password \xE8 troppo corta."
+    m_Localized: "La password \xE8 troppo corta"
     m_Metadata:
       m_Items: []
   - m_Id: 28
-    m_Localized: "La password \xE8 troppo lunga."
+    m_Localized: "La password \xE8 troppo lunga"
     m_Metadata:
       m_Items: []
   - m_Id: 29
