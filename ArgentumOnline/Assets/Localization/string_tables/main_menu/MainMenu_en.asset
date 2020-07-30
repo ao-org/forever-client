@@ -56,7 +56,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10
-    m_Localized: Please enter a valid username
+    m_Localized: Please enter a valid username.
     m_Metadata:
       m_Items: []
   - m_Id: 11

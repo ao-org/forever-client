@@ -133,7 +133,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 29
-    m_Localized: "La contrase\xF1a no es alfanum\xE9rica"
+    m_Localized: "La contrase\xF1a no es alfanum\xE9rica."
     m_Metadata:
       m_Items: []
   - m_Id: 30
