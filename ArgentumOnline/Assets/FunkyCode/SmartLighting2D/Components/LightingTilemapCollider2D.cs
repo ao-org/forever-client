@@ -11,42 +11,43 @@ using UnityEngine.Tilemaps;
 public class LightingTilemapCollider2D : MonoBehaviour {
 	public enum MapType {UnityEngineTilemapRectangle, UnityEngineTilemapIsometric, UnityEngineTilemapHexagon, SuperTilemapEditor};
 	
-	public enum ColliderType {None, Tile, Collider, SpriteCustomPhysicsShape};
-	public enum MaskType {None, Tile, Sprite, SpriteCustomPhysicsShape};
+	public enum ColliderType {None, Grid, Collider, SpriteCustomPhysicsShape};
+	public enum MaskType {None, Grid, Sprite, SpriteCustomPhysicsShape};
 
-	public enum ColliderTypeSTE {None, Tile, Collider};
-	public enum MaskTypeSTE {None, Tile};
+	public enum ColliderTypeSTE {None, Grid, Collider};
+	public enum MaskTypeSTE {None, Grid, Sprite};
 
 	public MapType mapType = MapType.UnityEngineTilemapRectangle;
 
 	public LightingLayer lightingCollisionLayer = LightingLayer.Layer1;
 	public LightingLayer lightingMaskLayer = LightingLayer.Layer1;
 
-	public ColliderType colliderType = ColliderType.Tile;
+	public ColliderType colliderType = ColliderType.Grid;
 	public MaskType maskType = MaskType.Sprite;
+
 	public LightingMaskMode maskMode = LightingMaskMode.Visible;
 
-	// Day Lighting
-	public bool dayHeight = false;
-	public float height = 1;
+	public bool onlyColliders = false;
 
+	// Should be improved
 	public List<Polygon2D> edgeColliders = new List<Polygon2D>();
 	public List<Polygon2D> polygonColliders = new List<Polygon2D>();
 
-	//public bool ambientOcclusion = false;
-	//public float occlusionSize = 1f;
+	public TilemapProperties properties = new TilemapProperties();
 
-	public Vector2 cellSize = new Vector2(1, 1);
-	public Vector2 cellAnchor = new Vector2(0.5f, 0.5f);
-	public Vector2 cellGap = new Vector2(1, 1);
-	public Vector2 colliderOffset = new Vector2(0, 0);
-
-	public BoundsInt area;
-	public LightingTile[,] map;
+	#if (SuperTilemapEditor)
+		public CreativeSpore.SuperTilemapEditor.STETilemap tilemapSTE;
+	#endif
 
 	private Tilemap tilemap2D;
 
 	public IsometricMap isometricMap;
+	public RectangleMap rectangleMap;
+
+	#if (SuperTilemapEditor)
+		public STEMap SuperTilemapEditorMap;
+	#endif
+	
 
 	public static List<LightingTilemapCollider2D> list = new List<LightingTilemapCollider2D>();
 
@@ -87,7 +88,7 @@ public class LightingTilemapCollider2D : MonoBehaviour {
 			case MapType.SuperTilemapEditor:
 				InitializeSuperTilemapEditor();
 
-            		break;
+            break;
 		}
 	}
 
@@ -103,19 +104,18 @@ public class LightingTilemapCollider2D : MonoBehaviour {
 		if (grid == null) {
 			Debug.LogError("Lighting 2D Error: Lighting Tilemap Collider is missing Grid");
 		} else {
-			cellSize = grid.cellSize;
-			cellGap = grid.cellGap;
+			properties.cellSize = grid.cellSize;
+			properties.cellGap = grid.cellGap;
 		}
 
-		cellAnchor = tilemap2D.tileAnchor;
+		properties.cellAnchor = tilemap2D.tileAnchor;
 
 		isometricMap = new IsometricMap();
 
 		ITilemap tilemap = (ITilemap) FormatterServices.GetUninitializedObject(typeof(ITilemap));
 		typeof(ITilemap).GetField("m_Tilemap", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(tilemap, tilemap2D);
 
-		foreach (Vector3Int position in tilemap2D.cellBounds.allPositionsWithin)
-		{
+		foreach (Vector3Int position in tilemap2D.cellBounds.allPositionsWithin) {
 			TileData tileData = new TileData();
 
 			TileBase tilebase = tilemap2D.GetTile(position);
@@ -123,7 +123,11 @@ public class LightingTilemapCollider2D : MonoBehaviour {
 			if (tilebase != null) {
 				tilebase.GetTileData(position, tilemap, ref tileData);
 
-				IsometricMapTile tile = new IsometricMapTile();
+				if (onlyColliders && tileData.colliderType == Tile.ColliderType.None) {
+					continue;
+				}
+
+				IsometricTile tile = new IsometricTile();
 				tile.position = position;
 				
 				LightingTile lightingTile = new LightingTile();
@@ -133,6 +137,7 @@ public class LightingTilemapCollider2D : MonoBehaviour {
 				tile.tile = lightingTile;
 
 				isometricMap.mapTiles.Add(tile);
+
 			}
 		}
 
@@ -152,117 +157,221 @@ public class LightingTilemapCollider2D : MonoBehaviour {
 		if (grid == null) {
 			Debug.LogError("Lighting 2D Error: Lighting Tilemap Collider is missing Grid");
 		} else {
-			cellSize = grid.cellSize;
-			cellGap = grid.cellGap;
+			properties.cellSize = grid.cellSize;
+			properties.cellGap = grid.cellGap;
 		}
 
-		cellAnchor = tilemap2D.tileAnchor;
+		properties.cellAnchor = tilemap2D.tileAnchor;
 
-		int minPos = Mathf.Min(tilemap2D.cellBounds.xMin, tilemap2D.cellBounds.yMin);
-		int maxPos = Mathf.Max(tilemap2D.cellBounds.size.x, tilemap2D.cellBounds.size.y);
+		int maxSizePosX = tilemap2D.cellBounds.size.x + Mathf.Abs(tilemap2D.cellBounds.xMin);
+		int maxSizePosY = tilemap2D.cellBounds.size.y + Mathf.Abs(tilemap2D.cellBounds.yMin);
 
-		area = new BoundsInt(minPos, minPos, 0, maxPos + Mathf.Abs(minPos), maxPos + Mathf.Abs(minPos), 1);
+		//Debug.Log(tilemap2D.cellBounds);
 
-		TileBase[] tileArray = tilemap2D.GetTilesBlock(area);
+		int diffY = tilemap2D.cellBounds.yMin + tilemap2D.cellBounds.size.y - 1;
+		if (diffY > 0) {
+			maxSizePosY -= diffY;
+		} else {
+			diffY = 1;
+		}
 
-		map = new LightingTile[area.size.x + 1, area.size.y + 1];
+		int diffX = tilemap2D.cellBounds.xMin + tilemap2D.cellBounds.size.x - 1;
+		if (diffX > 0) {
+			maxSizePosX -= diffX;
+		} else {
+			diffX = 1;
+		}
 
-		for (int index = 0; index < tileArray.Length; index++) {
-			int x = (index % area.size.x);
-			int y = (index / area.size.x);
-			map[x, y] = null;
+		properties.area = new BoundsInt(tilemap2D.cellBounds.xMin, tilemap2D.cellBounds.yMin, 0, maxSizePosX, maxSizePosY, 1);
+
+		TileBase[] tileArray = tilemap2D.GetTilesBlock(properties.area);
+
+		rectangleMap = new RectangleMap();
+
+		properties.arraySize = new Vector2Int(properties.area.size.x + diffX, properties.area.size.y + diffY);
+
+		//Debug.Log(properties.area.size.x + diffX + " " + properties.area.size.y + diffY);
+
+		rectangleMap.map = new LightingTile[properties.arraySize.x, properties.arraySize.y];
+
+		for(int sx = 0; sx <= properties.area.size.x; sx++) {
+			for(int sy = 0; sy <= properties.area.size.y; sy++) {
+				rectangleMap.map[sx, sy] = null;
+			}
 		}
 
 		TilemapCollider2D tilemapCollider = GetComponent<TilemapCollider2D>();
 		if (tilemapCollider != null) {
-			colliderOffset = tilemapCollider.offset;
+			properties.colliderOffset = tilemapCollider.offset;
 		}
 
-		cellAnchor += colliderOffset;
+		properties.cellAnchor += properties.colliderOffset;
 
-		for (int index = 0; index < tileArray.Length; index++) {
-			TileBase tile = tileArray[index];
-			if (tile == null) {
-				continue;
-			}
+		ITilemap tilemap = GetITilemap(tilemap2D);
 
+		foreach (Vector3Int position in tilemap2D.cellBounds.allPositionsWithin) {
 			TileData tileData = new TileData();
 
-			ITilemap tilemap = (ITilemap) FormatterServices.GetUninitializedObject(typeof(ITilemap));
-			typeof(ITilemap).GetField("m_Tilemap", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(tilemap, tilemap2D);
-			tile.GetTileData(new Vector3Int(0, 0, 0), tilemap, ref tileData);
+			TileBase tilebase = tilemap2D.GetTile(position);
 
-			LightingTile lightingTile = new LightingTile();
-			lightingTile.SetOriginalSprite(tileData.sprite);
-			lightingTile.GetShapePolygons();
-	
-			int x = (index % area.size.x);
-			int y = (index / area.size.x);
-			map[x, y] = lightingTile;
+			if (tilebase != null) {
+				tilebase.GetTileData(position, tilemap, ref tileData);
+
+				if (onlyColliders && tileData.colliderType == Tile.ColliderType.None) {
+					continue;
+				}
+
+				IsometricTile tile = new IsometricTile();
+				tile.position = position;
+				
+				LightingTile lightingTile = new LightingTile();
+				lightingTile.SetOriginalSprite(tileData.sprite);
+				lightingTile.GetShapePolygons();
+
+				tile.tile = lightingTile;
+
+				int sx = position.x + properties.area.size.x / 2;
+				int sy = position.y + properties.area.size.y / 2;
+
+				if (sx < 0 || sy < 0) {
+					continue;
+				}
+
+				if (sx >= properties.arraySize.x || sy >= properties.arraySize.y) {
+					continue;
+				}
+
+				rectangleMap.map[sx, sy] = lightingTile;
+			}
 		}
-
 		edgeColliders.Clear();
 		polygonColliders.Clear();
+	}
+
+	public static ITilemap GetITilemap(Tilemap tilemap) {
+		ITilemap iTilemap = (ITilemap) FormatterServices.GetUninitializedObject(typeof(ITilemap));
+		typeof(ITilemap).GetField("m_Tilemap", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(iTilemap, tilemap);
+    	return iTilemap;
 	}
 
 	void InitializeSuperTilemapEditor() {
-		/* 
-		CreativeSpore.SuperTilemapEditor.STETilemap tilemapSTE = GetComponent<CreativeSpore.SuperTilemapEditor.STETilemap>();
-	
-		cellSize = tilemapSTE.CellSize;
+		#if (SuperTilemapEditor)
 
-		map = new LightingTile[tilemapSTE.GridWidth + 2, tilemapSTE.GridHeight + 2];
+			tilemapSTE = GetComponent<CreativeSpore.SuperTilemapEditor.STETilemap>();
+		
+			properties.cellSize = tilemapSTE.CellSize;
 
-		area.position = new Vector3Int((int)tilemapSTE.MapBounds.center.x, (int)tilemapSTE.MapBounds.center.y, 0);
+			map = new LightingTile[tilemapSTE.GridWidth + 2, tilemapSTE.GridHeight + 2];
 
-		area.size = new Vector3Int((int)(tilemapSTE.MapBounds.extents.x + 1) * 2, (int)(tilemapSTE.MapBounds.extents.y + 1) * 2, 0);
+			properties.area.position = new Vector3Int((int)tilemapSTE.MapBounds.center.x, (int)tilemapSTE.MapBounds.center.y, 0);
 
-		for(int x = 0; x <= tilemapSTE.GridWidth; x++) {
-			for(int y = 0; y <= tilemapSTE.GridHeight; y++) {
-				map[x, y] = null;
+			properties.area.size = new Vector3Int((int)(tilemapSTE.MapBounds.extents.x + 1) * 2, (int)(tilemapSTE.MapBounds.extents.y + 1) * 2, 0);
+
+			for(int x = 0; x <= tilemapSTE.GridWidth; x++) {
+				for(int y = 0; y <= tilemapSTE.GridHeight; y++) {
+					map[x, y] = null;
+				}
 			}
-		}
-	
-		for(int x = 0; x <= tilemapSTE.GridWidth; x++) {
-			for(int y = 0; y <= tilemapSTE.GridHeight; y++) {
-				int tileX = x + area.position.x - area.size.x / 2;
-				int tileY = y + area.position.y - area.size.y / 2;
-				if(tilemapSTE.GetTile(tileX, tileY) == null) {
-					continue;
-				}
-				LightingTile lightingTile = new LightingTile();
-				map[x, y] = lightingTile;
-			}
-		}	
 
-		edgeColliders.Clear();
-		polygonColliders.Clear();
+			SuperTilemapEditorMap = new STEMap();
+			SuperTilemapEditorMap.width = tilemapSTE.GridWidth;
+			SuperTilemapEditorMap.height = tilemapSTE.GridHeight;
+		
+			for(int x = 0; x <= tilemapSTE.GridWidth; x++) {
+				for(int y = 0; y <= tilemapSTE.GridHeight; y++) {
+					int tileX = x + properties.area.position.x - properties.area.size.x / 2;
+					int tileY = y + properties.area.position.y - properties.area.size.y / 2;
 
-		if (colliderType == ColliderType.Collider) {
-			foreach(Transform t in transform) {
-				foreach(Component c in t.GetComponents<EdgeCollider2D>()) {
-					Polygon2D poly = Polygon2D.CreateFromEdgeCollider(c as EdgeCollider2D);
-					poly = poly.ToWorldSpace(t);
-					edgeColliders.Add(poly);
+					CreativeSpore.SuperTilemapEditor.Tile tileSTE = tilemapSTE.GetTile(tileX, tileY);
+
+					if (tileSTE == null) {
+						continue;
+					}
+
+					LightingTile lightingTile = new LightingTile();
+					map[x, y] = lightingTile;
+
+					STETile tile = new STETile();
+					tile.position = new Vector2Int(x, y);
+
+					tile.tile = lightingTile;
+					tile.uv = tileSTE.uv;
+
+					SuperTilemapEditorMap.mapTiles.Add(tile);
 				}
-				foreach(Component c in t.GetComponents<PolygonCollider2D>()) {
-					Polygon2D poly = Polygon2DList.CreateFromPolygonColliderToWorldSpace(c as PolygonCollider2D)[0];
-					polygonColliders.Add(poly);
-				}
-			}			
-		}	
-		*/
+			}	
+
+			edgeColliders.Clear();
+			polygonColliders.Clear();
+
+			if (colliderType == ColliderType.Collider) {
+				foreach(Transform t in transform) {
+					foreach(Component c in t.GetComponents<EdgeCollider2D>()) {
+						Polygon2D poly = Polygon2D.CreateFromEdgeCollider(c as EdgeCollider2D);
+						poly = poly.ToWorldSpace(t);
+						edgeColliders.Add(poly);
+					}
+					foreach(Component c in t.GetComponents<PolygonCollider2D>()) {
+						Polygon2D poly = Polygon2DList.CreateFromPolygonColliderToWorldSpace(c as PolygonCollider2D)[0];
+						polygonColliders.Add(poly);
+					}
+				}			
+			}	
+		#endif
+	}
+
+	public class TilemapProperties {
+		public Vector2 cellSize = new Vector2(1, 1);
+		public Vector2 cellAnchor = new Vector2(0.5f, 0.5f);
+		public Vector2 cellGap = new Vector2(1, 1);
+		public Vector2 colliderOffset = new Vector2(0, 0);
+		public BoundsInt area;
+
+		public new Vector2Int arraySize = new Vector2Int();
 	}
 
 	public class IsometricMap {
-		public List<IsometricMapTile> mapTiles = new List<IsometricMapTile>();
+		public List<IsometricTile> mapTiles = new List<IsometricTile>();
+		//public LightingTile[,] map;
 	}
 
-	public class IsometricMapTile {
+	public class IsometricTile {
 		public Vector3Int position;
 
 		public LightingTile tile;
 	}
+
+	public class RectangleMap {
+		public List<RectangleTile> mapTiles = new List<RectangleTile>();
+		public LightingTile[,] map;
+
+		public int width;
+		public int height;
+	}
+
+	public class RectangleTile {
+		public Vector2Int position;
+
+		public LightingTile tile;
+	}
+
+	#if (SuperTilemapEditor)
+		public class STEMap {
+			public List<STETile> mapTiles = new List<STETile>();
+			//public LightingTile[,] map;
+
+			public int width;
+			public int height;
+		}
+
+		public class STETile {
+			public Vector2Int position;
+
+			public LightingTile tile;
+
+			public Rect uv;
+		}
+	#endif
 	
 }
 #endif

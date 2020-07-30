@@ -8,8 +8,18 @@ public class OnRenderMode : MonoBehaviour {
     public MeshRenderer meshRenderer;
     public MeshFilter meshFilter;
 
+    public static List<OnRenderMode> list = new List<OnRenderMode>();
+
+	public void OnEnable() {
+		list.Add(this);
+	}
+
+	public void OnDisable() {
+		list.Remove(this);
+	}
+
     public static OnRenderMode Get(Camera camera, LightingMainBuffer2D mainBuffer) {
-		foreach(OnRenderMode meshModeObject in Object.FindObjectsOfType(typeof(OnRenderMode))) {
+		foreach(OnRenderMode meshModeObject in list) {
 			if (meshModeObject.regularCamera == camera) {
                 return(meshModeObject);
             }
@@ -30,7 +40,7 @@ public class OnRenderMode : MonoBehaviour {
         meshRenderer = gameObject.AddComponent<MeshRenderer>();
         meshRenderer.sharedMaterial = LightingMainBuffer2D.Get(camera).GetMaterial();
            
-        meshRenderer.sortingLayerName =Lighting2D.sortingLayer.Name;
+        meshRenderer.sortingLayerName = Lighting2D.sortingLayer.Name;
         meshRenderer.sortingLayerID = Lighting2D.sortingLayer.ID;
         meshRenderer.sortingOrder = Lighting2D.sortingLayer.Order;
 
@@ -52,7 +62,7 @@ public class OnRenderMode : MonoBehaviour {
             DestroyImmediate(gameObject);
         }
 
-         if (LightingManager2D.Get().disableEngine) {
+         if (Lighting2D.disable) {
             if (meshRenderer != null) {
 				meshRenderer.enabled = false;
 			}

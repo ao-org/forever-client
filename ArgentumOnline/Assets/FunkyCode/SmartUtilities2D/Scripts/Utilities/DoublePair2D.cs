@@ -37,4 +37,27 @@ public class DoublePair2D {
 		}
 		return(pairsList);
 	}
+
+	static public List<DoublePair2D> GetListCopy(List<Vector2D> list, bool connect = true)
+	{
+		List<DoublePair2D> pairsList = new List<DoublePair2D>();
+		if (list.Count > 0) {
+			foreach (Vector2D pB in list) {
+				int indexB = list.IndexOf (pB);
+
+				int indexA = (indexB - 1);
+				if (indexA < 0) {
+					indexA += list.Count;
+				}
+
+				int indexC = (indexB + 1);
+				if (indexC >= list.Count) {
+					indexC -= list.Count;
+				}
+
+				pairsList.Add (new DoublePair2D (list[indexA].Copy(), pB.Copy(), list[indexC].Copy()));
+			}
+		}
+		return(pairsList);
+	}
 }

@@ -18,8 +18,8 @@ public class LightingBufferShadow {
 	static float angleA, angleB;
 	static double rot;
 			
-	static List<Polygon2D> polygons = null;
-	static List<List<Pair2D>> polygonPairs = null;
+	//static List<Polygon2D> polygons = null;
+	//static List<List<Pair2D>> polygonPairs = null;
 	static List<Pair2D> pairList = null;
 	static Pair2D p;
 
@@ -239,20 +239,20 @@ public class LightingBufferShadow {
 					GL.Vertex3((float)vC.x,(float)vC.y, z);
 
 					GL.TexCoord3(uvRectWidth, uvRectY, 0);
-					GL.Vertex3((float)vA.x, (float)vA.y, z);
+					GL.Vertex3((float)pA.x, (float)pA.y, z);
 					
 					GL.TexCoord3(uvRectX, uvRectHeight, 0);
-					GL.Vertex3((float)pA.x,(float)pA.y, z);
+					GL.Vertex3((float)vA.x,(float)vA.y, z);
 					
 					
 					GL.TexCoord3(uvRectX, uvRectY, 0);
 					GL.Vertex3((float)vD.x,(float)vD.y, z);
 
 					GL.TexCoord3(uvRectWidth, uvRectY, 0);
-					GL.Vertex3((float)vB.x, (float)vB.y, z);
+					GL.Vertex3((float)pB.x, (float)pB.y, z);
 					
 					GL.TexCoord3(uvRectX, uvRectHeight, 0);
-					GL.Vertex3((float)pB.x, (float)pB.y, z);
+					GL.Vertex3((float)vB.x, (float)vB.y, z);
 				}
 			}
 			
@@ -349,7 +349,7 @@ public class LightingBufferShadow {
 		static public void Calculate() {
 			LightingManager2D manager = LightingManager2D.Get();
 			
-			Sprite fillSprite = manager.materials.GetAtlasWhiteMaskSprite();
+			Sprite fillSprite = Lighting2D.materials.GetAtlasWhiteMaskSprite();
 		
 			highQuality = Lighting2D.commonSettings.drawHighQualityShadows;
 
@@ -375,7 +375,7 @@ public class LightingBufferShadow {
 		static public void Calculate() {
 			LightingManager2D manager = LightingManager2D.Get();
 			
-			Sprite fillSprite = manager.materials.GetAtlasBlackMaskSprite();
+			Sprite fillSprite = Lighting2D.materials.GetAtlasBlackMaskSprite();
 		
 			highQuality = Lighting2D.commonSettings.drawHighQualityShadows;
 
@@ -401,7 +401,7 @@ public class LightingBufferShadow {
 		public static void Calculate() {
 			LightingManager2D manager = LightingManager2D.Get();
 			
-			sprite = manager.materials.GetAtlasPenumbraSprite();
+			sprite = Lighting2D.materials.GetAtlasPenumbraSprite();
 
 			if (sprite == null || sprite.texture == null) {
 				return;

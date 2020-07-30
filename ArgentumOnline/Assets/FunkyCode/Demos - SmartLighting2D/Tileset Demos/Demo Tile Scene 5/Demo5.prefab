@@ -176,18 +176,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 2486824634477280872}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 2486824634477280879}
-  meshRenderer: {fileID: 2486824634477280878}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &2486824634477280873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,18 +333,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 5274794463201918887}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 5274794463201918886}
-  meshRenderer: {fileID: 5274794463201918885}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &5274794463201918888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,18 +490,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 5274794463236023454}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 5274794463236023453}
-  meshRenderer: {fileID: 5274794463236023452}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 5274794463236023457}
 --- !u!114 &5274794463236023455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,7 +572,6 @@ MonoBehaviour:
   buffer: {fileID: 0}
   sortingOrder: 0
   sortingLayer: 
-  lightignEventCache: []
   movement:
     update: 0
     updatePosition: {x: 0.01, y: 0.64, z: 0}
@@ -775,18 +741,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 5274794463390539939}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 5274794463390539938}
-  meshRenderer: {fileID: 5274794463390539937}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &5274794463390539940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,18 +898,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 5274794463474607082}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 5274794463474607081}
-  meshRenderer: {fileID: 5274794463474607080}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &5274794463474607083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,18 +1055,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 5274794464348679188}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 5274794464348679187}
-  meshRenderer: {fileID: 5274794464348679186}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &5274794464348679183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,18 +1212,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 5274794464570401674}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 5274794464570401673}
-  meshRenderer: {fileID: 5274794464570401672}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &5274794464570401675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,18 +1369,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 5274794464777648281}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 5274794464777648280}
-  meshRenderer: {fileID: 5274794464777648279}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &5274794464777648282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1615,18 +1526,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 5274794464813222519}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 5274794464813222518}
-  meshRenderer: {fileID: 5274794464813222517}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &5274794464813222520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1783,18 +1683,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 5274794464823667126}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 5274794464823667125}
-  meshRenderer: {fileID: 5274794464823667124}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &5274794464823667127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1951,18 +1840,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 5274794465095069524}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 5274794465095069523}
-  meshRenderer: {fileID: 5274794465095069522}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &5274794465095069525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2119,18 +1997,7 @@ MonoBehaviour:
   shape:
     colliderType: 1
     maskType: 2
-    lightingCollider2D: {fileID: 6232640509821923680}
-  generateDayMask: 0
-  dayHeight: 0
-  height: 1
-  ambientOcclusion: 0
-  smoothOcclusionEdges: 0
-  occlusionSize: 1
-  disableWhenInvisible: 0
-  spriteRenderer: {fileID: 0}
-  meshFilter: {fileID: 6232640509821923687}
-  meshRenderer: {fileID: 6232640509821923686}
-  skinnedMeshRenderer: {fileID: 0}
+    gameObject: {fileID: 0}
 --- !u!114 &6232640509821923681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2212,8 +2079,6 @@ MonoBehaviour:
   buffer: {fileID: 0}
   sortingOrder: 0
   sortingLayer: 
-  lightignEventCache:
-  - {fileID: 5274794463236023454}
   movement:
     update: 0
     updatePosition: {x: -5.66, y: -0.04, z: 0}

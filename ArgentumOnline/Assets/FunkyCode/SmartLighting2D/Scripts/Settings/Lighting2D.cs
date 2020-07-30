@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Lighting2D {
-	public const int VERSION = 110;
+	public const int VERSION = 111;
+
+	static public Lighting2DMaterials materials = new Lighting2DMaterials();
 
 	// Main Preferences
 	static public Lighting2D.RenderingPipeline renderingPipeline = Lighting2D.RenderingPipeline.Standard;
@@ -25,6 +27,9 @@ public class Lighting2D {
 	// Utilities
 	static public PolygonTriangulator2D.Triangulation triangulation = PolygonTriangulator2D.Triangulation.Advanced;
 
+	// Disable
+	static public bool disable = false;
+
 	// Methods
 	static public void UpdateByProfile(Lighting2DSettingsProfile profile) {
 		// Rendering
@@ -37,6 +42,8 @@ public class Lighting2D {
 
 		// Settings
 		commonSettings.lightingResolution = profile.commonSettings.lightingResolution;
+		commonSettings.coreAxis = profile.commonSettings.coreAxis;
+		commonSettings.hdr = profile.commonSettings.hdr;
 		commonSettings.darknessColor = profile.commonSettings.darknessColor;
 		commonSettings.drawRooms = profile.commonSettings.drawRooms;
 		commonSettings.drawOcclusion = profile.commonSettings.drawOcclusion;
@@ -51,6 +58,7 @@ public class Lighting2D {
 		dayLightingSettings.sunDirection = profile.dayLightingSettings.sunDirection; // Should't it represent degrees???
 		dayLightingSettings.shadowDarkness = profile.dayLightingSettings.shadowDarkness;
 		dayLightingSettings.sunPenumbra = profile.dayLightingSettings.sunPenumbra;
+		dayLightingSettings.layerCount = profile.dayLightingSettings.layerCount;
 
 		// Atlas
 		atlasSettings.lightingSpriteAtlas = profile.atlasSettings.lightingSpriteAtlas;
@@ -63,12 +71,14 @@ public class Lighting2D {
 		// Lighting Source Buffers
 		lightingSourceSettings.fixedLightBufferSize = profile.lightingSourceSettings.fixedLightBufferSize;
 		lightingSourceSettings.fixedLightTextureSize = profile.lightingSourceSettings.fixedLightTextureSize;
-		lightingSourceSettings.textureFormat = profile.lightingSourceSettings.textureFormat;
 		lightingSourceSettings.lightingBufferPreload = profile.lightingSourceSettings.lightingBufferPreload;
 		lightingSourceSettings.lightingBufferPreloadCount = profile.lightingSourceSettings.lightingBufferPreloadCount;
 
 		// Misc
 		triangulation = profile.triangulation;
+
+		// Disable
+		disable = profile.disable;
 	}
 
 	public enum RenderingPipeline {
@@ -95,12 +105,19 @@ public class Lighting2D {
 		px256
 	}
 
+	public enum CoreAxis {
+		XY
+	}
+
 	[System.Serializable]
 	public class CommonSettings {
 		public Color darknessColor = Color.black;
+
+		public CoreAxis coreAxis = CoreAxis.XY;
 	
 		public float lightingResolution = 1f;
 
+		public bool hdr = false;
 		public bool drawRooms = true;
 		public bool drawOcclusion = true;
 		public bool drawPenumbra = true;
@@ -111,11 +128,17 @@ public class Lighting2D {
 	}
 
 	[System.Serializable]
+	public class EditorViewSettings {
+		public bool enable = true;
+	}
+
+	[System.Serializable]
 	public class DayLightingSettings {
 		public bool drawDayShadows = true;
 		public float sunDirection = - 90;
 		public float shadowDarkness = 1;
 		public float sunPenumbra = 0.5f;
+		public int layerCount = 1;
 	}
 
 	[System.Serializable]
@@ -139,7 +162,6 @@ public class Lighting2D {
 	public class LightingSourceSettings {
 		public bool fixedLightBufferSize = true;
 		public LightingSourceTextureSize fixedLightTextureSize = LightingSourceTextureSize.px512;
-		public RenderTextureFormat textureFormat = RenderTextureFormat.ARGB32;
 		public bool lightingBufferPreload = false;
 		public int lightingBufferPreloadCount = 1;
 	}
@@ -148,10 +170,24 @@ public class Lighting2D {
 	static public Lighting2DSettingsProfile profile = null;
 
 	static public Lighting2DSettingsProfile GetProfile() {
+		Lighting2DMainProfile mainProfile = Lighting2D.GetMainProfile();
+		profile = mainProfile.profile;
+
 		if (profile == null) {
 			profile = Resources.Load("Profiles/Lighting Default") as Lighting2DSettingsProfile;
 		}
 
 		return(profile);
+	}
+	
+	 // Main Profile
+	static public Lighting2DMainProfile mainProfile = null;
+
+	static public Lighting2DMainProfile GetMainProfile() {
+		if (mainProfile == null) {
+			mainProfile = Resources.Load("Settings/Settings") as Lighting2DMainProfile;
+		}
+
+		return(mainProfile);
 	}
 }

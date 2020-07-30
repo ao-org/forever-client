@@ -23,10 +23,10 @@ public class LightingBufferTilemapIsometric : LightingBufferBase {
 			return;
 		}
 
-		offset.x = -buffer.lightSource.transform.position.x;
-		offset.y = -buffer.lightSource.transform.position.y;
+		offset.x = -buffer.lightSource.transform.position.x + id.transform.position.x;
+		offset.y = -buffer.lightSource.transform.position.y + id.transform.position.y;
 
-		foreach(LightingTilemapCollider2D.IsometricMapTile tile in id.isometricMap.mapTiles) {
+		foreach(LightingTilemapCollider2D.IsometricTile tile in id.isometricMap.mapTiles) {
 			polygons = tile.tile.GetPolygons(id);
 
 			if (polygons == null || polygons.Count < 1) {
@@ -35,20 +35,22 @@ public class LightingBufferTilemapIsometric : LightingBufferBase {
 
 			polygonPairs = tile.tile.GetPairs(id);
 
-			polyOffset.x = offset.x;
-			polyOffset.y = offset.y;
+			Vector2 tilePosition = Vector2.zero;
 
-			polyOffset.x += tile.position.x * 0.5f;
-			polyOffset.y += tile.position.x * 0.5f * id.cellSize.y;
+			tilePosition.x += tile.position.x * 0.5f;
+			tilePosition.y += tile.position.x * 0.5f * id.properties.cellSize.y;
 
-			polyOffset.x += tile.position.y * -0.5f;
-			polyOffset.y += tile.position.y * 0.5f * id.cellSize.y;
+			tilePosition.x += tile.position.y * -0.5f;
+			tilePosition.y += tile.position.y * 0.5f * id.properties.cellSize.y;
+
+			tilePosition.x *= id.properties.cellSize.x;
+
+			polyOffset.x = offset.x + tilePosition.x;
+			polyOffset.y = offset.y + tilePosition.y;
 
 			if (id.colliderType == LightingTilemapCollider2D.ColliderType.SpriteCustomPhysicsShape) {
 				polyOffset.y += 0.25f;
 			}
-
-			//polyOffset.x *= id.cellSize.x;
 
 			LightingBufferShadow.Draw(buffer, polygons, polygonPairs, lightSizeSquared, z, polyOffset, Vector3.one);
 		}
@@ -70,40 +72,38 @@ public class LightingBufferTilemapIsometric : LightingBufferBase {
 
 			tileMesh = LightingTile.GetStaticTileMesh(id);
 
-			offset.x = -buffer.lightSource.transform.position.x;
-			offset.y = -buffer.lightSource.transform.position.y;
+			offset.x = -buffer.lightSource.transform.position.x + id.transform.position.x;
+			offset.y = -buffer.lightSource.transform.position.y + id.transform.position.y;
 
 			GL.Color(Color.white);
 
-			foreach(LightingTilemapCollider2D.IsometricMapTile tile in id.isometricMap.mapTiles) {
-				polyOffset.x = offset.x;
-				polyOffset.y = offset.y;
+			Vector2 tilePosition;
 
-				spriteRenderer.sprite = tile.tile.GetOriginalSprite();
+			foreach(LightingTilemapCollider2D.IsometricTile tile in id.isometricMap.mapTiles) {
+				virtualSpriteRenderer.sprite = tile.tile.GetOriginalSprite();
 
-				polyOffset2.x = (float)polyOffset.x;
-				polyOffset2.y = (float)polyOffset.y;
+				tilePosition = Vector2.zero;
 
-				polyOffset2.y += 0.5f * id.cellSize.y;
+				tilePosition.y += 0.5f * id.properties.cellSize.y;
 
-				polyOffset2.x += tile.position.x * 0.5f;
-				polyOffset2.y += tile.position.x * 0.5f * id.cellSize.y;
+				tilePosition.x += tile.position.x * 0.5f;
+				tilePosition.y += tile.position.x * 0.5f * id.properties.cellSize.y;
 
-				polyOffset2.x += tile.position.y * -0.5f ;
-				polyOffset2.y += tile.position.y * 0.5f * id.cellSize.y;
+				tilePosition.x += tile.position.y * -0.5f;
+				tilePosition.y += tile.position.y * 0.5f * id.properties.cellSize.y;
 
-			
-				
-				
-				material.mainTexture = spriteRenderer.sprite.texture;
+				tilePosition.x *= id.properties.cellSize.x;
+
+				polyOffset2.x = (float)offset.x + tilePosition.x;
+				polyOffset2.y = (float)offset.y + tilePosition.y;
+
+				material.mainTexture = virtualSpriteRenderer.sprite.texture;
 
 				if (Vector2.Distance(Vector2.zero, polyOffset.ToVector2()) > buffer.lightSource.lightSize * 1.5f) {
 					continue;
 				}
 
-
-
-				LightingGraphics.WithoutAtlas.DrawSprite(material, spriteRenderer, polyOffset2, scale, 0, z);
+				LightingGraphics.WithoutAtlas.DrawSprite(material, virtualSpriteRenderer, polyOffset2, scale, 0, z);
 				
 				material.mainTexture = null;
 			}
@@ -138,7 +138,7 @@ public class LightingBufferTilemapIsometric : LightingBufferBase {
 		
 		GL.Color(Color.white);
 
-		foreach(LightingTilemapCollider2D.IsometricMapTile tile in id.isometricMap.mapTiles) {
+		foreach(LightingTilemapCollider2D.IsometricTile tile in id.isometricMap.mapTiles) {
 			polygons = tile.tile.GetPolygons(id);
 			polygonPairs = tile.tile.GetPairs(id);
 
@@ -148,13 +148,13 @@ public class LightingBufferTilemapIsometric : LightingBufferBase {
 			polyOffset2.x = (float)polyOffset.x;
 			polyOffset2.y = (float)polyOffset.y;
 
-			polyOffset2.y += 0.5f * id.cellSize.y;
+			polyOffset2.y += 0.5f * id.properties.cellSize.y;
 
 			polyOffset2.x += tile.position.x * 0.5f;
-			polyOffset2.y += tile.position.x * 0.5f * id.cellSize.y;
+			polyOffset2.y += tile.position.x * 0.5f * id.properties.cellSize.y;
 
 			polyOffset2.x += tile.position.y * -0.5f ;
-			polyOffset2.y += tile.position.y * 0.5f * id.cellSize.y;
+			polyOffset2.y += tile.position.y * 0.5f * id.properties.cellSize.y;
 
 			if (id.colliderType == LightingTilemapCollider2D.ColliderType.SpriteCustomPhysicsShape) {
 				polyOffset2.y += 0.25f;

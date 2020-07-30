@@ -5,8 +5,6 @@ using System.Linq;
 
 public enum LightingMaskMode {Visible, Invisible};
 
-
-
 [ExecuteInEditMode]
 public class LightingCollider2D : MonoBehaviour {
 	public enum MaskType {None, Sprite, Collider, SpriteCustomPhysicsShape, Mesh, SkinnedMesh};
@@ -23,38 +21,12 @@ public class LightingCollider2D : MonoBehaviour {
 
 	public LightingColliderShape shape = new LightingColliderShape();
 
-	DayLightingShadowHeight dayLightingShadow = null;
-	LightingOcclussionShape occlusionShape = null;
-
 	private LightingColliderMovement movement = new LightingColliderMovement();
-
-	//public class DayLightingMode {
-		public bool generateDayMask = false;
-		
-		public bool dayHeight = false;
-		public float height = 1f;
-	//}
-
-
-	///// Day Lighting /////
-
-
-	public bool ambientOcclusion = false;
-	public bool smoothOcclusionEdges = false;
-	public float occlusionSize = 1f;
-	/////////////////////////
-
-	public bool disableWhenInvisible = false;
 
 	public static List<LightingCollider2D> list = new List<LightingCollider2D>();
 
-	public SpriteRenderer spriteRenderer;
-	public MeshFilter meshFilter;
-	public MeshRenderer meshRenderer;
-	public SkinnedMeshRenderer skinnedMeshRenderer;
-
 	public void Awake() {
-		shape.SetLightingCollider2D(this);
+		shape.SetGameObject(gameObject);
 	}
 	
 	public void AddEvent(LightCollision2DEvent collisionEvent) {
@@ -69,7 +41,7 @@ public class LightingCollider2D : MonoBehaviour {
 
 	// 1.5f??
 	public bool isVisibleForLight(LightingBuffer2D buffer) {
-		if (LightingManager2D.culling && Vector2.Distance(transform.position, buffer.lightSource.transform.position) > shape.GetFrustumDistance(transform) + buffer.lightSource.lightSize * 1.5f) {
+		if (Vector2.Distance(transform.position, buffer.lightSource.transform.position) > shape.GetFrustumDistance(transform) + buffer.lightSource.lightSize * 1.5f) {
 			LightingDebug.culled ++;
 			return(false);
 		}
@@ -90,31 +62,27 @@ public class LightingCollider2D : MonoBehaviour {
 		list.Add(this);
 
 		Initialize();
+
+		UpdateNearbyLights();
 	}
 
 	public void OnDisable() {
 		list.Remove(this);
 
-		float distance = shape.GetFrustumDistanceSet();
+		UpdateNearbyLights();
+	}
+
+	public void UpdateNearbyLights() {
+		float distance = shape.GetFrustumDistance(transform);
 		foreach (LightingSource2D id in LightingSource2D.GetList()) {
+			bool draw = DrawOrNot(id);
+
+			if (draw == false) {
+				continue;
+			}
+			
 			if (Vector2.Distance (id.transform.position, transform.position) < distance + id.lightSize) {
 				id.movement.ForceUpdate();
-			}
-		}
-	}
-
-	public void OnBecameVisible() {
-		if (disableWhenInvisible) {
-			if (this.enabled == false) {
-				this.enabled = true;
-			}
-		}	
-	}
-
-	public void OnBecameInvisible() {
-		if (disableWhenInvisible) {
-			if (this.enabled == true) {
-				this.enabled = false;
 			}
 		}
 	}
@@ -127,20 +95,7 @@ public class LightingCollider2D : MonoBehaviour {
 		movement.Reset();
 		movement.moved = true;
 
-		occlusionShape = null;
-
 		shape.ResetLocal();
-
-		spriteRenderer = GetComponent<SpriteRenderer>();
-		
-		if (spriteRenderer != null) {
-			shape.SetOriginalSprite(spriteRenderer.sprite);
-		}
-
-		meshRenderer = GetComponent<MeshRenderer>();
-		meshFilter = GetComponent<MeshFilter>();
-
-		skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
 	}
 
 	public bool DrawOrNot(LightingSource2D id) {
@@ -175,50 +130,13 @@ public class LightingCollider2D : MonoBehaviour {
 		return(false);
 	}
 
-	public void Update() {
-		movement.Update(this);
+	public void Update_Loop() {
+		movement.Update(shape);
 
 		if (movement.moved) {
 			shape.ResetWorld();
-			occlusionShape = null;
-			
-			float distance = shape.GetFrustumDistance(transform);
-		
-			foreach (LightingSource2D id in LightingSource2D.GetList()) {
-				bool draw = DrawOrNot(id);
 
-				if (draw == false) {
-					continue;
-				}
-				
-				if (Vector2.Distance (id.transform.position, transform.position) < distance + id.lightSize) {
-					id.movement.ForceUpdate();
-				}
-			}
-
-			dayLightingShadow = null;
+			UpdateNearbyLights();
 		}
-	}	
-	
-	public DayLightingShadowHeight GetDayLightingShadow(float sunDirection) {
-		DayLightingShadowShape dayLightingShadowShape = DayLightingShadowShape.RequestShape(shape.GetOriginalSprite());
-
-		if (dayLightingShadowShape == null) {
-			return(null);
-		}
-
-		dayLightingShadow = dayLightingShadowShape.RequestHeight((int)height);
-		dayLightingShadow.Update(sunDirection);
-		//dayLightingShadow.Update(sunDirection, height, this);
-
-		return(dayLightingShadow);
-	}
-
-	public LightingOcclussionShape GetOcclusionShape() {
-		if (occlusionShape == null) {
-			occlusionShape = new LightingOcclussionShape();
-			occlusionShape.Init(this);
-		}
-		return(occlusionShape);
 	}
 }

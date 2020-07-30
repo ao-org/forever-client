@@ -20,15 +20,23 @@ public class LightingRoom2D : MonoBehaviour {
 	public void OnDisable() {
 		list.Remove(this);
 	}
+	
+	public void Awake() {
+		Initialize();
+	}
 
 	public void Update() {
 		movement.Update(this);
 
 		if (movement.moved == true) {
-			shape.ResetLocal();
+			Initialize();
 		}
+	}
 
+	public void Initialize() {
 		shape.maskType = LightingCollider2D.MaskType.Collider;
+
+		shape.ResetLocal();
 	}
 
 	static public List<LightingRoom2D> GetList() {

@@ -25,35 +25,14 @@ public class LightingCollider2DEditor : Editor {
 		script.shape.maskType = (LightingCollider2D.MaskType)EditorGUILayout.EnumPopup("Mask Type", script.shape.maskType);
 
 		if (script.shape.maskType != LightingCollider2D.MaskType.None) {
-			script.maskMode = (LightingMaskMode)EditorGUILayout.EnumPopup("Mask Mode", script.maskMode);
 			script.lightingMaskLayer = (LightingLayer)EditorGUILayout.EnumPopup("Mask Layer", script.lightingMaskLayer);
+			script.maskMode = (LightingMaskMode)EditorGUILayout.EnumPopup("Mask Mode", script.maskMode);
 		} else {
 			EditorGUI.BeginDisabledGroup(true);
 			EditorGUILayout.EnumPopup("Mask Mode", script.maskMode);
 			EditorGUILayout.EnumPopup("Mask Layer", script.lightingMaskLayer);
 			EditorGUI.EndDisabledGroup();
 		}
-
-		script.dayHeight = EditorGUILayout.Toggle("Apply Day Shadow", script.dayHeight);
-		if (script.dayHeight)  {
-			script.height = EditorGUILayout.FloatField("Height", script.height);
-			if (script.height < 0) {
-				script.height = 0;
-			}
-		}
-
-		script.generateDayMask = EditorGUILayout.Toggle("Apply Day Mask", script.generateDayMask);
-
-		script.ambientOcclusion = EditorGUILayout.Toggle("Apply Ambient Occlusion", script.ambientOcclusion);
-		if (script.ambientOcclusion)  {
-			script.smoothOcclusionEdges = EditorGUILayout.Toggle("Smooth Edges", script.smoothOcclusionEdges);
-			script.occlusionSize = EditorGUILayout.FloatField("Occlussion Size", script.occlusionSize);
-			if (script.occlusionSize < 0) {
-				script.occlusionSize = 0;
-			}
-		}
-
-		script.disableWhenInvisible = EditorGUILayout.Toggle("Disable When Invisible", script.disableWhenInvisible);
 
 		if (GUILayout.Button("Update Collisions")) {
 			script.Initialize();
@@ -74,14 +53,6 @@ public class LightingCollider2DEditor : Editor {
 					copy.shape.maskType = script.shape.maskType;
 					copy.lightingMaskLayer = script.lightingMaskLayer;
 
-					copy.dayHeight = script.dayHeight;
-					copy.height = script.height;
-
-					copy.ambientOcclusion = script.ambientOcclusion;
-					copy.occlusionSize = script.occlusionSize;
-
-					copy.generateDayMask = script.generateDayMask;
-
 					copy.Initialize();
 				}
 
@@ -93,8 +64,5 @@ public class LightingCollider2DEditor : Editor {
             EditorUtility.SetDirty(target);
             EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
 		}
-		
-		//script.lighten = EditorGUILayout.Toggle("Lighten", script.lighten);
-		//script.darken = EditorGUILayout.Toggle("Darken", script.darken);
 	}
 }

@@ -5,40 +5,57 @@ using UnityEngine;
 public class LightingOcclussionShape {
     VirtualSpriteRenderer spriteRenderer = new VirtualSpriteRenderer();
     
-    public List<List<Pair2D>> pairs1 = new List<List<Pair2D>>();
-    public List<List<Pair2D>> pairs2 = new List<List<Pair2D>>();
-    public List<List<DoublePair2D>> pairs3 = new List<List<DoublePair2D>>();
+    public List<List<Pair2D>> polygonPoints = new List<List<Pair2D>>();
+    public List<List<Pair2D>> outlinePoints = new List<List<Pair2D>>();
+    public List<List<DoublePair2D>> polygonPairs = new List<List<DoublePair2D>>();
     
-
-    public void Init(LightingCollider2D id) {
-        spriteRenderer.sprite = id.shape.GetOriginalSprite();
-        if (id.spriteRenderer != null) {
-            spriteRenderer.flipX = id.spriteRenderer.flipX;
-            spriteRenderer.flipY = id.spriteRenderer.flipY;
+    public void Init(LightingColliderShape shape, float size, LightingOcclusion2D.ColliderType colliderType) {
+        spriteRenderer.sprite = shape.GetOriginalSprite();
+        if (shape.GetSpriteRenderer() != null) {
+            spriteRenderer.flipX = shape.GetSpriteRenderer().flipX;
+            spriteRenderer.flipY = shape.GetSpriteRenderer().flipY;
         } else {
             spriteRenderer.flipX = false;
             spriteRenderer.flipY = false;
         }
 
-        pairs1.Clear();
-        pairs2.Clear();
-        pairs3.Clear();
+        polygonPoints.Clear();
+       	outlinePoints.Clear();
+        polygonPairs.Clear();
 
-        List<Polygon2D> polygons = id.shape.GetPolygons_World_ColliderType(id.transform, spriteRenderer);
+       List<Polygon2D> polygons = null;
+
+	   switch(colliderType) {
+		   case LightingOcclusion2D.ColliderType.Collider:
+				polygons = shape.GetPolygons_World_ColliderType(shape.gameObject.transform, spriteRenderer);
+		   break;
+
+		   case LightingOcclusion2D.ColliderType.SpriteCustomPhysicsShape:
+		   		CustomPhysicsShape customShape = CustomPhysicsShapeManager.RequesCustomShape(shape.GetSpriteRenderer().sprite);
+
+				List<Polygon2D> polygons2 = customShape.Get();
+
+				polygons = new List<Polygon2D>();
+
+				foreach(Polygon2D p in polygons2) {
+					polygons.Add(p.ToWorldSpace(shape.gameObject.transform));
+				}
+
+		   break;
+	   }
+
+
+		
         if (polygons == null || polygons.Count < 1) {
             return;
         }
 
         foreach(Polygon2D polygon in polygons) {
             polygon.Normalize();
-
-            List<Pair2D> iterate1 = Pair2D.GetList(polygon.pointsList);
-            List<Pair2D> iterate2 = Pair2D.GetList(PreparePolygon(polygon, id.occlusionSize).pointsList);
-            List<DoublePair2D> iterate3 = DoublePair2D.GetList(polygon.pointsList);
             
-            pairs1.Add(iterate1);
-            pairs2.Add(iterate2);
-            pairs3.Add(iterate3);
+            polygonPoints.Add(Pair2D.GetList(polygon.pointsList));
+            outlinePoints.Add(Pair2D.GetList(PreparePolygon(polygon, size).pointsList));
+            polygonPairs.Add(DoublePair2D.GetList(polygon.pointsList));
         }
     }
 

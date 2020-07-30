@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
-[CustomEditor(typeof(Lighting2DSettings))]
+[CustomEditor(typeof(LightingSettings2D))]
 public class LightingSettings2DEditor : Editor {
 	override public void OnInspectorGUI() {
-		Lighting2DSettings script = target as Lighting2DSettings;
+		LightingSettings2D script = target as LightingSettings2D;
 
 		Lighting2DSettingsProfile profile = script.GetProfile();
 

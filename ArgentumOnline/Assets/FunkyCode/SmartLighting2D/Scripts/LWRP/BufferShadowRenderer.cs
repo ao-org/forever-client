@@ -63,7 +63,7 @@ public class BufferShadowRenderer : MonoBehaviour {
         MeshFilter filter = GetMeshFilter();
         MeshRenderer renderer = GetMeshRenderer();
 
-        renderer.sharedMaterial = LightingManager2D.Get().materials.GetAtlasMaterial();
+        renderer.sharedMaterial = Lighting2D.materials.GetAtlasMaterial();
         filter.sharedMesh = mesh;
 
         verticesList.Clear();

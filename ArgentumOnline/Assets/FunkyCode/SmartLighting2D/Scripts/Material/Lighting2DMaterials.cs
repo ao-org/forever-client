@@ -4,7 +4,7 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 [System.Serializable]
-public class LightingManager2DMaterials {
+public class Lighting2DMaterials {
 	private Sprite penumbraSprite;
 	private Sprite atlasPenumbraSprite;
 
@@ -19,11 +19,15 @@ public class LightingManager2DMaterials {
 	private LightingMaterial shadowBlur = null;
 	private LightingMaterial additive = null;
 	private LightingMaterial multiply = null;
+	private LightingMaterial alphablend = null;
 
 	private LightingMaterial whiteSprite = null;
 	private LightingMaterial blackSprite = null;
 
 	private LightingMaterial atlasMaterial = null;
+
+	public bool hdr = false;
+	private bool initialized = false;
 
 	public Sprite GetPenumbraSprite() {
 		if (penumbraSprite == null) {
@@ -67,7 +71,19 @@ public class LightingManager2DMaterials {
 		return(atlasBlackMaskSprite);
 	}
 
-	public void Initialize() {
+	public bool Initialize(bool allowHDR) {
+		if (initialized == true) {
+			if (allowHDR == hdr) {
+				return(false);
+			}
+		}
+
+		hdr = allowHDR;
+
+		Reset();
+
+		initialized = true;
+
 		GetPenumbraSprite();
 		GetAtlasPenumbraSprite();
 
@@ -77,7 +93,6 @@ public class LightingManager2DMaterials {
 		GetAtlasWhiteMaskSprite();
 		GetAtlasBlackMaskSprite();
 
-
 		GetAdditive();
 		GetOcclusionBlur();
 		GetOcclusionEdge();
@@ -85,6 +100,33 @@ public class LightingManager2DMaterials {
 		GetWhiteSprite();
 		GetBlackSprite();
 		GetAtlasMaterial();
+
+		return(true);
+	}
+
+	public void Reset() {
+		initialized = false; // is it the best way?
+	
+		penumbraSprite = null;
+		atlasPenumbraSprite = null;
+
+		whiteMaskSprite = null;
+		atlasWhiteMaskSprite = null;
+
+		blackMaskSprite = null;
+		atlasBlackMaskSprite = null;
+
+		occlusionEdge = null;
+		occlusionBlur = null;
+		shadowBlur = null;
+		additive = null;
+		multiply = null;
+		alphablend = null;
+
+		whiteSprite = null;
+		blackSprite = null;
+
+		atlasMaterial = null;
 	}
 
 	public Material GetAtlasMaterial() {
@@ -106,14 +148,32 @@ public class LightingManager2DMaterials {
 
 	public Material GetMultiply() {
 		if (multiply == null || multiply.Get() == null) {
-			multiply = LightingMaterial.Load(Max2D.shaderPath + "Particles/Multiply");
+			if (hdr == true) {
+				multiply = LightingMaterial.Load("SmartLighting2D/Multiply HDR");
+			} else {
+				multiply = LightingMaterial.Load(Max2D.shaderPath + "Particles/Multiply");
+			}
 		}
 		return(multiply.Get());
 	}
 
+	public Material GetAlphaBlend() {
+		if (alphablend == null || alphablend.Get() == null) {
+			alphablend = LightingMaterial.Load(Max2D.shaderPath + "Particles/Alpha Blended");
+
+			occlusionEdge.SetTexture("textures/white");
+		}
+		return(alphablend.Get());
+	}
+
 	public Material GetOcclusionEdge() {
 		if (occlusionEdge == null || occlusionEdge.Get() == null) {
-			occlusionEdge = LightingMaterial.Load(Max2D.shaderPath + "Particles/Multiply");
+			if (hdr == true) {
+				occlusionEdge = LightingMaterial.Load("SmartLighting2D/Multiply HDR");
+			} else {
+				occlusionEdge = LightingMaterial.Load(Max2D.shaderPath + "Particles/Multiply");
+			}
+			
 			occlusionEdge.SetTexture("textures/occlusionedge");
 		}
 		return(occlusionEdge.Get());
@@ -121,7 +181,12 @@ public class LightingManager2DMaterials {
 
 	public Material GetShadowBlur() {
 		if (shadowBlur == null || shadowBlur.Get() == null) {
-			shadowBlur = LightingMaterial.Load(Max2D.shaderPath + "Particles/Multiply");
+			if (hdr == true) {
+				shadowBlur = LightingMaterial.Load("SmartLighting2D/Multiply HDR");
+			} else {
+				shadowBlur = LightingMaterial.Load(Max2D.shaderPath + "Particles/Multiply");
+			}
+			
 			shadowBlur.SetTexture("textures/shadowblur");
 		}
 		return(shadowBlur.Get());
@@ -129,7 +194,12 @@ public class LightingManager2DMaterials {
 
 	public Material GetOcclusionBlur() {
 		if (occlusionBlur == null || occlusionBlur.Get() == null) {
-			occlusionBlur = LightingMaterial.Load(Max2D.shaderPath + "Particles/Multiply");
+			if (hdr == true) {
+				occlusionBlur = LightingMaterial.Load("SmartLighting2D/Multiply HDR");
+			} else {
+				occlusionBlur = LightingMaterial.Load(Max2D.shaderPath + "Particles/Multiply");
+			}
+			
 			occlusionBlur.SetTexture("textures/occlussionblur");
 		}
 		return(occlusionBlur.Get());

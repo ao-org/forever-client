@@ -45,7 +45,7 @@ public class LightingMaterial {
         if (material == null) {
             Shader shader = Shader.Find (path);
             if (shader != null) {
-                Debug.Log("Smart Lighting: Reloading Material '" + path + "'");
+               // Debug.Log("Smart Lighting: Reloading Material '" + path + "'");
 
                 material = new Material (shader);
 

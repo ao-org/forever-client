@@ -19,10 +19,11 @@ public class LightingColliderMovement {
 		movedScale = Vector3.zero;
 	}
 
-	public void Update(LightingCollider2D collider) {
-		Vector2 position = collider.transform.position;
-		Vector2 scale = collider.transform.lossyScale;
-		float rotation = collider.transform.rotation.eulerAngles.z;
+	public void Update(LightingColliderShape shape) {
+		Vector2 position = shape.gameObject.transform.position;
+		Vector2 scale = shape.gameObject.transform.lossyScale;
+		float rotation = shape.gameObject.transform.rotation.eulerAngles.z;
+		SpriteRenderer spriteRenderer = shape.GetSpriteRenderer();
 
 		moved = false;
 
@@ -41,32 +42,32 @@ public class LightingColliderMovement {
 			moved = true;
 		}
 
-		if (collider.shape.maskType == LightingCollider2D.MaskType.SpriteCustomPhysicsShape || collider.shape.colliderType == LightingCollider2D.ColliderType.SpriteCustomPhysicsShape) {
-			if (collider.spriteRenderer != null) {
-				if (collider.spriteRenderer.flipX != flipX || collider.spriteRenderer.flipY != flipY) {
-					flipX = collider.spriteRenderer.flipX;
-					flipY = collider.spriteRenderer.flipY;
+		if (shape.maskType == LightingCollider2D.MaskType.SpriteCustomPhysicsShape || shape.colliderType == LightingCollider2D.ColliderType.SpriteCustomPhysicsShape) {
+			if (spriteRenderer != null) {
+				if (spriteRenderer.flipX != flipX || spriteRenderer.flipY != flipY) {
+					flipX = spriteRenderer.flipX;
+					flipY = spriteRenderer.flipY;
 
 					moved = true;
 					
-					collider.shape.ResetWorld();
+					shape.ResetWorld();
 				}
 				
-				if (collider.shape.GetOriginalSprite() != collider.spriteRenderer.sprite) {
-					collider.shape.SetOriginalSprite(collider.spriteRenderer.sprite);
-					collider.shape.SetAtlasSprite(null); // Only For Sprite Mask?
+				if (shape.GetOriginalSprite() != spriteRenderer.sprite) {
+					shape.SetOriginalSprite(spriteRenderer.sprite);
+					shape.SetAtlasSprite(null); // Only For Sprite Mask?
 
 					moved = true;
 					
-					collider.shape.ResetLocal();
+					shape.ResetLocal();
 				}
 			}
 		}
 
-		if (collider.shape.maskType == LightingCollider2D.MaskType.Sprite) {
-			if (collider.spriteRenderer != null && collider.shape.GetOriginalSprite() != collider.spriteRenderer.sprite) {
-				collider.shape.SetOriginalSprite(collider.spriteRenderer.sprite);
-				collider.shape.SetAtlasSprite(null);
+		if (shape.maskType == LightingCollider2D.MaskType.Sprite) {
+			if (spriteRenderer != null && shape.GetOriginalSprite() != spriteRenderer.sprite) {
+				shape.SetOriginalSprite(spriteRenderer.sprite);
+				shape.SetAtlasSprite(null);
 
 				moved = true;
 			}

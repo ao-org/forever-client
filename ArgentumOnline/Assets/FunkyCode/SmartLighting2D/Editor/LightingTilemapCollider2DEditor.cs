@@ -9,12 +9,19 @@ using UnityEngine.SceneManagement;
 
 [CustomEditor(typeof(LightingTilemapCollider2D))]
 public class LightingTilemapCollider2DEditor : Editor {
+	public bool dayLighting = false;
+
 	override public void OnInspectorGUI() {
 		LightingTilemapCollider2D script = target as LightingTilemapCollider2D;
 
 		script.mapType = (LightingTilemapCollider2D.MapType)EditorGUILayout.EnumPopup("Tilemap Type", script.mapType);
 
-		if (script.mapType == LightingTilemapCollider2D.MapType.SuperTilemapEditor) {
+		bool STE_Extension = false;
+		#if (SuperTilemapEditor)
+			STE_Extension = script.mapType == LightingTilemapCollider2D.MapType.SuperTilemapEditor;
+		#endif
+
+		if (STE_Extension) {
 			LightingTilemapCollider2D.ColliderTypeSTE steCollider = (LightingTilemapCollider2D.ColliderTypeSTE)(int)script.colliderType;
 			if (((LightingTilemapCollider2D.ColliderTypeSTE)(int)script.colliderType).ToString().Length < 2) {
 				steCollider = LightingTilemapCollider2D.ColliderTypeSTE.None;
@@ -29,7 +36,7 @@ public class LightingTilemapCollider2DEditor : Editor {
 		script.lightingCollisionLayer = (LightingLayer)EditorGUILayout.EnumPopup("Collision Layer", script.lightingCollisionLayer);
 		
 		
-		if (script.mapType == LightingTilemapCollider2D.MapType.SuperTilemapEditor) {
+		if (STE_Extension) {
 			LightingTilemapCollider2D.MaskTypeSTE steMask = (LightingTilemapCollider2D.MaskTypeSTE)(((int)script.maskType));
 			if (((LightingTilemapCollider2D.MaskTypeSTE)(int)script.maskType).ToString().Length < 2) {
 				steMask = LightingTilemapCollider2D.MaskTypeSTE.None;
@@ -39,9 +46,6 @@ public class LightingTilemapCollider2DEditor : Editor {
 		} else {
 			script.maskType = (LightingTilemapCollider2D.MaskType)EditorGUILayout.EnumPopup("Mask Type", script.maskType);
 		}
-		
-		
-
 
 		if (script.maskType != LightingTilemapCollider2D.MaskType.None) {
 			script.lightingMaskLayer = (LightingLayer)EditorGUILayout.EnumPopup("Mask Layer", script.lightingMaskLayer);
@@ -53,9 +57,8 @@ public class LightingTilemapCollider2DEditor : Editor {
 			EditorGUI.EndDisabledGroup();
 		}
 
-		script.dayHeight = EditorGUILayout.Toggle("Day Height", script.dayHeight);
-		if (script.dayHeight)  {
-			script.height = EditorGUILayout.FloatField("Height", script.height);
+		if (STE_Extension == false) {
+			script.onlyColliders = EditorGUILayout.Toggle("Affect only Colliders", script.onlyColliders);
 		}
 		
 		//script.ambientOcclusion = EditorGUILayout.Toggle("Ambient Occlusion", script.ambientOcclusion);

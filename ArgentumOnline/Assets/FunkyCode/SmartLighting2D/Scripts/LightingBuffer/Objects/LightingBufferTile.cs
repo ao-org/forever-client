@@ -63,9 +63,9 @@ public class LightingBufferTile : LightingBufferBase{
 				}
 			}
 
-			spriteRenderer.sprite = sprite;
+			virtualSpriteRenderer.sprite = sprite;
 
-			LightingGraphics.WithAtlas.DrawSprite(spriteRenderer, layerSetting, id.maskMode, offset.ToVector2(), scale, id.transform.rotation.eulerAngles.z, z);
+			LightingGraphics.WithAtlas.DrawSprite(virtualSpriteRenderer, layerSetting, id.maskMode, offset.ToVector2(), scale, id.transform.rotation.eulerAngles.z, z);
 
 			LightingDebug.maskGenerations ++;		
 		}
@@ -73,9 +73,9 @@ public class LightingBufferTile : LightingBufferBase{
 
 	public class WithoutAtlas {
 		static public void MaskSprite(LightingBuffer2D buffer, LightingTile tile, LightingLayerEffect maskEffect, Material materialA, Material materialB, Vector2D polyOffset, LightingTilemapCollider2D tilemap, float lightSizeSquared, float z) {
-			spriteRenderer.sprite = tile.GetOriginalSprite();
+			virtualSpriteRenderer.sprite = tile.GetOriginalSprite();
 
-			if (spriteRenderer.sprite == null) {
+			if (virtualSpriteRenderer.sprite == null) {
 				return;
 			}
 
@@ -87,9 +87,9 @@ public class LightingBufferTile : LightingBufferBase{
 				material = materialB;
 			}
 
-			material.mainTexture = spriteRenderer.sprite.texture;
+			material.mainTexture = virtualSpriteRenderer.sprite.texture;
 
-			LightingGraphics.WithoutAtlas.DrawSprite(material, spriteRenderer, polyOffset.ToVector2(), scale, 0, z);
+			LightingGraphics.WithoutAtlas.DrawSprite(material, virtualSpriteRenderer, polyOffset.ToVector2(), scale, 0, z);
 			
 			material.mainTexture = null;
 

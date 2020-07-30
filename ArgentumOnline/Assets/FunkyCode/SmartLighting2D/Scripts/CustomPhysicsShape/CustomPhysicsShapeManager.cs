@@ -4,12 +4,12 @@ using UnityEngine;
 
 [System.Serializable]
 public class CustomPhysicsShapeManager {
-	static public Dictionary<Sprite, CustomPhysicsShape> dictionary_CustomShape = new Dictionary<Sprite, CustomPhysicsShape>();
+	static public Dictionary<Sprite, CustomPhysicsShape> dictionary_CustomPhysicsShape = new Dictionary<Sprite, CustomPhysicsShape>();
 
 	static public CustomPhysicsShape RequesCustomShape(Sprite originalSprite) {
 		CustomPhysicsShape shape = null;
 
-		bool exist = dictionary_CustomShape.TryGetValue(originalSprite, out shape);
+		bool exist = dictionary_CustomPhysicsShape.TryGetValue(originalSprite, out shape);
 
 		if (exist) {
 			if (shape == null || shape.GetSprite().texture == null) {
@@ -25,21 +25,21 @@ public class CustomPhysicsShapeManager {
     static public CustomPhysicsShape RequestCustomShapeAccess(Sprite originalSprite) {
 		CustomPhysicsShape shape = null;
 
-		bool exist = dictionary_CustomShape.TryGetValue(originalSprite, out shape);
+		bool exist = dictionary_CustomPhysicsShape.TryGetValue(originalSprite, out shape);
 
 		if (exist) {
 			if (shape == null || shape.GetSprite().texture == null) {
-				dictionary_CustomShape.Remove(originalSprite);
+				dictionary_CustomPhysicsShape.Remove(originalSprite);
 
 				shape = AddShape(originalSprite);
 
-				dictionary_CustomShape.Add(originalSprite, shape);
+				dictionary_CustomPhysicsShape.Add(originalSprite, shape);
 			} 
 			return(shape);
 		} else {		
 			shape = AddShape(originalSprite);
 
-			dictionary_CustomShape.Add(originalSprite, shape);
+			dictionary_CustomPhysicsShape.Add(originalSprite, shape);
 
 			return(shape);
 		}

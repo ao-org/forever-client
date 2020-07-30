@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode] 
-public class Lighting2DSettings : MonoBehaviour {
+public class LightingSettings2D : MonoBehaviour {
     public bool initializeCopy = false;
 
     public Lighting2DSettingsProfile setProfile;
     public Lighting2DSettingsProfile profile;
 
-    static Lighting2DSettings instance;
+    static LightingSettings2D instance;
 
     public void SetProfile(Lighting2DSettingsProfile profile) {
         setProfile = profile;
@@ -51,19 +51,19 @@ public class Lighting2DSettings : MonoBehaviour {
         }
     }
 
-    static public Lighting2DSettings Get() {
+    static public LightingSettings2D Get() {
 		if (instance != null) {
 			return(instance);
 		}
 
-		foreach(Lighting2DSettings manager in Object.FindObjectsOfType(typeof(Lighting2DSettings))) {
+		foreach(LightingSettings2D manager in Object.FindObjectsOfType(typeof(LightingSettings2D))) {
 			instance = manager;
 			return(instance);
 		}
 
 		GameObject gameObject = LightingManager2D.Get().gameObject;
 
-		instance = gameObject.AddComponent<Lighting2DSettings>();
+		instance = gameObject.AddComponent<LightingSettings2D>();
 		return(instance);
 	}
 }

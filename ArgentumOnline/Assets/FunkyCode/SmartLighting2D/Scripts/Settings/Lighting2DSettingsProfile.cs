@@ -24,4 +24,7 @@ public class Lighting2DSettingsProfile : ScriptableObject {
 
 	// Utilities
 	public PolygonTriangulator2D.Triangulation triangulation = PolygonTriangulator2D.Triangulation.Advanced;
+
+	// Disable
+	public bool disable = false;
 }

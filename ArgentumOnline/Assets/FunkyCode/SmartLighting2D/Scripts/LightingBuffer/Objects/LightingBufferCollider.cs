@@ -10,23 +10,25 @@ public class LightingBufferCollider : LightingBufferBase {
 				return;
 			}
 
-			spriteRenderer.sprite = id.shape.GetOriginalSprite();
+			SpriteRenderer spriteRenderer = id.shape.GetSpriteRenderer();
 
-			if (id.spriteRenderer != null) {
-				spriteRenderer.flipX = id.spriteRenderer.flipX;
-				spriteRenderer.flipY = id.spriteRenderer.flipY;
+			virtualSpriteRenderer.sprite = id.shape.GetOriginalSprite();
+			
+			if (spriteRenderer != null) {
+				virtualSpriteRenderer.flipX = spriteRenderer.flipX;
+				virtualSpriteRenderer.flipY = spriteRenderer.flipY;
 			} else {
-				spriteRenderer.flipX = false;
-				spriteRenderer.flipY = false;
+				virtualSpriteRenderer.flipX = false;
+				virtualSpriteRenderer.flipY = false;
 			}
 			
-			polygons = id.shape.GetPolygons_World_ColliderType(id.transform, spriteRenderer);
+			polygons = id.shape.GetPolygons_World_ColliderType(id.transform, virtualSpriteRenderer);
 			
 			if (polygons.Count < 1) {
 				return;
 			}
 
-			polygonPairs = id.shape.GetPolygons_Pair_World_ColliderType(id.transform, spriteRenderer);
+			polygonPairs = id.shape.GetPolygons_Pair_World_ColliderType(id.transform, virtualSpriteRenderer);
 
 			scale.x = 1;
 			scale.y = 1;
@@ -43,23 +45,24 @@ public class LightingBufferCollider : LightingBufferBase {
 			return;
 		}
 
-		spriteRenderer.sprite = id.shape.GetOriginalSprite();
+		virtualSpriteRenderer.sprite = id.shape.GetOriginalSprite();
+		SpriteRenderer spriteRenderer = id.shape.GetSpriteRenderer();
 
-		if (id.spriteRenderer != null) {
-			spriteRenderer.flipX = id.spriteRenderer.flipX;
-			spriteRenderer.flipY = id.spriteRenderer.flipY;
+		if (spriteRenderer != null) {
+			virtualSpriteRenderer.flipX = spriteRenderer.flipX;
+			virtualSpriteRenderer.flipY = spriteRenderer.flipY;
 		} else {
-			spriteRenderer.flipX = false;
-			spriteRenderer.flipY = false;
+			virtualSpriteRenderer.flipX = false;
+			virtualSpriteRenderer.flipY = false;
 		}
 		
-		polygons = id.shape.GetPolygons_World_ColliderType(id.transform, spriteRenderer);
+		polygons = id.shape.GetPolygons_World_ColliderType(id.transform, virtualSpriteRenderer);
 		
 		if (polygons.Count < 1) {
 			return;
 		}
 
-		polygonPairs = id.shape.GetPolygons_Pair_World_ColliderType(id.transform, spriteRenderer);
+		polygonPairs = id.shape.GetPolygons_Pair_World_ColliderType(id.transform, virtualSpriteRenderer);
 
 		scale.x = 1;
 		scale.y = 1;
