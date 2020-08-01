@@ -184,6 +184,7 @@ public class PlayerMovement : Movement
                 isDead = true;
             }
         }
+
         if (isDead && !IsPhantom)
         {
             if (!IsAnimationLastFrame())
@@ -208,50 +209,24 @@ public class PlayerMovement : Movement
         }
 
         if (IsAnimationPlaying("Attack"))
-        {
             return;
-        }
+
         if (Input.GetKeyDown(KeyCode.M))
         {
-            if (!IsPhantom)
-            {
-                PlayAnimation("Dead");
-                healthSlider.value = 0;
-                isDead = true;
-                return;
-            }
-
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            PlayAnimation("Attack");
-            OnAttack();
+            Dead();
             return;
         }
+   
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Attack();
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.L))
         {
-            if (IsPhantom)
-            {
-                if (mAnimatorController != null) { UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name); }
-                else
-                    UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
-
-                mAnimator.runtimeAnimatorController = mAnimatorController;
-
-                PlayAnimation("Stand");
-                isDead = false;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-                health = life;
-                IsPhantom = false;
-                healthSlider.gameObject.SetActive(true);
-                manaSlider.gameObject.SetActive(true);
-                textToHead.gameObject.SetActive(true);
-                textName.transform.localScale = new Vector3(1.6f, 1.6f, 1);
-                this.transform.localScale =scaleHuman;
-                healthSlider.value = life;
-                return;
-            }
+            Live();
+            return;
         }
 
         bool RightArrowPressed = Input.GetKey(KeyCode.RightArrow);
@@ -366,6 +341,49 @@ public class PlayerMovement : Movement
         }
 
 
+    }
+
+    public void Attack()
+    {
+        PlayAnimation("Attack");
+        OnAttack();
+    }
+
+    public void Dead()
+    {
+        if (!IsPhantom)
+        {
+            PlayAnimation("Dead");
+            healthSlider.value = 0;
+            isDead = true;
+            return;
+        }
+    }
+
+    public void Live()
+    {
+        if (IsPhantom)
+        {
+            if (mAnimatorController != null) { UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name); }
+            else
+                UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
+
+            mAnimator.runtimeAnimatorController = mAnimatorController;
+
+            PlayAnimation("Stand");
+            isDead = false;
+            running = false;
+            WalkRunSpeed = WalkSpeed;
+            health = life;
+            IsPhantom = false;
+            healthSlider.gameObject.SetActive(true);
+            manaSlider.gameObject.SetActive(true);
+            textToHead.gameObject.SetActive(true);
+            textName.transform.localScale = new Vector3(1.6f, 1.6f, 1);
+            this.transform.localScale = scaleHuman;
+            healthSlider.value = life;
+            return;
+        }
     }
 
     private bool IsAnimationPlaying(string anim)
