@@ -39,7 +39,8 @@ public class PlayerMovement : Movement
     private WorldClient mWorldClient;
     private SpriteRenderer spriteRenderer;
     private GameObject mCollidingChar;
-
+    private Vector2 mMovement;
+    private string mAnimation = "";
 
     public void Awake()
     {
@@ -217,7 +218,7 @@ public class PlayerMovement : Movement
             return;
         }
    
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             Attack();
             return;
@@ -229,118 +230,48 @@ public class PlayerMovement : Movement
             return;
         }
 
-        bool RightArrowPressed = Input.GetKey(KeyCode.RightArrow);
-        bool LeftArrowPressed = Input.GetKey(KeyCode.LeftArrow);
-        bool UpArrowPressed = Input.GetKey(KeyCode.UpArrow);
-        bool DownArrowPressed = Input.GetKey(KeyCode.DownArrow);
-        bool Moving = RightArrowPressed || LeftArrowPressed || UpArrowPressed || DownArrowPressed;
-
-
-
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (running)
-            {
                 running = false;
+            else
+                running = true;
+        }
+        //Get vector movement from input configured in physic2d (A-W-S-D keys, Up-Right-Down-Left keys, Joystick)
+        mMovement.x = Input.GetAxisRaw("Horizontal");
+        mMovement.y = Input.GetAxisRaw("Vertical");
+
+        mAnimation = "Stand";
+        if (mMovement.x != 0f || mMovement.y != 0f)
+        {
+            if (!running)
+            {
                 WalkRunSpeed = WalkSpeed;
+                mAnimation = "Walk";
             }
             else
             {
-                running = true;
                 WalkRunSpeed = WalkSpeed * runDelta;
+                mAnimation = "Run";
             }
         }
+        //if diagonal movement decrease velocity
+        if (mMovement.x != 0f && mMovement.y != 0f) mMovement *= walkDiagDelta;
+        //update direction
+        if (mMovement.x == 0f && mMovement.y > 0f) dir = Direction.North;
+        if (mMovement.x > 0f && mMovement.y > 0f) dir = Direction.NorthEast;
+        if (mMovement.x > 0f && mMovement.y == 0f) dir = Direction.East;
+        if (mMovement.x > 0f && mMovement.y < 0f) dir = Direction.SouthEast;
+        if (mMovement.x == 0f && mMovement.y < 0f) dir = Direction.South;
+        if (mMovement.x < 0f && mMovement.y < 0f) dir = Direction.SouthWest;
+        if (mMovement.x < 0f && mMovement.y == 0f) dir = Direction.West;
+        if (mMovement.x < 0f && mMovement.y > 0f) dir = Direction.NorthWest;
 
-        // NorthEast
-        if (RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.NorthEast;
-            if (running)
-                mAnimator.Play("RunNoreste");
-            else
-                mAnimator.Play("WalkNoreste");
-            Vector3 newpos = transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta;
-            TryToMove(newpos);
-        }
-        else // North
-      if (!RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.North;
-            if (running)
-                mAnimator.Play("RunNorte");
-            else
-                mAnimator.Play("WalkNorte");
-            TryToMove(transform.position + Vector3.up * WalkRunSpeed * Time.deltaTime);
-        }
-        else // South
-      if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.South;
-            if (running)
-                mAnimator.Play("RunSur");
-            else
-                mAnimator.Play("WalkSur");
-            Vector3 newpos = transform.position + Vector3.down * WalkRunSpeed * Time.deltaTime;
-            TryToMove(newpos);
-        }
-        else // SouthEast
-      if (RightArrowPressed && DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.SouthEast;
-            if (running)
-                mAnimator.Play("RunSureste");
-            else
-                mAnimator.Play("WalkSureste");
-            TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-        }
-        else
-      if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.East;
-            if (running)
-                mAnimator.Play("RunEste");
-            else
-                mAnimator.Play("WalkEste");
-            TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime);
-        }
-        else
-      if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
-        {
-            dir = Direction.West;
-            if (running)
-                mAnimator.Play("RunOeste");
-            else
-                mAnimator.Play("WalkOeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime);
-        }
-        else
-      if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
-        {
-            dir = Direction.NorthWest;
-            if (running)
-                mAnimator.Play("RunNoroeste");
-            else
-                mAnimator.Play("WalkNoroeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-        }
-        else
-      if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed)
-        {
-            dir = Direction.SouthWest;
-            if (running)
-                mAnimator.Play("RunSuroeste");
-            else
-                mAnimator.Play("WalkSuroeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-        }
+        //Play animation (Stand, Walk or Run)
+        PlayAnimation(mAnimation);
 
-        if (!Moving)
-        {
-            PlayAnimation("Stand");
-        }
-
-
+        //if vector movement is not zero, try to move
+        if (mMovement.x != 0f || mMovement.y != 0f) TryToMove(mBody.position + mMovement * WalkRunSpeed * Time.fixedDeltaTime);
     }
 
     public void Attack()
