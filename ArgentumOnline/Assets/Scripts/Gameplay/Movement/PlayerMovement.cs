@@ -54,13 +54,15 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(textName != null, "Cannot find Text Name in Player");
         mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
+        spriteRenderer = GetComponent<SpriteRenderer>();
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
         dir = Direction.South;
     }
     void LateUpdate()
     {
-        
+        if (spriteRenderer.isVisible)
+            spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
     }
     // Start is called before the first frame update
     public override void Start()
