@@ -42,21 +42,7 @@ public class PlayerMovement : Movement
 
 
     public void Awake()
-    {/*
-        if (WarpingDestination.warping){
-            UnityEngine.Debug.Log("Warp X:" + WarpingDestination.teleport_x + " Y:" + WarpingDestination.teleport_y);
-            Vector3 newpos = transform.position;
-            newpos.x = WarpingDestination.teleport_x;
-            newpos.y = WarpingDestination.teleport_y;
-            this.transform.position = newpos;
-            WarpingDestination.warping = false;
-            this.dir = WarpingDestination.direction;
-        }
-        else {
-            dir = Direction.South;
-            gameObject.GetComponent<Animator>().Play("StandSur");
-        }
-*/
+    {
         health = life;
         healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
         UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
@@ -70,16 +56,11 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
-        //spriteRenderer = GetComponent<SpriteRenderer>();
-        //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
-        //mAnimatorController = mAnimator.runtimeAnimatorController;
         dir = Direction.South;
     }
     void LateUpdate()
     {
-
-        //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
-        //spriteRenderer.sortingOrder = (int)transform.position.y * -1;
+        
     }
     // Start is called before the first frame update
     public override void Start()
@@ -90,8 +71,6 @@ public class PlayerMovement : Movement
         mBody.velocity = Vector3.zero;
         mBody.angularVelocity = 0;
         mBody.gravityScale = 0f;
-        //mBody.isKinematic = true;
-        //mBody.useFullKinematicContacts =true;
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
@@ -191,26 +170,6 @@ public class PlayerMovement : Movement
         mBody.velocity = Vector2.zero;
         mBody.angularVelocity = 0f;
 
-/*
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-
-            GameObject barco = GameObject.FindGameObjectsWithTag("Barco")[0];
-            UnityEngine.Debug.Assert(barco != null);
-            BarcoMovement barcoScript = barco.GetComponent<BarcoMovement>();
-            UnityEngine.Debug.Assert(barcoScript != null);
-            barcoScript.isActive = true;
-            //GameObject barcoCamera = barco.GetComponent<MainCamera>();
-            GameObject mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
-            Vector3 cameraPos = new Vector3(barco.transform.position.x, barco.transform.position.y, -1);
-            mainCamera.transform.position = cameraPos;
-            mainCamera.transform.SetParent(barco.transform);
-            GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-            barcoScript.player = player;
-            player.SetActive(false);
-            return;
-        }
-        */
         if (takeDamage && !IsPhantom)
         {
             UnityEngine.Debug.Log("Damage: " + damageValue);
@@ -272,7 +231,6 @@ public class PlayerMovement : Movement
             if (IsPhantom)
             {
                 if (mAnimatorController != null) { UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name); }
-                //UnityEngine.Debug.Log("Player Update: " + mPhantomAnimatorController.name);
                 else
                     UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
 
