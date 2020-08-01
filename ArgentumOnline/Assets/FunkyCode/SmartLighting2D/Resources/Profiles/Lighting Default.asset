@@ -15,13 +15,13 @@ MonoBehaviour:
   renderingPipeline: 0
   renderingMode: 2
   sortingLayer:
-    Name: Decorados
+    Name: IluminacionDin
     ID: 0
     Order: 0
   commonSettings:
-    darknessColor: {r: 1, g: 1, b: 1, a: 0}
+    darknessColor: {r: 0, g: 0, b: 0, a: 0}
     coreAxis: 0
-    lightingResolution: 1
+    lightingResolution: 0.308
     hdr: 0
     drawRooms: 1
     drawOcclusion: 1
@@ -32,10 +32,10 @@ MonoBehaviour:
     darknessBuffer: 1
   dayLightingSettings:
     drawDayShadows: 1
-    sunDirection: 1459.81
-    shadowDarkness: 0.7
-    sunPenumbra: 0.08
-    layerCount: 3
+    sunDirection: 45
+    shadowDarkness: 0.65
+    sunPenumbra: 0.5
+    layerCount: 1
   atlasSettings:
     lightingSpriteAtlas: 1
     spriteAtlasScale: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   lightingSourceSettings:
     fixedLightBufferSize: 1
     fixedLightTextureSize: 0
-    lightingBufferPreload: 0
-    lightingBufferPreloadCount: 1
+    lightingBufferPreload: 1
+    lightingBufferPreloadCount: 3
   triangulation: 0
   disable: 0
