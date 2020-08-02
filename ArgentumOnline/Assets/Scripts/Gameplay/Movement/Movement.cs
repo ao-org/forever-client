@@ -26,6 +26,64 @@ public class Movement : MonoBehaviour
         NorthWest = 6,
         NorthEast = 7
     }
+    public enum Action
+    {
+         Walk = 0,
+         Run = 1,
+         Attack = 2
+    }
+
+    protected Tuple<Action,Direction> mCurrentAction;
+
+    protected  static Dictionary< string,Tuple<Action,Direction>> AnimNameToAction =
+            new Dictionary<string,Tuple<Action,Direction>>
+    {
+                { "RunSur", new Tuple<Action,Direction>(Action.Run,Direction.South) },
+                { "RunNorte", new Tuple<Action,Direction>(Action.Run,Direction.North) },
+                { "RunEste", new Tuple<Action,Direction>(Action.Run,Direction.East) },
+                { "RunOeste", new Tuple<Action,Direction>(Action.Run,Direction.West) },
+
+                { "RunNoreste", new Tuple<Action,Direction>(Action.Run,Direction.NorthEast) },
+                { "RunNoroeste" ,new Tuple<Action,Direction>(Action.Run,Direction.NorthWest) },
+                { "RunSureste",new Tuple<Action,Direction>(Action.Run,Direction.SouthEast) },
+                { "RunSuroeste" , new Tuple<Action,Direction>(Action.Run,Direction.SouthWest)},
+
+                { "WalkSur", new Tuple<Action,Direction>(Action.Walk,Direction.South) },
+                { "WalkNorte", new Tuple<Action,Direction>(Action.Walk,Direction.North) },
+                { "WalkEste", new Tuple<Action,Direction>(Action.Walk,Direction.East) },
+                { "WalkOeste", new Tuple<Action,Direction>(Action.Walk,Direction.West) },
+
+                { "WalkNoreste", new Tuple<Action,Direction>(Action.Walk,Direction.NorthEast) },
+                { "WalkNoroeste", new Tuple<Action,Direction>(Action.Walk,Direction.NorthWest) },
+                { "WalkSureste", new Tuple<Action,Direction>(Action.Walk,Direction.SouthEast) },
+                { "WalkSuroeste", new Tuple<Action,Direction>(Action.Walk,Direction.SouthWest) },
+
+    };
+
+    protected static Dictionary<Tuple<Action,Direction>, string> AnimationNames =
+            new Dictionary<Tuple<Action,Direction>,string>
+    {
+        { new Tuple<Action,Direction>(Action.Run,Direction.South), "RunSur" },
+        { new Tuple<Action,Direction>(Action.Run,Direction.North), "RunNorte" },
+        { new Tuple<Action,Direction>(Action.Run,Direction.East), "RunEste" },
+        { new Tuple<Action,Direction>(Action.Run,Direction.West), "RunOeste" },
+		{ new Tuple<Action,Direction>(Action.Run,Direction.NorthWest), "RunNoroeste" },
+        { new Tuple<Action,Direction>(Action.Run,Direction.NorthEast), "RunNoreste" },
+        { new Tuple<Action,Direction>(Action.Run,Direction.SouthEast), "RunSureste" },
+        { new Tuple<Action,Direction>(Action.Run,Direction.SouthWest), "RunSuroeste" },
+
+        { new Tuple<Action,Direction>(Action.Walk,Direction.South), "WalkSur" },
+        { new Tuple<Action,Direction>(Action.Walk,Direction.North), "WalkNorte" },
+        { new Tuple<Action,Direction>(Action.Walk,Direction.East), "WalkEste" },
+        { new Tuple<Action,Direction>(Action.Walk,Direction.West), "WalkOeste" },
+        { new Tuple<Action,Direction>(Action.Walk,Direction.NorthWest), "WalkNoroeste" },
+        { new Tuple<Action,Direction>(Action.Walk,Direction.NorthEast), "WalkNoreste" },
+        { new Tuple<Action,Direction>(Action.Walk,Direction.SouthEast), "WalkSureste" },
+        { new Tuple<Action,Direction>(Action.Walk,Direction.SouthWest), "WalkSuroeste" },
+
+	};
+
+
     public Direction dir;
     public Rigidbody2D mBody;
     public Tilemap mWaterTilemap;
