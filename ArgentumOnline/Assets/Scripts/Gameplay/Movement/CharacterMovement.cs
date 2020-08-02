@@ -170,29 +170,42 @@ public class CharacterMovement : Movement
                 if (!RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
                 {
                     dir = Direction.North;
-                    if (running)
+                    if (running && mCurrentAction!= AnimNameToAction["RunNorte"] ){
                         mAnimator.Play("RunNorte");
-                    else
+                        mCurrentAction = AnimNameToAction["RunNorte"];
+                    }
+                    else if(mCurrentAction!= AnimNameToAction["WalkNorte"]){
                         mAnimator.Play("WalkNorte");
+                        mCurrentAction = AnimNameToAction["WalkNorte"];
+                    }
+                    TryToMove(new_pos);
                 }
                 else // South
                 if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed)
                 {
                     dir = Direction.South;
-                    if (running)
+                    if (running && mCurrentAction!= AnimNameToAction["RunSur"] ){
                         mAnimator.Play("RunSur");
-                    else
+                        mCurrentAction = AnimNameToAction["RunSur"];
+                    }
+                    else if(mCurrentAction!= AnimNameToAction["WalkSur"]){
                         mAnimator.Play("WalkSur");
+                        mCurrentAction = AnimNameToAction["WalkSur"];
+                    }
                     TryToMove(new_pos);
                 }
                 else // SouthEast
               if (RightArrowPressed && DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
                 {
                     dir = Direction.SouthEast;
-                    if (running)
+                    if (running && mCurrentAction!= AnimNameToAction["RunSureste"] ){
                         mAnimator.Play("RunSureste");
-                    else
+                        mCurrentAction = AnimNameToAction["RunSureste"];
+                    }
+                    else if(mCurrentAction!= AnimNameToAction["WalkSureste"]){
                         mAnimator.Play("WalkSureste");
+                        mCurrentAction = AnimNameToAction["WalkSureste"];
+                    }
                     TryToMove(new_pos);
                 }
                 else
@@ -228,20 +241,28 @@ public class CharacterMovement : Movement
               if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
                 {
                     dir = Direction.NorthWest;
-                    if (running)
+                    if (running && mCurrentAction!= AnimNameToAction["RunNoroeste"] ){
                         mAnimator.Play("RunNoroeste");
-                    else
+                        mCurrentAction = AnimNameToAction["RunNoroeste"];
+                    }
+                    else if(mCurrentAction!= AnimNameToAction["WalkNoroeste"]){
                         mAnimator.Play("WalkNoroeste");
+                        mCurrentAction = AnimNameToAction["WalkNoroeste"];
+                    }
                     TryToMove(new_pos);
                 }
                 else
               if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed)
                 {
                     dir = Direction.SouthWest;
-                    if (running)
+                    if (running && mCurrentAction!= AnimNameToAction["RunSuroeste"] ){
                         mAnimator.Play("RunSuroeste");
-                    else
+                        mCurrentAction = AnimNameToAction["RunSuroeste"];
+                    }
+                    else if(mCurrentAction!= AnimNameToAction["WalkSuroeste"]){
                         mAnimator.Play("WalkSuroeste");
+                        mCurrentAction = AnimNameToAction["WalkSuroeste"];
+                    }
                     TryToMove(new_pos);
                 }
 
