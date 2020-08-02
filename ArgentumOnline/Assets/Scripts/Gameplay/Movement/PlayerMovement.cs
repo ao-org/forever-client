@@ -41,22 +41,15 @@ public class PlayerMovement : Movement
     private GameObject mCollidingChar;
 
 
+    void LateUpdate()
+    {
+        if (spriteRenderer.isVisible)
+            spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
+    }
+
+
     public void Awake()
-    {/*
-        if (WarpingDestination.warping){
-            UnityEngine.Debug.Log("Warp X:" + WarpingDestination.teleport_x + " Y:" + WarpingDestination.teleport_y);
-            Vector3 newpos = transform.position;
-            newpos.x = WarpingDestination.teleport_x;
-            newpos.y = WarpingDestination.teleport_y;
-            this.transform.position = newpos;
-            WarpingDestination.warping = false;
-            this.dir = WarpingDestination.direction;
-        }
-        else {
-            dir = Direction.South;
-            gameObject.GetComponent<Animator>().Play("StandSur");
-        }
-*/
+    {
         health = life;
         healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
         UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
@@ -70,17 +63,10 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
-        //spriteRenderer = GetComponent<SpriteRenderer>();
-        //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
-        //mAnimatorController = mAnimator.runtimeAnimatorController;
         dir = Direction.South;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    void LateUpdate()
-    {
 
-        //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
-        //spriteRenderer.sortingOrder = (int)transform.position.y * -1;
-    }
     // Start is called before the first frame update
     public override void Start()
     {
