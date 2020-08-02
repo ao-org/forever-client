@@ -39,11 +39,24 @@ public class PlayerMovement : Movement
     private WorldClient mWorldClient;
     private SpriteRenderer spriteRenderer;
     private GameObject mCollidingChar;
-    private Vector2 mMovement;
-    private string mAnimation = "";
+
 
     public void Awake()
-    {
+    {/*
+        if (WarpingDestination.warping){
+            UnityEngine.Debug.Log("Warp X:" + WarpingDestination.teleport_x + " Y:" + WarpingDestination.teleport_y);
+            Vector3 newpos = transform.position;
+            newpos.x = WarpingDestination.teleport_x;
+            newpos.y = WarpingDestination.teleport_y;
+            this.transform.position = newpos;
+            WarpingDestination.warping = false;
+            this.dir = WarpingDestination.direction;
+        }
+        else {
+            dir = Direction.South;
+            gameObject.GetComponent<Animator>().Play("StandSur");
+        }
+*/
         health = life;
         healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
         UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
@@ -55,15 +68,18 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(textName != null, "Cannot find Text Name in Player");
         mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
-        spriteRenderer = GetComponent<SpriteRenderer>();
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
+        //mAnimatorController = mAnimator.runtimeAnimatorController;
         dir = Direction.South;
     }
     void LateUpdate()
     {
-        if (spriteRenderer.isVisible)
-            spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
+
+        //spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(spriteRenderer.bounds.min).y * -1;
+        //spriteRenderer.sortingOrder = (int)transform.position.y * -1;
     }
     // Start is called before the first frame update
     public override void Start()
@@ -74,6 +90,8 @@ public class PlayerMovement : Movement
         mBody.velocity = Vector3.zero;
         mBody.angularVelocity = 0;
         mBody.gravityScale = 0f;
+        //mBody.isKinematic = true;
+        //mBody.useFullKinematicContacts =true;
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
@@ -173,6 +191,26 @@ public class PlayerMovement : Movement
         mBody.velocity = Vector2.zero;
         mBody.angularVelocity = 0f;
 
+/*
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+
+            GameObject barco = GameObject.FindGameObjectsWithTag("Barco")[0];
+            UnityEngine.Debug.Assert(barco != null);
+            BarcoMovement barcoScript = barco.GetComponent<BarcoMovement>();
+            UnityEngine.Debug.Assert(barcoScript != null);
+            barcoScript.isActive = true;
+            //GameObject barcoCamera = barco.GetComponent<MainCamera>();
+            GameObject mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
+            Vector3 cameraPos = new Vector3(barco.transform.position.x, barco.transform.position.y, -1);
+            mainCamera.transform.position = cameraPos;
+            mainCamera.transform.SetParent(barco.transform);
+            GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+            barcoScript.player = player;
+            player.SetActive(false);
+            return;
+        }
+        */
         if (takeDamage && !IsPhantom)
         {
             UnityEngine.Debug.Log("Damage: " + damageValue);
@@ -185,7 +223,6 @@ public class PlayerMovement : Movement
                 isDead = true;
             }
         }
-
         if (isDead && !IsPhantom)
         {
             if (!IsAnimationLastFrame())
@@ -210,111 +247,165 @@ public class PlayerMovement : Movement
         }
 
         if (IsAnimationPlaying("Attack"))
+        {
             return;
-
+        }
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Dead();
-            return;
-        }
-   
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            Attack();
-            return;
-        }
+            if (!IsPhantom)
+            {
+                PlayAnimation("Dead");
+                healthSlider.value = 0;
+                isDead = true;
+                return;
+            }
 
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PlayAnimation("Attack");
+            OnAttack();
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Live();
-            return;
+            if (IsPhantom)
+            {
+                if (mAnimatorController != null) { UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name); }
+                //UnityEngine.Debug.Log("Player Update: " + mPhantomAnimatorController.name);
+                else
+                    UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
+
+                mAnimator.runtimeAnimatorController = mAnimatorController;
+
+                PlayAnimation("Stand");
+                isDead = false;
+                running = false;
+                WalkRunSpeed = WalkSpeed;
+                health = life;
+                IsPhantom = false;
+                healthSlider.gameObject.SetActive(true);
+                manaSlider.gameObject.SetActive(true);
+                textToHead.gameObject.SetActive(true);
+                textName.transform.localScale = new Vector3(1.6f, 1.6f, 1);
+                this.transform.localScale =scaleHuman;
+                healthSlider.value = life;
+                return;
+            }
         }
+
+        bool RightArrowPressed = Input.GetKey(KeyCode.RightArrow);
+        bool LeftArrowPressed = Input.GetKey(KeyCode.LeftArrow);
+        bool UpArrowPressed = Input.GetKey(KeyCode.UpArrow);
+        bool DownArrowPressed = Input.GetKey(KeyCode.DownArrow);
+        bool Moving = RightArrowPressed || LeftArrowPressed || UpArrowPressed || DownArrowPressed;
+
+
+
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (running)
+            {
                 running = false;
-            else
-                running = true;
-        }
-        //Get vector movement from input configured in physic2d (A-W-S-D keys, Up-Right-Down-Left keys, Joystick)
-        mMovement.x = Input.GetAxisRaw("Horizontal");
-        mMovement.y = Input.GetAxisRaw("Vertical");
-
-        mAnimation = "Stand";
-        if (mMovement.x != 0f || mMovement.y != 0f)
-        {
-            if (!running)
-            {
                 WalkRunSpeed = WalkSpeed;
-                mAnimation = "Walk";
             }
             else
             {
+                running = true;
                 WalkRunSpeed = WalkSpeed * runDelta;
-                mAnimation = "Run";
             }
         }
-        //if diagonal movement decrease velocity
-        if (mMovement.x != 0f && mMovement.y != 0f) mMovement *= walkDiagDelta;
-        //update direction
-        if (mMovement.x == 0f && mMovement.y > 0f) dir = Direction.North;
-        if (mMovement.x > 0f && mMovement.y > 0f) dir = Direction.NorthEast;
-        if (mMovement.x > 0f && mMovement.y == 0f) dir = Direction.East;
-        if (mMovement.x > 0f && mMovement.y < 0f) dir = Direction.SouthEast;
-        if (mMovement.x == 0f && mMovement.y < 0f) dir = Direction.South;
-        if (mMovement.x < 0f && mMovement.y < 0f) dir = Direction.SouthWest;
-        if (mMovement.x < 0f && mMovement.y == 0f) dir = Direction.West;
-        if (mMovement.x < 0f && mMovement.y > 0f) dir = Direction.NorthWest;
 
-        //Play animation (Stand, Walk or Run)
-        PlayAnimation(mAnimation);
-
-        //if vector movement is not zero, try to move
-        if (mMovement.x != 0f || mMovement.y != 0f) TryToMove(mBody.position + mMovement * WalkRunSpeed * Time.fixedDeltaTime);
-    }
-
-    public void Attack()
-    {
-        PlayAnimation("Attack");
-        OnAttack();
-    }
-
-    public void Dead()
-    {
-        if (!IsPhantom)
+        // NorthEast
+        if (RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
         {
-            PlayAnimation("Dead");
-            healthSlider.value = 0;
-            isDead = true;
-            return;
-        }
-    }
-
-    public void Live()
-    {
-        if (IsPhantom)
-        {
-            if (mAnimatorController != null) { UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name); }
+            dir = Direction.NorthEast;
+            if (running)
+                mAnimator.Play("RunNoreste");
             else
-                UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
-
-            mAnimator.runtimeAnimatorController = mAnimatorController;
-
-            PlayAnimation("Stand");
-            isDead = false;
-            running = false;
-            WalkRunSpeed = WalkSpeed;
-            health = life;
-            IsPhantom = false;
-            healthSlider.gameObject.SetActive(true);
-            manaSlider.gameObject.SetActive(true);
-            textToHead.gameObject.SetActive(true);
-            textName.transform.localScale = new Vector3(1.6f, 1.6f, 1);
-            this.transform.localScale = scaleHuman;
-            healthSlider.value = life;
-            return;
+                mAnimator.Play("WalkNoreste");
+            Vector3 newpos = transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta;
+            TryToMove(newpos);
         }
+        else // North
+      if (!RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
+        {
+            dir = Direction.North;
+            if (running)
+                mAnimator.Play("RunNorte");
+            else
+                mAnimator.Play("WalkNorte");
+            TryToMove(transform.position + Vector3.up * WalkRunSpeed * Time.deltaTime);
+        }
+        else // South
+      if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed)
+        {
+            dir = Direction.South;
+            if (running)
+                mAnimator.Play("RunSur");
+            else
+                mAnimator.Play("WalkSur");
+            Vector3 newpos = transform.position + Vector3.down * WalkRunSpeed * Time.deltaTime;
+            TryToMove(newpos);
+        }
+        else // SouthEast
+      if (RightArrowPressed && DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
+        {
+            dir = Direction.SouthEast;
+            if (running)
+                mAnimator.Play("RunSureste");
+            else
+                mAnimator.Play("WalkSureste");
+            TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
+        }
+        else
+      if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
+        {
+            dir = Direction.East;
+            if (running)
+                mAnimator.Play("RunEste");
+            else
+                mAnimator.Play("WalkEste");
+            TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime);
+        }
+        else
+      if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
+        {
+            dir = Direction.West;
+            if (running)
+                mAnimator.Play("RunOeste");
+            else
+                mAnimator.Play("WalkOeste");
+            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime);
+        }
+        else
+      if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
+        {
+            dir = Direction.NorthWest;
+            if (running)
+                mAnimator.Play("RunNoroeste");
+            else
+                mAnimator.Play("WalkNoroeste");
+            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
+        }
+        else
+      if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed)
+        {
+            dir = Direction.SouthWest;
+            if (running)
+                mAnimator.Play("RunSuroeste");
+            else
+                mAnimator.Play("WalkSuroeste");
+            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
+        }
+
+        if (!Moving)
+        {
+            PlayAnimation("Stand");
+        }
+
+
     }
 
     private bool IsAnimationPlaying(string anim)
