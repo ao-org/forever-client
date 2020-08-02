@@ -251,6 +251,12 @@ public class CharacterMovement : Movement
 
     }
 
+    void LateUpdate()
+    {
+        if (spriteRenderer.isVisible)
+            spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
+    }
+
     private bool IsAnimationPlaying(string anim)
     {
         if (mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sur") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Norte") ||
