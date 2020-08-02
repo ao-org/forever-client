@@ -31,9 +31,14 @@ public class CharacterMovement : Movement
     public Slider manaSlider;
     private RuntimeAnimatorController mPhantomAnimatorController;
     private RuntimeAnimatorController mAnimatorController;
+    private SpriteRenderer spriteRenderer;
 
     private Queue<Tuple<short,float,float>> mActionQueue = new Queue<Tuple<short,float,float>>();
 
+    public void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     public void PushMovement(Tuple<short,float,float> newpos){
         mActionQueue.Enqueue(newpos);
