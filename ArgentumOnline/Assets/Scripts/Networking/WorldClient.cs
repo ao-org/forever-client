@@ -81,6 +81,19 @@ public class WorldClient : MonoBehaviour {
 		mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MOVED"],decrypted_uuid,nx,ny));
 		return 1;
 	}
+	public int ProcessCharacterNewPos(byte[] encrypted_data){
+		var uuid_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,0,2));
+		var encrypted_uuid = ProtoBase.SliceArray(encrypted_data,2,uuid_len);
+		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		var nxny_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,2+uuid_len,2));
+		var encrypted_nxny = ProtoBase.SliceArray(encrypted_data,4+uuid_len,nxny_len);
+		string decrypted_nxny = CryptoHelper.Decrypt(encrypted_nxny,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
+		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
+		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
+		mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"],decrypted_uuid,nx,ny));
+		return 1;
+	}
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
 		Debug.Log("ProcessSpawnCharacter");
 		Debug.Log("encrypted_spawn_info len = " + Encoding.ASCII.GetString(encrypted_spawn_info).Length + " "  + Encoding.ASCII.GetString(encrypted_spawn_info) );
@@ -576,6 +589,7 @@ public class WorldClient : MonoBehaviour {
 		{ ProtoBase.ProtocolNumbers["SPAWN_CHARACTER"], (@this, x) => @this.ProcessSpawnCharacter(x) },
 		{ ProtoBase.ProtocolNumbers["CHARACTER_LEFT_MAP"], (@this, x) => @this.ProcessCharacterLeftMap(x) },
 		{ ProtoBase.ProtocolNumbers["CHARACTER_MELEE"], (@this, x) => @this.ProcessCharacterMelee(x) },
+		{ ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"], (@this, x) => @this.ProcessCharacterNewPos(x) },		
 		{ ProtoBase.ProtocolNumbers["CHARACTER_MOVED"], (@this, x) => @this.ProcessCharacterMoved(x) }
 	};
 	private XmlDocument				mPlayerCharacterXml;
