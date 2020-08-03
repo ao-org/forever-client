@@ -80,7 +80,7 @@ public class PlayerMovement : Movement
         mBody.gravityScale = 0f;
         //mBody.isKinematic = true;
         //mBody.useFullKinematicContacts =true;
-        
+
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
@@ -96,7 +96,6 @@ public class PlayerMovement : Movement
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-            UnityEngine.Debug.Log("OnCollisionEnter2D****************************");
             if (collision.collider.tag == "Human")
             {
                 UnityEngine.Debug.Log("touch Player enter "+ collision.collider.name +" ****************************");
@@ -107,7 +106,6 @@ public class PlayerMovement : Movement
 
     void OnCollisionExit2D(Collision2D collision)
     {
-            UnityEngine.Debug.Log("OnCollisionExit2D****************************");
             if (collision.collider.tag == "Human")
             {
                 UnityEngine.Debug.Log("touch Player exit****************************");
@@ -124,6 +122,7 @@ public class PlayerMovement : Movement
             mWorldClient.OnPlayerMeleeAttacked("Z");
         }
     }
+
 
     private bool TryToMove(Vector3 pos)
     {
@@ -152,7 +151,6 @@ public class PlayerMovement : Movement
     public void SetTeleportingPos(Vector3 newPos )
     {
         teleportingPos = newPos;
-        return;
     }
     public Vector3 GetTeleportingPos()
     {
@@ -180,26 +178,7 @@ public class PlayerMovement : Movement
         mBody.velocity = Vector2.zero;
         mBody.angularVelocity = 0f;
 
-/*
-        if (Input.GetKeyDown(KeyCode.B))
-        {
 
-            GameObject barco = GameObject.FindGameObjectsWithTag("Barco")[0];
-            UnityEngine.Debug.Assert(barco != null);
-            BarcoMovement barcoScript = barco.GetComponent<BarcoMovement>();
-            UnityEngine.Debug.Assert(barcoScript != null);
-            barcoScript.isActive = true;
-            //GameObject barcoCamera = barco.GetComponent<MainCamera>();
-            GameObject mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
-            Vector3 cameraPos = new Vector3(barco.transform.position.x, barco.transform.position.y, -1);
-            mainCamera.transform.position = cameraPos;
-            mainCamera.transform.SetParent(barco.transform);
-            GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-            barcoScript.player = player;
-            player.SetActive(false);
-            return;
-        }
-        */
         if (takeDamage && !IsPhantom)
         {
             UnityEngine.Debug.Log("Damage: " + damageValue);
@@ -440,7 +419,7 @@ public class PlayerMovement : Movement
     }
     public void ChangeColorSkin(string color)
     {
-        Color newColor = new Color(1, 1, 1); ; 
+        Color newColor = new Color(1, 1, 1); ;
         switch (color)
         {
             case "1":

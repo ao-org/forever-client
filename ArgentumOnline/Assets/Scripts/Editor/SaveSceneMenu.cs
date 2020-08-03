@@ -52,7 +52,7 @@ public class CountSceneObjects
             foreach (Transform child in edificaciones)
             {
                 Debug.Log("Edificacion: " + child);
-                
+
                 Component rendererComponent = child.GetComponent<Renderer>();
                 if (rendererComponent)
                 {
@@ -61,7 +61,7 @@ public class CountSceneObjects
                 }
                 Debug.Log("Position X: " + child.position.x.ToString());
                 Debug.Log("Position Y: " + child.position.y.ToString());
-                
+
                 OnEnterLoadScene hasScript = child.GetComponent<OnEnterLoadScene>();
                 string teleport = "";
                 if (hasScript)
@@ -77,7 +77,7 @@ public class CountSceneObjects
 
                 buildingList.Add(new Building(child.name, child.position.x, child.position.y, teleport));
 
-                
+
                 /*Collider2D[] colliders = child.GetComponents<Collider2D>();
                 foreach (Collider2D collider in colliders)
                 {

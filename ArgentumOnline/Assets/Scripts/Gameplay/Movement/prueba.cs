@@ -5,7 +5,6 @@ using UnityEngine;
 public class prueba : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    private bool ok = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +14,7 @@ public class prueba : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void LateUpdate()
     {

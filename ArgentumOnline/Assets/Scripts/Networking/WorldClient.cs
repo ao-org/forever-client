@@ -69,20 +69,15 @@ public class WorldClient : MonoBehaviour {
 		return 1;
 	}
 	public int ProcessCharacterMoved(byte[] encrypted_data){
-		//Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterMoved");
 		var uuid_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,0,2));
 		var encrypted_uuid = ProtoBase.SliceArray(encrypted_data,2,uuid_len);
 		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		//Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
 		var nxny_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,2+uuid_len,2));
 		var encrypted_nxny = ProtoBase.SliceArray(encrypted_data,4+uuid_len,nxny_len);
 		string decrypted_nxny = CryptoHelper.Decrypt(encrypted_nxny,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		//Debug.Log(">>>>>>>>>>>>>len decryption " + decrypted_nxny.Length);
-		//Debug.Log(">>>>>>>>>>>>>>>>>>decrypted_nxny: " + decrypted_nxny + " length = " + decrypted_nxny.Length);
 		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
 		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
 		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
-		//Debug.Log(">>>>>>>>>>>>>>>>>> nx: " + nx + " ny: " + ny);
 		mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MOVED"],decrypted_uuid,nx,ny));
 		return 1;
 	}
@@ -188,7 +183,7 @@ public class WorldClient : MonoBehaviour {
 		p.name = uuid;
 		var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
 		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
-		Debug.Assert(textName!=null);        
+		Debug.Assert(textName!=null);
         textName.text = name+" ["+uuid+"]";
         PlayerMovement pm = p.GetComponent<PlayerMovement>();
         Debug.Assert(pm != null);
@@ -197,12 +192,7 @@ public class WorldClient : MonoBehaviour {
         {
             Destroy(p.GetComponent<PlayerMovement>());
             p.AddComponent<CharacterMovement>();
-            //CharacterMovement cm = p.GetComponent<CharacterMovement>();
-            //cm.ChangeColorSkin(color);
         }
-        
-
-        Debug.Log("Pos " + pos.x + " " + pos.y);
 		return p;
 	}
 	private void InstantiatePlayerCharacterSprite(){
