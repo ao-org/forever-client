@@ -329,5 +329,27 @@ public class CharacterMovement : Movement
     {
         return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
     }
-
+    public void ChangeColorSkin(string color)
+    {
+        Color newColor = new Color(0.5f, 0.5f, 0.5f); ;
+        switch (color)
+        {
+            case "1":
+                newColor = new Color(0.1f, 0.1f, 0.1f);
+                break;
+            case "2":
+                newColor = new Color(0.25f, 0.25f, 0.25f);
+                break;
+            case "3":
+                newColor = new Color(0.5f, 0.5f, 0.5f);
+                break;
+            case "4":
+                newColor = new Color(0.75f, 0.75f, 0.75f);
+                break;
+            case "5":
+                newColor = new Color(1, 1, 1);
+                break;
+        }
+        spriteRenderer.color = newColor;
+    }
 }

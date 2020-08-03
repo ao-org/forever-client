@@ -35,9 +35,14 @@ public class XmlCharacterParser
             float fy = float.Parse(ystr, CultureInfo.InvariantCulture.NumberFormat);
             mPos = Tuple.Create(fx,fy);
             Debug.Log("FPos " + mPos.ToString());
-            string skinColor = nod["skincolor"].InnerText;
-            string size = nod["size"].InnerText;
-
+            //string skinColor = nod["skincolor"].InnerText;
+            var skinColor = nod.SelectSingleNode("skincolor");
+            Debug.Log("SKINCOLOR = " + skinColor + "*************************************");
+            if (skinColor != null)
+                mSkinColor = skinColor.InnerText;
+            else
+                mSkinColor = "5";
+            //string size = nod["size"].InnerText;
         }
     }
 
@@ -51,9 +56,15 @@ public class XmlCharacterParser
     public string UUID(){
         return mUUID;
     }
+    public string SkinColor()
+    {
+        return mSkinColor;
+    }
     private string mName;
     private string mUUID;
     private Tuple<float,float> mPos;
     private string mMap;
+    private string mSkinColor;
+    private string mSize;
 
 }

@@ -39,7 +39,7 @@ public class PlayerMovement : Movement
     private WorldClient mWorldClient;
     private SpriteRenderer spriteRenderer;
     private GameObject mCollidingChar;
-
+    private Color mSkinColor;
 
     void LateUpdate()
     {
@@ -65,6 +65,8 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(mWorldClient != null);
         dir = Direction.South;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        UnityEngine.Debug.Log("Player Mov SkinColor = " + mSkinColor + " *********************");
+        spriteRenderer.color = mSkinColor;
     }
 
     // Start is called before the first frame update
@@ -78,6 +80,7 @@ public class PlayerMovement : Movement
         mBody.gravityScale = 0f;
         //mBody.isKinematic = true;
         //mBody.useFullKinematicContacts =true;
+        
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
@@ -435,5 +438,28 @@ public class PlayerMovement : Movement
     {
         return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
     }
-
+    public void ChangeColorSkin(string color)
+    {
+        Color newColor = new Color(0.5f, 0.5f, 0.5f); ; 
+        switch (color)
+        {
+            case "1":
+                newColor = new Color(0.1f, 0.1f, 0.1f);
+                break;
+            case "2":
+                newColor = new Color(0.25f, 0.25f, 0.25f);
+                break;
+            case "3":
+                newColor = new Color(0.5f, 0.5f, 0.5f);
+                break;
+            case "4":
+                newColor = new Color(0.75f, 0.75f, 0.75f);
+                break;
+            case "5":
+                newColor = new Color(1, 1, 1);
+                break;
+        }
+        mSkinColor = newColor;
+        //spriteRenderer.color = newColor;
+    }
 }

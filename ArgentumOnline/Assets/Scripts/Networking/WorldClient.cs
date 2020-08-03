@@ -182,19 +182,27 @@ public class WorldClient : MonoBehaviour {
 		return null;
 	}
 
-	private GameObject SpawnHuman(string uuid, string name, string tag, Vector3 pos, GameObject clonable, GameObject parent){
+	private GameObject SpawnHuman(string uuid, string name, string tag, Vector3 pos, GameObject clonable, GameObject parent, string color){
 		var p = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
 		p.tag = tag;
 		p.name = uuid;
 		var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
 		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
-		Debug.Assert(textName!=null);
-		textName.text = name+" ["+uuid+"]";
-		if(tag!="Player"){
-				Destroy(p.GetComponent<PlayerMovement>());
-				p.AddComponent<CharacterMovement>();
-		}
-		Debug.Log("Pos " + pos.x + " " + pos.y);
+		Debug.Assert(textName!=null);        
+        textName.text = name+" ["+uuid+"]";
+        PlayerMovement pm = p.GetComponent<PlayerMovement>();
+        Debug.Assert(pm != null);
+        pm.ChangeColorSkin(color);
+        if (tag != "Player")
+        {
+            Destroy(p.GetComponent<PlayerMovement>());
+            p.AddComponent<CharacterMovement>();
+            //CharacterMovement cm = p.GetComponent<CharacterMovement>();
+            //cm.ChangeColorSkin(color);
+        }
+        
+
+        Debug.Log("Pos " + pos.x + " " + pos.y);
 		return p;
 	}
 	private void InstantiatePlayerCharacterSprite(){
@@ -211,7 +219,7 @@ public class WorldClient : MonoBehaviour {
 			char_pos.position =  v3pos;
 			GameObject world = GameObject.Find("World");
 			Debug.Assert(world != null);
-			var new_player_character = SpawnHuman(mPlayerCharacter.UUID(),mPlayerCharacter.Name(),"Player",char_pos.position,player,world);
+			var new_player_character = SpawnHuman(mPlayerCharacter.UUID(),mPlayerCharacter.Name(),"Player",char_pos.position,player,world, mPlayerCharacter.SkinColor());
 			new_player_character.SetActive(true);
 
             //Set Main Camera positionand make it child of Player
@@ -248,7 +256,7 @@ public class WorldClient : MonoBehaviour {
 					 Debug.Assert(world != null);
 					 char_pos.position =  v3pos; // + offset;
 					 Debug.Log("spawn x " + spawn_pos.Item2 + " " + spawn_pos.Item3 );
-					 var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world);
+					 var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world, c.SkinColor());
 					 x.SetActive(true);
 				}
 			}
