@@ -335,16 +335,16 @@ public class CharacterMovement : Movement
         switch (color)
         {
             case "1":
-                newColor = new Color(0.1f, 0.1f, 0.1f);
+                newColor = new Color(0.294f, 0.294f, 0.294f);
                 break;
             case "2":
-                newColor = new Color(0.25f, 0.25f, 0.25f);
+                newColor = new Color(0.470f, 0.403f, 0.403f);
                 break;
             case "3":
-                newColor = new Color(0.5f, 0.5f, 0.5f);
+                newColor = new Color(0.596f, 0.549f, 0.423f);
                 break;
             case "4":
-                newColor = new Color(0.75f, 0.75f, 0.75f);
+                newColor = new Color(0.69f, 0.607f, 0.607f);
                 break;
             case "5":
                 newColor = new Color(1, 1, 1);
