@@ -335,7 +335,7 @@ public class CharacterMovement : Movement
         switch (color)
         {
             case "1":
-                newColor = new Color(0.294f, 0.294f, 0.294f);
+                newColor = new Color(0.227f, 0.227f, 0.227f);
                 break;
             case "2":
                 newColor = new Color(0.470f, 0.403f, 0.403f);
