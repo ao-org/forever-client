@@ -10,10 +10,10 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Globalization;
 
-public class Character 
+public class XmlCharacterParser 
 {
 
-    public Character(){
+    public XmlCharacterParser(){
     }
 
     public void CreateFromXml(XmlDocument xml_doc,string selectnode){
@@ -35,6 +35,9 @@ public class Character
             float fy = float.Parse(ystr, CultureInfo.InvariantCulture.NumberFormat);
             mPos = Tuple.Create(fx,fy);
             Debug.Log("FPos " + mPos.ToString());
+            string skinColor = nod["skincolor"].InnerText;
+            string size = nod["size"].InnerText;
+
         }
     }
 

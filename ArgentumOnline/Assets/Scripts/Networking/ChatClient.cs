@@ -469,7 +469,7 @@ public class ChatClient : MonoBehaviour {
 	private string					mPassword;
 	private MainMenu				mMainMenu;
 	private bool					mAppQuit;
-	private Character 		mPlayerCharacter;
+	private XmlCharacterParser 		mPlayerCharacter;
 	// Construct a ConcurrentQueue for Sending messages to the server
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	// Connection events queue

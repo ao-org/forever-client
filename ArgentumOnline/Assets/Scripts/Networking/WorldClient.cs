@@ -168,9 +168,9 @@ public class WorldClient : MonoBehaviour {
 
 		}
     }
-	private Character InstantiateCharacterFromXml(XmlDocument xml_doc,string selectnode){
+	private XmlCharacterParser InstantiateCharacterFromXml(XmlDocument xml_doc,string selectnode){
 		try{
-			var pc = new Character();
+			var pc = new XmlCharacterParser();
 			pc.CreateFromXml(xml_doc,selectnode);
 			Debug.Log("Player Character created sucessfully!!!!!!!");
 			return pc;
@@ -239,7 +239,7 @@ public class WorldClient : MonoBehaviour {
 					 GameObject player = (GameObject)Resources.Load("Characters/Human");
 					 Debug.Assert(player != null, "Cannot find PLAYER in Map");
 					 player.SetActive(false);
-					 Character c = InstantiateCharacterFromXml(e,"Spawn");
+					 XmlCharacterParser c = InstantiateCharacterFromXml(e,"Spawn");
 					 var spawn_pos = c.Position();
 					 Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
 					 Transform  char_pos = player.transform;
@@ -561,7 +561,7 @@ public class WorldClient : MonoBehaviour {
 	private bool					mAppQuit;
 	private bool					mSpawningPlayerCharacter;
 	private bool					mSceneLoaded;
-	private Character 		mPlayerCharacter;
+	private XmlCharacterParser 		mPlayerCharacter;
 	// Construct a ConcurrentQueue for Sending messages to the server
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	// Connection events queue
