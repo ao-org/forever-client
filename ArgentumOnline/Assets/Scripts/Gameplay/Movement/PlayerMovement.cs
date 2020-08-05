@@ -229,7 +229,7 @@ public class PlayerMovement : Movement
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             PlayAnimation("Attack");
             OnAttack();
