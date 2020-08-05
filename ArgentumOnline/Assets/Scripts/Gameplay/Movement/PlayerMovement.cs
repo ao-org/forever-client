@@ -261,30 +261,66 @@ public class PlayerMovement : Movement
                 return;
             }
         }
-
+/*
         bool RightArrowPressed = Input.GetKey(KeyCode.RightArrow);
         bool LeftArrowPressed = Input.GetKey(KeyCode.LeftArrow);
         bool UpArrowPressed = Input.GetKey(KeyCode.UpArrow);
         bool DownArrowPressed = Input.GetKey(KeyCode.DownArrow);
         bool Moving = RightArrowPressed || LeftArrowPressed || UpArrowPressed || DownArrowPressed;
-
-
-
+*/
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (running)
             {
                 running = false;
-                WalkRunSpeed = WalkSpeed;
             }
             else
             {
                 running = true;
-                WalkRunSpeed = WalkSpeed * runDelta;
             }
         }
 
+        Vector2 input_delta = new Vector2(
+            Input.GetAxisRaw("Horizontal"),
+            Input.GetAxisRaw("Vertical"));
+
+        string anim_name = "Stand";
+        if (input_delta.x != 0f || input_delta.y != 0f)
+        {
+            if (!running)
+            {
+                WalkRunSpeed = WalkSpeed;
+                anim_name = "Walk";
+            }
+            else
+            {
+                WalkRunSpeed = WalkSpeed * runDelta;
+                anim_name = "Run";
+            }
+        }
+
+        if (input_delta.x != 0f && input_delta.y != 0f) input_delta *= walkDiagDelta;
+        if (input_delta.x == 0f && input_delta.y > 0f) dir = Direction.North;
+        if (input_delta.x > 0f && input_delta.y > 0f) dir = Direction.NorthEast;
+        if (input_delta.x > 0f && input_delta.y == 0f) dir = Direction.East;
+        if (input_delta.x > 0f && input_delta.y < 0f) dir = Direction.SouthEast;
+        if (input_delta.x == 0f && input_delta.y < 0f) dir = Direction.South;
+        if (input_delta.x < 0f && input_delta.y < 0f) dir = Direction.SouthWest;
+        if (input_delta.x < 0f && input_delta.y == 0f) dir = Direction.West;
+        if (input_delta.x < 0f && input_delta.y > 0f) dir = Direction.NorthWest;
+
+        if (input_delta.x != 0f || input_delta.y != 0f) {
+                var newpos = mBody.position + input_delta * WalkRunSpeed * Time.deltaTime;
+                PlayAnimation(anim_name);
+                TryToMove(newpos);
+        }
+        else {
+                PlayAnimation(anim_name);
+        }
+
+
+/*
         // NorthEast
         if (RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
         {
@@ -372,7 +408,7 @@ public class PlayerMovement : Movement
         {
             PlayAnimation("Stand");
         }
-
+        */
 
     }
 
