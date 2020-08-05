@@ -239,10 +239,12 @@ public class PlayerMovement : Movement
         {
             if (IsPhantom)
             {
-                if (mAnimatorController != null) { UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name); }
-                //UnityEngine.Debug.Log("Player Update: " + mPhantomAnimatorController.name);
-                else
+                if (mAnimatorController != null) {
+                            UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
+                }
+                else {
                     UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
+                }
 
                 mAnimator.runtimeAnimatorController = mAnimatorController;
 
@@ -261,14 +263,6 @@ public class PlayerMovement : Movement
                 return;
             }
         }
-/*
-        bool RightArrowPressed = Input.GetKey(KeyCode.RightArrow);
-        bool LeftArrowPressed = Input.GetKey(KeyCode.LeftArrow);
-        bool UpArrowPressed = Input.GetKey(KeyCode.UpArrow);
-        bool DownArrowPressed = Input.GetKey(KeyCode.DownArrow);
-        bool Moving = RightArrowPressed || LeftArrowPressed || UpArrowPressed || DownArrowPressed;
-*/
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (running)
@@ -319,99 +313,8 @@ public class PlayerMovement : Movement
                 PlayAnimation(anim_name);
         }
 
-
-/*
-        // NorthEast
-        if (RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.NorthEast;
-            if (running)
-                mAnimator.Play("RunNoreste");
-            else
-                mAnimator.Play("WalkNoreste");
-            Vector3 newpos = transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta;
-            TryToMove(newpos);
-        }
-        else // North
-      if (!RightArrowPressed && UpArrowPressed && !DownArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.North;
-            if (running)
-                mAnimator.Play("RunNorte");
-            else
-                mAnimator.Play("WalkNorte");
-            TryToMove(transform.position + Vector3.up * WalkRunSpeed * Time.deltaTime);
-        }
-        else // South
-      if (!RightArrowPressed && !UpArrowPressed && DownArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.South;
-            if (running)
-                mAnimator.Play("RunSur");
-            else
-                mAnimator.Play("WalkSur");
-            Vector3 newpos = transform.position + Vector3.down * WalkRunSpeed * Time.deltaTime;
-            TryToMove(newpos);
-        }
-        else // SouthEast
-      if (RightArrowPressed && DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.SouthEast;
-            if (running)
-                mAnimator.Play("RunSureste");
-            else
-                mAnimator.Play("WalkSureste");
-            TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-        }
-        else
-      if (RightArrowPressed && !DownArrowPressed && !UpArrowPressed && !LeftArrowPressed)
-        {
-            dir = Direction.East;
-            if (running)
-                mAnimator.Play("RunEste");
-            else
-                mAnimator.Play("WalkEste");
-            TryToMove(transform.position + Vector3.right * WalkRunSpeed * Time.deltaTime);
-        }
-        else
-      if (LeftArrowPressed && !UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
-        {
-            dir = Direction.West;
-            if (running)
-                mAnimator.Play("RunOeste");
-            else
-                mAnimator.Play("WalkOeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime);
-        }
-        else
-      if (LeftArrowPressed && UpArrowPressed && !DownArrowPressed && !RightArrowPressed)
-        {
-            dir = Direction.NorthWest;
-            if (running)
-                mAnimator.Play("RunNoroeste");
-            else
-                mAnimator.Play("WalkNoroeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.up * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-        }
-        else
-      if (LeftArrowPressed && !UpArrowPressed && DownArrowPressed && !RightArrowPressed)
-        {
-            dir = Direction.SouthWest;
-            if (running)
-                mAnimator.Play("RunSuroeste");
-            else
-                mAnimator.Play("WalkSuroeste");
-            TryToMove(transform.position + Vector3.left * WalkRunSpeed * Time.deltaTime * walkDiagDelta + Vector3.down * WalkRunSpeed * Time.deltaTime * walkDiagDelta);
-        }
-
-        if (!Moving)
-        {
-            PlayAnimation("Stand");
-        }
-        */
-
     }
-    
+
     private bool IsAnimationPlaying(string anim)
     {
         if (mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sur") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Norte") ||
@@ -475,6 +378,5 @@ public class PlayerMovement : Movement
                 break;
         }
         mSkinColor = newColor;
-        //spriteRenderer.color = newColor;
     }
 }
