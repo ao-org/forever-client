@@ -173,7 +173,7 @@ public class PlayerMovement : Movement
 
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         mBody.velocity = Vector2.zero;
         mBody.angularVelocity = 0f;
@@ -411,7 +411,7 @@ public class PlayerMovement : Movement
         */
 
     }
-
+    
     private bool IsAnimationPlaying(string anim)
     {
         if (mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sur") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Norte") ||
