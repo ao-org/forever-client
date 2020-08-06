@@ -65,7 +65,6 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(mWorldClient != null);
         dir = Direction.South;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        UnityEngine.Debug.Log("Player Mov SkinColor = " + mSkinColor + " *********************");
         spriteRenderer.color = mSkinColor;
     }
 

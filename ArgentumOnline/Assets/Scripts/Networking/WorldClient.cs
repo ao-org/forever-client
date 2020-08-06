@@ -175,11 +175,11 @@ public class WorldClient : MonoBehaviour {
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
+		SetSceneLoaded(true);
 		if( mSpawningPlayerCharacter ){
 			//Second step PLAY_CHARACTER_OKAY
 			Debug.Log("Must spawn Player Character");
 			InstantiatePlayerCharacterSprite();
-			SetSceneLoaded(true);
 		}else {
 			if(mPlayerCharacter!=null){
 				GameObject p = GameObject.Find(mPlayerCharacter.UUID());
@@ -280,7 +280,7 @@ public class WorldClient : MonoBehaviour {
 		{
 			if (mEventsQueue.Count > 0){
 				WorldMessage e;
-				if (mEventsQueue.TryDequeue(out e)){
+				if (mEventsQueue.TryPeek(out e)){
 					if(mSceneLoaded && (e.mID == "CHARACTER_MOVED" || e.mID == "CHARACTER_MELEE" || e.mID== "CHARACTER_NEWPOS")){
 						GameObject pc = GameObject.Find(e.mUUID);
 						//Debug.Assert()
@@ -294,6 +294,7 @@ public class WorldClient : MonoBehaviour {
 							Debug.Assert(p!=null);
 							p.PushMovement(Tuple.Create(ProtoBase.ProtocolNumbers[e.mID],e.mX,e.mY));
 						}
+						mEventsQueue.TryDequeue(out e);
 					}
 					else if(mSceneLoaded && e.mID == "SPAWN_CHARACTER"){
 						GameObject player = (GameObject)Resources.Load("Characters/Human");
@@ -311,6 +312,7 @@ public class WorldClient : MonoBehaviour {
 						Debug.Log("spawn x " + spawn_pos.Item2 + " " + spawn_pos.Item3 );
 						var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world, c.SkinColor());
 						x.SetActive(true);
+						mEventsQueue.TryDequeue(out e);
 					}
 					else if(e.mID == "PLAY_CHARACTER_OKAY"){
 						Debug.Log("PLAY_CHARACTER_OKAY");
@@ -321,7 +323,7 @@ public class WorldClient : MonoBehaviour {
 						//			Second step: Spawn the Character
 						SceneManager.LoadScene(mPlayerCharacter.Position().Item1);
 						// Set the flag to true to spawn the PC after scene loading
-
+						mEventsQueue.TryDequeue(out e);
 					}
 					else if(mSceneLoaded && e.mID == "CHARACTER_LEFT_MAP") {
 						 Debug.Log("CHARACTER_LEFT_MAP");
@@ -329,19 +331,23 @@ public class WorldClient : MonoBehaviour {
 						 Debug.Assert(remove_char!=null);
 						 remove_char.SetActive(false);
 						 Destroy(remove_char);
+						 mEventsQueue.TryDequeue(out e);
 					}
 					else if(e.mID == "PLAY_CHARACTER_ERROR") {
 						Debug.Log("PLAY_CHARACTER_ERROR");
 						//ShowMessageBox("PLAY_CHARACTER_OKAY_TITLE","PLAY_CHARACTER_OKAY_TEXT");
+						mEventsQueue.TryDequeue(out e);
 					}
 					else if(e.mID == "CONNECTION_ERROR_MSGBOX_TITLE"){
 						//ShowMessageBox("CONNECTION_ERROR_MSGBOX_TITLE",e.Item2);
 						//TODO CREATE MESSAGE BOX TO NOTIFY USER ABOUT EVENTS
 						Debug.Log("DECONECTADO DEL SERVIDOR");
 						SceneManager.LoadScene("MainMenu");
+						mEventsQueue.TryDequeue(out e);
 					}
 					else{
-						Debug.Assert(false);
+						//mSceneLoaded
+						Debug.Log("Skipping command " + e.mID + " because mSceneLoaded == false");
 					}
 				}
 			}
