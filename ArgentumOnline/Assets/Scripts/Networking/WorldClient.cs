@@ -229,8 +229,10 @@ public class WorldClient : MonoBehaviour {
 		Debug.Assert(textName!=null);
         textName.text = name+" ["+uuid+"]";
         PlayerMovement pm = p.GetComponent<PlayerMovement>();
-        Debug.Assert(pm != null);
-        pm.ChangeColorSkin(color);
+		if(pm!=null){
+        	Debug.Assert(pm != null);
+        	pm.ChangeColorSkin(color);
+		}
         if (tag != "Player")
         {
             Destroy(p.GetComponent<PlayerMovement>());
@@ -297,12 +299,13 @@ public class WorldClient : MonoBehaviour {
 						mEventsQueue.TryDequeue(out e);
 					}
 					else if(mSceneLoaded && e.mID == "SPAWN_CHARACTER"){
-						GameObject player = (GameObject)Resources.Load("Characters/Human");
+						XmlCharacterParser c = InstantiateCharacterFromXml(e.mXml,"Spawn");
+						Debug.Log("SPAWN_CHARACTER " + c.UUID() + " " + c.Prefab());
+
+						GameObject player = (GameObject)Resources.Load(c.Prefab());
 						Debug.Assert(player != null, "Cannot find PLAYER in Map");
 						player.SetActive(false);
-						XmlCharacterParser c = InstantiateCharacterFromXml(e.mXml,"Spawn");
 						var spawn_pos = c.Position();
-						Debug.Log("SPAWN_CHARACTER " + c.UUID());
 						Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
 						Transform  char_pos = player.transform;
 						char_pos.position =  v3pos;
