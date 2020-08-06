@@ -48,6 +48,9 @@ public class XmlCharacterParser
     public string Name(){
         return mName;
     }
+    public string Map(){
+        return mMap;
+    }
     public string UUID(){
         return mUUID;
     }

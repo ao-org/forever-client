@@ -300,21 +300,27 @@ public class WorldClient : MonoBehaviour {
 					}
 					else if(mSceneLoaded && e.mID == "SPAWN_CHARACTER"){
 						XmlCharacterParser c = InstantiateCharacterFromXml(e.mXml,"Spawn");
-						Debug.Log("SPAWN_CHARACTER " + c.UUID() + " " + c.Prefab());
-						GameObject player = (GameObject)Resources.Load(c.Prefab());
-						Debug.Assert(player != null, "Cannot find PLAYER in Map");
-						player.SetActive(false);
-						var spawn_pos = c.Position();
-						Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
-						Transform  char_pos = player.transform;
-						char_pos.position =  v3pos;
-						GameObject world = GameObject.Find("World");
-						Debug.Assert(world != null);
-						char_pos.position =  v3pos; // + offset;
-						Debug.Log("spawn x " + spawn_pos.Item2 + " " + spawn_pos.Item3 );
-						var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world, c.SkinColor());
-						x.SetActive(true);
-						mEventsQueue.TryDequeue(out e);
+						Scene cur_scene = SceneManager.GetActiveScene();
+						if( c.Map() == cur_scene.name) {
+							Debug.Log("SPAWN_CHARACTER " + c.UUID() + " " + c.Prefab());
+							GameObject player = (GameObject)Resources.Load(c.Prefab());
+							Debug.Assert(player != null, "Cannot find PLAYER in Map");
+							player.SetActive(false);
+							var spawn_pos = c.Position();
+							Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
+							Transform  char_pos = player.transform;
+							char_pos.position =  v3pos;
+							GameObject world = GameObject.Find("World");
+							Debug.Assert(world != null);
+							char_pos.position =  v3pos; // + offset;
+							Debug.Log("spawn x " + spawn_pos.Item2 + " " + spawn_pos.Item3 );
+							var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world, c.SkinColor());
+							x.SetActive(true);
+							mEventsQueue.TryDequeue(out e);
+						}
+						else {
+							Debug.Log("Ignoring SPAWN_CHARACTER " + c.UUID() + " " + c.Prefab() + " because scene is not ready");
+						}
 					}
 					else if(e.mID == "PLAY_CHARACTER_OKAY"){
 						Debug.Log("PLAY_CHARACTER_OKAY");
