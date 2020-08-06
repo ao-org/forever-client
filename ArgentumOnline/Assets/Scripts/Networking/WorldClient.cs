@@ -337,9 +337,11 @@ public class WorldClient : MonoBehaviour {
 						 // We may get a CHARACTER_LEFT_MAP while Loading scene
 						 Debug.Log("CHARACTER_LEFT_MAP");
 						 var remove_char = GameObject.Find(e.mUUID);
-						 Debug.Assert(remove_char!=null);
-						 remove_char.SetActive(false);
-						 Destroy(remove_char);
+						 if(remove_char!=null){
+						 	Debug.Assert(remove_char!=null);
+						 	remove_char.SetActive(false);
+						 	Destroy(remove_char);
+						 }
 						 mEventsQueue.TryDequeue(out e);
 					}
 					else if(e.mID == "PLAY_CHARACTER_ERROR") {
