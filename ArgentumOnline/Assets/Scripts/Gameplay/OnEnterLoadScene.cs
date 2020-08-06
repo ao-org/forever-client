@@ -64,6 +64,7 @@ public class OnEnterLoadScene : MonoBehaviour
 
             Scene cur_scene = SceneManager.GetActiveScene();
             if(cur_scene.name!=scene){
+                client.SetSceneLoaded(true);
                 SceneManager.LoadScene(scene);
                 UnityEngine.Debug.Log("Warping to a new scene: " + scene);
                 playerScript.SetTeleportingPos(newPos);

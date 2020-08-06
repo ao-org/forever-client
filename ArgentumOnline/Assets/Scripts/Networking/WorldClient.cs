@@ -153,7 +153,7 @@ public class WorldClient : MonoBehaviour {
 		mIncommingData = new List<byte>();
 		mAppQuit = false;
 		mSpawningPlayerCharacter = false;
-		mSceneLoaded = false;
+		SetSceneLoaded(false);
 	}
 	public void SetMainMenu(MainMenu m){
 		Debug.Assert(m!=null);
@@ -179,7 +179,7 @@ public class WorldClient : MonoBehaviour {
 			//Second step PLAY_CHARACTER_OKAY
 			Debug.Log("Must spawn Player Character");
 			InstantiatePlayerCharacterSprite();
-			mSceneLoaded = true;
+			SetSceneLoaded(true);
 		}else {
 			if(mPlayerCharacter!=null){
 				GameObject p = GameObject.Find(mPlayerCharacter.UUID());
@@ -191,7 +191,7 @@ public class WorldClient : MonoBehaviour {
                     	p.SetActive(false);
                     	Destroy(p);
 						mSpawningPlayerCharacter = false;
-						mSceneLoaded = false;
+						SetSceneLoaded(false);
 					}
 					else {
                     	PlayerMovement playerScript = p.GetComponent<PlayerMovement>();
@@ -281,7 +281,7 @@ public class WorldClient : MonoBehaviour {
 			if (mEventsQueue.Count > 0){
 				WorldMessage e;
 				if (mEventsQueue.TryDequeue(out e)){
-					if(e.mID == "CHARACTER_MOVED" || e.mID == "CHARACTER_MELEE" || e.mID== "CHARACTER_NEWPOS"){
+					if(mSceneLoaded && (e.mID == "CHARACTER_MOVED" || e.mID == "CHARACTER_MELEE" || e.mID== "CHARACTER_NEWPOS")){
 						GameObject pc = GameObject.Find(e.mUUID);
 						//Debug.Assert()
 						if(pc == null){
@@ -295,12 +295,13 @@ public class WorldClient : MonoBehaviour {
 							p.PushMovement(Tuple.Create(ProtoBase.ProtocolNumbers[e.mID],e.mX,e.mY));
 						}
 					}
-					else if(e.mID == "SPAWN_CHARACTER"){
+					else if(mSceneLoaded && e.mID == "SPAWN_CHARACTER"){
 						GameObject player = (GameObject)Resources.Load("Characters/Human");
 						Debug.Assert(player != null, "Cannot find PLAYER in Map");
 						player.SetActive(false);
 						XmlCharacterParser c = InstantiateCharacterFromXml(e.mXml,"Spawn");
 						var spawn_pos = c.Position();
+						Debug.Log("SPAWN_CHARACTER " + c.UUID());
 						Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
 						Transform  char_pos = player.transform;
 						char_pos.position =  v3pos;
@@ -322,7 +323,7 @@ public class WorldClient : MonoBehaviour {
 						// Set the flag to true to spawn the PC after scene loading
 
 					}
-					else if(e.mID == "CHARACTER_LEFT_MAP") {
+					else if(mSceneLoaded && e.mID == "CHARACTER_LEFT_MAP") {
 						 Debug.Log("CHARACTER_LEFT_MAP");
 						 var remove_char = GameObject.Find(e.mUUID);
 						 Debug.Assert(remove_char!=null);
@@ -600,6 +601,9 @@ public class WorldClient : MonoBehaviour {
 	private bool					mAppQuit;
 	private bool					mSpawningPlayerCharacter;
 	private bool					mSceneLoaded;
+	// Called by OnEnterLoadScene to let know the WorldClient the scene loading is in progress
+	// this is required knowledge to pause mActionQueue processing, specially SPAWN commands
+	public  void					SetSceneLoaded(bool b) { mSceneLoaded = b;}
 	private XmlCharacterParser 		mPlayerCharacter;
 	// Construct a ConcurrentQueue for Sending messages to the server
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
