@@ -44,28 +44,36 @@ public class WorldClient : MonoBehaviour {
 		try{
 			mPlayerCharacterXml = new XmlDocument();
 			mPlayerCharacterXml.LoadXml(decrypted_char);
-			Debug.Log("Parsed PC XML sucessfully!!!!!!!");
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_OKAY",""));
+			var wm = new WorldMessage();
+			wm.mErrorStr = "";
+			wm.mID  = "PLAY_CHARACTER_OKAY";
+			mEventsQueue.Enqueue(wm);
 		}
 		catch (Exception e){
 			Debug.Log("Failed to parse XML charfile: " + e.Message);
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+			var wm = new WorldMessage();
+			wm.mErrorStr = "";
+			wm.mID  = "PLAY_CHARACTER_ERROR";
+			mEventsQueue.Enqueue(wm);
 		}
 		return 1;
 	}
 	public int ProcessCharacterLeftMap(byte[] encrypted_uuid){
 		Debug.Log("ProcessCharacterLeftMap");
-		Debug.Log("encrypted_uuid len = " + Encoding.ASCII.GetString(encrypted_uuid).Length + " "  + Encoding.ASCII.GetString(encrypted_uuid) );
         var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		Debug.Log("decrypted_data: " + decrypted_uuid);
-		mEventsQueue.Enqueue(Tuple.Create("CHARACTER_LEFT_MAP",decrypted_uuid));
+		var wm = new WorldMessage();
+		wm.mUUID = decrypted_uuid;
+		wm.mID  = "CHARACTER_LEFT_MAP";
+		mEventsQueue.Enqueue(wm);
 		return 1;
 	}
 	public int ProcessCharacterMelee(byte[] encrypted_data){
-		//Debug.Log(">>>>>>>>>>>>>>>>>>>>>>ProcessCharacterMelee");
 		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_data,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		//Debug.Log(">>>>>>>>>>>>>>>>>>Decrypted_UUID " + decrypted_uuid);
-		mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MELEE"],decrypted_uuid,0.0f,0.0f));
+		//mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MELEE"],decrypted_uuid,0.0f,0.0f));
+		var wm = new WorldMessage();
+		wm.mUUID = decrypted_uuid;
+		wm.mID  = "CHARACTER_MELEE";
+		mEventsQueue.Enqueue(wm);
 		return 1;
 	}
 	public int ProcessCharacterMoved(byte[] encrypted_data){
@@ -78,7 +86,13 @@ public class WorldClient : MonoBehaviour {
 		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
 		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
 		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
-		mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MOVED"],decrypted_uuid,nx,ny));
+		//mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MOVED"],decrypted_uuid,nx,ny));
+		var wm = new WorldMessage();
+		wm.mUUID = decrypted_uuid;
+		wm.mID  = "CHARACTER_MOVED";
+		wm.mX   = nx;
+		wm.mY	= ny;
+		mEventsQueue.Enqueue(wm);
 		return 1;
 	}
 	public int ProcessCharacterNewPos(byte[] encrypted_data){
@@ -91,7 +105,13 @@ public class WorldClient : MonoBehaviour {
 		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
 		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
 		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
-		mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"],decrypted_uuid,nx,ny));
+		//mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"],decrypted_uuid,nx,ny));
+		var wm = new WorldMessage();
+		wm.mUUID = decrypted_uuid;
+		wm.mID  = "CHARACTER_NEWPOS";
+		wm.mX   = nx;
+		wm.mY	= ny;
+		mEventsQueue.Enqueue(wm);
 		return 1;
 	}
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
@@ -105,7 +125,11 @@ public class WorldClient : MonoBehaviour {
 			var SpawnCharacterXml = new XmlDocument();
 			SpawnCharacterXml.LoadXml(decrypted_info);
 			Debug.Log("Parsed Spawn XML sucessfully!!!!!!!");
-			mSpawnQueue.Enqueue(SpawnCharacterXml);
+			//mSpawnQueue.Enqueue(SpawnCharacterXml);
+			var wm = new WorldMessage();
+			wm.mXml = SpawnCharacterXml;
+			wm.mID  = "SPAWN_CHARACTER";
+			mEventsQueue.Enqueue(wm);
 		}
 		catch (Exception e){
 			Debug.Log("Failed to parse XML charfile: " + e.Message);
@@ -117,7 +141,10 @@ public class WorldClient : MonoBehaviour {
 		Debug.Log("ProcessPlayCharacterError");
 		short error_code = ProtoBase.DecodeShort(data);
 		var error_string = ProtoBase.LoginErrorCodeToString(error_code);
-		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
+		var wm = new WorldMessage();
+		wm.mErrorStr = error_string;
+		wm.mID  = "LOGIN_ERROR_MSG_BOX_TITLE";
+		mEventsQueue.Enqueue(wm);
 		return 1;
 	}
 
@@ -185,7 +212,10 @@ public class WorldClient : MonoBehaviour {
 		}
 		catch (Exception e){
 			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+			var wm = new WorldMessage();
+			wm.mErrorStr = "";
+			wm.mID  = "PLAY_CHARACTER_ERROR";
+			mEventsQueue.Enqueue(wm);
 		}
 		return null;
 	}
@@ -238,36 +268,50 @@ public class WorldClient : MonoBehaviour {
 		}
 		catch (Exception e){
 			Debug.Log("Failed to create PlayerCharacter: " + e.Message);
-			mEventsQueue.Enqueue(Tuple.Create("PLAY_CHARACTER_ERROR",""));
+			var wm = new WorldMessage();
+			wm.mErrorStr = "";
+			wm.mID  = "PLAY_CHARACTER_ERROR";
+			mEventsQueue.Enqueue(wm);
+
 		}
 	}
 	void Update(){
 		try
 		{
-			while(mSpawnQueue.Count>0 && mSceneLoaded){
-				XmlDocument e;
-				if (mSpawnQueue.TryDequeue(out e)){
-					 GameObject player = (GameObject)Resources.Load("Characters/Human");
-					 Debug.Assert(player != null, "Cannot find PLAYER in Map");
-					 player.SetActive(false);
-					 XmlCharacterParser c = InstantiateCharacterFromXml(e,"Spawn");
-					 var spawn_pos = c.Position();
-					 Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
-					 Transform  char_pos = player.transform;
-					 char_pos.position =  v3pos;
-					 GameObject world = GameObject.Find("World");
-					 Debug.Assert(world != null);
-					 char_pos.position =  v3pos; // + offset;
-					 Debug.Log("spawn x " + spawn_pos.Item2 + " " + spawn_pos.Item3 );
-					 var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world, c.SkinColor());
-					 x.SetActive(true);
-				}
-			}
-
 			if (mEventsQueue.Count > 0){
-				Tuple<string, string> e;
+				WorldMessage e;
 				if (mEventsQueue.TryDequeue(out e)){
-					if(e.Item1 == "PLAY_CHARACTER_OKAY"){
+					if(e.mID == "CHARACTER_MOVED" || e.mID == "CHARACTER_MELEE" || e.mID== "CHARACTER_NEWPOS"){
+						GameObject pc = GameObject.Find(e.mUUID);
+						//Debug.Assert()
+						if(pc == null){
+							//Client might have left
+							Debug.Log("Ignoring Movement because cannot find player: " + e.mUUID);
+						}
+						else {
+							Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
+							var p = pc.GetComponent<CharacterMovement>();
+							Debug.Assert(p!=null);
+							p.PushMovement(Tuple.Create(ProtoBase.ProtocolNumbers[e.mID],e.mX,e.mY));
+						}
+					}
+					else if(e.mID == "SPAWN_CHARACTER"){
+						GameObject player = (GameObject)Resources.Load("Characters/Human");
+						Debug.Assert(player != null, "Cannot find PLAYER in Map");
+						player.SetActive(false);
+						XmlCharacterParser c = InstantiateCharacterFromXml(e.mXml,"Spawn");
+						var spawn_pos = c.Position();
+						Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
+						Transform  char_pos = player.transform;
+						char_pos.position =  v3pos;
+						GameObject world = GameObject.Find("World");
+						Debug.Assert(world != null);
+						char_pos.position =  v3pos; // + offset;
+						Debug.Log("spawn x " + spawn_pos.Item2 + " " + spawn_pos.Item3 );
+						var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world, c.SkinColor());
+						x.SetActive(true);
+					}
+					else if(e.mID == "PLAY_CHARACTER_OKAY"){
 						Debug.Log("PLAY_CHARACTER_OKAY");
 						mSpawningPlayerCharacter = true;
 						mPlayerCharacter = InstantiateCharacterFromXml(mPlayerCharacterXml,"Character");
@@ -278,18 +322,18 @@ public class WorldClient : MonoBehaviour {
 						// Set the flag to true to spawn the PC after scene loading
 
 					}
-					else if(e.Item1 == "CHARACTER_LEFT_MAP") {
-						Debug.Log("CHARACTER_LEFT_MAP");
-						 var remove_char = GameObject.Find(e.Item2);
+					else if(e.mID == "CHARACTER_LEFT_MAP") {
+						 Debug.Log("CHARACTER_LEFT_MAP");
+						 var remove_char = GameObject.Find(e.mUUID);
 						 Debug.Assert(remove_char!=null);
 						 remove_char.SetActive(false);
 						 Destroy(remove_char);
 					}
-					else if(e.Item1 == "PLAY_CHARACTER_ERROR") {
+					else if(e.mID == "PLAY_CHARACTER_ERROR") {
 						Debug.Log("PLAY_CHARACTER_ERROR");
 						//ShowMessageBox("PLAY_CHARACTER_OKAY_TITLE","PLAY_CHARACTER_OKAY_TEXT");
 					}
-					else if(e.Item1 == "CONNECTION_ERROR_MSGBOX_TITLE"){
+					else if(e.mID == "CONNECTION_ERROR_MSGBOX_TITLE"){
 						//ShowMessageBox("CONNECTION_ERROR_MSGBOX_TITLE",e.Item2);
 						//TODO CREATE MESSAGE BOX TO NOTIFY USER ABOUT EVENTS
 						Debug.Log("DECONECTADO DEL SERVIDOR");
@@ -300,25 +344,6 @@ public class WorldClient : MonoBehaviour {
 					}
 				}
 			}
-
-			while (mActionQueue.Count>0 && !mSpawningPlayerCharacter){
-				Tuple<short,string, float,float> e;
-				if (mActionQueue.TryDequeue(out e)){
-					GameObject pc = GameObject.Find(e.Item2);
-					if(pc == null){
-						//Client might have left
-						Debug.Log("Ignoring Movement because cannot find player: " + e.Item2);
-					}
-					else {
-						Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
-						var p = pc.GetComponent<CharacterMovement>();
-						Debug.Assert(p!=null);
-						p.PushMovement(Tuple.Create(e.Item1,e.Item3,e.Item4));
-					}
-				}
-			}
-
-
 		}
 		catch (Exception e) {
 			Debug.Log("Failed to read events" + e.Message);
@@ -328,7 +353,10 @@ public class WorldClient : MonoBehaviour {
 
     private void OnConnectionError(string title, string msg){
 	   Debug.Log("mWorldClientConnectionError " + msg);
-	   mEventsQueue.Enqueue(Tuple.Create(title,msg));
+	   var wm = new WorldMessage();
+	   wm.mErrorStr = msg;
+	   wm.mID  = title;
+	   mEventsQueue.Enqueue(wm);
     }
 
 	private void CreateSendWorkload()
@@ -576,9 +604,19 @@ public class WorldClient : MonoBehaviour {
 	// Construct a ConcurrentQueue for Sending messages to the server
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	// Connection events queue
-	private ConcurrentQueue<Tuple<string, string>> mEventsQueue = new ConcurrentQueue<Tuple<string, string>>();
-	private ConcurrentQueue<Tuple<short,string, float,float>> mActionQueue = new ConcurrentQueue<Tuple<short,string, float,float>>();
-	private ConcurrentQueue<XmlDocument> mSpawnQueue = new ConcurrentQueue<XmlDocument>();
+	struct WorldMessage {
+
+		public	string		mErrorStr;
+		public	string		mID;
+		public	string		mUUID;
+		public	float		mX;
+		public	float 		mY;
+		public	XmlDocument mXml;
+	};
+
+	private ConcurrentQueue<WorldMessage> mEventsQueue = new ConcurrentQueue<WorldMessage>();
+	//private ConcurrentQueue<Tuple<short,string, float,float>> mActionQueue = new ConcurrentQueue<Tuple<short,string, float,float>>();
+	//private ConcurrentQueue<XmlDocument> mSpawnQueue = new ConcurrentQueue<XmlDocument>();
 
 	private string mOperationUponSessionOpened = "NOOP";
 	private static Dictionary<short, Func<WorldClient, byte[], int>> ProcessFunctions
@@ -589,7 +627,7 @@ public class WorldClient : MonoBehaviour {
 		{ ProtoBase.ProtocolNumbers["SPAWN_CHARACTER"], (@this, x) => @this.ProcessSpawnCharacter(x) },
 		{ ProtoBase.ProtocolNumbers["CHARACTER_LEFT_MAP"], (@this, x) => @this.ProcessCharacterLeftMap(x) },
 		{ ProtoBase.ProtocolNumbers["CHARACTER_MELEE"], (@this, x) => @this.ProcessCharacterMelee(x) },
-		{ ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"], (@this, x) => @this.ProcessCharacterNewPos(x) },		
+		{ ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"], (@this, x) => @this.ProcessCharacterNewPos(x) },
 		{ ProtoBase.ProtocolNumbers["CHARACTER_MOVED"], (@this, x) => @this.ProcessCharacterMoved(x) }
 	};
 	private XmlDocument				mPlayerCharacterXml;
