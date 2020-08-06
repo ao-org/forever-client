@@ -115,16 +115,16 @@ public class WorldClient : MonoBehaviour {
 		return 1;
 	}
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
-		Debug.Log("ProcessSpawnCharacter");
-		Debug.Log("encrypted_spawn_info len = " + Encoding.ASCII.GetString(encrypted_spawn_info).Length + " "  + Encoding.ASCII.GetString(encrypted_spawn_info) );
+		//Debug.Log("ProcessSpawnCharacter");
+		//Debug.Log("encrypted_spawn_info len = " + Encoding.ASCII.GetString(encrypted_spawn_info).Length + " "  + Encoding.ASCII.GetString(encrypted_spawn_info) );
         var decrypted_info = CryptoHelper.Decrypt(encrypted_spawn_info,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		Debug.Log("decrypted_data: " + decrypted_info);
+		//Debug.Log("decrypted_data: " + decrypted_info);
 
 		try{
 			//Can only be done from the main thread
 			var SpawnCharacterXml = new XmlDocument();
 			SpawnCharacterXml.LoadXml(decrypted_info);
-			Debug.Log("Parsed Spawn XML sucessfully!!!!!!!");
+			//Debug.Log("Parsed Spawn XML sucessfully!!!!!!!");
 			//mSpawnQueue.Enqueue(SpawnCharacterXml);
 			var wm = new WorldMessage();
 			wm.mXml = SpawnCharacterXml;
@@ -301,7 +301,6 @@ public class WorldClient : MonoBehaviour {
 					else if(mSceneLoaded && e.mID == "SPAWN_CHARACTER"){
 						XmlCharacterParser c = InstantiateCharacterFromXml(e.mXml,"Spawn");
 						Debug.Log("SPAWN_CHARACTER " + c.UUID() + " " + c.Prefab());
-
 						GameObject player = (GameObject)Resources.Load(c.Prefab());
 						Debug.Assert(player != null, "Cannot find PLAYER in Map");
 						player.SetActive(false);
@@ -328,7 +327,8 @@ public class WorldClient : MonoBehaviour {
 						// Set the flag to true to spawn the PC after scene loading
 						mEventsQueue.TryDequeue(out e);
 					}
-					else if(mSceneLoaded && e.mID == "CHARACTER_LEFT_MAP") {
+					else if(e.mID == "CHARACTER_LEFT_MAP") {
+						 // We may get a CHARACTER_LEFT_MAP while Loading scene
 						 Debug.Log("CHARACTER_LEFT_MAP");
 						 var remove_char = GameObject.Find(e.mUUID);
 						 Debug.Assert(remove_char!=null);
