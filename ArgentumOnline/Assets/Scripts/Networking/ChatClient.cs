@@ -20,6 +20,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 public class ChatClient : MonoBehaviour {
+
 	public bool IsSessionOpen(){
 		return CryptoHelper.PublicKey.Length > 0;
 	}
@@ -77,7 +78,6 @@ public class ChatClient : MonoBehaviour {
 			//Can only be done from the main thread
 			var CharacterJoinedXml = new XmlDocument();
 			CharacterJoinedXml.LoadXml(decrypted_info);
-			Debug.Log("Parsed CharacterJoinedChat XML sucessfully!!!!!!!");
 			mJoinedQueue.Enqueue(CharacterJoinedXml);
 		}
 		catch (Exception e){
@@ -88,18 +88,20 @@ public class ChatClient : MonoBehaviour {
 		return 1;
 	}
 	public int ProcessChatJoinError(byte[] data){
-		Debug.Log("ProcessChatJoinError");
 		short error_code = ProtoBase.DecodeShort(data);
 		var error_string = ProtoBase.LoginErrorCodeToString(error_code);
 		mEventsQueue.Enqueue(Tuple.Create("LOGIN_ERROR_MSG_BOX_TITLE",error_string));
 		return 1;
 	}
 
+	System.Diagnostics.Stopwatch mStopwatch;
+
 	void Start (){
 		Debug.Log("Initializing ChatClient");
 		mIncommingData = new List<byte>();
 		mAppQuit = false;
-		UUID2Name.Clear();
+ 		mStopwatch = new System.Diagnostics.Stopwatch();
+		mStopwatch.Start();
 	}
 	public void SetMainMenu(MainMenu m){
 		Debug.Assert(m!=null);
@@ -109,15 +111,6 @@ public class ChatClient : MonoBehaviour {
 		Debug.Log("ShowMessageBox " + title + " " + message);
 		mMainMenu.ShowMessageBox(title,message,true);
 	}
-
-    void OnEnable(){
-        Debug.Log("OnEnable called");
-		//SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-	void OnDisable(){
-       Debug.Log("OnDisable");
-       //SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
 
 	private Tuple<string, string, string, float,float> GetChatMessageFromXml(XmlDocument chat){
         var nodes = chat.SelectNodes("Chat");
@@ -160,6 +153,18 @@ public class ChatClient : MonoBehaviour {
 	void Update(){
 		try
 		{
+			if(!IsConnected()){
+				Scene cur_scene = SceneManager.GetActiveScene();
+				mStopwatch.Stop();
+				if(cur_scene.name!="MainMenu"  && mStopwatch.ElapsedMilliseconds > 5000){
+					Debug.Log("Reconnecting to chat server: " + mServerIP + ":" + mServerPort);
+					this.ConnectToTcpServer(mServerIP,mServerPort);
+					mStopwatch = System.Diagnostics.Stopwatch.StartNew();
+				}
+				else {
+					mStopwatch.Start();
+				}
+			}
 			GameObject p = GameObject.Find("ChatBox");
 
 			while(mJoinedQueue.Count>0 && p!=null){
@@ -208,7 +213,7 @@ public class ChatClient : MonoBehaviour {
 					else if(e.Item1 == "CONNECTION_ERROR_MSGBOX_TITLE"){
 						//ShowMessageBox("CONNECTION_ERROR_MSGBOX_TITLE",e.Item2);
 						//TODO CREATE MESSAGE BOX TO NOTIFY USER ABOUT EVENTS
-						Debug.Log("DECONECTADO DEL SERVIDOR");
+						Debug.Log("DECONECTADO DEL CHAT SERVER");
 
 					}
 					else{
