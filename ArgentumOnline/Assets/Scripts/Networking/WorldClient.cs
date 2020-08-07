@@ -301,11 +301,17 @@ public class WorldClient : MonoBehaviour {
 						}
 						mEventsQueue.TryDequeue(out e);
 					}
-					else if(mSceneLoaded && e.mID == "SPAWN_CHARACTER"){
+					else if(e.mID == "SPAWN_CHARACTER"){
 						XmlCharacterParser c = InstantiateCharacterFromXml(e.mXml,"Spawn");
 						Scene cur_scene = SceneManager.GetActiveScene();
 						if( c.Map() == cur_scene.name) {
 							Debug.Log("SPAWN_CHARACTER " + c.UUID() + " " + c.Prefab());
+							var remove_char = GameObject.Find(e.mUUID);
+							if(remove_char!=null){
+								remove_char.SetActive(false);
+								Destroy(remove_char);
+							}
+
 							GameObject player = (GameObject)Resources.Load(c.Prefab());
 							Debug.Assert(player != null, "Cannot find PLAYER in Map");
 							player.SetActive(false);
@@ -321,7 +327,7 @@ public class WorldClient : MonoBehaviour {
 							mEventsQueue.TryDequeue(out e);
 						}
 						else {
-							Debug.Log("Ignoring SPAWN_CHARACTER " + c.UUID() + " " + c.Prefab() + " because scene is not ready");
+							Debug.Log("Ignoring SPAWN_CHARACTER " + c.Name() + " " + "cur_scene= " + cur_scene.name + " requested scene= " + c.Map());
 						}
 					}
 					else if(e.mID == "PLAY_CHARACTER_OKAY"){
@@ -340,7 +346,7 @@ public class WorldClient : MonoBehaviour {
 						 Debug.Log("CHARACTER_LEFT_MAP");
 						 Scene cur_scene = SceneManager.GetActiveScene();
   						 if( e.mMap == cur_scene.name) {
-							 var remove_char = GameObject.Find(e.mUUID);
+							var remove_char = GameObject.Find(e.mUUID);
 						 	Debug.Assert(remove_char!=null);
 						 	remove_char.SetActive(false);
 						 	Destroy(remove_char);
@@ -436,9 +442,11 @@ public class WorldClient : MonoBehaviour {
 	}
 	public void OnPlayerOnEnterLoadScene(string scene, Vector3 newpos)
 	{
-	   Debug.Log("WorldServer::OnPlayerMoved!!!");
-	   var p = new ProtoMapRequest(scene,newpos, CryptoHelper.Token);
-	   SendMessage(p);
+		WorldMessage item;
+		while (mEventsQueue.TryDequeue(out item));
+	   	Debug.Log("WorldServer::OnPlayerMoved!!!");
+	   	var p = new ProtoMapRequest(scene,newpos, CryptoHelper.Token);
+	   	SendMessage(p);
 	}
    	private void OnConnectionEstablished()
    	{
@@ -643,9 +651,6 @@ public class WorldClient : MonoBehaviour {
 	};
 
 	private ConcurrentQueue<WorldMessage> mEventsQueue = new ConcurrentQueue<WorldMessage>();
-	//private ConcurrentQueue<Tuple<short,string, float,float>> mActionQueue = new ConcurrentQueue<Tuple<short,string, float,float>>();
-	//private ConcurrentQueue<XmlDocument> mSpawnQueue = new ConcurrentQueue<XmlDocument>();
-
 	private string mOperationUponSessionOpened = "NOOP";
 	private static Dictionary<short, Func<WorldClient, byte[], int>> ProcessFunctions
         = new Dictionary<short, Func<WorldClient, byte[], int>>
