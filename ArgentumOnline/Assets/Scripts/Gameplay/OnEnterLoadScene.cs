@@ -40,23 +40,23 @@ public class OnEnterLoadScene : MonoBehaviour
             {
                 float x = float.Parse(teleport_x);
                 newPos.x = x;
-                UnityEngine.Debug.Log("TELEPORT X: " + newPos.x.ToString());
+                //UnityEngine.Debug.Log("TELEPORT X: " + newPos.x.ToString());
             }
             else
             {
                 newPos.x = player.transform.position.x;
-                UnityEngine.Debug.Log("TELEPORT X (Locked): " + newPos.x.ToString());
+                //UnityEngine.Debug.Log("TELEPORT X (Locked): " + newPos.x.ToString());
             }
             if (!locky)
             {
                 float y = float.Parse(teleport_y);
                 newPos.y = y;
-                UnityEngine.Debug.Log("TELEPORT Y: " + newPos.y.ToString());
+                //UnityEngine.Debug.Log("TELEPORT Y: " + newPos.y.ToString());
             }
             else
             {
                 newPos.y = player.transform.position.y;
-                UnityEngine.Debug.Log("TELEPORT Y (Locked): " + newPos.y.ToString());
+                //UnityEngine.Debug.Log("TELEPORT Y (Locked): " + newPos.y.ToString());
             }
 
 
@@ -68,7 +68,7 @@ public class OnEnterLoadScene : MonoBehaviour
                 SceneManager.LoadScene(scene);
                 UnityEngine.Debug.Log("Warping to a new scene: " + scene);
                 playerScript.SetTeleportingPos(newPos);
-                UnityEngine.Debug.Log("TELEPORT X Y: " + player.transform.position.x.ToString() + player.transform.position.y.ToString());
+                UnityEngine.Debug.Log("TELEPORT X: " + player.transform.position.x.ToString() + " Y:" + player.transform.position.y.ToString());
                 UnityEngine.Debug.Log("Teleporting player to x:" + WarpingDestination.teleport_x + " y:" + WarpingDestination.teleport_y);
                 WarpingDestination.direction = player.GetComponent<PlayerMovement>().GetDirection();
                 WarpingDestination.warping = true;

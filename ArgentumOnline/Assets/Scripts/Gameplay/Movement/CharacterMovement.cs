@@ -275,7 +275,7 @@ public class CharacterMovement : Movement
             else if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"])
             {
                 // We teleport to the current scene, only need to update the player position
-                UnityEngine.Debug.Log("Warping to the same scene");
+                //UnityEngine.Debug.Log("Warping to the same scene");
                 var old_pos = transform.position;
                 var new_pos = new Vector3(e.Item2,e.Item3,old_pos.z);
                 transform.position = new_pos;

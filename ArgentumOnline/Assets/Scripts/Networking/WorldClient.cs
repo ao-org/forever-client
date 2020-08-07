@@ -58,12 +58,16 @@ public class WorldClient : MonoBehaviour {
 		}
 		return 1;
 	}
-	public int ProcessCharacterLeftMap(byte[] encrypted_uuid){
-		Debug.Log("ProcessCharacterLeftMap");
-        var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+	public int ProcessCharacterLeftMap(byte[] encrypted_data){
+		var uuid_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,0,2));
+		var encrypted_uuid = ProtoBase.SliceArray(encrypted_data,2,uuid_len);
+		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
+		var encrypted_map = ProtoBase.SliceArray(encrypted_data,2+uuid_len,encrypted_data.Length - (2+uuid_len) );
+		string decrypted_map = CryptoHelper.Decrypt(encrypted_map,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		var wm = new WorldMessage();
 		wm.mUUID = decrypted_uuid;
 		wm.mID  = "CHARACTER_LEFT_MAP";
+		wm.mMap = decrypted_map;
 		mEventsQueue.Enqueue(wm);
 		return 1;
 	}
@@ -207,7 +211,6 @@ public class WorldClient : MonoBehaviour {
 		try{
 			var pc = new XmlCharacterParser();
 			pc.CreateFromXml(xml_doc,selectnode);
-			Debug.Log("Player Character created sucessfully!!!!!!!");
 			return pc;
 		}
 		catch (Exception e){
@@ -313,7 +316,6 @@ public class WorldClient : MonoBehaviour {
 							GameObject world = GameObject.Find("World");
 							Debug.Assert(world != null);
 							char_pos.position =  v3pos; // + offset;
-							Debug.Log("spawn x " + spawn_pos.Item2 + " " + spawn_pos.Item3 );
 							var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world, c.SkinColor());
 							x.SetActive(true);
 							mEventsQueue.TryDequeue(out e);
@@ -336,11 +338,15 @@ public class WorldClient : MonoBehaviour {
 					else if(e.mID == "CHARACTER_LEFT_MAP") {
 						 // We may get a CHARACTER_LEFT_MAP while Loading scene
 						 Debug.Log("CHARACTER_LEFT_MAP");
-						 var remove_char = GameObject.Find(e.mUUID);
-						 if(remove_char!=null){
+						 Scene cur_scene = SceneManager.GetActiveScene();
+  						 if( e.mMap == cur_scene.name) {
+							 var remove_char = GameObject.Find(e.mUUID);
 						 	Debug.Assert(remove_char!=null);
 						 	remove_char.SetActive(false);
 						 	Destroy(remove_char);
+						 }
+						 else {
+							 Debug.Log("Ignoring CHARACTER_LEFT_MAP " + e.mUUID + " " + e.mMap + " because scene is not ready");
 						 }
 						 mEventsQueue.TryDequeue(out e);
 					}
@@ -632,6 +638,7 @@ public class WorldClient : MonoBehaviour {
 		public	string		mUUID;
 		public	float		mX;
 		public	float 		mY;
+		public  string      mMap;
 		public	XmlDocument mXml;
 	};
 
