@@ -284,5 +284,89 @@ MonoBehaviour:
     m_Localized: "Cr\xE9er un compte"
     m_Metadata:
       m_Items: []
+  - m_Id: 81
+    m_Localized: "CR\xC9ER UN COMPTE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82
+    m_Localized: CHOISISSEZ VOTRE PERSONNAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83
+    m_Localized: Continuer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84
+    m_Localized: "Cr\xE9er un nouveau Personnage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85
+    m_Localized: "Devenez Premium pour d\xE9bloquer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86
+    m_Localized: "CR\xC9ER UN NOUVEAU PERSONNAGE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87
+    m_Localized: LE NOM DU PERSONNAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 88
+    m_Localized: Force
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89
+    m_Localized: "Agilit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90
+    m_Localized: "Dext\xE9rit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91
+    m_Localized: Intelligence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92
+    m_Localized: Charisme
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93
+    m_Localized: Constitution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96
+    m_Localized: Total
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95
+    m_Localized: Mod
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94
+    m_Localized: Base
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97
+    m_Localized: STATISTIQUES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98
+    m_Localized: LE SEXE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99
+    m_Localized: RACE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100
+    m_Localized: CLASSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101
+    m_Localized: "VILLE DE D\xC9PART"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

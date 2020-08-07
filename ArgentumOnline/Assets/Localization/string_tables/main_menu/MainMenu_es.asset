@@ -282,5 +282,89 @@ MonoBehaviour:
     m_Localized: He leido y acepto
     m_Metadata:
       m_Items: []
+  - m_Id: 81
+    m_Localized: CREAR UNA CUENTA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82
+    m_Localized: SELECCIONA TU PERSONAJE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84
+    m_Localized: Crea un nuevo Personaje
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85
+    m_Localized: Hazte Premium para desbloquear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86
+    m_Localized: CREA UN NUEVO PERSONAJE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87
+    m_Localized: NOMBRE DEL PERSONAJE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89
+    m_Localized: Agilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 88
+    m_Localized: Fuerza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90
+    m_Localized: Destreza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91
+    m_Localized: Inteligencia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92
+    m_Localized: Carisma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93
+    m_Localized: "Constituci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94
+    m_Localized: Base
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96
+    m_Localized: Total
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95
+    m_Localized: Mod
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97
+    m_Localized: "ESTAD\xCDSTICAS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98
+    m_Localized: "G\xC9NERO"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99
+    m_Localized: RAZA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100
+    m_Localized: CLASE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101
+    m_Localized: CIUDAD INICIAL
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

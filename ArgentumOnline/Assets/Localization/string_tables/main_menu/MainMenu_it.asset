@@ -283,5 +283,89 @@ MonoBehaviour:
     m_Localized: Creare un profilo
     m_Metadata:
       m_Items: []
+  - m_Id: 81
+    m_Localized: CREA UN ACCOUNT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82
+    m_Localized: SELEZIONA IL TUO PERSONAGGIO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83
+    m_Localized: Continua
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84
+    m_Localized: Crea un nuovo Personaggio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85
+    m_Localized: Diventa Premium per sbloccare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86
+    m_Localized: CREA UN NUOVO PERSONAGGIO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87
+    m_Localized: NOME DEL PERSONAGGIO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 88
+    m_Localized: Forza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89
+    m_Localized: "Agilit\xE0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90
+    m_Localized: Destrezza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91
+    m_Localized: Intelligenza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92
+    m_Localized: Carisma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93
+    m_Localized: Costituzione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96
+    m_Localized: Totale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95
+    m_Localized: Mod
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94
+    m_Localized: Base
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97
+    m_Localized: STATISTICHE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98
+    m_Localized: GENERE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99
+    m_Localized: RAZZA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100
+    m_Localized: CLASSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101
+    m_Localized: "CITT\xC0 DI PARTENZA"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
