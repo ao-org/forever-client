@@ -305,7 +305,7 @@ public class WorldClient : MonoBehaviour {
 						XmlCharacterParser c = InstantiateCharacterFromXml(e.mXml,"Spawn");
 						Scene cur_scene = SceneManager.GetActiveScene();
 						if( c.Map() == cur_scene.name) {
-							Debug.Log("SPAWN_CHARACTER " + c.UUID() + " " + c.Prefab());
+							//Debug.Log("SPAWN_CHARACTER " + c.UUID() + " " + c.Prefab());
 							var remove_char = GameObject.Find(e.mUUID);
 							if(remove_char!=null){
 								remove_char.SetActive(false);
@@ -343,7 +343,7 @@ public class WorldClient : MonoBehaviour {
 					}
 					else if(e.mID == "CHARACTER_LEFT_MAP") {
 						 // We may get a CHARACTER_LEFT_MAP while Loading scene
-						 Debug.Log("CHARACTER_LEFT_MAP");
+						 //Debug.Log("CHARACTER_LEFT_MAP");
 						 Scene cur_scene = SceneManager.GetActiveScene();
   						 if( e.mMap == cur_scene.name) {
 							var remove_char = GameObject.Find(e.mUUID);
