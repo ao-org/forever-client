@@ -171,13 +171,8 @@ public class PlayerMovement : Movement
         return;
 
     }
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        mBody.velocity = Vector2.zero;
-        mBody.angularVelocity = 0f;
 
-
+    void Update(){
         if (takeDamage && !IsPhantom)
         {
             UnityEngine.Debug.Log("Damage: " + damageValue);
@@ -273,6 +268,13 @@ public class PlayerMovement : Movement
                 running = true;
             }
         }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        mBody.velocity = Vector2.zero;
+        mBody.angularVelocity = 0f;
 
         Vector2 input_delta = new Vector2(
             Input.GetAxisRaw("Horizontal"),
