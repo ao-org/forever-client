@@ -226,12 +226,7 @@ public class PlayerMovement : Movement
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            PlayAnimation("Attack");
-            OnAttack();
-            return;
-        }
+
         if (Input.GetKeyDown(KeyCode.L))
         {
             if (IsPhantom)
@@ -287,6 +282,13 @@ public class PlayerMovement : Movement
                 return;
             }
         }
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            PlayAnimation("Attack");
+            OnAttack();
+            return;
+        }
+        
         mBody.velocity = Vector2.zero;
         mBody.angularVelocity = 0f;
 
