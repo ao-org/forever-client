@@ -135,11 +135,6 @@ public class CharacterMovement : Movement
 
         }
 
-        if (IsAnimationPlaying("Attack"))
-        {
-            return;
-        }
-
         if (mActionQueue.Count > 0){
             Tuple<short,float,float> e = mActionQueue.Dequeue();
             if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_MOVED"])
@@ -265,9 +260,6 @@ public class CharacterMovement : Movement
                     }
                     TryToMove(new_pos);
                 }
-
-
-
             }
             else if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_MELEE"])
             {
