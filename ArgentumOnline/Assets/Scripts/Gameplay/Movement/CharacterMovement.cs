@@ -47,7 +47,8 @@ public class CharacterMovement : Movement
         WalkRunSpeed = WalkSpeed;
         mBody.isKinematic = true;
 //        mBody.useFullKinematicContacts =true;
-
+        mInputStopwatch = new System.Diagnostics.Stopwatch();
+        mInputStopwatch.Start();
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
@@ -96,9 +97,24 @@ public class CharacterMovement : Movement
         return;
 
     }
+
+    private System.Diagnostics.Stopwatch mInputStopwatch;
+
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        {
+            // We limit the number of movement the player can do aiming to make PCs speed framerate independet
+            mInputStopwatch.Stop();
+            if(mInputStopwatch.ElapsedMilliseconds > 20){
+                mInputStopwatch = System.Diagnostics.Stopwatch.StartNew();
+            }
+            else {
+                mInputStopwatch.Start();
+                return;
+            }
+        }
+
         { // Reset the force, we do not want the physics engine to move the Player
             mBody.velocity = Vector2.zero;
             mBody.angularVelocity = 0f;

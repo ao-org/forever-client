@@ -67,6 +67,7 @@ public class PlayerMovement : Movement
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = mSkinColor;
     }
+    private System.Diagnostics.Stopwatch mInputStopwatch;
 
     // Start is called before the first frame update
     public override void Start()
@@ -79,6 +80,8 @@ public class PlayerMovement : Movement
         mBody.gravityScale = 0f;
         //mBody.isKinematic = true;
         //mBody.useFullKinematicContacts =true;
+        mInputStopwatch = new System.Diagnostics.Stopwatch();
+		mInputStopwatch.Start();
 
         if (IsPhantom)
         {
@@ -273,6 +276,17 @@ public class PlayerMovement : Movement
     // Update is called once per frame
     void FixedUpdate()
     {
+        {
+            // We limit the number of movement the player can do aiming to make PCs speed framerate independet
+            mInputStopwatch.Stop();
+            if(mInputStopwatch.ElapsedMilliseconds > 20){
+                mInputStopwatch = System.Diagnostics.Stopwatch.StartNew();
+            }
+            else {
+                mInputStopwatch.Start();
+                return;
+            }
+        }
         mBody.velocity = Vector2.zero;
         mBody.angularVelocity = 0f;
 
