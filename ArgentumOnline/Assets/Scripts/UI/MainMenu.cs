@@ -65,6 +65,9 @@ public class MainMenu : MonoBehaviour
     public LocalizedString SignupText_TERMS_CONDITIONS_TEXT;
     public bool IsLoginPanel;
 
+    string[] strRaza = new string[] { "GNOMO", "DWARF", "ELF", "HUMANO" }; 
+
+
     private void CreateAndInitLocalizedStrings(){
         mLocalizedStringMappings = new Dictionary<string,LocalizedString>();
         mLocalizedStringMappings["LOGIN_ERROR_MSG_BOX_TITLE"]= LoginErrText_MSGBOX_TITLE;
@@ -312,7 +315,80 @@ public class MainMenu : MonoBehaviour
             mMessageBox.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
-
+    public void ButtonArrowGeneroClick()
+    {
+        Text generoText = GameObject.Find("MaleOrFemale").GetComponent<Text>();
+        Debug.Assert(generoText != null);
+        string aux;
+        if (generoText.text == "HOMBRE" || generoText.text == "UOMO" || generoText.text == "MALE" || generoText.text == "HOMME" || generoText.text == "HOMEM")
+            aux = "FEMALE";
+        else
+            aux = "MALE";
+        var generoLoc = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("MainMenu", aux);
+        if (generoLoc.IsDone)
+            generoText.text = generoLoc.Result;
+        else
+            generoLoc.Completed += (o) => generoText.text = o.Result;
+        
+        generoText.text = generoLoc.Result;
+    }
+    public void ButtonArrowRazaLeftClick()
+    {
+        Text generoText = GameObject.Find("Raza").GetComponent<Text>();
+        Debug.Assert(generoText != null);
+        for (int i=0; i < strRaza.Length; i++)
+        {
+            if (strRaza[i] == generoText.text)
+            {
+                string aux;
+                if (i == 0)
+                {
+                    aux = strRaza[strRaza.Length - 1];
+                    Debug.Log("LEFTRAZA*********************************************1: " + aux);
+                }
+                else
+                {
+                    aux = strRaza[i - 1];
+                    Debug.Log("LEFTRAZA*********************************************2");
+                }
+                var razaLoc = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("MainMenu", aux + "_TEXT");
+                if (razaLoc.IsDone)
+                    generoText.text = razaLoc.Result;
+                else
+                    razaLoc.Completed += (o) => generoText.text = o.Result;
+                generoText.text = razaLoc.Result;
+                Debug.Log("LEFTRAZA*********************************************3");
+                return;
+            }
+        }
+    }
+    public void ButtonArrowRazaRightClick()
+    {
+        Text generoText = GameObject.Find("Raza").GetComponent<Text>();
+        Debug.Assert(generoText != null);
+        for (int i = 0; i < strRaza.Length; i++)
+        {
+            string aux;
+            if (strRaza[i] == generoText.text)
+            {
+                if (i == (strRaza.Length - 1))
+                {
+                    aux = strRaza[0];
+                }
+                else
+                {
+                    aux = strRaza[i + 1];
+                }
+                var razaLoc = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("MainMenu", aux);
+                if (razaLoc.IsDone)
+                    generoText.text = razaLoc.Result;
+                else
+                    razaLoc.Completed += (o) => generoText.text = o.Result;
+                generoText.text = razaLoc.Result;
+                return;
+            }
+        }
+    }
 
     public void CreateAccount(){
         Debug.Log("CreateAccount");

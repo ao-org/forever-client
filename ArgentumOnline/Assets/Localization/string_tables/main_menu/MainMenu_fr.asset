@@ -317,7 +317,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 89
-    m_Localized: "Agilit\xE9"
+    m_Localized: Endurance
     m_Metadata:
       m_Items: []
   - m_Id: 90
@@ -366,6 +366,34 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 101
     m_Localized: "VILLE DE D\xC9PART"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 103
+    m_Localized: FEMME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102
+    m_Localized: HOMME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104
+    m_Localized: HUMAIN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 106
+    m_Localized: NAIN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105
+    m_Localized: ELFE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 107
+    m_Localized: GNOME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111
+    m_Localized: La chance
     m_Metadata:
       m_Items: []
   references:

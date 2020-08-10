@@ -1,0 +1,2911 @@
+fileFormatVersion: 2
+guid: 63b82ac9af908bd4b83428d82f2fcbd6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2652413225294735624
+    second: pasto_caminos_dm_0
+  - first:
+      213: 246686650328353619
+    second: pasto_caminos_dm_1
+  - first:
+      213: 4868535112279511458
+    second: pasto_caminos_dm_2
+  - first:
+      213: -8650044060318789409
+    second: pasto_caminos_dm_3
+  - first:
+      213: -3937041412871495542
+    second: pasto_caminos_dm_4
+  - first:
+      213: -2063232846714199356
+    second: pasto_caminos_dm_5
+  - first:
+      213: -7225417861369490217
+    second: pasto_caminos_dm_6
+  - first:
+      213: -1534689469090973537
+    second: pasto_caminos_dm_7
+  - first:
+      213: -143170157826552374
+    second: pasto_caminos_dm_8
+  - first:
+      213: -6825085117451082486
+    second: pasto_caminos_dm_9
+  - first:
+      213: 7131155933636328856
+    second: pasto_caminos_dm_10
+  - first:
+      213: -5078623017039773714
+    second: pasto_caminos_dm_11
+  - first:
+      213: -4455700505196479922
+    second: pasto_caminos_dm_12
+  - first:
+      213: 5649562345584010682
+    second: pasto_caminos_dm_13
+  - first:
+      213: -420344003925771555
+    second: pasto_caminos_dm_14
+  - first:
+      213: 6783731398246760287
+    second: pasto_caminos_dm_15
+  - first:
+      213: -4811321629436180102
+    second: pasto_caminos_dm_16
+  - first:
+      213: -9037332962684452624
+    second: pasto_caminos_dm_17
+  - first:
+      213: 3061063509249480163
+    second: pasto_caminos_dm_18
+  - first:
+      213: -430543650111745144
+    second: pasto_caminos_dm_19
+  - first:
+      213: 7904718898134216434
+    second: pasto_caminos_dm_20
+  - first:
+      213: 2936315437874037914
+    second: pasto_caminos_dm_21
+  - first:
+      213: -6396586285007989212
+    second: pasto_caminos_dm_22
+  - first:
+      213: 2523856031278557811
+    second: pasto_caminos_dm_23
+  - first:
+      213: -8829665663713957132
+    second: pasto_caminos_dm_24
+  - first:
+      213: -2808392161301385089
+    second: pasto_caminos_dm_25
+  - first:
+      213: 5137769535209030894
+    second: pasto_caminos_dm_26
+  - first:
+      213: 965527866329380721
+    second: pasto_caminos_dm_27
+  - first:
+      213: -4470129132506257940
+    second: pasto_caminos_dm_28
+  - first:
+      213: -4777679483145322440
+    second: pasto_caminos_dm_29
+  - first:
+      213: 5825531569533090763
+    second: pasto_caminos_dm_30
+  - first:
+      213: 4965856457658909141
+    second: pasto_caminos_dm_31
+  - first:
+      213: -1392722007847610975
+    second: pasto_caminos_dm_32
+  - first:
+      213: 3529001568200462879
+    second: pasto_caminos_dm_33
+  - first:
+      213: 1563171050186125396
+    second: pasto_caminos_dm_34
+  - first:
+      213: -51521985971020607
+    second: pasto_caminos_dm_35
+  - first:
+      213: 8701932961833725029
+    second: pasto_caminos_dm_36
+  - first:
+      213: -8787920706403418530
+    second: pasto_caminos_dm_37
+  - first:
+      213: 458901969268542524
+    second: pasto_caminos_dm_38
+  - first:
+      213: -6833587674683651656
+    second: pasto_caminos_dm_39
+  - first:
+      213: -941232173190903182
+    second: pasto_caminos_dm_40
+  - first:
+      213: 1261370176786749446
+    second: pasto_caminos_dm_41
+  - first:
+      213: -8945094492753819198
+    second: pasto_caminos_dm_42
+  - first:
+      213: 301169399959353485
+    second: pasto_caminos_dm_43
+  - first:
+      213: -3077231281549658180
+    second: pasto_caminos_dm_44
+  - first:
+      213: 7535879824472927640
+    second: pasto_caminos_dm_45
+  - first:
+      213: 1521064593400891282
+    second: pasto_caminos_dm_46
+  - first:
+      213: 3514732475171599139
+    second: pasto_caminos_dm_47
+  - first:
+      213: -5387826359276074308
+    second: pasto_caminos_dm_48
+  - first:
+      213: -4775581607072715717
+    second: pasto_caminos_dm_49
+  - first:
+      213: 9204979849294228670
+    second: pasto_caminos_dm_50
+  - first:
+      213: 8388270105095140338
+    second: pasto_caminos_dm_51
+  - first:
+      213: 1794967545211400343
+    second: pasto_caminos_dm_52
+  - first:
+      213: -5889126167558247119
+    second: pasto_caminos_dm_53
+  - first:
+      213: 3507557396670244112
+    second: pasto_caminos_dm_54
+  - first:
+      213: -8603020179915875082
+    second: pasto_caminos_dm_55
+  - first:
+      213: 6329049071553597481
+    second: pasto_caminos_dm_56
+  - first:
+      213: 5431734823967295647
+    second: pasto_caminos_dm_57
+  - first:
+      213: -5104533756920073235
+    second: pasto_caminos_dm_58
+  - first:
+      213: 2835240215514959909
+    second: pasto_caminos_dm_59
+  - first:
+      213: -4054554902797087853
+    second: pasto_caminos_dm_60
+  - first:
+      213: 4876402658852763049
+    second: pasto_caminos_dm_61
+  - first:
+      213: 712188922961880212
+    second: pasto_caminos_dm_62
+  - first:
+      213: -3987812881291210945
+    second: pasto_caminos_dm_63
+  - first:
+      213: 5524877356476888085
+    second: pasto_caminos_dm_0
+  - first:
+      213: 4306104525799228997
+    second: pasto_caminos_dm_1
+  - first:
+      213: -3533296538443588200
+    second: pasto_caminos_dm_2
+  - first:
+      213: 175625849384244988
+    second: pasto_caminos_dm_3
+  - first:
+      213: -4719583585191207168
+    second: pasto_caminos_dm_4
+  - first:
+      213: -7290857322838479124
+    second: pasto_caminos_dm_5
+  - first:
+      213: 2994165168490760567
+    second: pasto_caminos_dm_6
+  - first:
+      213: -2060584924917555232
+    second: pasto_caminos_dm_7
+  - first:
+      213: 5577104002748842324
+    second: pasto_caminos_dm_8
+  - first:
+      213: 6583077093966006477
+    second: pasto_caminos_dm_9
+  - first:
+      213: -3965791731095245569
+    second: pasto_caminos_dm_10
+  - first:
+      213: 8783693194107649390
+    second: pasto_caminos_dm_11
+  - first:
+      213: -2101926833293359477
+    second: pasto_caminos_dm_12
+  - first:
+      213: 222180061826365387
+    second: pasto_caminos_dm_13
+  - first:
+      213: 2345963013354345350
+    second: pasto_caminos_dm_14
+  - first:
+      213: -5932600918508545931
+    second: pasto_caminos_dm_15
+  - first:
+      213: -426702103485159734
+    second: pasto_caminos_dm_16
+  - first:
+      213: -4743707332440159092
+    second: pasto_caminos_dm_17
+  - first:
+      213: 8923729613722885727
+    second: pasto_caminos_dm_18
+  - first:
+      213: -3166626936147094246
+    second: pasto_caminos_dm_19
+  - first:
+      213: -1534591738127185118
+    second: pasto_caminos_dm_20
+  - first:
+      213: 1960368736774913092
+    second: pasto_caminos_dm_21
+  - first:
+      213: 2305771947283947931
+    second: pasto_caminos_dm_22
+  - first:
+      213: -7355536913113066306
+    second: pasto_caminos_dm_23
+  - first:
+      213: 1217006471729607342
+    second: pasto_caminos_dm_24
+  - first:
+      213: 8640197538411788466
+    second: pasto_caminos_dm_25
+  - first:
+      213: -49752422852443173
+    second: pasto_caminos_dm_26
+  - first:
+      213: -7094854676518053292
+    second: pasto_caminos_dm_27
+  - first:
+      213: -7740077555653993841
+    second: pasto_caminos_dm_28
+  - first:
+      213: 2980420155396836813
+    second: pasto_caminos_dm_29
+  - first:
+      213: 7900015554772130980
+    second: pasto_caminos_dm_30
+  - first:
+      213: 861869521063436927
+    second: pasto_caminos_dm_31
+  - first:
+      213: -8702719483565151211
+    second: pasto_caminos_dm_32
+  - first:
+      213: 3398183293944859152
+    second: pasto_caminos_dm_33
+  - first:
+      213: 5221823137080583297
+    second: pasto_caminos_dm_34
+  - first:
+      213: 5985873783230326891
+    second: pasto_caminos_dm_35
+  - first:
+      213: -5900411253024951711
+    second: pasto_caminos_dm_36
+  - first:
+      213: -8354605093557533805
+    second: pasto_caminos_dm_38
+  - first:
+      213: 1761811631988807733
+    second: pasto_caminos_dm_39
+  - first:
+      213: 4966587524920533055
+    second: pasto_caminos_dm_40
+  - first:
+      213: -6446577069046923576
+    second: pasto_caminos_dm_41
+  - first:
+      213: -7448431760663438682
+    second: pasto_caminos_dm_42
+  - first:
+      213: 3073522038745267999
+    second: pasto_caminos_dm_44
+  - first:
+      213: -216103821837886705
+    second: pasto_caminos_dm_45
+  - first:
+      213: 1985191800948159666
+    second: pasto_caminos_dm_46
+  - first:
+      213: 8041380315791312899
+    second: pasto_caminos_dm_47
+  - first:
+      213: -2059058637236117190
+    second: pasto_caminos_dm_48
+  - first:
+      213: -7072016058928781969
+    second: pasto_caminos_dm_49
+  - first:
+      213: -6459902761236589091
+    second: pasto_caminos_dm_50
+  - first:
+      213: 924248117773395010
+    second: pasto_caminos_dm_51
+  - first:
+      213: 2111588560564006078
+    second: pasto_caminos_dm_52
+  - first:
+      213: 2957700463376936191
+    second: pasto_caminos_dm_53
+  - first:
+      213: 8118037526206976493
+    second: pasto_caminos_dm_54
+  - first:
+      213: 6220999564805755400
+    second: pasto_caminos_dm_55
+  - first:
+      213: 236222527567160985
+    second: pasto_caminos_dm_56
+  - first:
+      213: 8786824055723520556
+    second: pasto_caminos_dm_57
+  - first:
+      213: -2304266287290413276
+    second: pasto_caminos_dm_58
+  - first:
+      213: -4602398175150498552
+    second: pasto_caminos_dm_59
+  - first:
+      213: -4966865559305961248
+    second: pasto_caminos_dm_60
+  - first:
+      213: 385822764613717527
+    second: pasto_caminos_dm_61
+  - first:
+      213: -4729891115699176742
+    second: pasto_caminos_dm_62
+  - first:
+      213: 5482724126927609230
+    second: pasto_caminos_dm_63
+  - first:
+      213: -3670474118021122623
+    second: pasto_caminos_dm_64
+  - first:
+      213: -1170282278819666037
+    second: pasto_caminos_dm_65
+  - first:
+      213: -6690873522758990006
+    second: pasto_caminos_dm_66
+  - first:
+      213: 7076173569009264424
+    second: pasto_caminos_dm_67
+  - first:
+      213: 3011253223336636844
+    second: pasto_caminos_dm_68
+  - first:
+      213: -449147858879594746
+    second: pasto_caminos_dm_69
+  - first:
+      213: 8096223097964755575
+    second: pasto_caminos_dm_70
+  - first:
+      213: -2330214834206619844
+    second: pasto_caminos_dm_71
+  - first:
+      213: -716921942412288505
+    second: pasto_caminos_dm_72
+  - first:
+      213: 1873865079555425718
+    second: pasto_caminos_dm_73
+  - first:
+      213: 5154594112534189386
+    second: pasto_caminos_dm_74
+  - first:
+      213: 6197401599570093372
+    second: pasto_caminos_dm_75
+  - first:
+      213: -1573440029822557977
+    second: pasto_caminos_dm_76
+  - first:
+      213: -13187375933186923
+    second: pasto_caminos_dm_77
+  - first:
+      213: -3211969224344585099
+    second: pasto_caminos_dm_78
+  - first:
+      213: 5946441568959372748
+    second: pasto_caminos_dm_79
+  - first:
+      213: 7712330919189369234
+    second: pasto_caminos_dm_80
+  - first:
+      213: 3026559959260645030
+    second: pasto_caminos_dm_81
+  - first:
+      213: -2021975685987080252
+    second: pasto_caminos_dm_82
+  - first:
+      213: 9185550332412905728
+    second: pasto_caminos_dm_83
+  - first:
+      213: -3545603153883828568
+    second: pasto_caminos_dm_84
+  - first:
+      213: -6458092855448498279
+    second: pasto_caminos_dm_85
+  - first:
+      213: -4814800647170966740
+    second: pasto_caminos_dm_86
+  - first:
+      213: 4915241559214484074
+    second: pasto_caminos_dm_87
+  - first:
+      213: 3913775949164259428
+    second: pasto_caminos_dm_88
+  - first:
+      213: 5034046849722514344
+    second: pasto_caminos_dm_89
+  - first:
+      213: 33020040608450078
+    second: pasto_caminos_dm_90
+  - first:
+      213: 4362038581480289304
+    second: pasto_caminos_dm_91
+  - first:
+      213: 8720753493859651934
+    second: pasto_caminos_dm_92
+  - first:
+      213: 5910527484931462267
+    second: pasto_caminos_dm_93
+  - first:
+      213: 6851387836654454671
+    second: pasto_caminos_dm_94
+  - first:
+      213: 7059327100223817355
+    second: pasto_caminos_dm_95
+  - first:
+      213: -5387142249664628874
+    second: pasto_caminos_dm_96
+  - first:
+      213: -4316742616141896422
+    second: pasto_caminos_dm_97
+  - first:
+      213: 4249204698923932874
+    second: pasto_caminos_dm_98
+  - first:
+      213: 1676356667760862012
+    second: pasto_caminos_dm_99
+  - first:
+      213: 1426280370301959732
+    second: pasto_caminos_dm_100
+  - first:
+      213: -4602556511934613939
+    second: pasto_caminos_dm_101
+  - first:
+      213: -4024063524001963464
+    second: pasto_caminos_dm_102
+  - first:
+      213: 327475832974744558
+    second: pasto_caminos_dm_103
+  - first:
+      213: -4905382621404487729
+    second: pasto_caminos_dm_104
+  - first:
+      213: 1733450847118741848
+    second: pasto_caminos_dm_105
+  - first:
+      213: -387391157598017548
+    second: pasto_caminos_dm_106
+  - first:
+      213: -3879524484927979953
+    second: pasto_caminos_dm_107
+  - first:
+      213: 3330489133574917473
+    second: pasto_caminos_dm_108
+  - first:
+      213: -8756599241453175609
+    second: pasto_caminos_dm_109
+  - first:
+      213: 1311231372553335944
+    second: pasto_caminos_dm_110
+  - first:
+      213: -3110236237099529440
+    second: pasto_caminos_dm_111
+  - first:
+      213: -7620041439139756865
+    second: pasto_caminos_dm_112
+  - first:
+      213: -3099383485539050140
+    second: pasto_caminos_dm_113
+  - first:
+      213: 6509461418514818627
+    second: pasto_caminos_dm_114
+  - first:
+      213: -6266506988786905637
+    second: pasto_caminos_dm_115
+  - first:
+      213: -3704635232910434888
+    second: pasto_caminos_dm_116
+  - first:
+      213: 1689681355729136112
+    second: pasto_caminos_dm_117
+  - first:
+      213: -4159204748975610134
+    second: pasto_caminos_dm_118
+  - first:
+      213: -8899297293181783650
+    second: pasto_caminos_dm_119
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pasto_caminos_dm_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51477640fae4cac40800000000000000
+      internalID: 5524877356476888085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54607f1604b52cb30800000000000000
+      internalID: 4306104525799228997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_2
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89dd3fbb48537fec0800000000000000
+      internalID: -3533296538443588200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_3
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf69ced87c2ff6200800000000000000
+      internalID: 175625849384244988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_4
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00fd9e41cbba08eb0800000000000000
+      internalID: -4719583585191207168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_5
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cee282cb4eba1da90800000000000000
+      internalID: -7290857322838479124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_6
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7794db26b596d8920800000000000000
+      internalID: 2994165168490760567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_7
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef93c0ade45763e0800000000000000
+      internalID: -2060584924917555232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_8
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 451014faa8ad56d40800000000000000
+      internalID: 5577104002748842324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_9
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8cad20db9cb5b50800000000000000
+      internalID: 6583077093966006477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_10
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffce2e6ae6da6f8c0800000000000000
+      internalID: -3965791731095245569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_11
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 1454
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d7dca0c62f5e970800000000000000
+      internalID: 8783693194107649390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8600bd7ea474d2e0800000000000000
+      internalID: -2101926833293359477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_13
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc7b55dc697551300800000000000000
+      internalID: 222180061826365387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_14
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 683d0336ee88e8020800000000000000
+      internalID: 2345963013354345350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_15
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578542a95ea2bada0800000000000000
+      internalID: -5932600918508545931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_16
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac6ead892bc041af0800000000000000
+      internalID: -426702103485159734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_17
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8c0d7b7057fa2eb0800000000000000
+      internalID: -4743707332440159092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_18
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5e1691cdc477db70800000000000000
+      internalID: 8923729613722885727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_19
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15d4ce3491ed04d0800000000000000
+      internalID: -3166626936147094246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_20
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b0eadd1f804bae0800000000000000
+      internalID: -1534591738127185118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_21
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44cff38caf0a43b10800000000000000
+      internalID: 1960368736774913092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_22
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b91abea9e5fbfff10800000000000000
+      internalID: 2305771947283947931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_23
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 1322
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb45f991622ebe990800000000000000
+      internalID: -7355536913113066306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea27bc420fca3e010800000000000000
+      internalID: 1217006471729607342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_25
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b83d3a22e528e770800000000000000
+      internalID: 8640197538411788466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_26
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd34a2d5f6e3f4ff0800000000000000
+      internalID: -49752422852443173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_27
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a5f1903430a8d90800000000000000
+      internalID: -7094854676518053292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_28
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a1549c878b59490800000000000000
+      internalID: -7740077555653993841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_29
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcdc7d327549c5920800000000000000
+      internalID: 2980420155396836813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_30
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acd04e7a4e72ad60800000000000000
+      internalID: 7900015554772130980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_31
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f72e8b553c9f5fb00800000000000000
+      internalID: 861869521063436927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_32
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51c6a3a1dbab93780800000000000000
+      internalID: -8702719483565151211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_33
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a004593b5c82f20800000000000000
+      internalID: 3398183293944859152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_34
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184aa9d0a74a77840800000000000000
+      internalID: 5221823137080583297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_35
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6864c7cd78121350800000000000000
+      internalID: 5985873783230326891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_36
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162fab22a378d1ea0800000000000000
+      internalID: -5900411253024951711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_37
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e368c8da80b0680800000000000000
+      internalID: -8787920706403418530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_38
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39385d79eea7e0c80800000000000000
+      internalID: -8354605093557533805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_39
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53818d54856337810800000000000000
+      internalID: 1761811631988807733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_40
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3066c03a0ddce440800000000000000
+      internalID: 4966587524920533055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_41
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ce7746af482986a0800000000000000
+      internalID: -6446577069046923576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_42
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa1be3f6cad1a890800000000000000
+      internalID: -7448431760663438682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_43
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d887bcd39f7fd2400800000000000000
+      internalID: 301169399959353485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_44
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ffeb0920857aa20800000000000000
+      internalID: 3073522038745267999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_45
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b9fb018be300df0800000000000000
+      internalID: -216103821837886705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_46
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4788acc61dc8b10800000000000000
+      internalID: 1985191800948159666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_47
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3084f8acac8b89f60800000000000000
+      internalID: 8041380315791312899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_48
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3167db2411cc63e0800000000000000
+      internalID: -2059058637236117190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_49
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6521b11dd62bdd90800000000000000
+      internalID: -7072016058928781969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_50
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd59de82aa0d956a0800000000000000
+      internalID: -6459902761236589091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_51
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244e43824c693dc00800000000000000
+      internalID: 924248117773395010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_52
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc2230bb9edd4d10800000000000000
+      internalID: 2111588560564006078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_53
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffc279f96ecdb0920800000000000000
+      internalID: 2957700463376936191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_54
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de19bde6e1019a070800000000000000
+      internalID: 8118037526206976493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_55
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8025b18d42e655650800000000000000
+      internalID: 6220999564805755400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_56
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996e593232b374300800000000000000
+      internalID: 236222527567160985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_57
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c22f1419ce111f970800000000000000
+      internalID: 8786824055723520556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_58
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f852e250a9500e0800000000000000
+      internalID: -2304266287290413276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_59
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80d9f378e3ff020c0800000000000000
+      internalID: -4602398175150498552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_60
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e04272e616221bb0800000000000000
+      internalID: -4966865559305961248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_61
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e4f0f92c7ba5500800000000000000
+      internalID: 385822764613717527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_62
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada797e171d0c5eb0800000000000000
+      internalID: -4729891115699176742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_63
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ddbf27b8c861c40800000000000000
+      internalID: 5482724126927609230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_64
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5f5169c3bdf0dc0800000000000000
+      internalID: -3670474118021122623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_65
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b87e404c77252cfe0800000000000000
+      internalID: -1170282278819666037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_66
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4742e61bfd3523a0800000000000000
+      internalID: -6690873522758990006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_67
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8272ecdae5e933260800000000000000
+      internalID: 7076173569009264424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_68
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1fab13ade1ac920800000000000000
+      internalID: 3011253223336636844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_69
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60fbadbe66e44c9f0800000000000000
+      internalID: -449147858879594746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_70
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a708013009b5070800000000000000
+      internalID: 8096223097964755575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_71
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37c4cc44f969afd0800000000000000
+      internalID: -2330214834206619844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_72
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e15d2ba4bfc06f0800000000000000
+      internalID: -716921942412288505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_73
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b509e79c5e410a10800000000000000
+      internalID: 1873865079555425718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_74
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a459beef80cc88740800000000000000
+      internalID: 5154594112534189386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_75
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3520d86be7910650800000000000000
+      internalID: 6197401599570093372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_76
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e0eb0b11a40a2ae0800000000000000
+      internalID: -1573440029822557977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_77
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c9bf5c62621dff0800000000000000
+      internalID: -13187375933186923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_78
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c3479120bcc63d0800000000000000
+      internalID: -3211969224344585099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_79
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd9073f911068250800000000000000
+      internalID: 5946441568959372748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_80
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2915b8cfb14b70b60800000000000000
+      internalID: 7712330919189369234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_81
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6c62f5f30800a20800000000000000
+      internalID: 3026559959260645030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_82
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c7634493df70f3e0800000000000000
+      internalID: -2021975685987080252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_83
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00941f53c51a97f70800000000000000
+      internalID: 9185550332412905728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_84
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aeef3a87bc7bcec0800000000000000
+      internalID: -3545603153883828568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_85
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99f0180b3ce3066a0800000000000000
+      internalID: -6458092855448498279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_86
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2bbd0142546e2db0800000000000000
+      internalID: -4814800647170966740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_87
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a6732f722763440800000000000000
+      internalID: 4915241559214484074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_88
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468276c5d76805630800000000000000
+      internalID: 3913775949164259428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_89
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab726430f68cd540800000000000000
+      internalID: 5034046849722514344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_90
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e168fee4d8f457000800000000000000
+      internalID: 33020040608450078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_91
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8147ea19af2198c30800000000000000
+      internalID: 4362038581480289304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_92
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51504f1917560970800000000000000
+      internalID: 8720753493859651934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_93
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74d586ae69660250800000000000000
+      internalID: 5910527484931462267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_94
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87883eefe4051f50800000000000000
+      internalID: 6851387836654454671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_95
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8601228894c7f160800000000000000
+      internalID: 7059327100223817355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_96
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677bd3e8aa60d35b0800000000000000
+      internalID: -5387142249664628874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_97
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1562123679d714c0800000000000000
+      internalID: -4316742616141896422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_98
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc1841192538fa30800000000000000
+      internalID: 4249204698923932874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_99
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c336eb2f18d934710800000000000000
+      internalID: 1676356667760862012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_100
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ef5f5a07a2bc310800000000000000
+      internalID: 1426280370301959732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_101
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d46f97fdc3f6020c0800000000000000
+      internalID: -4602556511934613939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_102
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832a14a9b87a728c0800000000000000
+      internalID: -4024063524001963464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_103
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeb1cf8f88d6b8400800000000000000
+      internalID: 327475832974744558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_104
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf9fc3ee749cebb0800000000000000
+      internalID: -4905382621404487729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_105
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 851dc1a7c547e0810800000000000000
+      internalID: 1733450847118741848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_caminos_dm_106
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f72e3e6bc5bf9af0800000000000000
+      internalID: -387391157598017548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
