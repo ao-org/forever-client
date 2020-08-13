@@ -431,6 +431,438 @@ TextureImporter:
   - first:
       213: -6131467288239938538
     second: pasto_bordes_dm_142
+  - first:
+      213: 7325273986702260551
+    second: pasto_bordes_dm_0
+  - first:
+      213: -8973761821306985132
+    second: pasto_bordes_dm_1
+  - first:
+      213: 8039563003588687096
+    second: pasto_bordes_dm_2
+  - first:
+      213: -4011584774026592901
+    second: pasto_bordes_dm_3
+  - first:
+      213: -6989362756007298835
+    second: pasto_bordes_dm_4
+  - first:
+      213: -2228892514171754263
+    second: pasto_bordes_dm_5
+  - first:
+      213: 4777451621213235816
+    second: pasto_bordes_dm_6
+  - first:
+      213: -707917898032006280
+    second: pasto_bordes_dm_7
+  - first:
+      213: -3095400368031066926
+    second: pasto_bordes_dm_8
+  - first:
+      213: -3707771154812421069
+    second: pasto_bordes_dm_9
+  - first:
+      213: -1672914425534435249
+    second: pasto_bordes_dm_10
+  - first:
+      213: -4148522166806689147
+    second: pasto_bordes_dm_11
+  - first:
+      213: -2103216215489991422
+    second: pasto_bordes_dm_12
+  - first:
+      213: 1310657081988587525
+    second: pasto_bordes_dm_13
+  - first:
+      213: -7723998852885680290
+    second: pasto_bordes_dm_14
+  - first:
+      213: -3459278696280752934
+    second: pasto_bordes_dm_15
+  - first:
+      213: -5951892062449764048
+    second: pasto_bordes_dm_16
+  - first:
+      213: 735167252891210727
+    second: pasto_bordes_dm_17
+  - first:
+      213: -3893256441675850785
+    second: pasto_bordes_dm_18
+  - first:
+      213: -2676763209283493663
+    second: pasto_bordes_dm_19
+  - first:
+      213: 3066867315464061544
+    second: pasto_bordes_dm_20
+  - first:
+      213: 434744261003890097
+    second: pasto_bordes_dm_21
+  - first:
+      213: -12151163309412471
+    second: pasto_bordes_dm_22
+  - first:
+      213: -1514790843450339352
+    second: pasto_bordes_dm_23
+  - first:
+      213: -6537161747006798356
+    second: pasto_bordes_dm_24
+  - first:
+      213: 1025909760854447472
+    second: pasto_bordes_dm_25
+  - first:
+      213: 4074406049537815518
+    second: pasto_bordes_dm_26
+  - first:
+      213: 2558556190051030747
+    second: pasto_bordes_dm_27
+  - first:
+      213: 816338430520062924
+    second: pasto_bordes_dm_28
+  - first:
+      213: 9049826617290374092
+    second: pasto_bordes_dm_29
+  - first:
+      213: 1095448790705825461
+    second: pasto_bordes_dm_30
+  - first:
+      213: 6873156732800937722
+    second: pasto_bordes_dm_31
+  - first:
+      213: 6380345194053876148
+    second: pasto_bordes_dm_32
+  - first:
+      213: -4827400735752779984
+    second: pasto_bordes_dm_33
+  - first:
+      213: 2229188132734404266
+    second: pasto_bordes_dm_34
+  - first:
+      213: 1134767432625504093
+    second: pasto_bordes_dm_35
+  - first:
+      213: 1752657301319885095
+    second: pasto_bordes_dm_36
+  - first:
+      213: -7742644708532441242
+    second: pasto_bordes_dm_37
+  - first:
+      213: 6641906446674066933
+    second: pasto_bordes_dm_38
+  - first:
+      213: 3867815854044643498
+    second: pasto_bordes_dm_39
+  - first:
+      213: -8018843914523239958
+    second: pasto_bordes_dm_40
+  - first:
+      213: 1371941495300294569
+    second: pasto_bordes_dm_41
+  - first:
+      213: 8936829319351220328
+    second: pasto_bordes_dm_42
+  - first:
+      213: 1764153958794333409
+    second: pasto_bordes_dm_43
+  - first:
+      213: 1229679838976356526
+    second: pasto_bordes_dm_44
+  - first:
+      213: -5819377126045319912
+    second: pasto_bordes_dm_45
+  - first:
+      213: -8174537512544126588
+    second: pasto_bordes_dm_46
+  - first:
+      213: -1563461420488237157
+    second: pasto_bordes_dm_47
+  - first:
+      213: -8202758696608339737
+    second: pasto_bordes_dm_48
+  - first:
+      213: -137672638269033556
+    second: pasto_bordes_dm_49
+  - first:
+      213: 4069698852608441647
+    second: pasto_bordes_dm_50
+  - first:
+      213: -2357955374582887926
+    second: pasto_bordes_dm_51
+  - first:
+      213: 1849296434092311268
+    second: pasto_bordes_dm_52
+  - first:
+      213: 1052430707127386112
+    second: pasto_bordes_dm_53
+  - first:
+      213: 5871582422004368251
+    second: pasto_bordes_dm_54
+  - first:
+      213: 9195629997193115697
+    second: pasto_bordes_dm_55
+  - first:
+      213: -4131111670715614979
+    second: pasto_bordes_dm_56
+  - first:
+      213: -7164324584660491476
+    second: pasto_bordes_dm_57
+  - first:
+      213: -6739663652830521005
+    second: pasto_bordes_dm_58
+  - first:
+      213: 1497168220053300894
+    second: pasto_bordes_dm_59
+  - first:
+      213: -9201740243506704544
+    second: pasto_bordes_dm_60
+  - first:
+      213: -97555118715529310
+    second: pasto_bordes_dm_61
+  - first:
+      213: -126765400800950122
+    second: pasto_bordes_dm_62
+  - first:
+      213: 2154898477131937462
+    second: pasto_bordes_dm_63
+  - first:
+      213: 1650812276147687033
+    second: pasto_bordes_dm_64
+  - first:
+      213: -3984406264506201689
+    second: pasto_bordes_dm_65
+  - first:
+      213: 5030885381428253818
+    second: pasto_bordes_dm_66
+  - first:
+      213: -7452891208103965089
+    second: pasto_bordes_dm_67
+  - first:
+      213: -863961877506596781
+    second: pasto_bordes_dm_68
+  - first:
+      213: -1808286370220383850
+    second: pasto_bordes_dm_69
+  - first:
+      213: 5087895641462629853
+    second: pasto_bordes_dm_70
+  - first:
+      213: 6576108674194516058
+    second: pasto_bordes_dm_71
+  - first:
+      213: 5049019497017980571
+    second: pasto_bordes_dm_72
+  - first:
+      213: 8627464041045642037
+    second: pasto_bordes_dm_73
+  - first:
+      213: 4356597879777667248
+    second: pasto_bordes_dm_74
+  - first:
+      213: 5857119689952431693
+    second: pasto_bordes_dm_75
+  - first:
+      213: 8461244706573845072
+    second: pasto_bordes_dm_76
+  - first:
+      213: 1472619794750241386
+    second: pasto_bordes_dm_77
+  - first:
+      213: -393530187571210072
+    second: pasto_bordes_dm_78
+  - first:
+      213: 6652920885145129494
+    second: pasto_bordes_dm_79
+  - first:
+      213: 1647994788540344855
+    second: pasto_bordes_dm_80
+  - first:
+      213: 4787068641767587254
+    second: pasto_bordes_dm_81
+  - first:
+      213: -82145797178433717
+    second: pasto_bordes_dm_82
+  - first:
+      213: -5291455702497658709
+    second: pasto_bordes_dm_83
+  - first:
+      213: -401562627141624488
+    second: pasto_bordes_dm_84
+  - first:
+      213: 1535099558550918124
+    second: pasto_bordes_dm_85
+  - first:
+      213: 1374137997957517686
+    second: pasto_bordes_dm_86
+  - first:
+      213: 3592101844263516757
+    second: pasto_bordes_dm_87
+  - first:
+      213: -4141895085472510147
+    second: pasto_bordes_dm_88
+  - first:
+      213: 359248863593276798
+    second: pasto_bordes_dm_89
+  - first:
+      213: -8388420944286723479
+    second: pasto_bordes_dm_90
+  - first:
+      213: -2891843215396754276
+    second: pasto_bordes_dm_91
+  - first:
+      213: -7871933504559984059
+    second: pasto_bordes_dm_92
+  - first:
+      213: -9150214606038066264
+    second: pasto_bordes_dm_93
+  - first:
+      213: 2618605642322333968
+    second: pasto_bordes_dm_94
+  - first:
+      213: 2557189792784273472
+    second: pasto_bordes_dm_95
+  - first:
+      213: 5014279006162662170
+    second: pasto_bordes_dm_96
+  - first:
+      213: -6132193113464227922
+    second: pasto_bordes_dm_97
+  - first:
+      213: -8153551917823891387
+    second: pasto_bordes_dm_98
+  - first:
+      213: -762414716374585816
+    second: pasto_bordes_dm_99
+  - first:
+      213: 8731489456287060862
+    second: pasto_bordes_dm_100
+  - first:
+      213: -2779254769578538398
+    second: pasto_bordes_dm_101
+  - first:
+      213: -2824674788649273306
+    second: pasto_bordes_dm_102
+  - first:
+      213: 3806454921058485685
+    second: pasto_bordes_dm_103
+  - first:
+      213: -1996192079921216781
+    second: pasto_bordes_dm_104
+  - first:
+      213: -4954163889690650915
+    second: pasto_bordes_dm_105
+  - first:
+      213: -5404446016075240682
+    second: pasto_bordes_dm_106
+  - first:
+      213: 64785277322030778
+    second: pasto_bordes_dm_107
+  - first:
+      213: 3827415389306269416
+    second: pasto_bordes_dm_108
+  - first:
+      213: -9027232299816352561
+    second: pasto_bordes_dm_109
+  - first:
+      213: -1887350825993067359
+    second: pasto_bordes_dm_110
+  - first:
+      213: 2316161303535316750
+    second: pasto_bordes_dm_111
+  - first:
+      213: -3206604238298696050
+    second: pasto_bordes_dm_112
+  - first:
+      213: -2054681599869308521
+    second: pasto_bordes_dm_113
+  - first:
+      213: 1710289176196130824
+    second: pasto_bordes_dm_114
+  - first:
+      213: -383695133992388678
+    second: pasto_bordes_dm_115
+  - first:
+      213: 8037397298372859462
+    second: pasto_bordes_dm_116
+  - first:
+      213: 3167426591919590209
+    second: pasto_bordes_dm_117
+  - first:
+      213: 1032298196363368567
+    second: pasto_bordes_dm_118
+  - first:
+      213: -2331311493110356990
+    second: pasto_bordes_dm_119
+  - first:
+      213: 6267454167080218912
+    second: pasto_bordes_dm_120
+  - first:
+      213: -6577486686411905156
+    second: pasto_bordes_dm_121
+  - first:
+      213: 5146969189441275650
+    second: pasto_bordes_dm_122
+  - first:
+      213: 5504192611479955258
+    second: pasto_bordes_dm_123
+  - first:
+      213: 8918396199045115432
+    second: pasto_bordes_dm_124
+  - first:
+      213: 4450873384815962748
+    second: pasto_bordes_dm_125
+  - first:
+      213: -7401295426828408085
+    second: pasto_bordes_dm_126
+  - first:
+      213: 696858497366739277
+    second: pasto_bordes_dm_127
+  - first:
+      213: 5274175504760187609
+    second: pasto_bordes_dm_128
+  - first:
+      213: 2409656016976890251
+    second: pasto_bordes_dm_129
+  - first:
+      213: -4457297298581548380
+    second: pasto_bordes_dm_130
+  - first:
+      213: 1340476057619298662
+    second: pasto_bordes_dm_131
+  - first:
+      213: -6746066456788841263
+    second: pasto_bordes_dm_132
+  - first:
+      213: 8660035308391973242
+    second: pasto_bordes_dm_133
+  - first:
+      213: 7388887658669336791
+    second: pasto_bordes_dm_134
+  - first:
+      213: -7725121673059010577
+    second: pasto_bordes_dm_135
+  - first:
+      213: 8626820574779476444
+    second: pasto_bordes_dm_136
+  - first:
+      213: -3363623024973664421
+    second: pasto_bordes_dm_137
+  - first:
+      213: -1263592620577768316
+    second: pasto_bordes_dm_138
+  - first:
+      213: -9128696735610183407
+    second: pasto_bordes_dm_139
+  - first:
+      213: -3118655458647270857
+    second: pasto_bordes_dm_140
+  - first:
+      213: 909774243080284339
+    second: pasto_bordes_dm_141
+  - first:
+      213: 6086961919833181405
+    second: pasto_bordes_dm_142
+  - first:
+      213: -3889485597494760534
+    second: pasto_bordes_dm_143
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -544,8 +976,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24beb131c29e1c6a0800000000000000
-      internalID: -6430602417399927998
+      spriteID: 7493cc341e998a560800000000000000
+      internalID: 7325273986702260551
       vertices: []
       indices: 
       edges: []
@@ -565,8 +997,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01c7cb83b573191e0800000000000000
-      internalID: -2192910678619292656
+      spriteID: 455e8062b2bc67380800000000000000
+      internalID: -8973761821306985132
       vertices: []
       indices: 
       edges: []
@@ -586,8 +1018,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9452d64f4fc0e3e90800000000000000
-      internalID: -7044178520948529847
+      spriteID: 8f4b642d4f3429f60800000000000000
+      internalID: 8039563003588687096
       vertices: []
       indices: 
       edges: []
@@ -607,8 +1039,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80938fe4a9d6aaa40800000000000000
-      internalID: 5380233214364760328
+      spriteID: b7d77cdf6ecf358c0800000000000000
+      internalID: -4011584774026592901
       vertices: []
       indices: 
       edges: []
@@ -628,8 +1060,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a4c833ed3d896650800000000000000
-      internalID: 6226663256761091240
+      spriteID: de8f6d9ca9bc00f90800000000000000
+      internalID: -6989362756007298835
       vertices: []
       indices: 
       edges: []
@@ -649,8 +1081,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e60ec0399bdb0190800000000000000
-      internalID: -7995055262470895904
+      spriteID: 9e8e34a41126111e0800000000000000
+      internalID: -2228892514171754263
       vertices: []
       indices: 
       edges: []
@@ -670,8 +1102,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecc670e205080d0c0800000000000000
-      internalID: -4552998141413593906
+      spriteID: 86a670effeaec4240800000000000000
+      internalID: 4777451621213235816
       vertices: []
       indices: 
       edges: []
@@ -691,8 +1123,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31654cf75df3d7350800000000000000
-      internalID: 6016034863441008147
+      spriteID: 87b39a52c68fc26f0800000000000000
+      internalID: -707917898032006280
       vertices: []
       indices: 
       edges: []
@@ -712,8 +1144,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3849de19946dd6980800000000000000
-      internalID: -8543937306582739837
+      spriteID: 2d415e1f3cdea05d0800000000000000
+      internalID: -3095400368031066926
       vertices: []
       indices: 
       edges: []
@@ -733,8 +1165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 859ca4ed124771170800000000000000
-      internalID: 8149109739562387800
+      spriteID: 33c37f087c95b8cc0800000000000000
+      internalID: -3707771154812421069
       vertices: []
       indices: 
       edges: []
@@ -754,8 +1186,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16a52f5036c7ed850800000000000000
-      internalID: 6403692484910799457
+      spriteID: f40b466813d98c8e0800000000000000
+      internalID: -1672914425534435249
       vertices: []
       indices: 
       edges: []
@@ -775,8 +1207,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d0e57321a24d4620800000000000000
-      internalID: 2759935406500077782
+      spriteID: 58a47a0b11d7d66c0800000000000000
+      internalID: -4148522166806689147
       vertices: []
       indices: 
       edges: []
@@ -796,8 +1228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0faea259600976da0800000000000000
-      internalID: -5951630024599999760
+      spriteID: 20da0edceffdfc2e0800000000000000
+      internalID: -2103216215489991422
       vertices: []
       indices: 
       edges: []
@@ -817,8 +1249,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b7f5920a376d1340800000000000000
-      internalID: 4836135073714927543
+      spriteID: 500a7420ca3603210800000000000000
+      internalID: 1310657081988587525
       vertices: []
       indices: 
       edges: []
@@ -838,8 +1270,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e4509396549e5430800000000000000
-      internalID: 3773616637346862304
+      spriteID: e5f693087f7dec490800000000000000
+      internalID: -7723998852885680290
       vertices: []
       indices: 
       edges: []
@@ -859,8 +1291,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3be37fc2601a1a470800000000000000
-      internalID: 8404175427546332851
+      spriteID: adcfb119a5c2effc0800000000000000
+      internalID: -3459278696280752934
       vertices: []
       indices: 
       edges: []
@@ -880,8 +1312,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5cb8f6067b878540800000000000000
-      internalID: 5010126449512332383
+      spriteID: 039f63424b1a66da0800000000000000
+      internalID: -5951892062449764048
       vertices: []
       indices: 
       edges: []
@@ -901,8 +1333,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59e1c581742e95db0800000000000000
-      internalID: -4802558732634677611
+      spriteID: 7e3941fa8b6d33a00800000000000000
+      internalID: 735167252891210727
       vertices: []
       indices: 
       edges: []
@@ -922,8 +1354,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3ae9faa35f62c140800000000000000
-      internalID: 4738472163088656955
+      spriteID: fdbd866c4ef58f9c0800000000000000
+      internalID: -3893256441675850785
       vertices: []
       indices: 
       edges: []
@@ -943,8 +1375,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 093c4efa7fe1dbf40800000000000000
-      internalID: 5745782748751381392
+      spriteID: 1e0a2d21b0a3adad0800000000000000
+      internalID: -2676763209283493663
       vertices: []
       indices: 
       edges: []
@@ -964,8 +1396,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56db1a62ded0bf8b0800000000000000
-      internalID: -5117481239369892507
+      spriteID: 862cd7f0393bf8a20800000000000000
+      internalID: 3066867315464061544
       vertices: []
       indices: 
       edges: []
@@ -985,8 +1417,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2039541e72cfd28c0800000000000000
-      internalID: -4022281643958627582
+      spriteID: 1bdc64d1a95880600800000000000000
+      internalID: 434744261003890097
       vertices: []
       indices: 
       edges: []
@@ -1006,8 +1438,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0914c0cc35f7e0f40800000000000000
-      internalID: 5696630576552624528
+      spriteID: 98fa553d494d4dff0800000000000000
+      internalID: -12151163309412471
       vertices: []
       indices: 
       edges: []
@@ -1027,8 +1459,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b97b3b9247a7051a0800000000000000
-      internalID: -6822818796131862629
+      spriteID: 8efc02be0c16afae0800000000000000
+      internalID: -1514790843450339352
       vertices: []
       indices: 
       edges: []
@@ -1048,8 +1480,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20bc02b1ec40c1940800000000000000
-      internalID: 5268090947381545730
+      spriteID: ce54366c6065745a0800000000000000
+      internalID: -6537161747006798356
       vertices: []
       indices: 
       edges: []
@@ -1069,8 +1501,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50bb9256ee666e8e0800000000000000
-      internalID: -1664529838181336315
+      spriteID: 075d553fd73cc3e00800000000000000
+      internalID: 1025909760854447472
       vertices: []
       indices: 
       edges: []
@@ -1090,8 +1522,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acbc34c19eed5b4b0800000000000000
-      internalID: -5425185083314943030
+      spriteID: ed3776507b23b8830800000000000000
+      internalID: 4074406049537815518
       vertices: []
       indices: 
       edges: []
@@ -1111,8 +1543,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a299f0e4d6cf4bbc0800000000000000
-      internalID: -3768109441810982614
+      spriteID: bd65edd8c41d18320800000000000000
+      internalID: 2558556190051030747
       vertices: []
       indices: 
       edges: []
@@ -1132,8 +1564,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7c2757e99c832ae0800000000000000
-      internalID: -1575260852010406786
+      spriteID: cc3f5a73a77345b00800000000000000
+      internalID: 816338430520062924
       vertices: []
       indices: 
       edges: []
@@ -1153,8 +1585,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23e521709223f88a0800000000000000
-      internalID: -6300762201874342350
+      spriteID: ccbb7724c51779d70800000000000000
+      internalID: 9049826617290374092
       vertices: []
       indices: 
       edges: []
@@ -1174,8 +1606,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd1ed75ca2bdabac0800000000000000
-      internalID: -3838514755631455780
+      spriteID: 5b6e6a70fd0d33f00800000000000000
+      internalID: 1095448790705825461
       vertices: []
       indices: 
       edges: []
@@ -1195,8 +1627,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4d753c75bef41800800000000000000
-      internalID: 582370307264052556
+      spriteID: afe2f2802ab526f50800000000000000
+      internalID: 6873156732800937722
       vertices: []
       indices: 
       edges: []
@@ -1216,8 +1648,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fa09675af37f0800800000000000000
-      internalID: 580810395999603441
+      spriteID: 4b9b3f3462a8b8850800000000000000
+      internalID: 6380345194053876148
       vertices: []
       indices: 
       edges: []
@@ -1237,8 +1669,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85ab9496c1d2982b0800000000000000
-      internalID: -5581880663100245416
+      spriteID: 0370ff48b90a10db0800000000000000
+      internalID: -4827400735752779984
       vertices: []
       indices: 
       edges: []
@@ -1258,8 +1690,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4deb59d6138b20bf0800000000000000
-      internalID: -359522497804779820
+      spriteID: aa68625cbcaafee10800000000000000
+      internalID: 2229188132734404266
       vertices: []
       indices: 
       edges: []
@@ -1279,8 +1711,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c621c6662c439a6e0800000000000000
-      internalID: -1825870164375367060
+      spriteID: d5f335cb7f08fbf00800000000000000
+      internalID: 1134767432625504093
       vertices: []
       indices: 
       edges: []
@@ -1300,8 +1732,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ea027e15d610a460800000000000000
-      internalID: 7250820504661134049
+      spriteID: 721aa229780b25810800000000000000
+      internalID: 1752657301319885095
       vertices: []
       indices: 
       edges: []
@@ -1321,8 +1753,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 239f5801039d27d90800000000000000
-      internalID: -7101374861950977742
+      spriteID: 66faddde8a99c8490800000000000000
+      internalID: -7742644708532441242
       vertices: []
       indices: 
       edges: []
@@ -1342,8 +1774,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4fa5cd79e2d3f0f0800000000000000
-      internalID: -1084291184986837173
+      spriteID: 5fd726119bacc2c50800000000000000
+      internalID: 6641906446674066933
       vertices: []
       indices: 
       edges: []
@@ -1363,8 +1795,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfcf585616026abd0800000000000000
-      internalID: -2619370530582168323
+      spriteID: aa084f4d60e3da530800000000000000
+      internalID: 3867815854044643498
       vertices: []
       indices: 
       edges: []
@@ -1384,8 +1816,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b3b8e540c6cefe10800000000000000
-      internalID: 2233440994331243445
+      spriteID: ae91a8502f757b090800000000000000
+      internalID: -8018843914523239958
       vertices: []
       indices: 
       edges: []
@@ -1394,7 +1826,7 @@ TextureImporter:
       name: pasto_bordes_dm_41
       rect:
         serializedVersion: 2
-        x: 794
+        x: 662
         y: 1058
         width: 128
         height: 128
@@ -1405,8 +1837,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9b49d2fa2d75f480800000000000000
-      internalID: -8866042667992527973
+      spriteID: 9a70ef7658d1a0310800000000000000
+      internalID: 1371941495300294569
       vertices: []
       indices: 
       edges: []
@@ -1415,7 +1847,7 @@ TextureImporter:
       name: pasto_bordes_dm_42
       rect:
         serializedVersion: 2
-        x: 926
+        x: 794
         y: 1058
         width: 128
         height: 128
@@ -1426,8 +1858,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaf0be7ff4fa18520800000000000000
-      internalID: 2702634009395662762
+      spriteID: 868b936aaeef50c70800000000000000
+      internalID: 8936829319351220328
       vertices: []
       indices: 
       edges: []
@@ -1436,7 +1868,7 @@ TextureImporter:
       name: pasto_bordes_dm_43
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 926
         y: 1058
         width: 128
         height: 128
@@ -1447,8 +1879,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a052f6df1234eb3f0800000000000000
-      internalID: -883194663653137142
+      spriteID: 1ec090bbda88b7810800000000000000
+      internalID: 1764153958794333409
       vertices: []
       indices: 
       edges: []
@@ -1457,7 +1889,7 @@ TextureImporter:
       name: pasto_bordes_dm_44
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 1058
         y: 1058
         width: 128
         height: 128
@@ -1468,8 +1900,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 446da2d93c4829080800000000000000
-      internalID: -9182130714564700604
+      spriteID: ea035a56c43b01110800000000000000
+      internalID: 1229679838976356526
       vertices: []
       indices: 
       edges: []
@@ -1478,7 +1910,7 @@ TextureImporter:
       name: pasto_bordes_dm_45
       rect:
         serializedVersion: 2
-        x: 1322
+        x: 1190
         y: 1058
         width: 128
         height: 128
@@ -1489,8 +1921,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc5622ce625e101d0800000000000000
-      internalID: -3386173489472707123
+      spriteID: 81df804165b6d3fa0800000000000000
+      internalID: -5819377126045319912
       vertices: []
       indices: 
       edges: []
@@ -1499,6 +1931,27 @@ TextureImporter:
       name: pasto_bordes_dm_46
       rect:
         serializedVersion: 2
+        x: 1322
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489b3b161753e8e80800000000000000
+      internalID: -8174537512544126588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_bordes_dm_47
+      rect:
+        serializedVersion: 2
         x: 1454
         y: 1058
         width: 128
@@ -1510,29 +1963,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06cbd23511ab6e960800000000000000
-      internalID: 7630991202198600800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pasto_bordes_dm_47
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 926
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58e4c8ef1c3e36df0800000000000000
-      internalID: -188056337080627579
+      spriteID: b9f55c32f187d4ae0800000000000000
+      internalID: -1563461420488237157
       vertices: []
       indices: 
       edges: []
@@ -1541,7 +1973,7 @@ TextureImporter:
       name: pasto_bordes_dm_48
       rect:
         serializedVersion: 2
-        x: 134
+        x: 2
         y: 926
         width: 128
         height: 128
@@ -1552,8 +1984,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b437304837de965e0800000000000000
-      internalID: -1915739086077594805
+      spriteID: 7e8e96eec62f92e80800000000000000
+      internalID: -8202758696608339737
       vertices: []
       indices: 
       edges: []
@@ -1562,7 +1994,7 @@ TextureImporter:
       name: pasto_bordes_dm_49
       rect:
         serializedVersion: 2
-        x: 266
+        x: 134
         y: 926
         width: 128
         height: 128
@@ -1573,8 +2005,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bef0b1a92dc9bff10800000000000000
-      internalID: 2304608062672670699
+      spriteID: ca3fea40773e61ef0800000000000000
+      internalID: -137672638269033556
       vertices: []
       indices: 
       edges: []
@@ -1583,7 +2015,7 @@ TextureImporter:
       name: pasto_bordes_dm_50
       rect:
         serializedVersion: 2
-        x: 398
+        x: 266
         y: 926
         width: 128
         height: 128
@@ -1594,8 +2026,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3d702a2f75bb4eb0800000000000000
-      internalID: -4734491025477698243
+      spriteID: f2d7a845b897a7830800000000000000
+      internalID: 4069698852608441647
       vertices: []
       indices: 
       edges: []
@@ -1604,7 +2036,7 @@ TextureImporter:
       name: pasto_bordes_dm_51
       rect:
         serializedVersion: 2
-        x: 530
+        x: 398
         y: 926
         width: 128
         height: 128
@@ -1615,8 +2047,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 457d74fbdd06631b0800000000000000
-      internalID: -5677243774740736172
+      spriteID: a0a83cd641cd64fd0800000000000000
+      internalID: -2357955374582887926
       vertices: []
       indices: 
       edges: []
@@ -1625,7 +2057,7 @@ TextureImporter:
       name: pasto_bordes_dm_52
       rect:
         serializedVersion: 2
-        x: 662
+        x: 530
         y: 926
         width: 128
         height: 128
@@ -1636,8 +2068,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aabfbb13405474370800000000000000
-      internalID: 8306683922024758186
+      spriteID: 4e2087e0f450aa910800000000000000
+      internalID: 1849296434092311268
       vertices: []
       indices: 
       edges: []
@@ -1646,7 +2078,7 @@ TextureImporter:
       name: pasto_bordes_dm_53
       rect:
         serializedVersion: 2
-        x: 794
+        x: 662
         y: 926
         width: 128
         height: 128
@@ -1657,8 +2089,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb79d17bc68f2a5c0800000000000000
-      internalID: -4205525956198295618
+      spriteID: 0008a01f62cfa9e00800000000000000
+      internalID: 1052430707127386112
       vertices: []
       indices: 
       edges: []
@@ -1667,7 +2099,7 @@ TextureImporter:
       name: pasto_bordes_dm_54
       rect:
         serializedVersion: 2
-        x: 926
+        x: 794
         y: 926
         width: 128
         height: 128
@@ -1678,8 +2110,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72705658878b085f0800000000000000
-      internalID: -756401909624666329
+      spriteID: b738ff49a1d0c7150800000000000000
+      internalID: 5871582422004368251
       vertices: []
       indices: 
       edges: []
@@ -1688,7 +2120,7 @@ TextureImporter:
       name: pasto_bordes_dm_55
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 926
         y: 926
         width: 128
         height: 128
@@ -1699,8 +2131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03918a4c2b7daa3f0800000000000000
-      internalID: -888660813648750288
+      spriteID: 1383f9c03c07d9f70800000000000000
+      internalID: 9195629997193115697
       vertices: []
       indices: 
       edges: []
@@ -1709,7 +2141,7 @@ TextureImporter:
       name: pasto_bordes_dm_56
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 1058
         y: 926
         width: 128
         height: 128
@@ -1720,8 +2152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a4c286512fd3ab80800000000000000
-      internalID: -8384612746955406170
+      spriteID: df87683b2d75ba6c0800000000000000
+      internalID: -4131111670715614979
       vertices: []
       indices: 
       edges: []
@@ -1730,7 +2162,7 @@ TextureImporter:
       name: pasto_bordes_dm_57
       rect:
         serializedVersion: 2
-        x: 1322
+        x: 1190
         y: 926
         width: 128
         height: 128
@@ -1741,8 +2173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90dd28876d3a282f0800000000000000
-      internalID: -972034428018434807
+      spriteID: c23a6bb9fb4339c90800000000000000
+      internalID: -7164324584660491476
       vertices: []
       indices: 
       edges: []
@@ -1751,6 +2183,27 @@ TextureImporter:
       name: pasto_bordes_dm_58
       rect:
         serializedVersion: 2
+        x: 1322
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 359dc63bd97e772a0800000000000000
+      internalID: -6739663652830521005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_bordes_dm_59
+      rect:
+        serializedVersion: 2
         x: 1454
         y: 926
         width: 128
@@ -1762,29 +2215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eef6bd7ca888a53f0800000000000000
-      internalID: -911265844949192722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pasto_bordes_dm_59
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 794
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa7ecf24c2fc915a0800000000000000
-      internalID: -6549976394024294481
+      spriteID: e96e745509207c410800000000000000
+      internalID: 1497168220053300894
       vertices: []
       indices: 
       edges: []
@@ -1793,7 +2225,7 @@ TextureImporter:
       name: pasto_bordes_dm_60
       rect:
         serializedVersion: 2
-        x: 134
+        x: 2
         y: 794
         width: 128
         height: 128
@@ -1804,8 +2236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35f18e67816af57d0800000000000000
-      internalID: -2927438608763183277
+      spriteID: 06fcd5e500adc4080800000000000000
+      internalID: -9201740243506704544
       vertices: []
       indices: 
       edges: []
@@ -1814,7 +2246,7 @@ TextureImporter:
       name: pasto_bordes_dm_61
       rect:
         serializedVersion: 2
-        x: 266
+        x: 134
         y: 794
         width: 128
         height: 128
@@ -1825,8 +2257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 337d139b4c6fc21b0800000000000000
-      internalID: -5679893705239963853
+      spriteID: 2a790fae22a65aef0800000000000000
+      internalID: -97555118715529310
       vertices: []
       indices: 
       edges: []
@@ -1835,7 +2267,7 @@ TextureImporter:
       name: pasto_bordes_dm_62
       rect:
         serializedVersion: 2
-        x: 398
+        x: 266
         y: 794
         width: 128
         height: 128
@@ -1846,8 +2278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62ef5eb05065c8d00800000000000000
-      internalID: 976249798907002406
+      spriteID: 69803732a83ad3ef0800000000000000
+      internalID: -126765400800950122
       vertices: []
       indices: 
       edges: []
@@ -1856,7 +2288,7 @@ TextureImporter:
       name: pasto_bordes_dm_63
       rect:
         serializedVersion: 2
-        x: 530
+        x: 398
         y: 794
         width: 128
         height: 128
@@ -1867,8 +2299,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a41579340cbfe5100800000000000000
-      internalID: 98793045035012426
+      spriteID: 6b6ba707fbcb7ed10800000000000000
+      internalID: 2154898477131937462
       vertices: []
       indices: 
       edges: []
@@ -1877,7 +2309,7 @@ TextureImporter:
       name: pasto_bordes_dm_64
       rect:
         serializedVersion: 2
-        x: 662
+        x: 530
         y: 794
         width: 128
         height: 128
@@ -1888,8 +2320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be0e8a962973454f0800000000000000
-      internalID: -840986128434011925
+      spriteID: 97e03aec40dd8e610800000000000000
+      internalID: 1650812276147687033
       vertices: []
       indices: 
       edges: []
@@ -1898,7 +2330,7 @@ TextureImporter:
       name: pasto_bordes_dm_65
       rect:
         serializedVersion: 2
-        x: 794
+        x: 662
         y: 794
         width: 128
         height: 128
@@ -1909,8 +2341,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bea4acf9648403cb0800000000000000
-      internalID: -4886326127531242773
+      spriteID: 7a9444bdc9b84b8c0800000000000000
+      internalID: -3984406264506201689
       vertices: []
       indices: 
       edges: []
@@ -1919,7 +2351,7 @@ TextureImporter:
       name: pasto_bordes_dm_66
       rect:
         serializedVersion: 2
-        x: 926
+        x: 794
         y: 794
         width: 128
         height: 128
@@ -1930,8 +2362,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac656b487e0580ee0800000000000000
-      internalID: -1294695937574807862
+      spriteID: a749cb1899b41d540800000000000000
+      internalID: 5030885381428253818
       vertices: []
       indices: 
       edges: []
@@ -1940,7 +2372,7 @@ TextureImporter:
       name: pasto_bordes_dm_67
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 926
         y: 794
         width: 128
         height: 128
@@ -1951,8 +2383,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05345b4a2e8b80680800000000000000
-      internalID: -8788571389248060592
+      spriteID: f5ec45feee2029890800000000000000
+      internalID: -7452891208103965089
       vertices: []
       indices: 
       edges: []
@@ -1961,7 +2393,7 @@ TextureImporter:
       name: pasto_bordes_dm_68
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 1058
         y: 794
         width: 128
         height: 128
@@ -1972,8 +2404,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 689ba974af6524170800000000000000
-      internalID: 8161181107691895174
+      spriteID: 3506db7ff379204f0800000000000000
+      internalID: -863961877506596781
       vertices: []
       indices: 
       edges: []
@@ -1982,7 +2414,7 @@ TextureImporter:
       name: pasto_bordes_dm_69
       rect:
         serializedVersion: 2
-        x: 1322
+        x: 1190
         y: 794
         width: 128
         height: 128
@@ -1993,8 +2425,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9d3ca4b5c740ba50800000000000000
-      internalID: 6534801973779905951
+      spriteID: 69165d2802da7e6e0800000000000000
+      internalID: -1808286370220383850
       vertices: []
       indices: 
       edges: []
@@ -2003,6 +2435,27 @@ TextureImporter:
       name: pasto_bordes_dm_70
       rect:
         serializedVersion: 2
+        x: 1322
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd563ab0126db9640800000000000000
+      internalID: 5087895641462629853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_bordes_dm_71
+      rect:
+        serializedVersion: 2
         x: 1454
         y: 794
         width: 128
@@ -2014,29 +2467,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f3b37ec0855be5f0800000000000000
-      internalID: -726392903182339084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pasto_bordes_dm_71
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 662
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b099412596acd4900800000000000000
-      internalID: 670414473245530379
+      spriteID: a58aab95ff7034b50800000000000000
+      internalID: 6576108674194516058
       vertices: []
       indices: 
       edges: []
@@ -2045,7 +2477,7 @@ TextureImporter:
       name: pasto_bordes_dm_72
       rect:
         serializedVersion: 2
-        x: 134
+        x: 2
         y: 662
         width: 128
         height: 128
@@ -2056,8 +2488,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c7d0a234679078a0800000000000000
-      internalID: -6309376621344139327
+      spriteID: b9637cf4b78b11640800000000000000
+      internalID: 5049019497017980571
       vertices: []
       indices: 
       edges: []
@@ -2066,7 +2498,7 @@ TextureImporter:
       name: pasto_bordes_dm_73
       rect:
         serializedVersion: 2
-        x: 266
+        x: 134
         y: 662
         width: 128
         height: 128
@@ -2077,8 +2509,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1a2b5fad956c7d20800000000000000
-      internalID: 3277606356745136671
+      spriteID: 53b4bf6c5d8eab770800000000000000
+      internalID: 8627464041045642037
       vertices: []
       indices: 
       edges: []
@@ -2087,7 +2519,7 @@ TextureImporter:
       name: pasto_bordes_dm_74
       rect:
         serializedVersion: 2
-        x: 398
+        x: 266
         y: 662
         width: 128
         height: 128
@@ -2098,8 +2530,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70725d5d516ab3ed0800000000000000
-      internalID: -2433168560951580921
+      spriteID: 0b82e5d70beb57c30800000000000000
+      internalID: 4356597879777667248
       vertices: []
       indices: 
       edges: []
@@ -2108,7 +2540,7 @@ TextureImporter:
       name: pasto_bordes_dm_75
       rect:
         serializedVersion: 2
-        x: 530
+        x: 398
         y: 662
         width: 128
         height: 128
@@ -2119,8 +2551,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a22ff75897f1a340800000000000000
-      internalID: 4873448505475015331
+      spriteID: d4e8f8e535ba84150800000000000000
+      internalID: 5857119689952431693
       vertices: []
       indices: 
       edges: []
@@ -2129,7 +2561,7 @@ TextureImporter:
       name: pasto_bordes_dm_76
       rect:
         serializedVersion: 2
-        x: 662
+        x: 530
         y: 662
         width: 128
         height: 128
@@ -2140,8 +2572,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 964101ede27003c90800000000000000
-      internalID: -7192240707035196311
+      spriteID: 0520df42b316c6570800000000000000
+      internalID: 8461244706573845072
       vertices: []
       indices: 
       edges: []
@@ -2150,7 +2582,7 @@ TextureImporter:
       name: pasto_bordes_dm_77
       rect:
         serializedVersion: 2
-        x: 794
+        x: 662
         y: 662
         width: 128
         height: 128
@@ -2161,8 +2593,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdbb837264fec0de0800000000000000
-      internalID: -1365453502415324193
+      spriteID: a6afb4ba6ebcf6410800000000000000
+      internalID: 1472619794750241386
       vertices: []
       indices: 
       edges: []
@@ -2171,7 +2603,7 @@ TextureImporter:
       name: pasto_bordes_dm_78
       rect:
         serializedVersion: 2
-        x: 926
+        x: 794
         y: 662
         width: 128
         height: 128
@@ -2182,8 +2614,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63332b39f92fd2c30800000000000000
-      internalID: 4336388783419306806
+      spriteID: 8a8dc612166e98af0800000000000000
+      internalID: -393530187571210072
       vertices: []
       indices: 
       edges: []
@@ -2192,7 +2624,7 @@ TextureImporter:
       name: pasto_bordes_dm_79
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 926
         y: 662
         width: 128
         height: 128
@@ -2203,8 +2635,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e636e5c917e00b180800000000000000
-      internalID: -9101758965798247570
+      spriteID: 6125adddb4ce35c50800000000000000
+      internalID: 6652920885145129494
       vertices: []
       indices: 
       edges: []
@@ -2213,7 +2645,7 @@ TextureImporter:
       name: pasto_bordes_dm_80
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 1058
         y: 662
         width: 128
         height: 128
@@ -2224,8 +2656,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a31c9dcbd99dd1f80800000000000000
-      internalID: -8134106080459767494
+      spriteID: 71a64aa578aded610800000000000000
+      internalID: 1647994788540344855
       vertices: []
       indices: 
       edges: []
@@ -2234,7 +2666,7 @@ TextureImporter:
       name: pasto_bordes_dm_81
       rect:
         serializedVersion: 2
-        x: 1322
+        x: 1190
         y: 662
         width: 128
         height: 128
@@ -2245,8 +2677,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82852211082a977f0800000000000000
-      internalID: -614281203232384984
+      spriteID: 6bdf7f311951f6240800000000000000
+      internalID: 4787068641767587254
       vertices: []
       indices: 
       edges: []
@@ -2255,6 +2687,27 @@ TextureImporter:
       name: pasto_bordes_dm_82
       rect:
         serializedVersion: 2
+        x: 1322
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f536b25d82cdef0800000000000000
+      internalID: -82145797178433717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_bordes_dm_83
+      rect:
+        serializedVersion: 2
         x: 1454
         y: 662
         width: 128
@@ -2266,29 +2719,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8ae1bee24c06a4c0800000000000000
-      internalID: -4276717314529695091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pasto_bordes_dm_83
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 530
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48c137c22eea3b000800000000000000
-      internalID: 50576307262790788
+      spriteID: ba879ebe219f096b0800000000000000
+      internalID: -5291455702497658709
       vertices: []
       indices: 
       edges: []
@@ -2297,7 +2729,7 @@ TextureImporter:
       name: pasto_bordes_dm_84
       rect:
         serializedVersion: 2
-        x: 134
+        x: 2
         y: 530
         width: 128
         height: 128
@@ -2308,8 +2740,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 445f430e62f25fbf0800000000000000
-      internalID: -291274756878699196
+      spriteID: 85d962e0bec5d6af0800000000000000
+      internalID: -401562627141624488
       vertices: []
       indices: 
       edges: []
@@ -2318,7 +2750,7 @@ TextureImporter:
       name: pasto_bordes_dm_85
       rect:
         serializedVersion: 2
-        x: 266
+        x: 134
         y: 530
         width: 128
         height: 128
@@ -2329,8 +2761,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fdcc8d1838518610800000000000000
-      internalID: 1621674338867269104
+      spriteID: ce3594a4ae4cd4510800000000000000
+      internalID: 1535099558550918124
       vertices: []
       indices: 
       edges: []
@@ -2339,7 +2771,7 @@ TextureImporter:
       name: pasto_bordes_dm_86
       rect:
         serializedVersion: 2
-        x: 398
+        x: 266
         y: 530
         width: 128
         height: 128
@@ -2350,8 +2782,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7320d7a4799c5dd0800000000000000
-      internalID: -2495951367159405700
+      spriteID: 671df988a3be11310800000000000000
+      internalID: 1374137997957517686
       vertices: []
       indices: 
       edges: []
@@ -2360,7 +2792,7 @@ TextureImporter:
       name: pasto_bordes_dm_87
       rect:
         serializedVersion: 2
-        x: 530
+        x: 398
         y: 530
         width: 128
         height: 128
@@ -2371,8 +2803,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1676978c5b04ce810800000000000000
-      internalID: 1795881500910643041
+      spriteID: 55a3a587895b9d130800000000000000
+      internalID: 3592101844263516757
       vertices: []
       indices: 
       edges: []
@@ -2381,7 +2813,7 @@ TextureImporter:
       name: pasto_bordes_dm_88
       rect:
         serializedVersion: 2
-        x: 662
+        x: 530
         y: 530
         width: 128
         height: 128
@@ -2392,8 +2824,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43d41fabc109baea0800000000000000
-      internalID: -5860432037022708428
+      spriteID: d3f897d4d580586c0800000000000000
+      internalID: -4141895085472510147
       vertices: []
       indices: 
       edges: []
@@ -2402,7 +2834,7 @@ TextureImporter:
       name: pasto_bordes_dm_89
       rect:
         serializedVersion: 2
-        x: 794
+        x: 662
         y: 530
         width: 128
         height: 128
@@ -2413,8 +2845,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 453fc6265e6120c40800000000000000
-      internalID: 5476965271290573652
+      spriteID: e75a07420fe4cf400800000000000000
+      internalID: 359248863593276798
       vertices: []
       indices: 
       edges: []
@@ -2423,7 +2855,7 @@ TextureImporter:
       name: pasto_bordes_dm_90
       rect:
         serializedVersion: 2
-        x: 926
+        x: 794
         y: 530
         width: 128
         height: 128
@@ -2434,8 +2866,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee503c41454465860800000000000000
-      internalID: 7518271755857888750
+      spriteID: 962d75d4897569b80800000000000000
+      internalID: -8388420944286723479
       vertices: []
       indices: 
       edges: []
@@ -2444,7 +2876,7 @@ TextureImporter:
       name: pasto_bordes_dm_91
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 926
         y: 530
         width: 128
         height: 128
@@ -2455,8 +2887,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82f63c4cf9110e910800000000000000
-      internalID: 1864509623629999912
+      spriteID: c9c2720daeb1ed7d0800000000000000
+      internalID: -2891843215396754276
       vertices: []
       indices: 
       edges: []
@@ -2465,7 +2897,7 @@ TextureImporter:
       name: pasto_bordes_dm_92
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 1058
         y: 530
         width: 128
         height: 128
@@ -2476,8 +2908,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26ed7d2e7660abbd0800000000000000
-      internalID: -2613769590477955486
+      spriteID: 542d4355f2641c290800000000000000
+      internalID: -7871933504559984059
       vertices: []
       indices: 
       edges: []
@@ -2486,7 +2918,7 @@ TextureImporter:
       name: pasto_bordes_dm_93
       rect:
         serializedVersion: 2
-        x: 1322
+        x: 1190
         y: 530
         width: 128
         height: 128
@@ -2497,8 +2929,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e44ae0bf749e255d0800000000000000
-      internalID: -3075139100176636850
+      spriteID: 8ab9284bb48e30180800000000000000
+      internalID: -9150214606038066264
       vertices: []
       indices: 
       edges: []
@@ -2507,6 +2939,27 @@ TextureImporter:
       name: pasto_bordes_dm_94
       rect:
         serializedVersion: 2
+        x: 1322
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011d47d25f7275420800000000000000
+      internalID: 2618605642322333968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_bordes_dm_95
+      rect:
+        serializedVersion: 2
         x: 1454
         y: 530
         width: 128
@@ -2518,29 +2971,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58b181f71640dc170800000000000000
-      internalID: 8200215313302166405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pasto_bordes_dm_95
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 398
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a36864c87ae9c78d0800000000000000
-      internalID: -2847226421954836934
+      spriteID: 04059266196fc7320800000000000000
+      internalID: 2557189792784273472
       vertices: []
       indices: 
       edges: []
@@ -2549,7 +2981,7 @@ TextureImporter:
       name: pasto_bordes_dm_96
       rect:
         serializedVersion: 2
-        x: 134
+        x: 2
         y: 398
         width: 128
         height: 128
@@ -2560,8 +2992,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a07fae4190a2c5580800000000000000
-      internalID: -8837142150313740534
+      spriteID: a133607703c469540800000000000000
+      internalID: 5014279006162662170
       vertices: []
       indices: 
       edges: []
@@ -2570,7 +3002,7 @@ TextureImporter:
       name: pasto_bordes_dm_97
       rect:
         serializedVersion: 2
-        x: 266
+        x: 134
         y: 398
         width: 128
         height: 128
@@ -2581,8 +3013,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09013ce8f8fd0ce80800000000000000
-      internalID: -8160276717126872944
+      spriteID: ea73ed16ad216eaa0800000000000000
+      internalID: -6132193113464227922
       vertices: []
       indices: 
       edges: []
@@ -2591,7 +3023,7 @@ TextureImporter:
       name: pasto_bordes_dm_98
       rect:
         serializedVersion: 2
-        x: 398
+        x: 266
         y: 398
         width: 128
         height: 128
@@ -2602,8 +3034,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723326aee13fd1e90800000000000000
-      internalID: -7053214127285456089
+      spriteID: 548e668eab3c8de80800000000000000
+      internalID: -8153551917823891387
       vertices: []
       indices: 
       edges: []
@@ -2612,7 +3044,7 @@ TextureImporter:
       name: pasto_bordes_dm_99
       rect:
         serializedVersion: 2
-        x: 530
+        x: 398
         y: 398
         width: 128
         height: 128
@@ -2623,8 +3055,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0f1e556c90beb7b0800000000000000
-      internalID: -5206529933431660786
+      spriteID: 82e66fadadb5b65f0800000000000000
+      internalID: -762414716374585816
       vertices: []
       indices: 
       edges: []
@@ -2633,7 +3065,7 @@ TextureImporter:
       name: pasto_bordes_dm_100
       rect:
         serializedVersion: 2
-        x: 662
+        x: 530
         y: 398
         width: 128
         height: 128
@@ -2644,8 +3076,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfd93c6f6906663b0800000000000000
-      internalID: -5519618091794588163
+      spriteID: e731f0a266b7c2970800000000000000
+      internalID: 8731489456287060862
       vertices: []
       indices: 
       edges: []
@@ -2654,7 +3086,7 @@ TextureImporter:
       name: pasto_bordes_dm_101
       rect:
         serializedVersion: 2
-        x: 794
+        x: 662
         y: 398
         width: 128
         height: 128
@@ -2665,8 +3097,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a6ae2e6be6ec4320800000000000000
-      internalID: 2543661788397741729
+      spriteID: 26a06fe138a1e69d0800000000000000
+      internalID: -2779254769578538398
       vertices: []
       indices: 
       edges: []
@@ -2675,7 +3107,7 @@ TextureImporter:
       name: pasto_bordes_dm_102
       rect:
         serializedVersion: 2
-        x: 926
+        x: 794
         y: 398
         width: 128
         height: 128
@@ -2686,8 +3118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f480b0d5c9cd22a00800000000000000
-      internalID: 730388653721454671
+      spriteID: 628fe88de3dbcc8d0800000000000000
+      internalID: -2824674788649273306
       vertices: []
       indices: 
       edges: []
@@ -2696,7 +3128,7 @@ TextureImporter:
       name: pasto_bordes_dm_103
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 926
         y: 398
         width: 128
         height: 128
@@ -2707,8 +3139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6aea1406b41bd710800000000000000
-      internalID: 1718990454757452396
+      spriteID: 5b58a3f459e33d430800000000000000
+      internalID: 3806454921058485685
       vertices: []
       indices: 
       edges: []
@@ -2717,7 +3149,7 @@ TextureImporter:
       name: pasto_bordes_dm_104
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 1058
         y: 398
         width: 128
         height: 128
@@ -2728,8 +3160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db7ac7f4a8eaecfa0800000000000000
-      internalID: -5778489362807478339
+      spriteID: 3f209dc21e91c44e0800000000000000
+      internalID: -1996192079921216781
       vertices: []
       indices: 
       edges: []
@@ -2738,7 +3170,7 @@ TextureImporter:
       name: pasto_bordes_dm_105
       rect:
         serializedVersion: 2
-        x: 1322
+        x: 1190
         y: 398
         width: 128
         height: 128
@@ -2749,8 +3181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9322c8824cb8409e0800000000000000
-      internalID: -1656045088355376583
+      spriteID: dd6dbebc0364f3bb0800000000000000
+      internalID: -4954163889690650915
       vertices: []
       indices: 
       edges: []
@@ -2759,6 +3191,27 @@ TextureImporter:
       name: pasto_bordes_dm_106
       rect:
         serializedVersion: 2
+        x: 1322
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b6f0c7bfc8ff4b0800000000000000
+      internalID: -5404446016075240682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_bordes_dm_107
+      rect:
+        serializedVersion: 2
         x: 1454
         y: 398
         width: 128
@@ -2770,29 +3223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa0c9e6b4fb392260800000000000000
-      internalID: 7073250611988906159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pasto_bordes_dm_107
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 266
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f706c1749b40ad7a0800000000000000
-      internalID: -6351759130644160385
+      spriteID: abe6471ddd926e000800000000000000
+      internalID: 64785277322030778
       vertices: []
       indices: 
       edges: []
@@ -2801,7 +3233,7 @@ TextureImporter:
       name: pasto_bordes_dm_108
       rect:
         serializedVersion: 2
-        x: 134
+        x: 2
         y: 266
         width: 128
         height: 128
@@ -2812,8 +3244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 553f0957f9d9ae9d0800000000000000
-      internalID: -2744207714731101355
+      spriteID: 8eea67f9406bd1530800000000000000
+      internalID: 3827415389306269416
       vertices: []
       indices: 
       edges: []
@@ -2822,7 +3254,7 @@ TextureImporter:
       name: pasto_bordes_dm_109
       rect:
         serializedVersion: 2
-        x: 266
+        x: 134
         y: 266
         width: 128
         height: 128
@@ -2833,8 +3265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39130a9b34d6b2e40800000000000000
-      internalID: 5632715896601457043
+      spriteID: fc483883d04d8b280800000000000000
+      internalID: -9027232299816352561
       vertices: []
       indices: 
       edges: []
@@ -2843,7 +3275,7 @@ TextureImporter:
       name: pasto_bordes_dm_110
       rect:
         serializedVersion: 2
-        x: 398
+        x: 266
         y: 266
         width: 128
         height: 128
@@ -2854,8 +3286,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 604b86aeb65b78230800000000000000
-      internalID: 3641078298851193862
+      spriteID: 1a4a4226c68cec5e0800000000000000
+      internalID: -1887350825993067359
       vertices: []
       indices: 
       edges: []
@@ -2864,7 +3296,7 @@ TextureImporter:
       name: pasto_bordes_dm_111
       rect:
         serializedVersion: 2
-        x: 530
+        x: 398
         y: 266
         width: 128
         height: 128
@@ -2875,8 +3307,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b40f0be6c0b282eb0800000000000000
-      internalID: -4744494875038126005
+      spriteID: e0f6abb1f68a42020800000000000000
+      internalID: 2316161303535316750
       vertices: []
       indices: 
       edges: []
@@ -2885,7 +3317,7 @@ TextureImporter:
       name: pasto_bordes_dm_112
       rect:
         serializedVersion: 2
-        x: 662
+        x: 530
         y: 266
         width: 128
         height: 128
@@ -2896,8 +3328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be7a63338cd7959d0800000000000000
-      internalID: -2785056595745789973
+      spriteID: e86b1f04f6adf73d0800000000000000
+      internalID: -3206604238298696050
       vertices: []
       indices: 
       edges: []
@@ -2906,7 +3338,7 @@ TextureImporter:
       name: pasto_bordes_dm_113
       rect:
         serializedVersion: 2
-        x: 794
+        x: 662
         y: 266
         width: 128
         height: 128
@@ -2917,8 +3349,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d0c5a60cf29d2bf0800000000000000
-      internalID: -347459985096720173
+      spriteID: 791324998fd4c73e0800000000000000
+      internalID: -2054681599869308521
       vertices: []
       indices: 
       edges: []
@@ -2927,7 +3359,7 @@ TextureImporter:
       name: pasto_bordes_dm_114
       rect:
         serializedVersion: 2
-        x: 926
+        x: 794
         y: 266
         width: 128
         height: 128
@@ -2938,8 +3370,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b1565ecf83e894f0800000000000000
-      internalID: -821656725213523530
+      spriteID: 808ad5ab1fa2cb710800000000000000
+      internalID: 1710289176196130824
       vertices: []
       indices: 
       edges: []
@@ -2948,7 +3380,7 @@ TextureImporter:
       name: pasto_bordes_dm_115
       rect:
         serializedVersion: 2
-        x: 1058
+        x: 926
         y: 266
         width: 128
         height: 128
@@ -2959,8 +3391,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94a3d168e0999fe10800000000000000
-      internalID: 2231983377997445705
+      spriteID: ab7765cfe47dcaaf0800000000000000
+      internalID: -383695133992388678
       vertices: []
       indices: 
       edges: []
@@ -2969,7 +3401,7 @@ TextureImporter:
       name: pasto_bordes_dm_116
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 1058
         y: 266
         width: 128
         height: 128
@@ -2980,8 +3412,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 459fdf8251e98f190800000000000000
-      internalID: -7928413330266523308
+      spriteID: 646d23842429a8f60800000000000000
+      internalID: 8037397298372859462
       vertices: []
       indices: 
       edges: []
@@ -2990,7 +3422,7 @@ TextureImporter:
       name: pasto_bordes_dm_117
       rect:
         serializedVersion: 2
-        x: 1322
+        x: 1190
         y: 266
         width: 128
         height: 128
@@ -3001,8 +3433,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 990b82688973fa760800000000000000
-      internalID: 7471251435056312473
+      spriteID: 14b4e7f14b5f4fb20800000000000000
+      internalID: 3167426591919590209
       vertices: []
       indices: 
       edges: []
@@ -3011,6 +3443,27 @@ TextureImporter:
       name: pasto_bordes_dm_118
       rect:
         serializedVersion: 2
+        x: 1322
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778d3808db5735e00800000000000000
+      internalID: 1032298196363368567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_bordes_dm_119
+      rect:
+        serializedVersion: 2
         x: 1454
         y: 266
         width: 128
@@ -3022,29 +3475,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce8e879aa1f030cf0800000000000000
-      internalID: -287369344034739988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pasto_bordes_dm_119
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 134
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6cd4bddcf93e8a10800000000000000
-      internalID: 1913530649893198956
+      spriteID: 2042f508c8485afd0800000000000000
+      internalID: -2331311493110356990
       vertices: []
       indices: 
       edges: []
@@ -3053,6 +3485,27 @@ TextureImporter:
       name: pasto_bordes_dm_120
       rect:
         serializedVersion: 2
+        x: 2
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 021bbdacb587af650800000000000000
+      internalID: 6267454167080218912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_bordes_dm_121
+      rect:
+        serializedVersion: 2
         x: 134
         y: 134
         width: 128
@@ -3064,14 +3517,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e8130eb7ca00fa10800000000000000
-      internalID: 1941063292399327464
+      spriteID: c77ae8d25b218b4a0800000000000000
+      internalID: -6577486686411905156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_121
+      name: pasto_bordes_dm_122
       rect:
         serializedVersion: 2
         x: 266
@@ -3085,14 +3538,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7694c48c32c3aef70800000000000000
-      internalID: 9217245711749106023
+      spriteID: 207078e3535bd6740800000000000000
+      internalID: 5146969189441275650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_122
+      name: pasto_bordes_dm_123
       rect:
         serializedVersion: 2
         x: 398
@@ -3106,14 +3559,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6402d7f8a7d6ae9e0800000000000000
-      internalID: -1591339145161269178
+      spriteID: a37a7968402d26c40800000000000000
+      internalID: 5504192611479955258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_123
+      name: pasto_bordes_dm_124
       rect:
         serializedVersion: 2
         x: 530
@@ -3127,14 +3580,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dee005fb72281420800000000000000
-      internalID: 2600866700593262296
+      spriteID: 82e2742671284cb70800000000000000
+      internalID: 8918396199045115432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_124
+      name: pasto_bordes_dm_125
       rect:
         serializedVersion: 2
         x: 662
@@ -3148,14 +3601,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 381ddb08e2cf98370800000000000000
-      internalID: 8325462662829691267
+      spriteID: c7a223203cda4cd30800000000000000
+      internalID: 4450873384815962748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_125
+      name: pasto_bordes_dm_126
       rect:
         serializedVersion: 2
         x: 794
@@ -3169,14 +3622,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6569289fbc3647330800000000000000
-      internalID: 3707698120948356694
+      spriteID: bea6b26e501594990800000000000000
+      internalID: -7401295426828408085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_126
+      name: pasto_bordes_dm_127
       rect:
         serializedVersion: 2
         x: 926
@@ -3190,14 +3643,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d6af3077c995900800000000000000
-      internalID: 673741654250384711
+      spriteID: d49c14a7c1dbba900800000000000000
+      internalID: 696858497366739277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_127
+      name: pasto_bordes_dm_128
       rect:
         serializedVersion: 2
         x: 1058
@@ -3211,14 +3664,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74bccd30373906380800000000000000
-      internalID: -8980015534781445305
+      spriteID: 9da2c448da2a13940800000000000000
+      internalID: 5274175504760187609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_128
+      name: pasto_bordes_dm_129
       rect:
         serializedVersion: 2
         x: 1190
@@ -3232,14 +3685,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 096d3052d29cabef0800000000000000
-      internalID: -91539646675954032
+      spriteID: b894aca6161d07120800000000000000
+      internalID: 2409656016976890251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_129
+      name: pasto_bordes_dm_130
       rect:
         serializedVersion: 2
         x: 1322
@@ -3253,14 +3706,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05c88c5c3f6f95ce0800000000000000
-      internalID: -1415829080975569840
+      spriteID: 4a21db309bf7422c0800000000000000
+      internalID: -4457297298581548380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_130
+      name: pasto_bordes_dm_131
       rect:
         serializedVersion: 2
         x: 1454
@@ -3274,14 +3727,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a19c08d4a7a043220800000000000000
-      internalID: 2464606416481077530
+      spriteID: 669705c4fd35a9210800000000000000
+      internalID: 1340476057619298662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_131
+      name: pasto_bordes_dm_132
       rect:
         serializedVersion: 2
         x: 2
@@ -3295,14 +3748,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7a65173983b4c200800000000000000
-      internalID: 199481685427186301
+      spriteID: 1dc4cebbc482162a0800000000000000
+      internalID: -6746066456788841263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_132
+      name: pasto_bordes_dm_133
       rect:
         serializedVersion: 2
         x: 134
@@ -3316,14 +3769,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a76ac22aa9fb7cfa0800000000000000
-      internalID: -5780440925840038278
+      spriteID: a714b0bea30ae2870800000000000000
+      internalID: 8660035308391973242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_133
+      name: pasto_bordes_dm_134
       rect:
         serializedVersion: 2
         x: 266
@@ -3337,14 +3790,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7f3f84694179f7a0800000000000000
-      internalID: -6342914040140972161
+      spriteID: 7d8e0447d2a9a8660800000000000000
+      internalID: 7388887658669336791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_134
+      name: pasto_bordes_dm_135
       rect:
         serializedVersion: 2
         x: 398
@@ -3358,14 +3811,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea060c1442b406e50800000000000000
-      internalID: 6800518056423481518
+      spriteID: fe775ae84cadac490800000000000000
+      internalID: -7725121673059010577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_135
+      name: pasto_bordes_dm_136
       rect:
         serializedVersion: 2
         x: 530
@@ -3379,14 +3832,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2e3ee3fd86076ea0800000000000000
-      internalID: -5879723581756260817
+      spriteID: cd903cc1b9f98b770800000000000000
+      internalID: 8626820574779476444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_136
+      name: pasto_bordes_dm_137
       rect:
         serializedVersion: 2
         x: 662
@@ -3400,14 +3853,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 610696c381720acb0800000000000000
-      internalID: -4854837413259157482
+      spriteID: b5fae161ea20251d0800000000000000
+      internalID: -3363623024973664421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_137
+      name: pasto_bordes_dm_138
       rect:
         serializedVersion: 2
         x: 794
@@ -3421,14 +3874,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da909659cdc31b750800000000000000
-      internalID: 6318898670274677165
+      spriteID: 48c38a5d431d67ee0800000000000000
+      internalID: -1263592620577768316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_138
+      name: pasto_bordes_dm_139
       rect:
         serializedVersion: 2
         x: 926
@@ -3442,14 +3895,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a741ca5d06eb95350800000000000000
-      internalID: 6006040901186229370
+      spriteID: 111efa35faa505180800000000000000
+      internalID: -9128696735610183407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_139
+      name: pasto_bordes_dm_140
       rect:
         serializedVersion: 2
         x: 1058
@@ -3463,14 +3916,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48e4de935fee22c80800000000000000
-      internalID: -8348848022185226620
+      spriteID: 73a1f7a326f48b4d0800000000000000
+      internalID: -3118655458647270857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_140
+      name: pasto_bordes_dm_141
       rect:
         serializedVersion: 2
         x: 1190
@@ -3484,14 +3937,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e2bce8804f2ab8a0800000000000000
-      internalID: -6288661975447850263
+      spriteID: 3b8a9989ada20ac00800000000000000
+      internalID: 909774243080284339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_141
+      name: pasto_bordes_dm_142
       rect:
         serializedVersion: 2
         x: 1322
@@ -3505,14 +3958,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2410ff9d9346ca800800000000000000
-      internalID: 624984647930937666
+      spriteID: ddc8cf0bd9b397450800000000000000
+      internalID: 6086961919833181405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pasto_bordes_dm_142
+      name: pasto_bordes_dm_143
       rect:
         serializedVersion: 2
         x: 1454
@@ -3526,8 +3979,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 614e78cbcf6a8eaa0800000000000000
-      internalID: -6131467288239938538
+      spriteID: aaba35ad475c50ac0800000000000000
+      internalID: -3889485597494760534
       vertices: []
       indices: 
       edges: []

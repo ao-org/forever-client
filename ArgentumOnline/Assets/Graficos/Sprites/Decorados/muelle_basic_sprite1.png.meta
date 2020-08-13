@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: 8dc98e4682fd55d4c9d3da53c2603cd0
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4031144647065937462
+    second: muelle_basic_sprite1_0
+  - first:
+      213: -4244479270978008522
+    second: muelle_basic_sprite1_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +47,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -99,7 +105,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: muelle_basic_sprite1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 1408
+        height: 768
+      alignment: 9
+      pivot: {x: 0.49720564, y: 0.12087009}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6362596d2b081f730800000000000000
+      internalID: 4031144647065937462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muelle_basic_sprite1_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1408
+        height: 384
+      alignment: 9
+      pivot: {x: 0.4999999, y: 0.46243143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ac8dc57949815c0800000000000000
+      internalID: -4244479270978008522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
