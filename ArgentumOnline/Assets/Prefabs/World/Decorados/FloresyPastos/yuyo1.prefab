@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7957537208176424128}
   - component: {fileID: 7957537208176424129}
+  - component: {fileID: 8095296340596053122}
   m_Layer: 0
-  m_Name: yuyo (12)
+  m_Name: yuyo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,9 +69,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2049532783
-  m_SortingLayer: 12
-  m_SortingOrder: 0
+  m_SortingLayerID: 275239855
+  m_SortingLayer: 16
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2429961685111930198, guid: 3809efc9dc6507a43bc1255146826b33,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -83,3 +84,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8095296340596053122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957537208176424143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

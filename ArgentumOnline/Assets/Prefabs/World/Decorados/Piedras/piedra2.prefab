@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7335923849764865215}
   - component: {fileID: 7335923849764865213}
+  - component: {fileID: 4777489934869627137}
   - component: {fileID: 7835631132686419255}
   m_Layer: 0
-  m_Name: piedramarron1 (4)
+  m_Name: piedra2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4777489934869627137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335923849764865200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!68 &7835631132686419255
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -97,7 +110,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.21, y: -0.5}
   m_EdgeRadius: 0.02
   m_Points:
   - {x: -0.91108596, y: 0.4134369}

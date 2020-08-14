@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1919508164746607344}
   - component: {fileID: 1919508164746607343}
   m_Layer: 0
-  m_Name: LigustrinaLateralLarga (1)
+  m_Name: verticallarga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1919508164746607347}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 35.88, y: -32.77, z: 0}
-  m_LocalScale: {x: 0.79999995, y: 0.79999995, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

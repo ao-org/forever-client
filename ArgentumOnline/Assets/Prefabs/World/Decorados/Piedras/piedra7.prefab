@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8934453411120228610}
   - component: {fileID: 8934453411120228620}
+  - component: {fileID: 8558685957427205243}
   - component: {fileID: 1526467065158985761}
   m_Layer: 0
-  m_Name: piedramarron5 (17)
+  m_Name: piedra7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2049532783
-  m_SortingLayer: 12
+  m_SortingLayerID: 275239855
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 1957164970209110640, guid: 3809efc9dc6507a43bc1255146826b33,
     type: 3}
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8558685957427205243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934453411120228609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!68 &1526467065158985761
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -97,7 +110,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.12}
   m_EdgeRadius: 0.02
   m_Points:
   - {x: 0.39382505, y: 0.2698121}
