@@ -81,7 +81,6 @@ public class WorldClient : MonoBehaviour {
 		wm.mID  = "CHARACTER_MELEE";
 		wm.mMeleeDamage = damage;
 		mEventsQueue.Enqueue(wm);
-		Debug.Log("mMeleeDamage " + damage);
 		return 1;
 	}
 	public int ProcessCharacterMoved(byte[] encrypted_data){
@@ -94,7 +93,6 @@ public class WorldClient : MonoBehaviour {
 		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
 		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
 		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
-		//mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MOVED"],decrypted_uuid,nx,ny));
 		var wm = new WorldMessage();
 		wm.mUUID = decrypted_uuid;
 		wm.mID  = "CHARACTER_MOVED";
@@ -113,7 +111,6 @@ public class WorldClient : MonoBehaviour {
 		var base64_decoded_array =  CryptoHelper.Base64DecodeString(Encoding.ASCII.GetBytes(decrypted_nxny));
 		var nx = System.BitConverter.ToSingle(base64_decoded_array, 0);
 		var ny = System.BitConverter.ToSingle(base64_decoded_array, 4);
-		//mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"],decrypted_uuid,nx,ny));
 		var wm = new WorldMessage();
 		wm.mUUID = decrypted_uuid;
 		wm.mID  = "CHARACTER_NEWPOS";
@@ -123,17 +120,11 @@ public class WorldClient : MonoBehaviour {
 		return 1;
 	}
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
-		//Debug.Log("ProcessSpawnCharacter");
-		//Debug.Log("encrypted_spawn_info len = " + Encoding.ASCII.GetString(encrypted_spawn_info).Length + " "  + Encoding.ASCII.GetString(encrypted_spawn_info) );
-        var decrypted_info = CryptoHelper.Decrypt(encrypted_spawn_info,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		//Debug.Log("decrypted_data: " + decrypted_info);
-
+		var decrypted_info = CryptoHelper.Decrypt(encrypted_spawn_info,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		try{
 			//Can only be done from the main thread
 			var SpawnCharacterXml = new XmlDocument();
 			SpawnCharacterXml.LoadXml(decrypted_info);
-			//Debug.Log("Parsed Spawn XML sucessfully!!!!!!!");
-			//mSpawnQueue.Enqueue(SpawnCharacterXml);
 			var wm = new WorldMessage();
 			wm.mXml = SpawnCharacterXml;
 			wm.mID  = "SPAWN_CHARACTER";
