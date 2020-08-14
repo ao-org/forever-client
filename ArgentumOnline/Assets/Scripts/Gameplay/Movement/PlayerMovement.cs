@@ -211,10 +211,7 @@ public class PlayerMovement : Movement
 
         }
 
-        if (IsAnimationPlaying("Attack"))
-        {
-            return;
-        }
+
         if (Input.GetKeyDown(KeyCode.M))
         {
             if (!IsPhantom)
@@ -269,26 +266,32 @@ public class PlayerMovement : Movement
     }
 
     // Update is called once per frame
+    float mTimeElapsedFixedUpdate = 0.0f;
+
     void FixedUpdate()
     {
-        {
-            // We limit the number of movement the player can do aiming to make PCs speed framerate independet
-            mInputStopwatch.Stop();
-            if(mInputStopwatch.ElapsedMilliseconds > 20){
-                mInputStopwatch = System.Diagnostics.Stopwatch.StartNew();
-            }
-            else {
-                mInputStopwatch.Start();
-                return;
-            }
+        mTimeElapsedFixedUpdate += Time.deltaTime;
+
+        if( mTimeElapsedFixedUpdate >= 0.05f ){
+            UnityEngine.Debug.Log("mTimeElapsedFixedUpdate " + mTimeElapsedFixedUpdate);
+            mTimeElapsedFixedUpdate= 0.0f;
         }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        else{
+            return ;
+        }
+
+
+        if (IsAnimationPlaying("Attack"))
+        {
+            return;
+        }
+        else if (Input.GetButton("Fire1"))
         {
             PlayAnimation("Attack");
             OnAttack();
             return;
         }
-        
+
         mBody.velocity = Vector2.zero;
         mBody.angularVelocity = 0f;
 
