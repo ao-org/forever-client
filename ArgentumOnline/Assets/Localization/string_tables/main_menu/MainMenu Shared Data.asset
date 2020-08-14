@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: MainMenu Shared Data
   m_EditorClassIdentifier: 
-  m_NextAvailableId: 102
+  m_NextAvailableId: 113
   m_TableName: MainMenu
   m_TableNameGuidString: ce04b8004cef60dc193130c9173065bb
   m_Entries:
@@ -305,7 +305,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 89
-    m_Key: AGILITY
+    m_Key: ENDURANCE
     m_Metadata:
       m_Items: []
   - m_Id: 90
@@ -354,6 +354,34 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 101
     m_Key: STARTING_TOWN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102
+    m_Key: MALE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 103
+    m_Key: FEMALE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104
+    m_Key: HUMAN_TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105
+    m_Key: ELF_TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 106
+    m_Key: DWARF_TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 107
+    m_Key: GNOMO_TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111
+    m_Key: LUCK
     m_Metadata:
       m_Items: []
   m_Metadata:

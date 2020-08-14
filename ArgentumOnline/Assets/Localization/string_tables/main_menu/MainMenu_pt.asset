@@ -344,7 +344,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 89
-    m_Localized: Agilidade
+    m_Localized: "Resist\xEAncia"
     m_Metadata:
       m_Items: []
   - m_Id: 90
@@ -393,6 +393,34 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 101
     m_Localized: CIDADE INICIAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 103
+    m_Localized: MULHER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102
+    m_Localized: HOMEM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104
+    m_Localized: HUMANO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 106
+    m_Localized: "AN\xC3O"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105
+    m_Localized: DUENDE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 107
+    m_Localized: GNOMO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111
+    m_Localized: Sorte
     m_Metadata:
       m_Items: []
   references:
