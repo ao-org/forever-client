@@ -156,7 +156,7 @@ public class ChatClient : MonoBehaviour {
 			if(!IsConnected()){
 				Scene cur_scene = SceneManager.GetActiveScene();
 				mStopwatch.Stop();
-				if(cur_scene.name!="MainMenu"  && mStopwatch.ElapsedMilliseconds > 5000){
+				if(cur_scene.name!="MainMenu"  && mStopwatch.ElapsedMilliseconds > 25000){
 					Debug.Log("Reconnecting to chat server: " + mServerIP + ":" + mServerPort);
 					this.ConnectToTcpServer(mServerIP,mServerPort);
 					mStopwatch = System.Diagnostics.Stopwatch.StartNew();

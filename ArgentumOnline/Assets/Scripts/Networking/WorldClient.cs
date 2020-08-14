@@ -72,12 +72,16 @@ public class WorldClient : MonoBehaviour {
 		return 1;
 	}
 	public int ProcessCharacterMelee(byte[] encrypted_data){
-		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_data,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
-		//mActionQueue.Enqueue(Tuple.Create(ProtoBase.ProtocolNumbers["CHARACTER_MELEE"],decrypted_uuid,0.0f,0.0f));
+		var damage = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,0,2));
+		var encrypted_uuid_len = ProtoBase.DecodeShort(ProtoBase.SliceArray(encrypted_data,2,2));
+		var encrypted_uuid = ProtoBase.SliceArray(encrypted_data,4,encrypted_uuid_len);
+		var decrypted_uuid = CryptoHelper.Decrypt(encrypted_uuid,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		var wm = new WorldMessage();
 		wm.mUUID = decrypted_uuid;
 		wm.mID  = "CHARACTER_MELEE";
+		wm.mMeleeDamage = damage;
 		mEventsQueue.Enqueue(wm);
+		Debug.Log("mMeleeDamage " + damage);
 		return 1;
 	}
 	public int ProcessCharacterMoved(byte[] encrypted_data){
@@ -287,17 +291,22 @@ public class WorldClient : MonoBehaviour {
 				WorldMessage e;
 				if (mEventsQueue.TryPeek(out e)){
 					if(mSceneLoaded && (e.mID == "CHARACTER_MOVED" || e.mID == "CHARACTER_MELEE" || e.mID== "CHARACTER_NEWPOS")){
-						GameObject pc = GameObject.Find(e.mUUID);
-						//Debug.Assert()
-						if(pc == null){
-							//Client might have left
-							Debug.Log("Ignoring Movement because cannot find player: " + e.mUUID);
+						if(e.mID == "CHARACTER_MELEE" && e.mUUID == mPlayerCharacter.UUID()){
+							//Notification to myself of the attack result: damage?
+							Debug.Log("CHARACTER_MELEE Player damage = " + e.mMeleeDamage);
 						}
 						else {
-							Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
-							var p = pc.GetComponent<CharacterMovement>();
-							Debug.Assert(p!=null);
-							p.PushMovement(Tuple.Create(ProtoBase.ProtocolNumbers[e.mID],e.mX,e.mY));
+							GameObject pc = GameObject.Find(e.mUUID);
+							if(pc == null){
+								//Client might have left
+								Debug.Log("Ignoring Movement because cannot find player: " + e.mUUID);
+							}
+							else {
+								Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
+								var p = pc.GetComponent<CharacterMovement>();
+								Debug.Assert(p!=null);
+								p.PushMovement(Tuple.Create(ProtoBase.ProtocolNumbers[e.mID],e.mX,e.mY));
+							}
 						}
 						mEventsQueue.TryDequeue(out e);
 					}
@@ -640,10 +649,10 @@ public class WorldClient : MonoBehaviour {
     private ConcurrentQueue<ProtoBase> mSendQueue = new ConcurrentQueue<ProtoBase>();
 	// Connection events queue
 	struct WorldMessage {
-
 		public	string		mErrorStr;
 		public	string		mID;
 		public	string		mUUID;
+		public  int			mMeleeDamage;
 		public	float		mX;
 		public	float 		mY;
 		public  string      mMap;
