@@ -30,7 +30,7 @@ public class MotorOnEnterLoadScene : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             var player = col.gameObject;
-            var playerScript = player.GetComponent<PlayerMovement>();
+            var playerScript = player.GetComponent<MotorPlayerMovement>();
             UnityEngine.Debug.Assert(playerScript != null);
             var wc = GameObject.Find("WorldClient");
             UnityEngine.Debug.Assert(wc != null);
