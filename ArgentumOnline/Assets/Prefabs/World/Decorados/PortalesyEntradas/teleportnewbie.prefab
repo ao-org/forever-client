@@ -30,7 +30,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.39, y: 0.14, z: 0}
   m_LocalScale: {x: 0.3975596, y: 0.55515075, z: 0.793161}
-  m_Children: []
+  m_Children:
+  - {fileID: 6887275219182882370}
   m_Father: {fileID: 1564471140300666085}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -163,11 +164,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564471140300666082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.498, y: -51.12, z: 0}
+  m_LocalPosition: {x: 0, y: -0.024, z: 0}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children:
   - {fileID: 1564471140014530615}
-  - {fileID: 6887275219182882370}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
   teleport_x: 21
   teleport_y: -40
   locky: 0
-  lockx: 1
+  lockx: 0
 --- !u!61 &1564471140300666086
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -355,12 +355,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6718403968631573385}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.9809849, y: -0.25218377, z: 0}
+  m_LocalScale: {x: 2.515346, y: 1.8013123, z: 1.2607781}
   m_Children: []
-  m_Father: {fileID: 1564471140300666085}
-  m_RootOrder: 1
+  m_Father: {fileID: 1564471140014530615}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1927618562941165178
 BoxCollider2D:
@@ -375,7 +375,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3940352, y: 0.03}
+  m_Offset: {x: -0.39789298, y: 0.027428119}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -386,7 +386,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.116432, y: 0.035431612}
+  m_Size: {x: 2.1241474, y: 0.040575374}
   m_EdgeRadius: 0
 --- !u!114 &3629057178276971525
 MonoBehaviour:
@@ -400,8 +400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ab054798bb782a992cc3603c6a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: -39
+  scene: nix34
   teleport_x: 21
-  teleport_y: nix34
+  teleport_y: -39
   locky: 0
-  lockx: 1
+  lockx: 0
