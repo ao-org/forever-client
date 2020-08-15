@@ -15,7 +15,7 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerMovementMotor : Movement
+public class MotorPlayerMovement : Movement
 {
     public float WalkSpeed = 6.0f; //Velocidad normal
     private float runDelta = 2.2f; // delta Velocidad correr. se multiplica por la velocidad de caminar
