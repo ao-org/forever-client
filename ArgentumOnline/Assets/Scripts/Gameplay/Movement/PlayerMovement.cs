@@ -273,7 +273,6 @@ public class PlayerMovement : Movement
         mTimeElapsedFixedUpdate += Time.deltaTime;
 
         if( mTimeElapsedFixedUpdate >= 0.05f ){
-            UnityEngine.Debug.Log("mTimeElapsedFixedUpdate " + mTimeElapsedFixedUpdate);
             mTimeElapsedFixedUpdate= 0.0f;
         }
         else{
