@@ -203,9 +203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ab054798bb782a992cc3603c6a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 34
-  teleport_x: -57
-  teleport_y: newbiedungeon37
+  scene: newbiedungeon37
+  teleport_x: 34
+  teleport_y: -57
   locky: 0
   lockx: 0
 --- !u!1 &4278157749772378713
