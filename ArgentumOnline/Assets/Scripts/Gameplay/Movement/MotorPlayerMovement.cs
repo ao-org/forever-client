@@ -65,6 +65,7 @@ public class MotorPlayerMovement : Movement
         //UnityEngine.Debug.Assert(mWorldClient != null);
         dir = Direction.South;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        DontDestroyOnLoad(this.gameObject);
         //spriteRenderer.color = mSkinColor;
     }
     private System.Diagnostics.Stopwatch mInputStopwatch;

@@ -32,9 +32,9 @@ public class MotorOnEnterLoadScene : MonoBehaviour
             var player = col.gameObject;
             var playerScript = player.GetComponent<MotorPlayerMovement>();
             UnityEngine.Debug.Assert(playerScript != null);
-            var wc = GameObject.Find("WorldClient");
-            UnityEngine.Debug.Assert(wc != null);
-            var client = wc.GetComponent<WorldClient>();
+            //var wc = GameObject.Find("WorldClient");
+            //UnityEngine.Debug.Assert(wc != null);
+            //var client = wc.GetComponent<WorldClient>();
             var newPos = new Vector3(0, 0, 0);
             if (!lockx)
             {
@@ -60,18 +60,18 @@ public class MotorOnEnterLoadScene : MonoBehaviour
             }
 
 
-            client.OnPlayerOnEnterLoadScene(scene,newPos); // Send the command MAP_REQ to the server
+            //client.OnPlayerOnEnterLoadScene(scene,newPos); // Send the command MAP_REQ to the server
 
             Scene cur_scene = SceneManager.GetActiveScene();
             if(cur_scene.name!=scene){
-                client.SetSceneLoaded(false);
+                //client.SetSceneLoaded(false);
                 SceneManager.LoadScene(scene);
                 UnityEngine.Debug.Log("Warping to a new scene: " + scene);
                 playerScript.SetTeleportingPos(newPos);
                 UnityEngine.Debug.Log("TELEPORT X: " + player.transform.position.x.ToString() + " Y:" + player.transform.position.y.ToString());
                 UnityEngine.Debug.Log("Teleporting player to x:" + WarpingDestination.teleport_x + " y:" + WarpingDestination.teleport_y);
-                WarpingDestination.direction = player.GetComponent<PlayerMovement>().GetDirection();
-                WarpingDestination.warping = true;
+                //WarpingDestination.direction = player.GetComponent<PlayerMovement>().GetDirection();
+                //WarpingDestination.warping = true;
             }
             else {
                 // We teleport to the current scene, only need to update the player position
