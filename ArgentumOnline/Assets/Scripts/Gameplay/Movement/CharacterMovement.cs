@@ -299,18 +299,6 @@ public class CharacterMovement : Movement
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private bool IsAnimationPlaying(string anim)
-    {
-        if (mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sur") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Norte") ||
-                mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Oeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Este") ||
-                mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Noroeste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Noreste") ||
-                mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sureste") || mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Suroeste"))
-        {
-            return true;
-        }
-        return false;
-    }
-
     private void PlayAnimation(string anim)
     {
         switch (dir)
