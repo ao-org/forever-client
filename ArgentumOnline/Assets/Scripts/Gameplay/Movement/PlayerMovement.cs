@@ -37,15 +37,8 @@ public class PlayerMovement : Movement
     private RuntimeAnimatorController mPhantomAnimatorController;
     private RuntimeAnimatorController mAnimatorController;
     private WorldClient mWorldClient;
-    private SpriteRenderer spriteRenderer;
     private GameObject mCollidingChar;
 
-
-    void LateUpdate()
-    {
-        if (spriteRenderer.isVisible)
-            spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
-    }
 
 
     public void Awake()
@@ -64,11 +57,11 @@ public class PlayerMovement : Movement
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
         dir = Direction.South;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = mSkinColor;
-    }
-    private System.Diagnostics.Stopwatch mInputStopwatch;
 
+        mSpriteRenderer = GetComponent<SpriteRenderer>();
+        mSpriteRenderer.color = mSkinColor;
+
+    }
     // Start is called before the first frame update
     public override void Start()
     {
@@ -78,11 +71,6 @@ public class PlayerMovement : Movement
         mBody.velocity = Vector3.zero;
         mBody.angularVelocity = 0;
         mBody.gravityScale = 0f;
-        //mBody.isKinematic = true;
-        //mBody.useFullKinematicContacts =true;
-        mInputStopwatch = new System.Diagnostics.Stopwatch();
-		mInputStopwatch.Start();
-
         if (IsPhantom)
         {
             mAnimator.runtimeAnimatorController = mPhantomAnimatorController;

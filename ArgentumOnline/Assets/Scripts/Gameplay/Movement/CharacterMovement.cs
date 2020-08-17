@@ -31,7 +31,7 @@ public class CharacterMovement : Movement
     public Slider manaSlider;
     private RuntimeAnimatorController mPhantomAnimatorController;
     private RuntimeAnimatorController mAnimatorController;
-    private SpriteRenderer spriteRenderer;
+
 
     private Queue<Tuple<short,float,float>> mActionQueue = new Queue<Tuple<short,float,float>>();
 
@@ -289,19 +289,5 @@ public class CharacterMovement : Movement
     }
     }
 
-    void LateUpdate()
-    {
-        if (spriteRenderer.isVisible)
-            spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
-    }
-    public void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
-    public void ChangeColorSkin(string color)
-    {
-        base.ChangeColorSkin(color);
-        spriteRenderer.color = mSkinColor;
-    }
 }

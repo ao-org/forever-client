@@ -176,11 +176,30 @@ public class Movement : MonoBehaviour
                 newColor = new Color(1, 1, 1);
                 break;
         }
+
         mSkinColor = newColor;
+        if (mSpriteRenderer!=null){
+            mSpriteRenderer = GetComponent<SpriteRenderer>();
+            mSpriteRenderer.color = mSkinColor;
+        }
     }
+
+    protected SpriteRenderer mSpriteRenderer;
+
+    public void Awake()
+    {
+        mSpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    void LateUpdate()
+    {
+        if (mSpriteRenderer!=null && mSpriteRenderer.isVisible)
+            mSpriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
+    }
+
 
     // Start is called before the first frame update
     public virtual void Start(){
+        mSpriteRenderer = GetComponent<SpriteRenderer>();
         mAnimator = gameObject.GetComponent<Animator>();
         mBody = GetComponent<Rigidbody2D>();
         mWaterTilemap = GameObject.Find("Tilemap_base").GetComponent<Tilemap>();
@@ -220,9 +239,5 @@ public class Movement : MonoBehaviour
         return false;
     }
 
-    // Update is called once per frame
-    void Update(){
 
-
-    }
 }
