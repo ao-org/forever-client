@@ -196,8 +196,11 @@ public class CharacterMovement : Movement
                 transform.position = new_pos;
 
             }
+        }//
+        else {
+            if (!IsAnimationPlaying("Attack")){
+                PlayAnimation("Stand");
+            }
+        }
     }
-    }
-
-
 }
