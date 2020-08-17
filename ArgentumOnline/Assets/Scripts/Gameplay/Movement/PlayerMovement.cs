@@ -334,34 +334,7 @@ public class PlayerMovement : Movement
 
     }
 
-    private void PlayAnimation(string anim)
-    {
-        switch (dir)
-        {
-            case Direction.South:
-                mAnimator.Play(anim + "Sur"); break;
-            case Direction.North:
-                mAnimator.Play(anim + "Norte"); break;
-            case Direction.West:
-                mAnimator.Play(anim + "Oeste"); break;
-            case Direction.East:
-                mAnimator.Play(anim + "Este"); break;
-            case Direction.SouthWest:
-                mAnimator.Play(anim + "Suroeste"); break;
-            case Direction.NorthWest:
-                mAnimator.Play(anim + "Noroeste"); break;
-            case Direction.NorthEast:
-                mAnimator.Play(anim + "Noreste"); break;
-            case Direction.SouthEast:
-                mAnimator.Play(anim + "Sureste"); break;
-            default:
-                UnityEngine.Debug.Assert(false, "PlayAnimation-Bad direction"); break;
-        }
 
-    }
-    private bool IsAnimationLastFrame()
-    {
-        return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
-    }
-    
+
+
 }

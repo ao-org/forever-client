@@ -109,6 +109,37 @@ public class Movement : MonoBehaviour
     public Animator mAnimator;
     public Direction GetDirection() { return dir; }//fg
 
+    protected void PlayAnimation(string anim)
+    {
+        switch (dir)
+        {
+            case Direction.South:
+                mAnimator.Play(anim + "Sur"); break;
+            case Direction.North:
+                mAnimator.Play(anim + "Norte"); break;
+            case Direction.West:
+                mAnimator.Play(anim + "Oeste"); break;
+            case Direction.East:
+                mAnimator.Play(anim + "Este"); break;
+            case Direction.SouthWest:
+                mAnimator.Play(anim + "Suroeste"); break;
+            case Direction.NorthWest:
+                mAnimator.Play(anim + "Noroeste"); break;
+            case Direction.NorthEast:
+                mAnimator.Play(anim + "Noreste"); break;
+            case Direction.SouthEast:
+                mAnimator.Play(anim + "Sureste"); break;
+            default:
+                UnityEngine.Debug.Assert(false, "PlayAnimation-Bad direction"); break;
+        }
+
+    }
+
+    public bool IsAnimationLastFrame()
+    {
+        return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+    }
+
     public void ChangeColorSkin(string color)
     {
         Color newColor = new Color(1, 1, 1); ;
@@ -147,7 +178,7 @@ public class Movement : MonoBehaviour
         }
         mSkinColor = newColor;
     }
-    
+
     // Start is called before the first frame update
     public virtual void Start(){
         mAnimator = gameObject.GetComponent<Animator>();
