@@ -64,7 +64,7 @@ public class CharacterMovement : Movement
         }
         else
         {
-            mBody.MovePosition(pos);
+            mBody.position = pos;
             return true;
         }
     }
