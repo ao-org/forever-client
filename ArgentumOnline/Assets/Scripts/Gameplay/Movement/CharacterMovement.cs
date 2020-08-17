@@ -330,40 +330,7 @@ public class CharacterMovement : Movement
     }
     public void ChangeColorSkin(string color)
     {
-        Color newColor = new Color(0.5f, 0.5f, 0.5f); ;
-        switch (color)
-        {
-            case "1":
-                newColor = new Color(0.141f, 0.141f, 0.141f);
-                break;
-            case "2":
-                newColor = new Color(0.2f, 0.180f, 0.180f);
-                break;
-            case "3":
-                newColor = new Color(0.258f, 0.258f, 0.258f);
-                break;
-            case "4":
-                newColor = new Color(0.356f, 0.356f, 0.356f);
-                break;
-            case "5":
-                newColor = new Color(0.462f, 0.298f, 0.207f);
-                break;
-            case "6":
-                newColor = new Color(0.490f, 0.392f, 0.266f);
-                break;
-            case "7":
-                newColor = new Color(0.603f, 0.423f, 0.380f);
-                break;
-            case "8":
-                newColor = new Color(0.690f, 0.568f, 0.568f);
-                break;
-            case "9":
-                newColor = new Color(0.8f, 0.752f, 0.752f);
-                break;
-            case "10":
-                newColor = new Color(1, 1, 1);
-                break;
-        }
-        spriteRenderer.color = newColor;
+        base.ChangeColorSkin(color);
+        spriteRenderer.color = mSkinColor;
     }
 }
