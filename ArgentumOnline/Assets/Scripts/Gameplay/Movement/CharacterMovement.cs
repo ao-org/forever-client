@@ -95,15 +95,25 @@ public class CharacterMovement : Movement
 
     }
 
-    private System.Diagnostics.Stopwatch mInputStopwatch;
+    float mTimeElapsedFixedUpdate = 0.0f;
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+
+        mTimeElapsedFixedUpdate +=  Time.fixedDeltaTime;
+        if( mTimeElapsedFixedUpdate >= 0.05f ){
+            mTimeElapsedFixedUpdate= 0.0f;
+        }
+        else{
+            return ;
+        }
+
+
         { // Reset the force, we do not want the physics engine to move the Player
             mBody.velocity = Vector2.zero;
             mBody.angularVelocity = 0f;
         }
+
         if (takeDamage && !IsPhantom)
         {
             UnityEngine.Debug.Log("Damage: " + damageValue);

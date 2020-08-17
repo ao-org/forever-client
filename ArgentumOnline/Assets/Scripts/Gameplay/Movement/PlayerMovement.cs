@@ -270,7 +270,7 @@ public class PlayerMovement : Movement
 
     void FixedUpdate()
     {
-        mTimeElapsedFixedUpdate += Time.deltaTime;
+        mTimeElapsedFixedUpdate +=  Time.fixedDeltaTime;
 
         if( mTimeElapsedFixedUpdate >= 0.05f ){
             mTimeElapsedFixedUpdate= 0.0f;
