@@ -155,18 +155,15 @@ public class CharacterMovement : Movement
                 string anim_name = "Stand";
                 if (delta.x != 0f || delta.y != 0f)
                 {
-                    if (!running)
-                    {
-                        WalkRunSpeed = WalkSpeed;
+                    running = Math.Abs(delta.x) > 0.250f || Math.Abs(delta.y) > 0.250f;
+                    if (!running){
                         anim_name = "Walk";
                     }
                     else
                     {
-                        WalkRunSpeed = WalkSpeed * runDelta;
                         anim_name = "Run";
                     }
                 }
-
                 if (delta.x != 0f && delta.y != 0f) delta *= walkDiagDelta;
                 if (delta.x == 0f && delta.y > 0f) dir = Direction.North;
                 if (delta.x > 0f && delta.y > 0f) dir = Direction.NorthEast;
@@ -176,12 +173,10 @@ public class CharacterMovement : Movement
                 if (delta.x < 0f && delta.y < 0f) dir = Direction.SouthWest;
                 if (delta.x < 0f && delta.y == 0f) dir = Direction.West;
                 if (delta.x < 0f && delta.y > 0f) dir = Direction.NorthWest;
-
                 if (delta.x != 0f || delta.y != 0f) {
                         PlayAnimation(anim_name);
                         TryToMove(new_pos);
                 }
-
             }
             else if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_MELEE"])
             {
@@ -190,11 +185,9 @@ public class CharacterMovement : Movement
             else if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"])
             {
                 // We teleport to the current scene, only need to update the player position
-                //UnityEngine.Debug.Log("Warping to the same scene");
                 var old_pos = transform.position;
                 var new_pos = new Vector3(e.Item2,e.Item3,old_pos.z);
                 transform.position = new_pos;
-
             }
         }//
         else {
