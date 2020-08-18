@@ -65,24 +65,9 @@ public class PlayerMovement : Movement
     public override void Start()
     {
         base.Start();
-        //WalkRunSpeed = WalkSpeed;
-        mBody.AddForce(new Vector2(0,0));
-        mBody.velocity = Vector3.zero;
-        mBody.angularVelocity = 0;
-        mBody.gravityScale = 0f;
-        if (IsPhantom)
-        {
-            mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
-            healthSlider.gameObject.SetActive(false);
-            manaSlider.gameObject.SetActive(false);
-            textToHead.gameObject.SetActive(false);
-        }
-        else
-        {
-            scaleHuman = this.transform.localScale;
-            mAnimatorController = mAnimator.runtimeAnimatorController;
-        }
+        scaleHuman = this.transform.localScale;
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
             if (collision.collider.tag == "Human")
@@ -181,7 +166,7 @@ public class PlayerMovement : Movement
                 return;
             else
             {
-                mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
+                //mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
                 PlayAnimation("Stand");
                 isDead = false;
                 IsPhantom = true;
@@ -222,7 +207,7 @@ public class PlayerMovement : Movement
                     UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
                 }
 
-                mAnimator.runtimeAnimatorController = mAnimatorController;
+                //mAnimator.runtimeAnimatorController = mAnimatorController;
 
                 PlayAnimation("Stand");
                 isDead = false;
@@ -257,8 +242,9 @@ public class PlayerMovement : Movement
 
     void FixedUpdate()
     {
-        mTimeElapsedFixedUpdate +=  Time.fixedDeltaTime;
+        base.FixedUpdate();
 
+        mTimeElapsedFixedUpdate +=  Time.fixedDeltaTime;
         if( mTimeElapsedFixedUpdate >= 0.05f ){
             mTimeElapsedFixedUpdate= 0.0f;
         }
@@ -277,9 +263,6 @@ public class PlayerMovement : Movement
             OnAttack();
             return;
         }
-
-        mBody.velocity = Vector2.zero;
-        mBody.angularVelocity = 0f;
 
         Vector2 input_delta = new Vector2(
             Input.GetAxisRaw("Horizontal"),
@@ -304,7 +287,7 @@ public class PlayerMovement : Movement
                 //Diagonal treatment, CRISTOBAL please add comments
                 input_delta *= walkDiagDelta;
         }
-        
+
         if (input_delta.x != 0f || input_delta.y != 0f) {
                 SetDirection(GetDirectionFromDelta(input_delta));
                 var newpos = mBody.position + input_delta * WalkRunSpeed * Time.deltaTime;

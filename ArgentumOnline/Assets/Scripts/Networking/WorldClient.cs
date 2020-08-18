@@ -245,6 +245,7 @@ public class WorldClient : MonoBehaviour {
             Debug.Assert(player != null, "Cannot find PLAYER in Resources prefabs");
 			player.SetActive(false);
 
+
 			// Clone plater, set position and name
 			var pc_pos = mPlayerCharacter.Position();
 			Vector3  v3pos = new Vector3(pc_pos.Item2,pc_pos.Item3, 0);

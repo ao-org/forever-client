@@ -29,9 +29,6 @@ public class CharacterMovement : Movement
     private float damageValue = 0f;
     public Slider healthSlider;
     public Slider manaSlider;
-    private RuntimeAnimatorController mPhantomAnimatorController;
-    private RuntimeAnimatorController mAnimatorController;
-
 
     private Queue<Tuple<short,float,float>> mActionQueue = new Queue<Tuple<short,float,float>>();
 
@@ -46,14 +43,6 @@ public class CharacterMovement : Movement
         base.Start();
         WalkRunSpeed = WalkSpeed;
         mBody.isKinematic = true;
-        if (IsPhantom)
-        {
-            mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
-            healthSlider.gameObject.SetActive(false);
-            manaSlider.gameObject.SetActive(false);
-        }
-        else
-            mAnimatorController = mAnimator.runtimeAnimatorController;
     }
     private bool TryToMove(Vector3 pos)
     {
@@ -99,50 +88,13 @@ public class CharacterMovement : Movement
 
     void FixedUpdate()
     {
-
+        base.FixedUpdate();
         mTimeElapsedFixedUpdate +=  Time.fixedDeltaTime;
         if( mTimeElapsedFixedUpdate >= 0.05f ){
             mTimeElapsedFixedUpdate= 0.0f;
         }
         else{
             return ;
-        }
-
-
-        { // Reset the force, we do not want the physics engine to move the Player
-            mBody.velocity = Vector2.zero;
-            mBody.angularVelocity = 0f;
-        }
-
-        if (takeDamage && !IsPhantom)
-        {
-            UnityEngine.Debug.Log("Damage: " + damageValue);
-            health -= damageValue;
-            healthSlider.value = health;
-            if (health <= 0)
-            {
-                damageValue = 0;
-                PlayAnimation("Dead");
-                isDead = true;
-            }
-        }
-        if (isDead && !IsPhantom)
-        {
-            if (!IsAnimationLastFrame())
-                return;
-            else
-            {
-                mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
-                PlayAnimation("Stand");
-                isDead = false;
-                IsPhantom = true;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-                healthSlider.gameObject.SetActive(false);
-                manaSlider.gameObject.SetActive(false);
-                return;
-            }
-
         }
 
         if (mActionQueue.Count > 0){

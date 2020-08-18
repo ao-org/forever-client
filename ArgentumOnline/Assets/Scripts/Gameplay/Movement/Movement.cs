@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
     public Tilemap mNavegable2;
     public Tilemap mNavegable3;
     public Tilemap mTilemapLevel1;
-    protected Animator mAnimator;
+    private Animator mAnimator;
 
     public Direction GetDirection() { return mDir; }
     public void SetDirection(Direction d) { mDir = d; }
@@ -167,6 +167,12 @@ public class Movement : MonoBehaviour
         SetDirection(Direction.South);
     }
 
+    protected void FixedUpdate(){
+        { // Reset the force, we do not want the physics engine to move the Player
+            mBody.velocity = Vector2.zero;
+            mBody.angularVelocity = 0f;
+        }
+    }
     void LateUpdate()
     {
         if (mSpriteRenderer!=null && mSpriteRenderer.isVisible)
@@ -184,6 +190,12 @@ public class Movement : MonoBehaviour
         mNavegable2 = GameObject.Find("Navegable2").GetComponent<Tilemap>();
         mNavegable3 = GameObject.Find("Navegable3").GetComponent<Tilemap>();
         mTilemapLevel1 = GameObject.Find("TilemapNivel1").GetComponent<Tilemap>();
+
+        mBody.AddForce(new Vector2(0,0));
+        mBody.velocity = Vector3.zero;
+        mBody.angularVelocity = 0;
+        mBody.gravityScale = 0f;
+
     }
     public bool IsThereSomething(Vector3 pos){
         Vector3Int cellPosition = mTilemapLevel1.WorldToCell(pos);

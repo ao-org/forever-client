@@ -34,12 +34,9 @@ public class MotorPlayerMovement : Movement
     public Slider manaSlider;
     private TextMeshProUGUI textToHead;
     private TextMeshProUGUI textName;
-    private RuntimeAnimatorController mPhantomAnimatorController;
-    private RuntimeAnimatorController mAnimatorController;
     private WorldClient mWorldClient;
     private SpriteRenderer spriteRenderer;
     private GameObject mCollidingChar;
-    private Color mSkinColor;
 
     void LateUpdate()
     {
@@ -59,43 +56,15 @@ public class MotorPlayerMovement : Movement
         UnityEngine.Debug.Assert(textToHead != null, "Cannot find Text To Head in Player");
         textName = GameObject.Find("TextName").GetComponent<TextMeshProUGUI>();
         UnityEngine.Debug.Assert(textName != null, "Cannot find Text Name in Player");
-        mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
-        UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
-        //mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
-        //UnityEngine.Debug.Assert(mWorldClient != null);
         SetDirection(Direction.South);
         spriteRenderer = GetComponent<SpriteRenderer>();
         DontDestroyOnLoad(this.gameObject);
-        //spriteRenderer.color = mSkinColor;
     }
-    private System.Diagnostics.Stopwatch mInputStopwatch;
 
-    // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
-        //WalkRunSpeed = WalkSpeed;
-        mBody.AddForce(new Vector2(0,0));
-        mBody.velocity = Vector3.zero;
-        mBody.angularVelocity = 0;
-        mBody.gravityScale = 0f;
-        //mBody.isKinematic = true;
-        //mBody.useFullKinematicContacts =true;
-        //mInputStopwatch = new System.Diagnostics.Stopwatch();
-		//mInputStopwatch.Start();
-
-        if (IsPhantom)
-        {
-            mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
-            healthSlider.gameObject.SetActive(false);
-            manaSlider.gameObject.SetActive(false);
-            textToHead.gameObject.SetActive(false);
-        }
-        else
-        {
-            scaleHuman = this.transform.localScale;
-            mAnimatorController = mAnimator.runtimeAnimatorController;
-        }
+        scaleHuman = this.transform.localScale;
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -177,42 +146,6 @@ public class MotorPlayerMovement : Movement
     }
 
     void Update(){
-        if (takeDamage && !IsPhantom)
-        {
-            UnityEngine.Debug.Log("Damage: " + damageValue);
-            health -= damageValue;
-            healthSlider.value = health;
-            if (health <= 0)
-            {
-                damageValue = 0;
-                PlayAnimation("Dead");
-                isDead = true;
-            }
-        }
-        if (isDead && !IsPhantom)
-        {
-            if (!IsAnimationLastFrame())
-                return;
-            else
-            {
-                mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
-                PlayAnimation("Stand");
-                isDead = false;
-                IsPhantom = true;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-                healthSlider.gameObject.SetActive(false);
-                manaSlider.gameObject.SetActive(false);
-                textToHead.gameObject.SetActive(false);
-                textName.transform.localScale = new Vector3(2.4f,2.4f, 1);
-                this.transform.localScale = new Vector3(1, 1, 1);
-
-                return;
-            }
-
-        }
-
-
         if (Input.GetKeyDown(KeyCode.M))
         {
             if (!IsPhantom)
@@ -225,34 +158,6 @@ public class MotorPlayerMovement : Movement
 
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            if (IsPhantom)
-            {
-                if (mAnimatorController != null) {
-                            UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
-                }
-                else {
-                    UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
-                }
-
-                mAnimator.runtimeAnimatorController = mAnimatorController;
-
-                PlayAnimation("Stand");
-                isDead = false;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-                health = life;
-                IsPhantom = false;
-                healthSlider.gameObject.SetActive(true);
-                manaSlider.gameObject.SetActive(true);
-                textToHead.gameObject.SetActive(true);
-                textName.transform.localScale = new Vector3(1.6f, 1.6f, 1);
-                this.transform.localScale =scaleHuman;
-                healthSlider.value = life;
-                return;
-            }
-        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (running)
@@ -271,6 +176,7 @@ public class MotorPlayerMovement : Movement
 
     void FixedUpdate()
     {
+        base.FixedUpdate();
         mTimeElapsedFixedUpdate += Time.deltaTime;
 
         if( mTimeElapsedFixedUpdate >= 0.05f ){
@@ -292,8 +198,6 @@ public class MotorPlayerMovement : Movement
             return;
         }
 
-        mBody.velocity = Vector2.zero;
-        mBody.angularVelocity = 0f;
 
         Vector2 input_delta = new Vector2(
             Input.GetAxisRaw("Horizontal"),
