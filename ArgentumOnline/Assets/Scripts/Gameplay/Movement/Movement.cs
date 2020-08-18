@@ -61,6 +61,30 @@ public class Movement : MonoBehaviour
     public Direction GetDirection() { return mDir; }
     public void SetDirection(Direction d) { mDir = d; }
 
+
+    protected Direction GetDirectionFromDelta(Vector2 delta){
+        if (delta.x == 0f && delta.y > 0f)
+                return Direction.North;
+        else if (delta.x > 0f && delta.y > 0f)
+                return Direction.NorthEast;
+        else if (delta.x > 0f && delta.y == 0f)
+                return Direction.East;
+        else if (delta.x > 0f && delta.y < 0f)
+                return Direction.SouthEast;
+        else if (delta.x == 0f && delta.y < 0f)
+                return Direction.South;
+        else if (delta.x < 0f && delta.y < 0f)
+                return Direction.SouthWest;
+        else if (delta.x < 0f && delta.y == 0f)
+                return Direction.West;
+        else if (delta.x < 0f && delta.y > 0f)
+                return Direction.NorthWest;
+        else {
+                UnityEngine.Debug.Assert(false, "Bad delta");
+                return Direction.South;
+        }
+    }
+
     protected void PlayAnimation(string anim)
     {
         switch (mDir)

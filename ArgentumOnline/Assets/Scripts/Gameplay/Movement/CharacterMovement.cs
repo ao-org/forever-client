@@ -164,23 +164,9 @@ public class CharacterMovement : Movement
                         anim_name = "Run";
                     }
                 }
-                if (delta.x == 0f && delta.y > 0f)
-                        SetDirection(Direction.North);
-                if (delta.x > 0f && delta.y > 0f)
-                        SetDirection(Direction.NorthEast);
-                if (delta.x > 0f && delta.y == 0f)
-                        SetDirection(Direction.East);
-                if (delta.x > 0f && delta.y < 0f)
-                        SetDirection(Direction.SouthEast);
-                if (delta.x == 0f && delta.y < 0f)
-                        SetDirection(Direction.South);
-                if (delta.x < 0f && delta.y < 0f)
-                        SetDirection(Direction.SouthWest);
-                if (delta.x < 0f && delta.y == 0f)
-                        SetDirection(Direction.West);
-                if (delta.x < 0f && delta.y > 0f)
-                        SetDirection(Direction.NorthWest);
+
                 if (delta.x != 0f || delta.y != 0f) {
+                        SetDirection(GetDirectionFromDelta(delta));
                         PlayAnimation(anim_name);
                         TryToMove(new_pos);
                 }

@@ -300,26 +300,13 @@ public class PlayerMovement : Movement
             }
         }
 
-        if (input_delta.x != 0f && input_delta.y != 0f) input_delta *= walkDiagDelta;
-        if (input_delta.x == 0f && input_delta.y > 0f)
-                SetDirection(Direction.North);
-        if (input_delta.x > 0f && input_delta.y > 0f)
-                SetDirection(Direction.NorthEast);
-        if (input_delta.x > 0f && input_delta.y == 0f)
-                SetDirection(Direction.East);
-        if (input_delta.x > 0f && input_delta.y < 0f)
-                SetDirection(Direction.SouthEast);
-        if (input_delta.x == 0f && input_delta.y < 0f)
-                SetDirection(Direction.South);
-        if (input_delta.x < 0f && input_delta.y < 0f)
-                SetDirection(Direction.SouthWest);
-        if (input_delta.x < 0f && input_delta.y == 0f)
-                SetDirection(Direction.West);
-        if (input_delta.x < 0f && input_delta.y > 0f)
-                SetDirection(Direction.NorthWest);
-
-
+        if (input_delta.x != 0f && input_delta.y != 0f) {
+                //Diagonal treatment, CRISTOBAL please add comments
+                input_delta *= walkDiagDelta;
+        }
+        
         if (input_delta.x != 0f || input_delta.y != 0f) {
+                SetDirection(GetDirectionFromDelta(input_delta));
                 var newpos = mBody.position + input_delta * WalkRunSpeed * Time.deltaTime;
                 PlayAnimation(anim_name);
                 TryToMove(newpos);
