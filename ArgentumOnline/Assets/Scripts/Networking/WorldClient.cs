@@ -226,16 +226,15 @@ public class WorldClient : MonoBehaviour {
 		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
 		Debug.Assert(textName!=null);
         textName.text = name+" ["+uuid+"]";
-        PlayerMovement pm = p.GetComponent<PlayerMovement>();
-		if(pm!=null){
-        	pm.ChangeColorSkin(color);
+		if(tag == "Player"){
+			var pm = p.AddComponent<PlayerMovement>();
+			pm.ChangeColorSkin(color);
 		}
-        if (tag != "Player")
+        else
         {
 			//Debug.Log("Spawning " + name + " color " + color);
-            Destroy(p.GetComponent<PlayerMovement>());
-            p.AddComponent<CharacterMovement>();
-			CharacterMovement cm = p.GetComponent<CharacterMovement>();
+            //Destroy(p.GetComponent<PlayerMovement>());
+            var cm = p.AddComponent<CharacterMovement>();
 			cm.ChangeColorSkin(color);
         }
 		return p;

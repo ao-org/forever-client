@@ -422,11 +422,10 @@ GameObject:
   - component: {fileID: 6441680146369395722}
   - component: {fileID: 6441680146369395725}
   - component: {fileID: 6441680146369395726}
-  - component: {fileID: 6441680146369395727}
   - component: {fileID: 6441680146369395720}
   - component: {fileID: 1244753584650846070}
   m_Layer: 0
-  m_Name: humano
+  m_Name: Human
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -518,31 +517,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6441680146369395727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6441680146369395723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfd97c0fcf1b6a40862f6ce5364cdd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dir: 0
-  mBody: {fileID: 0}
-  mWaterTilemap: {fileID: 0}
-  mNavegable0: {fileID: 0}
-  mNavegable1: {fileID: 0}
-  mNavegable2: {fileID: 0}
-  mNavegable3: {fileID: 0}
-  mTilemapLevel1: {fileID: 0}
-  mAnimator: {fileID: 0}
-  WalkSpeed: 6
-  IsPhantom: 0
-  healthSlider: {fileID: 0}
-  manaSlider: {fileID: 0}
 --- !u!50 &6441680146369395720
 Rigidbody2D:
   serializedVersion: 4
