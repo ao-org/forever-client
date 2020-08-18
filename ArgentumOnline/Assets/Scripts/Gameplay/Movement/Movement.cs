@@ -47,6 +47,7 @@ public class Movement : MonoBehaviour
             mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sureste") ||
             mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Suroeste") ;
     }
+    private SpriteRenderer mSpriteRenderer;
     protected Color mSkinColor;
     private Direction mDir;
     public Rigidbody2D mBody;
@@ -155,12 +156,9 @@ public class Movement : MonoBehaviour
 
         mSkinColor = newColor;
         if (mSpriteRenderer!=null){
-            mSpriteRenderer = GetComponent<SpriteRenderer>();
             mSpriteRenderer.color = mSkinColor;
         }
     }
-
-    protected SpriteRenderer mSpriteRenderer;
 
     public void Awake()
     {
@@ -182,6 +180,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start(){
         mSpriteRenderer = GetComponent<SpriteRenderer>();
+        mSpriteRenderer.color = mSkinColor;
         mAnimator = gameObject.GetComponent<Animator>();
         mBody = GetComponent<Rigidbody2D>();
         mWaterTilemap = GameObject.Find("Tilemap_base").GetComponent<Tilemap>();
@@ -195,7 +194,6 @@ public class Movement : MonoBehaviour
         mBody.velocity = Vector3.zero;
         mBody.angularVelocity = 0;
         mBody.gravityScale = 0f;
-
     }
     public bool IsThereSomething(Vector3 pos){
         Vector3Int cellPosition = mTilemapLevel1.WorldToCell(pos);

@@ -44,6 +44,11 @@ public class CharacterMovement : Movement
         WalkRunSpeed = WalkSpeed;
         mBody.isKinematic = true;
     }
+
+    public void Awake()
+    {
+        base.Awake();
+    }
     private bool TryToMove(Vector3 pos)
     {
         if (IsThereWater(pos))

@@ -228,13 +228,14 @@ public class WorldClient : MonoBehaviour {
         textName.text = name+" ["+uuid+"]";
         PlayerMovement pm = p.GetComponent<PlayerMovement>();
 		if(pm!=null){
-        	Debug.Assert(pm != null);
         	pm.ChangeColorSkin(color);
 		}
         if (tag != "Player")
         {
             Destroy(p.GetComponent<PlayerMovement>());
             p.AddComponent<CharacterMovement>();
+			CharacterMovement cm = p.GetComponent<CharacterMovement>();
+			cm.ChangeColorSkin(color);
         }
 		return p;
 	}

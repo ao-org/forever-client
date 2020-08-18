@@ -57,8 +57,8 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
-        mSpriteRenderer = GetComponent<SpriteRenderer>();
-        mSpriteRenderer.color = mSkinColor;
+        //mSpriteRenderer = GetComponent<SpriteRenderer>();
+        //mSpriteRenderer.color = mSkinColor;
 
     }
     // Start is called before the first frame update
