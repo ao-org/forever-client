@@ -218,7 +218,7 @@ public class WorldClient : MonoBehaviour {
 		return null;
 	}
 
-	private GameObject SpawnHuman(string uuid, string name, string tag, Vector3 pos, GameObject clonable, GameObject parent, string color){
+	private GameObject SpawnCharacter(string uuid, string name, string tag, Vector3 pos, GameObject clonable, GameObject parent, string color){
 		var p = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
 		p.tag = tag;
 		p.name = uuid;
@@ -254,7 +254,7 @@ public class WorldClient : MonoBehaviour {
 			char_pos.position =  v3pos;
 			GameObject world = GameObject.Find("World");
 			Debug.Assert(world != null);
-			var new_player_character = SpawnHuman(mPlayerCharacter.UUID(),mPlayerCharacter.Name(),"Player",char_pos.position,player,world, mPlayerCharacter.SkinColor());
+			var new_player_character = SpawnCharacter(mPlayerCharacter.UUID(),mPlayerCharacter.Name(),"Player",char_pos.position,player,world, mPlayerCharacter.SkinColor());
 			new_player_character.SetActive(true);
 
             //Set Main Camera positionand make it child of Player
@@ -307,7 +307,7 @@ public class WorldClient : MonoBehaviour {
 						XmlCharacterParser c = InstantiateCharacterFromXml(e.mXml,"Spawn");
 						Scene cur_scene = SceneManager.GetActiveScene();
 						if( c.Map() == cur_scene.name) {
-							//Debug.Log("SPAWN_CHARACTER " + c.UUID() + " " + c.Prefab());
+							Debug.Log("SPAWN_CHARACTER UUID:" + c.UUID() + " Prefab:" + c.Prefab() + " Color: " + c.SkinColor());
 							var remove_char = GameObject.Find(e.mUUID);
 							if(remove_char!=null){
 								remove_char.SetActive(false);
@@ -324,7 +324,7 @@ public class WorldClient : MonoBehaviour {
 							GameObject world = GameObject.Find("World");
 							Debug.Assert(world != null);
 							char_pos.position =  v3pos; // + offset;
-							var x = SpawnHuman(c.UUID(), c.Name(),"Human",char_pos.position,player,world, c.SkinColor());
+							var x = SpawnCharacter(c.UUID(), c.Name(),"Human",char_pos.position,player,world, c.SkinColor());
 							x.SetActive(true);
 							mEventsQueue.TryDequeue(out e);
 						}

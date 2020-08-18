@@ -117,44 +117,29 @@ public class Movement : MonoBehaviour
         return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
     }
 
+    private static Dictionary<string,Color> ColorDict
+        = new Dictionary<string, Color>
+    {
+        { "1" , new Color(0.141f, 0.141f, 0.141f,1) },
+        { "2" , new Color(0.2f, 0.180f, 0.180f,1)   },
+        { "3" , new Color(0.258f, 0.258f, 0.258f,1) },
+        { "4" , new Color(0.356f, 0.356f, 0.356f,1) },
+        { "5" , new Color(0.462f, 0.298f, 0.207f,1) },
+        { "6" , new Color(0.490f, 0.392f, 0.266f,1) },
+        { "7" , new Color(0.603f, 0.423f, 0.380f,1) },
+        { "8" , new Color(0.690f, 0.568f, 0.568f,1) },
+        { "9" , new Color(0.8f, 0.752f, 0.752f,1)},
+        { "10", new Color(1, 1, 1,1) }
+    };
+
+    public Color GetColorFromString(string color){
+
+        return ColorDict[color];
+    }
+
     public void ChangeColorSkin(string color)
     {
-        Color newColor = new Color(1, 1, 1); ;
-        switch (color)
-        {
-            case "1":
-                newColor = new Color(0.141f, 0.141f, 0.141f);
-                break;
-            case "2":
-                newColor = new Color(0.2f, 0.180f, 0.180f);
-                break;
-            case "3":
-                newColor = new Color(0.258f, 0.258f, 0.258f);
-                break;
-            case "4":
-                newColor = new Color(0.356f, 0.356f, 0.356f);
-                break;
-            case "5":
-                newColor = new Color(0.462f, 0.298f, 0.207f);
-                break;
-            case "6":
-                newColor = new Color(0.490f, 0.392f, 0.266f);
-                break;
-            case "7":
-                newColor = new Color(0.603f, 0.423f, 0.380f);
-                break;
-            case "8":
-                newColor = new Color(0.690f, 0.568f, 0.568f);
-                break;
-            case "9":
-                newColor = new Color(0.8f, 0.752f, 0.752f);
-                break;
-            case "10":
-                newColor = new Color(1, 1, 1);
-                break;
-        }
-
-        mSkinColor = newColor;
+        mSkinColor = GetColorFromString(color);
         if (mSpriteRenderer!=null){
             mSpriteRenderer.color = mSkinColor;
         }
