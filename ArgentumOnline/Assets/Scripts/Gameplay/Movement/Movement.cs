@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour
             mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Suroeste") ;
     }
     protected Color mSkinColor;
-    public Direction dir;
+    private Direction mDir;
     public Rigidbody2D mBody;
     public Tilemap mWaterTilemap;
     public Tilemap mNavegable0;
@@ -56,12 +56,14 @@ public class Movement : MonoBehaviour
     public Tilemap mNavegable2;
     public Tilemap mNavegable3;
     public Tilemap mTilemapLevel1;
-    public Animator mAnimator;
-    public Direction GetDirection() { return dir; }
+    protected Animator mAnimator;
+
+    public Direction GetDirection() { return mDir; }
+    public void SetDirection(Direction d) { mDir = d; }
 
     protected void PlayAnimation(string anim)
     {
-        switch (dir)
+        switch (mDir)
         {
             case Direction.South:
                 mAnimator.Play(anim + "Sur"); break;
@@ -138,14 +140,14 @@ public class Movement : MonoBehaviour
 
     public void Awake()
     {
-        mSpriteRenderer = GetComponent<SpriteRenderer>();
+        SetDirection(Direction.South);
     }
+
     void LateUpdate()
     {
         if (mSpriteRenderer!=null && mSpriteRenderer.isVisible)
             mSpriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
     }
-
 
     // Start is called before the first frame update
     public virtual void Start(){

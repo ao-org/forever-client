@@ -43,6 +43,7 @@ public class PlayerMovement : Movement
 
     public void Awake()
     {
+        base.Awake();
         health = life;
         healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
         UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
@@ -56,8 +57,6 @@ public class PlayerMovement : Movement
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
-        dir = Direction.South;
-
         mSpriteRenderer = GetComponent<SpriteRenderer>();
         mSpriteRenderer.color = mSkinColor;
 
@@ -302,14 +301,23 @@ public class PlayerMovement : Movement
         }
 
         if (input_delta.x != 0f && input_delta.y != 0f) input_delta *= walkDiagDelta;
-        if (input_delta.x == 0f && input_delta.y > 0f) dir = Direction.North;
-        if (input_delta.x > 0f && input_delta.y > 0f) dir = Direction.NorthEast;
-        if (input_delta.x > 0f && input_delta.y == 0f) dir = Direction.East;
-        if (input_delta.x > 0f && input_delta.y < 0f) dir = Direction.SouthEast;
-        if (input_delta.x == 0f && input_delta.y < 0f) dir = Direction.South;
-        if (input_delta.x < 0f && input_delta.y < 0f) dir = Direction.SouthWest;
-        if (input_delta.x < 0f && input_delta.y == 0f) dir = Direction.West;
-        if (input_delta.x < 0f && input_delta.y > 0f) dir = Direction.NorthWest;
+        if (input_delta.x == 0f && input_delta.y > 0f)
+                SetDirection(Direction.North);
+        if (input_delta.x > 0f && input_delta.y > 0f)
+                SetDirection(Direction.NorthEast);
+        if (input_delta.x > 0f && input_delta.y == 0f)
+                SetDirection(Direction.East);
+        if (input_delta.x > 0f && input_delta.y < 0f)
+                SetDirection(Direction.SouthEast);
+        if (input_delta.x == 0f && input_delta.y < 0f)
+                SetDirection(Direction.South);
+        if (input_delta.x < 0f && input_delta.y < 0f)
+                SetDirection(Direction.SouthWest);
+        if (input_delta.x < 0f && input_delta.y == 0f)
+                SetDirection(Direction.West);
+        if (input_delta.x < 0f && input_delta.y > 0f)
+                SetDirection(Direction.NorthWest);
+
 
         if (input_delta.x != 0f || input_delta.y != 0f) {
                 var newpos = mBody.position + input_delta * WalkRunSpeed * Time.deltaTime;

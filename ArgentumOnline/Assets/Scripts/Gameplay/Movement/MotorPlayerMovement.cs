@@ -63,7 +63,7 @@ public class MotorPlayerMovement : Movement
         UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
         //mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         //UnityEngine.Debug.Assert(mWorldClient != null);
-        dir = Direction.South;
+        SetDirection(Direction.South);
         spriteRenderer = GetComponent<SpriteRenderer>();
         DontDestroyOnLoad(this.gameObject);
         //spriteRenderer.color = mSkinColor;
@@ -315,14 +315,22 @@ public class MotorPlayerMovement : Movement
         }
 
         if (input_delta.x != 0f && input_delta.y != 0f) input_delta *= walkDiagDelta;
-        if (input_delta.x == 0f && input_delta.y > 0f) dir = Direction.North;
-        if (input_delta.x > 0f && input_delta.y > 0f) dir = Direction.NorthEast;
-        if (input_delta.x > 0f && input_delta.y == 0f) dir = Direction.East;
-        if (input_delta.x > 0f && input_delta.y < 0f) dir = Direction.SouthEast;
-        if (input_delta.x == 0f && input_delta.y < 0f) dir = Direction.South;
-        if (input_delta.x < 0f && input_delta.y < 0f) dir = Direction.SouthWest;
-        if (input_delta.x < 0f && input_delta.y == 0f) dir = Direction.West;
-        if (input_delta.x < 0f && input_delta.y > 0f) dir = Direction.NorthWest;
+        if (input_delta.x == 0f && input_delta.y > 0f)
+                SetDirection(Direction.North);
+        if (input_delta.x > 0f && input_delta.y > 0f)
+                SetDirection(Direction.NorthEast);
+        if (input_delta.x > 0f && input_delta.y == 0f)
+                SetDirection(Direction.East);
+        if (input_delta.x > 0f && input_delta.y < 0f)
+                SetDirection(Direction.SouthEast);
+        if (input_delta.x == 0f && input_delta.y < 0f)
+                SetDirection(Direction.South);
+        if (input_delta.x < 0f && input_delta.y < 0f)
+                SetDirection(Direction.SouthWest);
+        if (input_delta.x < 0f && input_delta.y == 0f)
+                SetDirection(Direction.West);
+        if (input_delta.x < 0f && input_delta.y > 0f)
+                SetDirection(Direction.NorthWest);
 
         if (input_delta.x != 0f || input_delta.y != 0f) {
                 var newpos = mBody.position + input_delta * WalkRunSpeed * Time.deltaTime;
@@ -335,83 +343,6 @@ public class MotorPlayerMovement : Movement
 
     }
 
-    private bool IsAnimationPlaying(string anim){
-        return
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sur") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Norte") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Oeste") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Este") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Noroeste") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Noreste") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sureste") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Suroeste");
-    }
+    
 
-    private void PlayAnimation(string anim)
-    {
-        switch (dir)
-        {
-            case Direction.South:
-                mAnimator.Play(anim + "Sur"); break;
-            case Direction.North:
-                mAnimator.Play(anim + "Norte"); break;
-            case Direction.West:
-                mAnimator.Play(anim + "Oeste"); break;
-            case Direction.East:
-                mAnimator.Play(anim + "Este"); break;
-            case Direction.SouthWest:
-                mAnimator.Play(anim + "Suroeste"); break;
-            case Direction.NorthWest:
-                mAnimator.Play(anim + "Noroeste"); break;
-            case Direction.NorthEast:
-                mAnimator.Play(anim + "Noreste"); break;
-            case Direction.SouthEast:
-                mAnimator.Play(anim + "Sureste"); break;
-            default:
-                UnityEngine.Debug.Assert(false, "PlayAnimation-Bad direction"); break;
-        }
-
-    }
-    private bool IsAnimationLastFrame()
-    {
-        return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
-    }
-    public void ChangeColorSkin(string color)
-    {
-        Color newColor = new Color(1, 1, 1); ;
-        switch (color)
-        {
-            case "1":
-                newColor = new Color(0.141f, 0.141f, 0.141f);
-                break;
-            case "2":
-                newColor = new Color(0.2f, 0.180f, 0.180f);
-                break;
-            case "3":
-                newColor = new Color(0.258f, 0.258f, 0.258f);
-                break;
-            case "4":
-                newColor = new Color(0.356f, 0.356f, 0.356f);
-                break;
-            case "5":
-                newColor = new Color(0.462f, 0.298f, 0.207f);
-                break;
-            case "6":
-                newColor = new Color(0.490f, 0.392f, 0.266f);
-                break;
-            case "7":
-                newColor = new Color(0.603f, 0.423f, 0.380f);
-                break;
-            case "8":
-                newColor = new Color(0.690f, 0.568f, 0.568f);
-                break;
-            case "9":
-                newColor = new Color(0.8f, 0.752f, 0.752f);
-                break;
-            case "10":
-                newColor = new Color(1, 1, 1);
-                break;
-        }
-        mSkinColor = newColor;
-    }
 }

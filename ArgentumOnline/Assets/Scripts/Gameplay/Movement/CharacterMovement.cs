@@ -164,15 +164,22 @@ public class CharacterMovement : Movement
                         anim_name = "Run";
                     }
                 }
-                if (delta.x != 0f && delta.y != 0f) delta *= walkDiagDelta;
-                if (delta.x == 0f && delta.y > 0f) dir = Direction.North;
-                if (delta.x > 0f && delta.y > 0f) dir = Direction.NorthEast;
-                if (delta.x > 0f && delta.y == 0f) dir = Direction.East;
-                if (delta.x > 0f && delta.y < 0f) dir = Direction.SouthEast;
-                if (delta.x == 0f && delta.y < 0f) dir = Direction.South;
-                if (delta.x < 0f && delta.y < 0f) dir = Direction.SouthWest;
-                if (delta.x < 0f && delta.y == 0f) dir = Direction.West;
-                if (delta.x < 0f && delta.y > 0f) dir = Direction.NorthWest;
+                if (delta.x == 0f && delta.y > 0f)
+                        SetDirection(Direction.North);
+                if (delta.x > 0f && delta.y > 0f)
+                        SetDirection(Direction.NorthEast);
+                if (delta.x > 0f && delta.y == 0f)
+                        SetDirection(Direction.East);
+                if (delta.x > 0f && delta.y < 0f)
+                        SetDirection(Direction.SouthEast);
+                if (delta.x == 0f && delta.y < 0f)
+                        SetDirection(Direction.South);
+                if (delta.x < 0f && delta.y < 0f)
+                        SetDirection(Direction.SouthWest);
+                if (delta.x < 0f && delta.y == 0f)
+                        SetDirection(Direction.West);
+                if (delta.x < 0f && delta.y > 0f)
+                        SetDirection(Direction.NorthWest);
                 if (delta.x != 0f || delta.y != 0f) {
                         PlayAnimation(anim_name);
                         TryToMove(new_pos);
