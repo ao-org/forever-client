@@ -232,6 +232,7 @@ public class WorldClient : MonoBehaviour {
 		}
         if (tag != "Player")
         {
+			//Debug.Log("Spawning " + name + " color " + color);
             Destroy(p.GetComponent<PlayerMovement>());
             p.AddComponent<CharacterMovement>();
 			CharacterMovement cm = p.GetComponent<CharacterMovement>();
@@ -307,7 +308,7 @@ public class WorldClient : MonoBehaviour {
 						XmlCharacterParser c = InstantiateCharacterFromXml(e.mXml,"Spawn");
 						Scene cur_scene = SceneManager.GetActiveScene();
 						if( c.Map() == cur_scene.name) {
-							Debug.Log("SPAWN_CHARACTER UUID:" + c.UUID() + " Prefab:" + c.Prefab() + " Color: " + c.SkinColor());
+							//Debug.Log("SPAWN_CHARACTER UUID:" + c.UUID() + " Prefab:" + c.Prefab() + " Color: " + c.SkinColor());
 							var remove_char = GameObject.Find(e.mUUID);
 							if(remove_char!=null){
 								remove_char.SetActive(false);

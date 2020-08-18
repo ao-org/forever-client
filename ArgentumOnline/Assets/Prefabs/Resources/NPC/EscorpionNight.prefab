@@ -311,11 +311,10 @@ GameObject:
   - component: {fileID: 1586646212340421803}
   - component: {fileID: 4569568633368780028}
   - component: {fileID: 1239009753517516303}
-  - component: {fileID: 780140209497350585}
   - component: {fileID: 143830540614759603}
   - component: {fileID: 5701348718799698240}
   m_Layer: 0
-  m_Name: escorpionnight
+  m_Name: EscorpionNight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -419,31 +418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &780140209497350585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5398829362047084880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a32ab619148cbe0c8c816c4890fa1f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dir: 0
-  mBody: {fileID: 0}
-  mWaterTilemap: {fileID: 0}
-  mNavegable0: {fileID: 0}
-  mNavegable1: {fileID: 0}
-  mNavegable2: {fileID: 0}
-  mNavegable3: {fileID: 0}
-  mTilemapLevel1: {fileID: 0}
-  mAnimator: {fileID: 0}
-  WalkSpeed: 6
-  IsPhantom: 0
-  healthSlider: {fileID: 0}
-  manaSlider: {fileID: 0}
 --- !u!50 &143830540614759603
 Rigidbody2D:
   serializedVersion: 4
