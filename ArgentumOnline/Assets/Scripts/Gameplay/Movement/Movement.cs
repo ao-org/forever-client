@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour
             mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Suroeste") ;
     }
     private SpriteRenderer mSpriteRenderer;
-    protected Color mSkinColor;
+    private Color mSkinColor;
     private Direction mDir;
     public Rigidbody2D mBody;
     public Tilemap mWaterTilemap;
