@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8588170612525017761}
   - component: {fileID: 8588170612525017790}
   m_Layer: 0
-  m_Name: AnguloInferiorIzquierdo (1)
+  m_Name: einfizquierda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,17 +98,17 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.01
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: 1.4867573, y: 0.093631744}
-  - {x: 1.5088997, y: -1.5048256}
-  - {x: 0.3097496, y: -1.5080032}
+  - {x: 1.4759254, y: -1.4388771}
+  - {x: 0.27677536, y: -1.4420586}
   - {x: -0.09082413, y: -1.4269409}
   - {x: -0.41775894, y: -1.2022705}
   - {x: -0.965538, y: -0.6873932}
   - {x: -1.2422142, y: -0.19479752}
-  - {x: -1.3051949, y: 0.12306976}
-  - {x: -1.2953072, y: 2.0334358}
+  - {x: -1.2062721, y: 0.07361603}
+  - {x: -1.2128716, y: 2.0334358}
   - {x: -0.14809799, y: 2.0361595}
   - {x: -0.030826569, y: 1.728363}
   - {x: 0.32372665, y: 1.3015213}
