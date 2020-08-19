@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour
 {
-    //private Camera mCamera;
+    private Camera mCamera;
     // Start is called before the first frame update
     void Start()
     {
-        Camera.main.orthographicSize = 3;
+        mCamera = Camera.main;
+        mCamera.orthographicSize = 3;
     }
 
     // Update is called once per frame
@@ -17,11 +18,11 @@ public class MainCamera : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") != 0f)
         {
             float delta = 1.0f; //Cambiar esta variable para acelerar o no el scroll del mouse
-            Camera.main.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * delta;
-            if (Camera.main.orthographicSize > 5)
-                Camera.main.orthographicSize = 5;
-            if (Camera.main.orthographicSize < 2)
-                Camera.main.orthographicSize = 2;
+            mCamera.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * delta;
+            if (mCamera.orthographicSize > 5)
+                mCamera.orthographicSize = 5;
+            if (mCamera.orthographicSize < 2)
+                mCamera.orthographicSize = 2;
         }
     }
 

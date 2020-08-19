@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6812348277811521119}
   - component: {fileID: 6812348277811521096}
   m_Layer: 0
-  m_Name: Iglesia
+  m_Name: iglesia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6812348277811521102}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.02, y: -27.73, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.99414}
   m_Children:
@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 923e411bd4fc1cd45a201c302d22f53c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: nixiglesia
-  teleport_x: 18
-  teleport_y: -15
+  teleport_x: 13
+  teleport_y: -16
   locky: 0
   lockx: 0

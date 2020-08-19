@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3335062762043789612}
   - component: {fileID: 3335062762043789602}
   - component: {fileID: 3335062762043789601}
+  - component: {fileID: 384993589}
   m_Layer: 0
   m_Name: horiontlcorta
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3335062762043789613}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 28.9, y: -47.26, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 923e411bd4fc1cd45a201c302d22f53c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,3 +97,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &384993589
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335062762043789613}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -60.985386, y: 0.061337456}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.05}
+    oldSize: {x: 4, y: 3.0234375}
+    newSize: {x: 5.12, y: 3.87}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 126.18934, y: 0.65886366}
+  m_EdgeRadius: 0

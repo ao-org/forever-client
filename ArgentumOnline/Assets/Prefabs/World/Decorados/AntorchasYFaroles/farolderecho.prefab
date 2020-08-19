@@ -30,6 +30,7 @@ Transform:
   m_LocalPosition: {x: -0.12, y: -31.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2617113653549384653}
   - {fileID: 8727067753798073650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 923e411bd4fc1cd45a201c302d22f53c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
   m_SortingLayer: 16
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -8463881005739227069, guid: 9b80ddadcce616741be5a2326ccd15c3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4900,7 +4901,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
   m_SortingLayer: 18
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -14524,7 +14525,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
   m_SortingLayer: 18
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -14583,7 +14584,7 @@ Transform:
   - {fileID: 8727067753357877730}
   - {fileID: 8727067753027055484}
   m_Father: {fileID: 8727067752978133479}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &8727067753798073648
 ParticleSystem:
@@ -19339,7 +19340,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
   m_SortingLayer: 18
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -19365,3 +19366,78 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1001 &5155016616391957388
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8727067752978133479}
+    m_Modifications:
+    - target: {fileID: 1487382374037190023, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_Name
+      value: Farol Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 033358e5ad8729c4b9b8d9dc5bed14c1, type: 3}
+--- !u!4 &2617113653549384653 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7195511185278867521, guid: 033358e5ad8729c4b9b8d9dc5bed14c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5155016616391957388}
+  m_PrefabAsset: {fileID: 0}
