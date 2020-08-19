@@ -22,38 +22,14 @@ public class PlayerMovement : Movement
     private float walkDiagDelta = 0.7f; //Delta de velocidad de las diagonales. (No modificar 0.7 default)
     private float WalkRunSpeed = 6.0f;
     private bool running = false;
-    private bool isDead = false;
-    private int life = 100;
-    private float health;
     private Vector3 scaleHuman;
     private Vector3 teleportingPos;
-    private bool takeDamage = false;
-    public bool IsPhantom;
-    private float damageValue = 0f;
-    private TextMeshProUGUI textToHead;
-    private TextMeshProUGUI textName;
-    private RuntimeAnimatorController mPhantomAnimatorController;
-    private RuntimeAnimatorController mAnimatorController;
     private WorldClient mWorldClient;
     private GameObject mCollidingChar;
-
-
-
     public void Awake()
     {
-        base.Awake();
-        health = life;
-        textToHead = GameObject.Find("TextToHead").GetComponent<TextMeshProUGUI>();
-        UnityEngine.Debug.Assert(textToHead != null, "Cannot find Text To Head in Player");
-        textName = GameObject.Find("TextName").GetComponent<TextMeshProUGUI>();
-        UnityEngine.Debug.Assert(textName != null, "Cannot find Text Name in Player");
-        mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
-        UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
-        //mSpriteRenderer = GetComponent<SpriteRenderer>();
-        //mSpriteRenderer.color = mSkinColor;
-
     }
     // Start is called before the first frame update
     public override void Start()

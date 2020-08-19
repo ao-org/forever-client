@@ -62,6 +62,8 @@ public class Movement : MonoBehaviour
     private Animator mAnimator;
     private Slider mHealthSlider;
     private Slider mManaSlider;
+    private TextMeshProUGUI mHeadText;
+    private TextMeshProUGUI mTextName;
 
     public Direction GetDirection() { return mDir; }
     public void SetDirection(Direction d) { mDir = d; }
@@ -215,6 +217,8 @@ public class Movement : MonoBehaviour
         UnityEngine.Debug.Assert(mHealthSlider != null, "Cannot find Life Slider in Player");
         mManaSlider = GameObject.Find("SliderMana").GetComponent<Slider>();
         UnityEngine.Debug.Assert(mManaSlider != null, "Cannot find Mana Slider in Player");
+        mTextName = GameObject.Find("TextName").GetComponent<TextMeshProUGUI>();
+
     }
 
     protected void FixedUpdate(){
