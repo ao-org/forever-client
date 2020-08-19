@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3813104113767952347}
   - component: {fileID: 3813104113767952349}
-  - component: {fileID: 3813104113767952348}
   - component: {fileID: 3813104113767952350}
   m_Layer: 0
   m_Name: roblechico2
@@ -84,7 +83,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 923e411bd4fc1cd45a201c302d22f53c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,7 +103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
   m_SortingLayer: 16
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 2367383556271191634, guid: e5f46d491fab44c42bdc52ab855bedf8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,18 +116,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3813104113767952348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3813104113767952346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &3813104113767952350
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -155,7 +142,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3813104114105955634}
   - component: {fileID: 3813104114105955637}
-  - component: {fileID: 3813104114105955636}
   - component: {fileID: 3813104114105955635}
   m_Layer: 0
   m_Name: toconroblechico2
@@ -163,7 +149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3813104114105955634
 Transform:
   m_ObjectHideFlags: 0
@@ -197,7 +183,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 923e411bd4fc1cd45a201c302d22f53c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -217,7 +203,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
   m_SortingLayer: 16
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -4402119261546083494, guid: e5f46d491fab44c42bdc52ab855bedf8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -230,18 +216,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3813104114105955636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3813104114105955633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &3813104114105955635
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

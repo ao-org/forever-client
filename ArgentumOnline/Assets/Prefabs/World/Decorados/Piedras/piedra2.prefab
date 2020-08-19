@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7335923849764865215}
   - component: {fileID: 7335923849764865213}
-  - component: {fileID: 4777489934869627137}
   - component: {fileID: 7835631132686419255}
   m_Layer: 0
   m_Name: piedra2
@@ -52,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 923e411bd4fc1cd45a201c302d22f53c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4777489934869627137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7335923849764865200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!68 &7835631132686419255
 EdgeCollider2D:
   m_ObjectHideFlags: 0
