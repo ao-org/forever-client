@@ -16,22 +16,13 @@ using UnityEngine.UI;
 
 public class CharacterMovement : Movement
 {
-    private int life = 100;
-    private float health;
-    private bool takeDamage = false;
-    public bool IsPhantom;
-    private float damageValue = 0f;
-    public Slider healthSlider;
-    public Slider manaSlider;
-
     private Queue<Tuple<short,float,float>> mActionQueue = new Queue<Tuple<short,float,float>>();
-
+    private float mTimeElapsedFixedUpdate = 0.0f;
 
     public void PushMovement(Tuple<short,float,float> newpos){
         mActionQueue.Enqueue(newpos);
     }
 
-    // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
@@ -42,6 +33,7 @@ public class CharacterMovement : Movement
     {
         base.Awake();
     }
+
     private bool TryToMove(Vector3 pos)
     {
         if (IsThereWater(pos))
@@ -55,34 +47,6 @@ public class CharacterMovement : Movement
             return true;
         }
     }
-    public void TakeDamage(float damage)
-    {
-        if (!IsPhantom)
-        {
-            takeDamage = true;
-            damageValue += damage;
-            UnityEngine.Debug.Log("Damage: " + damageValue);
-        }
-        return;
-    }
-    public void QuitDamage(float damage)
-    {
-        if (!IsPhantom)
-        {
-            UnityEngine.Debug.Log("DamageBeforeExit: " + damageValue);
-            damageValue -= damage;
-            UnityEngine.Debug.Log("DamageAfterExit: " + damageValue);
-            if (damageValue <= 0f)
-            {
-                takeDamage = false;
-                damageValue = 0;
-            }
-        }
-        return;
-
-    }
-
-    private float mTimeElapsedFixedUpdate = 0.0f;
 
     void FixedUpdate()
     {
