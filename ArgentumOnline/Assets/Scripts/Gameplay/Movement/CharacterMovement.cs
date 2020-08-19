@@ -16,12 +16,6 @@ using UnityEngine.UI;
 
 public class CharacterMovement : Movement
 {
-    public float WalkSpeed = 6.0f; //Velocidad normal
-    private float runDelta = 2.2f; // delta Velocidad correr. se multiplica por la velocidad de caminar
-    private float walkDiagDelta = 0.7f; //Delta de velocidad de las diagonales. (No modificar 0.7 default)
-    private float WalkRunSpeed;
-    private bool running = false;
-    private bool isDead = false;
     private int life = 100;
     private float health;
     private bool takeDamage = false;
@@ -41,7 +35,6 @@ public class CharacterMovement : Movement
     public override void Start()
     {
         base.Start();
-        WalkRunSpeed = WalkSpeed;
         mBody.isKinematic = true;
     }
 
@@ -89,7 +82,7 @@ public class CharacterMovement : Movement
 
     }
 
-    float mTimeElapsedFixedUpdate = 0.0f;
+    private float mTimeElapsedFixedUpdate = 0.0f;
 
     void FixedUpdate()
     {
@@ -112,7 +105,7 @@ public class CharacterMovement : Movement
                 string anim_name = "Stand";
                 if (delta.x != 0f || delta.y != 0f)
                 {
-                    running = Math.Abs(delta.x) > 0.250f || Math.Abs(delta.y) > 0.250f;
+                    bool running = Math.Abs(delta.x) > 0.250f || Math.Abs(delta.y) > 0.250f;
                     if (!running){
                         anim_name = "Walk";
                     }
