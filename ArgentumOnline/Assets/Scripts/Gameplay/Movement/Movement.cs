@@ -12,6 +12,8 @@ using System.Diagnostics;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
+using TMPro;
 
 public class Movement : MonoBehaviour
 {
@@ -58,6 +60,8 @@ public class Movement : MonoBehaviour
     public Tilemap mNavegable3;
     public Tilemap mTilemapLevel1;
     private Animator mAnimator;
+    private Slider mHealthSlider;
+    private Slider mManaSlider;
 
     public Direction GetDirection() { return mDir; }
     public void SetDirection(Direction d) { mDir = d; }
@@ -109,13 +113,72 @@ public class Movement : MonoBehaviour
             default:
                 UnityEngine.Debug.Assert(false, "PlayAnimation-Bad direction"); break;
         }
-
     }
+    public void OnDamage(ushort damage){
+        //TODO
+        UnityEngine.Debug.Log("Damage: " + damage);
+        /*
+        health -= damageValue;
+        healthSlider.value = health;
+        if (health <= 0)
+        {
+            damageValue = 0;
+            PlayAnimation("Dead");
+            isDead = true;
+        }
+        */
+    }
+
+    public void OnDie(){
+        //TODO
+        PlayAnimation("Dead");
+
+        /*
+        if (isDead && !IsPhantom)
+        {
+            if (!IsAnimationLastFrame())
+                return;
+            else
+            {
+                //mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
+                PlayAnimation("Stand");
+                isDead = false;
+                IsPhantom = true;
+                running = false;
+                WalkRunSpeed = WalkSpeed;
+                healthSlider.gameObject.SetActive(false);
+                manaSlider.gameObject.SetActive(false);
+                textToHead.gameObject.SetActive(false);
+                textName.transform.localScale = new Vector3(2.4f,2.4f, 1);
+                this.transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        */
+    }
+
 
     public bool IsAnimationLastFrame()
     {
         return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
     }
+    private Dictionary<string,int> Physiological
+        = new Dictionary<string,int>
+    {
+        {"health", 10},
+        {"stamina", 10},
+        {"mana",10},
+        {"thirst", 10},
+        {"hunger",10}
+    };
+    private Dictionary<string,int> MaxPhysiological
+        = new Dictionary<string,int>
+    {
+        {"health", 10},
+        {"stamina", 10},
+        {"mana",10},
+        {"thirst", 10},
+        {"hunger",10}
+    };
 
     private static Dictionary<string,Color> ColorDict
         = new Dictionary<string, Color>
@@ -148,6 +211,10 @@ public class Movement : MonoBehaviour
     public void Awake()
     {
         SetDirection(Direction.South);
+        mHealthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
+        UnityEngine.Debug.Assert(mHealthSlider != null, "Cannot find Life Slider in Player");
+        mManaSlider = GameObject.Find("SliderMana").GetComponent<Slider>();
+        UnityEngine.Debug.Assert(mManaSlider != null, "Cannot find Mana Slider in Player");
     }
 
     protected void FixedUpdate(){

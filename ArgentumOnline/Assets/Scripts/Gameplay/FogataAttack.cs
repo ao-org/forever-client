@@ -30,7 +30,7 @@ public class FogataAttack : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
             playerLife = player.GetComponent<PlayerMovement>();
             UnityEngine.Debug.Log("OnEnterCollider");
-            playerLife.TakeDamage(EnemyDamage);
+            //playerLife.TakeDamage(EnemyDamage);
         }
     }
     void OnTriggerExit2D(Collider2D col)
@@ -40,7 +40,7 @@ public class FogataAttack : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
             playerLife = player.GetComponent<PlayerMovement>();
             UnityEngine.Debug.Log("OnExitCollider");
-            playerLife.QuitDamage(EnemyDamage);
+            //playerLife.QuitDamage(EnemyDamage);
         }
     }
 }

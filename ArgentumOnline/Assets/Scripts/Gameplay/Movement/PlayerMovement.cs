@@ -30,8 +30,6 @@ public class PlayerMovement : Movement
     private bool takeDamage = false;
     public bool IsPhantom;
     private float damageValue = 0f;
-    public Slider healthSlider;
-    public Slider manaSlider;
     private TextMeshProUGUI textToHead;
     private TextMeshProUGUI textName;
     private RuntimeAnimatorController mPhantomAnimatorController;
@@ -45,10 +43,6 @@ public class PlayerMovement : Movement
     {
         base.Awake();
         health = life;
-        healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
-        UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
-        manaSlider = GameObject.Find("SliderMana").GetComponent<Slider>();
-        UnityEngine.Debug.Assert(manaSlider != null, "Cannot find Mana Slider in Player");
         textToHead = GameObject.Find("TextToHead").GetComponent<TextMeshProUGUI>();
         UnityEngine.Debug.Assert(textToHead != null, "Cannot find Text To Head in Player");
         textName = GameObject.Find("TextName").GetComponent<TextMeshProUGUI>();
@@ -112,90 +106,19 @@ public class PlayerMovement : Movement
             return true;
         }
     }
-    public void TakeDamage(float damage)
-    {
-        if (!IsPhantom)
-        {
-            takeDamage = true;
-            damageValue += damage;
-            UnityEngine.Debug.Log("Damage: " + damageValue);
-        }
-        return;
-    }
+
     public void SetTeleportingPos(Vector3 newPos )
     {
         teleportingPos = newPos;
     }
+
     public Vector3 GetTeleportingPos()
     {
         return teleportingPos;
     }
-    public void QuitDamage(float damage)
-    {
-        if (!IsPhantom)
-        {
-            UnityEngine.Debug.Log("DamageBeforeExit: " + damageValue);
-            damageValue -= damage;
-            UnityEngine.Debug.Log("DamageAfterExit: " + damageValue);
-            if (damageValue <= 0f)
-            {
-                takeDamage = false;
-                damageValue = 0;
-            }
-        }
-        return;
-
-    }
 
     void Update(){
-        if (takeDamage && !IsPhantom)
-        {
-            UnityEngine.Debug.Log("Damage: " + damageValue);
-            health -= damageValue;
-            healthSlider.value = health;
-            if (health <= 0)
-            {
-                damageValue = 0;
-                PlayAnimation("Dead");
-                isDead = true;
-            }
-        }
-        if (isDead && !IsPhantom)
-        {
-            if (!IsAnimationLastFrame())
-                return;
-            else
-            {
-                //mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
-                PlayAnimation("Stand");
-                isDead = false;
-                IsPhantom = true;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-                healthSlider.gameObject.SetActive(false);
-                manaSlider.gameObject.SetActive(false);
-                textToHead.gameObject.SetActive(false);
-                textName.transform.localScale = new Vector3(2.4f,2.4f, 1);
-                this.transform.localScale = new Vector3(1, 1, 1);
-
-                return;
-            }
-
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (!IsPhantom)
-            {
-                PlayAnimation("Dead");
-                healthSlider.value = 0;
-                isDead = true;
-                return;
-            }
-
-        }
-
+        /*
         if (Input.GetKeyDown(KeyCode.L))
         {
             if (IsPhantom)
@@ -224,6 +147,7 @@ public class PlayerMovement : Movement
                 return;
             }
         }
+        */
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (running)
