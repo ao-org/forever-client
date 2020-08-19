@@ -12,16 +12,15 @@ GameObject:
   - component: {fileID: 4390195769350623057}
   - component: {fileID: 4390195769350623070}
   - component: {fileID: 8613668372705060439}
-  - component: {fileID: 3407914761853006436}
   - component: {fileID: 4390195769350623068}
   - component: {fileID: 4390195769350623069}
   m_Layer: 0
-  m_Name: cobra
+  m_Name: Cobra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4390195769350623066
 Transform:
   m_ObjectHideFlags: 0
@@ -30,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4390195769350623067}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: -43, z: 0}
+  m_LocalPosition: {x: 0, y: -52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7630911914021303166}
@@ -120,31 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3407914761853006436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4390195769350623067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a32ab619148cbe0c8c816c4890fa1f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dir: 0
-  mBody: {fileID: 0}
-  mWaterTilemap: {fileID: 0}
-  mNavegable0: {fileID: 0}
-  mNavegable1: {fileID: 0}
-  mNavegable2: {fileID: 0}
-  mNavegable3: {fileID: 0}
-  mTilemapLevel1: {fileID: 0}
-  mAnimator: {fileID: 0}
-  WalkSpeed: 6
-  IsPhantom: 0
-  healthSlider: {fileID: 0}
-  manaSlider: {fileID: 0}
 --- !u!50 &4390195769350623068
 Rigidbody2D:
   serializedVersion: 4

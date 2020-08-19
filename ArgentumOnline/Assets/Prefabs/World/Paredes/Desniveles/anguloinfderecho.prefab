@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8263221040584661055}
   - component: {fileID: 8263221040584661054}
+  - component: {fileID: 8758254942169041324}
   m_Layer: 0
-  m_Name: AunguloinferiorInternoDerecho
+  m_Name: anguloinfderecho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,3 +84,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &8758254942169041324
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8263221040584661052}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.1
+  m_Points:
+  - {x: -1.9814758, y: -0.9268646}
+  - {x: -1.9857788, y: -0.55602646}
+  - {x: -0.018615723, y: -0.57468796}
+  - {x: 0.16867065, y: -0.5190468}
+  - {x: 0.29083252, y: -0.3647499}
+  - {x: 0.32147217, y: -0.18588638}
+  - {x: 0.33480835, y: 2.5289612}
+  - {x: 1.2471924, y: 2.5093536}
+  - {x: 1.2554321, y: -0.15543365}
+  - {x: 1.2003174, y: -0.3980751}
+  - {x: 1.091156, y: -0.558506}
+  - {x: 1.005188, y: -0.70404816}
+  - {x: 0.8304138, y: -0.87278366}
+  - {x: 0.6239624, y: -0.9286766}
+  - {x: 0.30667114, y: -0.9459114}
+  - {x: -2.0046387, y: -0.9309845}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

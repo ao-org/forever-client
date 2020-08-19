@@ -33,58 +33,23 @@ public class Movement : MonoBehaviour
          Attack = 2
     }
 
-    protected Tuple<Action,Direction> mCurrentAction;
 
-    protected  static Dictionary< string,Tuple<Action,Direction>> AnimNameToAction =
-            new Dictionary<string,Tuple<Action,Direction>>
+
+    protected bool IsAnimationPlaying(string anim)
     {
-                { "RunSur", new Tuple<Action,Direction>(Action.Run,Direction.South) },
-                { "RunNorte", new Tuple<Action,Direction>(Action.Run,Direction.North) },
-                { "RunEste", new Tuple<Action,Direction>(Action.Run,Direction.East) },
-                { "RunOeste", new Tuple<Action,Direction>(Action.Run,Direction.West) },
-
-                { "RunNoreste", new Tuple<Action,Direction>(Action.Run,Direction.NorthEast) },
-                { "RunNoroeste" ,new Tuple<Action,Direction>(Action.Run,Direction.NorthWest) },
-                { "RunSureste",new Tuple<Action,Direction>(Action.Run,Direction.SouthEast) },
-                { "RunSuroeste" , new Tuple<Action,Direction>(Action.Run,Direction.SouthWest)},
-
-                { "WalkSur", new Tuple<Action,Direction>(Action.Walk,Direction.South) },
-                { "WalkNorte", new Tuple<Action,Direction>(Action.Walk,Direction.North) },
-                { "WalkEste", new Tuple<Action,Direction>(Action.Walk,Direction.East) },
-                { "WalkOeste", new Tuple<Action,Direction>(Action.Walk,Direction.West) },
-
-                { "WalkNoreste", new Tuple<Action,Direction>(Action.Walk,Direction.NorthEast) },
-                { "WalkNoroeste", new Tuple<Action,Direction>(Action.Walk,Direction.NorthWest) },
-                { "WalkSureste", new Tuple<Action,Direction>(Action.Walk,Direction.SouthEast) },
-                { "WalkSuroeste", new Tuple<Action,Direction>(Action.Walk,Direction.SouthWest) },
-
-    };
-
-    protected static Dictionary<Tuple<Action,Direction>, string> AnimationNames =
-            new Dictionary<Tuple<Action,Direction>,string>
-    {
-        { new Tuple<Action,Direction>(Action.Run,Direction.South), "RunSur" },
-        { new Tuple<Action,Direction>(Action.Run,Direction.North), "RunNorte" },
-        { new Tuple<Action,Direction>(Action.Run,Direction.East), "RunEste" },
-        { new Tuple<Action,Direction>(Action.Run,Direction.West), "RunOeste" },
-		{ new Tuple<Action,Direction>(Action.Run,Direction.NorthWest), "RunNoroeste" },
-        { new Tuple<Action,Direction>(Action.Run,Direction.NorthEast), "RunNoreste" },
-        { new Tuple<Action,Direction>(Action.Run,Direction.SouthEast), "RunSureste" },
-        { new Tuple<Action,Direction>(Action.Run,Direction.SouthWest), "RunSuroeste" },
-
-        { new Tuple<Action,Direction>(Action.Walk,Direction.South), "WalkSur" },
-        { new Tuple<Action,Direction>(Action.Walk,Direction.North), "WalkNorte" },
-        { new Tuple<Action,Direction>(Action.Walk,Direction.East), "WalkEste" },
-        { new Tuple<Action,Direction>(Action.Walk,Direction.West), "WalkOeste" },
-        { new Tuple<Action,Direction>(Action.Walk,Direction.NorthWest), "WalkNoroeste" },
-        { new Tuple<Action,Direction>(Action.Walk,Direction.NorthEast), "WalkNoreste" },
-        { new Tuple<Action,Direction>(Action.Walk,Direction.SouthEast), "WalkSureste" },
-        { new Tuple<Action,Direction>(Action.Walk,Direction.SouthWest), "WalkSuroeste" },
-
-	};
-
-
-    public Direction dir;
+        return
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sur") ||
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Norte") ||
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Oeste") ||
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Este") ||
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Noroeste") ||
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Noreste") ||
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sureste") ||
+            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Suroeste") ;
+    }
+    private SpriteRenderer mSpriteRenderer;
+    protected Color mSkinColor;
+    private Direction mDir;
     public Rigidbody2D mBody;
     public Tilemap mWaterTilemap;
     public Tilemap mNavegable0;
@@ -92,10 +57,115 @@ public class Movement : MonoBehaviour
     public Tilemap mNavegable2;
     public Tilemap mNavegable3;
     public Tilemap mTilemapLevel1;
-    public Animator mAnimator;
-    public Direction GetDirection() { return dir; }//fg
+    private Animator mAnimator;
+
+    public Direction GetDirection() { return mDir; }
+    public void SetDirection(Direction d) { mDir = d; }
+
+
+    protected Direction GetDirectionFromDelta(Vector2 delta){
+        if (delta.x == 0f && delta.y > 0f)
+                return Direction.North;
+        else if (delta.x > 0f && delta.y > 0f)
+                return Direction.NorthEast;
+        else if (delta.x > 0f && delta.y == 0f)
+                return Direction.East;
+        else if (delta.x > 0f && delta.y < 0f)
+                return Direction.SouthEast;
+        else if (delta.x == 0f && delta.y < 0f)
+                return Direction.South;
+        else if (delta.x < 0f && delta.y < 0f)
+                return Direction.SouthWest;
+        else if (delta.x < 0f && delta.y == 0f)
+                return Direction.West;
+        else if (delta.x < 0f && delta.y > 0f)
+                return Direction.NorthWest;
+        else {
+                UnityEngine.Debug.Assert(false, "Bad delta");
+                return Direction.South;
+        }
+    }
+
+    protected void PlayAnimation(string anim)
+    {
+        switch (mDir)
+        {
+            case Direction.South:
+                mAnimator.Play(anim + "Sur"); break;
+            case Direction.North:
+                mAnimator.Play(anim + "Norte"); break;
+            case Direction.West:
+                mAnimator.Play(anim + "Oeste"); break;
+            case Direction.East:
+                mAnimator.Play(anim + "Este"); break;
+            case Direction.SouthWest:
+                mAnimator.Play(anim + "Suroeste"); break;
+            case Direction.NorthWest:
+                mAnimator.Play(anim + "Noroeste"); break;
+            case Direction.NorthEast:
+                mAnimator.Play(anim + "Noreste"); break;
+            case Direction.SouthEast:
+                mAnimator.Play(anim + "Sureste"); break;
+            default:
+                UnityEngine.Debug.Assert(false, "PlayAnimation-Bad direction"); break;
+        }
+
+    }
+
+    public bool IsAnimationLastFrame()
+    {
+        return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+    }
+
+    private static Dictionary<string,Color> ColorDict
+        = new Dictionary<string, Color>
+    {
+        { "1" , new Color(0.141f, 0.141f, 0.141f,1) },
+        { "2" , new Color(0.2f, 0.180f, 0.180f,1)   },
+        { "3" , new Color(0.258f, 0.258f, 0.258f,1) },
+        { "4" , new Color(0.356f, 0.356f, 0.356f,1) },
+        { "5" , new Color(0.462f, 0.298f, 0.207f,1) },
+        { "6" , new Color(0.490f, 0.392f, 0.266f,1) },
+        { "7" , new Color(0.603f, 0.423f, 0.380f,1) },
+        { "8" , new Color(0.690f, 0.568f, 0.568f,1) },
+        { "9" , new Color(0.8f, 0.752f, 0.752f,1)},
+        { "10", new Color(1, 1, 1,1) }
+    };
+
+    public Color GetColorFromString(string color){
+
+        return ColorDict[color];
+    }
+
+    public void ChangeColorSkin(string color)
+    {
+        mSkinColor = GetColorFromString(color);
+        if (mSpriteRenderer!=null){
+            mSpriteRenderer.color = mSkinColor;
+        }
+    }
+
+    public void Awake()
+    {
+        SetDirection(Direction.South);
+    }
+
+    protected void FixedUpdate(){
+        { // Reset the force, we do not want the physics engine to move the Player
+            mBody.velocity = Vector2.zero;
+            mBody.angularVelocity = 0f;
+        }
+    }
+    void LateUpdate()
+    {
+        if (mSpriteRenderer!=null && mSpriteRenderer.isVisible)
+            mSpriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
+    }
+
     // Start is called before the first frame update
     public virtual void Start(){
+        mSpriteRenderer = GetComponent<SpriteRenderer>();
+        mSpriteRenderer.color = mSkinColor;
         mAnimator = gameObject.GetComponent<Animator>();
         mBody = GetComponent<Rigidbody2D>();
         mWaterTilemap = GameObject.Find("Tilemap_base").GetComponent<Tilemap>();
@@ -104,6 +174,11 @@ public class Movement : MonoBehaviour
         mNavegable2 = GameObject.Find("Navegable2").GetComponent<Tilemap>();
         mNavegable3 = GameObject.Find("Navegable3").GetComponent<Tilemap>();
         mTilemapLevel1 = GameObject.Find("TilemapNivel1").GetComponent<Tilemap>();
+
+        mBody.AddForce(new Vector2(0,0));
+        mBody.velocity = Vector3.zero;
+        mBody.angularVelocity = 0;
+        mBody.gravityScale = 0f;
     }
     public bool IsThereSomething(Vector3 pos){
         Vector3Int cellPosition = mTilemapLevel1.WorldToCell(pos);
@@ -135,9 +210,5 @@ public class Movement : MonoBehaviour
         return false;
     }
 
-    // Update is called once per frame
-    void Update(){
 
-
-    }
 }

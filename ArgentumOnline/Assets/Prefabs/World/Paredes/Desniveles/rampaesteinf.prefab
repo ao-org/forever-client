@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5250587461409604033}
   - component: {fileID: 5250587461409604032}
   m_Layer: 0
-  m_Name: RampaEsteInferior
+  m_Name: rampaesteinf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,11 +194,17 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.15, y: 0}
+  m_EdgeRadius: 0.1
   m_Points:
-  - {x: -3.449047, y: 0.6473732}
-  - {x: 2.3633537, y: -0.28466415}
+  - {x: -3.4216347, y: 0.702198}
+  - {x: -0.2428833, y: 0.06781006}
+  - {x: 2.695732, y: -0.52892303}
+  - {x: 2.9752655, y: -0.91864014}
+  - {x: 3.1852264, y: -1.4180298}
+  - {x: 3.2064438, y: -2.2232132}
+  - {x: 2.3044662, y: -2.2188644}
+  - {x: 2.2707024, y: -0.47001266}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

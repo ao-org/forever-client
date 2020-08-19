@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 335658449509465920}
   - component: {fileID: 335658449509465921}
   m_Layer: 0
-  m_Name: RampaOsteInferiorMASK
+  m_Name: rampaoesteinf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,9 +195,15 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.01
+  m_EdgeRadius: 0.1
   m_Points:
-  - {x: -2.6156254, y: 0.0946846}
+  - {x: -2.0375042, y: 0.08547592}
+  - {x: -2.1201763, y: -1.3272171}
+  - {x: -2.2019901, y: -1.4407196}
+  - {x: -3.1809502, y: -1.4541626}
+  - {x: -3.1678753, y: -0.8885269}
+  - {x: -3.0630455, y: -0.30846405}
+  - {x: -2.7585983, y: -0.033470154}
   - {x: 3.4749622, y: 1.3181114}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}

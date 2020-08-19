@@ -34,12 +34,9 @@ public class MotorPlayerMovement : Movement
     public Slider manaSlider;
     private TextMeshProUGUI textToHead;
     private TextMeshProUGUI textName;
-    private RuntimeAnimatorController mPhantomAnimatorController;
-    private RuntimeAnimatorController mAnimatorController;
     private WorldClient mWorldClient;
     private SpriteRenderer spriteRenderer;
     private GameObject mCollidingChar;
-    private Color mSkinColor;
 
     void LateUpdate()
     {
@@ -59,43 +56,15 @@ public class MotorPlayerMovement : Movement
         UnityEngine.Debug.Assert(textToHead != null, "Cannot find Text To Head in Player");
         textName = GameObject.Find("TextName").GetComponent<TextMeshProUGUI>();
         UnityEngine.Debug.Assert(textName != null, "Cannot find Text Name in Player");
-        mPhantomAnimatorController = Resources.Load<RuntimeAnimatorController>("Phantom") as RuntimeAnimatorController;
-        UnityEngine.Debug.Assert(mPhantomAnimatorController != null, "Cannot find Phantom Controller in Resources");
-        //mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
-        //UnityEngine.Debug.Assert(mWorldClient != null);
-        dir = Direction.South;
+        SetDirection(Direction.South);
         spriteRenderer = GetComponent<SpriteRenderer>();
         DontDestroyOnLoad(this.gameObject);
-        //spriteRenderer.color = mSkinColor;
     }
-    private System.Diagnostics.Stopwatch mInputStopwatch;
 
-    // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
-        //WalkRunSpeed = WalkSpeed;
-        mBody.AddForce(new Vector2(0,0));
-        mBody.velocity = Vector3.zero;
-        mBody.angularVelocity = 0;
-        mBody.gravityScale = 0f;
-        //mBody.isKinematic = true;
-        //mBody.useFullKinematicContacts =true;
-        //mInputStopwatch = new System.Diagnostics.Stopwatch();
-		//mInputStopwatch.Start();
-
-        if (IsPhantom)
-        {
-            mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
-            healthSlider.gameObject.SetActive(false);
-            manaSlider.gameObject.SetActive(false);
-            textToHead.gameObject.SetActive(false);
-        }
-        else
-        {
-            scaleHuman = this.transform.localScale;
-            mAnimatorController = mAnimator.runtimeAnimatorController;
-        }
+        scaleHuman = this.transform.localScale;
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -177,42 +146,6 @@ public class MotorPlayerMovement : Movement
     }
 
     void Update(){
-        if (takeDamage && !IsPhantom)
-        {
-            UnityEngine.Debug.Log("Damage: " + damageValue);
-            health -= damageValue;
-            healthSlider.value = health;
-            if (health <= 0)
-            {
-                damageValue = 0;
-                PlayAnimation("Dead");
-                isDead = true;
-            }
-        }
-        if (isDead && !IsPhantom)
-        {
-            if (!IsAnimationLastFrame())
-                return;
-            else
-            {
-                mAnimator.runtimeAnimatorController = mPhantomAnimatorController;
-                PlayAnimation("Stand");
-                isDead = false;
-                IsPhantom = true;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-                healthSlider.gameObject.SetActive(false);
-                manaSlider.gameObject.SetActive(false);
-                textToHead.gameObject.SetActive(false);
-                textName.transform.localScale = new Vector3(2.4f,2.4f, 1);
-                this.transform.localScale = new Vector3(1, 1, 1);
-
-                return;
-            }
-
-        }
-
-
         if (Input.GetKeyDown(KeyCode.M))
         {
             if (!IsPhantom)
@@ -225,34 +158,6 @@ public class MotorPlayerMovement : Movement
 
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            if (IsPhantom)
-            {
-                if (mAnimatorController != null) {
-                            UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
-                }
-                else {
-                    UnityEngine.Debug.Log("Player Update: " + mAnimatorController.name);
-                }
-
-                mAnimator.runtimeAnimatorController = mAnimatorController;
-
-                PlayAnimation("Stand");
-                isDead = false;
-                running = false;
-                WalkRunSpeed = WalkSpeed;
-                health = life;
-                IsPhantom = false;
-                healthSlider.gameObject.SetActive(true);
-                manaSlider.gameObject.SetActive(true);
-                textToHead.gameObject.SetActive(true);
-                textName.transform.localScale = new Vector3(1.6f, 1.6f, 1);
-                this.transform.localScale =scaleHuman;
-                healthSlider.value = life;
-                return;
-            }
-        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (running)
@@ -271,6 +176,7 @@ public class MotorPlayerMovement : Movement
 
     void FixedUpdate()
     {
+        base.FixedUpdate();
         mTimeElapsedFixedUpdate += Time.deltaTime;
 
         if( mTimeElapsedFixedUpdate >= 0.05f ){
@@ -292,8 +198,6 @@ public class MotorPlayerMovement : Movement
             return;
         }
 
-        mBody.velocity = Vector2.zero;
-        mBody.angularVelocity = 0f;
 
         Vector2 input_delta = new Vector2(
             Input.GetAxisRaw("Horizontal"),
@@ -315,16 +219,8 @@ public class MotorPlayerMovement : Movement
         }
 
         if (input_delta.x != 0f && input_delta.y != 0f) input_delta *= walkDiagDelta;
-        if (input_delta.x == 0f && input_delta.y > 0f) dir = Direction.North;
-        if (input_delta.x > 0f && input_delta.y > 0f) dir = Direction.NorthEast;
-        if (input_delta.x > 0f && input_delta.y == 0f) dir = Direction.East;
-        if (input_delta.x > 0f && input_delta.y < 0f) dir = Direction.SouthEast;
-        if (input_delta.x == 0f && input_delta.y < 0f) dir = Direction.South;
-        if (input_delta.x < 0f && input_delta.y < 0f) dir = Direction.SouthWest;
-        if (input_delta.x < 0f && input_delta.y == 0f) dir = Direction.West;
-        if (input_delta.x < 0f && input_delta.y > 0f) dir = Direction.NorthWest;
-
         if (input_delta.x != 0f || input_delta.y != 0f) {
+                SetDirection(GetDirectionFromDelta(input_delta));
                 var newpos = mBody.position + input_delta * WalkRunSpeed * Time.deltaTime;
                 PlayAnimation(anim_name);
                 TryToMove(newpos);
@@ -335,83 +231,6 @@ public class MotorPlayerMovement : Movement
 
     }
 
-    private bool IsAnimationPlaying(string anim){
-        return
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sur") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Norte") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Oeste") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Este") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Noroeste") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Noreste") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Sureste") ||
-            mAnimator.GetCurrentAnimatorStateInfo(0).IsName(anim + "Suroeste");
-    }
 
-    private void PlayAnimation(string anim)
-    {
-        switch (dir)
-        {
-            case Direction.South:
-                mAnimator.Play(anim + "Sur"); break;
-            case Direction.North:
-                mAnimator.Play(anim + "Norte"); break;
-            case Direction.West:
-                mAnimator.Play(anim + "Oeste"); break;
-            case Direction.East:
-                mAnimator.Play(anim + "Este"); break;
-            case Direction.SouthWest:
-                mAnimator.Play(anim + "Suroeste"); break;
-            case Direction.NorthWest:
-                mAnimator.Play(anim + "Noroeste"); break;
-            case Direction.NorthEast:
-                mAnimator.Play(anim + "Noreste"); break;
-            case Direction.SouthEast:
-                mAnimator.Play(anim + "Sureste"); break;
-            default:
-                UnityEngine.Debug.Assert(false, "PlayAnimation-Bad direction"); break;
-        }
 
-    }
-    private bool IsAnimationLastFrame()
-    {
-        return (mAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
-    }
-    public void ChangeColorSkin(string color)
-    {
-        Color newColor = new Color(1, 1, 1); ;
-        switch (color)
-        {
-            case "1":
-                newColor = new Color(0.141f, 0.141f, 0.141f);
-                break;
-            case "2":
-                newColor = new Color(0.2f, 0.180f, 0.180f);
-                break;
-            case "3":
-                newColor = new Color(0.258f, 0.258f, 0.258f);
-                break;
-            case "4":
-                newColor = new Color(0.356f, 0.356f, 0.356f);
-                break;
-            case "5":
-                newColor = new Color(0.462f, 0.298f, 0.207f);
-                break;
-            case "6":
-                newColor = new Color(0.490f, 0.392f, 0.266f);
-                break;
-            case "7":
-                newColor = new Color(0.603f, 0.423f, 0.380f);
-                break;
-            case "8":
-                newColor = new Color(0.690f, 0.568f, 0.568f);
-                break;
-            case "9":
-                newColor = new Color(0.8f, 0.752f, 0.752f);
-                break;
-            case "10":
-                newColor = new Color(1, 1, 1);
-                break;
-        }
-        mSkinColor = newColor;
-    }
 }
