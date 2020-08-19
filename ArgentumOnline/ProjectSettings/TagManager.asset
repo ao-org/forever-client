@@ -63,6 +63,9 @@ TagManager:
   - name: TilemapNivel1
     uniqueID: 66285257
     locked: 0
+  - name: TilemapNivel1.5
+    uniqueID: 1123069209
+    locked: 0
   - name: TilemapNivel2
     uniqueID: 2773515329
     locked: 0

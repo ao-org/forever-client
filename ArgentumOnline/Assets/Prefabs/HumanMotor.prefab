@@ -618,7 +618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10469088a69d4a04fa190c41aa0c5c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dir: 0
   mBody: {fileID: 0}
   mWaterTilemap: {fileID: 0}
   mNavegable0: {fileID: 0}
@@ -626,7 +625,6 @@ MonoBehaviour:
   mNavegable2: {fileID: 0}
   mNavegable3: {fileID: 0}
   mTilemapLevel1: {fileID: 0}
-  mAnimator: {fileID: 0}
   WalkSpeed: 6
   IsPhantom: 0
   healthSlider: {fileID: 0}
@@ -1348,7 +1346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6630632847617601662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5751294037981250075}

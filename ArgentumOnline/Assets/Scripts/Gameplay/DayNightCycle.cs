@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Properties.UI;
 using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
@@ -15,9 +16,15 @@ public class DayNightCycle : MonoBehaviour
     private bool _isDay = true;
     private Light _lightComponent;
 
+    private void OnValidate()
+    {
+        _nightIntensity = Mathf.Max(_nightIntensity, 0);
+    }
+
     private void Start()
     {
         _lightComponent = GetComponent<Light>();
+        _lightComponent.intensity = _dayIntensity;
     }
 
     private void Update()
@@ -36,5 +43,16 @@ public class DayNightCycle : MonoBehaviour
                 _lightComponent.DOColor(_dayColor, _duration);
             }
         }
+
+        //if (_isDay && !DOTween.IsTweening(_lightComponent))
+        //{
+        //    _lightComponent.intensity = _dayIntensity;
+        //    _lightComponent.color = _dayColor;
+        //}
+        //else
+        //{
+        //    _lightComponent.intensity = _nightIntensity;
+        //    _lightComponent.color = _nightColor;
+        //}
     }
 }
