@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2346127903483775458}
   - component: {fileID: 2346127903483775485}
   m_Layer: 0
-  m_Name: ParedVertMediana
+  m_Name: verticalmediana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 923e411bd4fc1cd45a201c302d22f53c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -69,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
-  m_SortingOrder: 15
+  m_SortingLayer: 17
+  m_SortingOrder: 0
   m_Sprite: {fileID: 4430758266702697205, guid: 1d01cd88f609b804594deef5ee6a8e8a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -82,4 +82,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1

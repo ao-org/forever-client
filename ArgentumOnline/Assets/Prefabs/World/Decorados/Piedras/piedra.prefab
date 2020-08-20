@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1701541293382827108}
   - component: {fileID: 1701541293382827114}
-  - component: {fileID: 7374455235579392499}
   - component: {fileID: 1701541293382827109}
   m_Layer: 0
   m_Name: piedra
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 3827919198112065305, guid: 9b80ddadcce616741be5a2326ccd15c3,
     type: 3}
@@ -84,19 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &7374455235579392499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701541293382827111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!58 &1701541293382827109
 CircleCollider2D:
   m_ObjectHideFlags: 0

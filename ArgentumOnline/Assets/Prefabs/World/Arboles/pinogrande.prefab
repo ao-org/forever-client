@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5524299860011890243}
   - component: {fileID: 251195458272017321}
-  - component: {fileID: 8550396565645744111}
   - component: {fileID: 32436633712098470}
   m_Layer: 0
   m_Name: pinogrande
@@ -103,8 +102,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
-  m_SortingOrder: 1
+  m_SortingLayer: 17
+  m_SortingOrder: 0
   m_Sprite: {fileID: -4360837262184867535, guid: d2998d059e7adfc43b1214ea094012e7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,18 +116,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8550396565645744111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3787283897472207511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!68 &32436633712098470
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -187,7 +174,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5524299860392552337}
   - component: {fileID: 5762335942525403158}
-  - component: {fileID: 6639108169362348279}
   - component: {fileID: 3227931448522747635}
   m_Layer: 0
   m_Name: toconpinogrande
@@ -248,7 +234,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 2299574212297648232, guid: d2998d059e7adfc43b1214ea094012e7,
     type: 3}
@@ -262,18 +248,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6639108169362348279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8100809005371935891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!68 &3227931448522747635
 EdgeCollider2D:
   m_ObjectHideFlags: 0

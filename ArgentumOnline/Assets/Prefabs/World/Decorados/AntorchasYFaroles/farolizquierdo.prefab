@@ -4785,7 +4785,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
-  m_SortingLayer: 18
+  m_SortingLayer: 19
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
@@ -9600,7 +9600,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
-  m_SortingLayer: 18
+  m_SortingLayer: 19
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
@@ -14412,7 +14412,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
-  m_SortingLayer: 18
+  m_SortingLayer: 19
   m_SortingOrder: -1
   m_RenderMode: 0
   m_SortMode: 0
@@ -14449,7 +14449,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5744635178712124403}
   - component: {fileID: 5744635178712124405}
-  - component: {fileID: 5744635178712124402}
   - component: {fileID: 3567886056829744673}
   m_Layer: 0
   m_Name: farolizquierdo
@@ -14512,7 +14511,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 5572272752893216466, guid: 9b80ddadcce616741be5a2326ccd15c3,
     type: 3}
@@ -14525,19 +14524,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &5744635178712124402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5744635178712124400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!70 &3567886056829744673
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -19339,7 +19326,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
-  m_SortingLayer: 18
+  m_SortingLayer: 19
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0

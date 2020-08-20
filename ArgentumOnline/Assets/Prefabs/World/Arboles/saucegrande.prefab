@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3427317961843269837}
   - component: {fileID: 256195513580840286}
-  - component: {fileID: 8721568292271314499}
   - component: {fileID: 6619128795073540769}
   m_Layer: 0
   m_Name: saucegrande
@@ -103,8 +102,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
-  m_SortingOrder: 2
+  m_SortingLayer: 17
+  m_SortingOrder: 0
   m_Sprite: {fileID: -7239460869548312154, guid: 225f6211236d1644f91e1519141dadee,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -116,19 +115,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &8721568292271314499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6825847815683964109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!68 &6619128795073540769
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -187,7 +174,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8504387256933756093}
   - component: {fileID: 109002151302601637}
-  - component: {fileID: 6287783264329596673}
   - component: {fileID: 908919295742966605}
   m_Layer: 0
   m_Name: toconsaucegrande
@@ -248,7 +234,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 4794987035951842174, guid: 225f6211236d1644f91e1519141dadee,
     type: 3}
@@ -261,19 +247,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &6287783264329596673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8697022211819556996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!68 &908919295742966605
 EdgeCollider2D:
   m_ObjectHideFlags: 0

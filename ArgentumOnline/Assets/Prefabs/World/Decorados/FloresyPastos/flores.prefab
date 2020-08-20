@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 662965522224382947}
   - component: {fileID: 662965522224382946}
-  - component: {fileID: 6833333716969861159}
   m_Layer: 0
   m_Name: flores
   m_TagString: Untagged
@@ -70,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
-  m_SortingOrder: 1
+  m_SortingLayer: 17
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2388677204912910983, guid: 3809efc9dc6507a43bc1255146826b33,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -83,16 +82,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &6833333716969861159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662965522224382948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1

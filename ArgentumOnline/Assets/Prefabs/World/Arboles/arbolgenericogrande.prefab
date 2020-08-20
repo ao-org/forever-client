@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2611621449310930870}
   - component: {fileID: 2611621449310930864}
-  - component: {fileID: 2611621449310930871}
   - component: {fileID: 2611621449310930865}
   m_Layer: 0
   m_Name: arbolgenericogrande
@@ -71,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
-  m_SortingOrder: 2
+  m_SortingLayer: 17
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7850913706356911542, guid: 4c543b8b5e7c15641b857bffc38d2e26,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,19 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &2611621449310930871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2611621449310930869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!70 &2611621449310930865
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -123,7 +110,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2611621449785928138}
   - component: {fileID: 2611621449785928133}
-  - component: {fileID: 2611621449785928132}
   - component: {fileID: 2611621449785928139}
   m_Layer: 0
   m_Name: toconarbolgenericogrande
@@ -184,8 +170,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
-  m_SortingOrder: 2
+  m_SortingLayer: 17
+  m_SortingOrder: 0
   m_Sprite: {fileID: 4541443289218425859, guid: 4c543b8b5e7c15641b857bffc38d2e26,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -197,19 +183,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &2611621449785928132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2611621449785928137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!70 &2611621449785928139
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

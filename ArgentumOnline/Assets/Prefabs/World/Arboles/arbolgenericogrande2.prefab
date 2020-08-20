@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3572524348579652205}
   - component: {fileID: 3572524348579652203}
-  - component: {fileID: 3572524348579652202}
   - component: {fileID: 3572524348579652200}
   m_Layer: 0
   m_Name: arbolgenericogrande2
@@ -71,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
-  m_SortingOrder: 2
+  m_SortingLayer: 17
+  m_SortingOrder: 0
   m_Sprite: {fileID: -8789601799996937441, guid: 3149d4dabbd97e3419da5ddfa31aab9d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,19 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &3572524348579652202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3572524348579652204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!70 &3572524348579652200
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -123,7 +110,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3572524349689860776}
   - component: {fileID: 3572524349689860822}
-  - component: {fileID: 3572524349689860777}
   - component: {fileID: 3572524349689860823}
   m_Layer: 0
   m_Name: toconarbolgenericogrande2
@@ -184,8 +170,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
-  m_SortingOrder: 2
+  m_SortingLayer: 17
+  m_SortingOrder: 0
   m_Sprite: {fileID: -5012902823539825626, guid: 3149d4dabbd97e3419da5ddfa31aab9d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -197,19 +183,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &3572524349689860777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3572524349689860779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!70 &3572524349689860823
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

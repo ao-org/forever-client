@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9001275446998176749}
   - component: {fileID: 5501394000385274301}
-  - component: {fileID: 3535025472536529351}
   - component: {fileID: 1236633141905235147}
   m_Layer: 0
   m_Name: roblegrande
@@ -103,7 +102,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 6320438169251873206, guid: 817059e2c08c90f49a516985d1cfc49b,
     type: 3}
@@ -116,19 +115,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &3535025472536529351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943925021935702895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!68 &1236633141905235147
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -187,7 +174,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1737262538766250527}
   - component: {fileID: 2756866331568371549}
-  - component: {fileID: 3889277613721231432}
   - component: {fileID: 1303782224695201030}
   m_Layer: 0
   m_Name: toconroblegrande
@@ -248,7 +234,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 8892282365523645752, guid: 817059e2c08c90f49a516985d1cfc49b,
     type: 3}
@@ -261,19 +247,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &3889277613721231432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2486980689792254756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!68 &1303782224695201030
 EdgeCollider2D:
   m_ObjectHideFlags: 0

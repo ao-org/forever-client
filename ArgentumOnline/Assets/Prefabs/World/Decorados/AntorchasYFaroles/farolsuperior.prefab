@@ -4785,7 +4785,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
-  m_SortingLayer: 18
+  m_SortingLayer: 19
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
@@ -9597,7 +9597,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
-  m_SortingLayer: 18
+  m_SortingLayer: 19
   m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0
@@ -9634,7 +9634,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4403206136435642995}
   - component: {fileID: 4403206136435642989}
-  - component: {fileID: 4403206136435642988}
   - component: {fileID: 2527030601229860144}
   m_Layer: 0
   m_Name: farolsuperior
@@ -9696,7 +9695,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 8579699395703989087, guid: 9b80ddadcce616741be5a2326ccd15c3,
     type: 3}
@@ -9709,19 +9708,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &4403206136435642988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4403206136435642994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!70 &2527030601229860144
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -14523,7 +14510,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
-  m_SortingLayer: 18
+  m_SortingLayer: 19
   m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0
@@ -19338,7 +19325,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1974829813
-  m_SortingLayer: 18
+  m_SortingLayer: 19
   m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0

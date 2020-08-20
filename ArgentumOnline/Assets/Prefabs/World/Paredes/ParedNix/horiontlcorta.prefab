@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3335062762043789612}
   - component: {fileID: 3335062762043789602}
-  - component: {fileID: 3335062762043789601}
   - component: {fileID: 384993589}
   m_Layer: 0
   m_Name: horiontlcorta
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: -5879326170701900376, guid: 1d01cd88f609b804594deef5ee6a8e8a,
     type: 3}
@@ -84,19 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &3335062762043789601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3335062762043789613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!61 &384993589
 BoxCollider2D:
   m_ObjectHideFlags: 0

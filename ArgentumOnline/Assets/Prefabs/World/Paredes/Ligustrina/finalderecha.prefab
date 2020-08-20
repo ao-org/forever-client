@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2112478326533323476}
   - component: {fileID: 2112478326533323474}
-  - component: {fileID: 2112478326533323477}
   - component: {fileID: 347449844}
   m_Layer: 0
   m_Name: finalderecha
@@ -71,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
-  m_SortingOrder: 5
+  m_SortingLayer: 17
+  m_SortingOrder: 0
   m_Sprite: {fileID: -718276733102141972, guid: b2d02fa3180977641ae7a9c81d94187d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,19 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &2112478326533323477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112478326533323479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!61 &347449844
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 225200697492662073}
   - component: {fileID: 5971577562355289204}
-  - component: {fileID: 8922861307159375609}
   - component: {fileID: 5280816366943292720}
   m_Layer: 0
   m_Name: saucechico
@@ -103,7 +102,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: -5321145086354415247, guid: 6e43d7c40da0a93458ae6e2972fce292,
     type: 3}
@@ -116,19 +115,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &8922861307159375609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5790352551559085076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!68 &5280816366943292720
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -183,7 +170,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9004722111101935982}
   - component: {fileID: 797498633444012306}
-  - component: {fileID: 7412926280947012046}
   - component: {fileID: 6581805582438051223}
   m_Layer: 0
   m_Name: toconsaucechico
@@ -244,7 +230,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 7590425538820404669, guid: 6e43d7c40da0a93458ae6e2972fce292,
     type: 3}
@@ -257,19 +243,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &7412926280947012046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7119207660878725923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6eafb53b49c5478e1c740760842c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 1
 --- !u!68 &6581805582438051223
 EdgeCollider2D:
   m_ObjectHideFlags: 0
