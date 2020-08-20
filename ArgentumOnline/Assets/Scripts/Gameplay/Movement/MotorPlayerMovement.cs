@@ -23,41 +23,13 @@ public class MotorPlayerMovement : Movement
     private float WalkRunSpeed = 6.0f;
     private bool running = false;
     private bool isDead = false;
-    private int life = 100;
-    private float health;
     private Vector3 scaleHuman;
     private Vector3 teleportingPos;
-    private bool takeDamage = false;
-    public bool IsPhantom;
-    private float damageValue = 0f;
-    public Slider healthSlider;
-    public Slider manaSlider;
-    private TextMeshProUGUI textToHead;
-    private TextMeshProUGUI textName;
     private WorldClient mWorldClient;
-    private SpriteRenderer spriteRenderer;
-    private GameObject mCollidingChar;
-
-    void LateUpdate()
-    {
-        if (spriteRenderer.isVisible)
-            spriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
-    }
-
 
     public void Awake()
     {
-        health = life;
-        healthSlider = GameObject.Find("SliderLife").GetComponent<Slider>();
-        UnityEngine.Debug.Assert(healthSlider != null, "Cannot find Life Slider in Player");
-        manaSlider = GameObject.Find("SliderMana").GetComponent<Slider>();
-        UnityEngine.Debug.Assert(manaSlider != null, "Cannot find Mana Slider in Player");
-        textToHead = GameObject.Find("TextToHead").GetComponent<TextMeshProUGUI>();
-        UnityEngine.Debug.Assert(textToHead != null, "Cannot find Text To Head in Player");
-        textName = GameObject.Find("TextName").GetComponent<TextMeshProUGUI>();
-        UnityEngine.Debug.Assert(textName != null, "Cannot find Text Name in Player");
-        SetDirection(Direction.South);
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        base.Awake();
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -65,34 +37,6 @@ public class MotorPlayerMovement : Movement
     {
         base.Start();
         scaleHuman = this.transform.localScale;
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-            if (collision.collider.tag == "Human")
-            {
-                UnityEngine.Debug.Log("touch Player enter "+ collision.collider.name +" ****************************");
-                mCollidingChar = collision.collider.gameObject;
-
-            }
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-            if (collision.collider.tag == "Human")
-            {
-                UnityEngine.Debug.Log("touch Player exit****************************");
-            }
-            mCollidingChar = null;
-    }
-
-    void OnAttack(){
-        if(mCollidingChar != null){
-            UnityEngine.Debug.Log("OnAttack victim:" + mCollidingChar.name);
-            //mWorldClient.OnPlayerMeleeAttacked(mCollidingChar.name);
-        }
-        else {
-            //mWorldClient.OnPlayerMeleeAttacked("Z");
-        }
     }
 
 
@@ -110,16 +54,6 @@ public class MotorPlayerMovement : Movement
             return true;
         }
     }
-    public void TakeDamage(float damage)
-    {
-        if (!IsPhantom)
-        {
-            takeDamage = true;
-            damageValue += damage;
-            UnityEngine.Debug.Log("Damage: " + damageValue);
-        }
-        return;
-    }
     public void SetTeleportingPos(Vector3 newPos )
     {
         teleportingPos = newPos;
@@ -128,36 +62,8 @@ public class MotorPlayerMovement : Movement
     {
         return teleportingPos;
     }
-    public void QuitDamage(float damage)
-    {
-        if (!IsPhantom)
-        {
-            UnityEngine.Debug.Log("DamageBeforeExit: " + damageValue);
-            damageValue -= damage;
-            UnityEngine.Debug.Log("DamageAfterExit: " + damageValue);
-            if (damageValue <= 0f)
-            {
-                takeDamage = false;
-                damageValue = 0;
-            }
-        }
-        return;
-
-    }
 
     void Update(){
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (!IsPhantom)
-            {
-                PlayAnimation("Dead");
-                healthSlider.value = 0;
-                isDead = true;
-                return;
-            }
-
-        }
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (running)
@@ -194,7 +100,6 @@ public class MotorPlayerMovement : Movement
         else if (Input.GetButton("Fire1"))
         {
             PlayAnimation("Attack");
-            OnAttack();
             return;
         }
 
