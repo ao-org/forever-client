@@ -526,7 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1368353457772797298}
   - component: {fileID: 1368353457772797301}
-  - component: {fileID: 3686395205357490276}
+  - component: {fileID: 733188497910560544}
   - component: {fileID: 1368353457772797302}
   - component: {fileID: 1368353457772797296}
   - component: {fileID: 1368353457772797261}
@@ -592,7 +592,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275239855
-  m_SortingLayer: 16
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 4031535981207014592, guid: 6c89e90c7f4ea104e88ab20b217d2246,
     type: 3}
@@ -604,9 +604,9 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &3686395205357490276
+--- !u!114 &733188497910560544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

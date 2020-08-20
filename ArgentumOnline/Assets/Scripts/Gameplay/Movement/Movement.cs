@@ -229,8 +229,8 @@ public class Movement : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (mSpriteRenderer!=null && mSpriteRenderer.isVisible)
-            mSpriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
+        //if (mSpriteRenderer!=null && mSpriteRenderer.isVisible)
+        //   mSpriteRenderer.sortingOrder = (int)Camera.main.WorldToScreenPoint(transform.position).y * -1;
     }
 
     // Start is called before the first frame update
