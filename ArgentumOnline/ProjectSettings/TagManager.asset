@@ -60,11 +60,11 @@ TagManager:
   - name: Navegable3
     uniqueID: 3533970133
     locked: 0
+  - name: TilemapNivel0
+    uniqueID: 672821197
+    locked: 0
   - name: TilemapNivel1
     uniqueID: 66285257
-    locked: 0
-  - name: TilemapNivel1.5
-    uniqueID: 1123069209
     locked: 0
   - name: TilemapNivel2
     uniqueID: 2773515329
@@ -72,8 +72,8 @@ TagManager:
   - name: TilemapNivel3
     uniqueID: 2491555065
     locked: 0
-  - name: test
-    uniqueID: 2249683405
+  - name: TilemapNivel4
+    uniqueID: 3438589973
     locked: 0
   - name: Edificaciones
     uniqueID: 2125279645
