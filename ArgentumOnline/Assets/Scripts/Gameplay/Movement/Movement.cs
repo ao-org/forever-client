@@ -227,11 +227,11 @@ public class Movement : MonoBehaviour
             mBody.angularVelocity = 0f;
         }
     }
-    
+
     // Start is called before the first frame update
     public virtual void Start(){
-        mSpriteRenderer = GetComponent<SpriteRenderer>();
-        mSpriteRenderer.color = mSkinColor;
+        //mSpriteRenderer = GetComponent<SpriteRenderer>();
+        //mSpriteRenderer.color = mSkinColor;
         mAnimator = gameObject.GetComponent<Animator>();
         mBody = GetComponent<Rigidbody2D>();
         mWaterTilemap = GameObject.Find("Tilemap_base").GetComponent<Tilemap>();

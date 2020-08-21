@@ -233,19 +233,19 @@ public class WorldClient : MonoBehaviour {
         else
         {
 			//Debug.Log("Spawning " + name + " color " + color);
-            //Destroy(p.GetComponent<PlayerMovement>());
-            var cm = p.AddComponent<CharacterMovement>();
-			cm.ChangeColorSkin(color);
+            var expmo = p.GetComponent<EXPERIMENTAL_PlayerMovement>();
+			if(expmo!=null) Destroy(expmo);
+            var cm = p.AddComponent<EXPERIMENTAL_CharacterMovement>();
+			//cm.ChangeColorSkin(color);
         }
 		return p;
 	}
 	private void InstantiatePlayerCharacterSprite(){
 		try{
 			// Load character Prefab
-			GameObject player = (GameObject)Resources.Load("Characters/Human2");
+			GameObject player = (GameObject)Resources.Load("Characters/Human");
 			Debug.Assert(player != null, "Cannot find PLAYER in Resources prefabs");
 			player.SetActive(false);
-			Debug.Log("<<<<<<<<<<<<<<< 1");
 			// Clone plater, set position and name
 			var pc_pos = mPlayerCharacter.Position();
 			Vector3  v3pos = new Vector3(pc_pos.Item2,pc_pos.Item3, 0);
@@ -253,10 +253,8 @@ public class WorldClient : MonoBehaviour {
 			char_pos.position =  v3pos;
 			GameObject world = GameObject.Find("World");
 			Debug.Assert(world != null);
-			Debug.Log("<<<<<<<<<<<<<<< 2");
 			var new_player_character = SpawnCharacter(mPlayerCharacter.UUID(),mPlayerCharacter.Name(),"Player",char_pos.position,player,world, mPlayerCharacter.SkinColor());
 			new_player_character.SetActive(true);
-			Debug.Log("<<<<<<<<<<<<<<< 3");
             //Set Main Camera positionand make it child of Player
             GameObject cameraObj = (GameObject)Resources.Load("Cameras/MainCamera");
             Debug.Assert(cameraObj != null, "Cannot find Camera in Resources prefabs");
@@ -265,7 +263,6 @@ public class WorldClient : MonoBehaviour {
             mainCamera.transform.SetParent(new_player_character.transform);
             new_player_character.transform.parent = null;
             DontDestroyOnLoad(new_player_character.gameObject);
-			Debug.Log("<<<<<<<<<<<<<<< 4");
             mSpawningPlayerCharacter = false;
 		}
 		catch (Exception e){
