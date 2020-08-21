@@ -14,20 +14,27 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
     private Rigidbody2D _rigidBody;
     [SerializeField] private Animator _animator;
 
-    void Awake() {
+    public Collider2D collider1;
+    public Collider2D collider2;
+
+    private void Awake() {
         _rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    void Update() {
+    private void Start() {
+        Physics2D.IgnoreCollision(collider1, collider2, true);
+    }
+
+    private void Update() {
         ProcessInputs();
         Animate();
     }
 
-    void FixedUpdate() {
+    private void FixedUpdate() {
         Move();
     }
 
-    void ProcessInputs() {
+    private void ProcessInputs() {
         _movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _inputMovementSpeed = Mathf.Clamp(_movementDirection.magnitude, 0.0f, 1.0f);
         _movementDirection.Normalize();
@@ -36,14 +43,18 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
             if (_baseMovementSpeed < 2.0f) _baseMovementSpeed = 2.0f;
             else _baseMovementSpeed = 1.0f;
         }
+
+        _finalMovementSpeed = _inputMovementSpeed * _baseMovementSpeed * 2.0f;
     }
 
-    void Move() {
-        _finalMovementSpeed = _inputMovementSpeed * _baseMovementSpeed * 2.0f;
+    private void Move() {
+        //_rigidBody.velocity = Vector2.zero;
+        //_rigidBody.angularVelocity = 0f;
+
         _rigidBody.MovePosition(_rigidBody.position + _movementDirection * _finalMovementSpeed * Time.fixedDeltaTime);
     }
 
-    void Animate() {
+    private void Animate() {
         if (_movementDirection != Vector2.zero) {
             _animator.SetFloat("Horizontal", _movementDirection.x);
             _animator.SetFloat("Vertical", _movementDirection.y);
