@@ -7,7 +7,7 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
 
     [SerializeField] private Vector2 _movementDirection;
     [SerializeField] private float _baseMovementSpeed = 1.0f;
-    
+
     private float _inputMovementSpeed;
     private float _finalMovementSpeed;
 
@@ -17,8 +17,12 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
     public Collider2D collider1;
     public Collider2D collider2;
 
+    private WorldClient mWorldClient;
+
     private void Awake() {
         _rigidBody = GetComponent<Rigidbody2D>();
+        mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
+        UnityEngine.Debug.Assert(mWorldClient != null);
     }
 
     private void Start() {
@@ -48,10 +52,11 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
     }
 
     private void Move() {
-        //_rigidBody.velocity = Vector2.zero;
-        //_rigidBody.angularVelocity = 0f;
-
-        _rigidBody.MovePosition(_rigidBody.position + _movementDirection * _finalMovementSpeed * Time.fixedDeltaTime);
+        var newpos = _rigidBody.position + _movementDirection * _finalMovementSpeed * Time.fixedDeltaTime;
+        if(_finalMovementSpeed> 0f){
+                mWorldClient.OnPlayerMoved(newpos);
+        }
+        _rigidBody.MovePosition(newpos);
     }
 
     private void Animate() {
@@ -59,7 +64,7 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
             _animator.SetFloat("Horizontal", _movementDirection.x);
             _animator.SetFloat("Vertical", _movementDirection.y);
         }
-        
+
         _animator.SetFloat("Speed", _finalMovementSpeed);
     }
 }
