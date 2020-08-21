@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EXPERIMENTAL_CharacterMovement : MonoBehaviour {

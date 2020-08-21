@@ -1,6 +1,11 @@
+using System;
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
@@ -17,7 +22,8 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
     public Collider2D collider1;
     public Collider2D collider2;
 
-    private WorldClient mWorldClient;
+    private WorldClient mWorldClient = null;
+    private bool mPC = false;
 
     private void Awake() {
         _rigidBody = GetComponent<Rigidbody2D>();
@@ -30,10 +36,28 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
     }
 
     private void Update() {
-        ProcessInputs();
+        if(mPC) {
+            ProcessInputs();
+        }
+        else {
+            //TODO
+        }
         Animate();
     }
+    public void SetColorSkin(string color)
+    {
 
+    }
+
+    private Queue<Tuple<short,float,float>> mActionQueue = new Queue<Tuple<short,float,float>>();
+
+    public void PushMovement(Tuple<short,float,float> newpos){
+        mActionQueue.Enqueue(newpos);
+    }
+
+    public void SetPlayerCharater(bool pc) {
+        mPC = pc;
+    }
     private void FixedUpdate() {
         Move();
     }

@@ -226,17 +226,16 @@ public class WorldClient : MonoBehaviour {
 		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
 		Debug.Assert(textName!=null);
         textName.text = name+" ["+uuid+"]";
+
+		var movement = p.GetComponent<EXPERIMENTAL_PlayerMovement>();
+		movement.SetColorSkin(color);
+
 		if(tag == "Player"){
-		//	var pm = p.AddComponent<PlayerMovement>();
-//			pm.ChangeColorSkin(color);
+			movement.SetPlayerCharater(true);
 		}
         else
         {
-			//Debug.Log("Spawning " + name + " color " + color);
-            var expmo = p.GetComponent<EXPERIMENTAL_PlayerMovement>();
-			if(expmo!=null) Destroy(expmo);
-            var cm = p.AddComponent<EXPERIMENTAL_CharacterMovement>();
-			//cm.ChangeColorSkin(color);
+            movement.SetPlayerCharater(false);
         }
 		return p;
 	}
@@ -293,7 +292,7 @@ public class WorldClient : MonoBehaviour {
 							}
 							else {
 								Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
-								var p = pc.GetComponent<CharacterMovement>();
+								var p = pc.GetComponent<EXPERIMENTAL_PlayerMovement>();
 								Debug.Assert(p!=null);
 								p.PushMovement(Tuple.Create(ProtoBase.ProtocolNumbers[e.mID],e.mX,e.mY));
 							}
