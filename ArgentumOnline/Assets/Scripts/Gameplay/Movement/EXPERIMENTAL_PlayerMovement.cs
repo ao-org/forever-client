@@ -76,9 +76,39 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
     }
 
     private void Move() {
-        var newpos = _rigidBody.position + _movementDirection * _finalMovementSpeed * Time.fixedDeltaTime;
-        if(_finalMovementSpeed> 0f){
-                mWorldClient.OnPlayerMoved(newpos);
+        Vector2 newpos = new Vector2(_rigidBody.position.x,_rigidBody.position.y);
+        if(mPC) {
+            newpos = _rigidBody.position + _movementDirection * _finalMovementSpeed * Time.fixedDeltaTime;
+            if(_finalMovementSpeed> 0f){
+                    mWorldClient.OnPlayerMoved(newpos);
+            }
+        }
+        else {
+            if (mActionQueue.Count > 0){
+                Tuple<short,float,float> e = mActionQueue.Dequeue();
+                if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_MOVED"])
+                {
+                    newpos = new Vector2(e.Item2,e.Item3);
+                    var old_pos = new Vector2(transform.position.x,transform.position.y);
+                    var delta = newpos - old_pos;
+                    _movementDirection = delta;
+                    _movementDirection.Normalize();
+                    _inputMovementSpeed = Mathf.Clamp(_movementDirection.magnitude, 0.0f, 1.0f);
+                    _finalMovementSpeed = _inputMovementSpeed * _baseMovementSpeed * 2.0f;
+
+                }
+                else if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_MELEE"])
+                {
+                    //PlayAnimation("Attack");
+                }
+                else if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"])
+                {
+                    // We teleport to the current scene, only need to update the player position
+                    var old_pos = transform.position;
+                    var new_pos = new Vector3(e.Item2,e.Item3,old_pos.z);
+                    transform.position = new_pos;
+                }
+            }//
         }
         _rigidBody.MovePosition(newpos);
     }
