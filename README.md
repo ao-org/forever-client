@@ -21,13 +21,13 @@ Member variables in classes must start with **m** to hint member of a class. For
 
 # Contributors
 
-Pablo Ignacio Marquez @morgolock
-Cristobal Zingarelli @pimblack
-Horacio Garofalo @haracinn
-Alejandro Cordara @alearg13
-Bruno de Angelis @brunodeangelis
+Pablo Ignacio Marquez
+Cristobal Zingarelli
+Horacio Garofalo
+Alejandro Cordara
+Bruno de Angelis
 Jorge Gabriel Leni
-Sebastian Avena @linquen
+Sebastian Avena
 
 
 
