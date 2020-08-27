@@ -23,40 +23,40 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     - Preload
-    m_mainAssetType: UnityEngine.Localization.Tables.StringTable, Unity.Localization,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 18028c7a62371a7de8641850bba1501b
     m_Address: MainMenu_es
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es
     - Preload
-    m_mainAssetType: UnityEngine.Localization.Tables.StringTable, Unity.Localization,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 4da03a1c24154504185a3a4bd5598562
     m_Address: MainMenu_it
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-it
     - Preload
-    m_mainAssetType: UnityEngine.Localization.Tables.StringTable, Unity.Localization,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 823debc6a49e63da1a076e91c60e93a7
     m_Address: MainMenu_pt
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-pt
     - Preload
-    m_mainAssetType: UnityEngine.Localization.Tables.StringTable, Unity.Localization,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: c86b3548edd91e3bc879c7bfdcbfcb16
     m_Address: MainMenu_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
     - Preload
-    m_mainAssetType: UnityEngine.Localization.Tables.StringTable, Unity.Localization,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 1a0b68dd51c58207fa57fb5a24c90bb6, type: 2}
   m_SchemaSet:

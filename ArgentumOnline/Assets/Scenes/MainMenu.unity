@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 43
       m_Key: 
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 73
       m_Key: 
@@ -1708,7 +1708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 40
       m_Key: 
@@ -1912,7 +1912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 5
       m_Key: 
@@ -3538,7 +3538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 17
       m_Key: 
@@ -4288,7 +4288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 14
       m_Key: 
@@ -5298,7 +5298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 41
       m_Key: 
@@ -6162,7 +6162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 44
       m_Key: 
@@ -6580,7 +6580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 76
       m_Key: 
@@ -7120,7 +7120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 79
       m_Key: 
@@ -7431,7 +7431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 80
       m_Key: 
@@ -7545,7 +7545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 2
       m_Key: 
@@ -8243,7 +8243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 42
       m_Key: 
@@ -8303,7 +8303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 20
       m_Key: 
@@ -8496,7 +8496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 16
       m_Key: 
@@ -9062,7 +9062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 5
       m_Key: 
@@ -9361,7 +9361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 78
       m_Key: 
@@ -11471,7 +11471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 15
       m_Key: 
@@ -11762,7 +11762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 24
       m_Key: 
@@ -11878,7 +11878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 18
       m_Key: 
@@ -12253,7 +12253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 13
       m_Key: 
@@ -12730,7 +12730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 81
       m_Key: 
@@ -13685,7 +13685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 4
       m_Key: 
@@ -14168,7 +14168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 4
       m_Key: 
@@ -14451,7 +14451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 19
       m_Key: 
@@ -14554,7 +14554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2038, y: 576}
+  m_AnchoredPosition: {x: -949, y: 798}
   m_SizeDelta: {x: 1607.7, y: 904.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011106876
@@ -14609,247 +14609,247 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoginErrText_MSGBOX_TITLE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 6
       m_Key: 
   SignupErrText_MSGBOX_TITLE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 25
       m_Key: 
   LoginErrText_USER_ALREADY_HOLDS_ACTIVE_SESSION:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 8
       m_Key: 
   LoginErrText_ACCOUNT_DOESNT_EXIST:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 7
       m_Key: 
   LoginErrText_MUST_ACTIVATE_ACCOUNT:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 45
       m_Key: 
   LoginErrText_INVALID_PUBLIC_KEY:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 64
       m_Key: 
   WorldErrText_PLAY_CHARACTER_OKAY_TITLE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 59
       m_Key: 
   WorldErrText_PLAY_CHARACTER_OKAY_TEXT:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 60
       m_Key: 
   WorldErrText_PLAY_CHARACTER_ERROR_TITLE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 61
       m_Key: 
   WorldErrText_PLAY_CHARACTER_ERROR_TEXT:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 62
       m_Key: 
   WorldErrText_CONNECTION_CLOSED_BY_SERVER_TEXT:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 63
       m_Key: 
   LoginErrText_LOGIN_ERROR_WRONG_PASSWORD:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 57
       m_Key: 
   SignupErrText_ACCOUNT_ALREADY_EXIST:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 26
       m_Key: 
   InputErrText_INPUT_ERROR_INVALID_PASSWORD:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 9
       m_Key: 
   InputErrText_INPUT_ERROR_INVALID_CONFIRM_PASSWORD:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 52
       m_Key: 
   InputErrText_INPUT_ERROR_INVALID_USERNAME:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 10
       m_Key: 
   InputErrText_INPUT_ERROR_INVALID_ACTIVATION_CODE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 46
       m_Key: 
   InputErrText_INPUT_ERROR_TITLE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 11
       m_Key: 
   ConnectionErrText_CONNECTION_ERROR_MSGBOX_TITLE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 23
       m_Key: 
   ConnectionErrText_CONNECTION_ERROR_CANNOT_REACH_SERVER:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 22
       m_Key: 
   SignupErrText_PASSWORD_TOO_SHORT:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 27
       m_Key: 
   SignupErrText_PASSWORD_TOO_LONG:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 28
       m_Key: 
   SignupErrText_PASSWORD_IS_NOT_ALNUM:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 29
       m_Key: 
   SignupErrText_USERNAME_TOO_SHORT:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 30
       m_Key: 
   SignupErrText_USERNAME_TOO_LONG:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 31
       m_Key: 
   SignupErrText_USERNAME_IS_NOT_ALNUM:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 32
       m_Key: 
   SignupErrText_PASSWORD_CANNOT_CONTAIN_USERNAME:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 33
       m_Key: 
   SignupErrText_USERNAME_CANNOT_START_WITH_NUMBER:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 34
       m_Key: 
   SignupErrText_PASSWORD_MUST_HAVE_ONE_UPPERCASE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 35
       m_Key: 
   SignupErrText_PASSWORD_MUST_HAVE_ONE_LOWERCASE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 36
       m_Key: 
   SignupErrText_PASSWORD_MUST_HAVE_TWO_NUMBERS:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 37
       m_Key: 
   SignupErrText_INVALID_EMAIL:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 38
       m_Key: 
   SignupErrText_INVALID_CONFIRM_EMAIL:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 51
       m_Key: 
   SignupErrText_INVALID_FIRST_LAST_NAME:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 53
       m_Key: 
   SignupErrText_TERMS_NOT_ACCEPTED:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 54
       m_Key: 
   Signup_RESEND_CODE_OK:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 58
       m_Key: 
   ActivateOkayText_ACTIVATE_OKAY:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 47
       m_Key: 
   ActivateErrText_ACTIVATE_ERROR_INVALID_CODE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 48
       m_Key: 
   ActivateErrText_ACTIVATE_MSG_BOX_TITLE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 49
       m_Key: 
   SignupText_TERMS_CONDITIONS_TITLE:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 55
       m_Key: 
   SignupText_TERMS_CONDITIONS_TEXT:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 56
       m_Key: 
@@ -15649,7 +15649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 74
       m_Key: 
@@ -15721,7 +15721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 12
       m_Key: 
@@ -16018,7 +16018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 3
       m_Key: 
@@ -16132,7 +16132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableName: GUID:ce04b8004cef60dc193130c9173065bb
+      m_TableCollectionName: GUID:ce04b8004cef60dc193130c9173065bb
     m_TableEntryReference:
       m_KeyId: 1
       m_Key: 
