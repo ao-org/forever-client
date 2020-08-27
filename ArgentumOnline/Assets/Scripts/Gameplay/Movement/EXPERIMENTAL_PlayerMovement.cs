@@ -25,6 +25,36 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
     private WorldClient mWorldClient = null;
     private Vector3 mTeleportingPos = new Vector3();
     private bool mPC = false;
+    private Color mSkinColor = new Color(1,1,1,1);
+    private SpriteRenderer mSpriteRenderer = null;
+
+    private static Dictionary<string,Color> ColorDict
+        = new Dictionary<string, Color>
+    {
+        { "1" , new Color(0.141f, 0.141f, 0.141f,1) },
+        { "2" , new Color(0.2f, 0.180f, 0.180f,1)   },
+        { "3" , new Color(0.258f, 0.258f, 0.258f,1) },
+        { "4" , new Color(0.356f, 0.356f, 0.356f,1) },
+        { "5" , new Color(0.462f, 0.298f, 0.207f,1) },
+        { "6" , new Color(0.490f, 0.392f, 0.266f,1) },
+        { "7" , new Color(0.603f, 0.423f, 0.380f,1) },
+        { "8" , new Color(0.690f, 0.568f, 0.568f,1) },
+        { "9" , new Color(0.8f, 0.752f, 0.752f,1)},
+        { "10", new Color(1, 1, 1,1) }
+    };
+
+    public Color GetColorFromString(string color){
+
+        return ColorDict[color];
+    }
+
+    public void ChangeColorSkin(string color)
+    {
+        mSkinColor = GetColorFromString(color);
+        if (mSpriteRenderer!=null){
+            mSpriteRenderer.color = mSkinColor;
+        }
+    }
 
     public void SetTeleportingPos(Vector3 newPos)
     {
@@ -40,6 +70,8 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
         _rigidBody = GetComponent<Rigidbody2D>();
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
+        mSpriteRenderer = GetComponent<SpriteRenderer>();
+        mSpriteRenderer.color = mSkinColor;
 
     }
 
