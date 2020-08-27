@@ -21,7 +21,7 @@ TagManager:
   - 
   - 
   - Names
-  - 
+  - Post Processing
   - 
   - 
   - 
@@ -75,7 +75,7 @@ TagManager:
   - name: TilemapNivel4
     uniqueID: 3438589973
     locked: 0
-  - name: Edificaciones
+  - name: Desniveles
     uniqueID: 2125279645
     locked: 0
   - name: MurosTrans

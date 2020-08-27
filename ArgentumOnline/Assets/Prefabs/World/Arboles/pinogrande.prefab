@@ -115,7 +115,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!68 &32436633712098470
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.03, y: 0.05}
-  m_EdgeRadius: 0.01
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: -0.09453204, y: 0.19442186}
   - {x: -0.1692634, y: 0.18705645}

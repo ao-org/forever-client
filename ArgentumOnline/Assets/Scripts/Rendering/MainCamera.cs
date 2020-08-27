@@ -26,8 +26,8 @@ public class MainCamera : MonoBehaviour
         }
     }
 
-    public void Move(Vector3 position)
-    {
-        this.transform.position = position;
-    }
+    //public void Move(Vector3 position)
+    //{
+    //    this.transform.position = position;
+    //}
 }

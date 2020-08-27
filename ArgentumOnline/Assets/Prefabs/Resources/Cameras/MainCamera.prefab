@@ -659,7 +659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 228.1, y: 61.5}
+  m_AnchoredPosition: {x: 224.8, y: 58.2}
   m_SizeDelta: {x: 744.54, y: 187.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &729883485033957709
@@ -1005,7 +1005,7 @@ Canvas:
   m_GameObject: {fileID: 729883485308878812}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 1870435497951316555}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1842,8 +1842,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870435497951316558}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.8, y: 19, z: -1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.6999999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 729883486366873643}
@@ -1878,7 +1878,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 5.9637136
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
