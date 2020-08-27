@@ -4,9 +4,11 @@ This is the client program for Argentum Forever
 
 
 # Coding conventions
-These are some initial code conventions to mantain a coherent style
+These are some initial code conventions to mantain a coherent style.
 
-## Variable names
+All names for classes, methods and functions must be in **english**
+
+## Variable names, classes and methods
 Variable names should be **CamelCase**
 
 Names always start with an uppercase letter. No use of spaces or underscore. Use an uppercase letter to start each words. Names must be meaningful and help the reader to understand the code. Don't use names like: test, prueba, etc.
