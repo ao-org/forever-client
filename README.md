@@ -19,15 +19,15 @@ All variable names **MUST BE IN ENGLISH**.
 Member variables in classes must start with **m** to hint member of a class. For example mHealth is correct. Members must not start with _ or any other lower case letter different from m
 
 
-# Contributors
+# The team
 
-Pablo Ignacio Marquez
-Cristobal Zingarelli
-Horacio Garofalo
-Alejandro Cordara
-Bruno de Angelis
-Jorge Gabriel Leni
-Sebastian Avena
+*Pablo Ignacio Marquez @morgolock
+*Horacio Garofalo @haracinn
+*Alejandro Cordara @alearg13
+*Jorge Gabriel Leni
+*Cristobal Zingarelli @pimblack
+*Bruno de Angelis @brunodeangelis
+*Sebastian Avena @linquen
 
 
 
