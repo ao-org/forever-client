@@ -193,9 +193,8 @@ public class WorldClient : MonoBehaviour {
 						SetSceneLoaded(false);
 					}
 					else {
-                    	PlayerMovement playerScript = p.GetComponent<PlayerMovement>();
+                    	var playerScript = p.GetComponent<EXPERIMENTAL_PlayerMovement>();
                     	p.transform.position = playerScript.GetTeleportingPos();
-                    	playerScript.Start();
 					}
                 }
 			}

@@ -23,12 +23,24 @@ public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
     public Collider2D collider2;
 
     private WorldClient mWorldClient = null;
+    private Vector3 mTeleportingPos = new Vector3();
     private bool mPC = false;
+
+    public void SetTeleportingPos(Vector3 newPos)
+    {
+        mTeleportingPos = newPos;
+    }
+
+    public Vector3 GetTeleportingPos()
+    {
+        return mTeleportingPos;
+    }
 
     private void Awake() {
         _rigidBody = GetComponent<Rigidbody2D>();
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
+
     }
 
     private void Start() {
