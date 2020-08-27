@@ -20,14 +20,13 @@ Member variables in classes must start with **m** to hint member of a class. For
 
 
 # The team
-
-*Pablo Ignacio Marquez @morgolock
-*Horacio Garofalo @haracinn
-*Alejandro Cordara @alearg13
-*Jorge Gabriel Leni
-*Cristobal Zingarelli @pimblack
-*Bruno de Angelis @brunodeangelis
-*Sebastian Avena @linquen
+- Pablo Ignacio Marquez @morgolock
+- Horacio Garofalo @haracinn
+- Alejandro Cordara @alearg13
+- Jorge Gabriel Leni
+- Cristobal Zingarelli @pimblack
+- Bruno de Angelis @brunodeangelis
+- Sebastian Avena @linquen
 
 
 
