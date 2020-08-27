@@ -18,6 +18,12 @@ All variable names **MUST BE IN ENGLISH**.
 ## Members
 Member variables in classes must start with **m** to hint member of a class. For example mHealth is correct. Members must not start with _ or any other lower case letter different from m
 
+## Other coding style reccomendations
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions
+
+## Performance recommendations
+https://docs.microsoft.com/en-us/windows/mixed-reality/performance-recommendations-for-unity
+
 
 # The team
 - Pablo Ignacio Marquez @morgolock
