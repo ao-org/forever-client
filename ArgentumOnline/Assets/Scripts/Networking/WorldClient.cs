@@ -122,6 +122,7 @@ public class WorldClient : MonoBehaviour {
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
 		var decrypted_info = CryptoHelper.Decrypt(encrypted_spawn_info,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		try{
+			Debug.Log("SPAWN " + decrypted_info);
 			//Can only be done from the main thread
 			var SpawnCharacterXml = new XmlDocument();
 			SpawnCharacterXml.LoadXml(decrypted_info);

@@ -14,6 +14,7 @@ public class XmlCharacterParser
 {
 
     public XmlCharacterParser(){
+        mSkinColor = "10";
     }
 
     public void CreateFromXml(XmlDocument xml_doc,string selectnode){
@@ -34,10 +35,39 @@ public class XmlCharacterParser
             float fy = float.Parse(ystr, CultureInfo.InvariantCulture.NumberFormat);
             mPos = Tuple.Create(fx,fy);
             var skinColor = nod.SelectSingleNode("skincolor");
-            if (skinColor != null)
+            if (skinColor != null){
                 mSkinColor = skinColor.InnerText;
-            else
-                mSkinColor = "5";
+            }
+            var maxPhys = nod.SelectSingleNode("maxphysiological");
+            if (maxPhys != null){
+                mPhysMax[PhysiologicalTrait.HEALTH]  = System.UInt16.Parse(maxPhys["health"].InnerText);
+                mPhysMax[PhysiologicalTrait.STAMINA]  = System.UInt16.Parse(maxPhys["stamina"].InnerText);
+                mPhysMax[PhysiologicalTrait.MANA]  = System.UInt16.Parse(maxPhys["mana"].InnerText);
+                mPhysMax[PhysiologicalTrait.THIRST]  = System.UInt16.Parse(maxPhys["thirst"].InnerText);
+                mPhysMax[PhysiologicalTrait.HUNGER]  = System.UInt16.Parse(maxPhys["hunger"].InnerText);
+                Debug.Log("max-health :" + mPhysMax[PhysiologicalTrait.HEALTH]);
+                Debug.Log("max-health :" + mPhysMax[PhysiologicalTrait.STAMINA]);
+                Debug.Log("max-health :" + mPhysMax[PhysiologicalTrait.MANA]);
+                Debug.Log("max-health :" + mPhysMax[PhysiologicalTrait.THIRST]);
+                Debug.Log("max-health :" + mPhysMax[PhysiologicalTrait.HUNGER]);
+            }
+            var Phys = nod.SelectSingleNode("physiological");
+            if (Phys != null){
+                mPhysActual[PhysiologicalTrait.HEALTH]  = System.UInt16.Parse(Phys["health"].InnerText);
+                mPhysActual[PhysiologicalTrait.STAMINA]  = System.UInt16.Parse(Phys["stamina"].InnerText);
+                mPhysActual[PhysiologicalTrait.MANA]  = System.UInt16.Parse(Phys["mana"].InnerText);
+                mPhysActual[PhysiologicalTrait.THIRST]  = System.UInt16.Parse(Phys["thirst"].InnerText);
+                mPhysActual[PhysiologicalTrait.HUNGER]  = System.UInt16.Parse(Phys["hunger"].InnerText);
+            }
+        }
+    }
+
+    public ushort GetPhysiologicalTrait(PhysiologicalTrait t, bool max=false){
+        if(max){
+            return mPhysMax[t];
+        }
+        else{
+            return mPhysActual[t];
         }
     }
 
@@ -69,5 +99,34 @@ public class XmlCharacterParser
     private string mMap;
     private string mSkinColor;
     private string mSize;
+
+    public enum PhysiologicalTrait {
+        HEALTH      = 1,
+        STAMINA     = 2,
+        MANA        = 3,
+        THIRST      = 4,
+        HUNGER      = 5
+    };
+
+    private Dictionary<PhysiologicalTrait,ushort> mPhysMax
+            = new Dictionary<PhysiologicalTrait,ushort>
+    {
+		{ PhysiologicalTrait.HEALTH, 10 },
+		{ PhysiologicalTrait.STAMINA, 10 },
+		{ PhysiologicalTrait.MANA, 10 },
+		{ PhysiologicalTrait.THIRST, 10 },
+		{ PhysiologicalTrait.HUNGER, 10 }
+	};
+    private Dictionary<PhysiologicalTrait,ushort> mPhysActual
+            = new Dictionary<PhysiologicalTrait,ushort>
+    {
+		{ PhysiologicalTrait.HEALTH, 10 },
+		{ PhysiologicalTrait.STAMINA, 10 },
+		{ PhysiologicalTrait.MANA, 10 },
+		{ PhysiologicalTrait.THIRST, 10 },
+		{ PhysiologicalTrait.HUNGER, 10 }
+	};
+
+
 
 }
