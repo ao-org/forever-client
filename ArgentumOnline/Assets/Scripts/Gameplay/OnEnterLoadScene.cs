@@ -30,7 +30,7 @@ public class OnEnterLoadScene : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             var player = col.gameObject;
-            var playerScript = player.GetComponent<EXPERIMENTAL_PlayerMovement>();
+            var playerScript = player.GetComponent<Character>();
             UnityEngine.Debug.Assert(playerScript != null);
             var wc = GameObject.Find("WorldClient");
             UnityEngine.Debug.Assert(wc != null);

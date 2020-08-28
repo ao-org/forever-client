@@ -193,7 +193,7 @@ public class WorldClient : MonoBehaviour {
 						SetSceneLoaded(false);
 					}
 					else {
-                    	var playerScript = p.GetComponent<EXPERIMENTAL_PlayerMovement>();
+                    	var playerScript = p.GetComponent<Character>();
                     	p.transform.position = playerScript.GetTeleportingPos();
 					}
                 }
@@ -226,7 +226,7 @@ public class WorldClient : MonoBehaviour {
 		Debug.Assert(textName!=null);
         textName.text = name+" ["+uuid+"]";
 
-		var movement = p.GetComponent<EXPERIMENTAL_PlayerMovement>();
+		var movement = p.GetComponent<Character>();
 		movement.SetColorSkin(color);
 
 		if(tag == "Player"){
@@ -291,7 +291,7 @@ public class WorldClient : MonoBehaviour {
 							}
 							else {
 								Debug.Assert(pc!=null); //TODO FIX IF PC IS NOT ONLINE
-								var p = pc.GetComponent<EXPERIMENTAL_PlayerMovement>();
+								var p = pc.GetComponent<Character>();
 								Debug.Assert(p!=null);
 								p.PushMovement(Tuple.Create(ProtoBase.ProtocolNumbers[e.mID],e.mX,e.mY));
 							}

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class EXPERIMENTAL_PlayerMovement : MonoBehaviour {
+public class Character : MonoBehaviour {
 
     [SerializeField] private Vector2 _movementDirection;
     [SerializeField] private float _baseMovementSpeed = 1.0f;
