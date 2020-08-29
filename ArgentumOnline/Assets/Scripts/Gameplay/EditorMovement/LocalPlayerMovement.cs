@@ -1,59 +1,150 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class LocalPlayerMovement : MonoBehaviour {
+public class LocalPlayerMovement : MonoBehaviour
+{
+    // Input movement speeds (calculated with the user input)
     private float mInputMovementSpeed;
     private float mFinalMovementSpeed;
+
+    // Movement direction
     private Vector2 mMovementDirection;
 
-    private Rigidbody2D mRigidBody;
-
+    // Base movement speed
     [SerializeField] private float mBaseMovementSpeed = 1.0f;
 
-    [SerializeField] private Animator mAnimator;
+    // Flag that indicates if the character is in the middle of an animation attack
+    private bool mIsAttacking = false;
 
-    [SerializeField] private Collider2D mCollider1;
-    [SerializeField] private Collider2D mCollider2;
+    #region components cache
+    private Rigidbody2D mRigidBody;
+    private Animator mAnimator;
+    private Collider2D mOwnCollider;
+    private Collider2D mBlockerCollider;
+    #endregion
 
-    private void Awake() {
-        mRigidBody = GetComponent<Rigidbody2D>();
-        Physics2D.IgnoreCollision(mCollider1, mCollider2, true);
+    #region unity loop
+    private void Awake()
+    {
+        // Setup the component cache
+        SetupComponentCache();
+
+        // Ignore collisiones between the two character colliders
+        Physics2D.IgnoreCollision(mOwnCollider, mBlockerCollider, true);
     }
 
-    private void Update() {
+    private void Update()
+    {
+        // Update blocking animations
+        UpdateBlockingAnimations();
+
+        // Process the user input
         ProcessInputs();
+
+        // Do the animation
         Animate();
     }
 
-    private void FixedUpdate() {
+    private void UpdateBlockingAnimations()
+    {
+        // If the player is currently attacking...
+        if (mIsAttacking)
+        {
+            // If the animation already finished...
+            if (!this.mAnimator.GetCurrentAnimatorStateInfo(0).IsName("Combat"))
+            {
+                // Reset the flag
+                mIsAttacking = false;
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // Move the character acording to the user input
         Move();
     }
+    #endregion
 
-    private void ProcessInputs() {
-        mMovementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        mInputMovementSpeed = Mathf.Clamp(mMovementDirection.magnitude, 0.0f, 1.0f);
-        mMovementDirection.Normalize();
-
-        if (Input.GetKeyDown(KeyCode.R)) {
-            if (mBaseMovementSpeed < 2.0f) mBaseMovementSpeed = 2.0f;
-            else mBaseMovementSpeed = 1.0f;
-        }
-
-        mFinalMovementSpeed = mInputMovementSpeed * mBaseMovementSpeed * 2.0f;
+    private void SetupComponentCache()
+    {
+        // Set up all the cached components
+        mRigidBody = GetComponent<Rigidbody2D>();
+        mAnimator = transform.Find("Sprites/Base").GetComponent<Animator>();
+        mOwnCollider = GetComponent<Collider2D>();
+        mBlockerCollider = transform.Find("Blocker").GetComponent<Collider2D>();
     }
 
-    private void Move() {
+    private void ProcessInputs()
+    {
+        // Check if the user wants to launch a melee attack
+        //FIXME usar ejes virtuales, no teclas concretas
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !mIsAttacking)
+        {
+            // Set the flag
+            mIsAttacking = true;
+
+            // Stop character from moving
+            mFinalMovementSpeed = 0;
+
+            // Send the trigger to the animator
+            mAnimator.SetTrigger("DoMeleeAttack");
+
+            // Process the actual attack
+            ProcessMeleeAttack();
+        }
+
+        // If the user doesn't wants to do melee attack, check movement keys
+        else if (!mIsAttacking)
+        {
+            // Read the user input on vertical axes (horizontal/vertical)
+            mMovementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+            // Clamp and normalize the input speed
+            mInputMovementSpeed = Mathf.Clamp(mMovementDirection.magnitude, 0.0f, 1.0f);
+            mMovementDirection.Normalize();
+
+            // Check if the player is trying to run
+            //FIXME cambiar la tecla directa por un eje virtual
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                // Limit the base movement speed
+                if (mBaseMovementSpeed < 2.0f)
+                {
+                    mBaseMovementSpeed = 2.0f;
+                }
+                else
+                {
+                    mBaseMovementSpeed = 1.0f;
+                }
+            }
+
+            // Calculate the final movement speed
+            mFinalMovementSpeed = mInputMovementSpeed * mBaseMovementSpeed * 2.0f;
+        }        
+    }
+
+    private void ProcessMeleeAttack()
+    {
+        //TODO para implementar lógica de ataque/conciliar con server
+    }
+
+    private void Move()
+    {
+        // Move the character with the rb, using the calculated speeds (Update hook)
         mRigidBody.MovePosition(mRigidBody.position + mMovementDirection * mFinalMovementSpeed * Time.fixedDeltaTime);
     }
 
-    private void Animate() {
-        if (mMovementDirection != Vector2.zero) {
+    private void Animate()
+    {
+        // If the player is moving (has speed)
+        if (mMovementDirection != Vector2.zero)
+        {
             mAnimator.SetFloat("Horizontal", mMovementDirection.x);
             mAnimator.SetFloat("Vertical", mMovementDirection.y);
         }
 
+        // Set the "speed" animator parameter
         mAnimator.SetFloat("Speed", mFinalMovementSpeed);
     }
 }
