@@ -48,14 +48,6 @@ public class Character : MonoBehaviour {
         return ColorDict[color];
     }
 
-    public void ChangeColorSkin(string color)
-    {
-        mSkinColor = GetColorFromString(color);
-        if (mSpriteRenderer!=null){
-            mSpriteRenderer.color = mSkinColor;
-        }
-    }
-
     public void SetTeleportingPos(Vector3 newPos)
     {
         mTeleportingPos = newPos;
@@ -90,7 +82,11 @@ public class Character : MonoBehaviour {
     }
     public void SetColorSkin(string color)
     {
-
+        mSkinColor = GetColorFromString(color);
+        var renderer = GetComponent<Renderer>();
+        Debug.Assert(renderer!=null);
+        renderer.material.EnableKeyword("_COLOR_ADJUST");
+        renderer.material.SetColor("_COLOR_ADJUST", Color.blue);
     }
 
     private Queue<Tuple<short,float,float>> mActionQueue = new Queue<Tuple<short,float,float>>();
