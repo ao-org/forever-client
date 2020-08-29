@@ -9,7 +9,7 @@ These are some initial code conventions to mantain a coherent style.
 All names for classes, methods and functions must be in **english**
 
 ## Variable classes, methods and types
-Variable names should be **CamelCase**
+Variable names should be **UpperCamelCase**, also referred as **PascalCase**
 
 Names always start with an uppercase letter. No use of spaces or underscore. Use an uppercase letter to start each words. Names must be meaningful and help the reader to understand the code. Don't use names like: test, prueba, etc.
 
