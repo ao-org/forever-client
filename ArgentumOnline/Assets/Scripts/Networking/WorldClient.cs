@@ -122,7 +122,6 @@ public class WorldClient : MonoBehaviour {
 	public int ProcessSpawnCharacter(byte[] encrypted_spawn_info){
 		var decrypted_info = CryptoHelper.Decrypt(encrypted_spawn_info,Encoding.UTF8.GetBytes(CryptoHelper.PublicKey));
 		try{
-			Debug.Log("SPAWN " + decrypted_info);
 			//Can only be done from the main thread
 			var SpawnCharacterXml = new XmlDocument();
 			SpawnCharacterXml.LoadXml(decrypted_info);
@@ -219,25 +218,23 @@ public class WorldClient : MonoBehaviour {
 	}
 
 	private GameObject SpawnCharacter(string uuid, string name, string tag, Vector3 pos, GameObject clonable, GameObject parent, string color){
-		var p = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
-		p.tag = tag;
-		p.name = uuid;
-		var np_canvas = p.transform.Find("CanvasPlayer").gameObject;
-		TextMeshProUGUI textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
+		var ClonedChar = Instantiate(clonable, pos, Quaternion.identity, parent.transform);
+		ClonedChar.tag = tag;
+		ClonedChar.name = uuid;
+		var np_canvas = ClonedChar.transform.Find("CanvasPlayer").gameObject;
+		var textName = np_canvas.transform.Find("TextName").GetComponent<TextMeshProUGUI>();
 		Debug.Assert(textName!=null);
         textName.text = name+" ["+uuid+"]";
-
-		var movement = p.GetComponent<Character>();
-		movement.SetColorSkin(color);
-
+		var CharScript = ClonedChar.GetComponent<Character>();
+		CharScript.SetColorSkin(color);
 		if(tag == "Player"){
-			movement.SetPlayerCharater(true);
+			CharScript.SetPlayerCharater(true);
 		}
         else
         {
-            movement.SetPlayerCharater(false);
+            CharScript.SetPlayerCharater(false);
         }
-		return p;
+		return ClonedChar;
 	}
 	private void InstantiatePlayerCharacterSprite(){
 		try{

@@ -45,11 +45,6 @@ public class XmlCharacterParser
                 mPhysMax[PhysiologicalTrait.MANA]  = System.UInt16.Parse(maxPhys["mana"].InnerText);
                 mPhysMax[PhysiologicalTrait.THIRST]  = System.UInt16.Parse(maxPhys["thirst"].InnerText);
                 mPhysMax[PhysiologicalTrait.HUNGER]  = System.UInt16.Parse(maxPhys["hunger"].InnerText);
-                Debug.Log("max-health :" + mPhysMax[PhysiologicalTrait.HEALTH]);
-                Debug.Log("max-health :" + mPhysMax[PhysiologicalTrait.STAMINA]);
-                Debug.Log("max-health :" + mPhysMax[PhysiologicalTrait.MANA]);
-                Debug.Log("max-health :" + mPhysMax[PhysiologicalTrait.THIRST]);
-                Debug.Log("max-health :" + mPhysMax[PhysiologicalTrait.HUNGER]);
             }
             var Phys = nod.SelectSingleNode("physiological");
             if (Phys != null){
