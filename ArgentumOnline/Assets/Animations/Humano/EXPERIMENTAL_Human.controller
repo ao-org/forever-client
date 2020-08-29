@@ -111,7 +111,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftDown
+  m_Name: SouthWest
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 86342f12c8bc1f8448a335ee464ce9a6, type: 2}
@@ -150,7 +150,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Right
+  m_Name: East
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: d6cdc9c8b1a6d91468696411efb166de, type: 2}
@@ -211,7 +211,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Left
+  m_Name: West
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 2c359c603e5c350439b6ff3ce2451d61, type: 2}
@@ -250,7 +250,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Down
+  m_Name: South
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: fc52110014bc60a4e82c8799834cc0a1, type: 2}
@@ -289,7 +289,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Up
+  m_Name: North
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 6a74cce150fe640468cf89d84fdf257e, type: 2}
@@ -328,7 +328,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UpLeft
+  m_Name: NorthWest
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: f4a2394600aa00e4d80b66e48be8a5a6, type: 2}
@@ -437,7 +437,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DownRight
+  m_Name: SouthEast
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 275d4c7210091b942a21c1cbc79f1a88, type: 2}
@@ -491,7 +491,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UpRight
+  m_Name: NorthEast
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 52897c3f52723f04087c65cc070d512f, type: 2}
