@@ -15,6 +15,10 @@ Names always start with an uppercase letter. No use of spaces or underscore. Use
 
 All variable names **MUST BE IN ENGLISH**.
 
+## Constants
+
+Names for constants must be *uppercase*. For example: HEALTH is good, but not Health nor health.
+
 ## Members
 Member variables in classes must start with **m** to hint member of a class. For example mHealth is correct. Members must not start with _ or any other lower case letter different from m
 
@@ -33,6 +37,7 @@ https://docs.microsoft.com/en-us/windows/mixed-reality/performance-recommendatio
 - Cristobal Zingarelli @pimblack
 - Bruno de Angelis @brunodeangelis
 - Sebastian Avena @linquen
+- Juan I. Tonelli @jitdevar
 
 
 
