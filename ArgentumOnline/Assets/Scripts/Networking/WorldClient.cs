@@ -153,6 +153,11 @@ public class WorldClient : MonoBehaviour {
 		mAppQuit = false;
 		mSpawningPlayerCharacter = false;
 		SetSceneLoaded(false);
+		var debugUI = GameObject.Find("DebugUI").gameObject;
+		if(debugUI!=null){
+			debugUI.transform.localScale = new Vector3(0, 0, 0);
+		}
+
 	}
 	public void SetMainMenu(MainMenu m){
 		Debug.Assert(m!=null);
@@ -271,6 +276,18 @@ public class WorldClient : MonoBehaviour {
 		}
 	}
 	void Update(){
+		if (Input.GetKeyDown(KeyCode.Semicolon))
+		{
+			var graph = GameObject.Find("DebugUI").gameObject;
+			Debug.Assert(graph!=null);
+			if ( graph.transform.localScale.x == 0f){
+				graph.transform.localScale = new Vector3(1, 1, 1);
+			}
+			else
+				graph.transform.localScale = new Vector3(0, 0, 0);
+		}
+
+
 		try
 		{
 			if (mEventsQueue.Count > 0){
