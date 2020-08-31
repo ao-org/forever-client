@@ -16,6 +16,9 @@ public class LocalPlayerMovement : MonoBehaviour
     // Flag that indicates if the character is in the middle of an animation attack
     private bool mIsAttacking = false;
 
+    // Cache for the "Sprites" child
+    private PaperdollManager mPaperdollManager;
+
     #region components cache
     private Rigidbody2D mRigidBody;
     private Animator mAnimator;
@@ -45,6 +48,13 @@ public class LocalPlayerMovement : MonoBehaviour
         Animate();
     }
 
+    private void FixedUpdate()
+    {
+        // Move the character acording to the user input
+        Move();
+    }
+    #endregion
+
     private void UpdateBlockingAnimations()
     {
         // If the player is currently attacking...
@@ -55,16 +65,12 @@ public class LocalPlayerMovement : MonoBehaviour
             {
                 // Reset the flag
                 mIsAttacking = false;
+
+                // Notify the paperdoll
+                mPaperdollManager.NotifyMeleeAttackToPaperdoll(false);
             }
         }
     }
-
-    private void FixedUpdate()
-    {
-        // Move the character acording to the user input
-        Move();
-    }
-    #endregion
 
     private void SetupComponentCache()
     {
@@ -73,6 +79,7 @@ public class LocalPlayerMovement : MonoBehaviour
         mAnimator = transform.Find("Sprites/Base").GetComponent<Animator>();
         mOwnCollider = GetComponent<Collider2D>();
         mBlockerCollider = transform.Find("Blocker").GetComponent<Collider2D>();
+        mPaperdollManager = transform.GetComponentInChildren<PaperdollManager>();
     }
 
     private void ProcessInputs()
@@ -89,6 +96,9 @@ public class LocalPlayerMovement : MonoBehaviour
 
             // Send the trigger to the animator
             mAnimator.SetTrigger("DoMeleeAttack");
+
+            // Notify the paperdoll
+            mPaperdollManager.NotifyMeleeAttackToPaperdoll(true);
 
             // Process the actual attack
             ProcessMeleeAttack();
@@ -137,14 +147,39 @@ public class LocalPlayerMovement : MonoBehaviour
 
     private void Animate()
     {
+        // Direction changed?
+        bool directionChanged = false;
+
         // If the player is moving (has speed)
         if (mMovementDirection != Vector2.zero)
         {
+            directionChanged = true;
             mAnimator.SetFloat("Horizontal", mMovementDirection.x);
             mAnimator.SetFloat("Vertical", mMovementDirection.y);
         }
 
         // Set the "speed" animator parameter
         mAnimator.SetFloat("Speed", mFinalMovementSpeed);
+
+        // Update the paperdoll
+        mPaperdollManager.UpdatePaperdoll(directionChanged, mMovementDirection.x, mMovementDirection.y, mFinalMovementSpeed);
     }
+
+    public void ProcessEquipedItem(Item item, EquipmentSlotType slot)
+    {
+        // Update paperdoll
+        mPaperdollManager.LoadAnimationSet(item.mAnimationClips, slot);
+
+        //FIXME wot?
+        Animate();
+    }
+
+    public void ProcessUnequipedItem(Item item, EquipmentSlotType slot)
+    {
+        // Update paperdoll
+        mPaperdollManager.CleanAnimationSet(slot);
+
+        //FIXME wot?
+        Animate();
+    }    
 }
