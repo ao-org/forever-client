@@ -7,10 +7,22 @@ public class PaperdollTesting : MonoBehaviour
     [SerializeField] private LocalPlayerMovement mPlayer;
     [SerializeField] private Item monkRobes;
     [SerializeField] private Item newbieClothes;
+    [SerializeField] private Item testShield;
+    [SerializeField] private Item testSword;
 
     public void FreeTorsoSlot()
     {
         mPlayer.GetComponent<EquipmentManager>().UnequipItemInSlot(EquipmentSlotType.TORSO);
+    }
+
+    public void FreeOffhandSlot()
+    {
+        mPlayer.GetComponent<EquipmentManager>().UnequipItemInSlot(EquipmentSlotType.OFFHAND);
+    }
+
+    public void FreeMainhandSlot()
+    {
+        mPlayer.GetComponent<EquipmentManager>().UnequipItemInSlot(EquipmentSlotType.MAIN_HAND);
     }
 
     public void EquipMonkRobes()
@@ -21,5 +33,15 @@ public class PaperdollTesting : MonoBehaviour
     public void EquipNewbieClothes()
     {
         mPlayer.GetComponent<EquipmentManager>().EquipItem(newbieClothes, EquipmentSlotType.TORSO);
+    }
+
+    public void EquipTestShield()
+    {
+        mPlayer.GetComponent<EquipmentManager>().EquipItem(testShield, EquipmentSlotType.OFFHAND);
+    }
+
+    public void EquipTestSword()
+    {
+        mPlayer.GetComponent<EquipmentManager>().EquipItem(testSword, EquipmentSlotType.MAIN_HAND);
     }
 }

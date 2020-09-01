@@ -29,11 +29,11 @@ public class Item : ScriptableObject
 
     public Item()
     {
-        //TODO precargar lista de animaciones necesarias
-        //animationClips = new AnimationClip[10];
-        //for (int i = 0; i < 10; i++)
-        //{
-        //    animationClips[i] = null;
-        //}
+        //TODO Preload the requiered animation set TODO precargar lista de animaciones necesarias
+        mAnimationClips = new AnimationClip[32];
+        for (int i = 0; i < 32; i++)
+        {
+            mAnimationClips[i] = null;
+        }
     }
 }
