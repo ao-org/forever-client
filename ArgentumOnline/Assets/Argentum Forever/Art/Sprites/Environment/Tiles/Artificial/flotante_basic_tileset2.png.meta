@@ -1,0 +1,3418 @@
+fileFormatVersion: 2
+guid: ffab7cc8bdc4b6f4f91f1e71f8aeb42d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1879390922971507916
+    second: flotante_basic_tileset2_0
+  - first:
+      213: 6097727062910845848
+    second: flotante_basic_tileset2_1
+  - first:
+      213: 375818014288555131
+    second: flotante_basic_tileset2_2
+  - first:
+      213: 5389267992783852509
+    second: flotante_basic_tileset2_3
+  - first:
+      213: -1018579893621552717
+    second: flotante_basic_tileset2_4
+  - first:
+      213: -6372691464072355172
+    second: flotante_basic_tileset2_5
+  - first:
+      213: -3063059551233403460
+    second: flotante_basic_tileset2_6
+  - first:
+      213: 4782539253613368461
+    second: flotante_basic_tileset2_7
+  - first:
+      213: 7990437277468628168
+    second: flotante_basic_tileset2_8
+  - first:
+      213: -3288070811994996761
+    second: flotante_basic_tileset2_9
+  - first:
+      213: 4124012959348329911
+    second: flotante_basic_tileset2_10
+  - first:
+      213: -4554787592336437305
+    second: flotante_basic_tileset2_11
+  - first:
+      213: 6133203136277222641
+    second: flotante_basic_tileset2_12
+  - first:
+      213: -8035652903367913827
+    second: flotante_basic_tileset2_13
+  - first:
+      213: 8290316217885941274
+    second: flotante_basic_tileset2_14
+  - first:
+      213: -1738134906944502390
+    second: flotante_basic_tileset2_15
+  - first:
+      213: 3031887986289788551
+    second: flotante_basic_tileset2_16
+  - first:
+      213: -1551496731758850961
+    second: flotante_basic_tileset2_17
+  - first:
+      213: -555180788400319276
+    second: flotante_basic_tileset2_18
+  - first:
+      213: 1661809393083787535
+    second: flotante_basic_tileset2_19
+  - first:
+      213: -2026733069835826050
+    second: flotante_basic_tileset2_20
+  - first:
+      213: -7940314789428910384
+    second: flotante_basic_tileset2_21
+  - first:
+      213: 3627287306223200051
+    second: flotante_basic_tileset2_22
+  - first:
+      213: -6352176450112717760
+    second: flotante_basic_tileset2_23
+  - first:
+      213: 6094815087208257827
+    second: flotante_basic_tileset2_24
+  - first:
+      213: -1256151076777632417
+    second: flotante_basic_tileset2_25
+  - first:
+      213: -3074944157124019939
+    second: flotante_basic_tileset2_26
+  - first:
+      213: 7694793240890055578
+    second: flotante_basic_tileset2_27
+  - first:
+      213: 2331388303113108376
+    second: flotante_basic_tileset2_28
+  - first:
+      213: -799337694785292329
+    second: flotante_basic_tileset2_29
+  - first:
+      213: -5810550669412717852
+    second: flotante_basic_tileset2_30
+  - first:
+      213: -4985625926116164931
+    second: flotante_basic_tileset2_31
+  - first:
+      213: 6195488153019655504
+    second: flotante_basic_tileset2_32
+  - first:
+      213: -5854074894476783750
+    second: flotante_basic_tileset2_33
+  - first:
+      213: -6203345812244853023
+    second: flotante_basic_tileset2_34
+  - first:
+      213: -5863963560057077022
+    second: flotante_basic_tileset2_35
+  - first:
+      213: -5421715537015693115
+    second: flotante_basic_tileset2_36
+  - first:
+      213: -6271371535073511438
+    second: flotante_basic_tileset2_37
+  - first:
+      213: -4806981029347331588
+    second: flotante_basic_tileset2_38
+  - first:
+      213: 4411629137659938764
+    second: flotante_basic_tileset2_39
+  - first:
+      213: -6111130382239390300
+    second: flotante_basic_tileset2_40
+  - first:
+      213: -44491958265377651
+    second: flotante_basic_tileset2_41
+  - first:
+      213: -2323230346403493903
+    second: flotante_basic_tileset2_42
+  - first:
+      213: -3361427396574778644
+    second: flotante_basic_tileset2_43
+  - first:
+      213: 8975485773546801421
+    second: flotante_basic_tileset2_44
+  - first:
+      213: 3733911875388821781
+    second: flotante_basic_tileset2_45
+  - first:
+      213: 3939192679586725261
+    second: flotante_basic_tileset2_46
+  - first:
+      213: -3576955280591280149
+    second: flotante_basic_tileset2_47
+  - first:
+      213: -8304289892314216849
+    second: flotante_basic_tileset2_48
+  - first:
+      213: -8653167632065185896
+    second: flotante_basic_tileset2_49
+  - first:
+      213: 5872442322108384741
+    second: flotante_basic_tileset2_50
+  - first:
+      213: -5854318434818312038
+    second: flotante_basic_tileset2_51
+  - first:
+      213: -1638349681978430143
+    second: flotante_basic_tileset2_52
+  - first:
+      213: 2809222158963099131
+    second: flotante_basic_tileset2_53
+  - first:
+      213: -6021108445435306085
+    second: flotante_basic_tileset2_54
+  - first:
+      213: 2507707909423095691
+    second: flotante_basic_tileset2_55
+  - first:
+      213: -5675478168156662946
+    second: flotante_basic_tileset2_56
+  - first:
+      213: -590355774713947581
+    second: flotante_basic_tileset2_57
+  - first:
+      213: -8878322117712935321
+    second: flotante_basic_tileset2_58
+  - first:
+      213: -3870835508888796403
+    second: flotante_basic_tileset2_59
+  - first:
+      213: 6604102318199505256
+    second: flotante_basic_tileset2_60
+  - first:
+      213: -1678186936019681779
+    second: flotante_basic_tileset2_61
+  - first:
+      213: -6863271302611961019
+    second: flotante_basic_tileset2_62
+  - first:
+      213: 8881401670666481216
+    second: flotante_basic_tileset2_63
+  - first:
+      213: -8971691815774918407
+    second: flotante_basic_tileset2_64
+  - first:
+      213: 7545268816822935024
+    second: flotante_basic_tileset2_65
+  - first:
+      213: -915070095976040281
+    second: flotante_basic_tileset2_66
+  - first:
+      213: 6743202324648386771
+    second: flotante_basic_tileset2_67
+  - first:
+      213: -6764951637066908818
+    second: flotante_basic_tileset2_68
+  - first:
+      213: -2084721289926171712
+    second: flotante_basic_tileset2_69
+  - first:
+      213: 3767329465571558515
+    second: flotante_basic_tileset2_70
+  - first:
+      213: 5542640395307028267
+    second: flotante_basic_tileset2_71
+  - first:
+      213: 4673430532691166392
+    second: flotante_basic_tileset2_72
+  - first:
+      213: 7269366919917092732
+    second: flotante_basic_tileset2_73
+  - first:
+      213: 7627929406231971884
+    second: flotante_basic_tileset2_74
+  - first:
+      213: -2160259924857411542
+    second: flotante_basic_tileset2_75
+  - first:
+      213: 5520799093973654673
+    second: flotante_basic_tileset2_76
+  - first:
+      213: 6883252111622853452
+    second: flotante_basic_tileset2_77
+  - first:
+      213: 2968394099488759491
+    second: flotante_basic_tileset2_78
+  - first:
+      213: 5004664289089525522
+    second: flotante_basic_tileset2_79
+  - first:
+      213: -6826759063211457810
+    second: flotante_basic_tileset2_80
+  - first:
+      213: 5820594740560527058
+    second: flotante_basic_tileset2_81
+  - first:
+      213: -8383755736791657993
+    second: flotante_basic_tileset2_82
+  - first:
+      213: -7512212338457365927
+    second: flotante_basic_tileset2_83
+  - first:
+      213: -7711871415533438778
+    second: flotante_basic_tileset2_84
+  - first:
+      213: 5461040112369138736
+    second: flotante_basic_tileset2_85
+  - first:
+      213: 9084950071128780130
+    second: flotante_basic_tileset2_86
+  - first:
+      213: 5778193573811714368
+    second: flotante_basic_tileset2_87
+  - first:
+      213: 8509743059290099412
+    second: flotante_basic_tileset2_88
+  - first:
+      213: -6298697948518394795
+    second: flotante_basic_tileset2_89
+  - first:
+      213: -4609990832238391727
+    second: flotante_basic_tileset2_90
+  - first:
+      213: -7063346912563258194
+    second: flotante_basic_tileset2_91
+  - first:
+      213: -4467901479017464180
+    second: flotante_basic_tileset2_92
+  - first:
+      213: 583316045115137286
+    second: flotante_basic_tileset2_93
+  - first:
+      213: 5702696720970307561
+    second: flotante_basic_tileset2_94
+  - first:
+      213: -7208323165145192608
+    second: flotante_basic_tileset2_95
+  - first:
+      213: 6459754364613977076
+    second: flotante_basic_tileset2_96
+  - first:
+      213: 3090780593722032908
+    second: flotante_basic_tileset2_97
+  - first:
+      213: -2090200593495691323
+    second: flotante_basic_tileset2_98
+  - first:
+      213: -522804933871080745
+    second: flotante_basic_tileset2_99
+  - first:
+      213: 5876066787596374586
+    second: flotante_basic_tileset2_0
+  - first:
+      213: -5816241147982364945
+    second: flotante_basic_tileset2_1
+  - first:
+      213: 8684827814567780277
+    second: flotante_basic_tileset2_2
+  - first:
+      213: 8560621301154058490
+    second: flotante_basic_tileset2_3
+  - first:
+      213: 5278073800217053223
+    second: flotante_basic_tileset2_4
+  - first:
+      213: 2155705021508692393
+    second: flotante_basic_tileset2_5
+  - first:
+      213: 4459032438702284569
+    second: flotante_basic_tileset2_6
+  - first:
+      213: 3860751739361756168
+    second: flotante_basic_tileset2_7
+  - first:
+      213: 2027959634301754061
+    second: flotante_basic_tileset2_8
+  - first:
+      213: -8373195555059904148
+    second: flotante_basic_tileset2_9
+  - first:
+      213: -6061830284243925650
+    second: flotante_basic_tileset2_10
+  - first:
+      213: 1741448706667969495
+    second: flotante_basic_tileset2_11
+  - first:
+      213: 6135752025270123254
+    second: flotante_basic_tileset2_12
+  - first:
+      213: -5639214752384778115
+    second: flotante_basic_tileset2_13
+  - first:
+      213: -2634121894163972148
+    second: flotante_basic_tileset2_14
+  - first:
+      213: 5415185516242178046
+    second: flotante_basic_tileset2_15
+  - first:
+      213: -8537475161739591713
+    second: flotante_basic_tileset2_16
+  - first:
+      213: 8680061006017914801
+    second: flotante_basic_tileset2_17
+  - first:
+      213: -7733017671170013451
+    second: flotante_basic_tileset2_18
+  - first:
+      213: -1978808012248571129
+    second: flotante_basic_tileset2_19
+  - first:
+      213: 2130253433170175309
+    second: flotante_basic_tileset2_20
+  - first:
+      213: 3818530568060350824
+    second: flotante_basic_tileset2_21
+  - first:
+      213: -2594057646772907137
+    second: flotante_basic_tileset2_22
+  - first:
+      213: -1012591005407779969
+    second: flotante_basic_tileset2_23
+  - first:
+      213: 6706796022385422004
+    second: flotante_basic_tileset2_24
+  - first:
+      213: 8508610727474566337
+    second: flotante_basic_tileset2_25
+  - first:
+      213: 3140660243202403951
+    second: flotante_basic_tileset2_26
+  - first:
+      213: 4175664535938545065
+    second: flotante_basic_tileset2_27
+  - first:
+      213: 1856966020463002126
+    second: flotante_basic_tileset2_28
+  - first:
+      213: 8326316331440498042
+    second: flotante_basic_tileset2_29
+  - first:
+      213: 206815092783414162
+    second: flotante_basic_tileset2_30
+  - first:
+      213: -6934395991851002583
+    second: flotante_basic_tileset2_31
+  - first:
+      213: 5643480955934416952
+    second: flotante_basic_tileset2_32
+  - first:
+      213: 6803413468691007924
+    second: flotante_basic_tileset2_33
+  - first:
+      213: 1234698698991479239
+    second: flotante_basic_tileset2_34
+  - first:
+      213: -2256972253326356879
+    second: flotante_basic_tileset2_35
+  - first:
+      213: 1670954711448275099
+    second: flotante_basic_tileset2_36
+  - first:
+      213: 6273769552517703638
+    second: flotante_basic_tileset2_37
+  - first:
+      213: -3191587914288636562
+    second: flotante_basic_tileset2_38
+  - first:
+      213: 1105142499184022385
+    second: flotante_basic_tileset2_39
+  - first:
+      213: 3923241958326130869
+    second: flotante_basic_tileset2_40
+  - first:
+      213: 4452685738630601778
+    second: flotante_basic_tileset2_41
+  - first:
+      213: 6595439117546965640
+    second: flotante_basic_tileset2_42
+  - first:
+      213: 3930737104618583572
+    second: flotante_basic_tileset2_43
+  - first:
+      213: 7746901364303870512
+    second: flotante_basic_tileset2_44
+  - first:
+      213: 6041773146489249152
+    second: flotante_basic_tileset2_45
+  - first:
+      213: -886282383443003977
+    second: flotante_basic_tileset2_46
+  - first:
+      213: 8052274349903194632
+    second: flotante_basic_tileset2_47
+  - first:
+      213: -4725082546281656938
+    second: flotante_basic_tileset2_48
+  - first:
+      213: -7221624684824236942
+    second: flotante_basic_tileset2_49
+  - first:
+      213: 7366415065615684327
+    second: flotante_basic_tileset2_50
+  - first:
+      213: -2651619566865109883
+    second: flotante_basic_tileset2_51
+  - first:
+      213: 2118649099111310486
+    second: flotante_basic_tileset2_52
+  - first:
+      213: -6094446356845473322
+    second: flotante_basic_tileset2_53
+  - first:
+      213: -6036331225047219122
+    second: flotante_basic_tileset2_54
+  - first:
+      213: -1853095544467768483
+    second: flotante_basic_tileset2_55
+  - first:
+      213: -1807812699463869325
+    second: flotante_basic_tileset2_56
+  - first:
+      213: 6388754759199573954
+    second: flotante_basic_tileset2_57
+  - first:
+      213: -8510995518025985140
+    second: flotante_basic_tileset2_58
+  - first:
+      213: -774253445684074892
+    second: flotante_basic_tileset2_59
+  - first:
+      213: -4498921858539561632
+    second: flotante_basic_tileset2_60
+  - first:
+      213: -7351436433324247058
+    second: flotante_basic_tileset2_61
+  - first:
+      213: -2826160502303137303
+    second: flotante_basic_tileset2_62
+  - first:
+      213: -1459295096310959964
+    second: flotante_basic_tileset2_63
+  - first:
+      213: 6470503069350694713
+    second: flotante_basic_tileset2_64
+  - first:
+      213: -6552095671468589512
+    second: flotante_basic_tileset2_65
+  - first:
+      213: 7780038724524751952
+    second: flotante_basic_tileset2_66
+  - first:
+      213: -2642560111988917642
+    second: flotante_basic_tileset2_67
+  - first:
+      213: -6930645655242018466
+    second: flotante_basic_tileset2_68
+  - first:
+      213: -8855499164282150131
+    second: flotante_basic_tileset2_69
+  - first:
+      213: 760491713764668669
+    second: flotante_basic_tileset2_70
+  - first:
+      213: 2385277933689072988
+    second: flotante_basic_tileset2_71
+  - first:
+      213: -9194696228162985581
+    second: flotante_basic_tileset2_72
+  - first:
+      213: 6805442130447429796
+    second: flotante_basic_tileset2_73
+  - first:
+      213: -5960427486827750570
+    second: flotante_basic_tileset2_74
+  - first:
+      213: 2323890078030276369
+    second: flotante_basic_tileset2_75
+  - first:
+      213: 2940473253734344336
+    second: flotante_basic_tileset2_76
+  - first:
+      213: -1431143512590204832
+    second: flotante_basic_tileset2_77
+  - first:
+      213: -4587839760082898930
+    second: flotante_basic_tileset2_78
+  - first:
+      213: -6466544798344811018
+    second: flotante_basic_tileset2_79
+  - first:
+      213: -8771081475529716025
+    second: flotante_basic_tileset2_80
+  - first:
+      213: -8557623328357208577
+    second: flotante_basic_tileset2_81
+  - first:
+      213: 6104752693223966858
+    second: flotante_basic_tileset2_82
+  - first:
+      213: 1841151739957998019
+    second: flotante_basic_tileset2_83
+  - first:
+      213: 4043398373346885576
+    second: flotante_basic_tileset2_84
+  - first:
+      213: -8572360715057412364
+    second: flotante_basic_tileset2_85
+  - first:
+      213: 6846820142649355718
+    second: flotante_basic_tileset2_86
+  - first:
+      213: 3961859389491068174
+    second: flotante_basic_tileset2_87
+  - first:
+      213: 8038869772628463223
+    second: flotante_basic_tileset2_88
+  - first:
+      213: 883919617349854720
+    second: flotante_basic_tileset2_89
+  - first:
+      213: 2036270508195954874
+    second: flotante_basic_tileset2_90
+  - first:
+      213: -2390200522290009080
+    second: flotante_basic_tileset2_91
+  - first:
+      213: 4405416972459221003
+    second: flotante_basic_tileset2_92
+  - first:
+      213: -2078989754534337409
+    second: flotante_basic_tileset2_93
+  - first:
+      213: 6790264180992577526
+    second: flotante_basic_tileset2_94
+  - first:
+      213: 2170583597350370002
+    second: flotante_basic_tileset2_95
+  - first:
+      213: -4653920083974193163
+    second: flotante_basic_tileset2_96
+  - first:
+      213: -7728901250881242642
+    second: flotante_basic_tileset2_97
+  - first:
+      213: 350329443167741713
+    second: flotante_basic_tileset2_98
+  - first:
+      213: 1070183935425415470
+    second: flotante_basic_tileset2_99
+  - first:
+      213: 1153551573772782971
+    second: flotante_basic_tileset2_100
+  - first:
+      213: -3106106540670753332
+    second: flotante_basic_tileset2_101
+  - first:
+      213: 650851242395576457
+    second: flotante_basic_tileset2_102
+  - first:
+      213: 5697380941440377894
+    second: flotante_basic_tileset2_103
+  - first:
+      213: 2370267960550426362
+    second: flotante_basic_tileset2_104
+  - first:
+      213: -4372273929114736352
+    second: flotante_basic_tileset2_105
+  - first:
+      213: -4331470465752684011
+    second: flotante_basic_tileset2_106
+  - first:
+      213: 1454843836609608177
+    second: flotante_basic_tileset2_107
+  - first:
+      213: 4874347598228968051
+    second: flotante_basic_tileset2_108
+  - first:
+      213: 2323187620273237931
+    second: flotante_basic_tileset2_109
+  - first:
+      213: -5867054659663395541
+    second: flotante_basic_tileset2_110
+  - first:
+      213: -921298649917261792
+    second: flotante_basic_tileset2_111
+  - first:
+      213: -1016497495159220376
+    second: flotante_basic_tileset2_112
+  - first:
+      213: 3819729539185012766
+    second: flotante_basic_tileset2_113
+  - first:
+      213: 4147315805742511255
+    second: flotante_basic_tileset2_114
+  - first:
+      213: 3328599647842845263
+    second: flotante_basic_tileset2_115
+  - first:
+      213: -5661827622250459264
+    second: flotante_basic_tileset2_116
+  - first:
+      213: -799580178792632141
+    second: flotante_basic_tileset2_117
+  - first:
+      213: 7286619325841171706
+    second: flotante_basic_tileset2_118
+  - first:
+      213: -4038476218033229666
+    second: flotante_basic_tileset2_119
+  - first:
+      213: 4852035014118076689
+    second: flotante_basic_tileset2_120
+  - first:
+      213: 4828286865449573660
+    second: flotante_basic_tileset2_121
+  - first:
+      213: -6154189232404764858
+    second: flotante_basic_tileset2_122
+  - first:
+      213: -4496089758577269201
+    second: flotante_basic_tileset2_123
+  - first:
+      213: -6710286136425626279
+    second: flotante_basic_tileset2_124
+  - first:
+      213: 3288224415415997573
+    second: flotante_basic_tileset2_125
+  - first:
+      213: 5932690626101016450
+    second: flotante_basic_tileset2_126
+  - first:
+      213: 4412083930640733430
+    second: flotante_basic_tileset2_127
+  - first:
+      213: 4359436774154309177
+    second: flotante_basic_tileset2_128
+  - first:
+      213: 2300145857324311861
+    second: flotante_basic_tileset2_129
+  - first:
+      213: 6516580350161844788
+    second: flotante_basic_tileset2_130
+  - first:
+      213: -2501421739577071060
+    second: flotante_basic_tileset2_131
+  - first:
+      213: -2986012013248215031
+    second: flotante_basic_tileset2_132
+  - first:
+      213: -4869857551332086906
+    second: flotante_basic_tileset2_133
+  - first:
+      213: 1269026188789376134
+    second: flotante_basic_tileset2_134
+  - first:
+      213: -3707385384383365367
+    second: flotante_basic_tileset2_135
+  - first:
+      213: -1180714135815934285
+    second: flotante_basic_tileset2_136
+  - first:
+      213: 3846445239891261874
+    second: flotante_basic_tileset2_137
+  - first:
+      213: 7671418725636958781
+    second: flotante_basic_tileset2_138
+  - first:
+      213: 1570331084709650358
+    second: flotante_basic_tileset2_139
+  - first:
+      213: 4893247286336159508
+    second: flotante_basic_tileset2_140
+  - first:
+      213: -6427931125212719602
+    second: flotante_basic_tileset2_141
+  - first:
+      213: -4507262649863788134
+    second: flotante_basic_tileset2_142
+  - first:
+      213: -4293919647702853744
+    second: flotante_basic_tileset2_143
+  - first:
+      213: 1429463762349687264
+    second: flotante_basic_tileset2_144
+  - first:
+      213: -7159922670925892855
+    second: flotante_basic_tileset2_145
+  - first:
+      213: -8339049995539469909
+    second: flotante_basic_tileset2_146
+  - first:
+      213: -844370753462355762
+    second: flotante_basic_tileset2_147
+  - first:
+      213: 941809249776869490
+    second: flotante_basic_tileset2_148
+  - first:
+      213: -8919284939837670119
+    second: flotante_basic_tileset2_149
+  - first:
+      213: -3767152799999193277
+    second: flotante_basic_tileset2_150
+  - first:
+      213: 5436173933518085750
+    second: flotante_basic_tileset2_151
+  - first:
+      213: 837592340350071946
+    second: flotante_basic_tileset2_152
+  - first:
+      213: 537730518629977802
+    second: flotante_basic_tileset2_153
+  - first:
+      213: 4489748589814269327
+    second: flotante_basic_tileset2_154
+  - first:
+      213: 4866852853327138854
+    second: flotante_basic_tileset2_155
+  - first:
+      213: 5094242519600102105
+    second: flotante_basic_tileset2_156
+  - first:
+      213: -269396370379487413
+    second: flotante_basic_tileset2_157
+  - first:
+      213: 2198461715032002983
+    second: flotante_basic_tileset2_158
+  - first:
+      213: -7188687245796726635
+    second: flotante_basic_tileset2_159
+  - first:
+      213: 6848686350744245164
+    second: flotante_basic_tileset2_160
+  - first:
+      213: -2587100401851886856
+    second: flotante_basic_tileset2_161
+  - first:
+      213: -6756968296393823004
+    second: flotante_basic_tileset2_162
+  - first:
+      213: -7300853231495742836
+    second: flotante_basic_tileset2_163
+  - first:
+      213: -1462440435049654123
+    second: flotante_basic_tileset2_164
+  - first:
+      213: -3373559183617075098
+    second: flotante_basic_tileset2_165
+  - first:
+      213: -8460716454315202785
+    second: flotante_basic_tileset2_166
+  - first:
+      213: -2748019428515103866
+    second: flotante_basic_tileset2_167
+  - first:
+      213: 8316205656202392056
+    second: flotante_basic_tileset2_168
+  - first:
+      213: 3075871799964247283
+    second: flotante_basic_tileset2_169
+  - first:
+      213: -9080121491299138950
+    second: flotante_basic_tileset2_170
+  - first:
+      213: 2342052532855112402
+    second: flotante_basic_tileset2_171
+  - first:
+      213: 7648173366594251705
+    second: flotante_basic_tileset2_172
+  - first:
+      213: 3390846515082642945
+    second: flotante_basic_tileset2_173
+  - first:
+      213: -5986381960309259403
+    second: flotante_basic_tileset2_174
+  - first:
+      213: -2550048083953321158
+    second: flotante_basic_tileset2_175
+  - first:
+      213: -8604998291125449187
+    second: flotante_basic_tileset2_176
+  - first:
+      213: 2026422964671842932
+    second: flotante_basic_tileset2_177
+  - first:
+      213: 5062138869328678813
+    second: flotante_basic_tileset2_178
+  - first:
+      213: 889221598185724442
+    second: flotante_basic_tileset2_179
+  - first:
+      213: -6966517292415405576
+    second: flotante_basic_tileset2_180
+  - first:
+      213: 4332104338030567634
+    second: flotante_basic_tileset2_181
+  - first:
+      213: 5881972733536288117
+    second: flotante_basic_tileset2_182
+  - first:
+      213: -4379560951894967918
+    second: flotante_basic_tileset2_183
+  - first:
+      213: -8239091900355336562
+    second: flotante_basic_tileset2_184
+  - first:
+      213: -1291820907747973997
+    second: flotante_basic_tileset2_185
+  - first:
+      213: 7134226869991224235
+    second: flotante_basic_tileset2_186
+  - first:
+      213: 3809507244528093367
+    second: flotante_basic_tileset2_187
+  - first:
+      213: -807265234116629674
+    second: flotante_basic_tileset2_188
+  - first:
+      213: 2353891597861911222
+    second: flotante_basic_tileset2_189
+  - first:
+      213: 4609437723942273114
+    second: flotante_basic_tileset2_190
+  - first:
+      213: 8374527982239152503
+    second: flotante_basic_tileset2_191
+  - first:
+      213: 3566278930833481709
+    second: flotante_basic_tileset2_192
+  - first:
+      213: 6486816083793620232
+    second: flotante_basic_tileset2_193
+  - first:
+      213: -3181577555392670851
+    second: flotante_basic_tileset2_194
+  - first:
+      213: -253579038682359896
+    second: flotante_basic_tileset2_195
+  - first:
+      213: -2824476730692160939
+    second: flotante_basic_tileset2_196
+  - first:
+      213: -9190158872063973818
+    second: flotante_basic_tileset2_197
+  - first:
+      213: 1445882869731860296
+    second: flotante_basic_tileset2_198
+  - first:
+      213: 3128301357729153211
+    second: flotante_basic_tileset2_199
+  - first:
+      213: 6595265753512197962
+    second: flotante_basic_tileset2_200
+  - first:
+      213: -4435500119978355768
+    second: flotante_basic_tileset2_201
+  - first:
+      213: -7520601422046725572
+    second: flotante_basic_tileset2_202
+  - first:
+      213: 7244125204598113832
+    second: flotante_basic_tileset2_203
+  - first:
+      213: -5206292397161022493
+    second: flotante_basic_tileset2_204
+  - first:
+      213: 8968162444395841342
+    second: flotante_basic_tileset2_205
+  - first:
+      213: -6471968504587991897
+    second: flotante_basic_tileset2_206
+  - first:
+      213: -5236525677445683031
+    second: flotante_basic_tileset2_207
+  - first:
+      213: -6254593898380449683
+    second: flotante_basic_tileset2_208
+  - first:
+      213: 2563874172839927626
+    second: flotante_basic_tileset2_209
+  - first:
+      213: 4362052223539459874
+    second: flotante_basic_tileset2_210
+  - first:
+      213: -2277438566853993332
+    second: flotante_basic_tileset2_211
+  - first:
+      213: 3963326074201377858
+    second: flotante_basic_tileset2_212
+  - first:
+      213: 898851173591971885
+    second: flotante_basic_tileset2_213
+  - first:
+      213: 6048437198742675276
+    second: flotante_basic_tileset2_214
+  - first:
+      213: 8468328791575383683
+    second: flotante_basic_tileset2_215
+  - first:
+      213: -3189995112010116028
+    second: flotante_basic_tileset2_216
+  - first:
+      213: 7243227184657730779
+    second: flotante_basic_tileset2_217
+  - first:
+      213: 3005824292838776838
+    second: flotante_basic_tileset2_218
+  - first:
+      213: 2728468812610103493
+    second: flotante_basic_tileset2_219
+  - first:
+      213: -3926235944603885588
+    second: flotante_basic_tileset2_220
+  - first:
+      213: -2362139944649871544
+    second: flotante_basic_tileset2_221
+  - first:
+      213: 994081738842667878
+    second: flotante_basic_tileset2_222
+  - first:
+      213: 843522419551799505
+    second: flotante_basic_tileset2_223
+  - first:
+      213: -1618777743467352404
+    second: flotante_basic_tileset2_224
+  - first:
+      213: -5099509986088586553
+    second: flotante_basic_tileset2_225
+  - first:
+      213: -2114042486783491006
+    second: flotante_basic_tileset2_226
+  - first:
+      213: -5414561362373303485
+    second: flotante_basic_tileset2_227
+  - first:
+      213: 26141710444944245
+    second: flotante_basic_tileset2_228
+  - first:
+      213: -858624410856001874
+    second: flotante_basic_tileset2_229
+  - first:
+      213: -4708050926708033193
+    second: flotante_basic_tileset2_230
+  - first:
+      213: -2450114848500596127
+    second: flotante_basic_tileset2_231
+  - first:
+      213: 4220773996844897081
+    second: flotante_basic_tileset2_232
+  - first:
+      213: -7558738224303552061
+    second: flotante_basic_tileset2_233
+  - first:
+      213: 3438625726464599065
+    second: flotante_basic_tileset2_234
+  - first:
+      213: -4082819831135010581
+    second: flotante_basic_tileset2_235
+  - first:
+      213: -5964799070229219930
+    second: flotante_basic_tileset2_236
+  - first:
+      213: 5109848703473062540
+    second: flotante_basic_tileset2_237
+  - first:
+      213: 3313231001888113350
+    second: flotante_basic_tileset2_238
+  - first:
+      213: -7700561802347644589
+    second: flotante_basic_tileset2_239
+  - first:
+      213: 4308567577143155907
+    second: flotante_basic_tileset2_240
+  - first:
+      213: -793397104604715990
+    second: flotante_basic_tileset2_241
+  - first:
+      213: -5014000769711881895
+    second: flotante_basic_tileset2_242
+  - first:
+      213: 3198352524744241644
+    second: flotante_basic_tileset2_243
+  - first:
+      213: -942786019017786637
+    second: flotante_basic_tileset2_244
+  - first:
+      213: -6201847906938011297
+    second: flotante_basic_tileset2_245
+  - first:
+      213: 3947357344187222926
+    second: flotante_basic_tileset2_246
+  - first:
+      213: -4132235231899563166
+    second: flotante_basic_tileset2_247
+  - first:
+      213: -8865400109601735895
+    second: flotante_basic_tileset2_248
+  - first:
+      213: -8068253174818754625
+    second: flotante_basic_tileset2_249
+  - first:
+      213: 3990199430039025935
+    second: flotante_basic_tileset2_250
+  - first:
+      213: -6848199053795575075
+    second: flotante_basic_tileset2_251
+  - first:
+      213: 2035865577719148791
+    second: flotante_basic_tileset2_252
+  - first:
+      213: -643177680656006299
+    second: flotante_basic_tileset2_253
+  - first:
+      213: -7416525714722802963
+    second: flotante_basic_tileset2_254
+  - first:
+      213: 2284876955369933012
+    second: flotante_basic_tileset2_255
+  - first:
+      213: 6560177930975501993
+    second: flotante_basic_tileset2_256
+  - first:
+      213: 251408149188944010
+    second: flotante_basic_tileset2_257
+  - first:
+      213: -3850744411732424864
+    second: flotante_basic_tileset2_258
+  - first:
+      213: 7192784430759031786
+    second: flotante_basic_tileset2_259
+  - first:
+      213: 7361548768153249053
+    second: flotante_basic_tileset2_260
+  - first:
+      213: 7200839950496770072
+    second: flotante_basic_tileset2_261
+  - first:
+      213: 4049033555665635336
+    second: flotante_basic_tileset2_262
+  - first:
+      213: 8888488987494141255
+    second: flotante_basic_tileset2_263
+  - first:
+      213: 4526481151772382405
+    second: flotante_basic_tileset2_264
+  - first:
+      213: 1833232857916097802
+    second: flotante_basic_tileset2_265
+  - first:
+      213: -156786026408310162
+    second: flotante_basic_tileset2_266
+  - first:
+      213: 4443110147128896610
+    second: flotante_basic_tileset2_267
+  - first:
+      213: 7207804411180859430
+    second: flotante_basic_tileset2_268
+  - first:
+      213: 4063999331396291873
+    second: flotante_basic_tileset2_269
+  - first:
+      213: 5202162649779935758
+    second: flotante_basic_tileset2_270
+  - first:
+      213: 9109329002487648466
+    second: flotante_basic_tileset2_271
+  - first:
+      213: -4452503843907675679
+    second: flotante_basic_tileset2_272
+  - first:
+      213: -91382720850130756
+    second: flotante_basic_tileset2_273
+  - first:
+      213: -1031540517185898483
+    second: flotante_basic_tileset2_274
+  - first:
+      213: 4592504636358675326
+    second: flotante_basic_tileset2_275
+  - first:
+      213: -6269982449973046927
+    second: flotante_basic_tileset2_276
+  - first:
+      213: 4122768320157175019
+    second: flotante_basic_tileset2_277
+  - first:
+      213: -3868465246512680955
+    second: flotante_basic_tileset2_278
+  - first:
+      213: 8917913839553255090
+    second: flotante_basic_tileset2_279
+  - first:
+      213: 8905561600739776844
+    second: flotante_basic_tileset2_280
+  - first:
+      213: -6043517482373156909
+    second: flotante_basic_tileset2_281
+  - first:
+      213: 4138748077949044785
+    second: flotante_basic_tileset2_282
+  - first:
+      213: 7973858397890272031
+    second: flotante_basic_tileset2_283
+  - first:
+      213: -1330331463366270323
+    second: flotante_basic_tileset2_284
+  - first:
+      213: 8270943357198562571
+    second: flotante_basic_tileset2_285
+  - first:
+      213: 1876644337589068123
+    second: flotante_basic_tileset2_286
+  - first:
+      213: 6574141643318019465
+    second: flotante_basic_tileset2_287
+  - first:
+      213: 554661139667131571
+    second: flotante_basic_tileset2_288
+  - first:
+      213: -5159615557900614017
+    second: flotante_basic_tileset2_289
+  - first:
+      213: 355699641320589310
+    second: flotante_basic_tileset2_290
+  - first:
+      213: -2301469956345867184
+    second: flotante_basic_tileset2_291
+  - first:
+      213: -8500109991533181792
+    second: flotante_basic_tileset2_292
+  - first:
+      213: -8448841852330624760
+    second: flotante_basic_tileset2_293
+  - first:
+      213: -7037352294649866317
+    second: flotante_basic_tileset2_294
+  - first:
+      213: -5683524697388401182
+    second: flotante_basic_tileset2_295
+  - first:
+      213: 7304244734342382322
+    second: flotante_basic_tileset2_296
+  - first:
+      213: 3923629333588670637
+    second: flotante_basic_tileset2_297
+  - first:
+      213: 3709256232593605793
+    second: flotante_basic_tileset2_298
+  - first:
+      213: 6670297799229817513
+    second: flotante_basic_tileset2_299
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a32172f4c9bfb8150800000000000000
+      internalID: 5876066787596374586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee308edd7f884fa0800000000000000
+      internalID: -5816241147982364945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_2
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf9eb612e4b68870800000000000000
+      internalID: 8684827814567780277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_3
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af01eef97bf6dc670800000000000000
+      internalID: 8560621301154058490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_4
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728cb38282c7f3940800000000000000
+      internalID: 5278073800217053223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_5
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a92d8fab4a9aed10800000000000000
+      internalID: 2155705021508692393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_6
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f1bc6c06aa1ed30800000000000000
+      internalID: 4459032438702284569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_7
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80401a67045249530800000000000000
+      internalID: 3860751739361756168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_8
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dca1365fa82c42c10800000000000000
+      internalID: 2027959634301754061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_9
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6156c9710f6ccb80800000000000000
+      internalID: -8373195555059904148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e658fe2397d00eba0800000000000000
+      internalID: -6061830284243925650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_11
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbf1834f5eda2810800000000000000
+      internalID: 1741448706667969495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_12
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fafb1855f1962550800000000000000
+      internalID: 6135752025270123254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_13
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7086ff7f0c7db1b0800000000000000
+      internalID: -5639214752384778115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_14
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccff64be718b17bd0800000000000000
+      internalID: -2634121894163972148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_15
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff8470498a962b40800000000000000
+      internalID: 5415185516242178046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_16
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf7ac9e29bc48980800000000000000
+      internalID: -8537475161739591713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_17
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7ea6cfe75c57870800000000000000
+      internalID: 8680061006017914801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_18
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f6c71c366dcea490800000000000000
+      internalID: -7733017671170013451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_19
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7032a37d89cd984e0800000000000000
+      internalID: -1978808012248571129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d452aadf53e209d10800000000000000
+      internalID: 2130253433170175309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_21
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8613539f1552ef430800000000000000
+      internalID: 3818530568060350824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_22
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73173d605e000cd0800000000000000
+      internalID: -2594057646772907137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_23
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73e9e378dd82f1f0800000000000000
+      internalID: -1012591005407779969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_24
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be294fb273531d50800000000000000
+      internalID: 6706796022385422004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_25
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c413374068a41670800000000000000
+      internalID: 8508610727474566337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_26
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6e654ce9ddd59b20800000000000000
+      internalID: 3140660243202403951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_27
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a530d595c0f2f930800000000000000
+      internalID: 4175664535938545065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_28
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e020ba9c1c445c910800000000000000
+      internalID: 1856966020463002126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_29
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a756b07b6940d8370800000000000000
+      internalID: 8326316331440498042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b7b8b2b31ced200800000000000000
+      internalID: 206815092783414162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_31
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92514ddd59314cf90800000000000000
+      internalID: -6934395991851002583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_32
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830272b670ca15e40800000000000000
+      internalID: 5643480955934416952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_33
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b98f65f0849a6e50800000000000000
+      internalID: 6803413468691007924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_34
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c9260ecce7822110800000000000000
+      internalID: 1234698698991479239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_35
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ec19c81bf9da0e0800000000000000
+      internalID: -2256972253326356879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_36
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b98c3abf47c603710800000000000000
+      internalID: 1670954711448275099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_37
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d7aa7c0b28e01750800000000000000
+      internalID: 6273769552517703638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_38
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d5563a3b335b3d0800000000000000
+      internalID: -3191587914288636562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_39
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1731d0a6f31465f00800000000000000
+      internalID: 1105142499184022385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_40
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b8dfed56c7227630800000000000000
+      internalID: 3923241958326130869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_41
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c5683861e1bcd30800000000000000
+      internalID: 4452685738630601778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_42
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a4a1beee4b78b50800000000000000
+      internalID: 6595439117546965640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_43
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416fc3a1298cc8630800000000000000
+      internalID: 3930737104618583572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_44
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a3259feb5828b60800000000000000
+      internalID: 7746901364303870512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_45
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d5cf18aa0b8d350800000000000000
+      internalID: 6041773146489249152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_46
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b571343eda43b3f0800000000000000
+      internalID: -886282383443003977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_47
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a28f3cbdc6fbf60800000000000000
+      internalID: 8052274349903194632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_48
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69dcb7e65722d6eb0800000000000000
+      internalID: -4725082546281656938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_49
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27cebd76c92a7cb90800000000000000
+      internalID: -7221624684824236942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_50
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2db162973ca3660800000000000000
+      internalID: 7366415065615684327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_51
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ca7858d0e833bd0800000000000000
+      internalID: -2651619566865109883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_52
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6942b3c6124f66d10800000000000000
+      internalID: 2118649099111310486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_53
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d15d85045d2c6ba0800000000000000
+      internalID: -6094446356845473322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_54
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4446709bb4aa3ca0800000000000000
+      internalID: -6036331225047219122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_55
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5bb321ab6b7846e0800000000000000
+      internalID: -1853095544467768483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_56
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c14049deb59e6e0800000000000000
+      internalID: -1807812699463869325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_57
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c74d2bba9a69a850800000000000000
+      internalID: 6388754759199573954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_58
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c839e176baed2e980800000000000000
+      internalID: -8510995518025985140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_59
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476e0e3e79c4145f0800000000000000
+      internalID: -774253445684074892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_60
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d528de76e9091c0800000000000000
+      internalID: -4498921858539561632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_61
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7f7d273837af990800000000000000
+      internalID: -7351436433324247058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_62
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e16bfd2ff577c8d0800000000000000
+      internalID: -2826160502303137303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_63
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a07ae177da8fbbe0800000000000000
+      internalID: -1459295096310959964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_64
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f09b66248dbc950800000000000000
+      internalID: 6470503069350694713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_65
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e7db783b74215a0800000000000000
+      internalID: -6552095671468589512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_66
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05cb412efff38fb60800000000000000
+      internalID: 7780038724524751952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_67
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ab84b349db35bd0800000000000000
+      internalID: -2642560111988917642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_68
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51f1372f7661df90800000000000000
+      internalID: -6930645655242018466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_69
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03a134bd62fa1580800000000000000
+      internalID: -8855499164282150131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_70
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df432953f2fcd8a00800000000000000
+      internalID: 760491713764668669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_71
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5d6d1894a53a1120800000000000000
+      internalID: 2385277933689072988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_72
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391a8befe70e56080800000000000000
+      internalID: -9194696228162985581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_73
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0fbc49f89c17e50800000000000000
+      internalID: 6805442130447429796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_74
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b582ac7ce484da0800000000000000
+      internalID: -5960427486827750570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_75
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117ac06a6bd104020800000000000000
+      internalID: 2323890078030276369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_76
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0966f5058d8aec820800000000000000
+      internalID: 2940473253734344336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_77
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 060c47dce8e832ce0800000000000000
+      internalID: -1431143512590204832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_78
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0078ddab08b450c0800000000000000
+      internalID: -4587839760082898930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_79
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fde18264c73246a0800000000000000
+      internalID: -6466544798344811018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_80
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ceca038edbd64680800000000000000
+      internalID: -8771081475529716025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_81
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd2caf4ce63d3980800000000000000
+      internalID: -8557623328357208577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_82
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a884939ea3078b450800000000000000
+      internalID: 6104752693223966858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_83
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c1f9cda0c51d8910800000000000000
+      internalID: 1841151739957998019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_84
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cfbbb0d5690d1830800000000000000
+      internalID: 4043398373346885576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_85
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f64d74195bd80980800000000000000
+      internalID: -8572360715057412364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_86
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cdaa9bc4aac40f50800000000000000
+      internalID: 6846820142649355718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_87
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d39a8bf1a5bf630800000000000000
+      internalID: 3961859389491068174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_88
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e0529677dcf8f60800000000000000
+      internalID: 8038869772628463223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_89
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00623227530544c00800000000000000
+      internalID: 883919617349854720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_90
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab0cf931d39424c10800000000000000
+      internalID: 2036270508195954874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_91
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c63fee94d44ded0800000000000000
+      internalID: -2390200522290009080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_92
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b00a8e2456f232d30800000000000000
+      internalID: 4405416972459221003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_93
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f74ed4d45d1f523e0800000000000000
+      internalID: -2078989754534337409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_94
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff0f17db4ddb3e50800000000000000
+      internalID: 6790264180992577526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_95
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dabb5318467f1e10800000000000000
+      internalID: 2170583597350370002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_96
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3681f8e58a5a950800000000000000
+      internalID: 6459754364613977076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_97
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0309770398a4ea20800000000000000
+      internalID: 3090780593722032908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_98
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cfe06372ad1ef2e0800000000000000
+      internalID: -2090200593495691323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flotante_basic_tileset2_99
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7daeacdbeaf9eb8f0800000000000000
+      internalID: -522804933871080745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

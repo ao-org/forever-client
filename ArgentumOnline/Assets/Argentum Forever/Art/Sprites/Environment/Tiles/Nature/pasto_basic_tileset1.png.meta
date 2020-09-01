@@ -1,0 +1,2521 @@
+fileFormatVersion: 2
+guid: 51e3fdeb041a14d4a9b3884ff263d26e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7256268052433077656
+    second: pasto_basic_tileset1_0
+  - first:
+      213: 3049689483162561603
+    second: pasto_basic_tileset1_1
+  - first:
+      213: -4211397140391881082
+    second: pasto_basic_tileset1_2
+  - first:
+      213: -5062755339064616584
+    second: pasto_basic_tileset1_3
+  - first:
+      213: -9103261723610764875
+    second: pasto_basic_tileset1_4
+  - first:
+      213: -2951290022484379929
+    second: pasto_basic_tileset1_5
+  - first:
+      213: -5385659183407727439
+    second: pasto_basic_tileset1_6
+  - first:
+      213: -3701194791456688549
+    second: pasto_basic_tileset1_7
+  - first:
+      213: -2098294412295618616
+    second: pasto_basic_tileset1_8
+  - first:
+      213: 2045649138113106542
+    second: pasto_basic_tileset1_9
+  - first:
+      213: 6695776771170567787
+    second: pasto_basic_tileset1_10
+  - first:
+      213: -346914340143272230
+    second: pasto_basic_tileset1_11
+  - first:
+      213: -4099702254754870544
+    second: pasto_basic_tileset1_12
+  - first:
+      213: 1213588871027545257
+    second: pasto_basic_tileset1_13
+  - first:
+      213: -7043167196077100520
+    second: pasto_basic_tileset1_14
+  - first:
+      213: -4129369631864901732
+    second: pasto_basic_tileset1_15
+  - first:
+      213: 2153295581746272923
+    second: pasto_basic_tileset1_16
+  - first:
+      213: 925546839818628124
+    second: pasto_basic_tileset1_17
+  - first:
+      213: 7999238696385781236
+    second: pasto_basic_tileset1_18
+  - first:
+      213: 2266676785477940632
+    second: pasto_basic_tileset1_19
+  - first:
+      213: 1057976957532331722
+    second: pasto_basic_tileset1_20
+  - first:
+      213: -8939613923094756344
+    second: pasto_basic_tileset1_21
+  - first:
+      213: 6114213497092547276
+    second: pasto_basic_tileset1_22
+  - first:
+      213: -9188989224329800074
+    second: pasto_basic_tileset1_23
+  - first:
+      213: -1205086799339301365
+    second: pasto_basic_tileset1_24
+  - first:
+      213: 668832492255685545
+    second: pasto_basic_tileset1_25
+  - first:
+      213: -2625803413510131529
+    second: pasto_basic_tileset1_26
+  - first:
+      213: -1629294393304187280
+    second: pasto_basic_tileset1_27
+  - first:
+      213: -7527626894003531816
+    second: pasto_basic_tileset1_28
+  - first:
+      213: -282970619261922889
+    second: pasto_basic_tileset1_29
+  - first:
+      213: 3641246800048540636
+    second: pasto_basic_tileset1_30
+  - first:
+      213: 7820430867254797002
+    second: pasto_basic_tileset1_31
+  - first:
+      213: 8191792986727200776
+    second: pasto_basic_tileset1_32
+  - first:
+      213: 7687909887891052060
+    second: pasto_basic_tileset1_33
+  - first:
+      213: -141144992052735703
+    second: pasto_basic_tileset1_34
+  - first:
+      213: -7404960438997572109
+    second: pasto_basic_tileset1_35
+  - first:
+      213: -385552115839362671
+    second: pasto_basic_tileset1_36
+  - first:
+      213: 9192604743557010167
+    second: pasto_basic_tileset1_37
+  - first:
+      213: -3320367818826641453
+    second: pasto_basic_tileset1_38
+  - first:
+      213: -5236956280582027209
+    second: pasto_basic_tileset1_39
+  - first:
+      213: -824637369710508949
+    second: pasto_basic_tileset1_40
+  - first:
+      213: -2746465676125829864
+    second: pasto_basic_tileset1_41
+  - first:
+      213: -479373090622755764
+    second: pasto_basic_tileset1_42
+  - first:
+      213: -2608397923930344575
+    second: pasto_basic_tileset1_43
+  - first:
+      213: 3185080018892184170
+    second: pasto_basic_tileset1_44
+  - first:
+      213: -8411190123685435848
+    second: pasto_basic_tileset1_45
+  - first:
+      213: 8425862636510565962
+    second: pasto_basic_tileset1_46
+  - first:
+      213: -6101012104093652362
+    second: pasto_basic_tileset1_47
+  - first:
+      213: -628567139766098213
+    second: pasto_basic_tileset1_48
+  - first:
+      213: -146806520829097442
+    second: pasto_basic_tileset1_49
+  - first:
+      213: -4027352657292012465
+    second: pasto_basic_tileset1_50
+  - first:
+      213: -8510397975646614655
+    second: pasto_basic_tileset1_51
+  - first:
+      213: 1210140453280110714
+    second: pasto_basic_tileset1_52
+  - first:
+      213: 4353182373620869367
+    second: pasto_basic_tileset1_53
+  - first:
+      213: -942042433945028824
+    second: pasto_basic_tileset1_54
+  - first:
+      213: 8927069577066193187
+    second: pasto_basic_tileset1_55
+  - first:
+      213: 7615318448789175894
+    second: pasto_basic_tileset1_56
+  - first:
+      213: 8148492691990625334
+    second: pasto_basic_tileset1_57
+  - first:
+      213: -2623914342637266953
+    second: pasto_basic_tileset1_58
+  - first:
+      213: -4488094320109242344
+    second: pasto_basic_tileset1_59
+  - first:
+      213: 8541460465295075506
+    second: pasto_basic_tileset1_60
+  - first:
+      213: -8216916229920139678
+    second: pasto_basic_tileset1_61
+  - first:
+      213: -7041136695343767598
+    second: pasto_basic_tileset1_62
+  - first:
+      213: -4189980173990029910
+    second: pasto_basic_tileset1_63
+  - first:
+      213: -2150819230240692697
+    second: pasto_basic_tileset1_64
+  - first:
+      213: 7538995409930943398
+    second: pasto_basic_tileset1_65
+  - first:
+      213: -7797488555467863082
+    second: pasto_basic_tileset1_66
+  - first:
+      213: 382642906396608223
+    second: pasto_basic_tileset1_67
+  - first:
+      213: 7265525351246500280
+    second: pasto_basic_tileset1_68
+  - first:
+      213: 21216775872164762
+    second: pasto_basic_tileset1_69
+  - first:
+      213: -7184377252752555073
+    second: pasto_basic_tileset1_70
+  - first:
+      213: -6789650283961200190
+    second: pasto_basic_tileset1_71
+  - first:
+      213: 2844666331344283153
+    second: pasto_basic_tileset1_72
+  - first:
+      213: 8607155925799735169
+    second: pasto_basic_tileset1_73
+  - first:
+      213: 5243465924886602471
+    second: pasto_basic_tileset1_74
+  - first:
+      213: 1903410049130319121
+    second: pasto_basic_tileset1_75
+  - first:
+      213: -885043337841836834
+    second: pasto_basic_tileset1_76
+  - first:
+      213: -541976088686259607
+    second: pasto_basic_tileset1_77
+  - first:
+      213: -5998214134168522982
+    second: pasto_basic_tileset1_78
+  - first:
+      213: 9070522995264621617
+    second: pasto_basic_tileset1_79
+  - first:
+      213: 5931531920521448681
+    second: pasto_basic_tileset1_80
+  - first:
+      213: -2951113536203679786
+    second: pasto_basic_tileset1_81
+  - first:
+      213: 7722996317758175177
+    second: pasto_basic_tileset1_82
+  - first:
+      213: 8060917893489722656
+    second: pasto_basic_tileset1_83
+  - first:
+      213: -772081274238243210
+    second: pasto_basic_tileset1_84
+  - first:
+      213: 7687373898048036672
+    second: pasto_basic_tileset1_85
+  - first:
+      213: 6835503713650159368
+    second: pasto_basic_tileset1_86
+  - first:
+      213: 7131775970196274242
+    second: pasto_basic_tileset1_87
+  - first:
+      213: -3091367243910716421
+    second: pasto_basic_tileset1_88
+  - first:
+      213: 4713407059511274121
+    second: pasto_basic_tileset1_89
+  - first:
+      213: -578605854736841648
+    second: pasto_basic_tileset1_90
+  - first:
+      213: 9075216250967310496
+    second: pasto_basic_tileset1_91
+  - first:
+      213: 44368648669113163
+    second: pasto_basic_tileset1_92
+  - first:
+      213: 4624805782124566526
+    second: pasto_basic_tileset1_93
+  - first:
+      213: -7136568344044997214
+    second: pasto_basic_tileset1_94
+  - first:
+      213: 3657652394306437136
+    second: pasto_basic_tileset1_95
+  - first:
+      213: -2260138860338664332
+    second: pasto_basic_tileset1_96
+  - first:
+      213: -4921910725127638264
+    second: pasto_basic_tileset1_97
+  - first:
+      213: 940488796468879085
+    second: pasto_basic_tileset1_98
+  - first:
+      213: -6602262677503752093
+    second: pasto_basic_tileset1_99
+  - first:
+      213: 8439269576562069474
+    second: pasto_basic_tileset1_100
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8950a4c295173b460800000000000000
+      internalID: 7256268052433077656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c262f4d6ca25a20800000000000000
+      internalID: 3049689483162561603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_2
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68698de1d9c1e85c0800000000000000
+      internalID: -4211397140391881082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_3
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879575eb7da7db9b0800000000000000
+      internalID: -5062755339064616584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_4
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b925ca81b7baa180800000000000000
+      internalID: -9103261723610764875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_5
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6f9a47c59ea07d0800000000000000
+      internalID: -2951290022484379929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_6
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc79a3d18b4245b0800000000000000
+      internalID: -5385659183407727439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_7
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56b2ba62f6b2acc0800000000000000
+      internalID: -3701194791456688549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_8
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cfbee8695c51e2e0800000000000000
+      internalID: -2098294412295618616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_9
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62d0548d0b936c10800000000000000
+      internalID: 2045649138113106542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b660fe46f7d2cec50800000000000000
+      internalID: 6695776771170567787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_11
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade6544ee338f2bf0800000000000000
+      internalID: -346914340143272230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_12
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fac77c358eea17c0800000000000000
+      internalID: -4099702254754870544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_13
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4d6f8f5a887d010800000000000000
+      internalID: 1213588871027545257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_14
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 812f32060c4a14e90800000000000000
+      internalID: -7043167196077100520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_15
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f286ab23881b6c0800000000000000
+      internalID: -4129369631864901732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_16
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a97664cea02ed10800000000000000
+      internalID: 2153295581746272923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_17
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cef5272f338dc00800000000000000
+      internalID: 925546839818628124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_18
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd12ab6631030f60800000000000000
+      internalID: 7999238696385781236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_19
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 895790be68ad47f10800000000000000
+      internalID: 2266676785477940632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace534eff60beae00800000000000000
+      internalID: 1057976957532331722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_21
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8040dc4408c10f380800000000000000
+      internalID: -8939613923094756344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_22
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc2a917f7cc0ad450800000000000000
+      internalID: 6114213497092547276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_23
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6761eee5cf62a7080800000000000000
+      internalID: -9188989224329800074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_24
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b065ed9d0fba64fe0800000000000000
+      internalID: -1205086799339301365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_25
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aba32bab9b284900800000000000000
+      internalID: 668832492255685545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_26
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b078bf15b54f8bd0800000000000000
+      internalID: -2625803413510131529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_27
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07e7194b1659369e0800000000000000
+      internalID: -1629294393304187280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_28
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df0e35193f788790800000000000000
+      internalID: -7527626894003531816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_29
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1550598bfa21cf0800000000000000
+      internalID: -282970619261922889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdbcb682cae488230800000000000000
+      internalID: 3641246800048540636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_31
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2e8397070c78c60800000000000000
+      internalID: 7820430867254797002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_32
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8083967c1581fa170800000000000000
+      internalID: 8191792986727200776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_33
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1695fc8f41f0ba60800000000000000
+      internalID: 7687909887891052060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_34
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9211fd6a06d8a0ef0800000000000000
+      internalID: -141144992052735703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_35
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f5aab1c6bb4c3990800000000000000
+      internalID: -7404960438997572109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_36
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1999ef4b46e36aaf0800000000000000
+      internalID: -385552115839362671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_37
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2594c4f41b29f70800000000000000
+      internalID: 9192604743557010167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_38
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df03339f0fabe1d0800000000000000
+      internalID: -3320367818826641453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_39
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73848a762089257b0800000000000000
+      internalID: -5236956280582027209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_40
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6484ed6eac4e84f0800000000000000
+      internalID: -824637369710508949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_41
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81587bad40892e9d0800000000000000
+      internalID: -2746465676125829864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_42
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4cac82c6bce859f0800000000000000
+      internalID: -479373090622755764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_43
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 183f34778eb1dcbd0800000000000000
+      internalID: -2608397923930344575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_44
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a5343e66da33c20800000000000000
+      internalID: 3185080018892184170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_45
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 836a47b9523754b80800000000000000
+      internalID: -8411190123685435848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_46
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a46d27ffc6daee470800000000000000
+      internalID: 8425862636510565962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_47
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67aa32dd0d9d45ba0800000000000000
+      internalID: -6101012104093652362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_48
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd622c44481e647f0800000000000000
+      internalID: -628567139766098213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_49
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a45434f3076fdf0800000000000000
+      internalID: -146806520829097442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_50
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4452e49818fb18c0800000000000000
+      internalID: -4027352657292012465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_51
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b4164912ef4e980800000000000000
+      internalID: -8510397975646614655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_52
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a785716a4584bc010800000000000000
+      internalID: 1210140453280110714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_53
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8e92efd4c996c30800000000000000
+      internalID: 4353182373620869367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_54
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 827bc51c5613de2f0800000000000000
+      internalID: -942042433945028824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_55
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3212a329b7253eb70800000000000000
+      internalID: 8927069577066193187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_56
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ebe8f08cb0fa960800000000000000
+      internalID: 7615318448789175894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_57
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63cb7f84ee2451170800000000000000
+      internalID: 8148492691990625334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_58
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f79d06becbf59bd0800000000000000
+      internalID: -2623914342637266953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_59
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818b07baef517b1c0800000000000000
+      internalID: -4488094320109242344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_60
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b8a4f0e90d598670800000000000000
+      internalID: 8541460465295075506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_61
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266d7765936a7fd80800000000000000
+      internalID: -8216916229920139678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_62
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df111b2b7bd84e90800000000000000
+      internalID: -7041136695343767598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_63
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa515613b333ad5c0800000000000000
+      internalID: -4189980173990029910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_64
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726ac6d3e41c622e0800000000000000
+      internalID: -2150819230240692697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_65
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6abfb3cc164ef9860800000000000000
+      internalID: 7538995409930943398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_66
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db0a2fb871c9c390800000000000000
+      internalID: -7797488555467863082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_67
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6c79f22bb6f4500800000000000000
+      internalID: 382642906396608223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_68
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b194a300d454d460800000000000000
+      internalID: 7265525351246500280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_69
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93b3259b806b4000800000000000000
+      internalID: 21216775872164762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_70
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3894df3f6fb4c90800000000000000
+      internalID: -7184377252752555073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_71
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1dc533a0156c1a0800000000000000
+      internalID: -6789650283961200190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_72
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1162a48e4f84a7720800000000000000
+      internalID: 2844666331344283153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_73
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18f01bb36b2c27770800000000000000
+      internalID: 8607155925799735169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_74
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e22bb44a7884c840800000000000000
+      internalID: 5243465924886602471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_75
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d4250ea554a6a10800000000000000
+      internalID: 1903410049130319121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_76
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc7c1df5c1b7b3f0800000000000000
+      internalID: -885043337841836834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_77
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 962991d6e938a78f0800000000000000
+      internalID: -541976088686259607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_78
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f682e560012cca0800000000000000
+      internalID: -5998214134168522982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_79
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c82c34b98f0ed70800000000000000
+      internalID: 9070522995264621617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_80
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec4298ead8015250800000000000000
+      internalID: 5931531920521448681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_81
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d79bbedfd98b07d0800000000000000
+      internalID: -2951113536203679786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_82
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c730a99b389d2b60800000000000000
+      internalID: 7722996317758175177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_83
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0258b059d122edf60800000000000000
+      internalID: 8060917893489722656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_84
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e6c47fb240945f0800000000000000
+      internalID: -772081274238243210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_85
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f53c0b4d90faa60800000000000000
+      internalID: 7687373898048036672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_86
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f2bf859669cde50800000000000000
+      internalID: 6835503713650159368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_87
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c3739857829f260800000000000000
+      internalID: 7131775970196274242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_88
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 135
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf36c64ded14915d0800000000000000
+      internalID: -3091367243910716421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_89
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 135
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98aecf77fb2696140800000000000000
+      internalID: 4713407059511274121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_90
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054037b6a0168f7f0800000000000000
+      internalID: -578605854736841648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_91
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a042c20915a1fd70800000000000000
+      internalID: 9075216250967310496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_92
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b26170d01ad9000800000000000000
+      internalID: 44368648669113163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_93
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef715b60b5c9e2040800000000000000
+      internalID: 4624805782124566526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_94
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a576e9f6e0d5fc90800000000000000
+      internalID: -7136568344044997214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_95
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0100e7a397792c230800000000000000
+      internalID: 3657652394306437136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_96
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c25766eaf52a0e0800000000000000
+      internalID: -2260138860338664332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_97
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 803f49cd54cd1bbb0800000000000000
+      internalID: -4921910725127638264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_98
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 3
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dee13c4d3994d0d00800000000000000
+      internalID: 940488796468879085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasto_basic_tileset1_99
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 3
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 368c199331d0064a0800000000000000
+      internalID: -6602262677503752093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

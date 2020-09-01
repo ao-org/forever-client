@@ -1,0 +1,2521 @@
+fileFormatVersion: 2
+guid: 64a47d1318f84d6499fbe85672865fb1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1442909420631212951
+    second: tierra_basic_tileset2_0
+  - first:
+      213: 4385890275764600020
+    second: tierra_basic_tileset2_1
+  - first:
+      213: 8903060040238427
+    second: tierra_basic_tileset2_2
+  - first:
+      213: 2437588073954158866
+    second: tierra_basic_tileset2_3
+  - first:
+      213: 738836479182639141
+    second: tierra_basic_tileset2_4
+  - first:
+      213: -6171964389125856596
+    second: tierra_basic_tileset2_5
+  - first:
+      213: 5165041442171278240
+    second: tierra_basic_tileset2_6
+  - first:
+      213: 2419189732975715531
+    second: tierra_basic_tileset2_7
+  - first:
+      213: -4406869696032583471
+    second: tierra_basic_tileset2_8
+  - first:
+      213: 5404629206502489442
+    second: tierra_basic_tileset2_9
+  - first:
+      213: -3575045750767080411
+    second: tierra_basic_tileset2_10
+  - first:
+      213: -8028812328331417678
+    second: tierra_basic_tileset2_11
+  - first:
+      213: -7569269334522455218
+    second: tierra_basic_tileset2_12
+  - first:
+      213: -135543485978179304
+    second: tierra_basic_tileset2_13
+  - first:
+      213: 3351625591091988783
+    second: tierra_basic_tileset2_14
+  - first:
+      213: 2279751834762828321
+    second: tierra_basic_tileset2_15
+  - first:
+      213: -3082625181378729818
+    second: tierra_basic_tileset2_16
+  - first:
+      213: -2322372758323307807
+    second: tierra_basic_tileset2_17
+  - first:
+      213: -9082565465248118174
+    second: tierra_basic_tileset2_18
+  - first:
+      213: -1992505038493632175
+    second: tierra_basic_tileset2_19
+  - first:
+      213: 5512310328467491748
+    second: tierra_basic_tileset2_20
+  - first:
+      213: -4641925928146901761
+    second: tierra_basic_tileset2_21
+  - first:
+      213: 5643655739859798208
+    second: tierra_basic_tileset2_22
+  - first:
+      213: 6284124019730181912
+    second: tierra_basic_tileset2_23
+  - first:
+      213: -7016850566753786342
+    second: tierra_basic_tileset2_24
+  - first:
+      213: -3159467905471781174
+    second: tierra_basic_tileset2_25
+  - first:
+      213: -1729604819839329834
+    second: tierra_basic_tileset2_26
+  - first:
+      213: 3572881997434059568
+    second: tierra_basic_tileset2_27
+  - first:
+      213: 4091111534405676855
+    second: tierra_basic_tileset2_28
+  - first:
+      213: 7673590155379263999
+    second: tierra_basic_tileset2_29
+  - first:
+      213: 4311069542878490142
+    second: tierra_basic_tileset2_30
+  - first:
+      213: 7249223653114300648
+    second: tierra_basic_tileset2_31
+  - first:
+      213: 5817218698769729466
+    second: tierra_basic_tileset2_32
+  - first:
+      213: -7496177918000809444
+    second: tierra_basic_tileset2_33
+  - first:
+      213: 4725879478214249477
+    second: tierra_basic_tileset2_34
+  - first:
+      213: -5783834676181524753
+    second: tierra_basic_tileset2_35
+  - first:
+      213: 3508399487894370678
+    second: tierra_basic_tileset2_36
+  - first:
+      213: 4894369374048147106
+    second: tierra_basic_tileset2_37
+  - first:
+      213: -1736176262334918244
+    second: tierra_basic_tileset2_38
+  - first:
+      213: 7103532727307887563
+    second: tierra_basic_tileset2_39
+  - first:
+      213: -7057230861372204608
+    second: tierra_basic_tileset2_40
+  - first:
+      213: 5276226161672148366
+    second: tierra_basic_tileset2_41
+  - first:
+      213: -8668777750922025060
+    second: tierra_basic_tileset2_42
+  - first:
+      213: 61604268154644666
+    second: tierra_basic_tileset2_43
+  - first:
+      213: 8568598663822116815
+    second: tierra_basic_tileset2_44
+  - first:
+      213: 7345745037340818123
+    second: tierra_basic_tileset2_45
+  - first:
+      213: -8641509484901154030
+    second: tierra_basic_tileset2_46
+  - first:
+      213: -9020830585168371962
+    second: tierra_basic_tileset2_47
+  - first:
+      213: 8259994832758514475
+    second: tierra_basic_tileset2_48
+  - first:
+      213: -2214793675456731553
+    second: tierra_basic_tileset2_49
+  - first:
+      213: -4799267777811402364
+    second: tierra_basic_tileset2_50
+  - first:
+      213: 6754685919876685497
+    second: tierra_basic_tileset2_51
+  - first:
+      213: -3019489554933661673
+    second: tierra_basic_tileset2_52
+  - first:
+      213: -1879026955764129465
+    second: tierra_basic_tileset2_53
+  - first:
+      213: 2680930953636832531
+    second: tierra_basic_tileset2_54
+  - first:
+      213: -2792828510443773131
+    second: tierra_basic_tileset2_55
+  - first:
+      213: 382159622535282264
+    second: tierra_basic_tileset2_56
+  - first:
+      213: -2444059595224971429
+    second: tierra_basic_tileset2_57
+  - first:
+      213: -7750873885196604614
+    second: tierra_basic_tileset2_58
+  - first:
+      213: 4046411133758162668
+    second: tierra_basic_tileset2_59
+  - first:
+      213: 3767783110877054649
+    second: tierra_basic_tileset2_60
+  - first:
+      213: -9124659433619333048
+    second: tierra_basic_tileset2_61
+  - first:
+      213: 2651257086301914189
+    second: tierra_basic_tileset2_62
+  - first:
+      213: 427591394246988220
+    second: tierra_basic_tileset2_63
+  - first:
+      213: 3766793932948656520
+    second: tierra_basic_tileset2_64
+  - first:
+      213: -5001674523019527244
+    second: tierra_basic_tileset2_65
+  - first:
+      213: -891156256758228383
+    second: tierra_basic_tileset2_66
+  - first:
+      213: -3436235231840991860
+    second: tierra_basic_tileset2_67
+  - first:
+      213: 642390374400433423
+    second: tierra_basic_tileset2_68
+  - first:
+      213: 6942820118877922966
+    second: tierra_basic_tileset2_69
+  - first:
+      213: 1401923294228854390
+    second: tierra_basic_tileset2_70
+  - first:
+      213: -121665845717313022
+    second: tierra_basic_tileset2_71
+  - first:
+      213: -5003764250226758018
+    second: tierra_basic_tileset2_72
+  - first:
+      213: 8031117551166661204
+    second: tierra_basic_tileset2_73
+  - first:
+      213: 829733912983426207
+    second: tierra_basic_tileset2_74
+  - first:
+      213: 4546147105342654247
+    second: tierra_basic_tileset2_75
+  - first:
+      213: -7873284854854720892
+    second: tierra_basic_tileset2_76
+  - first:
+      213: -779983375301636007
+    second: tierra_basic_tileset2_77
+  - first:
+      213: 6197237825546370254
+    second: tierra_basic_tileset2_78
+  - first:
+      213: 8922595843124550995
+    second: tierra_basic_tileset2_79
+  - first:
+      213: 785479506524326934
+    second: tierra_basic_tileset2_80
+  - first:
+      213: -8786605561831449974
+    second: tierra_basic_tileset2_81
+  - first:
+      213: -7508435223593803072
+    second: tierra_basic_tileset2_82
+  - first:
+      213: -6065926879702421896
+    second: tierra_basic_tileset2_83
+  - first:
+      213: 2301129189188315739
+    second: tierra_basic_tileset2_84
+  - first:
+      213: 5967129615160426039
+    second: tierra_basic_tileset2_85
+  - first:
+      213: 2372703333830142873
+    second: tierra_basic_tileset2_86
+  - first:
+      213: -8919406558982224465
+    second: tierra_basic_tileset2_87
+  - first:
+      213: 1790876183056001662
+    second: tierra_basic_tileset2_88
+  - first:
+      213: -4590011300863178780
+    second: tierra_basic_tileset2_89
+  - first:
+      213: -4576171573790948517
+    second: tierra_basic_tileset2_90
+  - first:
+      213: 8355280331036588644
+    second: tierra_basic_tileset2_91
+  - first:
+      213: -4172324791577353220
+    second: tierra_basic_tileset2_92
+  - first:
+      213: -2053181713898139842
+    second: tierra_basic_tileset2_93
+  - first:
+      213: 6237344771348214470
+    second: tierra_basic_tileset2_94
+  - first:
+      213: -8108148911671634042
+    second: tierra_basic_tileset2_95
+  - first:
+      213: -3363529778055509141
+    second: tierra_basic_tileset2_96
+  - first:
+      213: -2955013419755338809
+    second: tierra_basic_tileset2_97
+  - first:
+      213: -2958699053682251940
+    second: tierra_basic_tileset2_98
+  - first:
+      213: 768664527143160122
+    second: tierra_basic_tileset2_99
+  - first:
+      213: 399445151710311049
+    second: tierra_basic_tileset2_100
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793c9c3297e360410800000000000000
+      internalID: 1442909420631212951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dcf9c6e7ffcddc30800000000000000
+      internalID: 4385890275764600020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_2
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b55cc133941af1000800000000000000
+      internalID: 8903060040238427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_3
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21924c8307d04d120800000000000000
+      internalID: 2437588073954158866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_4
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52018c00ddfd04a00800000000000000
+      internalID: 738836479182639141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_5
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2eacba617c85aa0800000000000000
+      internalID: -6171964389125856596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_6
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a35aca73d9eda740800000000000000
+      internalID: 5165041442171278240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_7
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc42a46ae30b29120800000000000000
+      internalID: 2419189732975715531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_8
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d05b8c2c57a7d2c0800000000000000
+      internalID: -4406869696032583471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_9
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1190
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d384cd0a9110b40800000000000000
+      internalID: 5404629206502489442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c22c1c4d2e26ec0800000000000000
+      internalID: -3575045750767080411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_11
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b76781d9bde39090800000000000000
+      internalID: -8028812328331417678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_12
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b188ad4ad84f690800000000000000
+      internalID: -7569269334522455218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_13
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81907aaeae37e1ef0800000000000000
+      internalID: -135543485978179304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_14
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f298529a7bd538e20800000000000000
+      internalID: 3351625591091988783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_15
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a551f073e43af10800000000000000
+      internalID: 2279751834762828321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_16
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a82f30eab05835d0800000000000000
+      internalID: -3082625181378729818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_17
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea5810e74645cfd0800000000000000
+      internalID: -2322372758323307807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_18
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ac7a2b4de34f180800000000000000
+      internalID: -9082565465248118174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_19
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1058
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159396769333954e0800000000000000
+      internalID: -1992505038493632175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab850cc909af7c40800000000000000
+      internalID: 5512310328467491748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_21
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4e02b56f0949fb0800000000000000
+      internalID: -4641925928146901761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_22
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c800f87efa425e40800000000000000
+      internalID: 5643655739859798208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_23
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f64805081b53750800000000000000
+      internalID: 6284124019730181912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_24
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1664ae16932f9e90800000000000000
+      internalID: -7016850566753786342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_25
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac66b17fda05724d0800000000000000
+      internalID: -3159467905471781174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_26
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d95ca784953ff7e0800000000000000
+      internalID: -1729604819839329834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_27
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03bf1792f3d659130800000000000000
+      internalID: 3572881997434059568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_28
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73fe0c0d34c86c830800000000000000
+      internalID: 4091111534405676855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_29
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 926
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff9c05307911e7a60800000000000000
+      internalID: 7673590155379263999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1e274188eef3db30800000000000000
+      internalID: 4311069542878490142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_31
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8cc35218a6a9460800000000000000
+      internalID: 7249223653114300648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_32
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab70ee8e599eab050800000000000000
+      internalID: 5817218698769729466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_33
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a3f6866e938f790800000000000000
+      internalID: -7496177918000809444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_34
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50cc44eb852b59140800000000000000
+      internalID: 4725879478214249477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_35
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee1d9e8101bbbfa0800000000000000
+      internalID: -5783834676181524753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_36
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6793b16feb650b030800000000000000
+      internalID: 3508399487894370678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_37
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6d0b3a30b4ce340800000000000000
+      internalID: 4894369374048147106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_38
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c91df0853ecd7e7e0800000000000000
+      internalID: -1736176262334918244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_39
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 794
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc36c8d1161d49260800000000000000
+      internalID: 7103532727307887563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_40
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c95cf12cedaf0e90800000000000000
+      internalID: -7057230861372204608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_41
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8557194dbbe83940800000000000000
+      internalID: 5276226161672148366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_42
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97ab7f809052b780800000000000000
+      internalID: -8668777750922025060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_43
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab8610861ccdad000800000000000000
+      internalID: 61604268154644666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_44
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc7010c1617c9e670800000000000000
+      internalID: 8568598663822116815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_45
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcab949213451f560800000000000000
+      internalID: 7345745037340818123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_46
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2134c4d78e0331880800000000000000
+      internalID: -8641509484901154030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_47
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f5f0090629fc280800000000000000
+      internalID: -9020830585168371962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_48
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b23222d798561a270800000000000000
+      internalID: 8259994832758514475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_49
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 662
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56ae9bf2e87341e0800000000000000
+      internalID: -2214793675456731553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_50
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 481b2993263956db0800000000000000
+      internalID: -4799267777811402364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_51
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be15976e077dbd50800000000000000
+      internalID: 6754685919876685497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_52
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7104d2b6f3e9816d0800000000000000
+      internalID: -3019489554933661673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_53
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 741ab4270fa5ce5e0800000000000000
+      internalID: -1879026955764129465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_54
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3156fd68f74943520800000000000000
+      internalID: 2680930953636832531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_55
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5336a6c4441ed39d0800000000000000
+      internalID: -2792828510443773131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_56
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e76b4e624bd4500800000000000000
+      internalID: 382159622535282264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_57
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b570bb05fb4f41ed0800000000000000
+      internalID: -2444059595224971429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_58
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b210e644d5f6490800000000000000
+      internalID: -7750873885196604614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_59
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 530
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce647d2cc7db72830800000000000000
+      internalID: 4046411133758162668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_60
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b60b8ad6cad94430800000000000000
+      internalID: 3767783110877054649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_61
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840e3b2f692be5180800000000000000
+      internalID: -9124659433619333048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_62
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d444345e5482bc420800000000000000
+      internalID: 2651257086301914189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_63
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb11b1b8b1c1fe500800000000000000
+      internalID: 427591394246988220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_64
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881508bef17564430800000000000000
+      internalID: 3766793932948656520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_65
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bbbc45758b769ab0800000000000000
+      internalID: -5001674523019527244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_66
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a1f842b1af1a3f0800000000000000
+      internalID: -891156256758228383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_67
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c858f69334a0050d0800000000000000
+      internalID: -3436235231840991860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_68
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0d944954aa3ae800800000000000000
+      internalID: 642390374400433423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_69
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 398
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696672d0d1ad95060800000000000000
+      internalID: 6942820118877922966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_70
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6763bd2fec1a47310800000000000000
+      internalID: 1401923294228854390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_71
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ad8b4de81cf4ef0800000000000000
+      internalID: -121665845717313022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_72
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e6f6decee0f8ab0800000000000000
+      internalID: -5003764250226758018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_73
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452a1b2bcd2447f60800000000000000
+      internalID: 8031117551166661204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_74
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94d875099ec38b00800000000000000
+      internalID: 829733912983426207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_75
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7278e9ea4b8271f30800000000000000
+      internalID: 4546147105342654247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_76
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482ebe293297cb290800000000000000
+      internalID: -7873284854854720892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_77
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9509f60b041fc25f0800000000000000
+      internalID: -779983375301636007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_78
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc3e4cc7f2010650800000000000000
+      internalID: 6197237825546370254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_79
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 266
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35dd0d735ad63db70800000000000000
+      internalID: 8922595843124550995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_80
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c4bb4137596ea00800000000000000
+      internalID: 785479506524326934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_81
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8a90918bc4bf0680800000000000000
+      internalID: -8786605561831449974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_82
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c229ae02fdacc790800000000000000
+      internalID: -7508435223593803072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_83
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ee7dd34af71dba0800000000000000
+      internalID: -6065926879702421896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_84
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a2adf3ec04fef10800000000000000
+      internalID: 2301129189188315739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_85
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73eb95015c08fc250800000000000000
+      internalID: 5967129615160426039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_86
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ba45a6c198de020800000000000000
+      internalID: 2372703333830142873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_87
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5439cddf6e73480800000000000000
+      internalID: -8919406558982224465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_88
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7aa2c766687ad810800000000000000
+      internalID: 1790876183056001662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_89
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 134
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e785017a010d40c0800000000000000
+      internalID: -4590011300863178780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_90
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5343f0033c2e70c0800000000000000
+      internalID: -4576171573790948517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_91
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a7e32613be3f370800000000000000
+      internalID: 8355280331036588644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_92
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf3e97e35bce816c0800000000000000
+      internalID: -4172324791577353220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_93
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f06c30c12a183e0800000000000000
+      internalID: -2053181713898139842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_94
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2b9ddc5008f8650800000000000000
+      internalID: 6237344771348214470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_95
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68797dd06811a7f80800000000000000
+      internalID: -8108148911671634042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_96
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b8d83dc775251d0800000000000000
+      internalID: -3363529778055509141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_97
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c388f873feadf6d0800000000000000
+      internalID: -2955013419755338809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_98
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c572cf3f2e690f6d0800000000000000
+      internalID: -2958699053682251940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tierra_basic_tileset2_99
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 2
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39cfcb9058daaa00800000000000000
+      internalID: 768664527143160122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
