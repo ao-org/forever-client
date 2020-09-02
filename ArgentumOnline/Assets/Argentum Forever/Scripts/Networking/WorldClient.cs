@@ -325,7 +325,7 @@ public class WorldClient : MonoBehaviour {
 							}
 
 							GameObject player = (GameObject)Resources.Load(c.Prefab());
-							Debug.Assert(player != null, "Cannot find PLAYER in Map");
+							Debug.Assert(player != null, "Cannot find Prefab, server is probably sending a prefab which does not exist in the client");
 							player.SetActive(false);
 							var spawn_pos = c.Position();
 							Vector3  v3pos = new Vector3(spawn_pos.Item2,spawn_pos.Item3, 0);
