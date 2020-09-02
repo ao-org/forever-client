@@ -244,7 +244,7 @@ public class WorldClient : MonoBehaviour {
 	private void InstantiatePlayerCharacterSprite(){
 		try{
 			// Load character Prefab
-			GameObject player = (GameObject)Resources.Load("Characters/Human");
+			GameObject player = (GameObject)Resources.Load("Playable characters/Human");
 			Debug.Assert(player != null, "Cannot find PLAYER in Resources prefabs");
 			player.SetActive(false);
 			// Clone plater, set position and name
