@@ -158,6 +158,7 @@ public class LocalPlayerMovement : MonoBehaviour
             mAnimator.SetFloat("Vertical", mMovementDirection.y);
         }
 
+
         // Set the "speed" animator parameter
         mAnimator.SetFloat("Speed", mFinalMovementSpeed);
 
@@ -181,5 +182,57 @@ public class LocalPlayerMovement : MonoBehaviour
 
         //FIXME wot?
         Animate();
-    }    
+    }   
+    
+    public CardinalDirection GetCardinalDirection(float x, float y)
+    {
+        CardinalDirection result = CardinalDirection.SOUTHWEST;
+
+        // SOUTH
+        if (x == 0 && y == -1)
+        {
+            result = CardinalDirection.SOUTH;
+        }
+
+        // SOUTH EAST
+        else if (x == 1 && y == -1)
+        {
+            result = CardinalDirection.SOUTHEAST;
+        }
+
+        // EAST
+        else if (x == 1 && y == 0)
+        {
+            result = CardinalDirection.EAST;
+        }
+
+        // NORTH EAST
+        else if (x == 1 && y == 1)
+        {
+            result = CardinalDirection.NORTHEAST;
+        }
+
+        // NORTH
+        else if (x == 0 && y == 1)
+        {
+            result = CardinalDirection.NORTH;
+        }
+
+        // NORTH WEST
+        else if (x == -1 && y == 1)
+        {
+            result = CardinalDirection.NORTHWEST;
+        }
+
+        // WEST
+        else if (x == -1 && y == 0)
+        {
+            result = CardinalDirection.WEST;
+        }
+
+        // SOUTH WEST (default value, nothing to do)
+
+        // Return the direction
+        return result;
+    }
 }

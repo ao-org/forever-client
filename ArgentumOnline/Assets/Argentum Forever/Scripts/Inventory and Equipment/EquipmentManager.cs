@@ -90,4 +90,9 @@ public class EquipmentManager : MonoBehaviour
         // NECKLACE
         mEquipmentSlots.Add(EquipmentSlotType.NECKLACE, new EquipmentSlot(EquipmentSlotType.NECKLACE));
     }
+
+    public Item GetItemInSlot(EquipmentSlotType slot)
+    {
+        return mEquipmentSlots[slot].mEquipedItem;
+    }
 }
