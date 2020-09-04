@@ -38,7 +38,7 @@ https://docs.microsoft.com/en-us/windows/mixed-reality/performance-recommendatio
 - Jorge Gabriel Leni
 - Cristobal Zingarelli @pimblack
 - Bruno de Angelis @brunodeangelis
-- Sebastian Avena @linquen
+- Sebastian Avena @linqen
 - Juan I. Tonelli @jitdevar
 
 
