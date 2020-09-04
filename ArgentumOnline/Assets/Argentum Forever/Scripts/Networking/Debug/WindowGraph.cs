@@ -9,6 +9,8 @@ public class WindowGraph : MonoBehaviour
     private RectTransform mGraphContainer;
     private Texture2D mTexture;
     private List<GameObject> mBars;
+    private List<int> mValues;
+    private System.Diagnostics.Stopwatch mInputStopwatch;
 
     private void Awake(){
         mTexture = new Texture2D(1,1);
@@ -17,8 +19,10 @@ public class WindowGraph : MonoBehaviour
         mSprite = Sprite.Create(mTexture, new Rect(0, 0, 1, 1), new Vector2(0, 0));
         mGraphContainer = transform.Find("GraphContainer").GetComponent<RectTransform>();
         mBars = new List<GameObject>();
-        List<int> valueList = new List<int>() { 5,78,56,45,30,22,17,15,13,17,25,37,40,36,33};
-        ShowGraph(valueList);
+        mValues = new List<int>() { 5,78,56,45,30,22,17,15,13,17,25,37,40,36,33};
+        ShowGraph(mValues);
+        mInputStopwatch = new System.Diagnostics.Stopwatch();
+        mInputStopwatch.Start();
     }
 
     private GameObject CreateBar(Vector2 Pos, float barWidth){
@@ -57,18 +61,33 @@ public class WindowGraph : MonoBehaviour
             */
         }
     }
-    void Update()
+    void FixedUpdate()
     {
-        /*
-        for (var i = 0; i < mBars.Count; i++) {
-                Destroy(mBars[i]);
+
+        if ( transform.localScale.x != 0f){
+            // We limit the number of movement the player can do aiming to make PCs speed framerate independet
+            mInputStopwatch.Stop();
+            if(mInputStopwatch.ElapsedMilliseconds >= 1000){
+                mInputStopwatch = System.Diagnostics.Stopwatch.StartNew();
+                var first = mBars[0];
+                mBars.RemoveAt(0);
+                Destroy(first);
+                mValues.RemoveAt(0);
+                for (var i = 0; i < mBars.Count; i++) {
+                        Destroy(mBars[i]);
+                }
+                mValues.Add(Random.Range(5, 100));
+                if(mValues.Count > 0)
+                    ShowGraph(mValues);
+
+            }
+            else {
+                mInputStopwatch.Start();
+            }
+
         }
-        List<int> valueList = new List<int>();
-        for(int i=0; i< 20; ++i){
-            valueList.Add(Random.Range(5, 100));
-        }
-        ShowGraph(valueList);
-        */
+
+
     }
 
     private void CreateDotConnection(Vector2 dotPositionA,Vector2 dotPositionB){
