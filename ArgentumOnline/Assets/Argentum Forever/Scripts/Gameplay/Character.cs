@@ -1,5 +1,5 @@
 using System;
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Threading;
@@ -8,16 +8,17 @@ using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Character : MonoBehaviour {
+public class Character : MonoBehaviour
+{
 
-    [SerializeField] private Vector2 _movementDirection;
-    [SerializeField] private float _baseMovementSpeed = 1.0f;
+    [SerializeField] private Vector2 mMovementDirection;
+    [SerializeField] private float mBaseMovementSpeed = 1.0f;
 
-    private float _inputMovementSpeed;
-    private float _finalMovementSpeed;
+    private float mInputMovementSpeed;
+    private float mFinalMovementSpeed;
 
-    private Rigidbody2D _rigidBody;
-    [SerializeField] private Animator _animator;
+    private Rigidbody2D mRigidBody;
+    [SerializeField] private Animator mAnimator;
 
     public Collider2D collider1;
     public Collider2D collider2;
@@ -25,10 +26,12 @@ public class Character : MonoBehaviour {
     private WorldClient mWorldClient = null;
     private Vector3 mTeleportingPos = new Vector3();
     private bool mPC = false;
-    private Color mSkinColor = new Color(1,1,1,1);
+    private Color mSkinColor = new Color(1, 1, 1, 1);
     private SpriteRenderer mSpriteRenderer = null;
 
-    private static Dictionary<string,Color> ColorDict
+    private bool mIsAttacking = false;
+
+    private static Dictionary<string, Color> ColorDict
         = new Dictionary<string, Color>
     {
         { "1" , new Color(0.141f, 0.141f, 0.141f,1) },
@@ -43,7 +46,8 @@ public class Character : MonoBehaviour {
         { "10", new Color(1, 1, 1,1) }
     };
 
-    public Color GetColorFromString(string color){
+    public Color GetColorFromString(string color)
+    {
 
         return ColorDict[color];
     }
@@ -58,8 +62,9 @@ public class Character : MonoBehaviour {
         return mTeleportingPos;
     }
 
-    private void Awake() {
-        _rigidBody = GetComponent<Rigidbody2D>();
+    private void Awake()
+    {
+        mRigidBody = GetComponent<Rigidbody2D>();
         mWorldClient = GameObject.Find("WorldClient").GetComponent<WorldClient>();
         UnityEngine.Debug.Assert(mWorldClient != null);
         mSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -67,15 +72,19 @@ public class Character : MonoBehaviour {
 
     }
 
-    private void Start() {
+    private void Start()
+    {
         Physics2D.IgnoreCollision(collider1, collider2, true);
     }
 
-    private void Update() {
-        if(mPC) {
+    private void Update()
+    {
+        if (mPC)
+        {
+            UpdateBlockingAnimations();
             ProcessInputs();
-        }
-        else {
+        } else
+        {
             //TODO
         }
         Animate();
@@ -84,81 +93,118 @@ public class Character : MonoBehaviour {
     {
         mSkinColor = GetColorFromString(color);
         var renderer = GetComponent<Renderer>();
-        Debug.Assert(renderer!=null);
+        Debug.Assert(renderer != null);
         renderer.material.EnableKeyword("_COLOR_ADJUST");
         renderer.material.SetColor("_COLOR_ADJUST", Color.blue);
     }
 
-    private Queue<Tuple<short,float,float>> mActionQueue = new Queue<Tuple<short,float,float>>();
+    private Queue<Tuple<short, float, float>> mActionQueue = new Queue<Tuple<short, float, float>>();
 
-    public void PushMovement(Tuple<short,float,float> newpos){
+    public void PushMovement(Tuple<short, float, float> newpos)
+    {
         mActionQueue.Enqueue(newpos);
     }
 
-    public void SetPlayerCharater(bool pc) {
+    public void SetPlayerCharater(bool pc)
+    {
         mPC = pc;
     }
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         Move();
     }
 
-    private void ProcessInputs() {
-        _movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        _inputMovementSpeed = Mathf.Clamp(_movementDirection.magnitude, 0.0f, 1.0f);
-        _movementDirection.Normalize();
+    private void ProcessInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !mIsAttacking)
+        {
+            mIsAttacking = true;
+            mFinalMovementSpeed = 0;
+            mAnimator.SetTrigger("DoMeleeAttack");
+        } else if (!mIsAttacking)
+        {
+            mMovementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            mInputMovementSpeed = Mathf.Clamp(mMovementDirection.magnitude, 0.0f, 1.0f);
+            mMovementDirection.Normalize();
 
-        if (Input.GetKeyDown(KeyCode.R)) {
-            if (_baseMovementSpeed < 2.0f) _baseMovementSpeed = 2.0f;
-            else _baseMovementSpeed = 1.0f;
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (mBaseMovementSpeed < 2.0f) mBaseMovementSpeed = 2.0f;
+                else mBaseMovementSpeed = 1.0f;
+            }
+
+            mFinalMovementSpeed = mInputMovementSpeed * mBaseMovementSpeed * 2.0f;
         }
 
-        _finalMovementSpeed = _inputMovementSpeed * _baseMovementSpeed * 2.0f;
     }
 
-    private void Move() {
-        Vector2 newpos = new Vector2(_rigidBody.position.x,_rigidBody.position.y);
-        if(mPC) {
-            newpos = _rigidBody.position + _movementDirection * _finalMovementSpeed * Time.fixedDeltaTime;
-            if(_finalMovementSpeed> 0f){
-                    mWorldClient.OnPlayerMoved(newpos);
-            }
-        }
-        else {
-            if (mActionQueue.Count > 0){
-                Tuple<short,float,float> e = mActionQueue.Dequeue();
-                if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_MOVED"])
-                {
-                    newpos = new Vector2(e.Item2,e.Item3);
-                    var old_pos = new Vector2(transform.position.x,transform.position.y);
-                    var delta = newpos - old_pos;
-                    _movementDirection = delta;
-                    _movementDirection.Normalize();
-                    _inputMovementSpeed = Mathf.Clamp(_movementDirection.magnitude, 0.0f, 1.0f);
-                    _finalMovementSpeed = _inputMovementSpeed * _baseMovementSpeed * 2.0f;
+    private void Move()
+    {
+        Vector2 newpos = new Vector2(mRigidBody.position.x, mRigidBody.position.y);
+        if (mPC)
+        {
+            newpos = mRigidBody.position + mMovementDirection * mFinalMovementSpeed * Time.fixedDeltaTime;
 
-                }
-                else if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_MELEE"])
+            if (mIsAttacking)
+            {
+                mFinalMovementSpeed = 0;
+            }
+
+            if (mFinalMovementSpeed > 0f)
+            {
+                mWorldClient.OnPlayerMoved(newpos);
+            }
+        } else
+        {
+            if (mActionQueue.Count > 0)
+            {
+                Tuple<short, float, float> e = mActionQueue.Dequeue();
+                if (e.Item1 == ProtoBase.ProtocolNumbers["CHARACTER_MOVED"])
                 {
+                    newpos = new Vector2(e.Item2, e.Item3);
+                    var old_pos = new Vector2(transform.position.x, transform.position.y);
+                    var delta = newpos - old_pos;
+                    mMovementDirection = delta;
+                    mMovementDirection.Normalize();
+                    mInputMovementSpeed = Mathf.Clamp(mMovementDirection.magnitude, 0.0f, 1.0f);
+                    mFinalMovementSpeed = mInputMovementSpeed * mBaseMovementSpeed * 2.0f;
+
+                } else if (e.Item1 == ProtoBase.ProtocolNumbers["CHARACTER_MELEE"])
+                {
+                    //mAnimator.SetTrigger("DoMeleeAttack");
                     //PlayAnimation("Attack");
-                }
-                else if(e.Item1==ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"])
+                } else if (e.Item1 == ProtoBase.ProtocolNumbers["CHARACTER_NEWPOS"])
                 {
                     // We teleport to the current scene, only need to update the player position
                     var old_pos = transform.position;
-                    var new_pos = new Vector3(e.Item2,e.Item3,old_pos.z);
+                    var new_pos = new Vector3(e.Item2, e.Item3, old_pos.z);
                     transform.position = new_pos;
                 }
             }//
         }
-        _rigidBody.MovePosition(newpos);
+        mRigidBody.MovePosition(newpos);
     }
 
-    private void Animate() {
-        if (_movementDirection != Vector2.zero) {
-            _animator.SetFloat("Horizontal", _movementDirection.x);
-            _animator.SetFloat("Vertical", _movementDirection.y);
+    private void Animate()
+    {
+        if (mMovementDirection != Vector2.zero)
+        {
+            mAnimator.SetFloat("Horizontal", mMovementDirection.x);
+            mAnimator.SetFloat("Vertical", mMovementDirection.y);
         }
 
-        _animator.SetFloat("Speed", _finalMovementSpeed);
+        mAnimator.SetFloat("Speed", mFinalMovementSpeed);
+    }
+
+    private void UpdateBlockingAnimations()
+    {
+        if (mIsAttacking)
+        {
+            // If the animation already finished...
+            if (!mAnimator.GetCurrentAnimatorStateInfo(0).IsName("Combat"))
+            {
+                mIsAttacking = false;
+            }
+        }
     }
 }
