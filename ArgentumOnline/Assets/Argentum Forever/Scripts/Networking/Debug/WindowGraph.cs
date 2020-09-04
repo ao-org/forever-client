@@ -44,7 +44,6 @@ public class WindowGraph : MonoBehaviour
         float xSize =20f;
         float yMaximum =200f;
         float graphHeight = mGraphContainer.sizeDelta.y;
-        Debug.Log("graphHeight " + mGraphContainer.sizeDelta.y);
         GameObject lastCircle = null;
         for(int i=0; i< valueList.Count;++i){
             float xPosition = xSize + i * xSize ;
