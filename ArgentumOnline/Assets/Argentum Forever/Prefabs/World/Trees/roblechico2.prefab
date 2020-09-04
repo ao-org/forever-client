@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 3813104113767952347}
   - component: {fileID: 3813104113767952349}
   - component: {fileID: 3813104113767952350}
+  - component: {fileID: 1418848826}
+  - component: {fileID: 1418848827}
   m_Layer: 0
   m_Name: roblechico2
   m_TagString: Untagged
@@ -132,6 +134,44 @@ CapsuleCollider2D:
   m_Offset: {x: 0.02, y: 0.01}
   m_Size: {x: 0.35894832, y: 0.2441841}
   m_Direction: 1
+--- !u!61 &1418848826
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813104113767952346}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3346994, y: 2.89}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.44421676, y: 0.08826659}
+    oldSize: {x: 6, y: 6}
+    newSize: {x: 6, y: 7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.73, y: 4.3}
+  m_EdgeRadius: 0
+--- !u!114 &1418848827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813104113767952346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b3973ee4dfc834e9ac3f3b32a7502e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3813104114105955633
 GameObject:
   m_ObjectHideFlags: 0
