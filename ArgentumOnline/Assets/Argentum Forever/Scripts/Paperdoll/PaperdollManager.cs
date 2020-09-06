@@ -17,7 +17,7 @@ public class PaperdollManager : MonoBehaviour
         PaperdollSlot[] paperdollSlots = GetComponentsInChildren<PaperdollSlot>();
         foreach (PaperdollSlot slot in paperdollSlots)
         {
-            mPaperdollSlots.Add(slot.type, slot);
+            mPaperdollSlots.Add(slot.mType, slot);
         }
     }
     #endregion
@@ -40,7 +40,7 @@ public class PaperdollManager : MonoBehaviour
         }
     }
 
-    public void LoadAnimationSet(AnimationClip[] animations, EquipmentSlotType slot)
+    public void LoadAnimationSet(StringAnimationClipDictionary animations, EquipmentSlotType slot)
     {
         mPaperdollSlots[slot].LoadAnimationSet(animations);
     }

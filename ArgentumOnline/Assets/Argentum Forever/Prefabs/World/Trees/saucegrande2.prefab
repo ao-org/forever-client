@@ -111,6 +111,8 @@ GameObject:
   - component: {fileID: 477008737900649471}
   - component: {fileID: 477008737900649465}
   - component: {fileID: 477008737900649464}
+  - component: {fileID: 325268838358778115}
+  - component: {fileID: 8937804032902495260}
   m_Layer: 0
   m_Name: saucegrande2
   m_TagString: Untagged
@@ -200,6 +202,44 @@ CapsuleCollider2D:
   m_Offset: {x: -0.013839942, y: 0.16519739}
   m_Size: {x: 1.1826046, y: 0.8033122}
   m_Direction: 1
+--- !u!61 &325268838358778115
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477008737900649468}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 3.97}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5178897, y: 0.05601093}
+    oldSize: {x: 7, y: 8}
+    newSize: {x: 6, y: 7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.49, y: 5.73}
+  m_EdgeRadius: 0
+--- !u!114 &8937804032902495260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477008737900649468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b3973ee4dfc834e9ac3f3b32a7502e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2006401746212367862
 GameObject:
   m_ObjectHideFlags: 0

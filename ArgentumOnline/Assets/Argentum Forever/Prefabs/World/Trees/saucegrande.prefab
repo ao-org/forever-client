@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 3427317961843269837}
   - component: {fileID: 256195513580840286}
   - component: {fileID: 6619128795073540769}
+  - component: {fileID: 2884986624133775386}
+  - component: {fileID: 948643412810078543}
   m_Layer: 0
   m_Name: saucegrande
   m_TagString: Untagged
@@ -164,6 +166,44 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &2884986624133775386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825847815683964109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b3973ee4dfc834e9ac3f3b32a7502e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &948643412810078543
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825847815683964109}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03415346, y: 4.08}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.49620518, y: 0.07049605}
+    oldSize: {x: 9, y: 8.03125}
+    newSize: {x: 9, y: 8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.25, y: 5.61}
+  m_EdgeRadius: 0
 --- !u!1 &8697022211819556996
 GameObject:
   m_ObjectHideFlags: 0
