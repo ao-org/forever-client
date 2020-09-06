@@ -899,7 +899,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 86.21.218.127
+  m_Text: localhost
 --- !u!222 &92132599
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5481,7 +5481,7 @@ GameObject:
   - component: {fileID: 675142189}
   - component: {fileID: 675142188}
   m_Layer: 0
-  m_Name: ServerPortInputField
+  m_Name: GameServerPortInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7338,6 +7338,75 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1001 &983706889
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -38.31745
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -42.352566
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.014858
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155067, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: m_Name
+      value: NetworkManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a1928a2ff2fffe4aa073b6c054a447c, type: 3}
 --- !u!1 &1019944617
 GameObject:
   m_ObjectHideFlags: 0
@@ -16146,7 +16215,7 @@ GameObject:
   - component: {fileID: 2107173480}
   - component: {fileID: 2107173479}
   m_Layer: 0
-  m_Name: ServerIPInputField
+  m_Name: GameServerIPInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16232,7 +16301,7 @@ MonoBehaviour:
   m_CaretColor: {r: 1, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0, g: 0.3955756, b: 0.9056604, a: 0.7529412}
-  m_Text: 86.21.218.127
+  m_Text: localhost
   m_CaretBlinkRate: 4
   m_CaretWidth: 3
   m_ReadOnly: 0

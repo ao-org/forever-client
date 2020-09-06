@@ -13,6 +13,7 @@ using UnityEngine.Localization.Settings;
 using UnityEngine.Localization;
 using UnityEngine.EventSystems;
 using System.Linq;
+using Mirror;
 
 public class MainMenu : MonoBehaviour
 {
@@ -64,6 +65,10 @@ public class MainMenu : MonoBehaviour
     public LocalizedString SignupText_TERMS_CONDITIONS_TITLE;
     public LocalizedString SignupText_TERMS_CONDITIONS_TEXT;
     public bool IsLoginPanel;
+
+    protected string services_server_address = "86.21.218.127";
+    protected string services_server_port = "4000";
+    protected string chat_server_port = "7007"; 
 
     string[] strRaza = new string[] { "GNOMO", "DWARF", "ELF", "HUMANO" }; 
 
@@ -133,23 +138,21 @@ public class MainMenu : MonoBehaviour
     public void OnLoginOkay(){
         Debug.Log("LOGIN_OKAY");
         //At this point the LoginClient logged into the user's account and we hold a valid session Token
-        InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
-        Debug.Assert(server_address_input!=null);
-        string server_address_string    = server_address_input.text;
-        string world_server_port_string       = "6000";
-        string chat_server_port_string        = "7007";
+        InputField game_server_address_input = GameObject.Find("GameServerIPInputField").GetComponent<InputField>();
+        InputField game_server_port_input = GameObject.Find("GameServerPortInputField").GetComponent<InputField>();
+        string game_server_address_string = game_server_address_input.text;
+        string game_server_port_string = game_server_address_input.text;
         try {
-              //Attempt to connect to game Server
-              Debug.Log("World Server address: " + server_address_string + ":" + world_server_port_string);
-              mWorldClient.ConnectToTcpServer(server_address_string,world_server_port_string);
+            NetworkManager.singleton.networkAddress = game_server_address_string;
+            NetworkManager.singleton.StartClient();
         }
         catch (Exception e){
   			     Debug.Log("Failed to connect to world server " + e);
         }
         try {
               //Attempt to connect to game Server
-              Debug.Log("Chat Server address: " + server_address_string + ":" + chat_server_port_string);
-              mChatClient.ConnectToTcpServer(server_address_string,chat_server_port_string);
+              Debug.Log("Chat Server address: " + services_server_address + ":" + chat_server_port);
+              mChatClient.ConnectToTcpServer(services_server_address, chat_server_port);
         }
         catch (Exception e){
   			     Debug.Log("Failed to connect to chat server " + e);
@@ -172,21 +175,17 @@ public class MainMenu : MonoBehaviour
     }
     public void OnSendCodeButton(){
         Debug.Log("OnSendCodeButton");
-        InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
-        InputField server_port_input    = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
         //InputField username_input       = GameObject.Find("UsernameInputField").GetComponent<InputField>();
         //InputField password_input       = GameObject.Find("PasswordInputField").GetComponent<InputField>();
         InputField code_input           = GameObject.Find("ActivateCodeInputField").GetComponent<InputField>();
 
-        Debug.Assert(server_address_input!=null);
-        Debug.Assert(server_port_input!=null);
         //Debug.Assert(username_input!=null);
         //Debug.Assert(password_input!=null);
         Debug.Assert(code_input!=null);
         //string username_str             = username_input.text;
         //string password_str             = password_input.text;
-        string server_address_string    = server_address_input.text;
-        string server_port_string       = server_port_input.text;
+        string server_address_string    = "86.21.218.127";
+        string server_port_string       = "4000";
         string code_string              = code_input.text;
 
         if(code_string == null || code_string.Length<8){
@@ -406,8 +405,6 @@ public class MainMenu : MonoBehaviour
         InputField signup_secreta1_input    = GameObject.Find("SignUpSecretA1InputField").GetComponent<InputField>();
         InputField signup_secreta2_input    = GameObject.Find("SignUpSecretA2InputField").GetComponent<InputField>();
         InputField signup_mobile_input      = GameObject.Find("SignUpMobileInputField").GetComponent<InputField>();
-        InputField server_address_input     = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
-        InputField server_port_input        = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
         Dropdown signup_language_dropdown   = GameObject.Find("SignUpLanguageDropdown").GetComponent<Dropdown>();
         Debug.Assert(signup_email_input != null);
         Debug.Assert(signup_confirm_email_input != null);
@@ -424,13 +421,9 @@ public class MainMenu : MonoBehaviour
         Debug.Assert(signup_secreta2_input!=null);
         Debug.Assert(signup_secreta1_input!=null);
         Debug.Assert(signup_mobile_input!=null);
-        Debug.Assert(server_address_input!=null);
-        Debug.Assert(server_port_input!=null);
         string username_str             = signup_username_input.text;
         string password_str             = signup_password_input.text;
         string confirm_password_str     = signup_confirm_password_input.text;
-        string server_address_string    = server_address_input.text;
-        string server_port_string       = server_port_input.text;
         string first_name_string        = signup_first_name_input.text;
         string last_name_string         = signup_last_name_input.text;
         string email_string             = signup_email_input.text;
@@ -512,8 +505,8 @@ public class MainMenu : MonoBehaviour
                 mLoginClient.AttemptToSignup();
             }
             else {
-                Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
-                mLoginClient.ConnectToTcpServer(server_address_string,server_port_string,"SIGNUP_REQUEST");
+                Debug.Log("Server address: " + services_server_address + ":" + services_server_port);
+                mLoginClient.ConnectToTcpServer(services_server_address, services_server_port, "SIGNUP_REQUEST");
             }
         }
         catch (Exception e){
@@ -522,18 +515,12 @@ public class MainMenu : MonoBehaviour
     }
 
     public void PlayGame(){
-      InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
-      InputField server_port_input    = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
       InputField username_input       = GameObject.Find("UsernameInputField").GetComponent<InputField>();
       InputField password_input       = GameObject.Find("PasswordInputField").GetComponent<InputField>();
-      Debug.Assert(server_address_input!=null);
-      Debug.Assert(server_port_input!=null);
       Debug.Assert(username_input!=null);
       Debug.Assert(password_input!=null);
       string username_str             = username_input.text;
       string password_str             = password_input.text;
-      string server_address_string    = server_address_input.text;
-      string server_port_string       = server_port_input.text;
 
       mLoadingWindow = GameObject.Find("MessageLoading");
       Debug.Assert(mLoadingWindow != null);
@@ -554,9 +541,9 @@ public class MainMenu : MonoBehaviour
             mLoginClient.AttemptToLogin();
         }
         else {
-            Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
+            Debug.Log("Server address: " + services_server_address + ":" + services_server_port);
             mLoginClient.SetUsernameAndPassword(username_str,password_str);
-            mLoginClient.ConnectToTcpServer(server_address_string,server_port_string,"LOGIN_REQUEST");
+            mLoginClient.ConnectToTcpServer(services_server_address, services_server_port, "LOGIN_REQUEST");
         }
       }
       catch (Exception e){
@@ -575,18 +562,12 @@ public class MainMenu : MonoBehaviour
     public void ResendActivationCode()
     {
         Debug.Log("public void ResendActivationCode()");
-        InputField server_address_input = GameObject.Find("ServerIPInputField").GetComponent<InputField>();
-        InputField server_port_input = GameObject.Find("ServerPortInputField").GetComponent<InputField>();
         InputField username_input = GameObject.Find("SignUpUsernameInputField").GetComponent<InputField>();
         InputField email_input = GameObject.Find("SignUpEmailInputField").GetComponent<InputField>();
-        Debug.Assert(server_address_input != null);
-        Debug.Assert(server_port_input != null);
         Debug.Assert(username_input != null);
         Debug.Assert(email_input != null);
         string username_str = username_input.text;
         string email_str = email_input.text;
-        string server_address_string = server_address_input.text;
-        string server_port_string = server_port_input.text;
 
         try
         {
@@ -597,8 +578,8 @@ public class MainMenu : MonoBehaviour
             }
             else
             {
-                Debug.Log("Server address: " + server_address_string + ":" + server_port_string);
-                mLoginClient.ConnectToTcpServer(server_address_string, server_port_string, "CODE_REQUEST");
+                Debug.Log("Server address: " + services_server_address + ":" + services_server_port);
+                mLoginClient.ConnectToTcpServer(services_server_address, services_server_port, "CODE_REQUEST");
             }
         }
         catch (Exception e)
