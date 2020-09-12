@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CameraAttacher : NetworkBehaviour
 {     
-    void Start()
+    private void Start()
     {
         if (isLocalPlayer)
         {

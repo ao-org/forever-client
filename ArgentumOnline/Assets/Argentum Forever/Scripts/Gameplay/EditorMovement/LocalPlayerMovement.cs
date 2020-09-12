@@ -158,7 +158,6 @@ public class LocalPlayerMovement : MonoBehaviour
             mAnimator.SetFloat("Vertical", mMovementDirection.y);
         }
 
-
         // Set the "speed" animator parameter
         mAnimator.SetFloat("Speed", mFinalMovementSpeed);
 

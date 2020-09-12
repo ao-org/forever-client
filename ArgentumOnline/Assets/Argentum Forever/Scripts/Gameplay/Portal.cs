@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    [SerializeField] private int mDestinationMapID;
+    [SerializeField] public int mDestinationMapID;
     [SerializeField] private int mDestinationX;
     [SerializeField] private int mDestinationY;
     [SerializeField] private bool mForcesDirectionOnEnter;
     [SerializeField] private CardinalDirection mForcedDirectionOnEnter;
+    [SerializeField] public bool mIsEdge;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Get the character that collided with this portal
+        CharacterInfo character = collision.gameObject.GetComponent<CharacterInfo>();
+
+        // If it is a character
+        if (character != null)
+        {
+            // Notify the map transition
+            character.EnteredMap(mDestinationMapID, new Vector2(mDestinationX, mDestinationY), mForcedDirectionOnEnter);
+
+            //TODO cargar nueva tanda de mapas
+        }
+
+
         //TODO implementar teleport
     //    UnityEngine.Debug.Log("OnEnterLoadScene " + col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     //    if (col.CompareTag("Player"))
