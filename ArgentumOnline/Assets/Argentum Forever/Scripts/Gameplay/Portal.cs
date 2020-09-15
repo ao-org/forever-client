@@ -23,6 +23,7 @@ public class Portal : MonoBehaviour
             character.EnteredMap(mDestinationMapID, new Vector2(mDestinationX, mDestinationY), mForcedDirectionOnEnter);
 
             //TODO cargar nueva tanda de mapas
+            WorldManager.Instance.LoadMap(mDestinationMapID);
         }
 
 
