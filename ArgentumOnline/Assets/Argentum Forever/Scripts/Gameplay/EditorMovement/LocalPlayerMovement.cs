@@ -32,7 +32,7 @@ public class LocalPlayerMovement : MonoBehaviour
         // Setup the component cache
         SetupComponentCache();
 
-        // Ignore collisiones between the two character colliders
+        // Ignore collisions between the two character colliders
         Physics2D.IgnoreCollision(mOwnCollider, mBlockerCollider, true);
     }
 
