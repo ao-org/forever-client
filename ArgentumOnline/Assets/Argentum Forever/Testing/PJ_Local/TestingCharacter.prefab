@@ -7,12 +7,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729275067454306729}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b944893442fe7240a71fe4a11c24409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mDefaultZoom: 5
+  mDefaultZoom: 10
   mMinZoom: 7
   mMaxZoom: 1.5
   mZoomStep: 0.25
@@ -1510,6 +1510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mCurrentMapID: 0
+  mCharactername: Unnamed Character
 --- !u!1 &7886533293177947528
 GameObject:
   m_ObjectHideFlags: 0
