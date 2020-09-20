@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CharacterInfo : MonoBehaviour
 {
-    [SerializeField] private int mCurrentMapID;
+    [SerializeField] public int mCurrentMapID;
+    [SerializeField] public string mCharactername = "Unnamed Character";
 
     #region unity loop
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
@@ -20,17 +21,18 @@ public class CharacterInfo : MonoBehaviour
     }
     #endregion
 
-    public void EnteredMap(int mapID, Vector2 position, CardinalDirection direction)
+    public void TeleportToMap(int mapID, Vector2 position, CardinalDirection direction)
     {
         mCurrentMapID = mapID;
-        //TODO actualizar posicion del personaje
+        transform.position = new Vector3(position.x, position.y, transform.position.z);
+        //TODO forzar direccion
         //TODO conciliar con el server
     }
 
     public Vector2 GetPositionInCurrentMap()
     {
         // Real position
-        Vector2 realPosition = Vector2.zero;
+        Vector2 realPosition = new Vector2(transform.position.x, transform.position.y);
 
         //TODO realizar traduccion de las coordenadas del mapa actual a coordenadas del mundo
 

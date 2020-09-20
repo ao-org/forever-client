@@ -86,6 +86,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Argentum Forever/Scenes/Maps/Dungeons/newbiedungeon168.unity
     guid: b63d8c04ce034594b8429abbb8b9475d
+  - enabled: 1
+    path: Assets/Argentum Forever/Testing/Carga_Mapas/TEST_SCENE_1.unity
+    guid: 6040aebcc6527934ba49774bba8010e9
+  - enabled: 1
+    path: Assets/Argentum Forever/Testing/Carga_Mapas/TEST_SCENE_2.unity
+    guid: 1a7ded4aa60965747adff181cc6591df
+  - enabled: 1
+    path: Assets/Argentum Forever/Testing/Carga_Mapas/TEST_SCENE_3.unity
+    guid: 888d80e63772d6a47a96efaa7e048c82
+  - enabled: 1
+    path: Assets/Argentum Forever/Testing/Carga_Mapas/TEST_SCENE_4.unity
+    guid: 74b75a740f3c86f4fa8859fbaab411ef
+  - enabled: 1
+    path: Assets/Argentum Forever/Testing/Carga_Mapas/TEST_SCENE_5.unity
+    guid: 3cac983e4b8c0564aa518b844d7c9637
+  - enabled: 1
+    path: Assets/Argentum Forever/Testing/Carga_Mapas/TEST_SCENE_6.unity
+    guid: ea9f4c0e78ed8ae4a95fdbdbf156fd82
+  - enabled: 1
+    path: Assets/Argentum Forever/Testing/Carga_Mapas/TEST_SCENE_7.unity
+    guid: 47e6e97f9e918744b91d367c30ca8c72
+  - enabled: 1
+    path: Assets/Argentum Forever/Testing/Carga_Mapas/TEST_SCENE_8.unity
+    guid: 6e04b442e1e22974b9c08fcd4ef1ad4b
+  - enabled: 1
+    path: Assets/Argentum Forever/Testing/Carga_Mapas/TEST_SCENE_9.unity
+    guid: 69bba77c1577e6c429352c7806dc09fc
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 2399d7483c923c5bc95e20fcdcdbeeec,
       type: 2}

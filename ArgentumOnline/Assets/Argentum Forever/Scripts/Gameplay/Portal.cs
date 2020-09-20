@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    [SerializeField] public int mDestinationMapID;
+    public int mDestinationMapID;
     [SerializeField] private int mDestinationX;
     [SerializeField] private int mDestinationY;
     [SerializeField] private bool mForcesDirectionOnEnter;
-    [SerializeField] private CardinalDirection mForcedDirectionOnEnter;
+    [SerializeField] public CardinalDirection mEdgeOrientation;
     [SerializeField] public bool mIsEdge;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,10 +20,7 @@ public class Portal : MonoBehaviour
         if (character != null)
         {
             // Notify the map transition
-            character.EnteredMap(mDestinationMapID, new Vector2(mDestinationX, mDestinationY), mForcedDirectionOnEnter);
-
-            //TODO cargar nueva tanda de mapas
-            WorldManager.Instance.LoadMap(mDestinationMapID);
+            WorldManager.ProcessMapChange(mDestinationMapID, character);
         }
 
 

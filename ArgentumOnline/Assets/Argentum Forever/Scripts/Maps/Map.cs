@@ -6,12 +6,12 @@ using UnityEngine;
 public class Map : MonoBehaviour
 {
     // Basic information
-    [SerializeField] private int mID;
-    [SerializeField] private string mMapName;
-    [SerializeField] private static Vector2Int MAP_SIZE = new Vector2Int(190, 130);
+    [SerializeField] public int mID;
+    [SerializeField] public string mMapName;
+    [SerializeField] public static Vector2Int MAP_SIZE = new Vector2Int(200, 200);
 
-    // Connected maps
-    private Dictionary<Portal, int> mConnectedMaps;
+    // Adjacent maps (including non-walkable diagonals)
+    [SerializeField] public DirectionIntDicionary mAdjacentMaps = new DirectionIntDicionary();
 
     // Dungeons (offmap connections) <Portal prefab, Destination Map ID>
     private Dictionary<Portal, int> mOffmapConnections;
@@ -25,15 +25,18 @@ public class Map : MonoBehaviour
     private void Awake()
     {
         // Load off-map connections
-        LoadAllMapExits();
+        LoadAllMapExitsReferences();
+
+        // Change GO name to include the map ID
+        gameObject.name += "_" + mID;
     }
 
-    private void LoadAllMapExits()
+    private void LoadAllMapExitsReferences()
     {
         // Portals dictionary
         mOffmapConnections = new Dictionary<Portal, int>();
 
-        // Collect all "Portal" childs
+        // Fetch all "Portal" childs
         foreach (Transform childPortals in transform.Find("Portals"))
         {
             Portal portal = childPortals.GetComponent<Portal>();
@@ -43,16 +46,16 @@ public class Map : MonoBehaviour
             }
         }
 
-        // Edge exits dictionary
-        mConnectedMaps = new Dictionary<Portal, int>();
-
-        // Collect all "Portal" childs
+        // Set all "Edge portals" destinations
         foreach (Transform childPortals in transform.Find("Edges"))
         {
             Portal portal = childPortals.GetComponent<Portal>();
             if (portal != null && portal.mIsEdge)
             {
-                mConnectedMaps.Add(portal, portal.mDestinationMapID);
+                if (mAdjacentMaps.ContainsKey(portal.mEdgeOrientation))
+                {
+                    portal.mDestinationMapID = mAdjacentMaps[portal.mEdgeOrientation];
+                }
             }
         }
     }
