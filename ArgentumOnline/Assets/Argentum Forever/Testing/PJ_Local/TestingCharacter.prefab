@@ -3006,6 +3006,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4778108119466438338, guid: a5e64569f5c8b3f4cbd3ac174241c1b7,
+        type: 3}
+      propertyPath: mBaseMovementSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6970394688752926721, guid: a5e64569f5c8b3f4cbd3ac174241c1b7,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -3084,7 +3089,7 @@ PrefabInstance:
     - target: {fileID: 8767253172961869550, guid: a5e64569f5c8b3f4cbd3ac174241c1b7,
         type: 3}
       propertyPath: m_Name
-      value: Paperdoll
+      value: Sprites
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5e64569f5c8b3f4cbd3ac174241c1b7, type: 3}

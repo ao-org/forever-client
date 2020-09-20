@@ -150,11 +150,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6116695017379327919, guid: 6844bd2009a327d47830a6d903888d31,
-        type: 3}
-      propertyPath: m_Name
-      value: Sprites
-      objectReference: {fileID: 0}
     - target: {fileID: 6417130886527623194, guid: 6844bd2009a327d47830a6d903888d31,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -426,6 +421,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mLocalDebugMode: 1
   mTestingMapID: 1
+  mCurrentlyLoadedMapScenes:
+    m_keys: 
+    m_values: []
+  mLastSyncMapName: 
 --- !u!4 &2118917680
 Transform:
   m_ObjectHideFlags: 0

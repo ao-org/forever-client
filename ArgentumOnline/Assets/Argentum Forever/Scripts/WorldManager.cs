@@ -14,14 +14,14 @@ public class WorldManager : MonoBehaviour
     [SerializeField] private int mTestingMapID;
 
     // Currently loaded map scenes
-    private IntStringDictionary mCurrentlyLoadedMapScenes = new IntStringDictionary();
+    [SerializeField] private IntStringDictionary mCurrentlyLoadedMapScenes = new IntStringDictionary();
 
     // Active map reference
     private Map mActiveMap = null;
 
     // Async loading helpers ****
     private bool mWaitingNextFrameToLoadSyncMap = false;
-    private string mLastSyncMapName;
+    [SerializeField] private string mLastSyncMapName;
     private int mFrameSkipCount = 0;
 
     private bool mWaitingForMapReposition = false;
@@ -63,23 +63,23 @@ public class WorldManager : MonoBehaviour
     private void Update()
     {
         // Async map loading
-        if (mWaitingNextFrameToLoadSyncMap)
+        if (WorldManager._instance.mWaitingNextFrameToLoadSyncMap)
         {
-            if (mFrameSkipCount > 0)
+            if (WorldManager._instance.mFrameSkipCount > 0)
             {
-                mFrameSkipCount--;
+                WorldManager._instance.mFrameSkipCount--;
             }
             else
             {
                 // Set the new active scene
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(mLastSyncMapName));
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(WorldManager._instance.mLastSyncMapName));
 
                 // Retrieve active maps exits (only cardinal directions)
-                mActiveMap = GameObject.FindObjectOfType<Map>();
-                Vector2 currentSceneCoordinates = new Vector2(mActiveMap.transform.position.x, mActiveMap.transform.position.y);
+                WorldManager._instance.mActiveMap = GameObject.FindObjectOfType<Map>();
+                Vector2 currentSceneCoordinates = new Vector2(WorldManager._instance.mActiveMap.transform.position.x, WorldManager._instance.mActiveMap.transform.position.y);
 
                 // Load adjacents maps (async)
-                foreach (KeyValuePair<CardinalDirection, int> adjacentMap in mActiveMap.mAdjacentMaps)
+                foreach (KeyValuePair<CardinalDirection, int> adjacentMap in WorldManager._instance.mActiveMap.mAdjacentMaps)
                 {
                     string sceneName = MapScenesManager.GetNameFor(adjacentMap.Value);
                     if (!WorldManager._instance.mCurrentlyLoadedMapScenes.ContainsKey(adjacentMap.Value))
@@ -90,24 +90,23 @@ public class WorldManager : MonoBehaviour
                     }
                 }
 
-                mLastSyncMapName = "";
-                mWaitingNextFrameToLoadSyncMap = false;
-                mWaitingForMapReposition = true;
-                mFrameSkipCount = 2;
+                WorldManager._instance.mWaitingNextFrameToLoadSyncMap = false;
+                WorldManager._instance.mWaitingForMapReposition = true;
+                WorldManager._instance.mFrameSkipCount = 2;
             }
         }
 
         // Async map repositions
-        else if (mWaitingForMapReposition)
+        else if (WorldManager._instance.mWaitingForMapReposition)
         {
-            if (mFrameSkipCount > 0)
+            if (WorldManager._instance.mFrameSkipCount > 0)
             {
-                mFrameSkipCount--;
+                WorldManager._instance.mFrameSkipCount--;
             }
             else
             {
                 StartCoroutine("RelocateAdjacentMaps");
-                mWaitingForMapReposition = false;
+                WorldManager._instance.mWaitingForMapReposition = false;
             }
         }
     }
@@ -116,21 +115,21 @@ public class WorldManager : MonoBehaviour
     private IEnumerator RelocateAdjacentMaps()
     {
         // Fetch all loaded maps
-        foreach (KeyValuePair<CardinalDirection, int> adjacentMap in mActiveMap.mAdjacentMaps)
+        foreach (KeyValuePair<CardinalDirection, int> adjacentMap in WorldManager._instance.mActiveMap.mAdjacentMaps)
         {
             // Get the map GO
             GameObject aMap = null;
             while (aMap == null)
             {
                 aMap = GameObject.Find("Map_" + adjacentMap.Value);
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForEndOfFrame();
             }
 
             // Get the map component
             Map mapComponent = aMap.GetComponent<Map>();         
             
             // Reposition the map
-            Vector2 adjacentPosition = GetOriginForAdjacentMap(adjacentMap.Key, mActiveMap.transform.position);
+            Vector2 adjacentPosition = GetOriginForAdjacentMap(adjacentMap.Key, WorldManager._instance.mActiveMap.transform.position);
             aMap.transform.position = new Vector3(adjacentPosition.x, adjacentPosition.y, aMap.transform.position.z);
         }
     }
@@ -143,10 +142,9 @@ public class WorldManager : MonoBehaviour
         // Load scene and wait
         SceneManager.LoadScene(mapName, LoadSceneMode.Additive);
         WorldManager._instance.mCurrentlyLoadedMapScenes.Add(activeMapID, mapName);
-
-        mLastSyncMapName = mapName;
-        mWaitingNextFrameToLoadSyncMap = true;
-        mFrameSkipCount = 2;
+        WorldManager._instance.mLastSyncMapName = mapName;
+        WorldManager._instance.mWaitingNextFrameToLoadSyncMap = true;
+        WorldManager._instance.mFrameSkipCount = 2;
     }
 
     public static void LoadMapAsync(string sceneName)
@@ -179,29 +177,29 @@ public class WorldManager : MonoBehaviour
                                             y = (int) activeMapOrigin.y + Map.MAP_SIZE.y;
                                             break;
             case CardinalDirection.NORTHEAST:
-                                            x = (int)activeMapOrigin.x + Map.MAP_SIZE.x;
-                                            y = (int)activeMapOrigin.y + Map.MAP_SIZE.y;
+                                            x = (int) activeMapOrigin.x + Map.MAP_SIZE.x;
+                                            y = (int) activeMapOrigin.y + Map.MAP_SIZE.y;
                                             break;
             case CardinalDirection.EAST:
-                                            x = (int)activeMapOrigin.x + Map.MAP_SIZE.x;
+                                            x = (int) activeMapOrigin.x + Map.MAP_SIZE.x;
                                             break;
             case CardinalDirection.SOUTHEAST:
-                                            x = (int)activeMapOrigin.x + Map.MAP_SIZE.x;
-                                            y = (int)activeMapOrigin.y - Map.MAP_SIZE.y;
+                                            x = (int) activeMapOrigin.x + Map.MAP_SIZE.x;
+                                            y = (int) activeMapOrigin.y - Map.MAP_SIZE.y;
                                             break;
             case CardinalDirection.SOUTH:
-                                            y = (int)activeMapOrigin.y - Map.MAP_SIZE.y;
+                                            y = (int) activeMapOrigin.y - Map.MAP_SIZE.y;
                                             break;
             case CardinalDirection.SOUTHWEST:
-                                            x = (int)activeMapOrigin.x - Map.MAP_SIZE.x;
-                                            y = (int)activeMapOrigin.y - Map.MAP_SIZE.y;
+                                            x = (int) activeMapOrigin.x - Map.MAP_SIZE.x;
+                                            y = (int) activeMapOrigin.y - Map.MAP_SIZE.y;
                                             break;
             case CardinalDirection.WEST:
-                                            x = (int)activeMapOrigin.x - Map.MAP_SIZE.x;
+                                            x = (int) activeMapOrigin.x - Map.MAP_SIZE.x;
                                             break;
             case CardinalDirection.NORTHWEST:
-                                            x = (int)activeMapOrigin.x - Map.MAP_SIZE.x;
-                                            y = (int)activeMapOrigin.y + Map.MAP_SIZE.y;
+                                            x = (int) activeMapOrigin.x - Map.MAP_SIZE.x;
+                                            y = (int) activeMapOrigin.y + Map.MAP_SIZE.y;
                                             break;
         }
 
@@ -211,7 +209,10 @@ public class WorldManager : MonoBehaviour
 
     public static void ProcessMapChange(int destinationMapID, CharacterInfo character)
     {
-        //UnityEngine.Debug.Log(" PROCESSING MAP CHANGE TO " + destinationMapID);
+        //TODO notify character
+
+        // Retrieve map scene name
+        string mapName = MapScenesManager.GetNameFor(destinationMapID);
 
         // If the new map is already loaded...
         if (WorldManager._instance.mCurrentlyLoadedMapScenes.ContainsKey(destinationMapID))
@@ -234,17 +235,21 @@ public class WorldManager : MonoBehaviour
         // If the new map is not loaded yet...
         else
         {
-            // Retrieve map scene name
-            string mapName = MapScenesManager.GetNameFor(destinationMapID);
+            //TODO verificar por qué pasa que el mapNAme aveces tira null (problema de async?)
+            if (mapName == null)
+            {
+                UnityEngine.Debug.Log("[ADVERTENCIA] No se encontró la escena para el ID solicitado '" + destinationMapID + "'");
+                return;
+            }
 
             // Load scene and wait
             SceneManager.LoadScene(mapName, LoadSceneMode.Additive);
             WorldManager._instance.mCurrentlyLoadedMapScenes.Add(destinationMapID, mapName);
         }
 
-        // Clear adjacents
-        WorldManager._instance.mCurrentlyLoadedMapScenes.Clear();
-        WorldManager._instance.mLastSyncMapName = MapScenesManager.GetNameFor(destinationMapID);
+        // Clear flags
+        // WorldManager._instance.mCurrentlyLoadedMapScenes.Clear();
+        WorldManager._instance.mLastSyncMapName = mapName;
         WorldManager._instance.mWaitingNextFrameToLoadSyncMap = true;
         WorldManager._instance.mFrameSkipCount = 2;
     }
