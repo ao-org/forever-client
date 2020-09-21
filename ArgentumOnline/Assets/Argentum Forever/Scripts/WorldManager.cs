@@ -72,6 +72,7 @@ public class WorldManager : MonoBehaviour
             else
             {
                 // Set the new active scene
+                UnityEngine.Debug.Log("ATTEMPING TO SET ACTIVE: " + WorldManager._instance.mLastSyncMapName);
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(WorldManager._instance.mLastSyncMapName));
 
                 // Retrieve active maps exits (only cardinal directions)
@@ -221,15 +222,23 @@ public class WorldManager : MonoBehaviour
             Map newActiveMap = GameObject.Find("Map_" + destinationMapID).GetComponent<Map>();
 
             // Unload not-adjacent map scenes
+            List<int> removedMapIDs = new List<int>();
             foreach (int loadedMapID in WorldManager._instance.mCurrentlyLoadedMapScenes.Keys)
             {
                 // If the loaded map scene is not adjacent of the new active map...
-                if (!newActiveMap.mAdjacentMaps.ContainsValue(loadedMapID))
+                if (loadedMapID != newActiveMap.mID && !newActiveMap.mAdjacentMaps.ContainsValue(loadedMapID))
                 {
                     // Unload the map scene
                     SceneManager.UnloadSceneAsync(WorldManager._instance.mCurrentlyLoadedMapScenes[loadedMapID]);
+                    removedMapIDs.Add(loadedMapID);
                 }
             }
+
+            // Remove unloaded scenes from the cached list
+            foreach (int unloadedMapID in removedMapIDs)
+            {
+                WorldManager._instance.mCurrentlyLoadedMapScenes.Remove(unloadedMapID);
+            }            
         }
 
         // If the new map is not loaded yet...

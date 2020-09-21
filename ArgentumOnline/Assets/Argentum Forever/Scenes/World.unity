@@ -210,6 +210,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestingCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 8000108169356509059, guid: 6844bd2009a327d47830a6d903888d31,
+        type: 3}
+      propertyPath: mBaseMovementSpeed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6844bd2009a327d47830a6d903888d31, type: 3}
 --- !u!1 &1690684091
