@@ -46,7 +46,7 @@ public class Map : MonoBehaviour
             }
         }
 
-        // Set all "Edge portals" destinations
+        // Set all "Edge exits" destinations
         foreach (Transform childPortals in transform.Find("Edges"))
         {
             Portal portal = childPortals.GetComponent<Portal>();
@@ -56,6 +56,36 @@ public class Map : MonoBehaviour
                 {
                     portal.mDestinationMapID = mAdjacentMaps[portal.mEdgeOrientation];
                 }
+            }
+        }
+    }
+
+    public void DisableEdgesTemporarly()
+    {
+        StartCoroutine("DisableEdges");
+    }
+
+    private IEnumerator DisableEdges()
+    {
+        //TODO ADEMAS DE SER POR TIEMPO, TENDRÍA QUE HABER TAMBIEN COLLIDERS SECUNDARIOS MAS ADENTRO DEL MAPA PARA VOLVER A REACTIVAR
+        //PARA EVITAR QUE EL PJ SE QUEDE JUSTO EN EL MEDIO Y FUERCE LA RECARGA DE MAPAS
+        foreach (Transform childPortals in transform.Find("Edges"))
+        {
+            Portal portal = childPortals.GetComponent<Portal>();
+            if (portal != null && portal.mIsEdge)
+            {
+                portal.GetComponent<Collider2D>().enabled = false;
+            }
+        }
+
+        yield return new WaitForSeconds(2);
+
+        foreach (Transform childPortals in transform.Find("Edges"))
+        {
+            Portal portal = childPortals.GetComponent<Portal>();
+            if (portal != null && portal.mIsEdge)
+            {
+                portal.GetComponent<Collider2D>().enabled = true;
             }
         }
     }

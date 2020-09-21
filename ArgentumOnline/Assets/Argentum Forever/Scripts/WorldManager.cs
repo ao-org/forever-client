@@ -76,7 +76,10 @@ public class WorldManager : MonoBehaviour
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(WorldManager._instance.mLastSyncMapName));
 
                 // Retrieve active maps exits (only cardinal directions)
-                WorldManager._instance.mActiveMap = GameObject.FindObjectOfType<Map>();
+                if(WorldManager._instance.mActiveMap == null)
+                {
+                    WorldManager._instance.mActiveMap = GameObject.FindObjectOfType<Map>();
+                }                
                 Vector2 currentSceneCoordinates = new Vector2(WorldManager._instance.mActiveMap.transform.position.x, WorldManager._instance.mActiveMap.transform.position.y);
 
                 // Load adjacents maps (async)
@@ -106,14 +109,14 @@ public class WorldManager : MonoBehaviour
             }
             else
             {
-                StartCoroutine("RelocateAdjacentMaps");
+                StartCoroutine("RepositionAdjacentMaps");
                 WorldManager._instance.mWaitingForMapReposition = false;
             }
         }
     }
     #endregion
 
-    private IEnumerator RelocateAdjacentMaps()
+    private IEnumerator RepositionAdjacentMaps()
     {
         // Fetch all loaded maps
         foreach (KeyValuePair<CardinalDirection, int> adjacentMap in WorldManager._instance.mActiveMap.mAdjacentMaps)
@@ -175,6 +178,7 @@ public class WorldManager : MonoBehaviour
         switch (direction)
         {
             case CardinalDirection.NORTH :
+                                            x = (int) activeMapOrigin.x;
                                             y = (int) activeMapOrigin.y + Map.MAP_SIZE.y;
                                             break;
             case CardinalDirection.NORTHEAST:
@@ -183,12 +187,14 @@ public class WorldManager : MonoBehaviour
                                             break;
             case CardinalDirection.EAST:
                                             x = (int) activeMapOrigin.x + Map.MAP_SIZE.x;
+                                            y = (int) activeMapOrigin.y;
                                             break;
             case CardinalDirection.SOUTHEAST:
                                             x = (int) activeMapOrigin.x + Map.MAP_SIZE.x;
                                             y = (int) activeMapOrigin.y - Map.MAP_SIZE.y;
                                             break;
             case CardinalDirection.SOUTH:
+                                            x = (int)activeMapOrigin.x;
                                             y = (int) activeMapOrigin.y - Map.MAP_SIZE.y;
                                             break;
             case CardinalDirection.SOUTHWEST:
@@ -196,7 +202,8 @@ public class WorldManager : MonoBehaviour
                                             y = (int) activeMapOrigin.y - Map.MAP_SIZE.y;
                                             break;
             case CardinalDirection.WEST:
-                                            x = (int) activeMapOrigin.x - Map.MAP_SIZE.x;
+                                            x = (int)activeMapOrigin.x - Map.MAP_SIZE.x;
+                                            y = (int)activeMapOrigin.y;
                                             break;
             case CardinalDirection.NORTHWEST:
                                             x = (int) activeMapOrigin.x - Map.MAP_SIZE.x;
@@ -210,7 +217,11 @@ public class WorldManager : MonoBehaviour
 
     public static void ProcessMapChange(int destinationMapID, CharacterInfo character)
     {
-        //TODO notify character
+        // Disable edges temporarly
+        DisableEdgesTemporarly();
+
+        // Notify character
+        character.EnteredMap(destinationMapID);
 
         // Retrieve map scene name
         string mapName = MapScenesManager.GetNameFor(destinationMapID);
@@ -238,28 +249,34 @@ public class WorldManager : MonoBehaviour
             foreach (int unloadedMapID in removedMapIDs)
             {
                 WorldManager._instance.mCurrentlyLoadedMapScenes.Remove(unloadedMapID);
-            }            
+            }
+
+            WorldManager._instance.mActiveMap = newActiveMap;
         }
 
         // If the new map is not loaded yet...
         else
         {
-            //TODO verificar por qué pasa que el mapNAme aveces tira null (problema de async?)
-            if (mapName == null)
-            {
-                UnityEngine.Debug.Log("[ADVERTENCIA] No se encontró la escena para el ID solicitado '" + destinationMapID + "'");
-                return;
-            }
-
-            // Load scene and wait
+             // Load scene and wait
             SceneManager.LoadScene(mapName, LoadSceneMode.Additive);
             WorldManager._instance.mCurrentlyLoadedMapScenes.Add(destinationMapID, mapName);
         }
 
         // Clear flags
-        // WorldManager._instance.mCurrentlyLoadedMapScenes.Clear();
         WorldManager._instance.mLastSyncMapName = mapName;
         WorldManager._instance.mWaitingNextFrameToLoadSyncMap = true;
         WorldManager._instance.mFrameSkipCount = 2;
+    }
+
+    private static void DisableEdgesTemporarly()
+    {
+        // Active map
+        WorldManager._instance.mActiveMap.DisableEdgesTemporarly();
+
+        // Adjacent maps
+        foreach (int loadedMapID in WorldManager._instance.mCurrentlyLoadedMapScenes.Keys)
+        {
+            GameObject.Find("Map_" + loadedMapID).GetComponent<Map>().DisableEdgesTemporarly();
+        }
     }
 }

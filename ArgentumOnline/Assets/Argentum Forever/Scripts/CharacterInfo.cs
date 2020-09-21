@@ -29,6 +29,12 @@ public class CharacterInfo : MonoBehaviour
         //TODO conciliar con el server
     }
 
+    public void EnteredMap(int mapID)
+    {
+        mCurrentMapID = mapID;
+        //TODO conciliar con el server
+    }
+
     public Vector2 GetPositionInCurrentMap()
     {
         // Real position
