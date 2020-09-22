@@ -130,15 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1581374738, guid: 6844bd2009a327d47830a6d903888d31, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1259541635726632384, guid: 6844bd2009a327d47830a6d903888d31,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4156380448672565667, guid: 6844bd2009a327d47830a6d903888d31,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -157,11 +148,6 @@ PrefabInstance:
     - target: {fileID: 5616700065120145728, guid: 6844bd2009a327d47830a6d903888d31,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6116695017458172268, guid: 6844bd2009a327d47830a6d903888d31,
-        type: 3}
-      propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6417130886527623194, guid: 6844bd2009a327d47830a6d903888d31,
@@ -219,20 +205,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6846976604668355773, guid: 6844bd2009a327d47830a6d903888d31,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7886533293177947528, guid: 6844bd2009a327d47830a6d903888d31,
         type: 3}
       propertyPath: m_Name
       value: TestingCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000108169356509059, guid: 6844bd2009a327d47830a6d903888d31,
-        type: 3}
-      propertyPath: mBaseMovementSpeed
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6844bd2009a327d47830a6d903888d31, type: 3}

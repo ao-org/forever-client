@@ -8,10 +8,10 @@ using UnityEngine;
 public class CameraControls : MonoBehaviour
 {
     // Zoom levels
-    [SerializeField] private float mDefaultZoom = 5f;
-    [SerializeField] private float mMinZoom = 7f;
-    [SerializeField] private float mMaxZoom = 1.5f;
-    [SerializeField] private float mZoomStep = 0.25f;
+    [SerializeField] private float mDefaultZoom;
+    [SerializeField] private float mMinZoom;
+    [SerializeField] private float mMaxZoom;
+    [SerializeField] private float mZoomStep;
 
     #region component cache
     private CinemachineVirtualCamera rVcam;

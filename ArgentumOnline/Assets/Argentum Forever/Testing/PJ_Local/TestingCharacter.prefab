@@ -1279,15 +1279,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729275067454306729}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b944893442fe7240a71fe4a11c24409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mDefaultZoom: 10
-  mMinZoom: 7
-  mMaxZoom: 1.5
-  mZoomStep: 0.25
+  mDefaultZoom: 2
+  mMinZoom: 3
+  mMaxZoom: 1
+  mZoomStep: 0.5
 --- !u!114 &1581374738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1295,7 +1295,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729275067454306729}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
@@ -2909,7 +2909,7 @@ PrefabInstance:
     - target: {fileID: 4188346811078968789, guid: 3c5a9834102ba0c45a5d47e2926d2afa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5000001
+      value: 0.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 4188346811078968789, guid: 3c5a9834102ba0c45a5d47e2926d2afa,
         type: 3}
@@ -2960,6 +2960,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188346811078968794, guid: 3c5a9834102ba0c45a5d47e2926d2afa,
+        type: 3}
+      propertyPath: orthographic size
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c5a9834102ba0c45a5d47e2926d2afa, type: 3}
@@ -3137,7 +3142,7 @@ PrefabInstance:
     - target: {fileID: 4230790425657992481, guid: b71d63117521bd546b30a4c6e711a601,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5000001
+      value: 0.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 4230790425657992481, guid: b71d63117521bd546b30a4c6e711a601,
         type: 3}
@@ -3189,6 +3194,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 6116695017458172271}
+    - target: {fileID: 4230790425657992482, guid: b71d63117521bd546b30a4c6e711a601,
+        type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4230790425657992483, guid: b71d63117521bd546b30a4c6e711a601,
         type: 3}
       propertyPath: m_Name
