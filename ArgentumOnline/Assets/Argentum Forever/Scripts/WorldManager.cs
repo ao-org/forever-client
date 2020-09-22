@@ -72,31 +72,10 @@ public class WorldManager : MonoBehaviour
             else
             {
                 // Set the new active scene
-                UnityEngine.Debug.Log("ATTEMPING TO SET ACTIVE: " + WorldManager._instance.mLastSyncMapName);
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(WorldManager._instance.mLastSyncMapName));
 
-                // Retrieve active maps exits (only cardinal directions)
-                if(WorldManager._instance.mActiveMap == null)
-                {
-                    WorldManager._instance.mActiveMap = GameObject.FindObjectOfType<Map>();
-                }                
-                Vector2 currentSceneCoordinates = new Vector2(WorldManager._instance.mActiveMap.transform.position.x, WorldManager._instance.mActiveMap.transform.position.y);
-
-                // Load adjacents maps (async)
-                foreach (KeyValuePair<CardinalDirection, int> adjacentMap in WorldManager._instance.mActiveMap.mAdjacentMaps)
-                {
-                    string sceneName = MapScenesManager.GetNameFor(adjacentMap.Value);
-                    if (!WorldManager._instance.mCurrentlyLoadedMapScenes.ContainsKey(adjacentMap.Value))
-                    {
-                        // Load scene
-                        WorldManager.LoadMapAsync(sceneName);
-                        WorldManager._instance.mCurrentlyLoadedMapScenes.Add(adjacentMap.Value, sceneName);
-                    }
-                }
-
-                WorldManager._instance.mWaitingNextFrameToLoadSyncMap = false;
-                WorldManager._instance.mWaitingForMapReposition = true;
-                WorldManager._instance.mFrameSkipCount = 2;
+                // Load adjacent scenes async
+                StartCoroutine("LoadAdjacentScenesAsync");
             }
         }
 
@@ -109,33 +88,79 @@ public class WorldManager : MonoBehaviour
             }
             else
             {
-                StartCoroutine("RepositionAdjacentMaps");
-                WorldManager._instance.mWaitingForMapReposition = false;
+                // Reposition adjacent maps accordingly
+                StartCoroutine("RepositionAdjacentMapsAsync");
             }
         }
     }
     #endregion
 
-    private IEnumerator RepositionAdjacentMaps()
+    private IEnumerator LoadAdjacentScenesAsync()
+    {
+        // Retrieve active maps exits (only cardinal directions)
+        if (WorldManager._instance.mActiveMap == null)
+        {
+            WorldManager._instance.mActiveMap = Resources.FindObjectsOfTypeAll<Map>()[0];
+            WorldManager._instance.mActiveMap.EnableMap();
+        }
+        Vector2 currentSceneCoordinates = new Vector2(WorldManager._instance.mActiveMap.transform.position.x, WorldManager._instance.mActiveMap.transform.position.y);
+
+        // Load adjacents maps (async)
+        foreach (KeyValuePair<CardinalDirection, int> adjacentMap in WorldManager._instance.mActiveMap.mAdjacentMaps)
+        {
+            string sceneName = MapScenesManager.GetNameFor(adjacentMap.Value);
+            if (!WorldManager._instance.mCurrentlyLoadedMapScenes.ContainsKey(adjacentMap.Value))
+            {
+                // Load scene
+                WorldManager.LoadMapAsync(sceneName);
+                WorldManager._instance.mCurrentlyLoadedMapScenes.Add(adjacentMap.Value, sceneName);
+            }
+        }
+
+        WorldManager._instance.mWaitingNextFrameToLoadSyncMap = false;
+        WorldManager._instance.mWaitingForMapReposition = true;
+        WorldManager._instance.mFrameSkipCount = 1;
+
+        yield return null;
+    }
+
+    private IEnumerator RepositionAdjacentMapsAsync()
     {
         // Fetch all loaded maps
         foreach (KeyValuePair<CardinalDirection, int> adjacentMap in WorldManager._instance.mActiveMap.mAdjacentMaps)
         {
             // Get the map GO
-            GameObject aMap = null;
-            while (aMap == null)
+            GameObject aMapReference = null;
+            while (aMapReference == null)
             {
-                aMap = GameObject.Find("Map_" + adjacentMap.Value);
+                Map[] allMaps = Resources.FindObjectsOfTypeAll<Map>();
+
+                foreach (Map map in allMaps)
+                {
+                    if (map.name == ("Map_" + adjacentMap.Value))
+                    {
+                        aMapReference = map.gameObject;
+                        break;
+                    }
+                }
                 yield return new WaitForEndOfFrame();
             }
 
             // Get the map component
-            Map mapComponent = aMap.GetComponent<Map>();         
+            Map mapComponent = aMapReference.GetComponent<Map>();         
             
             // Reposition the map
             Vector2 adjacentPosition = GetOriginForAdjacentMap(adjacentMap.Key, WorldManager._instance.mActiveMap.transform.position);
-            aMap.transform.position = new Vector3(adjacentPosition.x, adjacentPosition.y, aMap.transform.position.z);
+            aMapReference.transform.position = new Vector3(adjacentPosition.x, adjacentPosition.y, aMapReference.transform.position.z);
+
+            // Activate map
+            mapComponent.EnableMap();
+
+            // Enable edges
+            mapComponent.EnableEdges();
         }
+
+        WorldManager._instance.mWaitingForMapReposition = false;
     }
 
     private void LoadScenesAfterSpawn(int activeMapID)
@@ -217,8 +242,8 @@ public class WorldManager : MonoBehaviour
 
     public static void ProcessMapChange(int destinationMapID, CharacterInfo character)
     {
-        // Disable edges temporarly
-        DisableEdgesTemporarly();
+        // Disable edges
+        DisableEdges();
 
         // Notify character
         character.EnteredMap(destinationMapID);
@@ -257,7 +282,7 @@ public class WorldManager : MonoBehaviour
         // If the new map is not loaded yet...
         else
         {
-             // Load scene and wait
+            // Load scene and wait
             SceneManager.LoadScene(mapName, LoadSceneMode.Additive);
             WorldManager._instance.mCurrentlyLoadedMapScenes.Add(destinationMapID, mapName);
         }
@@ -268,15 +293,9 @@ public class WorldManager : MonoBehaviour
         WorldManager._instance.mFrameSkipCount = 2;
     }
 
-    private static void DisableEdgesTemporarly()
+    private static void DisableEdges()
     {
-        // Active map
-        WorldManager._instance.mActiveMap.DisableEdgesTemporarly();
-
-        // Adjacent maps
-        foreach (int loadedMapID in WorldManager._instance.mCurrentlyLoadedMapScenes.Keys)
-        {
-            GameObject.Find("Map_" + loadedMapID).GetComponent<Map>().DisableEdgesTemporarly();
-        }
+        // Disable active map entrances
+        WorldManager._instance.mActiveMap.DisableEdges();
     }
 }

@@ -151,7 +151,8 @@ MonoBehaviour:
   mDestinationX: 0
   mDestinationY: 0
   mForcesDirectionOnEnter: 0
-  mForcedDirectionOnEnter: 0
+  mEdgeOrientation: 0
+  mIsEdge: 0
 --- !u!61 &9221238576216423697
 BoxCollider2D:
   m_ObjectHideFlags: 0

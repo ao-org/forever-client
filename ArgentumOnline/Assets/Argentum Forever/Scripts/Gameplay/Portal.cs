@@ -8,8 +8,7 @@ public class Portal : MonoBehaviour
     [SerializeField] private int mDestinationX;
     [SerializeField] private int mDestinationY;
     [SerializeField] private bool mForcesDirectionOnEnter;
-    [SerializeField] public CardinalDirection mEdgeOrientation;
-    [SerializeField] public bool mIsEdge;
+    [SerializeField] public CardinalDirection mForcedDirection;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

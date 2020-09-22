@@ -25,13 +25,21 @@ public class Map : MonoBehaviour
     private void Awake()
     {
         // Load off-map connections
-        LoadAllMapExitsReferences();
+        LoadPortalExits();
 
         // Change GO name to include the map ID
         gameObject.name += "_" + mID;
+
+        // Disble GO until the map is positioned correctly
+        gameObject.SetActive(false);
     }
 
-    private void LoadAllMapExitsReferences()
+    public void EnableMap()
+    {
+        gameObject.SetActive(true);
+    }
+
+    private void LoadPortalExits()
     {
         // Portals dictionary
         mOffmapConnections = new Dictionary<Portal, int>();
@@ -40,52 +48,33 @@ public class Map : MonoBehaviour
         foreach (Transform childPortals in transform.Find("Portals"))
         {
             Portal portal = childPortals.GetComponent<Portal>();
-            if (portal != null && !portal.mIsEdge)
+            if (portal != null)
             {
                 mOffmapConnections.Add(portal, portal.mDestinationMapID);
             }
         }
+    }
 
-        // Set all "Edge exits" destinations
-        foreach (Transform childPortals in transform.Find("Edges"))
+    public void DisableEdges()
+    {
+        foreach (Transform mapEdge in transform.Find("Edges"))
         {
-            Portal portal = childPortals.GetComponent<Portal>();
-            if (portal != null && portal.mIsEdge)
+            MapEdge currentEdge = mapEdge.GetComponent<MapEdge>();
+            if (currentEdge != null)
             {
-                if (mAdjacentMaps.ContainsKey(portal.mEdgeOrientation))
-                {
-                    portal.mDestinationMapID = mAdjacentMaps[portal.mEdgeOrientation];
-                }
+                currentEdge.GetComponent<Collider2D>().enabled = false;
             }
         }
     }
 
-    public void DisableEdgesTemporarly()
+    public void EnableEdges()
     {
-        StartCoroutine("DisableEdges");
-    }
-
-    private IEnumerator DisableEdges()
-    {
-        //TODO ADEMAS DE SER POR TIEMPO, TENDRÍA QUE HABER TAMBIEN COLLIDERS SECUNDARIOS MAS ADENTRO DEL MAPA PARA VOLVER A REACTIVAR
-        //PARA EVITAR QUE EL PJ SE QUEDE JUSTO EN EL MEDIO Y FUERCE LA RECARGA DE MAPAS
-        foreach (Transform childPortals in transform.Find("Edges"))
+        foreach (Transform mapEdge in transform.Find("Edges"))
         {
-            Portal portal = childPortals.GetComponent<Portal>();
-            if (portal != null && portal.mIsEdge)
+            MapEdge currentEdge = mapEdge.GetComponent<MapEdge>();
+            if (currentEdge != null)
             {
-                portal.GetComponent<Collider2D>().enabled = false;
-            }
-        }
-
-        yield return new WaitForSeconds(2);
-
-        foreach (Transform childPortals in transform.Find("Edges"))
-        {
-            Portal portal = childPortals.GetComponent<Portal>();
-            if (portal != null && portal.mIsEdge)
-            {
-                portal.GetComponent<Collider2D>().enabled = true;
+                currentEdge.GetComponent<Collider2D>().enabled = true;
             }
         }
     }
