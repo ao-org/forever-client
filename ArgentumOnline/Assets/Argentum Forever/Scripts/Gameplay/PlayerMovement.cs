@@ -90,6 +90,12 @@ public class PlayerMovement : NetworkBehaviour
 
     private void ProcessInputs()
     {
+        // Check if the user wants to launch a spell
+        if (Input.GetMouseButtonUp(0))
+        {
+
+        }
+
         // Check if the user wants to launch a melee attack
         //FIXME usar ejes virtuales, no teclas concretas
         if (Input.GetKeyDown(KeyCode.LeftControl) && !mIsAttacking)

@@ -6,6 +6,14 @@ using UnityEngine;
 
 public class PlayableCharacter : NetworkBehaviour
 {
+    // Health
+    [SerializeField] private int mMaxHealth;
+    [SerializeField] private int mCurrentHealth;
+
+    // Mana
+    [SerializeField] private int mMaxMana;
+    [SerializeField] private int mCurrentMana;
+
     // Cache for the "Sprites" child
     private PaperdollManager mPaperdollManager;
 
