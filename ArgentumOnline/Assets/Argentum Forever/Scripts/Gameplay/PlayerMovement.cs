@@ -14,6 +14,7 @@ public class PlayerMovement : NetworkBehaviour
 
     // Base movement speed
     [SerializeField] private float mBaseMovementSpeed = 1.0f;
+    [SerializeField] private LayerMask mPlayerLayerMask;
 
     // Flag that indicates if the character is in the middle of an animation attack
     private bool mIsAttacking = false;
@@ -93,7 +94,17 @@ public class PlayerMovement : NetworkBehaviour
         // Check if the user wants to launch a spell
         if (Input.GetMouseButtonUp(0))
         {
+            // Check if it hits something before sending to the server
+            // If I didn't check, it would generate traffic unnecesarily
+            Camera mainCamera = FindObjectOfType<Camera>();
+            Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D hitCollider = Physics2D.OverlapPoint(mousePos, mPlayerLayerMask);
 
+            if (hitCollider != null)
+            {
+                Debug.DrawLine(mousePos, new Vector3(mousePos.x + 1, mousePos.y + 1, 1f));
+                CmdDamage(hitCollider.transform);
+            }
         }
 
         // Check if the user wants to launch a melee attack
@@ -134,8 +145,7 @@ public class PlayerMovement : NetworkBehaviour
                 if (mBaseMovementSpeed < 2.0f)
                 {
                     mBaseMovementSpeed = 2.0f;
-                }
-                else
+                } else
                 {
                     mBaseMovementSpeed = 1.0f;
                 }
@@ -227,5 +237,31 @@ public class PlayerMovement : NetworkBehaviour
 
         // Return the direction
         return result;
+    }
+
+    //[Command]
+    //private void CmdDamage(Vector2 targetPos)
+    //{
+    //    Collider2D hitCollider = Physics2D.OverlapPoint(targetPos, mPlayerLayerMask);
+
+    //    if (hitCollider != null)
+    //    {
+    //        GameObject playerGO = hitCollider.transform.gameObject;
+
+    //        if (playerGO.CompareTag("Player"))
+    //        {
+    //            PlayableCharacter targetPlayer = playerGO.GetComponent<PlayableCharacter>();
+    //            Debug.Log("sent mouse pos: " + targetPos);
+    //            targetPlayer.DealDamage(5);
+    //        }
+    //    }
+    //}
+
+    [Command]
+    private void CmdDamage(Transform target)
+    {
+        Debug.Log(target);
+        PlayableCharacter targetPlayer = target.gameObject.GetComponent<PlayableCharacter>();
+        targetPlayer.DealDamage(5);
     }
 }

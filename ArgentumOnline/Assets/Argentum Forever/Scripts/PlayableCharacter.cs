@@ -6,16 +6,10 @@ using UnityEngine;
 
 public class PlayableCharacter : NetworkBehaviour
 {
-    // Health
-    [SerializeField] private int mMaxHealth;
-    [SerializeField] private int mCurrentHealth;
-
-    // Mana
-    [SerializeField] private int mMaxMana;
-    [SerializeField] private int mCurrentMana;
-
     // Cache for the "Sprites" child
     private PaperdollManager mPaperdollManager;
+
+    [SerializeField] private GameObject apocaPrefab;
 
     #region synchronized variables
     [SyncVar]
@@ -23,6 +17,18 @@ public class PlayableCharacter : NetworkBehaviour
 
     [SyncVar]
     [SerializeField] public string mCharactername = "Unnamed Character";
+
+    [SyncVar]
+    [SerializeField] public int mMaxHealth;
+
+    [SyncVar]
+    [SerializeField] public int mCurrentHealth;
+
+    [SyncVar]
+    [SerializeField] public int mMaxMana;
+
+    [SyncVar]
+    [SerializeField] public int mCurrentMana;
     #endregion
 
     #region unity loop
@@ -65,7 +71,7 @@ public class PlayableCharacter : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        CinemachineVirtualCamera rVcam = GameObject.FindObjectOfType<CinemachineVirtualCamera>();
+        CinemachineVirtualCamera rVcam = FindObjectOfType<CinemachineVirtualCamera>();
         rVcam.m_Follow = gameObject.transform;
     }
 
@@ -88,7 +94,7 @@ public class PlayableCharacter : NetworkBehaviour
     {
         mPaperdollManager.CleanAnimationSet(slot);
     }
-    
+
     public void ProcessEquipedItem(Item item, EquipmentSlotType slot)
     {
         // Update paperdoll
@@ -103,5 +109,37 @@ public class PlayableCharacter : NetworkBehaviour
         CleanAnimationSet(slot);
 
         // TODO actualizar stats... validar..
+    }
+
+    public void DealDamage(int amount)
+    {
+        if (!CanTargetPlayer(this)) return;
+
+        mCurrentHealth -= amount;
+
+        var spell = Instantiate(apocaPrefab, transform);
+        NetworkServer.Spawn((GameObject)spell);
+
+        if (mCurrentHealth <= 0)
+        {
+            Kill();
+        }
+    }
+
+    [Server]
+    private bool CanTargetPlayer(PlayableCharacter player)
+    {
+        if (player.mCurrentHealth <= 0)
+        {
+            Debug.Log("player is dead!");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void Kill()
+    {
+        Debug.Log($"player {netId} died!");
     }
 }
