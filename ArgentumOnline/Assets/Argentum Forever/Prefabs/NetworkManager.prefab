@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9061221969987155046}
   - component: {fileID: 9061221969987155045}
   - component: {fileID: 9061221969987155044}
-  - component: {fileID: 9061221969987155047}
+  - component: {fileID: 6841278493458513154}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
   runInBackground: 1
-  startOnHeadless: 1
+  autoStartServerBuild: 1
   showDebugMessages: 0
   serverTickRate: 30
   offlineScene: Assets/Argentum Forever/Scenes/Menus/MainMenu.unity
@@ -106,7 +106,7 @@ MonoBehaviour:
   serverMaxReceivesPerTick: 10000
   clientMaxMessageSize: 16384
   clientMaxReceivesPerTick: 1000
---- !u!114 &9061221969987155047
+--- !u!114 &6841278493458513154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

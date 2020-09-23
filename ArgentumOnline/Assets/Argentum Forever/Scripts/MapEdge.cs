@@ -15,7 +15,7 @@ public class MapEdge : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         // Get the character that collided with this portal
-        CharacterInfo character = collision.gameObject.GetComponent<CharacterInfo>();
+        PlayableCharacter character = collision.gameObject.GetComponent<PlayableCharacter>();
 
         // If it is a character
         if (character != null)

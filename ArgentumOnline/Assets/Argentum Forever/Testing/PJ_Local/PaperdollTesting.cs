@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PaperdollTesting : MonoBehaviour
 {
-    [SerializeField] private LocalPlayerMovement mPlayer;
+    [SerializeField] private PlayableCharacter mPlayer;
     [SerializeField] private Item monkRobes;
     [SerializeField] private Item newbieClothes;
     [SerializeField] private Item testShield;

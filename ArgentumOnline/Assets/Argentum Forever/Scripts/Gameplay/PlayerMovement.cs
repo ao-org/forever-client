@@ -18,14 +18,12 @@ public class PlayerMovement : NetworkBehaviour
     // Flag that indicates if the character is in the middle of an animation attack
     private bool mIsAttacking = false;
 
-    // Cache for the "Sprites" child
-    private PaperdollManager mPaperdollManager;
-
     #region components cache
     private Rigidbody2D mRigidBody;
     private Animator mAnimator;
     private Collider2D mOwnCollider;
     private Collider2D mBlockerCollider;
+    private PlayableCharacter mPlayableCharacter;
     #endregion
 
     #region unity loop
@@ -34,14 +32,15 @@ public class PlayerMovement : NetworkBehaviour
         // Setup the component cache
         SetupComponentCache();
 
-        // Ignore collisiones between the two character colliders
+        // Ignore collisions between the two character colliders
         Physics2D.IgnoreCollision(mOwnCollider, mBlockerCollider, true);
     }
 
     private void Update()
     {
-        if (!isLocalPlayer)
-            return;
+        // Prevent non-local manipulation
+        if (!isLocalPlayer) { return; }
+
         // Update blocking animations
         UpdateBlockingAnimations();
 
@@ -54,8 +53,9 @@ public class PlayerMovement : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (!isLocalPlayer)
-            return;
+        // Prevent non-local manipulation
+        if (!isLocalPlayer) { return; }
+
         // Move the character acording to the user input
         Move();
     }
@@ -73,7 +73,7 @@ public class PlayerMovement : NetworkBehaviour
                 mIsAttacking = false;
 
                 // Notify the paperdoll
-                mPaperdollManager.NotifyMeleeAttackToPaperdoll(false);
+                mPlayableCharacter.NotifyMeleeAttackToPaperdoll(false);
             }
         }
     }
@@ -85,7 +85,7 @@ public class PlayerMovement : NetworkBehaviour
         mAnimator = transform.Find("Sprites/Base").GetComponent<Animator>();
         mOwnCollider = GetComponent<Collider2D>();
         mBlockerCollider = transform.Find("Blocker").GetComponent<Collider2D>();
-        mPaperdollManager = transform.GetComponentInChildren<PaperdollManager>();
+        mPlayableCharacter = GetComponent<PlayableCharacter>();
     }
 
     private void ProcessInputs()
@@ -104,7 +104,7 @@ public class PlayerMovement : NetworkBehaviour
             mAnimator.SetTrigger("DoMeleeAttack");
 
             // Notify the paperdoll
-            mPaperdollManager.NotifyMeleeAttackToPaperdoll(true);
+            mPlayableCharacter.NotifyMeleeAttackToPaperdoll(true);
 
             // Process the actual attack
             ProcessMeleeAttack();
@@ -168,24 +168,58 @@ public class PlayerMovement : NetworkBehaviour
         mAnimator.SetFloat("Speed", mFinalMovementSpeed);
 
         // Update the paperdoll
-        mPaperdollManager.UpdatePaperdoll(directionChanged, mMovementDirection.x, mMovementDirection.y, mFinalMovementSpeed);
+        mPlayableCharacter.UpdatePaperdoll(directionChanged, mMovementDirection.x, mMovementDirection.y, mFinalMovementSpeed);
     }
 
-    public void ProcessEquipedItem(Item item, EquipmentSlotType slot)
+    public CardinalDirection GetCardinalDirection(float x, float y)
     {
-        // Update paperdoll
-        mPaperdollManager.LoadAnimationSet(item.mAnimationClips, slot);
+        CardinalDirection result = CardinalDirection.SOUTHWEST;
 
-        //FIXME wot?
-        Animate();
-    }
+        // SOUTH
+        if (x == 0 && y == -1)
+        {
+            result = CardinalDirection.SOUTH;
+        }
 
-    public void ProcessUnequipedItem(Item item, EquipmentSlotType slot)
-    {
-        // Update paperdoll
-        mPaperdollManager.CleanAnimationSet(slot);
+        // SOUTH EAST
+        else if (x == 1 && y == -1)
+        {
+            result = CardinalDirection.SOUTHEAST;
+        }
 
-        //FIXME wot?
-        Animate();
+        // EAST
+        else if (x == 1 && y == 0)
+        {
+            result = CardinalDirection.EAST;
+        }
+
+        // NORTH EAST
+        else if (x == 1 && y == 1)
+        {
+            result = CardinalDirection.NORTHEAST;
+        }
+
+        // NORTH
+        else if (x == 0 && y == 1)
+        {
+            result = CardinalDirection.NORTH;
+        }
+
+        // NORTH WEST
+        else if (x == -1 && y == 1)
+        {
+            result = CardinalDirection.NORTHWEST;
+        }
+
+        // WEST
+        else if (x == -1 && y == 0)
+        {
+            result = CardinalDirection.WEST;
+        }
+
+        // SOUTH WEST (default value, nothing to do)
+
+        // Return the direction
+        return result;
     }
 }

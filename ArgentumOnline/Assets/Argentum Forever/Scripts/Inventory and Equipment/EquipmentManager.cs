@@ -1,22 +1,22 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EquipmentManager : MonoBehaviour
+public class EquipmentManager : NetworkBehaviour
 {
     // Equipment slots
     private Dictionary<EquipmentSlotType, EquipmentSlot> mEquipmentSlots;
 
     // Character reference
-    private LocalPlayerMovement mCharacter;
+    private PlayableCharacter mCharacter;
 
     #region unity loop
     private void Awake()
     {
         InitializeSlots();
-
-        mCharacter = GetComponent<LocalPlayerMovement>();
+        mCharacter = GetComponent<PlayableCharacter>();
     }
 
     // Update is called once per frame

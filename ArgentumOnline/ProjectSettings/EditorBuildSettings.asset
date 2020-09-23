@@ -113,6 +113,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Argentum Forever/Testing/Carga_Mapas/TEST_SCENE_9.unity
     guid: 69bba77c1577e6c429352c7806dc09fc
+  - enabled: 1
+    path: Assets/Argentum Forever/Scenes/World.unity
+    guid: 92cf276a5cf20d348b6917405ad96254
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 2399d7483c923c5bc95e20fcdcdbeeec,
       type: 2}

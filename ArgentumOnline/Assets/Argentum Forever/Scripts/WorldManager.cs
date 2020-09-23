@@ -49,15 +49,26 @@ public class WorldManager : MonoBehaviour
         // Test mode (local)
         if (mLocalDebugMode)
         {
-            // Retrieve the local character
-            CharacterInfo character = GameObject.FindObjectOfType<CharacterInfo>();
-
-            // Teleport to testing level
-            character.TeleportToMap(mTestingMapID, new Vector2(50, 50), CardinalDirection.SOUTH);
-
-            // Manage spawn scene management
-            LoadScenesAfterSpawn(mTestingMapID);
+            StartCoroutine("FetchPlayableCharacter");
         }
+    }
+
+    private IEnumerator FetchPlayableCharacter()
+    {
+        // Retrieve the local character
+        PlayableCharacter character = null;
+
+        while (character == null)
+        {
+            character = GameObject.FindObjectOfType<PlayableCharacter>();
+            yield return new WaitForEndOfFrame();
+        }
+
+        // Teleport to testing level
+        character.TeleportToMap(mTestingMapID, new Vector2(50, 50), CardinalDirection.SOUTH);
+
+        // Manage spawn scene management
+        LoadScenesAfterSpawn(mTestingMapID);
     }
 
     private void Update()
@@ -240,7 +251,7 @@ public class WorldManager : MonoBehaviour
         return adjacentOrigin;
     }
 
-    public static void ProcessMapChange(int destinationMapID, CharacterInfo character)
+    public static void ProcessMapChange(int destinationMapID, PlayableCharacter character)
     {
         // Disable edges
         DisableEdges();
