@@ -11,6 +11,7 @@ public class LocaleDropdown : MonoBehaviour
     IEnumerator Start()
     {
         dropdown.ClearOptions();
+
         // Wait for the localization system to initialize, loading Locales, preloading etc.
         yield return LocalizationSettings.InitializationOperation;
 

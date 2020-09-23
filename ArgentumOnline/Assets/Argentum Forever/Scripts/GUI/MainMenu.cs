@@ -551,7 +551,7 @@ public class MainMenu : MonoBehaviour
       }
     }
     public void QuitGame(){
-        Debug.Log("QuitGame");
+        //Debug.Log("QuitGame");
         Application.Quit();
     }
     public void ShowTermsAndConditions()

@@ -22,36 +22,71 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es
-    m_mainAssetType: UnityEngine.Localization.Tables.AssetTable, Unity.Localization,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 2dbfead157b0b2d4a993caec90ebac7e
+    m_Address: Flags_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4da7111178a7d9043b8293d35ba7382a
+    m_Address: Flags_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 5df4d8e9a98e1474181e8f5e0a94cdae
     m_Address: MainMenu_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
-    m_mainAssetType: UnityEngine.Localization.Tables.AssetTable, Unity.Localization,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 9e2d35e63f3990e498c41f12dab0201e
     m_Address: MainMenu_it
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-it
-    m_mainAssetType: UnityEngine.Localization.Tables.AssetTable, Unity.Localization,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a669da9e12904ba46935079202bec2b9
+    m_Address: Flags_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c69a5293e2a87c848a721a9461a40f48
+    m_Address: Flags_fr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: d87e3b69fef9ddb489b37e4ba12e26dc
     m_Address: MainMenu_fr
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
-    m_mainAssetType: UnityEngine.Localization.Tables.AssetTable, Unity.Localization,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: de2ef4ea1048fa246910010800bf0123
     m_Address: MainMenu_pt
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-pt
-    m_mainAssetType: UnityEngine.Localization.Tables.AssetTable, Unity.Localization,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: e53e96a3e53244f48938676adea55ef4
+    m_Address: Flags_it
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-it
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 1a0b68dd51c58207fa57fb5a24c90bb6, type: 2}
   m_SchemaSet:
