@@ -11,6 +11,7 @@ public class PlayerMovement : NetworkBehaviour
 
     // Movement direction
     private Vector2 mMovementDirection;
+    private Vector2 mLastMovementDirection;
 
     // Base movement speed
     [SerializeField] private float mBaseMovementSpeed = 1.0f;
@@ -25,6 +26,7 @@ public class PlayerMovement : NetworkBehaviour
     private Collider2D mOwnCollider;
     private Collider2D mBlockerCollider;
     private PlayableCharacter mPlayableCharacter;
+    private PlayerMeleeAttack mPlayerMeleeAttack;
     #endregion
 
     #region unity loop
@@ -87,6 +89,7 @@ public class PlayerMovement : NetworkBehaviour
         mOwnCollider = GetComponent<Collider2D>();
         mBlockerCollider = transform.Find("Blocker").GetComponent<Collider2D>();
         mPlayableCharacter = GetComponent<PlayableCharacter>();
+        mPlayerMeleeAttack = GetComponent<PlayerMeleeAttack>();
     }
 
     private void ProcessInputs()
@@ -109,7 +112,8 @@ public class PlayerMovement : NetworkBehaviour
 
         // Check if the user wants to launch a melee attack
         //FIXME usar ejes virtuales, no teclas concretas
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !mIsAttacking)
+        bool meleeInputPressed = Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl);
+        if (meleeInputPressed && !mIsAttacking)
         {
             // Set the flag
             mIsAttacking = true;
@@ -127,38 +131,35 @@ public class PlayerMovement : NetworkBehaviour
             ProcessMeleeAttack();
         }
 
-        // If the user doesn't wants to do melee attack, check movement keys
-        else if (!mIsAttacking)
+        // Read the user input on vertical axes (horizontal/vertical)
+        mMovementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        // Clamp and normalize the input speed
+        mInputMovementSpeed = Mathf.Clamp(mMovementDirection.magnitude, 0.0f, 1.0f);
+        mMovementDirection.Normalize();
+
+        // Check if the player is trying to run
+        //FIXME cambiar la tecla directa por un eje virtual
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            // Read the user input on vertical axes (horizontal/vertical)
-            mMovementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-            // Clamp and normalize the input speed
-            mInputMovementSpeed = Mathf.Clamp(mMovementDirection.magnitude, 0.0f, 1.0f);
-            mMovementDirection.Normalize();
-
-            // Check if the player is trying to run
-            //FIXME cambiar la tecla directa por un eje virtual
-            if (Input.GetKeyDown(KeyCode.R))
+            // Limit the base movement speed
+            if (mBaseMovementSpeed < 2.0f)
             {
-                // Limit the base movement speed
-                if (mBaseMovementSpeed < 2.0f)
-                {
-                    mBaseMovementSpeed = 2.0f;
-                } else
-                {
-                    mBaseMovementSpeed = 1.0f;
-                }
+                mBaseMovementSpeed = 2.0f;
+            } else
+            {
+                mBaseMovementSpeed = 1.0f;
             }
-
-            // Calculate the final movement speed
-            mFinalMovementSpeed = mInputMovementSpeed * mBaseMovementSpeed * 2.0f;
         }
+
+        // Calculate the final movement speed
+        mFinalMovementSpeed = mInputMovementSpeed * mBaseMovementSpeed * 2.0f;
+        
     }
 
     private void ProcessMeleeAttack()
     {
-        //TODO para implementar lógica de ataque/conciliar con server
+        mPlayerMeleeAttack.DoAttack();
     }
 
     private void Move()
@@ -178,6 +179,7 @@ public class PlayerMovement : NetworkBehaviour
             directionChanged = true;
             mAnimator.SetFloat("Horizontal", mMovementDirection.x);
             mAnimator.SetFloat("Vertical", mMovementDirection.y);
+            mLastMovementDirection = mMovementDirection;
         }
 
         // Set the "speed" animator parameter
@@ -264,4 +266,6 @@ public class PlayerMovement : NetworkBehaviour
         PlayableCharacter targetPlayer = target.gameObject.GetComponent<PlayableCharacter>();
         targetPlayer.DealDamage(5);
     }
+
+    public Vector2 GetLastMovementDirection() { return mLastMovementDirection; }
 }

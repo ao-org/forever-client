@@ -4194,6 +4194,8 @@ GameObject:
   - component: {fileID: 3009476481514714245}
   - component: {fileID: 1781754374}
   - component: {fileID: 1781754373}
+  - component: {fileID: 757687785100031293}
+  - component: {fileID: 4161497429375245998}
   m_Layer: 10
   m_Name: PlayableCharacter
   m_TagString: Player
@@ -4399,6 +4401,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+--- !u!114 &757687785100031293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767253172771754024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73f4be4fcae824449131f649e337ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  attackZone: {fileID: 4161497429375245998}
+--- !u!58 &4161497429375245998
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767253172771754024}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8767253172950364465
 GameObject:
   m_ObjectHideFlags: 0
