@@ -117,13 +117,17 @@ public class PlayableCharacter : NetworkBehaviour
 
         mCurrentHealth -= amount;
 
-        var spell = Instantiate(apocaPrefab, transform);
-        NetworkServer.Spawn((GameObject)spell);
-
+        RpcApocaReceived();
         if (mCurrentHealth <= 0)
         {
             Kill();
         }
+    }
+
+    [ClientRpc]
+    void RpcApocaReceived()
+    {
+        Instantiate(apocaPrefab, transform);
     }
 
     [Server]
