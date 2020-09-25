@@ -86,3 +86,4 @@ MonoBehaviour:
     - {fileID: 7400000, guid: 5431ddcd43703b246851232000171495, type: 2}
     - {fileID: 7400000, guid: 132609512fa51fe439af70ae61f9e875, type: 2}
     - {fileID: 7400000, guid: 83e835775c5e5cc448bd7e09efc8acb9, type: 2}
+  mInventoryIcon: {fileID: 21300000, guid: b5e0d6ee0acf19e44aa01f8b60b0dec1, type: 3}

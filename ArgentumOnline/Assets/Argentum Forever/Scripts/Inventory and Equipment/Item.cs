@@ -30,6 +30,9 @@ public class Item : ScriptableObject
     // Animation clips (paperdoll system)
     [SerializeField] public StringAnimationClipDictionary mAnimationClips;
 
+    // Inventory icon
+    [SerializeField] public Sprite mInventoryIcon;
+
     public Item()
     {
         // Preload the requiered animation set slots

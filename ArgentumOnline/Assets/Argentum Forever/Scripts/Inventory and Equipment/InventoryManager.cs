@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    // Inventory capacity
+    public int mInventoryCapacity = 20;
+
     // Inventory (item collection)
-    //TODO implementar clase item primero
+    public List<Item> mInventory = new List<Item>();
 
-    // Start is called before the first frame update
-    void Start()
+    // Character reference
+    private PlayableCharacter mCharacter;
+
+    #region unity loop
+    private void Awake()
     {
-        
+        mCharacter = GetComponent<PlayableCharacter>();
     }
+    #endregion
 
-    // Update is called once per frame
-    void Update()
+    public void AddItem(Item item)
     {
-        
+        // If there's space in the inventory...
+        if (mInventory.Count + 1 <= mInventoryCapacity)
+        {
+            UnityEngine.Debug.Log("ADDED " + item + " TO INVENTORY");
+            // Add the item to it
+            mInventory.Add(item);
+        }
     }
 }

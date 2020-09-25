@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class PlayableCharacter : NetworkBehaviour
 {
-    // Cache for the "Sprites" child
     private PaperdollManager mPaperdollManager;
-    private EquipmentManager mEquipmentManager;
+    public EquipmentManager mEquipmentManager;
+    public InventoryManager mInventoryManager;
 
     [SerializeField] private GameObject apocaPrefab;
 
@@ -40,6 +40,7 @@ public class PlayableCharacter : NetworkBehaviour
 
         mPaperdollManager = transform.GetComponentInChildren<PaperdollManager>();
         mEquipmentManager = transform.GetComponentInChildren<EquipmentManager>();
+        mInventoryManager = transform.GetComponentInChildren<InventoryManager>();
     }
     #endregion
 
@@ -74,8 +75,14 @@ public class PlayableCharacter : NetworkBehaviour
         rVcam.m_Follow = gameObject.transform;
 
         //TODO KILLME TEST
-        Instantiate(GetComponent<TestingGUI>().mPaperdollTestingGUI, transform);
+        //Instantiate(GetComponent<TestingGUI>().mPaperdollTestingGUI, transform);
+        mInventoryManager.AddItem(GetComponent<TestingGUI>().mMonkRobes);
+        mInventoryManager.AddItem(GetComponent<TestingGUI>().mNewbieClothes);
+        mInventoryManager.AddItem(GetComponent<TestingGUI>().mWoodenBucker);
+        mInventoryManager.AddItem(GetComponent<TestingGUI>().mWoodenSword);
+        mInventoryManager.AddItem(GetComponent<TestingGUI>().mHelmet);
         Instantiate(GetComponent<TestingGUI>().mCharacterInfoGUI, transform);
+        Instantiate(GetComponent<TestingGUI>().mItemsGUI, transform);
     }
 
     public void NotifyMeleeAttackToPaperdoll(bool started)

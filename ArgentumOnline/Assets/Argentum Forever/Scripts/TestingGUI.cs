@@ -6,4 +6,12 @@ public class TestingGUI : MonoBehaviour
 {
     [SerializeField] public GameObject mPaperdollTestingGUI;
     [SerializeField] public GameObject mCharacterInfoGUI;
+
+    [SerializeField] public GameObject mItemsGUI;
+
+    [SerializeField] public Item mHelmet;
+    [SerializeField] public Item mWoodenSword;
+    [SerializeField] public Item mWoodenBucker;
+    [SerializeField] public Item mNewbieClothes;
+    [SerializeField] public Item mMonkRobes;
 }

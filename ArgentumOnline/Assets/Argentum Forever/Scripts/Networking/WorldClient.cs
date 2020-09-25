@@ -178,7 +178,7 @@ public class WorldClient : MonoBehaviour {
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("OnSceneLoaded: " + scene.name);
+        //Debug.Log("OnSceneLoaded: " + scene.name);
 		SetSceneLoaded(true);
 		if( mSpawningPlayerCharacter ){
 			//Second step PLAY_CHARACTER_OKAY
