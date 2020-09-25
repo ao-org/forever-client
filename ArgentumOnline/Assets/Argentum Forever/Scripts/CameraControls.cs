@@ -1,4 +1,5 @@
 ﻿using Cinemachine;
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,18 +14,12 @@ public class CameraControls : MonoBehaviour
     [SerializeField] private float mMaxZoom;
     [SerializeField] private float mZoomStep;
 
-    #region component cache
-    private CinemachineVirtualCamera rVcam;
-    #endregion
-
-    #region unity loop
+    private CinemachineVirtualCamera vCam;
+    
     private void Awake()
     {
-        // Load the component cache
-        SetupComponentCache();
-
-        // Set the default zoom level
-        rVcam.m_Lens.OrthographicSize = mDefaultZoom;
+        vCam = GetComponent<CinemachineVirtualCamera>();
+        vCam.m_Lens.OrthographicSize = mDefaultZoom;
     }
 
     private void Update()
@@ -33,24 +28,29 @@ public class CameraControls : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             // Check zoom level
-            if (rVcam.m_Lens.OrthographicSize > mMaxZoom)
+            if (vCam.m_Lens.OrthographicSize > mMaxZoom)
             {
-                rVcam.m_Lens.OrthographicSize -= mZoomStep;
+                DOTween.To(
+                    x => vCam.m_Lens.OrthographicSize = x,
+                    vCam.m_Lens.OrthographicSize,
+                    vCam.m_Lens.OrthographicSize - mZoomStep,
+                    0.2f
+                );
+                //rVcam.m_Lens.OrthographicSize -= mZoomStep;
             }
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        } else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             // Check zoom level
-            if (rVcam.m_Lens.OrthographicSize < mMinZoom)
+            if (vCam.m_Lens.OrthographicSize < mMinZoom)
             {
-                rVcam.m_Lens.OrthographicSize += mZoomStep;
+                DOTween.To(
+                    x => vCam.m_Lens.OrthographicSize = x,
+                    vCam.m_Lens.OrthographicSize,
+                    vCam.m_Lens.OrthographicSize + mZoomStep,
+                    0.2f
+                );
+                //rVcam.m_Lens.OrthographicSize += mZoomStep;
             }
         }
-    }
-    #endregion
-
-    private void SetupComponentCache()
-    {
-        rVcam = GetComponent<CinemachineVirtualCamera>();
     }
 }

@@ -97,8 +97,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4230790425657992481}
   - component: {fileID: 4230790425657992482}
+  - component: {fileID: 6312534089784294317}
+  - component: {fileID: 7649816018824851279}
   m_Layer: 0
-  m_Name: Player Virtual Camera
+  m_Name: PlayerVirtualCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,3 +156,31 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 4230790424704981391}
+--- !u!114 &6312534089784294317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230790425657992483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7649816018824851279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230790425657992483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b944893442fe7240a71fe4a11c24409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mDefaultZoom: 2
+  mMinZoom: 3
+  mMaxZoom: 1
+  mZoomStep: 0.5
