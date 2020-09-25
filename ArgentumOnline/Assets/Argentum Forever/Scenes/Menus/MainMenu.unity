@@ -7445,8 +7445,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9061221969987155045, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
         type: 3}
+      propertyPath: spawnPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155045, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
       propertyPath: onlineScene
       value: Assets/Argentum Forever/Scenes/World.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061221969987155045, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
+        type: 3}
+      propertyPath: spawnPrefabs.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9061221969987155046, guid: 4a1928a2ff2fffe4aa073b6c054a447c,
         type: 3}

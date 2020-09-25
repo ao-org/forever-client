@@ -25,7 +25,6 @@ public class InventoryManager : MonoBehaviour
         // If there's space in the inventory...
         if (mInventory.Count + 1 <= mInventoryCapacity)
         {
-            UnityEngine.Debug.Log("ADDED " + item + " TO INVENTORY");
             // Add the item to it
             mInventory.Add(item);
         }

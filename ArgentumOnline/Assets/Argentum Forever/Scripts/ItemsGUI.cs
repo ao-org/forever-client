@@ -70,8 +70,12 @@ public class ItemsGUI : MonoBehaviour
             else
             {
                 // Clear  sprite
-                transform.GetChild(1).GetChild(ParseSlotPositionInGUI(equipmentSlot.Key)).GetComponent<Image>().sprite = null;
-                transform.GetChild(1).GetChild(ParseSlotPositionInGUI(equipmentSlot.Key)).GetComponent<Image>().color = Color.clear;
+                int parsedSlot = ParseSlotPositionInGUI(equipmentSlot.Key);
+                if (parsedSlot != -1)
+                {
+                    transform.GetChild(1).GetChild(ParseSlotPositionInGUI(equipmentSlot.Key)).GetComponent<Image>().sprite = null;
+                    transform.GetChild(1).GetChild(ParseSlotPositionInGUI(equipmentSlot.Key)).GetComponent<Image>().color = Color.clear;
+                }                
             }
         }
     }
@@ -88,6 +92,7 @@ public class ItemsGUI : MonoBehaviour
             case EquipmentSlotType.MAIN_HAND: parsedSlot = 2; break;
             case EquipmentSlotType.OFFHAND: parsedSlot = 3; break;
         }
+
         return parsedSlot;
     }
 

@@ -51,7 +51,7 @@ MonoBehaviour:
   showDebugMessages: 0
   serverTickRate: 30
   offlineScene: Assets/Argentum Forever/Scenes/Menus/MainMenu.unity
-  onlineScene: Assets/Argentum Forever/Scenes/Maps/Cities/nix34.unity
+  onlineScene: Assets/Argentum Forever/Scenes/World.unity
   transport: {fileID: 9061221969987155044}
   networkAddress: localhost
   maxConnections: 4
@@ -64,7 +64,6 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 8767253172771754024, guid: a1515555b95cc0e41973e814594255af, type: 3}
-  - {fileID: 7966839016517902717, guid: 7ed4b3924b223554c8840b56bb257c3c, type: 3}
 --- !u!114 &9061221969987155044
 MonoBehaviour:
   m_ObjectHideFlags: 0
