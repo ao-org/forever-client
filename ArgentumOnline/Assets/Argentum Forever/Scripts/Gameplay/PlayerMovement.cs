@@ -105,8 +105,8 @@ public class PlayerMovement : NetworkBehaviour
 
             if (hitCollider != null)
             {
-                Debug.DrawLine(mousePos, new Vector3(mousePos.x + 1, mousePos.y + 1, 1f));
-                CmdDamage(hitCollider.transform);
+                //Debug.DrawLine(mousePos, new Vector3(mousePos.x + 1, mousePos.y + 1, 1f));
+                CmdDamage(mousePos);
             }
         }
 
@@ -154,7 +154,6 @@ public class PlayerMovement : NetworkBehaviour
 
         // Calculate the final movement speed
         mFinalMovementSpeed = mInputMovementSpeed * mBaseMovementSpeed * 2.0f;
-        
     }
 
     private void ProcessMeleeAttack()
@@ -191,81 +190,80 @@ public class PlayerMovement : NetworkBehaviour
 
     public CardinalDirection GetCardinalDirection(float x, float y)
     {
-        CardinalDirection result = CardinalDirection.SOUTHWEST;
+        CardinalDirection direction = CardinalDirection.SOUTHWEST;
 
         // SOUTH
         if (x == 0 && y == -1)
         {
-            result = CardinalDirection.SOUTH;
+            direction = CardinalDirection.SOUTH;
         }
 
         // SOUTH EAST
         else if (x == 1 && y == -1)
         {
-            result = CardinalDirection.SOUTHEAST;
+            direction = CardinalDirection.SOUTHEAST;
         }
 
         // EAST
         else if (x == 1 && y == 0)
         {
-            result = CardinalDirection.EAST;
+            direction = CardinalDirection.EAST;
         }
 
         // NORTH EAST
         else if (x == 1 && y == 1)
         {
-            result = CardinalDirection.NORTHEAST;
+            direction = CardinalDirection.NORTHEAST;
         }
 
         // NORTH
         else if (x == 0 && y == 1)
         {
-            result = CardinalDirection.NORTH;
+            direction = CardinalDirection.NORTH;
         }
 
         // NORTH WEST
         else if (x == -1 && y == 1)
         {
-            result = CardinalDirection.NORTHWEST;
+            direction = CardinalDirection.NORTHWEST;
         }
 
         // WEST
         else if (x == -1 && y == 0)
         {
-            result = CardinalDirection.WEST;
+            direction = CardinalDirection.WEST;
         }
 
         // SOUTH WEST (default value, nothing to do)
+        // -------------------
 
-        // Return the direction
-        return result;
+        return direction;
+    }
+
+    [Command]
+    private void CmdDamage(Vector2 targetPos)
+    {
+        Collider2D hitCollider = Physics2D.OverlapPoint(targetPos, mPlayerLayerMask);
+
+        if (hitCollider != null)
+        {
+            GameObject playerGO = hitCollider.transform.gameObject;
+
+            if (playerGO.CompareTag("Player"))
+            {
+                PlayableCharacter targetPlayer = playerGO.GetComponent<PlayableCharacter>();
+                targetPlayer.DealDamage(5);
+            }
+        }
     }
 
     //[Command]
-    //private void CmdDamage(Vector2 targetPos)
+    //private void CmdDamage(Transform target)
     //{
-    //    Collider2D hitCollider = Physics2D.OverlapPoint(targetPos, mPlayerLayerMask);
-
-    //    if (hitCollider != null)
-    //    {
-    //        GameObject playerGO = hitCollider.transform.gameObject;
-
-    //        if (playerGO.CompareTag("Player"))
-    //        {
-    //            PlayableCharacter targetPlayer = playerGO.GetComponent<PlayableCharacter>();
-    //            Debug.Log("sent mouse pos: " + targetPos);
-    //            targetPlayer.DealDamage(5);
-    //        }
-    //    }
+    //    Debug.Log(target);
+    //    PlayableCharacter targetPlayer = target.gameObject.GetComponent<PlayableCharacter>();
+    //    targetPlayer.DealDamage(5);
     //}
-
-    [Command]
-    private void CmdDamage(Transform target)
-    {
-        Debug.Log(target);
-        PlayableCharacter targetPlayer = target.gameObject.GetComponent<PlayableCharacter>();
-        targetPlayer.DealDamage(5);
-    }
 
     public Vector2 GetLastMovementDirection() { return mLastMovementDirection; }
 }

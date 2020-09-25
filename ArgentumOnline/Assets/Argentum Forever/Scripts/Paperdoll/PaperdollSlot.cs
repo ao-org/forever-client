@@ -214,7 +214,7 @@ public class PaperdollSlot : MonoBehaviour
         return result;
     }
 
-    public int GetCardinalDirectionAsInt(CardinalDirection cardinal)
+    public int GetCardinalDirectionAsInt(CardinalDirection direction)
     {
         //      0 CardinalDirection.NORTH
         //      1 CardinalDirection.NORTHEAST
@@ -225,9 +225,9 @@ public class PaperdollSlot : MonoBehaviour
         //      6 CardinalDirection.WEST
         //      7 CardinalDirection.NORTHWEST
         int result = 0;
-        switch (cardinal)
+        switch (direction)
         {
-            case CardinalDirection.NORTH : result = 0; break;
+            case CardinalDirection.NORTH: result = 0; break;
             case CardinalDirection.NORTHEAST: result = 1; break;
             case CardinalDirection.EAST: result = 2; break;
             case CardinalDirection.SOUTHEAST: result = 3; break;
