@@ -72,7 +72,7 @@ public class WorldManager : MonoBehaviour
     }
 
     private void Update()
-    {
+    {           
         // Async map loading
         if (WorldManager._instance.mWaitingNextFrameToLoadSyncMap)
         {
