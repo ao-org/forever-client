@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -139,7 +140,7 @@ public class PaperdollSlot : MonoBehaviour
         if (item != null)
         {
             mSpriteRenderer.sortingOrder = mRenderingOrderByDirection[GetCardinalDirectionAsInt(cardinalDirection)];
-        }        
+        }
     }
 
     public void UpdateMeleeAttackStatus(bool started)

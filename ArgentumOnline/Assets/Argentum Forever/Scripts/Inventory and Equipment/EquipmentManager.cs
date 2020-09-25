@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,38 +8,58 @@ using UnityEngine;
 public class EquipmentManager : NetworkBehaviour
 {
     // Equipment slots
-    private Dictionary<EquipmentSlotType, EquipmentSlot> mEquipmentSlots;
+    public Dictionary<EquipmentSlotType, EquipmentSlot> mEquipmentSlots;
 
     // Character reference
     private PlayableCharacter mCharacter;
 
     #region unity loop
-    private void Awake()
+    private void Start()
     {
         InitializeSlots();
         mCharacter = GetComponent<PlayableCharacter>();
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
     }
     #endregion
 
     // Equip the item received as parameter. Returns FALSE if the item cannot be equiped
     public void EquipItem(Item item, EquipmentSlotType requestedSlotType)
     {
-        //TODO implementar verificación de slot
-        mEquipmentSlots[requestedSlotType].EquipItem(item);
+        // Network check
+        if (!isLocalPlayer) { return; }
 
+        //TODO implementar verificación de slot
+ 
+        // Fetch request slot index
+        int requestedSlotIndex = 0;
+        foreach (EquipmentSlotType slot in item.mAllowedSlots)
+        {
+            if (slot != requestedSlotType)
+            {
+                requestedSlotIndex += 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        // Notify server
+        CmdCharacterEquippedItem(mCharacter.transform, item.mID, requestedSlotIndex);
+    }
+
+    [Command]
+    private void CmdCharacterEquippedItem(Transform character, int itemID, int slotID)
+    {
         // Notify the character that a new item was equiped
-        mCharacter.ProcessEquipedItem(item, requestedSlotType);
+        mCharacter.RpcProcessEquipedItem(itemID, slotID);
     }
 
     // Unequip the item indicated by the slot received as parameter
     public void UnequipItemInSlot(EquipmentSlotType requestedSlotType)
     {
+        // Network check
+        if (!isLocalPlayer) { return; }
+
         // Unequiped item
         Item unequipedItem = mEquipmentSlots[requestedSlotType].mEquipedItem;
 

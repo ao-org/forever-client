@@ -48,7 +48,7 @@ public class PlayerMovement : NetworkBehaviour
         UpdateBlockingAnimations();
 
         // Process the user input
-        ProcessInputs();
+        ProcessInputs();     
 
         // Do the animation
         Animate();

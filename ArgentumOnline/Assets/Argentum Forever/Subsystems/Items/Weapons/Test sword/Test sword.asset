@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dd25c2676d6ff4c970820f78280dfd, type: 3}
   m_Name: Test sword
   m_EditorClassIdentifier: 
+  mID: 4
   mName: Test sword
   mDescription: Test sword
   nBasePrice: 0
   mWeight: 0
   mType: 1
-  allowedSlots: 02000000
+  mAllowedSlots: 02000000
   mAnimationClips:
     m_keys:
     - attack_east
@@ -85,6 +86,3 @@ MonoBehaviour:
     - {fileID: 7400000, guid: fe4c6ddf679f9054aad7a0d4dd960667, type: 2}
     - {fileID: 7400000, guid: 2b5f222e51e221d45a2a34a3443b749f, type: 2}
     - {fileID: 7400000, guid: 6abcf6f73e20d6d40ac9454274f0aaad, type: 2}
-  mRenderingOrderByDirection:
-    m_keys: 0000000001000000020000000300000004000000050000000600000007000000
-    m_values: 000000000a0000000a0000000a0000000a000000010000000000000000000000

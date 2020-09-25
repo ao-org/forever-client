@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dd25c2676d6ff4c970820f78280dfd, type: 3}
   m_Name: Test shield
   m_EditorClassIdentifier: 
+  mID: 1
   mName: Test shield
   mDescription: Test shield
   nBasePrice: 0
   mWeight: 0
   mType: 1
-  allowedSlots: 03000000
+  mAllowedSlots: 03000000
   mAnimationClips:
     m_keys:
     - attack_east
@@ -85,6 +86,3 @@ MonoBehaviour:
     - {fileID: 7400000, guid: d2146f9a0453d384b8d9ea301a0607a8, type: 2}
     - {fileID: 7400000, guid: 25dabca2344e0214ab3bfe12aefaa5ae, type: 2}
     - {fileID: 7400000, guid: cfdb788ab700a2f4090fcf880587bec9, type: 2}
-  mRenderingOrderByDirection:
-    m_keys: 0000000001000000020000000300000004000000050000000600000007000000
-    m_values: 010000000000000001000000000000000a0000000a0000000a0000000a000000

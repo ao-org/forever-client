@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dd25c2676d6ff4c970820f78280dfd, type: 3}
   m_Name: MonkRobes
   m_EditorClassIdentifier: 
+  mID: 2
   mName: Monk robes
   mDescription: Monk robes
   nBasePrice: 0
   mWeight: 0
   mType: 1
-  allowedSlots: 00000000
+  mAllowedSlots: 00000000
   mAnimationClips:
     m_keys:
     - attack_east
@@ -85,6 +86,3 @@ MonoBehaviour:
     - {fileID: 7400000, guid: 5431ddcd43703b246851232000171495, type: 2}
     - {fileID: 7400000, guid: 132609512fa51fe439af70ae61f9e875, type: 2}
     - {fileID: 7400000, guid: 83e835775c5e5cc448bd7e09efc8acb9, type: 2}
-  mRenderingOrderByDirection:
-    m_keys: 0000000001000000020000000300000004000000050000000600000007000000
-    m_values: 0200000002000000020000000200000002000000020000000200000002000000

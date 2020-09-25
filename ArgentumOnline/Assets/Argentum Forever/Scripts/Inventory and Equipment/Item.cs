@@ -6,6 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item", menuName = "Item", order = 1)]
 public class Item : ScriptableObject
 {
+    // Item ID
+    [SerializeField] public int mID;
+
     // Item name
     [SerializeField] private string mName;
 
@@ -22,7 +25,7 @@ public class Item : ScriptableObject
     [SerializeField] private ItemType mType;
 
     // Allowed slots
-    [SerializeField] private EquipmentSlotType[] allowedSlots;
+    [SerializeField] public EquipmentSlotType[] mAllowedSlots;
 
     // Animation clips (paperdoll system)
     [SerializeField] public StringAnimationClipDictionary mAnimationClips;

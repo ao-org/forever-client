@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dd25c2676d6ff4c970820f78280dfd, type: 3}
   m_Name: Helmet
   m_EditorClassIdentifier: 
+  mID: 0
   mName: Helmet
   mDescription: Helmet
   nBasePrice: 0
   mWeight: 0
   mType: 1
-  allowedSlots: 01000000
+  mAllowedSlots: 01000000
   mAnimationClips:
     m_keys:
     - attack_east

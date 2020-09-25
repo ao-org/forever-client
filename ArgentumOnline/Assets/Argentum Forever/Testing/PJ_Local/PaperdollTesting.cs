@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PaperdollTesting : MonoBehaviour
 {
-    [SerializeField] private PlayableCharacter mPlayer;
+    [SerializeField] public PlayableCharacter mPlayer;
     [SerializeField] private Item monkRobes;
     [SerializeField] private Item newbieClothes;
     [SerializeField] private Item testShield;
     [SerializeField] private Item testSword;
     [SerializeField] private Item testHelmet;
+
+    private void Start()
+    {
+        mPlayer = GetComponentInParent<PlayableCharacter>();
+    }
 
     public void FreeTorsoSlot()
     {

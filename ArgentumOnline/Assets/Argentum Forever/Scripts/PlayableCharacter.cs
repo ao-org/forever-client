@@ -1,5 +1,6 @@
 ﻿using Cinemachine;
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class PlayableCharacter : NetworkBehaviour
 {
     // Cache for the "Sprites" child
     private PaperdollManager mPaperdollManager;
+    private EquipmentManager mEquipmentManager;
 
     [SerializeField] private GameObject apocaPrefab;
 
@@ -34,13 +36,10 @@ public class PlayableCharacter : NetworkBehaviour
     #region unity loop
     private void Awake()
     {
-        // Prevent non-local manipulation
-        //if (!isLocalPlayer) { return; }
-
-        //
         DontDestroyOnLoad(transform);
 
         mPaperdollManager = transform.GetComponentInChildren<PaperdollManager>();
+        mEquipmentManager = transform.GetComponentInChildren<EquipmentManager>();
     }
     #endregion
 
@@ -73,6 +72,10 @@ public class PlayableCharacter : NetworkBehaviour
     {
         CinemachineVirtualCamera rVcam = FindObjectOfType<CinemachineVirtualCamera>();
         rVcam.m_Follow = gameObject.transform;
+
+        //TODO KILLME TEST
+        Instantiate(GetComponent<TestingGUI>().mPaperdollTestingGUI, transform);
+        Instantiate(GetComponent<TestingGUI>().mCharacterInfoGUI, transform);
     }
 
     public void NotifyMeleeAttackToPaperdoll(bool started)
@@ -95,12 +98,19 @@ public class PlayableCharacter : NetworkBehaviour
         mPaperdollManager.CleanAnimationSet(slot);
     }
 
-    public void ProcessEquipedItem(Item item, EquipmentSlotType slot)
+    [ClientRpc]
+    public void RpcProcessEquipedItem(int itemID, int slotID)
     {
-        // Update paperdoll
-        LoadAnimationSet(item.mAnimationClips, slot);
+        // Get animation set from the item ID
+        Item item = ItemManager.GetItemByID(itemID);
 
-        // TODO actualizar stats... validar..
+        // Update equipment slot
+        mEquipmentManager.mEquipmentSlots[item.mAllowedSlots[slotID]].EquipItem(item);
+
+        // Update paperdoll
+        LoadAnimationSet(item.mAnimationClips, item.mAllowedSlots[slotID]);
+
+        // TODO actualizar stats...
     }
 
     public void ProcessUnequipedItem(Item item, EquipmentSlotType slot)

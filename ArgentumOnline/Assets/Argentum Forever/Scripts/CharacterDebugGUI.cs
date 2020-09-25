@@ -18,6 +18,7 @@ public class CharacterDebugGUI : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        mPlayer = transform.parent.gameObject;
         mCharacterName.text = mPlayer.GetComponent<PlayableCharacter>().mCharactername;
     }
 
