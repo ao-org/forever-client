@@ -27,6 +27,7 @@ public class MapScenesManager : MonoBehaviour
         MapScenesManager.mMapScenes.Add(7, "TEST_SCENE_7");
         MapScenesManager.mMapScenes.Add(8, "TEST_SCENE_8");
         MapScenesManager.mMapScenes.Add(9, "TEST_SCENE_9");
+        MapScenesManager.mMapScenes.Add(14, "4");
     }
 
     public static string GetNameFor(int mapID)

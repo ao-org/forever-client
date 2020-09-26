@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4028086341806716600}
   - component: {fileID: 4028086341806716601}
   m_Layer: 0
-  m_Name: mausoleo 1
+  m_Name: mausoleo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4028086341806716603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 160.94, y: 127.15, z: 0}
+  m_LocalPosition: {x: 160.94, y: 126.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4425427685713492947}
@@ -244,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4425427685713492944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -0.02, z: -1.561}
+  m_LocalPosition: {x: 0.14, y: -0.3, z: -1.561}
   m_LocalScale: {x: 0.74053997, y: 0.72489, z: 1}
   m_Children: []
   m_Father: {fileID: 4028086341806716602}
@@ -262,13 +262,13 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8679245, g: 0.10234957, b: 0.7656647, a: 1}
-  m_Intensity: 11.05
-  m_Range: 3.38
+  m_Intensity: 20.24
+  m_Range: 2.24
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -304,7 +304,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
