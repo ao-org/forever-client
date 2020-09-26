@@ -11,12 +11,8 @@ public enum DamageType
     Apoca
 }
 
-public class PlayableCharacter : NetworkBehaviour
+public class PlayableCharacter : Character
 {
-    private PaperdollManager mPaperdollManager;
-    public EquipmentManager mEquipmentManager;
-    public InventoryManager mInventoryManager;
-
     [SerializeField] private GameObject apocaPrefab;
 
     [SerializeField] private GameObject hitBloodPrefab;
@@ -49,6 +45,7 @@ public class PlayableCharacter : NetworkBehaviour
         mPaperdollManager = transform.GetComponentInChildren<PaperdollManager>();
         mEquipmentManager = transform.GetComponentInChildren<EquipmentManager>();
         mInventoryManager = transform.GetComponentInChildren<InventoryManager>();
+        mSpellManager = transform.GetComponentInChildren<SpellManager>();
     }
     #endregion
 
@@ -89,8 +86,10 @@ public class PlayableCharacter : NetworkBehaviour
         mInventoryManager.AddItem(GetComponent<TestingGUI>().mWoodenBucker);
         mInventoryManager.AddItem(GetComponent<TestingGUI>().mWoodenSword);
         mInventoryManager.AddItem(GetComponent<TestingGUI>().mHelmet);
+        LearnSpell(PremadeSpellsManager.GetSpellByID(0));
         Instantiate(GetComponent<TestingGUI>().mCharacterInfoGUI, transform);
         Instantiate(GetComponent<TestingGUI>().mItemsGUI, transform);
+        Instantiate(GetComponent<TestingGUI>().mMagicGUI, transform);        
     }
 
     public void NotifyMeleeAttackToPaperdoll(bool started)
@@ -180,5 +179,15 @@ public class PlayableCharacter : NetworkBehaviour
     private void Kill()
     {
         Debug.Log($"player {netId} died!");
+    }
+
+    public void LaunchSelectedSpell(Vector2 targetPosition)
+    {
+        mSpellManager.LaunchSelectedSpell(targetPosition);
+    }
+
+    public void UpdateSelectedSpellSlot(int newSlot)
+    {
+        mSpellManager.SelectSlot(newSlot);
     }
 }

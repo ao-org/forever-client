@@ -8,6 +8,7 @@ public class TestingGUI : MonoBehaviour
     [SerializeField] public GameObject mCharacterInfoGUI;
 
     [SerializeField] public GameObject mItemsGUI;
+    [SerializeField] public GameObject mMagicGUI;
 
     [SerializeField] public Item mHelmet;
     [SerializeField] public Item mWoodenSword;

@@ -1457,6 +1457,7 @@ GameObject:
   - component: {fileID: 3009476481514714245}
   - component: {fileID: 1781754374}
   - component: {fileID: 1781754373}
+  - component: {fileID: 2658300746947084080}
   - component: {fileID: 757687785100031293}
   - component: {fileID: 8287077844396414320}
   m_Layer: 10
@@ -1674,8 +1675,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  mPaperdollManager: {fileID: 0}
   mEquipmentManager: {fileID: 1781754373}
   mInventoryManager: {fileID: 1781754374}
+  mSpellManager: {fileID: 0}
   apocaPrefab: {fileID: 7966839016517902717, guid: 7ed4b3924b223554c8840b56bb257c3c,
     type: 3}
   hitBloodPrefab: {fileID: 0}
@@ -1731,6 +1734,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+--- !u!114 &2658300746947084080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767253172771754024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d185bdfbf56584ab5e5317f6acd067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &757687785100031293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,6 +1782,8 @@ MonoBehaviour:
   mCharacterInfoGUI: {fileID: 4611298240967826867, guid: 13d326fb2151fe44482d5b1b88b289b0,
     type: 3}
   mItemsGUI: {fileID: 4007414926100023073, guid: b4dfa1a7f7284e641839cfa9b02168f4,
+    type: 3}
+  mMagicGUI: {fileID: 7297129589031377126, guid: d53b3c41fd8ffe24cae071beae857e0c,
     type: 3}
   mHelmet: {fileID: 11400000, guid: 059b775850215f54bb0bf00d81d728be, type: 2}
   mWoodenSword: {fileID: 11400000, guid: 650fc099dcefe4349a7a1e5e8369f490, type: 2}

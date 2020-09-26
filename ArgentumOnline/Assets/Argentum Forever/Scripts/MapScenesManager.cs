@@ -17,7 +17,7 @@ public class MapScenesManager : MonoBehaviour
 
     private void InitializeMapNames()
     {
-        //KILLME test scenes
+        // KILLME test scenes
         MapScenesManager.mMapScenes.Add(1, "TEST_SCENE_1");
         MapScenesManager.mMapScenes.Add(2, "TEST_SCENE_2");
         MapScenesManager.mMapScenes.Add(3, "TEST_SCENE_3");

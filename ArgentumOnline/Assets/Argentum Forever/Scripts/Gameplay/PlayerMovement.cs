@@ -95,20 +95,21 @@ public class PlayerMovement : NetworkBehaviour
     private void ProcessInputs()
     {
         // Check if the user wants to launch a spell
-        if (Input.GetMouseButtonUp(0))
-        {
-            // Check if it hits something before sending to the server
-            // If I didn't check, it would generate traffic unnecesarily
-            Camera mainCamera = FindObjectOfType<Camera>();
-            Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Collider2D hitCollider = Physics2D.OverlapPoint(mousePos, mPlayerLayerMask);
+        //FIXME LO SACO PARA PROBAR EL SISTEMA DE MAGIA
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    // Check if it hits something before sending to the server
+        //    // If I didn't check, it would generate traffic unnecesarily
+        //    Camera mainCamera = FindObjectOfType<Camera>();
+        //    Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        //    Collider2D hitCollider = Physics2D.OverlapPoint(mousePos, mPlayerLayerMask);
 
-            if (hitCollider != null)
-            {
-                //Debug.DrawLine(mousePos, new Vector3(mousePos.x + 1, mousePos.y + 1, 1f));
-                CmdDamage(mousePos);
-            }
-        }
+        //    if (hitCollider != null)
+        //    {
+        //        //Debug.DrawLine(mousePos, new Vector3(mousePos.x + 1, mousePos.y + 1, 1f));
+        //        CmdDamage(mousePos);
+        //    }
+        //}
 
         // Check if the user wants to launch a melee attack
         //FIXME usar ejes virtuales, no teclas concretas

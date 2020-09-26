@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WorldManager : MonoBehaviour
+public class WorldManager : NetworkBehaviour
 {
     // Flag for local testing (true = testing engabled)
     [SerializeField] private bool mLocalDebugMode;
