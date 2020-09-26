@@ -252,7 +252,7 @@ public class PlayerMovement : NetworkBehaviour
             if (playerGO.CompareTag("Player"))
             {
                 PlayableCharacter targetPlayer = playerGO.GetComponent<PlayableCharacter>();
-                targetPlayer.DealDamage(5);
+                targetPlayer.DealDamage(5, DamageType.Apoca);
             }
         }
     }

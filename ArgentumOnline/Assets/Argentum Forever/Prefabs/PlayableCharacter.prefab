@@ -1445,7 +1445,6 @@ GameObject:
   - component: {fileID: 8767253172771754030}
   - component: {fileID: 8767253172771754029}
   - component: {fileID: 7516276944264775640}
-  - component: {fileID: 4161497429375245998}
   - component: {fileID: 2851036916025659394}
   - component: {fileID: -3929114480452606781}
   - component: {fileID: 4810602117722690173}
@@ -1531,22 +1530,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.25}
   m_EdgeRadius: 0
---- !u!58 &4161497429375245998
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8767253172771754024}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &2851036916025659394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,6 +1678,7 @@ MonoBehaviour:
   mInventoryManager: {fileID: 1781754374}
   apocaPrefab: {fileID: 7966839016517902717, guid: 7ed4b3924b223554c8840b56bb257c3c,
     type: 3}
+  hitBloodPrefab: {fileID: 0}
   mCurrentMapID: 0
   mCharactername: Unnamed Character
   mMaxHealth: 500
@@ -1761,7 +1745,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  attackZone: {fileID: 4161497429375245998}
+  attackRadius: 0.5
+  maxHitAngle: 30
+  hitDamage: 10
 --- !u!114 &8287077844396414320
 MonoBehaviour:
   m_ObjectHideFlags: 0

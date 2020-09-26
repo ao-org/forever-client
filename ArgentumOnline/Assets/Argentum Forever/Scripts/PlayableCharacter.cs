@@ -5,6 +5,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DamageType
+{
+    Melee,
+    Apoca
+}
+
 public class PlayableCharacter : NetworkBehaviour
 {
     private PaperdollManager mPaperdollManager;
@@ -12,6 +18,8 @@ public class PlayableCharacter : NetworkBehaviour
     public InventoryManager mInventoryManager;
 
     [SerializeField] private GameObject apocaPrefab;
+
+    [SerializeField] private GameObject hitBloodPrefab;
 
     #region synchronized variables
     [SyncVar]
@@ -128,13 +136,13 @@ public class PlayableCharacter : NetworkBehaviour
         // TODO actualizar stats... validar..
     }
 
-    public void DealDamage(int amount)
+    public void DealDamage(int amount, DamageType type)
     {
         if (!CanTargetPlayer(this)) return;
 
         mCurrentHealth -= amount;
 
-        RpcApocaReceived();
+        RpcDamageReceived(type);
         if (mCurrentHealth <= 0)
         {
             Kill();
@@ -142,9 +150,19 @@ public class PlayableCharacter : NetworkBehaviour
     }
 
     [ClientRpc]
-    void RpcApocaReceived()
+    void RpcDamageReceived(DamageType type)
     {
-        Instantiate(apocaPrefab, transform);
+        switch (type)
+        {
+            case DamageType.Melee:
+                Instantiate(hitBloodPrefab, transform);
+                break;
+            case DamageType.Apoca:
+                Instantiate(apocaPrefab, transform);
+                break;
+            default:
+                break;
+        }
     }
 
     [Server]
