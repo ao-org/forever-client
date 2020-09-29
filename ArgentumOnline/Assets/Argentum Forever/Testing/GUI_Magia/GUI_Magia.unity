@@ -218,6 +218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Magic GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7297129589031377129, guid: d53b3c41fd8ffe24cae071beae857e0c,
+        type: 3}
+      propertyPath: targetCursorTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 9f7eb557c08b62740a4d0e09db72cb98, type: 3}
     - target: {fileID: 7297129589031377130, guid: d53b3c41fd8ffe24cae071beae857e0c,
         type: 3}
       propertyPath: m_LocalPosition.x

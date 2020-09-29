@@ -12,6 +12,9 @@ public class MagicGUI : MonoBehaviour
 
     public bool mTargetingEnabled = false;
 
+    [SerializeField] Texture2D targetCursorTexture;
+    
+
     void Start()
     {
         mCharacter = GetComponentInParent<PlayableCharacter>();
@@ -73,6 +76,13 @@ public class MagicGUI : MonoBehaviour
     public void EnableTargetingMode()
     {
         mTargetingEnabled = true;
+        Vector2 cursorOffset = new Vector2(targetCursorTexture.width / 2, targetCursorTexture.height / 2);
+        Cursor.SetCursor(targetCursorTexture, cursorOffset, CursorMode.Auto);
+    }
+    public void DisableTargetingMode()
+    {
+        mTargetingEnabled = false;
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     private void CheckSpellCast()
@@ -87,7 +97,7 @@ public class MagicGUI : MonoBehaviour
                 Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
                 mCharacter.LaunchSelectedSpell(mousePos);
             }
-            mTargetingEnabled = false;
+            DisableTargetingMode();
         }
     }
 }

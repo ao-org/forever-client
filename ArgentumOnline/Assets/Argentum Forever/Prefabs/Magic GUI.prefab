@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mTargetingEnabled: 0
+  targetCursorTexture: {fileID: 2800000, guid: 9f7eb557c08b62740a4d0e09db72cb98, type: 3}
 --- !u!1 &7297129589469846451
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,10 +767,10 @@ RectTransform:
   m_Father: {fileID: 7297129589031377130}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -663.5863, y: 97.89997}
-  m_SizeDelta: {x: -1422.3304, y: 46.46118}
+  m_AnchorMin: {x: 0.044000003, y: 0.12460418}
+  m_AnchorMax: {x: 0.18800001, y: 0.18939583}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7297129590496271470
 CanvasRenderer:
