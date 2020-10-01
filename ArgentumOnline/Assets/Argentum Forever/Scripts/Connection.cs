@@ -27,11 +27,6 @@ public class Connection : NetworkBehaviour
 
     private void Awake()
     {
-        if (isServer)
-        {
-            GameObject connection = Instantiate(mConnectionPrefab, transform.parent);
-            NetworkServer.Spawn(connection);
-        }
 
         InitializeSingleton();
         mVisualEffectsManager = GameObject.FindObjectOfType<VisualEffectsManager>();
@@ -44,11 +39,10 @@ public class Connection : NetworkBehaviour
 
     public void PlaySpellFX(int fxID, Vector2 position, Transform attachedTo)
     {
-        mVisualEffectsManager.PlaySpellFX(fxID, position, attachedTo);
-        //CmdPlaySpellFX(fxID, position, attachedTo);
+        CmdPlaySpellFX(fxID, position, attachedTo);
     }
 
-    [Command]
+    [Command(ignoreAuthority = true)]
     private void CmdPlaySpellFX(int fxID, Vector2 position, Transform attachedTo)
     {
         RpcPlaySpellFX(fxID, position, attachedTo);
