@@ -32,7 +32,7 @@ public class PlayerMeleeAttack : NetworkBehaviour
             Debug.Log("PlayerHitted!, Angle: " + hitAngle + " With: " + hits[i].transform.name);
             Debug.DrawLine(transform.position, hits[i].point, Color.red, 2f);
 
-            victimCharacter.DealDamage(hitDamage, DamageType.Melee);
+            victimCharacter.DealDamage(hitDamage);
         }
     }
 
