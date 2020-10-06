@@ -153,10 +153,9 @@ public class WorldClient : MonoBehaviour {
 		mAppQuit = false;
 		mSpawningPlayerCharacter = false;
 		SetSceneLoaded(false);
-		var debugUI = GameObject.Find("DebugUI").gameObject;
-		if(debugUI!=null){
+		var debugUI = GameObject.Find("DebugUI");
+		if(debugUI != null)
 			debugUI.transform.localScale = new Vector3(0, 0, 0);
-		}
 
 	}
 	public void SetMainMenu(MainMenu m){
