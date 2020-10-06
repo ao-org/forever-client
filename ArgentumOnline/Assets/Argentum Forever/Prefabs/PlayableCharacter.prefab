@@ -1658,7 +1658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showPing: 1
-  position: {x: 200, y: 0}
+  position: {x: 20, y: 150}
   fontSize: 24
   textColor: {r: 1, g: 1, b: 1, a: 0.6666667}
 --- !u!114 &3214578200961270384
@@ -1675,21 +1675,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  mCurrentMapID: 0
+  mCharactername: Unnamed Character
   mPaperdollManager: {fileID: 0}
   mEquipmentManager: {fileID: 1781754373}
   mInventoryManager: {fileID: 1781754374}
   mSpellManager: {fileID: 0}
-  apocaPrefab: {fileID: 7966839016517902717, guid: 7ed4b3924b223554c8840b56bb257c3c,
-    type: 3}
-  hitBloodPrefab: {fileID: 0}
   spellsToLearnOnStart:
   - {fileID: 11400000, guid: 6820fb5253c686c48b33e2e9dc0d8772, type: 2}
-  mCurrentMapID: 0
-  mCharactername: Unnamed Character
-  mMaxHealth: 500
-  mCurrentHealth: 500
-  mMaxMana: 1500
-  mCurrentMana: 1500
 --- !u!114 &3009476481514714245
 MonoBehaviour:
   m_ObjectHideFlags: 0
