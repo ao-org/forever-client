@@ -36,7 +36,7 @@ public class PlayableCharacter : Character
             LearnSpell(spellsToLearnOnStart[i]);
 
         Instantiate(GetComponent<TestingGUI>().mCharacterInfoGUI, transform);
-        Instantiate(GetComponent<TestingGUI>().mItemsGUI, transform);
+        //Instantiate(GetComponent<TestingGUI>().mItemsGUI, transform);
         Instantiate(GetComponent<TestingGUI>().mMagicGUI, transform);        
     }
 
