@@ -123,51 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &742384081
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 742384083}
-  - component: {fileID: 742384082}
-  m_Layer: 0
-  m_Name: Visuall Effects Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &742384082
+--- !u!114 &742384082 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6278111343860471236, guid: 7e7fc7de545b8254a93c19bc938775ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 6278111344195056662}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742384081}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6aee1dea66033c1458eefd9da8bf07d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mPremadeSpellsFX:
-  - {fileID: 7966839016517902717, guid: 7ed4b3924b223554c8840b56bb257c3c, type: 3}
---- !u!4 &742384083
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742384081}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1014944036
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,8 +608,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e860dbfbf332d4dab4524cee377423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
+--- !u!1001 &6278111344195056662
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471237, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278111343860471239, guid: 7e7fc7de545b8254a93c19bc938775ed,
+        type: 3}
+      propertyPath: m_Name
+      value: Visuall Effects Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e7fc7de545b8254a93c19bc938775ed, type: 3}
 --- !u!1001 &8298813723283792104
 PrefabInstance:
   m_ObjectHideFlags: 0

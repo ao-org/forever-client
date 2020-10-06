@@ -8,7 +8,6 @@ public class Connection : NetworkBehaviour
 {
     [SerializeField] private GameObject mConnectionPrefab;
     [SerializeField] private AudioManager mAudioManager;
-    [SerializeField] private VisualEffectsManager mVisualEffectsManager;
 
     private static Connection _instance;
     public static Connection Instance { get { return _instance; } }
@@ -29,7 +28,6 @@ public class Connection : NetworkBehaviour
     {
 
         InitializeSingleton();
-        mVisualEffectsManager = GameObject.FindObjectOfType<VisualEffectsManager>();
     }
 
     public void PlaySound(int soundID)
@@ -37,20 +35,22 @@ public class Connection : NetworkBehaviour
         //TODO delegar al audio manager
     }
 
-    public void PlaySpellFX(int fxID, Vector2 position, Transform attachedTo)
+    public void PlaySpellFX(Spell spell, Vector2 position, Transform attachedTo)
     {
-        CmdPlaySpellFX(fxID, position, attachedTo);
+        int spellIndex = VisualEffectsManager.Instance.GetIndexFromSpell(spell);
+        CmdPlaySpellFX(spellIndex, position, attachedTo);
     }
 
     [Command(ignoreAuthority = true)]
-    private void CmdPlaySpellFX(int fxID, Vector2 position, Transform attachedTo)
+    private void CmdPlaySpellFX(int spellIndex, Vector2 position, Transform attachedTo)
     {
-        RpcPlaySpellFX(fxID, position, attachedTo);
+        RpcPlaySpellFX(spellIndex, position, attachedTo);
     }
 
     [ClientRpc]
-    private void RpcPlaySpellFX(int fxID, Vector2 position, Transform attachedTo)
+    private void RpcPlaySpellFX(int spellIndex, Vector2 position, Transform attachedTo)
     {
-        mVisualEffectsManager.PlaySpellFX(fxID, position, attachedTo);
+        GameObject spellVFX = VisualEffectsManager.Instance.GetSpellFromIndex(spellIndex)._visualEffectPrefab;
+        VisualEffectsManager.Instance.PlaySpellFX(spellVFX, position, attachedTo);
     }
 }

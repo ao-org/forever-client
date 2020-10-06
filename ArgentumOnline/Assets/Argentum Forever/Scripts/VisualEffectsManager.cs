@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class VisualEffectsManager : MonoBehaviour
 {
-    [SerializeField] public List<GameObject> mPremadeSpellsFX = new List<GameObject>();
+    [SerializeField]
+    private List<Spell> _spells;
 
     private static VisualEffectsManager _instance;
     public static VisualEffectsManager Instance { get { return _instance; } }
@@ -21,15 +22,25 @@ public class VisualEffectsManager : MonoBehaviour
         }
     }
 
-    public void PlaySpellFX(int fxID, Vector2 position, Transform attachedTo)
+    public void PlaySpellFX(GameObject visualEffectPrefab, Vector2 position, Transform attachedTo)
     {
         if (attachedTo != null)
         {
-            Instantiate(mPremadeSpellsFX[fxID], attachedTo);
+            Instantiate(visualEffectPrefab, attachedTo);
         }
         else
         {
-            Instantiate(mPremadeSpellsFX[fxID], position, Quaternion.identity);
+            Instantiate(visualEffectPrefab, position, Quaternion.identity);
         }
+    }
+
+    public int GetIndexFromSpell(Spell spell)
+    {
+        return _spells.IndexOf(spell);
+    }
+
+    public Spell GetSpellFromIndex(int index)
+    {
+        return _spells[index];
     }
 }

@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 7966839016517902707}
   - component: {fileID: 7966839016517902716}
   - component: {fileID: 3827775994596863538}
+  - component: {fileID: 3087835841963644322}
   m_Layer: 0
-  m_Name: Apoca
+  m_Name: Apocalipsis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,3 +214,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7daa2c9f16a530342ac5fe4ee4a2e107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3087835841963644322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966839016517902717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0

@@ -43,7 +43,7 @@ public class MagicGUI : MonoBehaviour
             // Update slot text
             if (slot.mSpell != null)
             {
-                transform.GetChild(0).GetChild(slotN).GetComponent<Text>().text = slot.mSpell.mName;
+                transform.GetChild(0).GetChild(slotN).GetComponent<Text>().text = slot.mSpell._name;
             }
             else
             {

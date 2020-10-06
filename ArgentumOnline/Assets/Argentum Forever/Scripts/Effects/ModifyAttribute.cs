@@ -1,19 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[Serializable]
 public class ModifyAttribute : Effect
 {
+    [SerializeField]
     private DefaultAttributeType mModifiedAttribute;
+    [SerializeField]
     private ValueModifierType mType;
+    [SerializeField]
     private int mValue;
-
-    public ModifyAttribute(DefaultAttributeType modifiedAttribute, ValueModifierType type, int amount)
-    {
-        mModifiedAttribute = modifiedAttribute;
-        mType = type;
-        mValue = amount;
-    }
 
     public override void ApplyTo(EffectTargetType targetType, Vector2 position)
     {

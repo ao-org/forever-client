@@ -1,51 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Spell
+[CreateAssetMenu(fileName = "Data", menuName = "ArgentumScriptable/Spell", order = 1)]
+public class Spell : ScriptableObject
 {
-    public int mPremadeID;
-    public string mName;
-    public string mMagicWords;
-    public string mDescription;
-    public int mRequiredMana;
-    public int mRequiredStamina;
-
-    public List<Effect> mEffects = new List<Effect>();
-
-    public List<EffectTargetType> mValidTargets = new List<EffectTargetType>();
-
-    public Spell(int id, string name, string magicWords, string desc, int reqMana, int reqStamina, List<Effect> effects, List<EffectTargetType> validTargets)
+    public string _name;
+    public string _magicWords;
+    public string _description;
+    public int _requiredMana;
+    public int _requiredStamina;
+    public GameObject _visualEffectPrefab;
+    public List<EffectTargetType> _validTargets = new List<EffectTargetType>();
+    [SerializeField]
+    protected EffectsContainer _effects;
+    public List<Effect> GetSpellEffects()
     {
-        mPremadeID = id;
-        mName = name;
-        mMagicWords = magicWords;
-        mDescription = desc;
-        mRequiredMana = reqMana;
-        mRequiredStamina = reqStamina;
-        mEffects = effects;
-        mValidTargets = validTargets;
+        List<Effect> effects = new List<Effect>();
+        effects.AddRange(_effects._modifyAttributes);
+
+        return effects;
     }
-
-    public void ApplyEffectsTo(Character caster, Vector2 targetPosition)
-    {
-        //FIXME validar que tipo de target aplica al momento de lanzar el hechizo
-
-        //FIXME validar si alcanza la mana
-
-        // Apply all effects to the target
-        foreach (Effect effect in mEffects)
-        {
-            //FIXME elegir 1 type valido
-            effect.ApplyTo(mValidTargets[0], targetPosition);
-        }
-
-        UnityEngine.Debug.Log("CASTED SPELL " + mName);
-        
-        //TODO determinar target character (si es que existe alguno en la posicion)
-        
-        // Show FX on all clients
-        Connection.Instance.PlaySpellFX(mPremadeID, targetPosition, null);
-    }
+}
+[System.Serializable]
+public class EffectsContainer
+{
+    public List<ModifyAttribute> _modifyAttributes;
 }

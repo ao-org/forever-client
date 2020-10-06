@@ -27,9 +27,29 @@ public class SpellManager : NetworkBehaviour
 
     public void LaunchSelectedSpell(Vector2 targetPosition)
     {
-        if (mSelectedSlot.mSpell != null)
+        if (mSelectedSlot != null && mSelectedSlot.mSpell != null)
         {
-            mSelectedSlot.LaunchAssociatedSpell(mCharacter, targetPosition);
+            //FIXME validar que tipo de target aplica al momento de lanzar el hechizo
+
+            //FIXME validar si alcanza la mana
+            Spell spell = mSelectedSlot.mSpell;
+            // Apply all effects to the target
+            foreach (Effect effect in spell.GetSpellEffects())
+            {
+                //FIXME elegir 1 type valido
+                effect.ApplyTo(spell._validTargets[0], targetPosition);
+            }
+
+            Debug.Log("CASTED SPELL " + spell._name);
+
+            //TODO determinar target character (si es que existe alguno en la posicion)
+
+            // Show FX on all clients
+            Connection.Instance.PlaySpellFX(spell, targetPosition, null);
+        }
+        else
+        {
+            Debug.Log("No Spell selected");
         }
     }
 
@@ -60,6 +80,6 @@ public class SpellManager : NetworkBehaviour
         {
             mSpellSlots.Add(new SpellSlot());
         }
-        mSelectedSlot = mSpellSlots[0];
+        //mSelectedSlot = mSpellSlots[0];
     }
 }

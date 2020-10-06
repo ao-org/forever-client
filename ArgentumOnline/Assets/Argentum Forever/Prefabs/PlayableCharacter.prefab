@@ -1682,6 +1682,8 @@ MonoBehaviour:
   apocaPrefab: {fileID: 7966839016517902717, guid: 7ed4b3924b223554c8840b56bb257c3c,
     type: 3}
   hitBloodPrefab: {fileID: 0}
+  spellsToLearnOnStart:
+  - {fileID: 11400000, guid: 6820fb5253c686c48b33e2e9dc0d8772, type: 2}
   mCurrentMapID: 0
   mCharactername: Unnamed Character
   mMaxHealth: 500

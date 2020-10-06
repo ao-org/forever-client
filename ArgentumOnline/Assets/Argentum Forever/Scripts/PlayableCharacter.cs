@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayableCharacter : Character
-{   
+{
+    //Placeholder until data is recorded with player
+    public List<Spell> spellsToLearnOnStart = new List<Spell>();
     protected override void InitializeDefaultComponents()
     {
         DontDestroyOnLoad(transform);
@@ -16,7 +18,6 @@ public class PlayableCharacter : Character
         mInventoryManager = transform.GetComponentInChildren<InventoryManager>();
         mSpellManager = transform.GetComponentInChildren<SpellManager>();
     }
-
 
     public override void OnStartLocalPlayer()
     {
@@ -30,7 +31,10 @@ public class PlayableCharacter : Character
         mInventoryManager.AddItem(GetComponent<TestingGUI>().mWoodenBucker);
         mInventoryManager.AddItem(GetComponent<TestingGUI>().mWoodenSword);
         mInventoryManager.AddItem(GetComponent<TestingGUI>().mHelmet);
-        LearnSpell(PremadeSpellsManager.GetSpellByID(0));
+
+        for (int i = 0; i < spellsToLearnOnStart.Count; i++)
+            LearnSpell(spellsToLearnOnStart[i]);
+
         Instantiate(GetComponent<TestingGUI>().mCharacterInfoGUI, transform);
         Instantiate(GetComponent<TestingGUI>().mItemsGUI, transform);
         Instantiate(GetComponent<TestingGUI>().mMagicGUI, transform);        
