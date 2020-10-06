@@ -180,7 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b944893442fe7240a71fe4a11c24409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mDefaultZoom: 2
-  mMinZoom: 3
-  mMaxZoom: 1
-  mZoomStep: 0.5
+  _minZoomPixelPerUnit: 64
+  _maxZoomPixelPerUnit: 128
+  _zoomStep: 2

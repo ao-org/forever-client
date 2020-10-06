@@ -15,7 +15,7 @@ public class MagicGUI : MonoBehaviour
     [SerializeField] Texture2D targetCursorTexture;
     
 
-    void Start()
+    void Awake()
     {
         mCharacter = GetComponentInParent<PlayableCharacter>();
         DontDestroyOnLoad(gameObject);
@@ -71,6 +71,8 @@ public class MagicGUI : MonoBehaviour
         }
 
         transform.GetChild(0).GetChild(slotNumber).GetComponent<Text>().color = Color.green;
+
+        DisableTargetingMode();
     }
 
     public void EnableTargetingMode()
@@ -93,8 +95,7 @@ public class MagicGUI : MonoBehaviour
             {
                 // Check if it hits something before sending to the server
                 // If I didn't check, it would generate traffic unnecesarily
-                Camera mainCamera = FindObjectOfType<Camera>();
-                Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mCharacter.LaunchSelectedSpell(mousePos);
             }
             DisableTargetingMode();

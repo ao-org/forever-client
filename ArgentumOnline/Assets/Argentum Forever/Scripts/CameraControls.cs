@@ -4,22 +4,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
-//FIXME cambiar el orthographic size en runtime entra con conflicto con el plugin Pixel Perfect Camera
 public class CameraControls : MonoBehaviour
 {
     // Zoom levels
-    [SerializeField] private float mDefaultZoom;
-    [SerializeField] private float mMinZoom;
-    [SerializeField] private float mMaxZoom;
-    [SerializeField] private float mZoomStep;
+    [SerializeField] private int _minZoomPixelPerUnit;
+    [SerializeField] private int _maxZoomPixelPerUnit;
+    [SerializeField] private int _zoomStep;
 
-    private CinemachineVirtualCamera vCam;
+    private PixelPerfectCamera _mainCameraPixelPerfect;
     
     private void Awake()
     {
-        vCam = GetComponent<CinemachineVirtualCamera>();
-        vCam.m_Lens.OrthographicSize = mDefaultZoom;
+        _mainCameraPixelPerfect = Camera.main.GetComponent<PixelPerfectCamera>();
     }
 
     private void Update()
@@ -27,30 +25,12 @@ public class CameraControls : MonoBehaviour
         // Check mouse wheel input
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            // Check zoom level
-            if (vCam.m_Lens.OrthographicSize > mMaxZoom)
-            {
-                DOTween.To(
-                    x => vCam.m_Lens.OrthographicSize = x,
-                    vCam.m_Lens.OrthographicSize,
-                    vCam.m_Lens.OrthographicSize - mZoomStep,
-                    0.2f
-                );
-                //rVcam.m_Lens.OrthographicSize -= mZoomStep;
-            }
+            if ((_mainCameraPixelPerfect.assetsPPU + _zoomStep) < _maxZoomPixelPerUnit)
+                _mainCameraPixelPerfect.assetsPPU += _zoomStep;
         } else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            // Check zoom level
-            if (vCam.m_Lens.OrthographicSize < mMinZoom)
-            {
-                DOTween.To(
-                    x => vCam.m_Lens.OrthographicSize = x,
-                    vCam.m_Lens.OrthographicSize,
-                    vCam.m_Lens.OrthographicSize + mZoomStep,
-                    0.2f
-                );
-                //rVcam.m_Lens.OrthographicSize += mZoomStep;
-            }
+            if ((_mainCameraPixelPerfect.assetsPPU - _zoomStep) > _minZoomPixelPerUnit)
+                _mainCameraPixelPerfect.assetsPPU -= _zoomStep;
         }
     }
 }
