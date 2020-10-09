@@ -1683,6 +1683,7 @@ MonoBehaviour:
   mSpellManager: {fileID: 0}
   spellsToLearnOnStart:
   - {fileID: 11400000, guid: 6820fb5253c686c48b33e2e9dc0d8772, type: 2}
+  - {fileID: 11400000, guid: 6231828c011ea334fafc0d11aa7903e8, type: 2}
 --- !u!114 &3009476481514714245
 MonoBehaviour:
   m_ObjectHideFlags: 0
