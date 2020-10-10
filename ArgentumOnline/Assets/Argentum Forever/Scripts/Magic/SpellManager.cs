@@ -15,6 +15,9 @@ public class SpellManager : NetworkBehaviour
     // Character reference
     private PlayableCharacter mCharacter;
 
+    //Fixed size to 5 to avoid allocating/GC memory
+    private Collider2D[] mOverlapBuffer = new Collider2D[5];
+
     #region unity loop
     private void Awake()
     {
@@ -34,22 +37,55 @@ public class SpellManager : NetworkBehaviour
             //FIXME validar si alcanza la mana
             Spell spell = mSelectedSlot.mSpell;
             // Apply all effects to the target
-            foreach (Effect effect in spell.GetSpellEffects())
+
+            int layerMask = 0;
+
+            foreach (EffectTargetType targetType in spell._validTargets)
+                layerMask |= GetLayerMaskFromTargetType(targetType);
+
+            Vector2 spellDetectionExtent = Vector2.one / 4;
+
+            int overlapCount = Physics2D.OverlapBoxNonAlloc(targetPosition, spellDetectionExtent, 0, mOverlapBuffer, layerMask);
+
+            ExtDebug.DrawBox(targetPosition, spellDetectionExtent / 2, Quaternion.identity, Color.red);
+
+            if (overlapCount > 0)
             {
-                //FIXME elegir 1 type valido
-                effect.ApplyTo(spell._validTargets[0], targetPosition);
+
+                foreach (Effect effect in spell.GetSpellEffects())
+                    effect.ApplyTo(ref mOverlapBuffer, overlapCount, targetPosition);
+
+                Debug.Log("Casted Spell: " + spell._name);
+
+                Connection.Instance.PlaySpellFX(spell, targetPosition, mOverlapBuffer[0].transform);
             }
-
-            Debug.Log("CASTED SPELL " + spell._name);
-
-            //TODO determinar target character (si es que existe alguno en la posicion)
-
-            // Show FX on all clients
-            Connection.Instance.PlaySpellFX(spell, targetPosition, null);
+            else
+            {
+                Debug.Log("No valid target for: " + spell._name);
+            }
         }
         else
         {
             Debug.Log("No Spell selected");
+        }
+    }
+
+    protected int GetLayerMaskFromTargetType(EffectTargetType targetType)
+    {
+        switch (targetType)
+        {
+            case EffectTargetType.ANY:
+                return LayerMask.GetMask("");
+            case EffectTargetType.ANY_CHARACTER:
+                return LayerMask.GetMask("Players");
+            case EffectTargetType.OTHER_CHARACTER_ONLY:
+                return LayerMask.GetMask("Players");
+            case EffectTargetType.SELF_CHARACTER_ONLY:
+                return LayerMask.GetMask("Players");
+            case EffectTargetType.EMPTY_TERRAIN_ONLY:
+                return LayerMask.GetMask("");
+            default:
+                return 0;
         }
     }
 

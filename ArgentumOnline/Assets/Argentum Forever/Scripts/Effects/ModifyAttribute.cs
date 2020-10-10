@@ -12,26 +12,14 @@ public class ModifyAttribute : Effect
     [SerializeField]
     private int mValue;
 
-    public override void ApplyTo(EffectTargetType targetType, Vector2 position)
+    public override void ApplyTo(ref Collider2D[] targets, int targetsCount, Vector2 position)
     {
-        // Check if the target type is valid for this effect
-        if (TargetTypeValid(targetType))
-        {
-            //TODO obtener personaje en la posición indicada
-            Character targetCharacter = null; //(Character) target.mTarget;
-            Collider2D hitCollider = Physics2D.OverlapPoint(position);
-            if (hitCollider != null)
-            {
-                targetCharacter = hitCollider.GetComponent<PlayableCharacter>();
-
-                if (targetCharacter != null)
-                {
-                    targetCharacter.ModifyAttribute(mModifiedAttribute, mValue);
-                }                
-            }
-        }
+        Character targetCharacter = targets[0].GetComponent<Character>();
+        if (targetCharacter != null)
+            targetCharacter.ModifyAttribute(mModifiedAttribute, mValue);
     }
 
+/*
     protected override bool TargetTypeValid(EffectTargetType targetType)
     {
         bool valid = false;
@@ -40,5 +28,5 @@ public class ModifyAttribute : Effect
             valid = true;
         }
         return valid;
-    }
+    }*/
 }

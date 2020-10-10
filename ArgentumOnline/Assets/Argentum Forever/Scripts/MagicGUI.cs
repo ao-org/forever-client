@@ -12,6 +12,9 @@ public class MagicGUI : MonoBehaviour
 
     public bool mTargetingEnabled = false;
 
+    public float mSpellInterval = 1f;
+    private float mCurrentSpellInterval = 0f;
+
     [SerializeField] Texture2D targetCursorTexture;
     
 
@@ -24,6 +27,9 @@ public class MagicGUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!mTargetingEnabled)
+            mCurrentSpellInterval += Time.deltaTime;
+
         //FIXME actualizar solo cuando haga falta
 
         // Update spell slots
@@ -77,12 +83,18 @@ public class MagicGUI : MonoBehaviour
 
     public void EnableTargetingMode()
     {
+        if (mCurrentSpellInterval < mSpellInterval)
+            return;
+
         mTargetingEnabled = true;
         Vector2 cursorOffset = new Vector2(targetCursorTexture.width / 2, targetCursorTexture.height / 2);
         Cursor.SetCursor(targetCursorTexture, cursorOffset, CursorMode.Auto);
     }
     public void DisableTargetingMode()
     {
+        if (mTargetingEnabled)
+            mCurrentSpellInterval = 0;
+
         mTargetingEnabled = false;
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
