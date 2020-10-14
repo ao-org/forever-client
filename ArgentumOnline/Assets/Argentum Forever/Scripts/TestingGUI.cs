@@ -9,6 +9,7 @@ public class TestingGUI : MonoBehaviour
 
     [SerializeField] public GameObject mItemsGUI;
     [SerializeField] public GameObject mMagicGUI;
+    [SerializeField] public GameObject mPlayerStateGUI;
 
     [SerializeField] public Item mHelmet;
     [SerializeField] public Item mWoodenSword;

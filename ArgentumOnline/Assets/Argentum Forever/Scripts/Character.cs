@@ -30,8 +30,8 @@ public abstract class Character : NetworkBehaviour
     {
         //TODO hacer bien canejo
         mAttributes = new Dictionary<DefaultAttributeType, Attribute>();
-        mAttributes.Add(DefaultAttributeType.HEALTH, new Attribute(DefaultAttributeType.HEALTH, "Health", 20));         // 20 de vida inicial
-        mAttributes.Add(DefaultAttributeType.MANA, new Attribute(DefaultAttributeType.MANA, "Mana", 20));               // 20 de mana inicial
+        mAttributes.Add(DefaultAttributeType.HEALTH, new Attribute(DefaultAttributeType.HEALTH, "Health", 450));
+        mAttributes.Add(DefaultAttributeType.MANA, new Attribute(DefaultAttributeType.MANA, "Mana", 2500));
     }
 
     internal void ModifyAttribute(DefaultAttributeType mModifiedAttribute, int mValue)

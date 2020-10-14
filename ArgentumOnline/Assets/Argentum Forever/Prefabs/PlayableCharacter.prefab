@@ -1781,6 +1781,8 @@ MonoBehaviour:
     type: 3}
   mMagicGUI: {fileID: 7297129589031377126, guid: d53b3c41fd8ffe24cae071beae857e0c,
     type: 3}
+  mPlayerStateGUI: {fileID: 7297129589031377126, guid: 622da0a537029e845b078419bb01e045,
+    type: 3}
   mHelmet: {fileID: 11400000, guid: 059b775850215f54bb0bf00d81d728be, type: 2}
   mWoodenSword: {fileID: 11400000, guid: 650fc099dcefe4349a7a1e5e8369f490, type: 2}
   mWoodenBucker: {fileID: 11400000, guid: 0db5774eae8f6384b93b1240b5db393e, type: 2}

@@ -37,7 +37,8 @@ public class PlayableCharacter : Character
 
         Instantiate(GetComponent<TestingGUI>().mCharacterInfoGUI, transform);
         //Instantiate(GetComponent<TestingGUI>().mItemsGUI, transform);
-        Instantiate(GetComponent<TestingGUI>().mMagicGUI, transform);        
+        Instantiate(GetComponent<TestingGUI>().mMagicGUI, transform);
+        Instantiate(GetComponent<TestingGUI>().mPlayerStateGUI, transform);
     }
 
     [ClientRpc]
