@@ -12,6 +12,7 @@ TagManager:
   - Barco
   - Chat
   - MapEdge
+  - NPC
   layers:
   - Default
   - TransparentFX
