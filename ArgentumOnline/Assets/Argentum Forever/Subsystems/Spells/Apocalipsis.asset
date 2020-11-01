@@ -24,4 +24,4 @@ MonoBehaviour:
     _modifyAttributes:
     - mModifiedAttribute: 0
       mType: 0
-      mValue: 80
+      mValue: -200

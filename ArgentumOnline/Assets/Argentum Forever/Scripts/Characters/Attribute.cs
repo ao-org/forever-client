@@ -6,7 +6,7 @@ public class Attribute
     public string mName;
     public int mMaxValue;
     public int mCurrentValue;
-
+    public Attribute(){}
     public Attribute(DefaultAttributeType type, string name, int maxValue)
     {
         mType = type;

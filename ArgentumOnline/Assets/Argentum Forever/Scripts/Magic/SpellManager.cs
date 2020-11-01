@@ -28,45 +28,51 @@ public class SpellManager : NetworkBehaviour
     }
     #endregion
 
-    public void LaunchSelectedSpell(Vector2 targetPosition)
+    public void CastSelectedSpell(GameObject caster, Vector2 targetPosition)
     {
-        if (mSelectedSlot != null && mSelectedSlot.mSpell != null)
+        Spell spellToCast = GetSelectedSpell();
+        if (spellToCast == null)
+            return;
+        float currentMana = caster.GetComponent<Character>().mAttributes[DefaultAttributeType.MANA].mCurrentValue;
+        if (currentMana - spellToCast._requiredMana < 0)
+            return;
+
+        int spellIndex = VisualEffectsManager.Instance.GetIndexFromSpell(spellToCast);
+        CmdCastSpell(caster, targetPosition, spellIndex);
+    }
+
+    [Command(ignoreAuthority = true)]
+    protected void CmdCastSpell(GameObject caster, Vector2 targetPosition, int spellIndex)
+    {
+        Spell spell = VisualEffectsManager.Instance.GetSpellFromIndex(spellIndex);
+
+        Character casterCharacter = caster.GetComponent<Character>();
+        float currentMana = casterCharacter.mAttributes[DefaultAttributeType.MANA].mCurrentValue;
+        if (currentMana - spell._requiredMana < 0)
+            return;
+
+        int layerMask = 0;
+        foreach (EffectTargetType targetType in spell._validTargets)
+            layerMask |= GetLayerMaskFromTargetType(targetType);
+
+        Vector2 spellDetectionExtent = Vector2.one * 0.25f;
+
+        int overlapCount = Physics2D.OverlapBoxNonAlloc(targetPosition, spellDetectionExtent, 0, mOverlapBuffer, layerMask);
+
+        ExtDebug.DrawBox(targetPosition, spellDetectionExtent * 0.5f, Quaternion.identity, Color.red);
+
+        if (overlapCount > 0)
         {
-            //FIXME validar que tipo de target aplica al momento de lanzar el hechizo
+            foreach (Effect effect in spell.GetSpellEffects())
+                effect.ApplyTo(ref mOverlapBuffer, overlapCount, targetPosition);
 
-            //FIXME validar si alcanza la mana
-            Spell spell = mSelectedSlot.mSpell;
-            // Apply all effects to the target
-
-            int layerMask = 0;
-
-            foreach (EffectTargetType targetType in spell._validTargets)
-                layerMask |= GetLayerMaskFromTargetType(targetType);
-
-            Vector2 spellDetectionExtent = Vector2.one / 4;
-
-            int overlapCount = Physics2D.OverlapBoxNonAlloc(targetPosition, spellDetectionExtent, 0, mOverlapBuffer, layerMask);
-
-            ExtDebug.DrawBox(targetPosition, spellDetectionExtent / 2, Quaternion.identity, Color.red);
-
-            if (overlapCount > 0)
-            {
-
-                foreach (Effect effect in spell.GetSpellEffects())
-                    effect.ApplyTo(ref mOverlapBuffer, overlapCount, targetPosition);
-
-                Debug.Log("Casted Spell: " + spell._name);
-
-                Connection.Instance.PlaySpellFX(spell, targetPosition, mOverlapBuffer[0].transform);
-            }
-            else
-            {
-                Debug.Log("No valid target for: " + spell._name);
-            }
+            Debug.Log("Casted Spell: " + spell._name);
+            casterCharacter.GetComponent<Character>().ModifyAttribute(DefaultAttributeType.MANA, -spell._requiredMana);
+            Connection.Instance.PlaySpellFX(spell, targetPosition, mOverlapBuffer[0].transform);
         }
         else
         {
-            Debug.Log("No Spell selected");
+            Debug.Log("No valid target for: " + spell._name);
         }
     }
 
@@ -92,6 +98,11 @@ public class SpellManager : NetworkBehaviour
     public void SelectSlot(int newSlot)
     {
         mSelectedSlot = mSpellSlots[newSlot];
+    }
+
+    public Spell GetSelectedSpell()
+    {
+        return mSelectedSlot != null ? mSelectedSlot.mSpell : null;
     }
 
     internal void AddNewSpell(Spell spell)

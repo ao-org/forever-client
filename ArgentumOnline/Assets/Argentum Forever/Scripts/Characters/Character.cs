@@ -12,7 +12,9 @@ public abstract class Character : NetworkBehaviour
     [SyncVar]
     [SerializeField] public string mCharactername = "Unnamed Character";
 
-    public Dictionary<DefaultAttributeType, Attribute> mAttributes;
+    public class SyncDictionaryTypeAttribute : SyncDictionary<DefaultAttributeType, Attribute> { }
+    public SyncDictionaryTypeAttribute mAttributes = new SyncDictionaryTypeAttribute();
+
     public PaperdollManager mPaperdollManager;
     public EquipmentManager mEquipmentManager;
     public InventoryManager mInventoryManager;
@@ -22,17 +24,32 @@ public abstract class Character : NetworkBehaviour
     {
         // Initialize default components and attributes
         InitializeDefaultComponents();
-        InitializeDefaultAttributes();
     }
 
     protected abstract void InitializeDefaultComponents();
 
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        InitializeDefaultAttributes();
+    }
+
+    [Server]
     protected void InitializeDefaultAttributes()
     {
-        //TODO hacer bien canejo
-        mAttributes = new Dictionary<DefaultAttributeType, Attribute>();
         mAttributes.Add(DefaultAttributeType.HEALTH, new Attribute(DefaultAttributeType.HEALTH, "Health", 450));
         mAttributes.Add(DefaultAttributeType.MANA, new Attribute(DefaultAttributeType.MANA, "Mana", 2500));
+    }
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        mAttributes.Callback += OnAttributeChanged;
+    }
+    private void OnAttributeChanged(SyncDictionaryTypeAttribute.Operation op, DefaultAttributeType key, Attribute attribute)
+    {
+        Debug.Log("OnAttributeChanged Called");
+        //Communicate with UI when this happen to avoid reading values on Update
     }
 
     internal void ModifyAttribute(DefaultAttributeType mModifiedAttribute, int mValue)
@@ -41,9 +58,12 @@ public abstract class Character : NetworkBehaviour
 
         if (mAttributes.ContainsKey(mModifiedAttribute))
         {
-            mAttributes[mModifiedAttribute].mCurrentValue += mValue;
+            //We need to override the entire value to let replication work
+            Attribute attribute = mAttributes[mModifiedAttribute];
+            attribute.mCurrentValue += mValue;
+            //
+            mAttributes[mModifiedAttribute] = attribute;
             UnityEngine.Debug.Log("[Attribute modified " + mAttributes[mModifiedAttribute].mName + " = " + mAttributes[mModifiedAttribute].mCurrentValue);
-            //TODO chequeo de post condiciones?
         }
     }
     public void TeleportToMap(int mapID, Vector2 position, CardinalDirection direction)

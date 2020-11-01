@@ -21,6 +21,7 @@ public class PlayableCharacter : Character
 
     public override void OnStartLocalPlayer()
     {
+        base.OnStartLocalPlayer();
         CinemachineVirtualCamera rVcam = FindObjectOfType<CinemachineVirtualCamera>();
         rVcam.m_Follow = gameObject.transform;
 
@@ -66,7 +67,7 @@ public class PlayableCharacter : Character
        
     public void LaunchSelectedSpell(Vector2 targetPosition)
     {
-        mSpellManager.LaunchSelectedSpell(targetPosition);
+        mSpellManager.CastSelectedSpell(gameObject, targetPosition);
     }
 
     public void UpdateSelectedSpellSlot(int newSlot)

@@ -38,12 +38,6 @@ public class Connection : NetworkBehaviour
     public void PlaySpellFX(Spell spell, Vector2 position, Transform attachedTo)
     {
         int spellIndex = VisualEffectsManager.Instance.GetIndexFromSpell(spell);
-        CmdPlaySpellFX(spellIndex, position, attachedTo);
-    }
-
-    [Command(ignoreAuthority = true)]
-    private void CmdPlaySpellFX(int spellIndex, Vector2 position, Transform attachedTo)
-    {
         RpcPlaySpellFX(spellIndex, position, attachedTo);
     }
 
